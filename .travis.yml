@@ -1,6 +1,7 @@
 language: node_js
+
 node_js:
-  - '0.10'
+  - 0.12
+
 before_install:
-  - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'generator-ng-fullstack' ]; then cd .. && eval "mv $currentfolder generator-ng-fullstack" && cd generator-ng-fullstack; fi
+    - npm install -g istanbul mocha

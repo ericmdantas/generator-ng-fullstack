@@ -10,18 +10,30 @@ describe('ng-fullstack:app', function () {
     helpers.run(path.join(__dirname, '../app'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({ 'skip-install': true })
-      .withPrompt({
-        someOption: true
-      })
+      .withPrompts({})
       .on('end', done);
   });
 
   it('creates files', function () {
-    assert.file([
+
+    var _files =
+    [
       'bower.json',
       'package.json',
       '.editorconfig',
+      '.jshintrc',
+      'gulpfile.js',
+      'karma.conf.js',
+      'protractor.conf.js',
+      'newrelic.js',
+      'procfile.txt',
+      '.bowerrc',
+      '.travis.yml',
+      '.gitignore',
+      '.editorconfig',
       '.jshintrc'
-    ]);
+    ]
+
+    assert.file(_files);
   });
 });
