@@ -2,13 +2,13 @@
 
 var fs = require('fs');
 
-var _index = function(req, res)
+var _sendIndex = function(req, res)
 {
   res.setHeader('Content-Type', 'text/html');
 
   fs
-    .createReadStream('dist/index.html')
+    .createReadStream('/client/dev/index.html')
     .pipe(res);
 }
 
-exports.index = _index;
+exports.sendIndex = _sendIndex;
