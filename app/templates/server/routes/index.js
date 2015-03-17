@@ -5,7 +5,7 @@ var StaticController = require('../commons/static');
 
 var _init = function(app)
 {
-    app.get('/api/things', ThingsRoutes);
+    ThingsRoutes.init();
 
     app.get('/*', StaticController.sendIndex);
 };

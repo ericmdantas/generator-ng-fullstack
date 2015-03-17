@@ -3,8 +3,11 @@
 var express = require('express');
 var ThingController = require('../controller/thing.controller');
 
-var router = express.Router();
+var _init = function()
+{
+  var router = express.Router();
 
-router.get('/', ThingController.getAll);
+  router.get('/', ThingController.getAll);
+}
 
-module.exports = router;
+exports.init = _init;

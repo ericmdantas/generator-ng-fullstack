@@ -1,0 +1,5 @@
+.idea
+.travis.yml
+node_modules
+coverage
+test

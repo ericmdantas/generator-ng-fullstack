@@ -7,7 +7,7 @@ var _sendIndex = function(req, res)
   res.setHeader('Content-Type', 'text/html');
 
   fs
-    .createReadStream('/client/dev/index.html')
+    .createReadStream(__dirname + '../../../../client/dev/index.html')// TODO: make the path more readable. Use https://github.com/warmsea/node-rfr?
     .pipe(res);
 }
 
