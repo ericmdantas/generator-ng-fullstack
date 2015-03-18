@@ -1,12 +1,32 @@
 <!doctype html>
-<html>
+<html ng-app="myAwesomeApp">
 	<head>
-		<title>title</title>
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>title goes here</title>
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+    <base href="/" />
 	</head>
-	
+
 	<body>
-		
-		<h1>hello</h1>
-	
+
+		<div ng-view></div>
+
+    <!-- frameworks -->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-socket-io/socket.min.js"></script>
+    <script type="text/javascript" src="bower_components/ng-xtorage/ng-xtorage.min.js"></script>
+
+    <!-- app -->
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <!-- thing -->
+    <script type="text/javascript" src="js/thing/daos/thing.dao.js"></script>
+    <script type="text/javascript" src="js/thing/controllers/thing.controller.js"></script>
+
 	</body>
 </html>

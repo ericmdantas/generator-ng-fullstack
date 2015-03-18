@@ -14,7 +14,7 @@ var server          = app.listen(port);
 var socket          = require('./commons/socket/socket-events');
 var io              = require('socket.io').listen(server);
 
-routesConfig.init(app, express, __dirname);
+routesConfig.init(app, express, __dirname + '/..');
 db.init();
 routes.init(app);
 socket.init(io);

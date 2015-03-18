@@ -19,7 +19,7 @@ var _partials = _developmentDir + 'partials/**/*';
 
 var _indexHTML = _developmentDir + 'index.html';
 
-gulp.task('build', ['del_dist', 'unit_test'], function()
+gulp.task('build', ['del_dist', 'unit_test_client'], function()
 {
     gulp
         .src(_indexHTML)
@@ -44,7 +44,7 @@ gulp.task('del_dist', function()
     return del([_distributionDir]);
 })
 
-gulp.task('unit_test', function(done)
+gulp.task('unit_test_client', function(done)
 {
     karma
         .start({
