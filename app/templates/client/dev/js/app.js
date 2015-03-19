@@ -8,7 +8,7 @@ angular
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider)
   {
       $routeProvider
-        .when('/', {templateUrl: 'partials/views/thing.html', controller: 'ThingsController', controllerAs: 'thingsCtrl'})
+        .when('/', {templateUrl: 'partials/views/todo.html', controller: 'TodosController', controllerAs: 'todosCtrl'})
         .otherwise({redirectTo: '/'});
 
       $locationProvider.html5Mode(true);

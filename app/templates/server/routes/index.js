@@ -1,11 +1,11 @@
 "use strict";
 
-var ThingsRoutes = require('../api/thing/routes/thing.routes');
+var TodosRoutes = require('../api/todo/routes/todo.routes');
 var StaticController = require('../commons/static');
 
 var _init = function(app)
 {
-    ThingsRoutes.init();
+    TodosRoutes.init();
 
     app.get('/*', StaticController.sendIndex);
 };

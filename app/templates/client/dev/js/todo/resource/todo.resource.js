@@ -2,9 +2,9 @@
 
 angular
   .module('myAwesomeApp')
-  .factory('ThingResource', ['$resource', function($resource)
+  .factory('TodoResource', ['$resource', function($resource)
   {
-    var _url = '/api/things/:id';
+    var _url = '/api/todos/:id';
     var _params = {};
     var _methods = {};
 

@@ -1,9 +1,9 @@
 "use strict";
 
-describe('thing.dao', function()
+describe('todo.dao', function()
 {
-    var _rootScope, _scope, _httpBackend, _ThingDAO;
-    var URL_GET_ALL = '/api/things';
+    var _rootScope, _scope, _httpBackend, _TodoDAO;
+    var URL_GET_ALL = '/api/todos';
 
     beforeEach(module('myAwesomeApp'));
 
@@ -12,14 +12,14 @@ describe('thing.dao', function()
         _rootScope = $injector.get('$rootScope');
         _scope = _rootScope.$new();
         _httpBackend = $injector.get('$httpBackend');
-        _ThingDAO = $injector.get('ThingDAO');
+        _TodoDAO = $injector.get('TodoDAO');
     }))
 
     describe('getAll', function()
     {
         describe('error', function()
         {
-          it('should try to get things from the server, but the server return an error', function()
+          it('should try to get todos from the server, but the server return an error', function()
           {
             var _response = {someError: ':('};
 
@@ -36,7 +36,7 @@ describe('thing.dao', function()
               expect(error.data.someError).toEqual(_response.someError);
             }
 
-            _ThingDAO
+            _TodoDAO
               .getAll()
               .then(_onSuccess)
               .catch(_onError)
@@ -47,16 +47,16 @@ describe('thing.dao', function()
 
         describe('success', function()
         {
-            it('should try get things from the server, server returns OK', function()
+            it('should try get todos from the server, server returns OK', function()
             {
-              var _response = [{an: 'array', of: 'things'}];
+              var _response = [{an: 'array', of: 'todos'}];
 
               _httpBackend.expectGET(URL_GET_ALL).respond(200, _response);
 
-              var _onSuccess = function(things)
+              var _onSuccess = function(todos)
               {
-                  expect(angular.equals(_response.an, things.an));
-                  expect(angular.equals(_response.of, things.of));
+                  expect(angular.equals(_response.an, todos.an));
+                  expect(angular.equals(_response.of, todos.of));
               }
 
               var _onError = function()
@@ -64,7 +64,7 @@ describe('thing.dao', function()
                 expect(true).toBeFalsy(); // should not come here
               }
 
-              _ThingDAO
+              _TodoDAO
                 .getAll()
                 .then(_onSuccess)
                 .catch(_onError)

@@ -13,7 +13,7 @@ var karma = require('karma').server;
 var _developmentDir = './client/dev/';
 var _distributionDir = './client/dist/';
 
-var _images = _developmentDir + 'img/*';
+var _images = _developmentDir + 'imgs/*';
 var _fonts = _developmentDir + 'fonts/*';
 var _partials = _developmentDir + 'partials/**/*';
 
@@ -28,7 +28,7 @@ gulp.task('build', ['del_dist', 'unit_test_client'], function()
 
     gulp
         .src(_images)
-        .pipe(gulp.dest(_distributionDir + 'img/'));
+        .pipe(gulp.dest(_distributionDir + 'imgs/'));
 
     gulp
         .src(_partials)

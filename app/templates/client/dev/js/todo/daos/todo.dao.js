@@ -2,15 +2,15 @@
 
 angular
   .module('myAwesomeApp')
-  .service('ThingDAO', ['$q', 'ThingResource', function($q, ThingResource)
+  .service('TodoDAO', ['$q', 'TodoResource', function($q, TodoResource)
   {
       var _getAll = function()
       {
-          var _onSuccess = function(things)
+          var _onSuccess = function(todos)
           {
               // do something with the response from the server, like extending a model or something
 
-              return things; // this will be returned as a resolved promise
+              return todos; // this will be returned as a resolved promise
           }
 
           var _onError = function(error)
@@ -20,7 +20,7 @@ angular
               return $q.reject(error); // this will be returned as a rejected promise
           }
 
-          return ThingResource
+          return TodoResource
                     .query()
                     .$promise
                     .then(_onSuccess)

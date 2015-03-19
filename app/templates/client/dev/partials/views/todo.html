@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="todo-panel transition">
+
+    <form name="TodoForm"
+          ng-submit="todosCtrl.addTodo(todosCtrl.todo)" >
+
+      <div class="title-container">
+        <h1 class="text-muted text-center">Todo</h1>
+      </div>
+
+      <div class="todos-container">
+
+        <input type="text"
+               class="form-control input-lg"
+               placeholder="Sooo... what are you doing today? ;)"
+               ng-model="todosCtrl.todo.something2do"
+               maxlength="100"
+               autofocus />
+
+      </div>
+
+      <div class="footer-container">
+        <button type="submit"
+                class="btn btn-success btn-block btn-lg submit-todo"
+                ng-disabled="!todosCtrl.todo.isValid()"> ADD </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
