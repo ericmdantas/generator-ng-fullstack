@@ -1,13 +1,15 @@
 "use strict";
 
-var express = require('express');
 var TodoController = require('../controller/todo.controller');
 
-var _init = function()
+var _init = function(router)
 {
-  var router = express.Router();
+    // get all todos
 
-  router.get('/', TodoController.getAll);
+    router
+      .route('/api/todos')
+      .get(TodoController.getAll)
+      .post(TodoController.createTodo);
 }
 
 exports.init = _init;

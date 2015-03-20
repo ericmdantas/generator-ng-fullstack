@@ -16,7 +16,7 @@ var io              = require('socket.io').listen(server);
 
 routesConfig.init(app, express, __dirname + '/..');
 db.init();
-routes.init(app);
+routes.init(app, express.Router());
 socket.init(io);
 
 console.log('up and running @: %s on port: %s', os.hostname(), port);

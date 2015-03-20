@@ -3,7 +3,7 @@
   <div class="todo-panel transition">
 
     <form name="TodoForm"
-          ng-submit="todosCtrl.addTodo(todosCtrl.todo)" >
+          ng-submit="todosCtrl.createTodo(todosCtrl.todo)" >
 
       <div class="title-container">
         <h1 class="text-muted text-center">Todo</h1>
@@ -14,9 +14,19 @@
         <input type="text"
                class="form-control input-lg"
                placeholder="Sooo... what are you doing today? ;)"
-               ng-model="todosCtrl.todo.something2do"
+               ng-model="todosCtrl.todo.todoMessage"
                maxlength="100"
                autofocus />
+
+        <br />
+
+        <table class="table">
+          <tbody>
+            <tr ng-repeat="t in todosCtrl.todos">
+              <td class="text-muted" ng-bind="t.todoMessage"></td>
+            </tr>
+          </tbody>
+        </table>
 
       </div>
 
