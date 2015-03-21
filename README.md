@@ -29,20 +29,20 @@ Forget about initial setup, ```yo ng-fullstack``` and be happy!
 
 You'll be using the **latest** versions of:
 
-- io.js;
-- AngularJS;
-- ES6 (Babel);
-- Bootstrap;
-- Gulp;
-- Express / Koa;
-- MongoDB + Mongoose;
-- Bluebird;
-- Lodash;
+- [io.js](https://github.com/iojs/io.js);
+- [AngularJS](https://github.com/angular/angular.js);
+- [ES6 (Babel)](https://github.com/babel/babel);
+- [Bootstrap](https://github.com/twbs/bootstrap);
+- [Gulp](https://github.com/gulpjs/gulp);
+- [Express](https://github.com/strongloop/express) / [Koa](https://github.com/koajs/koa);
+- [MongoDB](https://github.com/mongodb/mongo) + [Mongoose](https://github.com/learnboost/mongoose);
+- [Bluebird](https://github.com/petkaantonov/bluebird);
+- [Lodash](https://github.com/lodash/lodash);
 - And a bunch of great other modules out there!
 
 
-Do you want integration with New Relic? You got it!
 
+Do you want integration with New Relic? You got it!
 Do you want integration with MongoHQ? You got it!
 
 
