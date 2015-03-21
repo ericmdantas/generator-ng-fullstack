@@ -11,20 +11,31 @@
     "url": "https://github.com/ericmdantas"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "iojs": "1.x.x"
   },
-  "scripts": {
+  "scripts":
+  {
+    "start": "babel app/index.es6 --watch -o app/index.js --loose",
     "test": "mocha --reporter min"
   },
   "files": [
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "angular-generator",
+    "next generation",
+    "ng-fullstack",
+    "generator-angular-fullstack",
+    "generator-ng-fullstack",
+    "generator-iojs-fullstack",
+    "angular2",
+    "generator-es6"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.18.0",
+    "babel": "^4.7.16",
     "chalk": "^0.5.0",
+    "yeoman-generator": "^0.18.0",
     "yosay": "^0.3.0"
   },
   "devDependencies": {

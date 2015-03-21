@@ -31,14 +31,14 @@ TodoController.createTodo = function(req, res)
     var _onSuccess = function(todo)
     {
         res
-          .status(201)
+          .status(201) // created
           .json(todo);
     }
 
     var _onError = function(error)
     {
         res
-          .status(400)
+          .status(400) // bad request
           .json(error);
     }
 
@@ -55,14 +55,14 @@ TodoController.deleteTodo = function(req, res)
     var _onSuccess = function()
     {
         res
-          .status(200)
+          .status(200) // all good
           .end();
     }
 
     var _onError = function(error)
     {
         res
-          .status(400)
+          .status(400)  // bad request
           .json(error);
     }
 

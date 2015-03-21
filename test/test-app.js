@@ -14,7 +14,7 @@ describe('ng-fullstack:app', function () {
       .on('end', done);
   });
 
-  it('creates files', function () {
+  it('creates default files', function () {
 
     var _files =
     [
@@ -31,8 +31,56 @@ describe('ng-fullstack:app', function () {
       '.travis.yml',
       '.gitignore',
       '.editorconfig',
-      '.jshintrc'
-    ]
+      '.jshintrc',
+
+
+      // server stuff
+
+      'server/server.js',
+
+      'server/routes/index.js',
+
+      'server/constants/db.json',
+
+      'server/config/db.conf.js',
+      'server/config/routes.conf.js',
+
+      'server/commons/socket/socket-events.js',
+      'server/commons/static/index.js',
+      'server/commons/static/index.js',
+      'server/commons/static/index.js',
+
+      'server/auth/local/index.js',
+
+      'server/api/todo/controller/todo.controller.js',
+      'server/api/todo/dao/todo.dao.js',
+      'server/api/todo/model/todo.model.js',
+      'server/api/todo/routes/todo.routes.js',
+
+
+      // client stuff
+
+      'client/dev/favicon.png',
+      'client/dev/index.html',
+
+      'client/dev/css/best_css_ever.css',
+      'client/dev/css/events.less',
+      'client/dev/css/fonts.less',
+      'client/dev/css/frameworks_overrides.less',
+      'client/dev/css/media_queries.less',
+      'client/dev/css/position.less',
+      'client/dev/css/styles.less',
+
+      'client/dev/imgs/todo-bkg.png',
+
+      'client/dev/js/app.js',
+
+      'client/dev/js/todo/controllers/todo.controller.js',
+      'client/dev/js/todo/daos/todo.dao.js',
+      'client/dev/js/todo/model/todo.model.js',
+      'client/dev/js/todo/resource/todo.resource.js',
+
+      'client/dev/partials/views/todo.html']
 
     assert.file(_files);
   });
