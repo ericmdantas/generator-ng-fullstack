@@ -9,6 +9,8 @@
         <h1 class="text-muted text-center">Todo</h1>
       </div>
 
+      <hr />
+
       <div class="todos-container">
 
         <input type="text"
@@ -16,24 +18,37 @@
                placeholder="Sooo... what are you doing today? ;)"
                ng-model="todosCtrl.todo.todoMessage"
                maxlength="100"
+               mg-maxlength="100"
+               mg-minlength="1"
                autofocus />
 
         <br />
 
-        <table class="table">
+        <table class="table table-striped">
           <tbody>
             <tr ng-repeat="t in todosCtrl.todos">
-              <td class="text-muted" ng-bind="t.todoMessage"></td>
+              <td class="text-muted todo-in-todos">
+                <span ng-bind="t.todoMessage"></span>
+                <div class="todo-done transition"
+                     ng-click="todosCtrl.deleteTodo(t._id)">x</div>
+              </td>
+
             </tr>
           </tbody>
         </table>
 
+        <div ng-if="!todosCtrl.todos.length">
+          <h3 class="text-muted text-center">Nothing to do. Go play outside :D</h3>
+        </div>
+
       </div>
+
+      <hr />
 
       <div class="footer-container">
         <button type="submit"
                 class="btn btn-success btn-block btn-lg submit-todo"
-                ng-disabled="!todosCtrl.todo.isValid()"> ADD </button>
+                ng-disabled="TodoForm.$invalid || !todosCtrl.todo.isValid()"> ADD </button>
       </div>
 
     </form>

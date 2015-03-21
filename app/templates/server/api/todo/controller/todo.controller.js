@@ -50,4 +50,28 @@ TodoController.createTodo = function(req, res)
       .catch(_onError);
 }
 
+TodoController.deleteTodo = function(req, res)
+{
+    var _onSuccess = function()
+    {
+        res
+          .status(200)
+          .end();
+    }
+
+    var _onError = function(error)
+    {
+        res
+          .status(400)
+          .json(error);
+    }
+
+    var _id = req.params.id;
+
+    TodoDAO
+      .deleteTodo(_id)
+      .then(_onSuccess)
+      .catch(_onError);
+}
+
 module.exports = TodoController;

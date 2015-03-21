@@ -6,7 +6,7 @@ angular
   {
       var Todo = function(todo)
       {
-          this.todoMessage = 'Walk the dog';
+          this.todoMessage = null;
 
           angular.extend(this, todo);
       }
@@ -17,7 +17,7 @@ angular
       {
           var _isDefined = angular.isDefined(this.todoMessage);
           var _isString = angular.isString(this.todoMessage);
-          var _isBigEnough = this.todoMessage.length >= MIN_ACCEPTED_LENGTH;
+          var _isBigEnough = (_isDefined && _isString) ? this.todoMessage.length >= MIN_ACCEPTED_LENGTH : false;
 
           return _isDefined && _isString && _isBigEnough;
       }

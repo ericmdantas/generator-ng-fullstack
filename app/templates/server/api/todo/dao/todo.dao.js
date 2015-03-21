@@ -44,6 +44,27 @@ todoSchema.statics.createTodo = function(todo)
     return new Promise(_promise);
 }
 
+todoSchema.statics.deleteTodo = function(id)
+{
+    var _promise = function(resolve, reject)
+    {
+        if (!_.isString(id))
+        {
+            return reject(new TypeError('Id is not a valid string.'));
+        }
+
+        Todo
+          .findByIdAndRemove(id)
+          .exec(function(err, deleted)
+          {
+              err ? reject(err)
+                  : resolve();
+          });
+    }
+
+    return new Promise(_promise);
+}
+
 var Todo = mongoose.model('Todo', todoSchema);
 
 module.exports = Todo;

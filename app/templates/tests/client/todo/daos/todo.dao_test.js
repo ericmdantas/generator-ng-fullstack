@@ -5,6 +5,7 @@ describe('todo.dao', function()
     var _rootScope, _scope, _httpBackend, _TodoDAO, _Todo;
     var URL_GET_ALL = '/api/todos';
     var URL_CREATE_TODO = '/api/todos';
+    var URL_DELETE_TODO = '/api/todos/';
 
     beforeEach(module('myAwesomeApp'));
 
@@ -150,6 +151,81 @@ describe('todo.dao', function()
 
           _TodoDAO
             .createTodo(_validTodo)
+            .then(_onSuccess)
+            .catch(_onError);
+
+          _httpBackend.flush();
+        })
+    })
+
+    describe('deleteTodo', function()
+    {
+        it('should return with an error, id not informed', function()
+        {
+            var _id = null;
+
+            var _onSuccess = function()
+            {
+                expect(true).toBeFalsy();
+            }
+
+            var _onError = function(error)
+            {
+                expect(error).toBeDefined();
+                expect(error instanceof TypeError).toBeTruthy();
+                expect(error.message).toEqual('Invalid id for deletion.');
+            }
+
+            _TodoDAO
+              .deleteTodo(_id)
+              .then(_onSuccess)
+              .catch(_onError);
+
+            _rootScope.$digest();
+        });
+
+        it('should try to delete todo, but server returns error - 400', function()
+        {
+            var _id = "abc";
+
+            _httpBackend.expectDELETE(URL_DELETE_TODO + _id).respond(400);
+
+            var _onSuccess = function()
+            {
+                expect(true).toBeFalsy();
+            }
+
+            var _onError = function()
+            {
+                expect(true).toBeTruthy();
+            }
+
+            _TodoDAO
+              .deleteTodo(_id)
+              .then(_onSuccess)
+              .catch(_onError);
+
+            _httpBackend.flush();
+        })
+
+        it('should delete todo correctly', function()
+        {
+          var _id = "abc";
+
+          _httpBackend.expectDELETE(URL_DELETE_TODO + _id).respond(200);
+
+          var _onSuccess = function()
+          {
+              expect(true).toBeTruthy();
+          }
+
+          var _onError = function()
+          {
+              expect(true).toBeFalsy();
+          }
+
+          _TodoDAO
+            .deleteTodo(_id)
             .then(_onSuccess)
             .catch(_onError);
 

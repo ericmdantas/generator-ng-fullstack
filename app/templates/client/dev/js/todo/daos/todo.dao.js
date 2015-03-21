@@ -53,5 +53,30 @@ angular
                     .catch(_onError);
       };
 
+      TodoDAO.prototype.deleteTodo = function(id)
+      {
+          if (!angular.isString(id))
+          {
+              return $q.reject(new TypeError('Invalid id for deletion.'));
+          }
+
+          var _onSuccess = function()
+          {
+              return;
+          }
+
+          var _onError = function(error)
+          {
+              return $q.reject(error);
+          }
+
+          return TodoResource
+                    .delete({id: id})
+                    .$promise
+                    .then(_onSuccess)
+                    .catch(_onError)
+      }
+
+
       return new TodoDAO();
   }]);

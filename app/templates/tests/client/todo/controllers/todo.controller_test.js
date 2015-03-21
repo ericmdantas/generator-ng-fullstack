@@ -6,6 +6,7 @@ describe('todos.controller', function()
     var CONTROLLER_NAME = 'TodosController as todosCtrl';
     var URL_GET_ALL = '/api/todos';
     var URL_CREATE_TODO = '/api/todos';
+    var URL_DELETE_TODO = '/api/todos/';
 
     beforeEach(module('myAwesomeApp'));
 
@@ -93,6 +94,48 @@ describe('todos.controller', function()
           _httpBackend.flush();
 
           expect(angular.equals(_scope.todosCtrl.todos[0], _response)).toBeTruthy();
+          expect(_scope.todosCtrl.todo.todoMessage).toBeNull();
         }))
+    })
+
+    describe('deleteTodo', function()
+    {
+      it('should try to deleteTodo, but server returns error - 400', inject(function($controller)
+      {
+        var _id = "1";
+        var _response = [{_id: 1}];
+
+        spyOn(_logMock, 'error').and.callFake(angular.noop);
+
+        _httpBackend.expectGET(URL_GET_ALL).respond(200, _response);
+        _httpBackend.expectDELETE(URL_DELETE_TODO + _id).respond(400);
+
+        $controller(CONTROLLER_NAME, {$scope: _scope});
+
+        _scope.todosCtrl.deleteTodo(_id);
+
+        _httpBackend.flush();
+
+        expect(_logMock.error).toHaveBeenCalled();
+      }))
+
+      it('should deleteTodo correctly', inject(function($controller)
+      {
+        var _id = "1";
+        var _responseGET = [{_id: "0"}, {_id: "1"}];
+        var _responseGETAfterDelete = [{_id: "0"}];
+
+        _httpBackend.expectGET(URL_GET_ALL).respond(200, _responseGET);
+        _httpBackend.expectDELETE(URL_DELETE_TODO + _id).respond(200);
+        _httpBackend.expectGET(URL_GET_ALL).respond(200, _responseGETAfterDelete);
+
+        $controller(CONTROLLER_NAME, {$scope: _scope});
+
+        _scope.todosCtrl.deleteTodo(_id);
+
+        _httpBackend.flush();
+
+        expect(_scope.todosCtrl.todos.length).toBe(1);
+      }))
     })
 })

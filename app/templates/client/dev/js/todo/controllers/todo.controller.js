@@ -14,6 +14,7 @@ angular
           var _onSuccess = function(newTodo)
           {
               self.todos.push(newTodo);
+              self.todo = new Todo();
           };
 
           TodoDAO
@@ -22,16 +23,26 @@ angular
             .catch($log.error);
       };
 
-      ;(function()
+      self.deleteTodo = function(id)
+      {
+          TodoDAO
+            .deleteTodo(id)
+            .then(_getAll)
+            .catch($log.error);
+      }
+
+      var _getAll = function()
       {
           var _onSuccess = function(todos)
           {
-              self.todos = todos;
+            return self.todos = todos;
           };
 
-          TodoDAO
-            .getAll()
-            .then(_onSuccess)
-            .catch($log.error);
-      }())
+          return TodoDAO
+                  .getAll()
+                  .then(_onSuccess)
+                  .catch($log.error);
+      }
+
+      _getAll();
   }]);

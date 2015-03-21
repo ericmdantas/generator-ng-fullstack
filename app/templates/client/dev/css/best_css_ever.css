@@ -1,27 +1,46 @@
 .todo-panel
 {
-    width: 100%;
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 0 25px 25px;
-    border: 1px solid #ddd;
-    box-shadow: 1px 1px 1px rgba(72, 176, 72, 0.49);
-    background-color: #fff;
-}
-
-.todos-container
-{
-  margin-top: 15px;
-  margin-bottom: 15px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  padding: 20px 0;
+  width: 100%;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 25px 25px;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 1px rgba(72, 176, 72, 0.49);
+  background-color: #fff;
 }
 
 .todos-container .form-control
 {
   font-size: 17px;
   border-radius: 0;
+}
+
+.todo-in-todos
+{
+  position: relative;
+}
+
+.todo-done
+{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 8px 15px;
+  background-color: rgba(228, 43, 43, 0.72);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: .7;
+}
+
+.todo-in-todos:hover .todo-done
+{
+  opacity: 1;
+}
+
+.todo-done:hover
+{
+  background-color: red;
 }
 
 .footer-container .btn

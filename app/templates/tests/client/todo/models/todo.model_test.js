@@ -17,7 +17,7 @@ describe('Todo', function()
         {
             var _todo = new _Todo();
 
-            expect(_todo.todoMessage).toEqual('Walk the dog');
+            expect(_todo.todoMessage).toBeNull();
         });
     })
 
@@ -26,7 +26,6 @@ describe('Todo', function()
         it('should return false, invalid something2do', function()
         {
           var _todo = new _Todo();
-          _todo.todoMessage = '';
 
           expect(_todo.isValid()).toBeFalsy();
         })
@@ -34,6 +33,7 @@ describe('Todo', function()
         it('should return true, new instance is valid', function()
         {
             var _todo = new _Todo();
+            _todo.todoMessage = 'I have to walk the dog.';
 
             expect(_todo.isValid()).toBeTruthy();
         })

@@ -16,7 +16,7 @@ var _createTodos = function()
 
     for (var i = 0; i < 10; i++)
     {
-        _array.push({todoMessage: 'aaaaaaa'+i});
+        _array.push({_id: '507c7f79bcf86cd7994f6c'+ (i + 10), todoMessage: 'aaaaaaa'+i});
     }
 
     return Todo.create(_array);

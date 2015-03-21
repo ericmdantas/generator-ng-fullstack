@@ -1,7 +1,7 @@
 "use strict";
 
 var mongoose = require('mongoose');
-var Todo = require('../../../server/api/todo/dao/todo.dao');
+var TodoDAO = require('../../../server/api/todo/dao/todo.dao');
 var expect = require('chai').expect;
 var setupMongoose = require('../helpers/db').setupMongoose;
 var createTodos = require('../helpers/db').createTodos;
@@ -15,7 +15,7 @@ describe('todo.dao', function()
 
     afterEach(function()
     {
-        Todo.remove();
+        TodoDAO.remove();
     })
 
     describe('getAll', function()
@@ -26,6 +26,9 @@ describe('todo.dao', function()
             .then(function()
             {
                 done();
+            }, function()
+            {
+              done();
             });
 
         })
@@ -46,7 +49,7 @@ describe('todo.dao', function()
                 expect(true).to.be.false; // should not come here;
             }
 
-            Todo
+            TodoDAO
               .getAll()
               .then(_onSuccess)
               .catch(_onError);
@@ -71,7 +74,7 @@ describe('todo.dao', function()
                 done();
             }
 
-            Todo
+            TodoDAO
               .createTodo(_undefinedTodo)
               .then(_onSuccess)
               .catch(_onError);
@@ -95,10 +98,69 @@ describe('todo.dao', function()
                 expect(true).to.be.false;
             }
 
-            Todo
+            TodoDAO
               .createTodo(_todo)
               .then(_onSuccess)
               .catch(_onError);
+        })
+    })
+
+    describe('deleteTodo', function()
+    {
+        beforeEach(function(done)
+        {
+            createTodos()
+              .then(function()
+              {
+                  done();
+              }, function()
+              {
+                done();
+              });
+        })
+
+        it('should get an error back, id is not defined', function(done)
+        {
+            var _id = null;
+
+            var _onSuccess = function()
+            {
+                expect(true).to.be.false;
+            }
+
+            var _onError = function(error)
+            {
+                expect(error).to.be.defined;
+
+                done();
+            }
+
+            TodoDAO
+              .deleteTodo(_id)
+              .then(_onSuccess)
+              .catch(_onError);
+        })
+
+        it('should delete the doc successfully', function(done)
+        {
+          var _id = '507c7f79bcf86cd7994f6c10';
+
+          var _onSuccess = function()
+          {
+            expect(true).to.be.true;
+
+            done();
+          }
+
+          var _onError = function()
+          {
+            expect(true).to.be.false;
+          }
+
+          TodoDAO
+            .deleteTodo(_id)
+            .then(_onSuccess)
+            .catch(_onError);
         })
     })
 })
