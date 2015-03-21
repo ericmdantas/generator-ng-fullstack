@@ -1,6 +1,6 @@
 {
   "name": "generator-ng-fullstack",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -13,8 +13,7 @@
   "engines": {
     "iojs": "1.x.x"
   },
-  "scripts":
-  {
+  "scripts": {
     "start": "babel app/index.es6 --watch -o app/index.js --loose",
     "test": "mocha --reporter min"
   },
