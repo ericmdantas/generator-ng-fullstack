@@ -52,7 +52,7 @@ After installing it, just run:
 
 ```
 
-yo ng-fullstack
+$ yo ng-fullstack
 
 ```
 
@@ -80,7 +80,7 @@ You'll need to install globally the following modules:
  
 ```
 
-npm i -g istanbul mocha babel karma-cli gulp-cli
+$ npm i -g istanbul mocha babel karma-cli gulp-cli
 
 ```
 
