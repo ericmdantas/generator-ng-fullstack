@@ -43,6 +43,7 @@ You'll be using the **latest** versions of:
 
 
 Do you want integration with New Relic? You got it!
+
 Do you want integration with MongoHQ? You got it!
 
 
