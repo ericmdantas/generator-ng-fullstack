@@ -43,6 +43,7 @@ You'll be using the **latest** versions of:
 
 
 Do you want integration with New Relic? You got it!
+
 Do you want integration with MongoHQ? You got it!
 
 
@@ -52,7 +53,7 @@ After installing it, just run:
 
 ```
 
-yo ng-fullstack
+$ yo ng-fullstack
 
 ```
 
@@ -80,7 +81,7 @@ You'll need to install globally the following modules:
  
 ```
 
-npm i -g istanbul mocha babel karma-cli gulp-cli
+$ npm i -g istanbul mocha babel karma-cli gulp-cli
 
 ```
 
@@ -88,6 +89,51 @@ npm i -g istanbul mocha babel karma-cli gulp-cli
 
 
 Nope. But it'd be good if you had accounts on both [Travis CI](https://travis-ci.org/) and [Coveralls.io](https://coveralls.io/) - so the badges of build and coveralls show up in your README (don't forget to sync your github repo).
+
+
+# alright, what now?
+
+After installing everything, make sure you start your application with:
+
+```
+
+$ npm start
+
+```
+
+By doing so, you'll be able to use ES6 in the server, like:
+
+```es6
+
+import * from 'some/path/here/index'
+
+```
+
+
+```es6
+
+[1, 2].map(x => 1 === 1)
+
+```
+
+```es6
+
+export default class MyAwesomeClass
+{
+    constructor()
+    {
+       this.isItAwesome = true;
+    }
+    
+    static somethingStatic()
+    {
+       console.log('I don't belong to the instance, heh');
+    }
+}
+
+```` 
+And [many more](https://github.com/babel/babel)!
+
 
 
 # why did you create this?
