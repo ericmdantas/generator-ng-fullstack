@@ -4,9 +4,9 @@
   "main": "src/<%= app %>.js",
   "scripts":
   {
-    "start": "iojs server/server",
+    "start": "iojs index",
     "test-client": "gulp coverage_frontend",
-    "test-server": "mocha ./tests/server/**/*_test.js --recursive --check-leaks --reporter min",
+    "test-server": "mocha ./tests/server/**/*_test.js --recursive --check-leaks --reporter min --require ./index",
     "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js",
     "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
@@ -15,9 +15,10 @@
     "lodash": "^3.0.0",
     "bluebird": "^2.3.11",
     "body-parser": "^1.10.1",
-    "express": "~4.5.1",
+    "express": "~4.12.3",
     "express-content-length-validator": "0.0.4",
     "mongoose": "^3.8.23",
+    "babel": "^4.7.16",
     "morgan": "^1.1.1",
     "socket.io": "^1.2.1",
     "socket.io-client": "^1.3.2",

@@ -1,15 +1,15 @@
 "use strict";
 
-var _init = function(io)
+export default class SocketEvents
 {
-  io.on('connection', function(client)
-  {
-    client.on('users:online', function()
+    static init(io)
     {
-        io.emit('users:online', 1);
-    });
-  });
+        io.on('connection', function(client)
+        {
+          client.on('users:online', function()
+          {
+            io.emit('users:online', 1);
+          });
+        });
+    }
 }
-
-exports.init = _init;
-

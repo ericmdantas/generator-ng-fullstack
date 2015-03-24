@@ -1,6 +1,6 @@
 "use strict";
 
-var mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 var _todoSchema =
 {
@@ -8,4 +8,4 @@ var _todoSchema =
     createdAt: {type: Date, default: Date.now}
 }
 
-exports.todoSchema = mongoose.Schema(_todoSchema);
+export default mongoose.Schema(_todoSchema);

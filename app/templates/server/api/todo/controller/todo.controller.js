@@ -1,69 +1,69 @@
 "use strict";
 
-var TodoDAO = require('../dao/todo.dao');
+import TodoDAO from '../dao/todo.dao';
 
-var TodoController = function(){};
-
-TodoController.getAll = function(req, res)
+export default class TodoController
 {
-    var _onSuccess = function(todos)
-    {
+  static getAll(req, res)
+  {
+      var _onSuccess = function(todos)
+      {
         res
           .status(200)
           .json(todos);
-    }
+      }
 
-    var _onError = function(error)
-    {
+      var _onError = function(error)
+      {
         res
           .status(400)
           .json(error);
-    }
+      }
 
-    TodoDAO
-      .getAll()
-      .then(_onSuccess)
-      .catch(_onError);
-}
+      TodoDAO
+        .getAll()
+        .then(_onSuccess)
+        .catch(_onError);
+  }
 
-TodoController.createTodo = function(req, res)
-{
-    var _onSuccess = function(todo)
-    {
+  static createTodo(req, res)
+  {
+      var _onSuccess = function(todo)
+      {
         res
           .status(201) // created
           .json(todo);
-    }
+      }
 
-    var _onError = function(error)
-    {
+      var _onError = function(error)
+      {
         res
           .status(400) // bad request
           .json(error);
-    }
+      }
 
-    var _todo = req.body;
+      var _todo = req.body;
 
-    TodoDAO
-      .createTodo(_todo)
-      .then(_onSuccess)
-      .catch(_onError);
-}
+      TodoDAO
+        .createTodo(_todo)
+        .then(_onSuccess)
+        .catch(_onError);
+  }
 
-TodoController.deleteTodo = function(req, res)
-{
+  static deleteTodo(req, res)
+  {
     var _onSuccess = function()
     {
-        res
-          .status(200) // all good
-          .end();
+      res
+        .status(200) // all good
+        .end();
     }
 
     var _onError = function(error)
     {
-        res
-          .status(400)  // bad request
-          .json(error);
+      res
+        .status(400)  // bad request
+        .json(error);
     }
 
     var _id = req.params.id;
@@ -72,6 +72,5 @@ TodoController.deleteTodo = function(req, res)
       .deleteTodo(_id)
       .then(_onSuccess)
       .catch(_onError);
+  }
 }
-
-module.exports = TodoController;

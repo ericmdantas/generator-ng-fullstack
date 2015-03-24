@@ -39,6 +39,7 @@ export default class NgFullstack extends yeoman.generators.Base
 
       this.template('_procfile.txt', 'procfile.txt', _app);
 
+      this.template('index.js', 'index.js');
       this.fs.copy(this.templatePath('.bowerrc'), this.destinationPath('.bowerrc'));
       this.fs.copy(this.templatePath('.travis.yml'), this.destinationPath('.travis.yml'));
       this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));

@@ -1,16 +1,18 @@
 "use strict";
 
-var TodosRoutes = require('../api/todo/routes/todo.routes');
-var StaticController = require('../commons/static');
+import TodoRoutes from '../api/todo/routes/todo.routes';
+import StaticDispatcher from '../commons/static/index';
 
-var _init = function(app, router)
+export default class Routes
 {
-    TodosRoutes.init(router);
+   static init(app, router)
+   {
+     TodoRoutes.init(router);
 
-    router
-      .route('*', StaticController.sendIndex);
+     router
+       .route('*')
+       .get(StaticDispatcher.sendIndex);
 
-    app.use('/', router);
-};
-
-exports.init = _init;
+     app.use('/', router);
+   }
+}

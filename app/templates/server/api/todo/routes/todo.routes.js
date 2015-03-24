@@ -1,17 +1,18 @@
 "use strict";
 
-var TodoController = require('../controller/todo.controller');
+import TodoController from '../controller/todo.controller';
 
-var _init = function(router)
+export default class TodoRoutes
 {
-    router
-      .route('/api/todos')
-      .get(TodoController.getAll)
-      .post(TodoController.createTodo);
+    static init(router)
+    {
+      router
+        .route('/api/todos')
+        .get(TodoController.getAll)
+        .post(TodoController.createTodo);
 
-    router
-      .route('/api/todos/:id')
-      .delete(TodoController.deleteTodo);
+      router
+        .route('/api/todos/:id')
+        .delete(TodoController.deleteTodo);
+    }
 }
-
-exports.init = _init;

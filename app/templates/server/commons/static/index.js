@@ -1,14 +1,14 @@
 "use strict";
 
-var fs = require('fs');
+import fs from 'fs';
 
-var _sendIndex = function(req, res)
+export default class StaticDispatcher
 {
-  res.setHeader('Content-Type', 'text/html');
+    static sendIndex(req, res)
+    {
+      res.setHeader('Content-Type', 'text/html');
 
-  fs
-    .createReadStream(__dirname + '../../../../client/dev/index.html')// TODO: make the path more readable. Use https://github.com/warmsea/node-rfr?
-    .pipe(res);
+      fs.createReadStream(__dirname + '../../../../client/dev/index.html')// TODO: make the path more readable. Use https://github.com/warmsea/node-rfr?
+        .pipe(res);
+    }
 }
-
-exports.sendIndex = _sendIndex;
