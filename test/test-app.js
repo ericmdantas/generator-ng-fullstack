@@ -18,23 +18,25 @@ describe('ng-fullstack:app', function () {
 
     var _files =
     [
-      'bower.json',
-      'package.json',
       '.editorconfig',
       '.jshintrc',
-      'gulpfile.js',
-      'karma.conf.js',
-      'protractor.conf.js',
-      'newrelic.js',
-      'procfile.txt',
       '.bowerrc',
       '.travis.yml',
       '.gitignore',
       '.editorconfig',
       '.jshintrc',
 
+      'bower.json',
+      'package.json',
+      'gulpfile.js',
+      'karma.conf.js',
+      'protractor.conf.js',
+      'newrelic.js',
+      'procfile.txt',
 
       // server stuff
+
+      'index.js', // babel's entry point
 
       'server/server.js',
 
@@ -80,7 +82,27 @@ describe('ng-fullstack:app', function () {
       'client/dev/js/todo/model/todo.model.js',
       'client/dev/js/todo/resource/todo.resource.js',
 
-      'client/dev/partials/views/todo.html']
+      'client/dev/partials/views/todo.html',
+
+      // tests - client
+
+      'tests/client/_helpers/invalid-inputs.js',
+
+      'tests/client/todo/controllers/todo.controller_test.js',
+      'tests/client/todo/daos/todo.dao_test.js',
+      'tests/client/todo/models/todo.model_test.js',
+      'tests/client/todo/controllers/todo.controller_test.js',
+      'tests/client/todo/controllers/todo.controller_test.js',
+
+      // tests - server
+
+      'tests/server/daos/todo.dao_test.js',
+      'tests/server/helpers/db.js',
+      'tests/server/helpers/db.json',
+
+      // tests - e2e
+
+      'tests/e2e/todo.e2e._test.js']
 
     assert.file(_files);
   });
