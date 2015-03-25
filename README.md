@@ -135,6 +135,33 @@ export default class MyAwesomeClass
 And [many more](https://github.com/babel/babel)!
 
 
+# running tests
+
+Client:
+
+```
+
+$ gulp unit_test_client
+
+```
+
+Server:
+
+```
+
+$ npm run test-server
+
+```
+
+
+E2E:
+
+```
+
+$ webdriver-manager start
+$ protractor
+
+```
 
 # why did you create this?
 
