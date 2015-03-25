@@ -1,7 +1,7 @@
 "use strict";
 
-const mongoose = require('mongoose');
-const dbConst = require('../constants/db.json');
+import mongoose from 'mongoose';
+import dbConst from '../constants/db.json';
 
 export default class DBConfig
 {

@@ -1,14 +1,16 @@
 "use strict";
 
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const contentLength = require('express-content-length-validator');
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
+import contentLength from 'express-content-length-validator';
 
 export default class RouteConfig
 {
     static init(application, exp, dir)
     {
-        application.use(exp.static(dir + '/client/dev/'));
+        var _files = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/__tmp/';
+
+        application.use(exp.static(dir + _files));
         application.use(bodyParser());
         application.use(morgan('dev'));
         application.use(contentLength.validateMax({max: 999}));
