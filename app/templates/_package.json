@@ -30,6 +30,7 @@
     "karma-ng-html2js-preprocessor": "^0.1.2",
     "del": "^1.1.1",
   	"gulp": "^3.8.11",
+    "gulp-watch": "^4.2.0",
     "protractor": "^2.0.0",
     "gulp-concat": "^2.4.3",
     "gulp-coveralls": "^0.1.3",

@@ -11,65 +11,87 @@ var less = require('gulp-less');
 var del = require('del');
 var coveralls = require('gulp-coveralls');
 var karma = require('karma').server;
+var watch = require('gulp-watch');
 
-var _developmentDir = './client/dev/';
-var _workingOnItDir = './client/__tmp/'; // working on it dir
-var _distributionDir = './client/dist/';
+var DEV_DIR = './client/dev/';
+var TEMP_DIR = './client/__tmp/'; // working on it dir
+var DIST_DIR = './client/dist/';
 
-var _images = _developmentDir + 'imgs/*';
-var _fonts = _developmentDir + 'fonts/*';
-var _partials = _developmentDir + 'partials/**/*';
+var _images = DEV_DIR + 'imgs/*';
+var _fonts = DEV_DIR + 'fonts/*';
+var _partials = DEV_DIR + 'partials/**/*';
 
-var _indexHTML = _developmentDir + 'index.html';
+var _indexHTML = DEV_DIR + 'index.html';
 
 gulp.task('build', ['del_dist', 'unit_test_client'], function()
 {
     gulp
         .src(_indexHTML)
         .pipe(usemin({js0: [rev(), uglify()], js1: [rev(), uglify()], css0: [cssmin(), rev(), less()]}))
-        .pipe(gulp.dest(_distributionDir));
+        .pipe(gulp.dest(DIST_DIR));
 
     gulp
         .src(_images)
-        .pipe(gulp.dest(_distributionDir + 'imgs/'));
+        .pipe(gulp.dest(DIST_DIR + 'imgs/'));
 
     gulp
         .src(_partials)
-        .pipe(gulp.dest(_distributionDir + 'partials/'));
+        .pipe(gulp.dest(DIST_DIR + 'partials/'));
 
     gulp
         .src(_fonts)
-        .pipe(gulp.dest(_distributionDir + 'fonts/'));
+        .pipe(gulp.dest(DIST_DIR + 'fonts/'));
 });
 
-gulp.task('working_on_it', ['del_temp'], function() // TODO: make this watchable (gulp-watch or something), no minification, just concatenation
+gulp.task('watch', ['del_temp'], function()
 {
-  gulp
-    .src(_indexHTML)
-    .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
-    .pipe(gulp.dest(_workingOnItDir));
+  var _runItAll = function()
+  {
+    gulp
+      .src(_indexHTML)
+      .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
+      //.pipe(watch(_indexHTML))
+      .pipe(gulp.dest(TEMP_DIR));
 
-  gulp
-    .src(_images)
-    .pipe(gulp.dest(_workingOnItDir + 'imgs/'));
+    gulp
+      .src(_indexHTML)
+      .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
+      //.pipe(watch('css/*.less'))
+      .pipe(gulp.dest(TEMP_DIR));
 
-  gulp
-    .src(_partials)
-    .pipe(gulp.dest(_workingOnItDir + 'partials/'));
+    gulp
+      .src(_indexHTML)
+      .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
+      //.pipe(watch('js/**/*.js'))
+      .pipe(gulp.dest(TEMP_DIR));
 
-  gulp
-    .src(_fonts)
-    .pipe(gulp.dest(_workingOnItDir + 'fonts/'));
+    gulp
+      .src(_images)
+      //.pipe(watch(_images))
+      .pipe(gulp.dest(TEMP_DIR + 'imgs/'));
+
+    gulp
+      .src(_partials)
+      //.pipe(watch(_partials))
+      .pipe(gulp.dest(TEMP_DIR + 'partials/'));
+
+    gulp
+      .src(_fonts)
+      //.pipe(watch(_fonts))
+      .pipe(gulp.dest(TEMP_DIR + 'fonts/'));
+  }
+
+  _runItAll();
 });
 
 gulp.task('del_temp', function()
 {
-  return del([_workingOnItDir]);
+  return del([TEMP_DIR]);
 })
 
 gulp.task('del_dist', function()
 {
-    return del([_distributionDir]);
+    return del([DIST_DIR]);
 })
 
 gulp.task('unit_test_client', function(done)
