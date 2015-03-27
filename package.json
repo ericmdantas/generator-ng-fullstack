@@ -18,7 +18,14 @@
     "test": "mocha --reporter min"
   },
   "files": [
-    "app"
+    "app",
+    "controller",
+    "directive",
+    "service",
+    "resource",
+    "factory",
+    "decorator",
+    "endpoint"
   ],
   "keywords": [
     "yeoman-generator",
