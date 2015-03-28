@@ -8,7 +8,7 @@ export default class RouteConfig
 {
     static init(application, exp, dir)
     {
-        var _files = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/__tmp/';
+        var _files = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/dev/';
 
         application.use(exp.static(dir + _files));
         application.use(bodyParser());
