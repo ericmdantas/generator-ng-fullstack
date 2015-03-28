@@ -2,9 +2,9 @@
 
 angular
   .module('myAwesomeApp')
-  .factory('SomeFactory', ['$resource', function($resource)
+  .factory('<%= name %>Resource', ['$resource', function($resource)
   {
-      var _url = '/api/something/here/:id';
+      var _url = '/api/<%= name %>/:id';
       var _params = {id: '@id'};
       var _method = {update: {method: 'PUT'}};
 

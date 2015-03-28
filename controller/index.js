@@ -25,12 +25,13 @@ ControllerGenerator.prototype.initializing = function()
 ControllerGenerator.prototype.writing = function()
 {
   var _feature = optionsParser.getFeature(this.options);
+  var _name = this.name;
 
   if (!_feature.length)
     throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-  this.fs.copy(this.templatePath('controller_client.js'), this.destinationPath(knownPaths.PATH_CLIENT_FEATURES + _feature + '/controller/' + this.name + '.controller.js'));
-  this.fs.copy(this.templatePath('controller_client_test.js'), this.destinationPath(knownPaths.PATH_CLIENT_FEATURES_TEST + _feature + '/controller/' + this.name + '.controller_test.js'));
+  this.template('controller_client.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/controller/' + _name + '.controller.js', {name: _name});
+  this.template('controller_client_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _feature + '/controller/' + _name + '.controller_test.js', {name: _name, nameLowerCase: _name.toLowerCase()});
 }
 
 module.exports = ControllerGenerator;

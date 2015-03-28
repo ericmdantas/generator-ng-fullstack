@@ -2,16 +2,16 @@
 
 import mongoose from 'mongoose';
 import Promise from 'bluebird';
-import todoSchema from '../model/something.model';
+import <%= nameLowerCase %>Schema from '../model/<%= name %>.model';
 import _ from 'lodash';
 
-somethingSchema.statics.getAll = function()
+<%= nameLowerCase %>Schema.statics.getAll = function()
 {
   var _promise = function(resolve, reject)
   {
     var _query = {};
 
-    Something
+    <%= name %>
       .find(_query)
       .exec(function(err, todos)
       {
@@ -23,16 +23,16 @@ somethingSchema.statics.getAll = function()
   return new Promise(_promise);
 }
 
-somethingSchema.statics.createTodo = function(something)
+<%= nameLowerCase %>Schema.statics.createNew = function(<%= nameLowerCase %>)
 {
   var _promise = function(resolve, reject)
   {
-    if (!_.isObject(todo))
+    if (!_.isObject(<%= nameLowerCase %>))
     {
       return reject(new TypeError('Todo is not a valid object.'));
     }
 
-    var _something = new Something(something);
+    var _something = new <%= name %>(<%= nameLowerCase %>);
 
     _something.save(function(err, saved)
     {
@@ -44,7 +44,7 @@ somethingSchema.statics.createTodo = function(something)
   return new Promise(_promise);
 }
 
-todoSchema.statics.deleteTodo = function(id)
+<%= nameLowerCase %>chema.statics.removeById = function(id)
 {
   var _promise = function(resolve, reject)
   {
@@ -53,7 +53,7 @@ todoSchema.statics.deleteTodo = function(id)
       return reject(new TypeError('Id is not a valid string.'));
     }
 
-    Something
+    <%= name %>
       .findByIdAndRemove(id)
       .exec(function(err, deleted)
       {
@@ -65,6 +65,6 @@ todoSchema.statics.deleteTodo = function(id)
   return new Promise(_promise);
 }
 
-var Something = mongoose.model('Something', somethingSchema);
+var <%= name %> = mongoose.model('<%= name %>', <%= nameLowerCase %>Schema);
 
-export default Something;
+export default <%= name %>;

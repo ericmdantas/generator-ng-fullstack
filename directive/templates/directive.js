@@ -2,7 +2,7 @@
 
 angular
   .module('myAwesomeApp')
-  .directive('someDirective', [function()
+  .directive('<%= name %>', [function()
   {
     var _link = function(scope, element, attrs)
     {

@@ -5,14 +5,14 @@ var util = require('util');
 var knownPaths = require('../known-paths');
 var optionsParser = require('../options-parser');
 
-var ControllerGenerator = function(args, options, config)
+var DecoratorGenerator = function(args, options, config)
 {
     yeoman.generators.Base.apply(this, arguments);
 }
 
-util.inherits(ControllerGenerator,  yeoman.generators.NamedBase);
+util.inherits(DecoratorGenerator,  yeoman.generators.NamedBase);
 
-ControllerGenerator.prototype.initializing = function()
+DecoratorGenerator.prototype.initializing = function()
 {
   this.argument('name',
   {
@@ -22,14 +22,15 @@ ControllerGenerator.prototype.initializing = function()
   });
 };
 
-ControllerGenerator.prototype.writing = function()
+DecoratorGenerator.prototype.writing = function()
 {
   var _feature = optionsParser.getFeature(this.options);
+  var _name = this.name;
 
   if (!_feature.length)
     throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-  this.fs.copy(this.templatePath('decorator.js'), this.destinationPath(knownPaths.PATH_CLIENT_FEATURES + _feature + '/decorator/' + this.name + '.decorator.js'));
+  this.template('decorator.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/decorator/' + _name + '.decorator.js');
 }
 
-module.exports = ControllerGenerator;
+module.exports = DecoratorGenerator;

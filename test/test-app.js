@@ -6,6 +6,7 @@ var helpers = require('yeoman-generator').test;
 var os = require('os');
 var optionsParser = require('../options-parser');
 var knownPaths = require('../known-paths');
+var utils = require('../utils');
 
 describe('ng-fullstack:app', function () {
   before(function (done) {
@@ -151,5 +152,23 @@ describe('ng-fullstack:app', function () {
     {
       assert.equal(knownPaths.PATH_SERVER_FEATURES_TEST, 'tests/server/');
     })
+  })
+
+  describe('capitalizeFirst', function()
+  {
+      it('should not capitalize it - nothing passed', function()
+      {
+          assert.equal(utils.capitalizeFirst(), '');
+      })
+
+      it('should capitalize it - one letter', function()
+      {
+        assert.equal(utils.capitalizeFirst('a'), 'A');
+      })
+
+      it('should capitalize it - two words', function()
+      {
+        assert.equal(utils.capitalizeFirst('a b'), 'A b');
+      })
   })
 })

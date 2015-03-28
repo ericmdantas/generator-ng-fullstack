@@ -2,7 +2,7 @@
 
 angular
   .module('myAwesomeApp')
-  .controller('SomeController', [function()
+  .controller('<%= name %>Controller', [function()
   {
     var self = this;
 

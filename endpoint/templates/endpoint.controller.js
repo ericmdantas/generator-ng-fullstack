@@ -1,16 +1,16 @@
 "use strict";
 
-import SomethingDAO from '../dao/something.dao';
+import <%= name %>DAO from '../dao/<%= name %>.dao';
 
-export default class SomethingController
+export default class <%= name %>Controller
 {
   static getAll(req, res)
   {
-    var _onSuccess = function(todos)
+    var _onSuccess = function(<%= nameLowerCase %>s)
     {
       res
         .status(200)
-        .json(todos);
+        .json(<%= nameLowerCase %>s);
     }
 
     var _onError = function(error)
@@ -20,19 +20,19 @@ export default class SomethingController
         .json(error);
     }
 
-    TodoDAO
+    <%= name %>DAO
       .getAll()
       .then(_onSuccess)
       .catch(_onError);
   }
 
-  static createTodo(req, res)
+  static createNew(req, res)
   {
-    var _onSuccess = function(todo)
+    var _onSuccess = function(<%= nameLowerCase %>)
     {
       res
         .status(201) // created
-        .json(todo);
+        .json(<%= nameLowerCase %>);
     }
 
     var _onError = function(error)
@@ -42,15 +42,15 @@ export default class SomethingController
         .json(error);
     }
 
-    var _todo = req.body;
+    var _<%= nameLowerCase %> = req.body;
 
-    TodoDAO
-      .createTodo(_todo)
+    <%= name %>DAO
+      .createNew(_<%= nameLowerCase %>)
       .then(_onSuccess)
       .catch(_onError);
   }
 
-  static deleteTodo(req, res)
+  static remove(req, res)
   {
     var _onSuccess = function()
     {
@@ -68,8 +68,8 @@ export default class SomethingController
 
     var _id = req.params.id;
 
-    TodoDAO
-      .deleteTodo(_id)
+    <%= name %>DAO
+      .removeById(_id)
       .then(_onSuccess)
       .catch(_onError);
   }

@@ -1,6 +1,6 @@
 "use strict";
 
-describe('SomeDirective', function()
+describe('<%= name %>', function()
 {
     var _scope, _compile, _element;
 
@@ -11,7 +11,7 @@ describe('SomeDirective', function()
         _scope = $injector.get('$rootScope').$new();
         _compile = $injector.get('$compile');
 
-        var _html = '<some-dir></some-dir>';
+        var _html = '<<%= name %>></<%= name %>>';
 
         _element = angular.element(_html);
 

@@ -1,18 +1,18 @@
 "use strict";
 
-import SomethingController from '../controller/something.controller';
+import <%= name %>Controller from '../controller/<%= name %>.controller';
 
-export default class SomethingRoutes
+export default class <%= name %>Routes
 {
   static init(router)
   {
     router
-      .route('/api/todos')
-      .get(TodoController.getAll)
-      .post(TodoController.createTodo);
+      .route('/api/<%= nameLowerCase %>')
+      .get(<%= name %>Controller.getAll)
+      .post(<%= name %>Controller.createNew);
 
     router
-      .route('/api/todos/:id')
-      .delete(TodoController.deleteTodo);
+      .route('/api/<%= nameLowerCase %>/:id')
+      .delete(<%= name %>Controller.removeById);
   }
 }

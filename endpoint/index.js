@@ -5,14 +5,14 @@ var util = require('util');
 var knownPaths = require('../known-paths');
 var optionsParser = require('../options-parser');
 
-var ControllerGenerator = function(args, options, config)
+var EndpointGenerator = function(args, options, config)
 {
     yeoman.generators.Base.apply(this, arguments);
 }
 
-util.inherits(ControllerGenerator,  yeoman.generators.NamedBase);
+util.inherits(EndpointGenerator,  yeoman.generators.NamedBase);
 
-ControllerGenerator.prototype.initializing = function()
+EndpointGenerator.prototype.initializing = function()
 {
   this.argument('name',
   {
@@ -22,19 +22,20 @@ ControllerGenerator.prototype.initializing = function()
   });
 };
 
-ControllerGenerator.prototype.writing = function()
+EndpointGenerator.prototype.writing = function()
 {
   var _feature = optionsParser.getFeature(this.options);
+  var _name = this.name
 
   if (!_feature.length)
     throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-  this.fs.copy(this.templatePath('endpoint.route.js'), this.destinationPath(knownPaths.PATH_SERVER_FEATURES + _feature + '/route/' + this.name + '.route.js'));
-  this.fs.copy(this.templatePath('endpoint.controller.js'), this.destinationPath(knownPaths.PATH_SERVER_FEATURES + _feature + '/controller/' + this.name + '.controller.js'));
-  this.fs.copy(this.templatePath('endpoint.dao.js'), this.destinationPath(knownPaths.PATH_SERVER_FEATURES + _feature + '/dao/' + this.name + '.dao.js'));
-  this.fs.copy(this.templatePath('endpoint.model.js'), this.destinationPath(knownPaths.PATH_SERVER_FEATURES + _feature + '/model/' + this.name + '.model.js'));
+  this.template('endpoint.route.js', knownPaths.PATH_SERVER_FEATURES + _feature + '/route/' + _name + '.route.js', {name: _name, nameLowerCase: _name.toLowerCase()});
+  this.template('endpoint.controller.js', knownPaths.PATH_SERVER_FEATURES + _feature + '/controller/' + _name + '.controller.js', {name: _name, nameLowerCase: _name.toLowerCase()});
+  this.template('endpoint.dao.js', knownPaths.PATH_SERVER_FEATURES + _feature + '/dao/' + _name + '.dao.js', {name: _name, nameLowerCase: _name.toLowerCase()});
+  this.template('endpoint.model.js', knownPaths.PATH_SERVER_FEATURES + _feature + '/model/' + _name + '.model.js', {name: _name, nameLowerCase: _name.toLowerCase()});
 
-  this.fs.copy(this.templatePath('endpoint.dao_test.js'), this.destinationPath(knownPaths.PATH_SERVER_FEATURES_TEST + _feature + '/dao/' + this.name + '.dao_test.js'));
+  this.template('endpoint.dao_test.js', knownPaths.PATH_SERVER_FEATURES_TEST + _feature + '/dao/' + _name + '.dao_test.js', {name: _name, nameLowerCase: _name.toLowerCase(), feature: _feature});
 }
 
-module.exports = ControllerGenerator;
+module.exports = EndpointGenerator;

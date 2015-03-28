@@ -1,70 +1,34 @@
 "use strict";
 
-import mongoose from 'mongoose';
-import Promise from 'bluebird';
-import todoSchema from '../model/something.model';
-import _ from 'lodash';
+var mongoose = require('mongoose');
+var <%= name %>DAO = require(process.cwd() + 'server/api/<%= feature %>dao/<%= name %>.dao');
+var expect = require('chai').expect;
+var setupMongoose = require('../helpers/db').setupMongoose;
 
-somethingSchema.statics.getAll = function()
+describe('<%= name %>DAO', function()
 {
-  var _promise = function(resolve, reject)
+  before(function()
   {
-    var _query = {};
+    setupMongoose(mongoose);
+  });
 
-    Something
-      .find(_query)
-      .exec(function(err, todos)
-      {
-        err ? reject(err)
-          : resolve(todos);
-      });
-  }
-
-  return new Promise(_promise);
-}
-
-somethingSchema.statics.createTodo = function(something)
-{
-  var _promise = function(resolve, reject)
+  afterEach(function()
   {
-    if (!_.isObject(todo))
-    {
-      return reject(new TypeError('Todo is not a valid object.'));
-    }
+    <%= name %>DAO.remove();
+  })
 
-    var _something = new Something(something);
-
-    _something.save(function(err, saved)
-    {
-      err ? reject(err)
-        : resolve(saved);
-    });
-  }
-
-  return new Promise(_promise);
-}
-
-todoSchema.statics.deleteTodo = function(id)
-{
-  var _promise = function(resolve, reject)
+  describe('getAll', function()
   {
-    if (!_.isString(id))
-    {
-      return reject(new TypeError('Id is not a valid string.'));
-    }
 
-    Something
-      .findByIdAndRemove(id)
-      .exec(function(err, deleted)
-      {
-        err ? reject(err)
-          : resolve();
-      });
-  }
+  })
 
-  return new Promise(_promise);
-}
+  describe('createNew', function()
+  {
 
-var Something = mongoose.model('Something', somethingSchema);
+  })
 
-export default Something;
+  describe('removeById', function()
+  {
+
+  })
+})

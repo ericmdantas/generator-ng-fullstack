@@ -1,21 +1,21 @@
 "use strict";
 
-describe('SomeFactory', function()
+describe('<%= name %>', function()
 {
-    var _SomeFactory;
+    var _<%= name %>;
 
     beforeEach(module('myAwesomeApp'));
 
     beforeEach(inject(function($injector)
     {
-        _SomeFactory = $injector.get('SomeFactory');
+        _<%= name %> = $injector.get('<%= name %>');
     }));
 
     describe('instance', function()
     {
         it('should have the right prop for the instance', function()
         {
-            var _something = new _SomeFactory();
+            var _something = new _<%= name %>();
 
             expect(_something.something).toEqual(123);
         })
@@ -25,7 +25,7 @@ describe('SomeFactory', function()
     {
         it('should return true', function()
         {
-            var _something = new _SomeFactory();
+            var _something = new _<%= name %>();
 
             expect(_something.isValid()).toBeTruthy();
         })

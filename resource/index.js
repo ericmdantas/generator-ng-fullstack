@@ -5,14 +5,14 @@ var util = require('util');
 var knownPaths = require('../known-paths');
 var optionsParser = require('../options-parser');
 
-var ControllerGenerator = function(args, options, config)
+var ResourceGenerator = function(args, options, config)
 {
     yeoman.generators.Base.apply(this, arguments);
 }
 
-util.inherits(ControllerGenerator,  yeoman.generators.NamedBase);
+util.inherits(ResourceGenerator,  yeoman.generators.NamedBase);
 
-ControllerGenerator.prototype.initializing = function()
+ResourceGenerator.prototype.initializing = function()
 {
   this.argument('name',
   {
@@ -22,14 +22,15 @@ ControllerGenerator.prototype.initializing = function()
   });
 };
 
-ControllerGenerator.prototype.writing = function()
+ResourceGenerator.prototype.writing = function()
 {
   var _feature = optionsParser.getFeature(this.options);
+  var _name = this.name;
 
   if (!_feature.length)
     throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-  this.fs.copy(this.templatePath('resource.js'), this.destinationPath(knownPaths.PATH_CLIENT_FEATURES + _feature + '/resource/' + this.name + '.resource.js'));
+  this.template('resource.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/resource/' + _name + '.resource.js', {name: _name});
 }
 
-module.exports = ControllerGenerator;
+module.exports = ResourceGenerator;
