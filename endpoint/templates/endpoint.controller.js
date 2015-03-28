@@ -29,7 +29,7 @@ export default class <%= name %>Controller
   static createNew(req, res)
   {
     var _onSuccess = function(<%= nameLowerCase %>)
-    {
+    {r
       res
         .status(201) // created
         .json(<%= nameLowerCase %>);

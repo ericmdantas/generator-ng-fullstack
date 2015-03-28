@@ -1,10 +1,10 @@
 "use strict";
 
 var mongoose = require('mongoose');
-var TodoDAO = require('../../../server/api/todo/dao/todo.dao');
+var TodoDAO = require('../../../../server/api/todo/dao/todo.dao');
 var expect = require('chai').expect;
-var setupMongoose = require('../helpers/db').setupMongoose;
-var createTodos = require('../helpers/db').createTodos;
+var setupMongoose = require('../../_helpers/db').setupMongoose;
+var createTodos = require('../../_helpers/db').createTodos;
 
 describe('todo.dao', function()
 {
