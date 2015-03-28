@@ -1,21 +1,35 @@
 'use strict';
+
 var yeoman = require('yeoman-generator');
+var util = require('util');
+var knownPaths = require('../known-paths');
+var optionsParser = require('../options-parser');
 
-module.exports = yeoman.generators.Base.extend({
-  initializing: function () {
-    this.log('You called the NgFullstack subgenerator with the argument ' + this.name + '.');
+var ControllerGenerator = function(args, options, config)
+{
+    yeoman.generators.Base.apply(this, arguments);
+}
 
-    this.argument('name', {
-      required: true,
-      type: String,
-      desc: 'The subgenerator name'
-    });
-  },
+util.inherits(ControllerGenerator,  yeoman.generators.NamedBase);
 
-  writing: function () {
-    this.fs.copy(
-      this.templatePath('somefile.js'),
-      this.destinationPath('somefile.js')
-    );
-  }
-});
+ControllerGenerator.prototype.initializing = function()
+{
+  this.argument('name',
+  {
+    required: true,
+    type: String,
+    desc: 'resource'
+  });
+};
+
+ControllerGenerator.prototype.writing = function()
+{
+  var _feature = optionsParser.getFeature(this.options);
+
+  if (!_feature.length)
+    throw new Error('Feature is needed. Do it like this: --feature something-here');
+
+  this.fs.copy(this.templatePath('resource.js'), this.destinationPath(knownPaths.PATH_CLIENT_FEATURES + _feature + '/resource/' + this.name + '.resource.js'));
+}
+
+module.exports = ControllerGenerator;

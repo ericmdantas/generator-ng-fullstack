@@ -7,14 +7,15 @@ var helpers = require('yeoman-generator').test;
 describe('NgFullstack:service', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../service'))
-      .withArguments('name', '--force')
-      .withOptions({ 'skip-install': true })
+      .withArguments('post')
+      .withOptions({ 'skip-install': true, feature: 'http'})
       .on('end', done);
   });
 
   it('creates files', function () {
     assert.file([
-      'somefile.js'
+      'client/dev/js/http/service/post.service.js',
+      'tests/client/http/service/post.service_test.js'
     ]);
   });
 });
