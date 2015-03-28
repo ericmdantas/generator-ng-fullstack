@@ -1,6 +1,6 @@
 {
   "name": "generator-ng-fullstack",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
