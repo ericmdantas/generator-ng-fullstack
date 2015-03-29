@@ -6,9 +6,11 @@ export default class StaticDispatcher
 {
     static sendIndex(req, res)
     {
+      var _root = process.cwd();
+
       res.setHeader('Content-Type', 'text/html');
 
-      fs.createReadStream(__dirname + '../../../../client/dev/index.html')// TODO: make the path more readable. Use https://github.com/warmsea/node-rfr?
+      fs.createReadStream(_root + '/client/dev/index.html')
         .pipe(res);
     }
 }

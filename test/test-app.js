@@ -101,9 +101,9 @@ describe('ng-fullstack:app', function () {
 
           // tests - server
 
-          'tests/server/daos/todo.dao_test.js',
-          'tests/server/helpers/db.js',
-          'tests/server/helpers/db.json',
+          'tests/server/todo/daos/todo.dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json',
 
           // tests - e2e
 
