@@ -135,7 +135,7 @@ export default class MyAwesomeClass
 And [many more](https://github.com/babel/babel)!
 
 
-# Project Structure
+# structure
 
 ```
 ├── client
