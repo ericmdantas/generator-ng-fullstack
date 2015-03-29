@@ -14,8 +14,8 @@ describe('NgFullstack:service', function () {
 
   it('creates files', function () {
     assert.file([
-      'client/dev/js/http/service/post.service.js',
-      'tests/client/http/service/post.service_test.js'
+      'client/dev/js/http/services/post.service.js',
+      'tests/client/http/services/post.service_test.js'
     ]);
   });
 });

@@ -43,11 +43,11 @@ var NgFullstack = (function (_yeoman$generators$Base) {
     this.template("_procfile.txt", "procfile.txt", _app);
 
     this.template("index.js", "index.js");
-    this.fs.copy(this.templatePath(".bowerrc"), this.destinationPath(".bowerrc"));
-    this.fs.copy(this.templatePath(".travis.yml"), this.destinationPath(".travis.yml"));
-    this.fs.copy(this.templatePath(".gitignore"), this.destinationPath(".gitignore"));
-    this.fs.copy(this.templatePath("editorconfig"), this.destinationPath(".editorconfig"));
-    this.fs.copy(this.templatePath("jshintrc"), this.destinationPath(".jshintrc"));
+    this.template(".bowerrc", ".bowerrc");
+    this.template(".travis.yml", ".travis.yml");
+    this.template(".gitignore", ".gitignore");
+    this.template("editorconfig", ".editorconfig");
+    this.template("jshintrc", ".jshintrc");
 
     this.directory("client", "client");
     this.directory("server", "server");

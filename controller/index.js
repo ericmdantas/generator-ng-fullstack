@@ -30,8 +30,8 @@ ControllerGenerator.prototype.writing = function()
   if (!_feature.length)
     throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-  this.template('controller_client.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/controller/' + _name + '.controller.js', {name: _name});
-  this.template('controller_client_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _feature + '/controller/' + _name + '.controller_test.js', {name: _name, nameLowerCase: _name.toLowerCase()});
+  this.template('controller_client.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/controllers/' + _name + '.controller.js', {name: _name});
+  this.template('controller_client_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _feature + '/controllers/' + _name + '.controller_test.js', {name: _name, nameLowerCase: _name.toLowerCase()});
 }
 
 module.exports = ControllerGenerator;

@@ -30,8 +30,8 @@ ServiceGenerator.prototype.writing = function()
   if (!_feature.length)
     throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-  this.template('service.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/service/' + this.name + '.service.js', {name: _name});
-  this.template('service_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _feature + '/service/' + this.name + '.service_test.js', {name: _name});
+  this.template('service.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/services/' + this.name + '.service.js', {name: _name});
+  this.template('service_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _feature + '/services/' + this.name + '.service_test.js', {name: _name});
 }
 
 module.exports = ServiceGenerator;
