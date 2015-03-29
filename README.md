@@ -135,6 +135,44 @@ export default class MyAwesomeClass
 And [many more](https://github.com/babel/babel)!
 
 
+# Project Structure
+
+```
+├── client
+     └── dev
+         ├── js 
+         ├── css
+         ├── partials
+         └── imgs
+├── server
+     ├── api
+         ├── todo
+               ├── dao
+               ├── model
+               ├── controller
+               └── routes
+     ├── auth     
+         ├── local
+     ├── commons  
+         ├── socket
+         └── static  
+     ├── config   
+     ├── constants
+     └── routes
+└── tests
+     ├── client
+         ├── _helpers
+     ├── e2e
+     └── server
+         └── todo
+              ├── dao
+              ├── model
+              ├── controller
+              └── routes
+
+```
+
+
 # running tests
 
 Client:
