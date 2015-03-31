@@ -17,71 +17,66 @@ var DEV_DIR = './client/dev/';
 var TEMP_DIR = './client/__tmp/'; // working on it dir
 var DIST_DIR = './client/dist/';
 
+var _js = DEV_DIR + 'js/**/*.js';
+var _less = DEV_DIR + 'css/**/*.less';
 var _images = DEV_DIR + 'imgs/*';
 var _fonts = DEV_DIR + 'fonts/*';
 var _partials = DEV_DIR + 'partials/**/*';
 
 var _indexHTML = DEV_DIR + 'index.html';
 
-gulp.task('build', ['del_dist', 'unit_test_client'], function()
+var _build = function(path)
 {
+  if (path.match(/dist/))
+  {
     gulp
-        .src(_indexHTML)
-        .pipe(usemin({js0: [rev(), uglify()], js1: [rev(), uglify()], css0: [cssmin(), rev(), less()]}))
-        .pipe(gulp.dest(DIST_DIR));
-
-    gulp
-        .src(_images)
-        .pipe(gulp.dest(DIST_DIR + 'imgs/'));
-
-    gulp
-        .src(_partials)
-        .pipe(gulp.dest(DIST_DIR + 'partials/'));
-
-    gulp
-        .src(_fonts)
-        .pipe(gulp.dest(DIST_DIR + 'fonts/'));
-});
-
-gulp.task('watch', ['del_temp'], function()
-{
-  var _runItAll = function()
+      .src(_indexHTML)
+      .pipe(usemin({js0: [rev(), uglify()], js1: [rev(), uglify()], css0: [cssmin(), rev(), less()]}))
+      .pipe(gulp.dest(path));
+  }
+  else
   {
     gulp
       .src(_indexHTML)
       .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
-      .pipe(watch(_indexHTML))
-      .pipe(gulp.dest(TEMP_DIR));
-
-    gulp
-      .src(_indexHTML)
-      .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
-      .pipe(watch('css/*.less'))
-      .pipe(gulp.dest(TEMP_DIR));
-
-    gulp
-      .src(_indexHTML)
-      .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
-      .pipe(watch('js/**/*.js'))
-      .pipe(gulp.dest(TEMP_DIR));
-
-    gulp
-      .src(_images)
-      .pipe(watch(_images))
-      .pipe(gulp.dest(TEMP_DIR + 'imgs/'));
-
-    gulp
-      .src(_partials)
-      .pipe(watch(_partials))
-      .pipe(gulp.dest(TEMP_DIR + 'partials/'));
-
-    gulp
-      .src(_fonts)
-      .pipe(watch(_fonts))
-      .pipe(gulp.dest(TEMP_DIR + 'fonts/'));
+      .pipe(gulp.dest(path));
   }
 
-  _runItAll();
+  gulp
+    .src(_images)
+    .pipe(gulp.dest(path+ 'imgs/'));
+
+  gulp
+    .src(_partials)
+    .pipe(gulp.dest(path + 'partials/'));
+
+  gulp
+    .src(_fonts)
+    .pipe(gulp.dest(path + 'fonts/'));
+}
+
+gulp.task('build', ['del_dist', 'unit_test_client'], function()
+{
+    _build(DIST_DIR);
+});
+
+gulp.task('build_temp', ['del_dist'], function()
+{
+  _build(TEMP_DIR);
+});
+
+gulp.task('watch', ['del_temp'], function()
+{
+  var _watchable = [];
+
+  _watchable.push(_indexHTML);
+  _watchable.push(_js);
+  _watchable.push(_less);
+  _watchable.push(_images);
+  _watchable.push(_partials);
+  _watchable.push(_fonts);
+
+  return gulp.watch(_watchable, ['build_temp']);
 });
 
 gulp.task('del_temp', function()
