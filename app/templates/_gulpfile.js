@@ -50,34 +50,34 @@ gulp.task('watch', ['del_temp'], function()
     gulp
       .src(_indexHTML)
       .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
-      //.pipe(watch(_indexHTML))
+      .pipe(watch(_indexHTML))
       .pipe(gulp.dest(TEMP_DIR));
 
     gulp
       .src(_indexHTML)
       .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
-      //.pipe(watch('css/*.less'))
+      .pipe(watch('css/*.less'))
       .pipe(gulp.dest(TEMP_DIR));
 
     gulp
       .src(_indexHTML)
       .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
-      //.pipe(watch('js/**/*.js'))
+      .pipe(watch('js/**/*.js'))
       .pipe(gulp.dest(TEMP_DIR));
 
     gulp
       .src(_images)
-      //.pipe(watch(_images))
+      .pipe(watch(_images))
       .pipe(gulp.dest(TEMP_DIR + 'imgs/'));
 
     gulp
       .src(_partials)
-      //.pipe(watch(_partials))
+      .pipe(watch(_partials))
       .pipe(gulp.dest(TEMP_DIR + 'partials/'));
 
     gulp
       .src(_fonts)
-      //.pipe(watch(_fonts))
+      .pipe(watch(_fonts))
       .pipe(gulp.dest(TEMP_DIR + 'fonts/'));
   }
 
