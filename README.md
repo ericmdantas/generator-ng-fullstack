@@ -198,11 +198,15 @@ yo ng-fullstack:controller User --feature user
 
 This will create:
 
-``` client/dev/js/user/controller/user.controller.js ```
+``` 
+client/dev/js/user/controller/user.controller.js 
+```
 
 and
 
-``` tests/client/user/controller/user.controller_test.js ```
+```
+tests/client/user/controller/user.controller_test.js 
+```
 
 
 ### directive
@@ -215,11 +219,15 @@ yo ng-fullstack:directive i-toggle-stuff --feature common
 
 This will create:
 
-``` client/dev/js/common/directive/i-toggle-stuff.directive.js ```
+``` 
+client/dev/js/common/directive/i-toggle-stuff.directive.js 
+```
 
 and
 
-``` tests/client/common/directive/i-toggle-stuff.directive_test.js ```
+``` 
+tests/client/common/directive/i-toggle-stuff.directive_test.js 
+```
 
 
 ### service
@@ -232,11 +240,15 @@ yo ng-fullstack:service HttpParser --feature lib
 
 This will create:
 
-``` client/dev/js/lib/service/HttpParser.service.js ```
+``` 
+client/dev/js/lib/service/HttpParser.service.js 
+```
 
 and
 
-``` tests/client/lib/service/HttpParser.service_test.js ```
+```
+tests/client/lib/service/HttpParser.service_test.js 
+```
 
 
 
@@ -250,11 +262,15 @@ yo ng-fullstack:factory Student --feature student
 
 This will create:
 
-``` client/dev/js/student/factory/Student.factory.js ```
+``` 
+client/dev/js/student/factory/Student.factory.js 
+```
 
 and
 
-``` tests/client/student/factory/Studet.factory_test.js ```
+``` 
+tests/client/student/factory/Studet.factory_test.js 
+```
 
 
 ### resource
@@ -267,7 +283,9 @@ yo ng-fullstack:resource Clazz --feature clazz
 
 This will create:
 
-``` client/dev/js/clazz/resource/Clazz.resource.js ```
+``` 
+client/dev/js/clazz/resource/Clazz.resource.js 
+```
 
 
 ### decorator
@@ -280,7 +298,9 @@ yo ng-fullstack:decorator qExtender --feature next-q
 
 This will create:
 
-``` client/dev/js/next-q/decorator/qExtender.decorator.js ```
+``` 
+client/dev/js/next-q/decorator/qExtender.decorator.js 
+```
 
 
 ## server
@@ -295,19 +315,20 @@ yo ng-fullstack:endpoint skate --feature skateboard
 
 This will create:
 
-``` server/api/skateboard/controller/skate.controller.js ```
-
-``` server/api/skateboard/route/skate.route.js ```
-
-``` server/api/skateboard/dao/skate.dao.js ```
-
-``` server/api/skateboard/model/skate.model.js ```
+```
+server/api/skateboard/controller/skate.controller.js 
+server/api/skateboard/route/skate.route.js 
+server/api/skateboard/dao/skate.dao.js 
+server/api/skateboard/model/skate.model.js 
+```
 
 
 and
 
 
-``` tests/server/skateboard/dao/skate.dao_test.js ```
+``` 
+tests/server/skateboard/dao/skate.dao_test.js 
+```
 
 # running tests
 
