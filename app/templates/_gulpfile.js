@@ -11,7 +11,8 @@ var less = require('gulp-less');
 var del = require('del');
 var coveralls = require('gulp-coveralls');
 var karma = require('karma').server;
-var watch = require('gulp-watch');
+var browserSync = require('browser-sync');
+var exec = require('child_process').exec;
 
 var DEV_DIR = './client/dev/';
 var TEMP_DIR = './client/__tmp/'; // working on it dir
@@ -25,7 +26,7 @@ var _partials = DEV_DIR + 'partials/**/*';
 
 var _indexHTML = DEV_DIR + 'index.html';
 
-var _build = function(path)
+var _completeBuild = function(path)
 {
   if (path.match(/dist/))
   {
@@ -57,16 +58,23 @@ var _build = function(path)
 
 gulp.task('build', ['del_dist', 'unit_test_client'], function()
 {
-    _build(DIST_DIR);
+    _completeBuild(DIST_DIR);
 });
 
 gulp.task('build_temp', ['del_dist'], function()
 {
-  _build(TEMP_DIR);
+  _completeBuild(TEMP_DIR);
 });
 
-gulp.task('watch', ['del_temp'], function()
+gulp.task('browser-sync', function()
 {
+  browserSync.reload();
+})
+
+gulp.task('watch', ['del_temp', 'build_temp', 'browser-sync'], function()
+{
+  browserSync({port: 3333});
+
   var _watchable = [];
 
   _watchable.push(_indexHTML);
@@ -76,7 +84,7 @@ gulp.task('watch', ['del_temp'], function()
   _watchable.push(_partials);
   _watchable.push(_fonts);
 
-  return gulp.watch(_watchable, ['build_temp']);
+  return gulp.watch(_watchable, ['build_temp', 'browser-sync']);
 });
 
 gulp.task('del_temp', function()
