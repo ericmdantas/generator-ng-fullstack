@@ -12,7 +12,6 @@ var del = require('del');
 var coveralls = require('gulp-coveralls');
 var karma = require('karma').server;
 var browserSync = require('browser-sync');
-var exec = require('child_process').exec;
 
 var DEV_DIR = './client/dev/';
 var TEMP_DIR = './client/__tmp/'; // working on it dir
