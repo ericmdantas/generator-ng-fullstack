@@ -56,6 +56,7 @@ Do you want integration with MongoHQ? You got it!
 │        ├── css
 │        ├── partials
 │        └── imgs
+│
 ├── server
 │    ├── api
 │    │   ├── todo
@@ -63,14 +64,18 @@ Do you want integration with MongoHQ? You got it!
 │    │   │     ├── model
 │    │   │     ├── controller
 │    │   │     └── routes
+│    │   │
 │    ├── auth     
 │    │   ├── local
+│    │   │
 │    ├── commons  
 │    │   ├── socket
 │    │   └── static  
+│    │
 │    ├── config   
 │    ├── constants
 │    └── routes
+│    
 └── tests
      ├── client
      │   ├── _helpers
@@ -79,8 +84,10 @@ Do you want integration with MongoHQ? You got it!
      │        ├── model
      │        ├── controller
      │        └── routes
+     │   
      ├── e2e
-     │   ├── _helpers
+     │   └── _helpers
+     │   
      └── server
          ├── _helpers
          └── todo
