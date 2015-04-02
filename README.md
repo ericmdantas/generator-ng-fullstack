@@ -139,31 +139,31 @@ And [many more](https://github.com/babel/babel)!
 
 ```
 ├── client
-     └── dev
-         ├── js 
-         ├── css
-         ├── partials
-         └── imgs
+│    └── dev
+│        ├── js 
+│        ├── css
+│        ├── partials
+│        └── imgs
 ├── server
-     ├── api
-         ├── todo
-               ├── dao
-               ├── model
-               ├── controller
-               └── routes
-     ├── auth     
-         ├── local
-     ├── commons  
-         ├── socket
-         └── static  
-     ├── config   
-     ├── constants
-     └── routes
+│    ├── api
+│    │   ├── todo
+│    │   │     ├── dao
+│    │   │     ├── model
+│    │   │     ├── controller
+│    │   │     └── routes
+│    ├── auth     
+│    │   ├── local
+│    ├── commons  
+│    │   ├── socket
+│    │   └── static  
+│    ├── config   
+│    ├── constants
+│    └── routes
 └── tests
      ├── client
-         ├── _helpers
+     │   ├── _helpers
      ├── e2e
-         ├── _helpers
+     │   ├── _helpers
      └── server
          ├── _helpers
          └── todo
