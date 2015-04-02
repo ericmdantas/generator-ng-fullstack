@@ -47,6 +47,51 @@ Do you want integration with New Relic? You got it!
 Do you want integration with MongoHQ? You got it!
 
 
+# structure
+
+```
+├── client
+│    └── dev
+│        ├── js 
+│        ├── css
+│        ├── partials
+│        └── imgs
+├── server
+│    ├── api
+│    │   ├── todo
+│    │   │     ├── dao
+│    │   │     ├── model
+│    │   │     ├── controller
+│    │   │     └── routes
+│    ├── auth     
+│    │   ├── local
+│    ├── commons  
+│    │   ├── socket
+│    │   └── static  
+│    ├── config   
+│    ├── constants
+│    └── routes
+└── tests
+     ├── client
+     │   ├── _helpers
+     │   └── todo
+     │        ├── dao
+     │        ├── model
+     │        ├── controller
+     │        └── routes
+     ├── e2e
+     │   ├── _helpers
+     └── server
+         ├── _helpers
+         └── todo
+              ├── dao
+              ├── model
+              ├── controller
+              └── routes
+
+```
+
+
 # how do I run this?
 
 After installing it, just run:
@@ -101,78 +146,16 @@ $ npm start
 
 ```
 
-By doing so, you'll be able to use ES6 in the server, like:
+By doing so, you'll be able to use [ES6](https://github.com/babel/babel) in the server, like:
 
-```es6
-
-import * from 'some/path/here/index'
+And then, watch on the files change so the browser is automatically refreshed:
 
 ```
 
-
-```es6
-
-[1, 2].map(x => 1 === 1)
+$ gulp watch
 
 ```
 
-```es6
-
-export default class MyAwesomeClass
-{
-    constructor()
-    {
-       this.isItAwesome = true;
-    }
-    
-    static somethingStatic()
-    {
-       console.log('I don't belong to the instance, heh');
-    }
-}
-
-```` 
-And [many more](https://github.com/babel/babel)!
-
-
-# structure
-
-```
-├── client
-│    └── dev
-│        ├── js 
-│        ├── css
-│        ├── partials
-│        └── imgs
-├── server
-│    ├── api
-│    │   ├── todo
-│    │   │     ├── dao
-│    │   │     ├── model
-│    │   │     ├── controller
-│    │   │     └── routes
-│    ├── auth     
-│    │   ├── local
-│    ├── commons  
-│    │   ├── socket
-│    │   └── static  
-│    ├── config   
-│    ├── constants
-│    └── routes
-└── tests
-     ├── client
-     │   ├── _helpers
-     ├── e2e
-     │   ├── _helpers
-     └── server
-         ├── _helpers
-         └── todo
-              ├── dao
-              ├── model
-              ├── controller
-              └── routes
-
-```
 
 # subgenerators
 
@@ -317,9 +300,13 @@ This will create:
 
 ```
 server/api/skateboard/controller/skate.controller.js 
+
 server/api/skateboard/route/skate.route.js 
+
 server/api/skateboard/dao/skate.dao.js 
+
 server/api/skateboard/model/skate.model.js 
+
 ```
 
 
@@ -355,6 +342,14 @@ E2E:
 
 $ webdriver-manager start
 $ protractor
+
+```
+
+# dist build
+
+```
+
+$ gulp build
 
 ```
 
