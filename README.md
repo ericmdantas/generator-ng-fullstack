@@ -153,7 +153,7 @@ $ npm start
 
 ```
 
-By doing so, you'll be able to use [ES6](https://github.com/babel/babel) in the server, like:
+By doing so, you'll be able to use [most of the things from ES6 (thanks to Babel)](https://github.com/babel/babel) in the server.
 
 And then, watch on the files change so the browser is automatically refreshed:
 
