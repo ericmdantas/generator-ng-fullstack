@@ -70,7 +70,6 @@ describe('ng-fullstack:app', function () {
           'client/dev/favicon.png',
           'client/dev/index.html',
 
-          'client/dev/css/best_css_ever.less',
           'client/dev/css/events.less',
           'client/dev/css/fonts.less',
           'client/dev/css/frameworks_overrides.less',
