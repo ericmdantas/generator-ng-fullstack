@@ -352,6 +352,15 @@ $ protractor
 
 ```
 
+# init
+
+```
+
+$ gulp
+
+```
+
+
 # dist build
 
 ```
