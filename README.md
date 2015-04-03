@@ -34,7 +34,7 @@ You'll be using the **latest** versions of:
 - [ES6 (Babel)](https://github.com/babel/babel);
 - [Bootstrap](https://github.com/twbs/bootstrap);
 - [Gulp](https://github.com/gulpjs/gulp);
-- [Express](https://github.com/strongloop/express) / [Koa](https://github.com/koajs/koa);
+- [Express](https://github.com/strongloop/express);
 - [MongoDB](https://github.com/mongodb/mongo) + [Mongoose](https://github.com/learnboost/mongoose);
 - [Bluebird](https://github.com/petkaantonov/bluebird);
 - [Lodash](https://github.com/lodash/lodash);
@@ -56,6 +56,7 @@ Do you want integration with MongoHQ? You got it!
 │        ├── css
 │        ├── partials
 │        └── imgs
+│
 ├── server
 │    ├── api
 │    │   ├── todo
@@ -63,14 +64,18 @@ Do you want integration with MongoHQ? You got it!
 │    │   │     ├── model
 │    │   │     ├── controller
 │    │   │     └── routes
+│    │   │
 │    ├── auth     
 │    │   ├── local
+│    │   │
 │    ├── commons  
 │    │   ├── socket
 │    │   └── static  
+│    │
 │    ├── config   
 │    ├── constants
 │    └── routes
+│    
 └── tests
      ├── client
      │   ├── _helpers
@@ -79,8 +84,10 @@ Do you want integration with MongoHQ? You got it!
      │        ├── model
      │        ├── controller
      │        └── routes
+     │   
      ├── e2e
-     │   ├── _helpers
+     │   └── _helpers
+     │   
      └── server
          ├── _helpers
          └── todo
@@ -146,7 +153,7 @@ $ npm start
 
 ```
 
-By doing so, you'll be able to use [ES6](https://github.com/babel/babel) in the server, like:
+By doing so, you'll be able to use [most of the things from ES6 (thanks to Babel)](https://github.com/babel/babel) in the server.
 
 And then, watch on the files change so the browser is automatically refreshed:
 
