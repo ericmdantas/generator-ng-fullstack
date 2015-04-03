@@ -34,7 +34,7 @@ You'll be using the **latest** versions of:
 - [ES6 (Babel)](https://github.com/babel/babel);
 - [Bootstrap](https://github.com/twbs/bootstrap);
 - [Gulp](https://github.com/gulpjs/gulp);
-- [Express](https://github.com/strongloop/express) / [Koa](https://github.com/koajs/koa);
+- [Express](https://github.com/strongloop/express);
 - [MongoDB](https://github.com/mongodb/mongo) + [Mongoose](https://github.com/learnboost/mongoose);
 - [Bluebird](https://github.com/petkaantonov/bluebird);
 - [Lodash](https://github.com/lodash/lodash);
