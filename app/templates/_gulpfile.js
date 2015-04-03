@@ -93,13 +93,13 @@ gulp.task('imgs:dist', function()
           .pipe(gulp.dest(DIST_DIR+ 'imgs/'));
 })
 
-gulp.task('build', ['del_dist', 'unit_test_client', 'partials:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist']);
-gulp.task('build_temp', ['del_temp', 'partials:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp']);
-
 gulp.task('browser_sync', function()
 {
   return browserSync.reload();
 })
+
+gulp.task('build', ['del_dist', 'unit_test_client', 'partials:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist']); // dist build
+gulp.task('build_temp', ['del_temp', 'partials:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp']); // browser-sync build
 
 gulp.task('watch', ['del_temp', 'bower', 'build_temp', 'browser_sync'], function()
 {
