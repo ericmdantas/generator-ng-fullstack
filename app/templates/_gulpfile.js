@@ -12,6 +12,7 @@ var del = require('del');
 var coveralls = require('gulp-coveralls');
 var karma = require('karma').server;
 var browserSync = require('browser-sync');
+var wiredep = require('wiredep').stream;
 
 var DEV_DIR = './client/dev/';
 var TEMP_DIR = './client/__tmp/'; // working on it dir
@@ -23,6 +24,15 @@ var _images = DEV_DIR + 'imgs/*';
 var _fonts = DEV_DIR + 'fonts/*';
 var _partials = DEV_DIR + 'partials/**/*';
 var _indexHTML = DEV_DIR + 'index.html';
+var _bower = 'bower.json';
+
+gulp.task('bower', function()
+{
+  return gulp
+          .src(_indexHTML)
+          .pipe(wiredep())
+          .pipe(gulp.dest(DEV_DIR));
+});
 
 gulp.task('html,css,js:temp', function()
 {
@@ -91,7 +101,7 @@ gulp.task('browser_sync', function()
   return browserSync.reload();
 })
 
-gulp.task('watch', ['del_temp', 'build_temp', 'browser_sync'], function()
+gulp.task('watch', ['del_temp', 'bower', 'build_temp', 'browser_sync'], function()
 {
   browserSync({proxy: "http://localhost:3333", reloadDelay: 1000});
 
@@ -103,8 +113,9 @@ gulp.task('watch', ['del_temp', 'build_temp', 'browser_sync'], function()
   _watchable.push(_images);
   _watchable.push(_partials);
   _watchable.push(_fonts);
+  _watchable.push(_bower);
 
-  return gulp.watch(_watchable, ['build_temp', 'browser_sync']);
+  return gulp.watch(_watchable, ['bower', 'build_temp', 'browser_sync']);
 });
 
 gulp.task('del_temp', function()
@@ -117,7 +128,7 @@ gulp.task('del_dist', function()
     return del.sync([DIST_DIR]);
 })
 
-gulp.task('unit_test_client', function(done)
+gulp.task('test_client', function(done)
 {
     return karma
             .start({
@@ -127,9 +138,11 @@ gulp.task('unit_test_client', function(done)
             }, done);
 })
 
-gulp.task('coverage_frontend', ['unit_test'], function()
+gulp.task('coverage_frontend', ['test_client'], function()
 {
     return gulp
             .src('unit_coverage/**/lcov.info')
             .pipe(coveralls());
 })
+
+gulp.task('default', ['build_temp', 'watch']);

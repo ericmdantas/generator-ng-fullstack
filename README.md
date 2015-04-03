@@ -330,7 +330,7 @@ Client:
 
 ```
 
-$ gulp unit_test_client
+$ gulp test_client
 
 ```
 
