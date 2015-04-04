@@ -3,7 +3,7 @@
 describe('todos.controller', function()
 {
     var _scope, _Todo, _httpBackend, _logMock;
-    var CONTROLLER_NAME = 'TodosController as todosCtrl';
+    var CONTROLLER_NAME = 'TodoController as todoCtrl';
     var URL_GET_ALL = '/api/todos';
     var URL_CREATE_TODO = '/api/todos';
     var URL_DELETE_TODO = '/api/todos/';
@@ -29,14 +29,14 @@ describe('todos.controller', function()
         {
             $controller(CONTROLLER_NAME, {$scope: _scope});
 
-            expect(_scope.todosCtrl.todo instanceof _Todo).toBeTruthy();
+            expect(_scope.todoCtrl.todo instanceof _Todo).toBeTruthy();
         }))
 
         it('should have todos as an empty array', inject(function($controller)
         {
           $controller(CONTROLLER_NAME, {$scope: _scope});
 
-          expect(angular.equals(_scope.todosCtrl.todos, [])).toBeTruthy();
+          expect(angular.equals(_scope.todoCtrl.todos, [])).toBeTruthy();
         }))
     })
 
@@ -52,7 +52,7 @@ describe('todos.controller', function()
 
             _httpBackend.flush();
 
-            expect(angular.equals(_scope.todosCtrl.todos, _response)).toBeTruthy();
+            expect(angular.equals(_scope.todoCtrl.todos, _response)).toBeTruthy();
         }))
     })
 
@@ -70,7 +70,7 @@ describe('todos.controller', function()
 
             $controller(CONTROLLER_NAME, {$scope: _scope});
 
-            _scope.todosCtrl.createTodo(_todo);
+            _scope.todoCtrl.createTodo(_todo);
 
             _httpBackend.flush();
 
@@ -89,12 +89,12 @@ describe('todos.controller', function()
 
           $controller(CONTROLLER_NAME, {$scope: _scope});
 
-          _scope.todosCtrl.createTodo(_todo);
+          _scope.todoCtrl.createTodo(_todo);
 
           _httpBackend.flush();
 
-          expect(angular.equals(_scope.todosCtrl.todos[0], _response)).toBeTruthy();
-          expect(_scope.todosCtrl.todo.todoMessage).toBeNull();
+          expect(angular.equals(_scope.todoCtrl.todos[0], _response)).toBeTruthy();
+          expect(_scope.todoCtrl.todo.todoMessage).toBeNull();
         }))
     })
 
@@ -112,7 +112,7 @@ describe('todos.controller', function()
 
         $controller(CONTROLLER_NAME, {$scope: _scope});
 
-        _scope.todosCtrl.deleteTodo(_id);
+        _scope.todoCtrl.deleteTodo(_id);
 
         _httpBackend.flush();
 
@@ -131,11 +131,11 @@ describe('todos.controller', function()
 
         $controller(CONTROLLER_NAME, {$scope: _scope});
 
-        _scope.todosCtrl.deleteTodo(_id);
+        _scope.todoCtrl.deleteTodo(_id);
 
         _httpBackend.flush();
 
-        expect(_scope.todosCtrl.todos.length).toBe(1);
+        expect(_scope.todoCtrl.todos.length).toBe(1);
       }))
     })
 })

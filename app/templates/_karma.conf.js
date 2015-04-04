@@ -20,7 +20,7 @@ module.exports = function(config)
           'client/dev/bower_components/jquery/dist/jquery.min.js',
           'client/dev/bower_components/angular/angular.min.js',
           'client/dev/bower_components/angular-socket-io/socket.min.js',
-          'client/dev/bower_components/angular-route/angular-route.min.js',
+          'client/dev/bower_components/angular-new-router/dist/router.es5.min.js',
           'client/dev/bower_components/angular-resource/angular-resource.min.js',
           'client/dev/bower_components/bootstrap/dist/js/bootstrap.min.js',
           'client/dev/bower_components/ng-xtorage/ng-xtorage.min.js',

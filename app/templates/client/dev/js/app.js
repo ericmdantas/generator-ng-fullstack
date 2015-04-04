@@ -2,14 +2,10 @@
 
 angular
   .module('myAwesomeApp', ['ngResource',
-                           'ngRoute',
+                           'ngNewRouter',
                            'btford.socket-io',
                            'emd.ng-xtorage'])
-  .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider)
+  .config(['$locationProvider', function($locationProvider)
   {
-      $routeProvider
-        .when('/', {templateUrl: 'partials/views/todo.html', controller: 'TodosController', controllerAs: 'todosCtrl'})
-        .otherwise({redirectTo: '/'});
-
       $locationProvider.html5Mode(true);
-  }])
+  }]);

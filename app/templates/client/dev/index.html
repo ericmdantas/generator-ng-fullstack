@@ -23,7 +23,7 @@
 
 	</head>
 
-	<body>
+	<body ng-controller="RouterController as routerCtrl">
 
 		<div ng-view></div>
 
@@ -33,19 +33,23 @@
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
-    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-socket-io/socket.min.js"></script>
     <script type="text/javascript" src="bower_components/ng-xtorage/ng-xtorage.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
+    <script type="text/javascript" src="js/component/todo/todo.js"></script>
+
     <!-- build:js1 js/app.min.js -->
+    <script type="text/javascript" src="bower_components/angular-new-router/dist/router.es5.min.js"></script>
+
     <script type="text/javascript" src="js/app.js"></script>
 
     <script type="text/javascript" src="js/todo/model/todo.model.js"></script>
-    <script type="text/javascript" src="js/todo/daos/todo.dao.js"></script>
+    <script type="text/javascript" src="js/todo/dao/todo.dao.js"></script>
     <script type="text/javascript" src="js/todo/resource/todo.resource.js"></script>
-    <script type="text/javascript" src="js/todo/controllers/todo.controller.js"></script>
+
+    <script type="text/javascript" src="js/common/controllers/router.controller.js"></script>
     <!-- endbuild -->
 
 	</body>

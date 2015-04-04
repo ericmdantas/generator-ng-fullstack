@@ -3,7 +3,7 @@
   <div class="todo-panel transition">
 
     <form name="TodoForm"
-          ng-submit="todosCtrl.createTodo(todosCtrl.todo)" >
+          ng-submit="todo.createTodo(todo.todo)" >
 
       <div class="title-container">
         <h1 class="text-muted text-center">Todo</h1>
@@ -16,7 +16,7 @@
         <input type="text"
                class="form-control input-lg"
                placeholder="Sooo... what are you doing today? ;)"
-               ng-model="todosCtrl.todo.todoMessage"
+               ng-model="todo.todo.todoMessage"
                maxlength="100"
                mg-maxlength="100"
                mg-minlength="1"
@@ -26,18 +26,18 @@
 
         <table class="table table-striped">
           <tbody>
-            <tr ng-repeat="t in todosCtrl.todos">
-              <td class="text-muted todo-in-todos">
-                <span ng-bind="t.todoMessage"></span>
-                <div class="todo-done transition"
-                     ng-click="todosCtrl.deleteTodo(t._id)">x</div>
-              </td>
+          <tr ng-repeat="t in todo.todos">
+            <td class="text-muted todo-in-todos">
+              <span ng-bind="t.todoMessage"></span>
+              <div class="todo-done transition"
+                   ng-click="todo.deleteTodo(t._id)">x</div>
+            </td>
 
-            </tr>
+          </tr>
           </tbody>
         </table>
 
-        <div ng-if="!todosCtrl.todos.length">
+        <div ng-if="!todo.todos.length">
           <h3 class="text-muted text-center">Nothing to do. Go play outside :D</h3>
         </div>
 
@@ -49,7 +49,7 @@
         <button type="submit"
                 id="submit-todo-button"
                 class="btn btn-success btn-block btn-lg submit-todo"
-                ng-disabled="TodoForm.$invalid || !todosCtrl.todo.isValid()"> ADD </button>
+                ng-disabled="TodoForm.$invalid || !todo.todo.isValid()"> ADD </button>
       </div>
 
     </form>

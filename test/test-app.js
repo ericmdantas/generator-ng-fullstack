@@ -81,22 +81,23 @@ describe('ng-fullstack:app', function () {
 
           'client/dev/js/app.js',
 
-          'client/dev/js/todo/controllers/todo.controller.js',
-          'client/dev/js/todo/daos/todo.dao.js',
+          'client/dev/js/todo/dao/todo.dao.js',
           'client/dev/js/todo/model/todo.model.js',
           'client/dev/js/todo/resource/todo.resource.js',
 
-          'client/dev/partials/views/todo.html',
+          'client/dev/js/component/todo/todo.js',
+          'client/dev/js/component/todo/todo.html',
+
+          'client/dev/js/common/controllers/router.controller.js',
 
           // tests - client
 
           'tests/client/_helpers/invalid-inputs.js',
 
-          'tests/client/todo/controllers/todo.controller_test.js',
-          'tests/client/todo/daos/todo.dao_test.js',
+          'tests/client/common/controllers/router.controller_test.js',
+          'tests/client/todo/dao/todo.dao_test.js',
           'tests/client/todo/models/todo.model_test.js',
-          'tests/client/todo/controllers/todo.controller_test.js',
-          'tests/client/todo/controllers/todo.controller_test.js',
+          'tests/client/component/todo/todo_test.js',
 
           // tests - server
 

@@ -25,6 +25,7 @@ var _fonts = DEV_DIR + 'fonts/*';
 var _partials = DEV_DIR + 'partials/**/*';
 var _indexHTML = DEV_DIR + 'index.html';
 var _bower = 'bower.json';
+var _component = DEV_DIR + 'js/component/';
 
 gulp.task('bower', function()
 {
@@ -34,12 +35,31 @@ gulp.task('bower', function()
           .pipe(gulp.dest(DEV_DIR));
 });
 
-gulp.task('html,css,js:temp', function()
+gulp.task('component:temp', function()
+{
+  return gulp
+            .src(_component + '**/*')
+            .pipe(gulp.dest(TEMP_DIR + 'js/component/'));
+})
+
+gulp.task('component:dist', function()
 {
   gulp
-    .src(_indexHTML)
-    .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
-    .pipe(gulp.dest(TEMP_DIR));
+    .src(_component + '**/*')
+    .pipe(gulp.dest(DIST_DIR + 'js/component/'));
+
+  gulp
+    .src(_component + '**/*.js')
+    .pipe(uglify())
+    .pipe(gulp.dest(DIST_DIR + 'js/component/'));
+})
+
+gulp.task('html,css,js:temp', function()
+{
+  return gulp
+          .src(_indexHTML)
+          .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
+          .pipe(gulp.dest(TEMP_DIR));
 })
 
 gulp.task('partials:temp', function()
@@ -98,8 +118,8 @@ gulp.task('browser_sync', function()
   return browserSync.reload();
 })
 
-gulp.task('build', ['del_dist', 'unit_test_client', 'partials:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist']); // dist build
-gulp.task('build_temp', ['del_temp', 'partials:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp']); // browser-sync build
+gulp.task('build', ['del_dist', 'unit_test_client', 'partials:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist', 'component:dist']); // dist build
+gulp.task('build_temp', ['del_temp', 'partials:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp', 'component:temp']); // browser-sync build
 
 gulp.task('watch', ['del_temp', 'bower', 'build_temp', 'browser_sync'], function()
 {
