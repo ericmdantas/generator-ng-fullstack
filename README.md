@@ -13,11 +13,6 @@ $ npm install -g generator-ng-fullstack
 ```
 
 
-# disclaimer
-
-Work in progress.
-
-
 # what is this?
 
 This is the generator of the next generation fullstack applications.
