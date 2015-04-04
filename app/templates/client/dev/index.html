@@ -25,7 +25,7 @@
 
 	<body ng-controller="RouterController as routerCtrl">
 
-		<div ng-view></div>
+		<ng-viewport></ng-viewport>
 
     <!-- build:js0 js/frameworks.min.js -->
     <!-- bower:js -->
@@ -38,8 +38,6 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <script type="text/javascript" src="js/component/todo/todo.js"></script>
-
     <!-- build:js1 js/app.min.js -->
     <script type="text/javascript" src="bower_components/angular-new-router/dist/router.es5.min.js"></script>
 
@@ -51,6 +49,8 @@
 
     <script type="text/javascript" src="js/common/controllers/router.controller.js"></script>
     <!-- endbuild -->
+
+    <script type="text/javascript" src="js/components/todo/todo.js"></script>
 
 	</body>
 </html>

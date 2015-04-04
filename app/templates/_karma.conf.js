@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Sun Apr 27 2014 18:49:56 GMT-0300 (Hora oficial do Brasil)
 
-module.exports = function(config)
+var KarmaConf = function(config)
 {
   config.set({
 
@@ -16,25 +16,25 @@ module.exports = function(config)
 
     // list of files / patterns to load in the browser
     files:
-    [
-          'client/dev/bower_components/jquery/dist/jquery.min.js',
-          'client/dev/bower_components/angular/angular.min.js',
-          'client/dev/bower_components/angular-socket-io/socket.min.js',
-          'client/dev/bower_components/angular-new-router/dist/router.es5.min.js',
-          'client/dev/bower_components/angular-resource/angular-resource.min.js',
-          'client/dev/bower_components/bootstrap/dist/js/bootstrap.min.js',
-          'client/dev/bower_components/ng-xtorage/ng-xtorage.min.js',
+      [
+        'client/dev/bower_components/jquery/dist/jquery.min.js',
+        'client/dev/bower_components/angular/angular.min.js',
+        'client/dev/bower_components/angular-socket-io/socket.min.js',
+        'client/dev/bower_components/angular-new-router/dist/router.es5.min.js',
+        'client/dev/bower_components/angular-resource/angular-resource.min.js',
+        'client/dev/bower_components/bootstrap/dist/js/bootstrap.min.js',
+        'client/dev/bower_components/ng-xtorage/ng-xtorage.min.js',
 
-          'client/dev/js/app.js',
-          'client/dev/js/**/*.js',
+        'client/dev/js/app.js',
+        'client/dev/js/**/*.js',
 
-          'client/dev/bower_components/angular-socket-io/mock/socket-io.js',
-          'client/dev/bower_components/angular-mocks/angular-mocks.js',
+        'client/dev/bower_components/angular-socket-io/mock/socket-io.js',
+        'client/dev/bower_components/angular-mocks/angular-mocks.js',
 
-          'tests/client/**/*_test.js',
+        'tests/client/**/*_test.js',
 
-          'client/dev/partials/includes/*.html' // for templateUrl testing
-    ],
+        'client/dev/partials/includes/*.html' // for templateUrl testing
+      ],
 
     // list of files to exclude
     exclude: [],
@@ -49,8 +49,8 @@ module.exports = function(config)
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors:
     {
-		'client/dev/js/**/*.js': ['coverage'],
-     'client/dev/partials/includes/*.html': ['ng-html2js']
+      'client/dev/js/**/*.js': ['coverage'],
+      'client/dev/partials/includes/*.html': ['ng-html2js']
     },
 
     ngHtml2JsPreprocessor:
@@ -86,10 +86,12 @@ module.exports = function(config)
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['Chrome', 'Firefox', 'FirefoxNightly', 'ChromeCanary', 'IE', 'Safari', 'PhantomJS'],
 
-	captureTimeout: 120000,
+    captureTimeout: 120000,
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: true
   });
 };
+
+module.exports = KarmaConf;

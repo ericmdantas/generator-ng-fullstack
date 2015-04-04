@@ -15,9 +15,9 @@ describe('NgFullstack:component', function () {
   it('creates files', function () {
     assert.file(
       [
-        'client/dev/js/component/user/user.js',
-        'client/dev/js/component/user/user.html',
-        'tests/client/component/user/user_test.js'
+        'client/dev/js/components/user/user.js',
+        'client/dev/js/components/user/user.html',
+        'tests/client/components/user/user_test.js'
       ]);
   });
 });

@@ -85,8 +85,8 @@ describe('ng-fullstack:app', function () {
           'client/dev/js/todo/model/todo.model.js',
           'client/dev/js/todo/resource/todo.resource.js',
 
-          'client/dev/js/component/todo/todo.js',
-          'client/dev/js/component/todo/todo.html',
+          'client/dev/js/components/todo/todo.js',
+          'client/dev/js/components/todo/todo.html',
 
           'client/dev/js/common/controllers/router.controller.js',
 
@@ -97,7 +97,7 @@ describe('ng-fullstack:app', function () {
           'tests/client/common/controllers/router.controller_test.js',
           'tests/client/todo/dao/todo.dao_test.js',
           'tests/client/todo/models/todo.model_test.js',
-          'tests/client/component/todo/todo_test.js',
+          'tests/client/components/todo/todo_test.js',
 
           // tests - server
 

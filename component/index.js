@@ -25,9 +25,9 @@ ComponentGenerator.prototype.writing = function()
 {
   var _name = this.name;
 
-  this.template('component.js', knownPaths.PATH_CLIENT_FEATURES + '/component/' + _name + '/' + _name + '.js', {name: _name});
-  this.template('component.html', knownPaths.PATH_CLIENT_FEATURES + '/component/' + _name + '/' + _name + '.html', {name: _name});
-  this.template('component_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + '/component/' + _name + '/' + _name + '_test.js', {name: _name, nameLowerCase: _name.toLowerCase()});
+  this.template('component.js', knownPaths.PATH_CLIENT_FEATURES + '/components/' + _name + '/' + _name + '.js', {name: _name});
+  this.template('component.html', knownPaths.PATH_CLIENT_FEATURES + '/components/' + _name + '/' + _name + '.html', {name: _name});
+  this.template('component_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + '/components/' + _name + '/' + _name + '_test.js', {name: _name, nameLowerCase: _name.toLowerCase()});
 }
 
 module.exports = ComponentGenerator;

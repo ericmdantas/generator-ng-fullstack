@@ -25,7 +25,7 @@ var _fonts = DEV_DIR + 'fonts/*';
 var _partials = DEV_DIR + 'partials/**/*';
 var _indexHTML = DEV_DIR + 'index.html';
 var _bower = 'bower.json';
-var _component = DEV_DIR + 'js/component/';
+var _components = DEV_DIR + 'js/components/';
 
 gulp.task('bower', function()
 {
@@ -35,23 +35,23 @@ gulp.task('bower', function()
           .pipe(gulp.dest(DEV_DIR));
 });
 
-gulp.task('component:temp', function()
+gulp.task('components:temp', function()
 {
   return gulp
-            .src(_component + '**/*')
-            .pipe(gulp.dest(TEMP_DIR + 'js/component/'));
+            .src(_components + '**/*')
+            .pipe(gulp.dest(TEMP_DIR + 'js/components/'));
 })
 
-gulp.task('component:dist', function()
+gulp.task('components:dist', function()
 {
   gulp
-    .src(_component + '**/*')
-    .pipe(gulp.dest(DIST_DIR + 'js/component/'));
+    .src(_components + '**/*')
+    .pipe(gulp.dest(DIST_DIR + 'js/components/'));
 
   gulp
-    .src(_component + '**/*.js')
+    .src(_components + '**/*.js')
     .pipe(uglify())
-    .pipe(gulp.dest(DIST_DIR + 'js/component/'));
+    .pipe(gulp.dest(DIST_DIR + 'js/components/'));
 })
 
 gulp.task('html,css,js:temp', function()
@@ -118,8 +118,8 @@ gulp.task('browser_sync', function()
   return browserSync.reload();
 })
 
-gulp.task('build', ['del_dist', 'unit_test_client', 'partials:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist', 'component:dist']); // dist build
-gulp.task('build_temp', ['del_temp', 'partials:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp', 'component:temp']); // browser-sync build
+gulp.task('build', ['del_dist', 'unit_test_client', 'partials:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist', 'components:dist']); // dist build
+gulp.task('build_temp', ['del_temp', 'partials:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp', 'components:temp']); // browser-sync build
 
 gulp.task('watch', ['del_temp', 'bower', 'build_temp', 'browser_sync'], function()
 {

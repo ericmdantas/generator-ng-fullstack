@@ -6,7 +6,7 @@ angular
   {
     var _paths = [];
 
-    _paths.push({path: '/', component: 'todo'})
+    _paths.push({path: '/', component: 'todo'});
 
     $router.config(_paths);
   }]);

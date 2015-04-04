@@ -26,14 +26,14 @@
 
         <table class="table table-striped">
           <tbody>
-          <tr ng-repeat="t in todo.todos">
-            <td class="text-muted todo-in-todos">
-              <span ng-bind="t.todoMessage"></span>
-              <div class="todo-done transition"
-                   ng-click="todo.deleteTodo(t._id)">x</div>
-            </td>
+            <tr ng-repeat="t in todo.todos">
+              <td class="text-muted todo-in-todos">
+                <span ng-bind="t.todoMessage"></span>
+                <div class="todo-done transition"
+                     ng-click="todo.deleteTodo(t._id)">x</div>
+              </td>
 
-          </tr>
+            </tr>
           </tbody>
         </table>
 
