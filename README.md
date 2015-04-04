@@ -74,10 +74,12 @@ Do you want integration with MongoHQ? You got it!
 └── tests
      ├── client
      │   ├── _helpers
+     │   ├── components
+     │   │    └── todo
+     │   │ 
      │   └── todo
      │        ├── dao
      │        ├── model
-     │        ├── controller
      │        └── routes
      │   
      ├── e2e
