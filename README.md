@@ -48,6 +48,7 @@ Do you want integration with MongoHQ? You got it!
 ├── client
 │    └── dev
 │        ├── js 
+│        ├── components 
 │        ├── css
 │        ├── partials
 │        └── imgs
@@ -176,23 +177,45 @@ This will create the structure above.
 
 ## client
 
-### controller:
+### component:
 ```
 
-yo ng-fullstack:controller User --feature user
+yo ng-fullstack:component user
 
 ```
 
 This will create:
 
 ``` 
-client/dev/js/user/controller/user.controller.js 
+client/dev/components/user/user.js
+client/dev/components/user/user.html 
 ```
 
 and
 
 ```
-tests/client/user/controller/user.controller_test.js 
+tests/client/component/user/user_test.js 
+```
+
+
+
+### controller:
+```
+
+yo ng-fullstack:controller Doctor --feature doctor
+
+```
+
+This will create:
+
+``` 
+client/dev/js/doctor/controller/doctor.controller.js 
+```
+
+and
+
+```
+tests/client/doctor/controller/doctor.controller_test.js 
 ```
 
 
