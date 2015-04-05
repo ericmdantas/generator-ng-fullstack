@@ -25,22 +25,22 @@
 
 	<body ng-controller="RouterController as routerCtrl">
 
-		<ng-viewport></ng-viewport>
+		<div ng-viewport></div>
 
     <!-- build:js0 js/frameworks.min.js -->
     <!-- bower:js -->
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-messages/angular-messages.js"></script>
     <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-socket-io/socket.min.js"></script>
     <script type="text/javascript" src="bower_components/ng-xtorage/ng-xtorage.min.js"></script>
     <!-- endbower -->
+    <script type="text/javascript" src="bower_components/angular-new-router/dist/router.es5.min.js"></script>
     <!-- endbuild -->
 
     <!-- build:js1 js/app.min.js -->
-    <script type="text/javascript" src="bower_components/angular-new-router/dist/router.es5.min.js"></script>
-
     <script type="text/javascript" src="js/app.js"></script>
 
     <script type="text/javascript" src="js/todo/model/todo.model.js"></script>
@@ -50,7 +50,7 @@
     <script type="text/javascript" src="js/common/controllers/router.controller.js"></script>
     <!-- endbuild -->
 
-    <script type="text/javascript" src="js/components/todo/todo.js"></script>
+    <script type="text/javascript" src="components/todo/todo.js"></script>
 
 	</body>
 </html>

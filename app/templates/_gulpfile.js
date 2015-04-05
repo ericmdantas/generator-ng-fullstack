@@ -25,7 +25,7 @@ var _fonts = DEV_DIR + 'fonts/*';
 var _partials = DEV_DIR + 'partials/**/*';
 var _indexHTML = DEV_DIR + 'index.html';
 var _bower = 'bower.json';
-var _components = DEV_DIR + 'js/components/';
+var _components = DEV_DIR + 'components/';
 
 gulp.task('bower', function()
 {
@@ -39,19 +39,19 @@ gulp.task('components:temp', function()
 {
   return gulp
             .src(_components + '**/*')
-            .pipe(gulp.dest(TEMP_DIR + 'js/components/'));
+            .pipe(gulp.dest(TEMP_DIR + 'components/'));
 })
 
 gulp.task('components:dist', function()
 {
   gulp
     .src(_components + '**/*')
-    .pipe(gulp.dest(DIST_DIR + 'js/components/'));
+    .pipe(gulp.dest(DIST_DIR + 'components/'));
 
   gulp
     .src(_components + '**/*.js')
     .pipe(uglify())
-    .pipe(gulp.dest(DIST_DIR + 'js/components/'));
+    .pipe(gulp.dest(DIST_DIR + 'components/'));
 })
 
 gulp.task('html,css,js:temp', function()
