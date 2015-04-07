@@ -344,7 +344,7 @@ and
 tests/server/skateboard/dao/skate.dao_test.js 
 ```
 
-# running tests
+# tests
 
 Client:
 
