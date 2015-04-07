@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "babel app/index.es6 --watch -o app/index.js --loose",
-    "test": "mocha --reporter min"
+    "test": "mocha --reporter min --compilers js:babel/register"
   },
   "files": [
     "app",
