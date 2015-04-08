@@ -14,9 +14,14 @@
     "iojs": "1.x.x"
   },
   "scripts": {
+<<<<<<< HEAD
     "start": "gulp compile:babel",
     "watch:es6": "gulp watch:es6",
     "test": "mocha --reporter min"
+=======
+    "start": "babel app/index.es6 --watch -o app/index.js --loose",
+    "test": "mocha --reporter min --compilers js:babel/register"
+>>>>>>> 16e230e9d459a5b67d8b16863efd884921516257
   },
   "files": [
     "app",
