@@ -36,6 +36,7 @@
     "gulp-concat": "^2.4.3",
     "gulp-coveralls": "^0.1.3",
     "gulp-less": "^3.0.0",
+    "gulp-babel": "^5.0.0",
     "gulp-minify-css": "^0.4.5",
     "gulp-rename": "^1.2.0",
     "gulp-rev": "^3.0.0",

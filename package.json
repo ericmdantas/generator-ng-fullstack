@@ -14,7 +14,8 @@
     "iojs": "1.x.x"
   },
   "scripts": {
-    "start": "babel app/index.es6 --watch -o app/index.js --loose",
+    "start": "gulp compile:babel",
+    "watch:es6": "gulp watch:es6",
     "test": "mocha --reporter min"
   },
   "files": [
@@ -42,6 +43,9 @@
   "dependencies": {
     "babel": "^4.7.16",
     "chalk": "^0.5.0",
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.0.0",
+    "gulp-rename": "^1.2.2",
     "yeoman-generator": "^0.18.0",
     "yosay": "^0.3.0"
   },

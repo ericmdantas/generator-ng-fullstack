@@ -1,14 +1,15 @@
 'use strict';
 
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var yosay = require('yosay');
+import yeoman from 'yeoman-generator';
+import chalk from 'chalk';
+import yosay from 'yosay';
 
 export default class NgFullstack extends yeoman.generators.Base
 {
     constructor(args, options, config)
     {
-        yeoman.generators.Base.apply(this, arguments);
+        super(args, options, config);
+        //yeoman.generators.Base.apply(this, arguments);
     }
 
     initializing()

@@ -1,10 +1,15 @@
-"use strict";
+;(function(angular)
+{
+  "use strict";
 
-angular
-  .module('myAwesomeApp')
-  .controller('<%= name %>Controller', [function()
-  {
-    var self = this;
+  angular
+    .module('myAwesomeApp')
+    .controller('<%= name %>Controller', [function()
+    {
+      var self = this;
 
-    self.greeting = 'Hello there :D';
-  }]);
+      self.greeting = 'Hello there :D';
+    }]);
+
+}(window.angular));
+

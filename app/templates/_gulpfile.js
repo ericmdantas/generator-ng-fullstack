@@ -2,30 +2,40 @@
 
 // TODO: modularize this, make sure different files know to do one thing well, so it won't be as messy as this one
 
-var gulp = require('gulp');
-var uglify = require('gulp-uglify');
-var cssmin = require('gulp-minify-css');
-var usemin = require('gulp-usemin');
-var rev = require('gulp-rev');
-var less = require('gulp-less');
-var del = require('del');
-var coveralls = require('gulp-coveralls');
-var karma = require('karma').server;
-var browserSync = require('browser-sync');
-var wiredep = require('wiredep').stream;
+const gulp = require('gulp');
+const uglify = require('gulp-uglify');
+const cssmin = require('gulp-minify-css');
+const usemin = require('gulp-usemin');
+const rev = require('gulp-rev');
+const less = require('gulp-less');
+const del = require('del');
+const coveralls = require('gulp-coveralls');
+const karma = require('karma').server;
+const browserSync = require('browser-sync');
+const wiredep = require('wiredep').stream;
+const rename = require('gulp-rename');
 
-var DEV_DIR = './client/dev/';
-var TEMP_DIR = './client/__tmp/'; // working on it dir
-var DIST_DIR = './client/dist/';
+const DEV_DIR = './client/dev/';
+const TEMP_DIR = './client/__tmp/'; // working on it dir
+const DIST_DIR = './client/dist/';
 
-var _js = DEV_DIR + 'js/**/*.js';
-var _less = DEV_DIR + 'css/**/*.less';
-var _images = DEV_DIR + 'imgs/*';
-var _fonts = DEV_DIR + 'fonts/*';
-var _partials = DEV_DIR + 'partials/**/*';
-var _indexHTML = DEV_DIR + 'index.html';
-var _bower = 'bower.json';
-var _components = DEV_DIR + 'components/';
+const _js = DEV_DIR + 'js/**/*.js';
+const _less = DEV_DIR + 'css/**/*.less';
+const _images = DEV_DIR + 'imgs/*';
+const _fonts = DEV_DIR + 'fonts/*';
+const _partials = DEV_DIR + 'partials/**/*';
+const _indexHTML = DEV_DIR + 'index.html';
+const _bower = 'bower.json';
+const _components = DEV_DIR + 'components/';
+const _es6 = '**/*.es6';
+
+gulp.task('compile:babel', function()
+{
+    return gulp.src('**/*.es6')
+               .pipe(babel()) // add decorators
+               .pipe(rename({extFile: '.js'}))
+               .pipe(gulp.dest('.'));
+})
 
 gulp.task('bower', function()
 {
@@ -125,7 +135,7 @@ gulp.task('watch', ['del_temp', 'bower', 'build_temp', 'browser_sync'], function
 {
   browserSync({proxy: "http://localhost:3333", reloadDelay: 1000});
 
-  var _watchable = [];
+  let _watchable = [];
 
   _watchable.push(_indexHTML);
   _watchable.push(_js);
@@ -134,8 +144,9 @@ gulp.task('watch', ['del_temp', 'bower', 'build_temp', 'browser_sync'], function
   _watchable.push(_partials);
   _watchable.push(_fonts);
   _watchable.push(_bower);
+  _watchable.push(_es6);
 
-  return gulp.watch(_watchable, ['bower', 'build_temp', 'browser_sync']);
+  return gulp.watch(_watchable, ['compile:babel', 'bower', 'build_temp', 'browser_sync']);
 });
 
 gulp.task('del_temp', function()

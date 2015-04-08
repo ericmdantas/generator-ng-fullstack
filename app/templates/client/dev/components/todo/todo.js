@@ -1,48 +1,51 @@
 "use strict";
 
-angular
-  .module('myAwesomeApp')
-  .controller('TodoController', ['$log', 'Todo', 'TodoDAO', function($log, Todo, TodoDAO)
-  {
-    var self = this;
-
-    self.todo = new Todo();
-    self.todos = [];
-
-    self.createTodo = function(todo)
+;(function(angular)
+{
+  angular
+    .module('myAwesomeApp')
+    .controller('TodoController', ['$log', 'Todo', 'TodoDAO', function($log, Todo, TodoDAO)
     {
-      var _onSuccess = function(newTodo)
+      var self = this;
+
+      self.todo = new Todo();
+      self.todos = [];
+
+      self.createTodo = function(todo)
       {
-        self.todos.push(newTodo);
-        self.todo = new Todo();
+        var _onSuccess = function(newTodo)
+        {
+          self.todos.push(newTodo);
+          self.todo = new Todo();
+        };
+
+        TodoDAO
+          .createTodo(todo)
+          .then(_onSuccess)
+          .catch($log.error);
       };
 
-      TodoDAO
-        .createTodo(todo)
-        .then(_onSuccess)
-        .catch($log.error);
-    };
-
-    self.deleteTodo = function(id)
-    {
-      TodoDAO
-        .deleteTodo(id)
-        .then(_getAll)
-        .catch($log.error);
-    }
-
-    var _getAll = function()
-    {
-      var _onSuccess = function(todos)
+      self.deleteTodo = function(id)
       {
-        return self.todos = todos;
-      };
+        TodoDAO
+          .deleteTodo(id)
+          .then(_getAll)
+          .catch($log.error);
+      }
 
-      return TodoDAO
-        .getAll()
-        .then(_onSuccess)
-        .catch($log.error);
-    }
+      var _getAll = function()
+      {
+        var _onSuccess = function(todos)
+        {
+          return self.todos = todos;
+        };
 
-    _getAll();
-  }]);
+        return TodoDAO
+          .getAll()
+          .then(_onSuccess)
+          .catch($log.error);
+      }
+
+      _getAll();
+    }]);
+}(window.angular));
