@@ -13,7 +13,6 @@ const coveralls = require('gulp-coveralls');
 const karma = require('karma').server;
 const browserSync = require('browser-sync');
 const wiredep = require('wiredep').stream;
-const rename = require('gulp-rename');
 const inject = require('gulp-inject');
 
 const DEV_DIR = './client/dev/';

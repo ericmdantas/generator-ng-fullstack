@@ -3,6 +3,7 @@
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import contentLength from 'express-content-length-validator';
+import helmet from 'helmet';
 
 export default class RouteConfig
 {
@@ -14,5 +15,6 @@ export default class RouteConfig
         application.use(bodyParser());
         application.use(morgan('dev'));
         application.use(contentLength.validateMax({max: 999}));
+        application.use(helmet());
     }
 }

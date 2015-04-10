@@ -22,7 +22,8 @@
     "morgan": "^1.1.1",
     "socket.io": "^1.2.1",
     "socket.io-client": "^1.3.2",
-    "newrelic": "^1.14.0"
+    "newrelic": "^1.14.0",
+    "helmet": "^0.7.1"
 
   },
   "devDependencies":
