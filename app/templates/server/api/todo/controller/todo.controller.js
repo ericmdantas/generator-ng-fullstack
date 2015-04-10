@@ -6,14 +6,14 @@ export default class TodoController
 {
   static getAll(req, res)
   {
-      var _onSuccess = function(todos)
+      var _onSuccess = todos =>
       {
         res
           .status(200)
           .json(todos);
       }
 
-      var _onError = function(error)
+      var _onError = error =>
       {
         res
           .status(400)
@@ -28,14 +28,14 @@ export default class TodoController
 
   static createTodo(req, res)
   {
-      var _onSuccess = function(todo)
+      var _onSuccess = todo =>
       {
         res
           .status(201) // created
           .json(todo);
       }
 
-      var _onError = function(error)
+      var _onError = error =>
       {
         res
           .status(400) // bad request
@@ -52,14 +52,14 @@ export default class TodoController
 
   static deleteTodo(req, res)
   {
-    var _onSuccess = function()
+    var _onSuccess = () =>
     {
       res
         .status(200) // all good
         .end();
     }
 
-    var _onError = function(error)
+    var _onError = error =>
     {
       res
         .status(400)  // bad request

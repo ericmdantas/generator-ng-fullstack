@@ -168,7 +168,7 @@ $ gulp watch
 
 ```
 
-yo ng-fullstack
+$ yo ng-fullstack
 
 ```
 
@@ -180,7 +180,7 @@ This will create the structure above.
 ### component:
 ```
 
-yo ng-fullstack:component user
+$ yo ng-fullstack:component user
 
 ```
 
@@ -202,7 +202,7 @@ tests/client/component/user/user_test.js
 ### controller:
 ```
 
-yo ng-fullstack:controller Doctor --feature doctor
+$ yo ng-fullstack:controller Doctor --feature doctor
 
 ```
 
@@ -223,7 +223,7 @@ tests/client/doctor/controller/doctor.controller_test.js
 
 ```
 
-yo ng-fullstack:directive i-toggle-stuff --feature common
+$ yo ng-fullstack:directive i-toggle-stuff --feature common
 
 ```
 
@@ -244,7 +244,7 @@ tests/client/common/directive/i-toggle-stuff.directive_test.js
 
 ```
 
-yo ng-fullstack:service HttpParser --feature lib
+$ yo ng-fullstack:service HttpParser --feature lib
 
 ```
 
@@ -266,7 +266,7 @@ tests/client/lib/service/HttpParser.service_test.js
 
 ```
 
-yo ng-fullstack:factory Student --feature student
+$ yo ng-fullstack:factory Student --feature student
 
 ```
 
@@ -287,7 +287,7 @@ tests/client/student/factory/Studet.factory_test.js
 
 ```
 
-yo ng-fullstack:resource Clazz --feature clazz
+$ yo ng-fullstack:resource Clazz --feature clazz
 
 ```
 
@@ -302,7 +302,7 @@ client/dev/js/clazz/resource/Clazz.resource.js
 
 ```
 
-yo ng-fullstack:decorator qExtender --feature next-q
+$ yo ng-fullstack:decorator qExtender --feature next-q
 
 ```
 
@@ -319,7 +319,7 @@ client/dev/js/next-q/decorator/qExtender.decorator.js
 
 ```
 
-yo ng-fullstack:endpoint skate --feature skateboard
+$ yo ng-fullstack:endpoint skate --feature skateboard
 
 ```
 

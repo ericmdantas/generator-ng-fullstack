@@ -34,7 +34,6 @@ gulp.task('compile:babel', function()
 {
     return gulp.src(['**/*.es6', '!node_modules/**'])
                .pipe(babel({optional: ['es7.decorators']}))
-               .pipe(rename({extname: '.js'}))
                .pipe(gulp.dest('.'));
 })
 
