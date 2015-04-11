@@ -141,7 +141,7 @@ gulp.task('browser_sync', function()
   return browserSync.reload();
 })
 
-gulp.task('build', ['del_dist', 'unit_test_client', 'inject:css:index', 'inject:js:index', 'partials:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist', 'components:dist']); // dist build
+gulp.task('build', ['del_dist', 'test_client', 'inject:css:index', 'inject:js:index', 'partials:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist', 'components:dist']); // dist build
 gulp.task('build_temp', ['del_temp', 'inject:css:index', 'inject:js:index', 'partials:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp', 'components:temp']); // browser-sync build
 
 gulp.task('watch', ['del_temp', 'inject:css:index', 'inject:js:index', 'bower', 'build_temp', 'browser_sync'], function()
