@@ -41,11 +41,11 @@ export default class NgFullstack extends yeoman.generators.Base
       this.template('_procfile.txt', 'procfile.txt', _app);
 
       this.template('index.js', 'index.js');
-      this.template('.bowerrc', '.bowerrc');
-      this.template('.travis.yml', '.travis.yml');
-      this.template('.gitignore', '.gitignore');
-      this.template('editorconfig', '.editorconfig');
-      this.template('jshintrc','.jshintrc');
+      this.template('_.bowerrc', '.bowerrc');
+      this.template('_.travis.yml', '.travis.yml');
+      this.template('_.gitignore', '.gitignore');
+      this.template('_.editorconfig', '.editorconfig');
+      this.template('_.jshintrc','.jshintrc');
 
       this.directory('client', 'client');
       this.directory('server', 'server');
