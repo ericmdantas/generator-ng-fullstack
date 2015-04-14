@@ -17,10 +17,18 @@
                class="form-control input-lg"
                placeholder="Sooo... what are you doing today? ;)"
                ng-model="todo.todo.todoMessage"
+               name="todoMsg"
                maxlength="100"
                mg-maxlength="100"
-               mg-minlength="1"
+               mg-minlength="3"
+               required
                autofocus />
+
+        <ng-messages for="TodoForm.todoMsg.$error">
+          <ng-message when="required" class="error-msg">Todo field is required</ng-message>
+          <ng-message when="minlength" class="error-msg">Min of 3 chars</ng-message>
+          <ng-message when="maxlength" class="error-msg">Max of 100 chars</ng-message>
+        </ng-messages>
 
         <br />
 
