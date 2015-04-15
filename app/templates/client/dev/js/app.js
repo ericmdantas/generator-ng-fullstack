@@ -7,7 +7,8 @@
       'ngNewRouter',
       'ngMessages',
       'btford.socket-io',
-      'emd.ng-xtorage'])
+      'emd.ng-xtorage',
+      'angulartics'])
     .config(['$locationProvider', function($locationProvider)
     {
       $locationProvider.html5Mode(true);
