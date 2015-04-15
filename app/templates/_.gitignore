@@ -1,3 +1,4 @@
 .idea/
 node_modules/
 unit_coverage/
+client/dev/bower_components
