@@ -27,7 +27,8 @@
     "factory",
     "decorator",
     "endpoint",
-    "component"
+    "component",
+    "filter"
   ],
   "keywords": [
     "yeoman-generator",

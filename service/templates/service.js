@@ -14,5 +14,5 @@
       this.doSomething = _doSomething;
     }]);
 
-}(window.angular))
+}(window.angular));
 
