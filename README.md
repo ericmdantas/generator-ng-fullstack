@@ -25,6 +25,7 @@ Forget about initial setup, ```yo ng-fullstack``` and be happy!
 You'll be using the **latest** versions of:
 
 - [io.js](https://github.com/iojs/io.js);
+- [Go](https://golang.org/);
 - [AngularJS](https://github.com/angular/angular.js);
 - [ES6 (Babel)](https://github.com/babel/babel);
 - [Bootstrap](https://github.com/twbs/bootstrap);
@@ -33,6 +34,8 @@ You'll be using the **latest** versions of:
 - [MongoDB](https://github.com/mongodb/mongo) + [Mongoose](https://github.com/learnboost/mongoose);
 - [Bluebird](https://github.com/petkaantonov/bluebird);
 - [Lodash](https://github.com/lodash/lodash);
+- [Integration with Heroku](https://www.heroku.com/);
+- Integration with Google Analytics;
 - And a bunch of great other modules out there!
 
 
@@ -258,6 +261,27 @@ and
 
 ```
 tests/client/lib/service/HttpParser.service_test.js 
+```
+
+
+### filter
+
+```
+
+$ yo ng-fullstack:filter myFilter --feature common
+
+```
+
+This will create:
+
+``` 
+client/dev/js/common/filter/myFilter.filter.js 
+```
+
+and
+
+```
+tests/client/common/filter/myFilter.filter_test.js 
 ```
 
 
