@@ -48,7 +48,7 @@ export default class NgFullstack extends yeoman.generators.Base
       this.template('_.jshintrc','.jshintrc');
 
       this.directory('client', 'client');
-      this.directory('server', 'server');
+      this.directory('server_io.js', 'server');
       this.directory('tests', 'tests');
     }
 
