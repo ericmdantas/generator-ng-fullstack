@@ -27,6 +27,7 @@ export default class NgFullstack extends yeoman.generators.Base
       var _app = {app: this.appName};
       var _username = {username: this.githubUsername};
       var _appAndUsername = {app: _app.app, username: _username.username};
+      var _server = this.server;
 
       this.template('_package.json', 'package.json', _appAndUsername);
       this.template('_bower.json', 'bower.json', _appAndUsername);
@@ -40,7 +41,6 @@ export default class NgFullstack extends yeoman.generators.Base
 
       this.template('_procfile.txt', 'procfile.txt', _app);
 
-      this.template('index.js', 'index.js');
       this.template('_.bowerrc', '.bowerrc');
       this.template('_.travis.yml', '.travis.yml');
       this.template('_.gitignore', '.gitignore');
@@ -48,8 +48,16 @@ export default class NgFullstack extends yeoman.generators.Base
       this.template('_.jshintrc','.jshintrc');
 
       this.directory('client', 'client');
-      this.directory('server_io.js', 'server');
       this.directory('tests', 'tests');
+
+      switch(_server) {
+        case "io.js": this.directory('server_io.js', 'server');
+          this.template('index.js', 'index.js');
+          break;
+
+        case "Go": this.directory('server_go', 'server');
+          break;
+      }
     }
 
     install()
@@ -74,6 +82,13 @@ export default class NgFullstack extends yeoman.generators.Base
             name: 'githubUsername',
             message: 'What is your username on Github?',
             default: 'some-username-here'
+          },
+          {
+            type: "list",
+            name: "server",
+            message: "What do you want in server side?",
+            choices: ["io.js", "Go"],
+            default: 0
           }
         ];
 
@@ -81,6 +96,7 @@ export default class NgFullstack extends yeoman.generators.Base
       {
         this.appName = props.appName;
         this.githubUsername = props.githubUsername;
+        this.server = props.server;
 
         done();
 
