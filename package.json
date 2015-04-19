@@ -39,7 +39,10 @@
     "generator-ng-fullstack",
     "generator-iojs-fullstack",
     "angular2",
-    "generator-es6"
+    "generator-es6",
+    "go",
+    "go-generator",
+    "generator-go"
   ],
   "dependencies": {
     "babel": "^5.0.12",
