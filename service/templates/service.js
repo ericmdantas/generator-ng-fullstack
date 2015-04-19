@@ -1,18 +1,20 @@
-;(function(angular)
-{
-  "use strict";
+(function () {
+    "use strict";
 
-  angular
-    .module('myAwesomeApp')
-    .service('<%= name %>Service', ['$q', function($q)
-    {
-      var _doSomething = function()
-      {
+    /**
+     * <%= name %>Service
+     */
+    angular
+        .module('myAwesomeApp')
+        .service('<%= name %>Service', <%= name %>Service);
 
-      }
+    <%= name %>Service.$inject = [];
 
-      this.doSomething = _doSomething;
-    }]);
+    /* @ngInject */
+    function <%= name %>Service() {
+        this.doSomething = function () {
 
-}(window.angular))
+        };
+    }
+}());
 
