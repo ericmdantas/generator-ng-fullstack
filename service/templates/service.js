@@ -8,10 +8,10 @@
         .module('myAwesomeApp')
         .service('<%= name %>Service', <%= name %>Service);
 
-    <%= name %>Service.$inject = [];
+    <%= name %>Service.$inject = ['$q'];
 
     /* @ngInject */
-    function <%= name %>Service() {
+    function <%= name %>Service($q) {
         this.doSomething = function () {
 
         };

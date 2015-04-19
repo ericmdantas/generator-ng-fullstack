@@ -3,7 +3,7 @@
 if ('production' === process.env.NODE_ENV)
     require('newrelic');
 
-const port = process.env.PORT || 3333;
+const PORT = process.env.PORT || 3333;
 
 import os from 'os';
 import express from 'express';
@@ -12,16 +12,16 @@ import DBConfig from './config/db.conf';
 import Routes from './routes/index';
 
 var app = express();
-var server = app.listen(port);
+var server = app.listen(PORT);
 
-import socket from './commons/socket/socket-events';
+import Socket from './commons/socket/socket-events';
 
 var io = require('socket.io').listen(server);
 
-RoutesConfig.init(app, express, __dirname + '/..');
+RoutesConfig.init(app, express);
 DBConfig.init();
 Routes.init(app, express.Router());
-socket.init(io);
+Socket.init(io);
 
-console.log(`up and running @: ${os.hostname()} on port: ${port}`);
+console.log(`up and running @: ${os.hostname()} on port: ${PORT}`);
 console.log(`enviroment: ${process.env.NODE_ENV}`);
