@@ -1,7 +1,7 @@
-"use strict";
-
 ;(function(angular)
 {
+  "use strict";
+
   angular
     .module('myAwesomeApp')
     .controller('TodoController', ['$log', 'Todo', 'TodoDAO', function($log, Todo, TodoDAO)
