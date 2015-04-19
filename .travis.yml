@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - iojs-v1.7.0
+  - iojs
 
 before_install:
     - npm install -g istanbul mocha
