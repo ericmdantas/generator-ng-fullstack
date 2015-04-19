@@ -1,17 +1,18 @@
-;(function(angular)
-{
-  "use strict";
+(function () {
+    "use strict";
 
-  angular
-    .module('myAwesomeApp')
-    .factory('TodoResource', ['$resource', function($resource)
-    {
-      var _url = '/api/todos/:id';
-      var _params = {};
-      var _methods = {};
+    angular
+        .module('myAwesomeApp')
+        .factory('TodoResource', TodoResource);
 
-      return $resource(_url, _params, _methods);
-    }]);
+    TodoResource.$inject = ['$resource'];
 
+    /* @ngInject */
+    function TodoResource($resource) {
+        var _url = '/api/todos/:id';
+        var _params = {};
+        var _methods = {};
 
-}(window.angular));
+        return $resource(_url, _params, _methods);
+    }
+}());

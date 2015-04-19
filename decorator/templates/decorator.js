@@ -1,16 +1,21 @@
-;(function()
-{
-  "use strict";
+(function () {
+    "use strict";
 
-  angular
-    .module('myAwesomeApp')
-    .config(['$provide', function($provide)
-    {
-      $provide.decorator('SomethingToBeDecorated', ['$delegate', function($delegate)
-      {
-        return $delegate;
-      }]);
-    }]);
+    /**
+     * Decorator
+     */
+    angular
+        .module('myAwesomeApp')
+        .config('decorator');
 
+    decorator.$inject = ['$provide'];
+
+    /* @ngInject */
+    function decorator($provide) {
+        $provide.decorator('SomethingToBeDecorated', function ($delegate) {
+            return $delegate;
+        });
+    }
 }());
+
 

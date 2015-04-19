@@ -1,51 +1,75 @@
-;(function(angular)
-{
-  "use strict";
+(function () {
+    "use strict";
 
-  angular
-    .module('myAwesomeApp')
-    .controller('TodoController', ['$log', 'Todo', 'TodoDAO', function($log, Todo, TodoDAO)
-    {
-      var self = this;
+    /**
+     * Todo Controller
+     */
+    angular
+        .module('myAwesomeApp')
+        .controller('TodoController', TodoController);
 
-      self.todo = new Todo();
-      self.todos = [];
+    TodoController.$inject = ['$log', 'Todo', 'TodoDAO'];
 
-      self.createTodo = function(todo)
-      {
-        var _onSuccess = function(newTodo)
-        {
-          self.todos.push(newTodo);
-          self.todo = new Todo();
+    /* @ngInject */
+    function TodoController($log, Todo, TodoDAO) {
+        /* jshint validthis: true */
+        var vm = this;
+
+        // Models
+        vm.TodoDAO = TodoDAO;
+        vm.$log = $log;
+        vm.todo = new Todo();
+        vm.todos = [];
+
+        // Method Declarations
+        vm.createTodo = createTodo;
+        vm.deleteTodo = deleteTodo;
+
+        ////////////////
+
+        /**
+         * @name createTodo
+         * @desc Creates a todo
+         * @param {Todo} todo Todo to create
+         * @memberOf TodoController
+         */
+        function createTodo(todo) {
+            var _onSuccess = function (newTodo) {
+                self.todos.push(newTodo);
+                self.todo = new Todo();
+            };
+
+            TodoDAO.createTodo(todo)
+                .then(_onSuccess)
+                .catch($log.error);
+        }
+
+        /**
+         * @name deleteTodo
+         * @desc Deletes a todo
+         * @param {String} id Id of the todo to delete
+         * @memberOf TodoController
+         */
+        function deleteTodo(id) {
+            TodoDAO.deleteTodo(id)
+                .then(_getAll)
+                .catch($log.error);
+        }
+    }
+
+    /**
+     * Controls the activation of the controller, we fetch all the TODOs here
+     * @returns {Array} array of todos
+     */
+    TodoController.prototype.activate = function () {
+        var _this = this;
+        var _onSuccess = function (todos) {
+            return _this.todos = todos;
         };
 
-        TodoDAO
-          .createTodo(todo)
-          .then(_onSuccess)
-          .catch($log.error);
-      };
-
-      self.deleteTodo = function(id)
-      {
-        TodoDAO
-          .deleteTodo(id)
-          .then(_getAll)
-          .catch($log.error);
-      }
-
-      var _getAll = function()
-      {
-        var _onSuccess = function(todos)
-        {
-          return self.todos = todos;
-        };
-
-        return TodoDAO
-          .getAll()
-          .then(_onSuccess)
-          .catch($log.error);
-      }
-
-      _getAll();
-    }]);
-}(window.angular));
+        return this.TodoDAO
+            .getAll()
+            .then(_onSuccess)
+            .catch(this.$log.error);
+    }
+}());

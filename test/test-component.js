@@ -8,16 +8,15 @@ describe('NgFullstack:component', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../component'))
       .withArguments('user')
-      .withOptions({ 'skip-install': true})
+      .withOptions({'skip-install': true})
       .on('end', done);
   });
 
   it('creates files', function () {
-    assert.file(
-      [
+    assert.file([
         'client/dev/components/user/user.js',
         'client/dev/components/user/user.html',
-        'tests/client/components/user/user_test.js'
+        'tests/client/components/user/user.spec.js'
       ]);
   });
 });

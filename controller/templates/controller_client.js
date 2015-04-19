@@ -1,14 +1,26 @@
-;(function(angular)
-{
-  "use strict";
+(function () {
+    "use strict";
 
-  angular
-    .module('myAwesomeApp')
-    .controller('<%= name %>Controller', [function()
-    {
-      var self = this;
+    /**
+     * <%= name %>Controller
+     */
+    angular
+        .module('myAwesomeApp')
+        .controller('<%= name %>Controller', <%= name %>Controller);
 
+    <%= name %>Controller.$inject = [];
 
-    }]);
-}(window.angular));
+    /* @ngInject */
+    function <%= name %>Controller() {
+        /* jshint validthis: true */
+        var vm = this;
+
+        // Models
+
+        // Method Declarations
+
+        ////////////////
+
+    }
+}());
 
