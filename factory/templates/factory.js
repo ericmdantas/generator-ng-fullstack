@@ -1,23 +1,22 @@
-;(function(angular)
-{
-  "use strict";
+(function () {
+    "use strict";
 
-  angular
-    .module('myAwesomeApp')
-    .factory('<%= name %>', [function()
-    {
-      var <%= name %> = function()
-    {
-      this.something = 123;
+    /**
+     * <%= name %>
+     */
+    angular
+        .module('myAwesomeApp')
+        .factory('<%= name %>', <%= name %>);
+
+    <%= name %>.$inject = [];
+
+    /* @ngInject */
+    function <%= name %>() {
+        var factory = {};
+        return factory;
+
+        ////////////
+
     }
-
-    <%= name %>.prototype.isValid = function()
-    {
-      return !!this.something;
-    }
-
-      return <%= name %>;
-    }]);
-
-}(window.angular))
+}());
 
