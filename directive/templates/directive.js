@@ -1,29 +1,25 @@
-;(function(angular)
-{
-  "use strict";
+(function () {
+    "use strict";
 
-  angular
-    .module('myAwesomeApp')
-    .directive('<%= name %>', [function()
-    {
-      var _link = function(scope, element, attrs)
-      {
+    /**
+     * <%= name %>
+     */
+    angular
+        .module('myAwesomeApp')
+        .directive('<%= name %>', <%= name %>);
 
-      };
 
-      var _restrict = 'A';
+    function <%= name %>() {
+        var directive = {
+            link: link,
+            restrict: 'EA'
+        };
 
-      var _scope = {};
+        function link(scope, controller, attrs) {
 
-      var _replace = true;
+        }
 
-      return {
-        restrict: _restrict,
-        replace: _replace,
-        link: _link,
-        scope: _scope
-      };
-    }]);
-
-}(window.angular));
+        return directive;
+    }
+}());
 
