@@ -1,18 +1,13 @@
 <div class="container">
-
   <div class="todo-panel transition">
-
-    <form name="TodoForm"
-          ng-submit="todo.createTodo(todo.todo)" >
-
+    <form name="TodoForm" ng-submit="todo.createTodo(todo.todo)">
       <div class="title-container">
         <h1 class="text-muted text-center">Todo</h1>
       </div>
 
-      <hr />
+      <hr/>
 
       <div class="todos-container">
-
         <input type="text"
                class="form-control input-lg"
                placeholder="Sooo... what are you doing today? ;)"
@@ -22,7 +17,7 @@
                mg-maxlength="100"
                mg-minlength="3"
                required
-               autofocus />
+               autofocus/>
 
         <ng-messages for="TodoForm.todoMsg.$error">
           <ng-message when="required" class="error-msg">Todo field is required</ng-message>
@@ -30,37 +25,36 @@
           <ng-message when="maxlength" class="error-msg">Max of 100 chars</ng-message>
         </ng-messages>
 
-        <br />
+        <br/>
 
         <table class="table table-striped">
           <tbody>
-            <tr ng-repeat="t in todo.todos">
-              <td class="text-muted todo-in-todos">
-                <span ng-bind="t.todoMessage"></span>
-                <div class="todo-done transition"
-                     ng-click="todo.deleteTodo(t._id)">x</div>
-              </td>
+          <tr ng-repeat="t in todo.todos">
+            <td class="text-muted todo-in-todos">
+              <span ng-bind="t.todoMessage"></span>
 
-            </tr>
+              <div class="todo-done transition"
+                   ng-click="todo.deleteTodo(t._id)">x
+              </div>
+            </td>
+          </tr>
           </tbody>
         </table>
 
         <div ng-if="!todo.todos.length">
           <h3 class="text-muted text-center">Nothing to do. Go play outside :D</h3>
         </div>
-
       </div>
 
-      <hr />
+      <hr/>
 
       <div class="footer-container">
         <button type="submit"
                 id="submit-todo-button"
                 class="btn btn-success btn-block btn-lg submit-todo"
-                ng-disabled="TodoForm.$invalid || !todo.todo.isValid()"> ADD </button>
+                ng-disabled="TodoForm.$invalid || !todo.todo.isValid()"> ADD
+        </button>
       </div>
-
     </form>
-
   </div>
 </div>

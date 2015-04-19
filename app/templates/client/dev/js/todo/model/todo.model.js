@@ -1,31 +1,30 @@
-;(function(angular)
-{
-  "use strict";
+(function () {
+    "use strict";
 
-  angular
-    .module('myAwesomeApp')
-    .factory('Todo', [function()
-    {
-      var Todo = function(todo)
-      {
-        this.todoMessage = null;
+    angular
+        .module('myAwesomeApp')
+        .factory('Todo', Todo);
 
-        angular.extend(this, todo);
-      }
+    Todo.$inject = [];
 
-      var MIN_ACCEPTED_LENGTH = 5;
+    /* @ngInject */
+    function Todo() {
+        var Todo = function (todo) {
+            this.todoMessage = null;
+            angular.extend(this, todo);
+        };
 
-      Todo.prototype.isValid = function()
-      {
-        var _isDefined = angular.isDefined(this.todoMessage);
-        var _isString = angular.isString(this.todoMessage);
-        var _isBigEnough = (_isDefined && _isString) ? this.todoMessage.length >= MIN_ACCEPTED_LENGTH : false;
+        var MIN_ACCEPTED_LENGTH = 5;
 
-        return _isDefined && _isString && _isBigEnough;
-      }
+        Todo.prototype.isValid = function () {
+            var _isDefined = angular.isDefined(this.todoMessage);
+            var _isString = angular.isString(this.todoMessage);
+            var _isBigEnough = (_isDefined && _isString) ? this.todoMessage.length >= MIN_ACCEPTED_LENGTH : false;
 
-      return Todo;
-    }]);
+            return _isDefined && _isString && _isBigEnough;
+        };
 
-}(window.angular));
+        return Todo;
+    }
+}());
 
