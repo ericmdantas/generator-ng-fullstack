@@ -2,7 +2,7 @@
     "use strict";
 
     /**
-     * <%= nameController %>
+     * <%= name %>Controller
      */
     angular
         .module('myAwesomeApp')

@@ -1,7 +1,7 @@
 "use strict";
 
 describe('<%= name %>', function () {
-    var _<%= name % >;
+    var _<%= name %>;
 
     beforeEach(module('myAwesomeApp'));
 
