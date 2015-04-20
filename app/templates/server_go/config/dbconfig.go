@@ -14,7 +14,7 @@ func (db *DB) DoDial() (s *mgo.Session, err error) {
 }
 
 func (db *DB) Name() string {
-	return "go_pro"
+	return "myAwesomeApp"
 }
 
 func DBUrl() string {
