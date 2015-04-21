@@ -2,7 +2,6 @@ package todocontroller
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/ericmdantas/stuff/go_pro/server/api/todo/dao"
 	"github.com/julienschmidt/httprouter"
 	"io/ioutil"
@@ -10,23 +9,14 @@ import (
 )
 
 func GetAll(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Println("todos")
-
-	ts, err := tododao.All()
+	ts := tododao.All()
 
 	w.Header().Set("Content-Type", "application/json")
-
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write(tsm)
-		return
-	}
 
 	tsm, err := json.Marshal(ts)
 
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write(tsm)
 		return
 	}
 
@@ -47,7 +37,7 @@ func NewTodo(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 	defer r.Body.Close()
 
-	nt, err := tododao.NewTodo(tf)
+	nt := tododao.NewTodo(tf)
 
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -74,7 +64,6 @@ func RemoveTodo(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		return
 	}
 
 	w.WriteHeader(http.StatusOK)

@@ -2,6 +2,7 @@ package tododao
 
 import (
 	"encoding/json"
+	"errors"
 	todo "github.com/ericmdantas/stuff/go_pro/server/api/todo/model"
 	"github.com/ericmdantas/stuff/go_pro/server/config"
 	"gopkg.in/mgo.v2/bson"
@@ -18,7 +19,7 @@ func All() (todo.Todos, error) {
 	s, err := db.DoDial()
 
 	if err != nil {
-		return err
+		return ts, errors.New("There was an error trying to connect with the DB.")
 	}
 
 	defer s.Close()
@@ -28,7 +29,7 @@ func All() (todo.Todos, error) {
 	err = c.Find(bson.M{}).All(&ts)
 
 	if err != nil {
-		return err
+		return ts, errors.New("There was an error trying to find the todos.")
 	}
 
 	return ts, err
@@ -44,13 +45,13 @@ func NewTodo(tf []byte) (todo.Todo, error) {
 	err := json.Unmarshal(tf, &t)
 
 	if err != nil {
-		return err
+		return t, errors.New("There was an error trying to parse the json.")
 	}
 
 	s, err := db.DoDial()
 
 	if err != nil {
-		return err
+		return t, errors.New("There was an error trying to connect to the DB.")
 	}
 
 	defer s.Close()
@@ -60,7 +61,7 @@ func NewTodo(tf []byte) (todo.Todo, error) {
 	err = c.Insert(t)
 
 	if err != nil {
-		return err
+		return t, errors.New("There was an error trying to insert the doc to the DB.")
 	}
 
 	return t, err
@@ -72,7 +73,7 @@ func DeleteTodo(id string) error {
 	s, err := db.DoDial()
 
 	if err != nil {
-		return err
+		return errors.New("There was an error trying to connect with the DB.")
 	}
 
 	idoi := bson.ObjectIdHex(id)
@@ -82,6 +83,10 @@ func DeleteTodo(id string) error {
 	c := s.DB(db.Name()).C(col)
 
 	err = c.RemoveId(idoi)
+
+	if err != nil {
+		return errors.New("There was an error trying to remove the todo.")
+	}
 
 	return err
 }

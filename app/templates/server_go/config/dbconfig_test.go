@@ -18,7 +18,7 @@ func TestGetDbUrl(t *testing.T) {
 }
 
 func TestDBName(t *testing.T) {
-	assert.Equal(t, "go_pro", db.Name())
+	assert.Equal(t, "myAwesomeApp", db.Name())
 }
 
 func BenchmarkDoDial(b *testing.B) {
