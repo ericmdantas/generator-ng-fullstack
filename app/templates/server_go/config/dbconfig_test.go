@@ -8,6 +8,10 @@ import (
 
 var db DB = DB{}
 
+func cleanEnv() {
+	os.Setenv("MONGOHQ_URL", "")
+}
+
 func TestGetDbUrl(t *testing.T) {
 
 	assert.Equal(t, "localhost", DBUrl())
@@ -15,10 +19,12 @@ func TestGetDbUrl(t *testing.T) {
 	os.Setenv("MONGOHQ_URL", "abc")
 
 	assert.Equal(t, "abc", DBUrl())
+
+	cleanEnv()
 }
 
 func TestDBName(t *testing.T) {
-	assert.Equal(t, "myAwesomeApp", db.Name())
+	assert.Equal(t, "my_awesome_app", db.Name())
 }
 
 func BenchmarkDoDial(b *testing.B) {

@@ -3,15 +3,21 @@ package todocontroller
 import (
 	"encoding/json"
 	"github.com/ericmdantas/stuff/go_pro/server/api/todo/dao"
+	todo "github.com/ericmdantas/stuff/go_pro/server/api/todo/model"
 	"github.com/julienschmidt/httprouter"
 	"io/ioutil"
 	"net/http"
 )
 
 func GetAll(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	ts := tododao.All()
+	ts, err := tododao.All()
 
 	w.Header().Set("Content-Type", "application/json")
+
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
 
 	tsm, err := json.Marshal(ts)
 
@@ -28,6 +34,8 @@ func GetAll(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 func NewTodo(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Header().Set("Content-Type", "application/json")
 
+	t := todo.Todo{}
+
 	tf, err := ioutil.ReadAll(r.Body)
 
 	if err != nil {
@@ -37,7 +45,14 @@ func NewTodo(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 	defer r.Body.Close()
 
-	nt := tododao.NewTodo(tf)
+	err = json.Unmarshal(tf, &t)
+
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	nt, err := tododao.NewTodo(t)
 
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -64,6 +79,7 @@ func RemoveTodo(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
+		return
 	}
 
 	w.WriteHeader(http.StatusOK)

@@ -1,7 +1,6 @@
 package tododao
 
 import (
-	"encoding/json"
 	"errors"
 	todo "github.com/ericmdantas/stuff/go_pro/server/api/todo/model"
 	"github.com/ericmdantas/stuff/go_pro/server/config"
@@ -35,18 +34,11 @@ func All() (todo.Todos, error) {
 	return ts, err
 }
 
-func NewTodo(tf []byte) (todo.Todo, error) {
+func NewTodo(t todo.Todo) (todo.Todo, error) {
 
 	db := dbconfig.DB{}
-	t := todo.Todo{}
 	t.Id = bson.NewObjectId()
 	t.CreatedAt = time.Now()
-
-	err := json.Unmarshal(tf, &t)
-
-	if err != nil {
-		return t, errors.New("There was an error trying to parse the json.")
-	}
 
 	s, err := db.DoDial()
 
