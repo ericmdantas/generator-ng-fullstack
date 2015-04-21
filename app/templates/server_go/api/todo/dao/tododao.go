@@ -10,7 +10,7 @@ import (
 
 const col string = "todos"
 
-func All() todo.Todos {
+func All() (todo.Todos, error) {
 
 	db := dbconfig.DB{}
 	ts := todo.Todos{}
@@ -18,7 +18,7 @@ func All() todo.Todos {
 	s, err := db.DoDial()
 
 	if err != nil {
-		panic(err)
+		return err
 	}
 
 	defer s.Close()
@@ -28,17 +28,13 @@ func All() todo.Todos {
 	err = c.Find(bson.M{}).All(&ts)
 
 	if err != nil {
-		panic(err)
+		return err
 	}
 
-	if err != nil {
-		panic(err)
-	}
-
-	return ts
+	return ts, err
 }
 
-func NewTodo(tf []byte) todo.Todo {
+func NewTodo(tf []byte) (todo.Todo, error) {
 
 	db := dbconfig.DB{}
 	t := todo.Todo{}
@@ -48,13 +44,13 @@ func NewTodo(tf []byte) todo.Todo {
 	err := json.Unmarshal(tf, &t)
 
 	if err != nil {
-		panic(err)
+		return err
 	}
 
 	s, err := db.DoDial()
 
 	if err != nil {
-		panic(err)
+		return err
 	}
 
 	defer s.Close()
@@ -64,19 +60,19 @@ func NewTodo(tf []byte) todo.Todo {
 	err = c.Insert(t)
 
 	if err != nil {
-		panic(err)
+		return err
 	}
 
-	return t
+	return t, err
 }
 
-func DeleteTodo(id string) {
+func DeleteTodo(id string) error {
 	db := dbconfig.DB{}
 
 	s, err := db.DoDial()
 
 	if err != nil {
-		panic(err)
+		return err
 	}
 
 	idoi := bson.ObjectIdHex(id)
@@ -87,7 +83,5 @@ func DeleteTodo(id string) {
 
 	err = c.RemoveId(idoi)
 
-	if err != nil {
-		panic(err)
-	}
+	return err
 }

@@ -12,38 +12,55 @@ import (
 func GetAll(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	fmt.Println("todos")
 
-	ts := tododao.All()
+	ts, err := tododao.All()
+
+	w.Header().Set("Content-Type", "application/json")
+
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write(tsm)
+		return
+	}
 
 	tsm, err := json.Marshal(ts)
 
 	if err != nil {
-		panic(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write(tsm)
+		return
 	}
 
-	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 
 	w.Write(tsm)
 }
 
 func NewTodo(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	w.Header().Set("Content-Type", "application/json")
+
 	tf, err := ioutil.ReadAll(r.Body)
 
 	if err != nil {
-		panic(err)
+		w.WriteHeader(http.StatusBadRequest)
+		return
 	}
 
 	defer r.Body.Close()
 
-	nt := tododao.NewTodo(tf)
+	nt, err := tododao.NewTodo(tf)
+
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
 
 	ntm, err := json.Marshal(nt)
 
 	if err != nil {
-		panic(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		return
 	}
 
-	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 
 	w.Write(ntm)
@@ -53,7 +70,12 @@ func RemoveTodo(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 	id := ps.ByName("id")
 
-	tododao.DeleteTodo(id)
+	err := tododao.DeleteTodo(id)
+
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
 
 	w.WriteHeader(http.StatusOK)
 }
