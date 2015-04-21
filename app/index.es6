@@ -101,5 +101,7 @@ export default class NgFullstack extends yeoman.generators.Base
         done();
 
       }.bind(this));
+
+      this.config.save();
     }
 }

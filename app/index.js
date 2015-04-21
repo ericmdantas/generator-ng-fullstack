@@ -96,6 +96,8 @@ NgFullstack.prototype.prompUser = function() {
     done();
 
   }.bind(this));
+
+  this.config.save();
 }
 
 module.exports = NgFullstack;
