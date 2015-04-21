@@ -11,4 +11,13 @@ type Todo struct {
 	CreatedAt   time.Time     `json:"createdAt,omitempty" bson:"createdAt"`
 }
 
+func (t Todo) IsValid() bool {
+
+	if l := len(t.TodoMessage); l > 4 {
+		return true
+	}
+
+	return false
+}
+
 type Todos []Todo
