@@ -13,27 +13,27 @@ const DEV_DIR = './client/dev/';
 const TEMP_DIR = './client/__tmp/'; // working on it dir
 const DIST_DIR = './client/dist/';
 
-const _images = DEV_DIR + 'imgs/*';
-const _fonts = DEV_DIR + 'fonts/*';
-const _partials = DEV_DIR + 'partials/**/*';
-const _indexHTML = DEV_DIR + 'index.html';
-const _components = DEV_DIR + 'components/';
+const IMAGES = DEV_DIR + 'imgs/*';
+const FONTS = DEV_DIR + 'fonts/*';
+const PARTIALS = DEV_DIR + 'partials/**/*';
+const INDEX_HTML = DEV_DIR + 'index.html';
+const COMPONENTS = DEV_DIR + 'components/';
 
 gulp.task('components:temp', function()
 {
   return gulp
-    .src(_components + '**/*')
+    .src(COMPONENTS + '**/*')
     .pipe(gulp.dest(TEMP_DIR + 'components/'));
 })
 
 gulp.task('components:dist', function()
 {
   gulp
-    .src(_components + '**/*')
+    .src(COMPONENTS + '**/*')
     .pipe(gulp.dest(DIST_DIR + 'components/'));
 
   gulp
-    .src(_components + '**/*.js')
+    .src(COMPONENTS + '**/*.js')
     .pipe(uglify())
     .pipe(gulp.dest(DIST_DIR + 'components/'));
 })
@@ -41,7 +41,7 @@ gulp.task('components:dist', function()
 gulp.task('html,css,js:temp', function()
 {
   return gulp
-    .src(_indexHTML)
+    .src(INDEX_HTML)
     .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
     .pipe(gulp.dest(TEMP_DIR));
 })
@@ -49,21 +49,21 @@ gulp.task('html,css,js:temp', function()
 gulp.task('partials:temp', function()
 {
   return gulp
-    .src(_partials)
+    .src(PARTIALS)
     .pipe(gulp.dest(TEMP_DIR + 'partials/'));
 })
 
 gulp.task('imgs:temp', function()
 {
   return gulp
-    .src(_images)
+    .src(IMAGES)
     .pipe(gulp.dest(TEMP_DIR + 'imgs/'));
 })
 
 gulp.task('fonts:temp', function()
 {
   return gulp
-    .src(_fonts)
+    .src(FONTS)
     .pipe(gulp.dest(TEMP_DIR + 'fonts/'));
 })
 
@@ -71,7 +71,7 @@ gulp.task('fonts:temp', function()
 gulp.task('html,css,js:dist', function()
 {
   return gulp
-    .src(_indexHTML)
+    .src(INDEX_HTML)
     .pipe(usemin({js0: [rev(), uglify()], js1: [rev(), uglify()], css0: [cssmin(), rev(), less()]}))
     .pipe(gulp.dest(DIST_DIR));
 })
@@ -79,21 +79,21 @@ gulp.task('html,css,js:dist', function()
 gulp.task('fonts:dist', function()
 {
   return gulp
-    .src(_fonts)
+    .src(FONTS)
     .pipe(gulp.dest(DIST_DIR + 'fonts/'));
 })
 
 gulp.task('partials:dist', function()
 {
   return gulp
-    .src(_partials)
+    .src(PARTIALS)
     .pipe(gulp.dest(DIST_DIR + 'partials/'));
 })
 
 gulp.task('imgs:dist', function()
 {
   return gulp
-    .src(_images)
+    .src(IMAGES)
     .pipe(gulp.dest(DIST_DIR+ 'imgs/'));
 })
 
