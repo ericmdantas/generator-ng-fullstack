@@ -1,6 +1,6 @@
 "use strict";
 
-// TODO: modularize this, make sure different files know to do one thing well, so it won't be as messy as this one
+// TODO: modularize (https://github.com/ericmdantas/generator-ng-fullstack/issues/6)
 
 const gulp = require('gulp');
 const uglify = require('gulp-uglify');
