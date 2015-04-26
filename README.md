@@ -22,6 +22,8 @@ This is the generator of the next generation fullstack applications.
 
 Forget about initial setup, ```yo ng-fullstack``` and be happy!
 
+This project is one of many things that you can use to get started building a new app.  
+For a detailed comparison of the options and trade-offs between them, please visit [this](http://www.dancancro.com/comparison-of-angularjs-application-starters) link.
 
 # what am I going to be using?
 
