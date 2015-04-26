@@ -92,15 +92,19 @@ export default class NgFullstack extends yeoman.generators.Base
           }
         ];
 
-      this.prompt(prompts, function(props)
+      this.prompt(prompts, props =>
       {
         this.appName = props.appName;
         this.githubUsername = props.githubUsername;
         this.server = props.server;
 
+        this.config.set('server', this.server.toLowerCase());
+        this.config.set('username', this.githubUsername);
+        this.config.set('appName', this.appName);
+
         done();
 
-      }.bind(this));
+      });
 
       this.config.save();
     }

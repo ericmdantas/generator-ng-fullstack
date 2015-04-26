@@ -93,6 +93,10 @@ NgFullstack.prototype.prompUser = function() {
     this.githubUsername = props.githubUsername;
     this.server = props.server;
 
+    this.config.set('server', this.server);
+    this.config.set('username', this.githubUsername);
+    this.config.set('appName', this.appName);
+
     done();
 
   }.bind(this));
