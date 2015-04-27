@@ -22,8 +22,6 @@ This is the generator of the next generation fullstack applications.
 
 Forget about initial setup, ```yo ng-fullstack``` and be happy!
 
-This project is one of many things that you can use to get started building a new app.  
-For a detailed comparison of the options and trade-offs between them, please visit [this](http://www.dancancro.com/comparison-of-angularjs-application-starters) link.
 
 # what am I going to be using?
 
@@ -120,8 +118,11 @@ Answer a couple questions, and you're good to go!
 
 # do I need anything?
 
+In case you're using io.js:
+You'll need [io.js](https://github.com/iojs/io.js) installed. So, [please do it](https://iojs.org/en/index.html).
 
-Yes. You'll need [io.js](https://github.com/iojs/io.js) installed. So, [please do it](https://iojs.org/en/index.html).
+In case you're using Go:
+You'll need [Go](https://golang.org/) installed. So, [please do it](https://golang.org/dl/).
 
 
 # anything else?
@@ -427,6 +428,12 @@ Not to mention we've got a bunch of good stuff coming, like Angular2.0.
 We're better be prepared and ready to code.
 
 
+# not interested, what else is out there?
+
+This project is one of many things that you can use to get started building a new app.  
+For a detailed comparison of the options and trade-offs between them, please visit [this](http://www.dancancro.com/comparison-of-angularjs-application-starters) link.
+
+
 # inspiration
 
 Inspired by [generator-angular-fullstack](https://github.com/DaftMonk/generator-angular-fullstack).
@@ -435,7 +442,6 @@ Inspired by [generator-angular-fullstack](https://github.com/DaftMonk/generator-
 # got any idea to improve this generator?
 
 PRs are welcome! Either commit them, or let me know and we'll talk about it =]
-
 
 # license
 
