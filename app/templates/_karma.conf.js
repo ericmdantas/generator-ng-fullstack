@@ -24,6 +24,9 @@ var KarmaConf = function(config)
         'client/dev/bower_components/angular-resource/angular-resource.min.js',
         'client/dev/bower_components/bootstrap/dist/js/bootstrap.min.js',
         'client/dev/bower_components/ng-xtorage/ng-xtorage.min.js',
+        'client/dev/bower_components/angulartics/src/angulartics.js',
+        'client/dev/bower_components/angulartics/src/angulartics-ga.js',
+
 
         'client/dev/js/app.js',
         'client/dev/js/**/*.js',
