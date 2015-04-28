@@ -5,6 +5,29 @@ var util = require('util');
 var knownPaths = require('../known-paths');
 var optionsParser = require('../options-parser');
 
+var _copyIojs = function(feature, name)
+{
+  this.template('io.js/endpoint.route.js', knownPaths.PATH_SERVER_FEATURES + feature + '/route/' + name + '.route.js', {name: name, nameLowerCase: name.toLowerCase()});
+  this.template('io.js/endpoint.controller.js', knownPaths.PATH_SERVER_FEATURES + feature + '/controller/' + name + '.controller.js', {name: name, nameLowerCase: name.toLowerCase()});
+  this.template('io.js/endpoint.dao.js', knownPaths.PATH_SERVER_FEATURES + feature + '/dao/' + name + '.dao.js', {name: name, nameLowerCase: name.toLowerCase()});
+  this.template('io.js/endpoint.model.js', knownPaths.PATH_SERVER_FEATURES + feature + '/model/' + name + '.model.js', {name: name, nameLowerCase: name.toLowerCase()});
+
+  this.template('io.js/endpoint.dao_test.js', knownPaths.PATH_SERVER_FEATURES_TEST + feature + '/dao/' + name + '.dao_test.js', {name: name, nameLowerCase: name.toLowerCase(), feature: feature});
+}
+
+var _copyGo = function(feature, name)
+{
+  this.template('go/endpoint.route.go', knownPaths.PATH_SERVER_FEATURES + feature + '/route/' + name + 'route.go', {name: name, nameLowerCase: name.toLowerCase()});
+  this.template('go/endpoint.controller.go', knownPaths.PATH_SERVER_FEATURES + feature + '/controller/' + name + 'controller.go', {name: name, nameLowerCase: name.toLowerCase()});
+  this.template('go/endpoint.dao.go', knownPaths.PATH_SERVER_FEATURES + feature + '/dao/' + name + 'dao.go', {name: name, nameLowerCase: name.toLowerCase()});
+  this.template('go/endpoint.model.go', knownPaths.PATH_SERVER_FEATURES + feature + '/model/' + name + 'model.go', {name: name, nameLowerCase: name.toLowerCase()});
+
+  this.template('go/endpoint.dao_test.go', knownPaths.PATH_SERVER_FEATURES + feature + '/dao/' + name + 'dao_test.go', {name: name, nameLowerCase: name.toLowerCase(), feature: feature});
+  this.template('go/endpoint.model_test.go', knownPaths.PATH_SERVER_FEATURES + feature + '/model/' + name + 'model_test.go', {name: name, nameLowerCase: name.toLowerCase(), feature: feature});
+  this.template('go/endpoint.controller_test.go', knownPaths.PATH_SERVER_FEATURES + feature + '/controller/' + name + 'controller_test.go', {name: name, nameLowerCase: name.toLowerCase(), feature: feature});
+  this.template('go/endpoint.route_test.go', knownPaths.PATH_SERVER_FEATURES + feature + '/route/' + name + 'route_test.go', {name: name, nameLowerCase: name.toLowerCase(), feature: feature});
+}
+
 var EndpointGenerator = function(args, options, config)
 {
     yeoman.generators.Base.apply(this, arguments);
@@ -25,17 +48,16 @@ EndpointGenerator.prototype.initializing = function()
 EndpointGenerator.prototype.writing = function()
 {
   var _feature = optionsParser.getFeature(this.options);
-  var _name = this.name
+  var _name = this.name;
+  var _server = this.config.get('server') ?  this.config.get('server').toLowerCase() : undefined;
 
   if (!_feature.length)
     throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-  this.template('endpoint.route.js', knownPaths.PATH_SERVER_FEATURES + _feature + '/route/' + _name + '.route.js', {name: _name, nameLowerCase: _name.toLowerCase()});
-  this.template('endpoint.controller.js', knownPaths.PATH_SERVER_FEATURES + _feature + '/controller/' + _name + '.controller.js', {name: _name, nameLowerCase: _name.toLowerCase()});
-  this.template('endpoint.dao.js', knownPaths.PATH_SERVER_FEATURES + _feature + '/dao/' + _name + '.dao.js', {name: _name, nameLowerCase: _name.toLowerCase()});
-  this.template('endpoint.model.js', knownPaths.PATH_SERVER_FEATURES + _feature + '/model/' + _name + '.model.js', {name: _name, nameLowerCase: _name.toLowerCase()});
-
-  this.template('endpoint.dao_test.js', knownPaths.PATH_SERVER_FEATURES_TEST + _feature + '/dao/' + _name + '.dao_test.js', {name: _name, nameLowerCase: _name.toLowerCase(), feature: _feature});
+  switch (_server) {
+    case "go" : _copyGo.call(this, _feature, _name); break;
+    default: _copyIojs.call(this, _feature, _name); break;
+  }
 }
 
 module.exports = EndpointGenerator;
