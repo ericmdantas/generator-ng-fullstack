@@ -49,6 +49,7 @@ Check the [wiki](https://github.com/ericmdantas/generator-ng-fullstack/wiki) for
 # why did you create this?
 
 Most solutions out there are either outdated or not as complete.
+
 The idea is to keep this one going strong and updated.
 
 
