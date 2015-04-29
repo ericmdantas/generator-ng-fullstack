@@ -43,7 +43,9 @@ You'll be using the **latest** versions of:
 - Integration with Google Analytics;
 - And a bunch of great other modules out there!
 
-Check the [wiki](https://github.com/ericmdantas/generator-ng-fullstack/wiki) for more.
+# usage
+
+[Take a look here](https://github.com/ericmdantas/generator-ng-fullstack/wiki).
 
 
 # why did you create this?
