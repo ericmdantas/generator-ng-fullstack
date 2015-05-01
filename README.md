@@ -38,9 +38,9 @@ You'll be using the **latest** versions of:
 - [Bluebird](https://github.com/petkaantonov/bluebird);
 - [Lodash](https://github.com/lodash/lodash);
 - [Integration with Heroku](https://www.heroku.com/);
-- Integration with New Relic;
-- Integration with MongoHQ;
-- Integration with Google Analytics;
+- [Integration with New Relic](http://newrelic.com/);
+- [Integration with MongoHQ](https://www.compose.io/);
+- [Integration with Google Analytics](http://www.google.com/analytics/);
 - And a bunch of great other modules out there!
 
 # usage
