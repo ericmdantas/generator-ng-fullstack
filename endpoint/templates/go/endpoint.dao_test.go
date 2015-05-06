@@ -1,7 +1,7 @@
 package tododao
 
 import (
-	todo "github.com/ericmdantas/stuff/go_pro/server/api/todo/model"
+	todo "github.com/<%= username %>/<%= appName %>/server/api/todo/model"
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
@@ -163,3 +163,4 @@ func BenchmarkAll(b *testing.B) {
 
 	clearDB()
 }
+

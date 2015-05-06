@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/ericmdantas/stuff/go_pro/server/routes"
+	"github.com/<%= username %>/<%= appName %>/server/routes"
 	"github.com/julienschmidt/httprouter"
 	"net/http"
 )

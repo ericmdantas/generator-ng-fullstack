@@ -2,8 +2,8 @@ package todocontroller
 
 import (
 	"encoding/json"
-	"github.com/ericmdantas/stuff/go_pro/server/api/todo/dao"
-	todo "github.com/ericmdantas/stuff/go_pro/server/api/todo/model"
+	"github.com/<%= username %>/<%= appName %>/server/api/todo/dao"
+	todo "github.com/<%= username %>/<%= appName %>/server/api/todo/model"
 	"github.com/julienschmidt/httprouter"
 	"io/ioutil"
 	"net/http"

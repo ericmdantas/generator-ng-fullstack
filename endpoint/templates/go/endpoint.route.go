@@ -1,7 +1,7 @@
 package todoroutes
 
 import (
-	"github.com/ericmdantas/stuff/go_pro/server/api/todo/controller"
+	"github.com/<%= username %>/<%= appName %>/server/api/todo/controller"
 	"github.com/julienschmidt/httprouter"
 )
 

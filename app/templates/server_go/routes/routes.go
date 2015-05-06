@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/ericmdantas/stuff/go_pro/server/api/todo/routes"
-	"github.com/ericmdantas/stuff/go_pro/server/common/static"
+	"github.com/<%= username %>/<%= appName %>/server/api/todo/routes"
+	"github.com/<%= username %>/<%= appName %>/server/common/static"
 	"github.com/julienschmidt/httprouter"
 )
 
