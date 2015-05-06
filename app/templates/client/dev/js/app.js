@@ -8,7 +8,7 @@
       'ngMessages',
       'btford.socket-io',
       'emd.ng-xtorage',
-      'angulartics.google.analytics'])
+      'angulartics'])
     .config(['$locationProvider', function($locationProvider)
     {
       $locationProvider.html5Mode(true);
