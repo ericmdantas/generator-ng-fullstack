@@ -1,8 +1,6 @@
 # ng-fullstack
 [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack)
 
-> [Yeoman](http://yeoman.io) generator
-
 # join the chat
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ericmdantas/generator-ng-fullstack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
@@ -18,7 +16,7 @@ $ npm install -g generator-ng-fullstack
 
 # what is this?
 
-This is the generator of the next generation fullstack applications.
+This is a [Yeoman](http://yeoman.io) generator for the now and next generation fullstack applications.
 
 Forget about initial setup, ```yo ng-fullstack``` and be happy!
 
