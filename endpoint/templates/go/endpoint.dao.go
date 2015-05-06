@@ -3,7 +3,7 @@ package tododao
 
 import (
 	"errors"
-	todo "github.com/<%= username %>/<%= appName %>/api/todo/model"
+	todo "github.com/<%= username %>/<%= appName %>/server/api/todo/model"
 	"github.com/<%= username %>/<%= appName %>/server/config"
 	"gopkg.in/mgo.v2/bson"
 	"time"

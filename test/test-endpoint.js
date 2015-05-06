@@ -35,7 +35,7 @@ describe('NgFullstack:endpoint', function () {
           'server/api/todo2/controller/endp.controller.js',
           'server/api/todo2/dao/endp.dao.js',
           'server/api/todo2/model/endp.model.js',
-          'server/api/todo2/route/endp.route.js',
+          'server/api/todo2/routes/endp.route.js',
 
           'tests/server/todo2/dao/endp.dao_test.js'
         ]);

@@ -51,6 +51,8 @@ NgFullstack.prototype.writing = function() {
                   break;
 
     case "Go": this.directory('server_go', 'server');
+               this.template('server_go/main.go', 'server/main.go', {appName: _app.app, username: _username.username});
+               this.template('server_go/routes/routes.go', 'server/routes/routes.go', {appName: _app.app, username: _username.username});
                break;
   }
 

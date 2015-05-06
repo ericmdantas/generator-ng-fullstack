@@ -7,7 +7,7 @@ var optionsParser = require('../options-parser');
 
 var _copyIojs = function(feature, name)
 {
-  this.template('io.js/endpoint.route.js', knownPaths.PATH_SERVER_FEATURES + feature + '/route/' + name + '.route.js', {name: name, nameLowerCase: name.toLowerCase()});
+  this.template('io.js/endpoint.route.js', knownPaths.PATH_SERVER_FEATURES + feature + '/routes/' + name + '.route.js', {name: name, nameLowerCase: name.toLowerCase()});
   this.template('io.js/endpoint.controller.js', knownPaths.PATH_SERVER_FEATURES + feature + '/controller/' + name + '.controller.js', {name: name, nameLowerCase: name.toLowerCase()});
   this.template('io.js/endpoint.dao.js', knownPaths.PATH_SERVER_FEATURES + feature + '/dao/' + name + '.dao.js', {name: name, nameLowerCase: name.toLowerCase()});
   this.template('io.js/endpoint.model.js', knownPaths.PATH_SERVER_FEATURES + feature + '/model/' + name + '.model.js', {name: name, nameLowerCase: name.toLowerCase()});
@@ -17,7 +17,7 @@ var _copyIojs = function(feature, name)
 
 var _copyGo = function(feature, name, username, appName)
 {
-  this.template('go/endpoint.route.go', knownPaths.PATH_SERVER_FEATURES + feature + '/route/' + name + 'route.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName});
+  this.template('go/endpoint.route.go', knownPaths.PATH_SERVER_FEATURES + feature + '/routes/' + name + 'route.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName});
   this.template('go/endpoint.controller.go', knownPaths.PATH_SERVER_FEATURES + feature + '/controller/' + name + 'controller.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName});
   this.template('go/endpoint.dao.go', knownPaths.PATH_SERVER_FEATURES + feature + '/dao/' + name + 'dao.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName});
   this.template('go/endpoint.model.go', knownPaths.PATH_SERVER_FEATURES + feature + '/model/' + name + 'model.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName});
@@ -25,7 +25,7 @@ var _copyGo = function(feature, name, username, appName)
   this.template('go/endpoint.dao_test.go', knownPaths.PATH_SERVER_FEATURES + feature + '/dao/' + name + 'dao_test.go', {name: name, nameLowerCase: name.toLowerCase(), feature: feature, username: username, appName: appName});
   this.template('go/endpoint.model_test.go', knownPaths.PATH_SERVER_FEATURES + feature + '/model/' + name + 'model_test.go', {name: name, nameLowerCase: name.toLowerCase(), feature: feature, username: username, appName: appName});
   this.template('go/endpoint.controller_test.go', knownPaths.PATH_SERVER_FEATURES + feature + '/controller/' + name + 'controller_test.go', {name: name, nameLowerCase: name.toLowerCase(), feature: feature, username: username, appName: appName});
-  this.template('go/endpoint.route_test.go', knownPaths.PATH_SERVER_FEATURES + feature + '/route/' + name + 'route_test.go', {name: name, nameLowerCase: name.toLowerCase(), feature: feature, username: username, appName: appName});
+  this.template('go/endpoint.route_test.go', knownPaths.PATH_SERVER_FEATURES + feature + '/routes/' + name + 'route_test.go', {name: name, nameLowerCase: name.toLowerCase(), feature: feature, username: username, appName: appName});
 }
 
 var EndpointGenerator = function(args, options, config)
