@@ -1,86 +1,26 @@
-package todocontroller
+package <%= nameLowerCase %>controller
 
 import (
-	"encoding/json"
-	"github.com/<%= username %>/<%= appName %>/server/api/todo/dao"
-	todo "github.com/<%= username %>/<%= appName %>/server/api/todo/model"
+	_ "encoding/json"
+	_ "github.com/<%= username %>/<%= appName %>/server/api/<%= nameLowerCase %>/dao"
+	_ <%= nameLowerCase %> "github.com/<%= username %>/<%= appName %>/server/api/<%= nameLowerCase %>/model"
 	"github.com/julienschmidt/httprouter"
-	"io/ioutil"
-	"net/http"
+	_ "io/ioutil"
+	_ "net/http"
 )
 
 func GetAll(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	ts, err := tododao.All()
-
-	w.Header().Set("Content-Type", "application/json")
-
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	tsm, err := json.Marshal(ts)
-
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	w.WriteHeader(http.StatusOK)
-
-	w.Write(tsm)
 }
 
-func NewTodo(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	w.Header().Set("Content-Type", "application/json")
-
-	t := todo.Todo{}
-
-	tf, err := ioutil.ReadAll(r.Body)
-
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		return
-	}
-
-	defer r.Body.Close()
-
-	err = json.Unmarshal(tf, &t)
-
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	nt, err := tododao.NewTodo(t)
-
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	ntm, err := json.Marshal(nt)
-
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	w.WriteHeader(http.StatusCreated)
-
-	w.Write(ntm)
+func GetById(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 }
 
-func RemoveTodo(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+func New(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+}
 
-	id := ps.ByName("id")
+func Update(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+}
 
-	err := tododao.DeleteTodo(id)
+func Remove(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	w.WriteHeader(http.StatusOK)
 }

@@ -1,1 +1,1 @@
-package todoroutes
+package <%= nameLowerCase %>routes

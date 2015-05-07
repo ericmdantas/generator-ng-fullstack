@@ -1,1 +1,1 @@
-package todocontroller
+package <%= nameLowerCase %>controller
