@@ -17,10 +17,10 @@ var _copyIojs = function(feature, name)
 
 var _copyGo = function(feature, name, username, appName)
 {
-  this.template('go/endpoint.route.go', knownPaths.PATH_SERVER_FEATURES + feature + '/routes/' + name + 'route.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName});
-  this.template('go/endpoint.controller.go', knownPaths.PATH_SERVER_FEATURES + feature + '/controller/' + name + 'controller.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName});
-  this.template('go/endpoint.dao.go', knownPaths.PATH_SERVER_FEATURES + feature + '/dao/' + name + 'dao.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName});
-  this.template('go/endpoint.model.go', knownPaths.PATH_SERVER_FEATURES + feature + '/model/' + name + 'model.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName});
+  this.template('go/endpoint.route.go', knownPaths.PATH_SERVER_FEATURES + feature + '/routes/' + name + 'route.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName, feature: feature});
+  this.template('go/endpoint.controller.go', knownPaths.PATH_SERVER_FEATURES + feature + '/controller/' + name + 'controller.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName, feature: feature});
+  this.template('go/endpoint.dao.go', knownPaths.PATH_SERVER_FEATURES + feature + '/dao/' + name + 'dao.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName, feature: feature});
+  this.template('go/endpoint.model.go', knownPaths.PATH_SERVER_FEATURES + feature + '/model/' + name + 'model.go', {name: name, nameLowerCase: name.toLowerCase(), username: username, appName: appName, feature: feature});
 
   this.template('go/endpoint.dao_test.go', knownPaths.PATH_SERVER_FEATURES + feature + '/dao/' + name + 'dao_test.go', {name: name, nameLowerCase: name.toLowerCase(), feature: feature, username: username, appName: appName});
   this.template('go/endpoint.model_test.go', knownPaths.PATH_SERVER_FEATURES + feature + '/model/' + name + 'model_test.go', {name: name, nameLowerCase: name.toLowerCase(), feature: feature, username: username, appName: appName});

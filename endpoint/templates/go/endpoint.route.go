@@ -1,7 +1,7 @@
 package <%= nameLowerCase %>routes
 
 import (
-	"github.com/<%= username %>/<%= appName %>/server/api/<%= nameLowerCase %>/controller"
+	"github.com/<%= username %>/<%= appName %>/server/api/<%= feature %>/controller"
 	"github.com/julienschmidt/httprouter"
 )
 
