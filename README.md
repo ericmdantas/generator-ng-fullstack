@@ -30,6 +30,7 @@ You'll be using the **latest** versions of:
 - [AngularJS](https://github.com/angular/angular.js);
 - [ES6 (Babel)](https://github.com/babel/babel);
 - [Bootstrap](https://github.com/twbs/bootstrap);
+- [jspm](https://github.com/jspm/jspm-cli);
 - [Gulp](https://github.com/gulpjs/gulp);
 - [Express](https://github.com/strongloop/express);
 - [MongoDB](https://github.com/mongodb/mongo) + [Mongoose](https://github.com/learnboost/mongoose);
