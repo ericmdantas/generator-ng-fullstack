@@ -1,10 +1,12 @@
-;(function(angular)
+;(angular =>
 {
+  import 'angular'
+
   "use strict";
 
   angular
     .module('myAwesomeApp')
-    .controller('TodoController', ['$log', 'Todo', 'TodoDAO', function($log, Todo, TodoDAO)
+    .controller('TodoController', ['$log', 'Todo', 'TodoDAO', ($log, Todo, TodoDAO) =>
     {
       var self = this;
 
@@ -48,4 +50,4 @@
 
       _getAll();
     }]);
-}(window.angular));
+})(window.angular);

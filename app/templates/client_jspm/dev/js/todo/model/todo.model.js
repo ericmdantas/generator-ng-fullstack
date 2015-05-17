@@ -4,24 +4,24 @@
 
   angular
     .module('myAwesomeApp')
-    .factory('Todo', [function()
+    .factory('Todo', [() =>
     {
-      var Todo = function(todo)
-      {
-        this.todoMessage = null;
+      class Todo {
+        MIN_ACCEPTED_LENGTH =5;
 
-        angular.extend(this, todo);
-      }
+        constructor(todo) {
+          this.todoMessage = null;
 
-      var MIN_ACCEPTED_LENGTH = 5;
+          angular.extend(this, todo);
+        }
 
-      Todo.prototype.isValid = function()
-      {
-        var _isDefined = angular.isDefined(this.todoMessage);
-        var _isString = angular.isString(this.todoMessage);
-        var _isBigEnough = (_isDefined && _isString) ? this.todoMessage.length >= MIN_ACCEPTED_LENGTH : false;
+        isValid() {
+          var _isDefined = angular.isDefined(this.todoMessage);
+          var _isString = angular.isString(this.todoMessage);
+          var _isBigEnough = (_isDefined && _isString) ? this.todoMessage.length >= this.MIN_ACCEPTED_LENGTH : false;
 
-        return _isDefined && _isString && _isBigEnough;
+          return _isDefined && _isString && _isBigEnough;
+        }
       }
 
       return Todo;

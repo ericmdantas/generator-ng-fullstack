@@ -4,7 +4,7 @@
 
   angular
     .module('myAwesomeApp')
-    .factory('TodoResource', ['$resource', function($resource)
+    .factory('TodoResource', ['$resource', $resource =>
     {
       var _url = '/api/todos/:id';
       var _params = {};
@@ -12,6 +12,4 @@
 
       return $resource(_url, _params, _methods);
     }]);
-
-
 }(window.angular));

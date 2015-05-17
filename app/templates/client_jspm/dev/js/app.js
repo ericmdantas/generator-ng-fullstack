@@ -1,18 +1,29 @@
-;(function(angular)
+;(angular =>
 {
+  import 'angular';
+
   "use strict";
 
   angular
     .module('myAwesomeApp', ['ngResource',
-      'ngNewRouter',
+      'ngRoute',
       'ngMessages',
-      'btford.socket-io',
       'emd.ng-xtorage',
       'angulartics'])
-    .config(['$locationProvider', function($locationProvider)
+    .config(['$routeProvider', $routeProvider =>
+    {
+      $routeProvider
+        .when('/', {
+          templateUrl: 'views/todo.html',
+          controller: 'TodoController',
+          controllerAs: 'todoCtrl'
+        })
+        .otherwise({redirectTo: '/'})
+    }])
+    .config(['$locationProvider', $locationProvider =>
     {
       $locationProvider.html5Mode(true);
     }]);
 
-}(window.angular));
+})(window.angular);
 
