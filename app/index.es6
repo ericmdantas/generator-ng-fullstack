@@ -28,6 +28,7 @@ export default class NgFullstack extends yeoman.generators.Base
       var _username = {username: this.githubUsername};
       var _appAndUsername = {app: _app.app, username: _username.username};
       var _server = this.server;
+      var _jspm = this.jspm;
 
       this.template('_package.json', 'package.json', _appAndUsername);
       this.template('_bower.json', 'bower.json', _appAndUsername);
@@ -49,6 +50,15 @@ export default class NgFullstack extends yeoman.generators.Base
 
       this.directory('client', 'client');
       this.directory('tests', 'tests');
+
+      if (_jspm) {
+        this.template('client_jspm/dev/config.js', 'client/dev/config.js');
+        this.template('client_jspm/dev/index.js', 'client/dev/index.js');
+        this.template('client_jspm/dev/index.html', 'client/dev/index.html');
+
+        this.directory('client_jspm/dev/views', 'client/dev/views');
+        this.directory('client_jspm/dev/js', 'client/dev/js');
+      }
 
       switch(_server) {
         case "io.js": this.directory('server_io.js', 'server');
@@ -91,6 +101,11 @@ export default class NgFullstack extends yeoman.generators.Base
             message: "What do you want in server side?",
             choices: ["io.js", "Go"],
             default: 0
+          },
+          {
+            type: "confirm",
+            name: "jspm",
+            message: "Would you like to use jspm?"
           }
         ];
 
@@ -99,10 +114,12 @@ export default class NgFullstack extends yeoman.generators.Base
         this.appName = props.appName;
         this.githubUsername = props.githubUsername;
         this.server = props.server;
+        this.jspm = props.jspm;
 
         this.config.set('server', this.server.toLowerCase());
         this.config.set('username', this.githubUsername);
         this.config.set('appName', this.appName);
+        this.config.set('jspm', this.jspm);
 
         done();
 

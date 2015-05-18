@@ -67,6 +67,35 @@ describe('ng-fullstack:app', function () {
 
       'tests/e2e/todo.e2e._test.js']
 
+      describe('jspm', function() {
+        var _jspmFiles = [
+          'client/dev/config.js',
+          'client/dev/index.js',
+          'client/dev/index.html',
+          'client/dev/views/todo.html',
+          'client/dev/js/todo/controller/todo.controller.js'
+        ];
+
+        _commonFiles
+          .forEach(function(common) {
+            _jspmFiles.push(common)
+          });
+
+          before(function (done) {
+            helpers
+              .run(path.join(__dirname, '../app'))
+              .inDir(path.join(os.tmpdir(), './temp-test'))
+              .withOptions({ 'skip-install': true })
+              .withPrompts({appName: "a", githubUsername: "b", server: "io.js", jspm: true})
+              .on('end', done);
+        });
+
+        it('should have the right files for jspm', function()
+        {
+            assert.file(_jspmFiles);
+        })
+      })
+
       describe('io.js', function()
       {
         var _iojsFiles = [

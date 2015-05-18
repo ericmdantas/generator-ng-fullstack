@@ -24,6 +24,7 @@ NgFullstack.prototype.writing = function() {
   var _username = {username: this.githubUsername};
   var _appAndUsername = {app: _app.app, username: _username.username};
   var _server = this.server;
+  var _jspm = this.jspm;
 
   this.template('_package.json', 'package.json', _appAndUsername);
   this.template('_bower.json', 'bower.json', _appAndUsername);
@@ -44,6 +45,15 @@ NgFullstack.prototype.writing = function() {
   this.template('_.jshintrc','.jshintrc');
 
   this.directory('client', 'client');
+
+  if (_jspm) {
+    this.template('client_jspm/dev/config.js', 'client/dev/config.js');
+    this.template('client_jspm/dev/index.js', 'client/dev/index.js');
+    this.template('client_jspm/dev/index.html', 'client/dev/index.html');
+
+    this.directory('client_jspm/dev/views', 'client/dev/views');
+    this.directory('client_jspm/dev/js', 'client/dev/js');
+  }
 
   switch(_server) {
     case "io.js": this.directory('server_io.js', 'server');
@@ -86,6 +96,11 @@ NgFullstack.prototype.prompUser = function() {
         message: "What are you using in server side?",
         choices: ["io.js", "Go"],
         default: 0
+      },
+      {
+        type: "confirm",
+        name: "jspm",
+        message: "Would you like to use jspm?"
       }
     ];
 
@@ -94,10 +109,12 @@ NgFullstack.prototype.prompUser = function() {
     this.appName = props.appName;
     this.githubUsername = props.githubUsername;
     this.server = props.server;
+    this.jspm = props.jspm;
 
     this.config.set('server', this.server);
     this.config.set('username', this.githubUsername);
     this.config.set('appName', this.appName);
+    this.config.set('jspm', this.jspm);
 
     done();
 
