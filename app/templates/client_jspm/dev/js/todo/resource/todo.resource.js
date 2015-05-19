@@ -1,5 +1,8 @@
 ;(function(angular)
 {
+  import "angular";
+  import 'angular-resource';
+
   "use strict";
 
   angular

@@ -1,15 +1,15 @@
 ;(angular =>
 {
   import 'angular';
+  import 'angular-route';
+  import 'angular-messages';
 
   "use strict";
 
   angular
     .module('myAwesomeApp', ['ngResource',
       'ngRoute',
-      'ngMessages',
-      'emd.ng-xtorage',
-      'angulartics'])
+      'ngMessages'])
     .config(['$routeProvider', $routeProvider =>
     {
       $routeProvider

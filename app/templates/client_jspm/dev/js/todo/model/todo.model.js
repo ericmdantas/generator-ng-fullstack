@@ -2,6 +2,8 @@
 {
   "use strict";
 
+  import "angular";
+
   angular
     .module('myAwesomeApp')
     .factory('Todo', [() =>

@@ -1,6 +1,6 @@
 ;(angular =>
 {
-  import 'angular'
+  import 'angular';
 
   "use strict";
 
