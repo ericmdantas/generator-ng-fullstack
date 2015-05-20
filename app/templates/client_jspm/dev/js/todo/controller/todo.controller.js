@@ -1,7 +1,7 @@
+import 'angular';
+
 ;(angular =>
 {
-  import 'angular';
-
   "use strict";
 
   angular
@@ -15,15 +15,9 @@
 
       self.createTodo = function(todo)
       {
-        var _onSuccess = function(newTodo)
-        {
-          self.todos.push(newTodo);
-          self.todo = new Todo();
-        };
-
         TodoDAO
           .createTodo(todo)
-          .then(_onSuccess)
+          .then(newTodo => {self.todos.push(newTodo); self.todo = new Todo();})
           .catch($log.error);
       };
 
@@ -37,14 +31,9 @@
 
       var _getAll = function()
       {
-        var _onSuccess = function(todos)
-        {
-          return self.todos = todos;
-        };
-
         return TodoDAO
           .getAll()
-          .then(_onSuccess)
+          .then(todos => {self.todos = todos;})
           .catch($log.error);
       }
 

@@ -1,9 +1,9 @@
+import 'angular';
+import 'angular-route';
+import 'angular-messages';
+
 ;(angular =>
 {
-  import 'angular';
-  import 'angular-route';
-  import 'angular-messages';
-
   "use strict";
 
   angular

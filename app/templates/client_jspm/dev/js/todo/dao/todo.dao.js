@@ -1,8 +1,8 @@
+import 'angular';
+
 ;(angular =>
 {
   "use strict";
-
-  import 'angular';
 
   angular
     .module('myAwesomeApp')

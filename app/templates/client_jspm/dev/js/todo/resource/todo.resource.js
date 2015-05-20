@@ -1,8 +1,8 @@
+import "angular";
+import 'angular-resource';
+
 ;(function(angular)
 {
-  import "angular";
-  import 'angular-resource';
-
   "use strict";
 
   angular
