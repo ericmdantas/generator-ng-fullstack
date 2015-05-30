@@ -1,0 +1,10 @@
+{
+	"compilerOptions":
+	{
+		"watch": true,
+		"target": "es5"
+	},
+	"files": [
+		"./server/server.js"
+	]
+}

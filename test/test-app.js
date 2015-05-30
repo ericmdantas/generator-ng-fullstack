@@ -67,7 +67,7 @@ describe('ng-fullstack:app', function () {
 
       'tests/e2e/todo.e2e._test.js']
 
-      describe('jspm', function() {
+      xdescribe('jspm', function() { // not implemented now
         var _jspmFiles = [
           'client/dev/config.js',
           'client/dev/index.js',
