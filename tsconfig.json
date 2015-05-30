@@ -1,0 +1,11 @@
+{
+	"compilerOptions":
+	{
+		"watch": true,
+		"target": "es5"
+	},
+	"files": 
+	[
+		"sub-generator-factory.ts"
+	]
+}
