@@ -1,0 +1,44 @@
+body {
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  padding: 15px;
+  font-size: 17px;
+}
+
+input {
+  width: 90%;
+  padding: 5px;
+  font-size: 17px;
+  box-sizing: border-box;
+  float: left;
+}
+
+button {
+  width: 10%;
+  float: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding-left: 3px;
+}
+
+ul li {
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.error {
+  border: 1px solid red;
+  outline: 0;
+}
