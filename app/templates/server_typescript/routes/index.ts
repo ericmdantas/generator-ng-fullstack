@@ -1,11 +1,13 @@
+/// <reference path="../typings/tsd.d.ts" />
+
 "use strict";
 
-import TodoRoutes from '../api/todo/routes/todo.routes';
-import StaticDispatcher from '../commons/static/index';
+import {TodoRoutes} from '../api/todo/routes/todo.routes';
+import {StaticDispatcher} from '../commons/static/index';
 
-export default class Routes
+export class Routes
 {
-   static init(app, router)
+   static init(app:Object, router:Object)
    {
      TodoRoutes.init(router);
 

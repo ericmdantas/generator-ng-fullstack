@@ -1,3 +1,5 @@
+/// <reference path="../../../typings/tsd.d.ts" />
+
 "use strict";
 
 import mongoose from 'mongoose';
@@ -5,15 +7,15 @@ import Promise from 'bluebird';
 import todoSchema from '../model/todo.model';
 import _ from 'lodash';
 
-todoSchema.statics.getAll = function()
+todoSchema.statics.getAll = ():void =>
 {
-    var _promise = function(resolve, reject)
+    var _promise = (resolve:Function, reject:Function) =>
     {
         var _query = {};
 
         Todo
           .find(_query)
-          .exec(function(err, todos)
+          .exec((err, todos) =>
           {
               err ? reject(err)
                   : resolve(todos);
@@ -23,9 +25,9 @@ todoSchema.statics.getAll = function()
     return new Promise(_promise);
 }
 
-todoSchema.statics.createTodo = function(todo)
+todoSchema.statics.createTodo = (todo:Object):void =>
 {
-    var _promise = function(resolve, reject)
+    var _promise = (resolve:Function, reject:Function):void =>
     {
       if (!_.isObject(todo))
       {
@@ -34,7 +36,7 @@ todoSchema.statics.createTodo = function(todo)
 
       var _todo = new Todo(todo);
 
-      _todo.save(function(err, saved)
+      _todo.save((err, saved) =>
       {
         err ? reject(err)
             : resolve(saved);
@@ -44,9 +46,9 @@ todoSchema.statics.createTodo = function(todo)
     return new Promise(_promise);
 }
 
-todoSchema.statics.deleteTodo = function(id)
+todoSchema.statics.deleteTodo = (id:string):void =>
 {
-    var _promise = function(resolve, reject)
+    var _promise = (resolve, reject):void =>
     {
         if (!_.isString(id))
         {
@@ -55,7 +57,7 @@ todoSchema.statics.deleteTodo = function(id)
 
         Todo
           .findByIdAndRemove(id)
-          .exec(function(err, deleted)
+          .exec((err, deleted) =>
           {
               err ? reject(err)
                   : resolve();

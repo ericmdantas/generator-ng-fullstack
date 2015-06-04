@@ -1,10 +1,12 @@
+/// <reference path="../../typings/tsd.d.ts" />
+
 "use strict";
 
 import fs from 'fs';
 
-export default class StaticDispatcher
+export class StaticDispatcher
 {
-    static sendIndex(req, res)
+    static sendIndex(req, res):void
     {
       var _root = process.cwd();
 

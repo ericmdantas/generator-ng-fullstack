@@ -1,10 +1,12 @@
+/// <reference path="../../typings/tsd.d.ts" />
+
 "use strict";
 
-export default class SocketEvents
+export class SocketEvents
 {
-    static init(io)
+    static init(io:Object):void
     {
-        io.on('connection', function(client)
+        io.on('connection', function(client:Object)
         {
           client.on('users:online', function()
           {

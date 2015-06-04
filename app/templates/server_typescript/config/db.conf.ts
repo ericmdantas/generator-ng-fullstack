@@ -1,11 +1,13 @@
+/// <reference path="../typings/tsd.d.ts" />
+
 "use strict";
 
 import mongoose from 'mongoose';
 import dbConst from '../constants/db.json';
 
-export default class DBConfig
+export class DBConfig
 {
-    static init()
+    static init():void
     {
       const URL = (process.env.NODE_ENV === 'production') ? process.env.MONGOHQ_URL
                                                           : dbConst.localhost;

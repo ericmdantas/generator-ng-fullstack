@@ -1,8 +1,10 @@
+/// <reference path="../../../typings/tsd.d.ts" />
+
 "use strict";
 
 import TodoController from '../controller/todo.controller';
 
-export default class TodoRoutes
+export class TodoRoutes
 {
     static init(router)
     {
