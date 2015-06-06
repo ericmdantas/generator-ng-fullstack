@@ -5,9 +5,9 @@ import Promise from 'bluebird';
 import todoSchema from '../model/todo.model';
 import _ from 'lodash';
 
-todoSchema.statics.getAll = function()
+todoSchema.statics.getAll = () =>
 {
-    var _promise = function(resolve, reject)
+    var _promise = (resolve, reject) =>
     {
         var _query = {};
 
@@ -23,18 +23,16 @@ todoSchema.statics.getAll = function()
     return new Promise(_promise);
 }
 
-todoSchema.statics.createTodo = function(todo)
+todoSchema.statics.createTodo = (todo) =>
 {
     var _promise = function(resolve, reject)
     {
       if (!_.isObject(todo))
-      {
-        return reject(new TypeError('Todo is not a valid object.'));
-      }
+          return reject(new TypeError('Todo is not a valid object.'));
 
       var _todo = new Todo(todo);
 
-      _todo.save(function(err, saved)
+      _todo.save((err, saved) =>
       {
         err ? reject(err)
             : resolve(saved);
@@ -44,18 +42,16 @@ todoSchema.statics.createTodo = function(todo)
     return new Promise(_promise);
 }
 
-todoSchema.statics.deleteTodo = function(id)
+todoSchema.statics.deleteTodo = (id) =>
 {
-    var _promise = function(resolve, reject)
+    var _promise = (resolve, reject) =>
     {
         if (!_.isString(id))
-        {
             return reject(new TypeError('Id is not a valid string.'));
-        }
 
         Todo
           .findByIdAndRemove(id)
-          .exec(function(err, deleted)
+          .exec((err, deleted) =>
           {
               err ? reject(err)
                   : resolve();

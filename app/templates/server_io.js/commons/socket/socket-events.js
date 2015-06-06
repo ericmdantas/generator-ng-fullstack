@@ -4,9 +4,9 @@ export default class SocketEvents
 {
     static init(io)
     {
-        io.on('connection', function(client)
+        io.on('connection', (client) =>
         {
-          client.on('users:online', function()
+          client.on('users:online', () =>
           {
             io.emit('users:online', 1);
           });
