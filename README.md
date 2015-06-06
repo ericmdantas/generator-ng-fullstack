@@ -25,15 +25,14 @@ Forget about initial setup, ```yo ng-fullstack``` and be happy!
 
 You'll be using the **latest** versions of:
 
-- [io.js](https://github.com/iojs/io.js);
-- [Go](https://golang.org/);
-- [AngularJS](https://github.com/angular/angular.js);
-- [ES6 (Babel)](https://github.com/babel/babel);
+- [io.js](https://github.com/iojs/io.js) / [Go](https://golang.org/);
+- [AngularJS](https://github.com/angular/angular.js) / [Angular2](https://github.com/angular/angular);
+- ES6/ES7 [Babel](https://github.com/babel/babel) / [Typescript](https://github.com/Microsoft/Typescript);
 - [Bootstrap](https://github.com/twbs/bootstrap);
 - [jspm](https://github.com/jspm/jspm-cli);
 - [Gulp](https://github.com/gulpjs/gulp);
 - [Express](https://github.com/strongloop/express);
-- [MongoDB](https://github.com/mongodb/mongo) + [Mongoose](https://github.com/learnboost/mongoose);
+- [MongoDB](https://github.com/mongodb/mongo) + [Mongoose](https://github.com/learnboost/mongoose) / [mgo](https://github.com/go-mgo/mgo);
 - [Bluebird](https://github.com/petkaantonov/bluebird);
 - [Lodash](https://github.com/lodash/lodash);
 - [Integration with Heroku](https://www.heroku.com/);
