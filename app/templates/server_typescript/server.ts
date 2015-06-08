@@ -12,11 +12,10 @@ import express from 'express';
 import {RoutesConfig} from './config/routes.conf';
 import {DBConfig} from './config/db.conf';
 import {Routes} from './routes/index';
+import {SocketEvents} from './commons/socket/socket-events';
 
 let app = express();
 let server = app.listen(PORT);
-
-import {SocketEvents} from './commons/socket/socket-events';
 
 let io = require('socket.io').listen(server);
 

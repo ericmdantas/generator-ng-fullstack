@@ -2,7 +2,7 @@
 
 "use strict";
 
-import TodoController from '../controller/todo.controller';
+import {TodoController} from '../controller/todo.controller';
 
 export class TodoRoutes
 {

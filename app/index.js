@@ -24,6 +24,7 @@ NgFullstack.prototype.writing = function() {
   var _username = {username: this.githubUsername};
   var _appAndUsername = {app: _app.app, username: _username.username};
   var _server = this.server;
+  var _transpilerServer = this.transpilerServer;
   var _jspm = this.jspm;
 
   this.template('_package.json', 'package.json', _appAndUsername);
@@ -56,8 +57,17 @@ NgFullstack.prototype.writing = function() {
   }
 
   switch(_server) {
-    case "io.js": this.directory('server_io.js', 'server');
-                  this.template('index.js', 'index.js');
+    case "io.js":
+                  if (!_transpilerServer.toLowerCase() === "typescript")
+                  {
+                    this.directory('server_io.js', 'server');
+                    this.template('index.js', 'index.js');
+                    return;
+                  }
+
+                  this.directory('server_typescript', 'server');
+                  this.template('index_tsc.js', 'index.js');
+
                   break;
 
     case "Go": this.directory('server_go', 'server');
@@ -96,14 +106,14 @@ NgFullstack.prototype.prompUser = function() {
         message: "What are you using in server side?",
         choices: ["io.js", "Go"],
         default: 0
-      }/*,
+      },
       {
         type: "list",
         name: "transpilerServer",
         message: "What transpiler do you want to use in server side?",
         choices: ["Babel", "Typescript"],
-        default: 1
-      }*/
+        default: 0
+      }
     ];
 
   this.prompt(prompts, function(props)
@@ -117,8 +127,8 @@ NgFullstack.prototype.prompUser = function() {
     this.config.set('server', this.server);
     this.config.set('username', this.githubUsername);
     this.config.set('appName', this.appName);
+    this.config.set('transpilerServer', this.transpilerServer);
     //this.config.set('jspm', this.jspm);
-    //this.config.set('transpilerServer', this.transpilerServer);
 
     done();
 
