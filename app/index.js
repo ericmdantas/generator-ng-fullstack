@@ -1,9 +1,9 @@
 'use strict';
 
-const yeoman = require('yeoman-generator');
-const chalk = require('chalk');
-const yosay = require('yosay');
-const util = require('util')
+var yeoman = require('yeoman-generator');
+var chalk = require('chalk');
+var yosay = require('yosay');
+var util = require('util');
 
 var NgFullstack = function() {
   yeoman.generators.Base.apply(this, arguments);
@@ -57,15 +57,15 @@ NgFullstack.prototype.writing = function() {
   }
 
   switch(_server) {
-    case "io.js":
-                  if (!_transpilerServer.toLowerCase() === "typescript")
+    case "node":
+                  if (_transpilerServer !== "Typescript")
                   {
-                    this.directory('server_io.js', 'server');
+                    this.directory('server_node_babel', 'server');
                     this.template('index.js', 'index.js');
-                    return;
+                    break;
                   }
 
-                  this.directory('server_typescript', 'server');
+                  this.directory('server_node_typescript', 'server');
                   this.template('index_tsc.js', 'index.js');
 
                   break;
@@ -104,7 +104,7 @@ NgFullstack.prototype.prompUser = function() {
         type: "list",
         name: "server",
         message: "What are you using in server side?",
-        choices: ["io.js", "Go"],
+        choices: ["node", "Go"],
         default: 0
       },
       {

@@ -86,7 +86,7 @@ describe('ng-fullstack:app', function () {
               .run(path.join(__dirname, '../app'))
               .inDir(path.join(os.tmpdir(), './temp-test'))
               .withOptions({ 'skip-install': true })
-              .withPrompts({appName: "a", githubUsername: "b", server: "io.js", jspm: true})
+              .withPrompts({appName: "a", githubUsername: "b", server: "node", jspm: true})
               .on('end', done);
         });
 
@@ -96,9 +96,9 @@ describe('ng-fullstack:app', function () {
         })
       })
 
-      describe('io.js', function()
+      describe('node', function()
       {
-        var _iojsFiles = [
+        var _nodeFiles = [
           // server stuff
 
           'index.js', // babel's entry point
@@ -133,7 +133,7 @@ describe('ng-fullstack:app', function () {
 
         _commonFiles
           .forEach(function(common){
-            _iojsFiles.push(common);
+            _nodeFiles.push(common);
           })
 
         before(function (done) {
@@ -141,12 +141,12 @@ describe('ng-fullstack:app', function () {
             .run(path.join(__dirname, '../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withOptions({ 'skip-install': true })
-            .withPrompts({appName: "a", githubUsername: "b", server: "io.js"})
+            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'Babel'})
             .on('end', done);
         });
 
-        it('creates default files - io.js', function () {
-          assert.file(_iojsFiles);
+        it('creates default files - node', function () {
+          assert.file(_nodeFiles);
         });
       })
 

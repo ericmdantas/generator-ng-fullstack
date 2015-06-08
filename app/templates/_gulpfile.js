@@ -2,32 +2,32 @@
 
 // TODO: modularize (https://github.com/ericmdantas/generator-ng-fullstack/issues/6)
 
-const gulp = require('gulp');
-const uglify = require('gulp-uglify');
-const cssmin = require('gulp-minify-css');
-const usemin = require('gulp-usemin');
-const rev = require('gulp-rev');
-const less = require('gulp-less');
-const del = require('del');
-const coveralls = require('gulp-coveralls');
-const karma = require('karma').server;
-const browserSync = require('browser-sync');
-const wiredep = require('wiredep').stream;
-const inject = require('gulp-inject');
+var gulp = require('gulp');
+var uglify = require('gulp-uglify');
+var cssmin = require('gulp-minify-css');
+var usemin = require('gulp-usemin');
+var rev = require('gulp-rev');
+var less = require('gulp-less');
+var del = require('del');
+var coveralls = require('gulp-coveralls');
+var karma = require('karma').server;
+var browserSync = require('browser-sync');
+var wiredep = require('wiredep').stream;
+var inject = require('gulp-inject');
 
-const DEV_DIR = './client/dev/';
-const TEMP_DIR = './client/__tmp/'; // working on it dir
-const DIST_DIR = './client/dist/';
+var DEV_DIR = './client/dev/';
+var TEMP_DIR = './client/__tmp/'; // working on it dir
+var DIST_DIR = './client/dist/';
 
-const _js = DEV_DIR + 'js/**/*.js';
-const _less = DEV_DIR + 'css/**/*.less';
-const _images = DEV_DIR + 'imgs/*';
-const _fonts = DEV_DIR + 'fonts/*';
-const _partials = DEV_DIR + 'partials/**/*';
-const _indexHTML = DEV_DIR + 'index.html';
-const _bower = 'bower.json';
-const _components = DEV_DIR + 'components/';
-const _es6 = '**/*.es6';
+var _js = DEV_DIR + 'js/**/*.js';
+var _less = DEV_DIR + 'css/**/*.less';
+var _images = DEV_DIR + 'imgs/*';
+var _fonts = DEV_DIR + 'fonts/*';
+var _partials = DEV_DIR + 'partials/**/*';
+var _indexHTML = DEV_DIR + 'index.html';
+var _bower = 'bower.json';
+var _components = DEV_DIR + 'components/';
+var _es6 = '**/*.es6';
 
 gulp.task('compile:babel', function()
 {

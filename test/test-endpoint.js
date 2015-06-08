@@ -7,14 +7,14 @@ var helpers = require('yeoman-generator').test;
 
 describe('NgFullstack:endpoint', function () {
 
-  describe('io.js', function()
+  describe('node', function()
   {
      before(function (done) {
         helpers
           .run(path.join(__dirname, '../app'))
           .inDir(path.join(os.tmpdir(), './temp-test'))
           .withOptions({ 'skip-install': true })
-          .withPrompts({appName: "a", githubUsername: "b", server: "io.js"})
+          .withPrompts({appName: "a", githubUsername: "b", server: "node"})
           .on('end', function()
           {
             _runSub(done)
