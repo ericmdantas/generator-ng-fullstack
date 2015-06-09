@@ -1,3 +1,4 @@
 node_modules/
 .idea
 *jspm_packages/
+generator_helpers/**/*.js

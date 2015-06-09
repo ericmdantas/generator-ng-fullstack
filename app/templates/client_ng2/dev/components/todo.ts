@@ -5,9 +5,9 @@ import {Inject} from 'angular2/di';
 import {Validators, FormBuilder, ControlGroup, formDirectives} from 'angular2/forms';
 import {TodoService} from './todo.service';
 
-interface ITodo {
-  message:string;
-  id:number;
+type Todo = {
+  todoMessage: string;
+  id: number;
 }
 
 @Component({
@@ -19,7 +19,7 @@ interface ITodo {
   directives: [formDirectives]
 })
 export class Todo {
-  todos: Array<ITodo>;
+  todos: Array<Todo>;
   todoForm: ControlGroup;
   todoService: TodoService;
 
@@ -27,14 +27,14 @@ export class Todo {
     this.todos = [];
     this.todoService = ts;
     this.todoForm = fb.group({
-      message: ["", Validators.required]
+      todoMessage: ["", Validators.required]
     });
   }
 
   add(message: string):void {
     this.todoService
         .add(message)
-        .then(m => this.todos.push({message: m, id: Date.now()}));
+        .then(m => this.todos.push({todoMessage: m, id: Date.now()}));
   }
 
   remove(id:string|number):void {
