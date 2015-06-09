@@ -4,8 +4,8 @@
   "main": "src/<%= app %>.js",
   "scripts":
   {
-    "build_dev": "iojs index && gulp watch",
-    "start": "iojs index",
+    "build_dev": "node index && gulp watch",
+    "start": "node index",
     "test-client": "gulp coverage_frontend",
     "test-server": "mocha ./tests/server/**/*_test.js --recursive --check-leaks --reporter min --compilers js:babel/register",
     "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --compilers js:babel/register",
@@ -75,6 +75,6 @@
   "homepage": "https://github.com/<%= username %>/<%= app %>",
   "engines":
   {
-    "iojs": "1.x.x"
+    "node": "=> 0.12.x"
   }
 }

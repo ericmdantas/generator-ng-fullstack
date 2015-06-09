@@ -24,9 +24,9 @@ var _less = DEV_DIR + 'css/**/*.less';
 var _images = DEV_DIR + 'imgs/*';
 var _fonts = DEV_DIR + 'fonts/*';
 var _partials = DEV_DIR + 'partials/**/*';
+var _views = DEV_DIR + 'views/**/*';
 var _indexHTML = DEV_DIR + 'index.html';
 var _bower = 'bower.json';
-var _components = DEV_DIR + 'components/';
 var _es6 = '**/*.es6';
 
 gulp.task('compile:babel', function()
@@ -44,25 +44,6 @@ gulp.task('bower', function()
           .pipe(gulp.dest(DEV_DIR));
 });
 
-gulp.task('components:temp', function()
-{
-  return gulp
-            .src(_components + '**/*')
-            .pipe(gulp.dest(TEMP_DIR + 'components/'));
-})
-
-gulp.task('components:dist', function()
-{
-  gulp
-    .src(_components + '**/*')
-    .pipe(gulp.dest(DIST_DIR + 'components/'));
-
-  gulp
-    .src(_components + '**/*.js')
-    .pipe(uglify())
-    .pipe(gulp.dest(DIST_DIR + 'components/'));
-})
-
 gulp.task('html,css,js:temp', function()
 {
   return gulp
@@ -76,6 +57,27 @@ gulp.task('partials:temp', function()
   return gulp
     .src(_partials)
     .pipe(gulp.dest(TEMP_DIR + 'partials/'));
+})
+
+gulp.task('partials:dist', function()
+{
+  return gulp
+          .src(_partials)
+          .pipe(gulp.dest(DIST_DIR + 'partials/'));
+})
+
+gulp.task('views:temp', function()
+{
+  return gulp
+    .src(_views)
+    .pipe(gulp.dest(TEMP_DIR + 'views/'));
+})
+
+gulp.task('views:dist', function()
+{
+  return gulp
+          .src(_views)
+          .pipe(gulp.dest(DIST_DIR + 'views/'));
 })
 
 gulp.task('imgs:temp', function()
@@ -108,12 +110,6 @@ gulp.task('fonts:dist', function()
           .pipe(gulp.dest(DIST_DIR + 'fonts/'));
 })
 
-gulp.task('partials:dist', function()
-{
-  return gulp
-          .src(_partials)
-          .pipe(gulp.dest(DIST_DIR + 'partials/'));
-})
 
 gulp.task('imgs:dist', function()
 {
@@ -127,8 +123,8 @@ gulp.task('browser_sync', function()
   return browserSync.reload();
 })
 
-gulp.task('build', ['del_dist', 'test_client', 'partials:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist', 'components:dist']); // dist build
-gulp.task('build_temp', ['del_temp', 'partials:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp', 'components:temp']); // browser-sync build
+gulp.task('build', ['del_dist', 'test_client', 'partials:dist', 'views:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist']); // dist build
+gulp.task('build_temp', ['del_temp', 'partials:temp', 'views:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp']); // browser-sync build
 
 gulp.task('watch', ['del_temp', 'bower', 'build_temp', 'browser_sync'], function()
 {

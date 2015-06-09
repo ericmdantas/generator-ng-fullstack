@@ -16,7 +16,7 @@ NgFullstack.prototype.initializing = function() {
 }
 
 NgFullstack.prototype.prompting = function() {
-  this.log(yosay('Welcome to the terrific ' + chalk.green('NgFullstack') + ' asdadjkhadhadjhjsd generator!'));
+  this.log(yosay('Welcome to the terrific ' + chalk.green('NgFullstack') + ' generator!'));
 }
 
 NgFullstack.prototype.writing = function() {

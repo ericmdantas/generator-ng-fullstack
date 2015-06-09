@@ -4,11 +4,21 @@
 
   angular
     .module('myAwesomeApp', ['ngResource',
-      'ngNewRouter',
+      'ngRoute',
       'ngMessages',
       'btford.socket-io',
       'emd.ng-xtorage',
       'angulartics'])
+    .config(['$routeProvider', function($routeProvider)
+    {
+      $routeProvider
+        .when('/', {
+          templateUrl: '../views/todo.html',
+          controller: 'TodoController',
+          controllerAs: 'todo'
+        })
+        .otherwise({redirectTo: '/'});
+    }])
     .config(['$locationProvider', function($locationProvider)
     {
       $locationProvider.html5Mode(true);
