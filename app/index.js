@@ -106,14 +106,14 @@ NgFullstack.prototype.prompUser = function() {
         message: "What are you using in server side?",
         choices: ["node", "Go"],
         default: 0
-      },
+      }/*,
       {
         type: "list",
         name: "transpilerServer",
         message: "What transpiler do you want to use in server side?",
         choices: ["Babel", "Typescript"],
         default: 0
-      }
+      }*/
     ];
 
   this.prompt(prompts, function(props)

@@ -130,7 +130,7 @@ gulp.task('watch', ['del_temp', 'bower', 'build_temp', 'browser_sync'], function
 {
   browserSync({proxy: "http://localhost:3333", reloadDelay: 1000});
 
-  let _watchable = [];
+  var _watchable = [];
 
   _watchable.push(_indexHTML);
   _watchable.push(_js);

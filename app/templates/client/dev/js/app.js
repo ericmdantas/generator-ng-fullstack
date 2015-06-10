@@ -7,8 +7,7 @@
       'ngRoute',
       'ngMessages',
       'btford.socket-io',
-      'emd.ng-xtorage',
-      'angulartics'])
+      'emd.ng-xtorage'])
     .config(['$routeProvider', function($routeProvider)
     {
       $routeProvider
