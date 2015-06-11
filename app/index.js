@@ -106,32 +106,47 @@ NgFullstack.prototype.prompUser = function() {
         message: "What are you using in server side?",
         choices: ["node", "Go"],
         default: 0
-      },
-      {
-        type: "list",
-        name: "transpilerServer",
-        message: "What transpiler do you want to use in server side?",
-        choices: ["Babel", "Typescript"],
-        default: 0
       }
     ];
 
-  this.prompt(prompts, function(props)
-  {
+  this.prompt(prompts, function(props) {
     this.appName = props.appName;
     this.githubUsername = props.githubUsername;
     this.server = props.server;
     this.jspm = props.jspm;
-    this.transpilerServer = props.transpilerServer;
 
     this.config.set('server', this.server);
     this.config.set('username', this.githubUsername);
     this.config.set('appName', this.appName);
-    this.config.set('transpilerServer', this.transpilerServer);
     //this.config.set('jspm', this.jspm);
 
     done();
+  }.bind(this));
 
+  this.config.save();
+}
+
+NgFullstack.prototype.promptUserTranspilerServer = function() {
+
+  var done = this.async();
+
+  var _prompts = [{
+        type: "list",
+        name: "transpilerServer",
+        message: "What transpiler do you want to use in server side?",
+        choices: ["Babel", "Typescript"],
+        default: 0,
+        when: function() {
+            return this.server === "node";
+        }.bind(this)
+      }];
+
+  this.prompt(_prompts, function(props) {
+    this.transpilerServer = props.transpilerServer;
+
+    this.config.set('transpilerServer', this.transpilerServer);
+
+    done();
   }.bind(this));
 
   this.config.save();
