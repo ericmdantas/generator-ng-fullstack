@@ -29,9 +29,8 @@
     "angular-resource": "~1.4.x",
     "angular-socket-io": "~0.7.0",
     "bootstrap": "~3.3.1",
-    "ng-xtorage": "~1.1.1",
-    "fontawesome": "~4.3.0",
-    "angulartics": "~0.17.2"
+    "ng-xtorage": "~1.2.1",
+    "fontawesome": "~4.3.0"
   },
   "devDependencies":
   {

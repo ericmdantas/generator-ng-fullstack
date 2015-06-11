@@ -2,8 +2,8 @@
 
 "use strict";
 
-import {mongoose} from 'mongoose';
-import dbConst from '../constants/db.json';
+import * as mongoose from 'mongoose';
+import * as dbConst from '../constants/db.json';
 
 export class DBConfig
 {

@@ -2,10 +2,10 @@
 
 "use strict";
 
-import morgan from 'morgan';
-import bodyParser from 'body-parser';
-import contentLength from 'express-content-length-validator';
-import helmet from 'helmet';
+import * as morgan from 'morgan';
+import * as bodyParser from 'body-parser';
+import * as contentLength from 'express-content-length-validator';
+import * as helmet from 'helmet';
 
 export class RoutesConfig
 {

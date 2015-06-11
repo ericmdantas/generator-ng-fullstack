@@ -2,7 +2,7 @@
 
 "use strict";
 
-import {mongoose} from 'mongoose';
+import * as mongoose from 'mongoose';
 
 var _todoSchema =
 {

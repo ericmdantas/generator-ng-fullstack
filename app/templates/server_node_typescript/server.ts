@@ -3,21 +3,21 @@
 'use strict';
 
 if ('production' === process.env.NODE_ENV)
-    import * as newrelic from 'newrelic';
+    require('newrelic');
 
-const PORT = process.env.PORT || 3333;
+var PORT = process.env.PORT || 3333;
 
-import os from 'os';
-import express from 'express';
+import * as express from 'express';
+import * as os from 'os';
 import {RoutesConfig} from './config/routes.conf';
 import {DBConfig} from './config/db.conf';
 import {Routes} from './routes/index';
 import {SocketEvents} from './commons/socket/socket-events';
 
-let app = express();
-let server = app.listen(PORT);
+var app = express();
+var server = app.listen(PORT);
 
-let io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server);
 
 RoutesConfig.init(app, express);
 DBConfig.init();
