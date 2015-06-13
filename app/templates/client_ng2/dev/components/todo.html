@@ -1,14 +1,14 @@
 <div >
   <form class="overflow-hidden"
         onsubmit="return false;"
-        [control-group]="todoForm">
+        [ng-form-model]="todoForm">
 
     <h1 align="center" important-text uppercase>{{title}}</h1>
 
     <input type="text"
            logger
            #tmessage
-           control="message"
+           ng-control="message"
            (keyup.enter)="add(tmessage)"
            [class.error]="!todoForm.valid "
            placeholder="what do you have todo?"
