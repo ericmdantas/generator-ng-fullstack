@@ -22,20 +22,6 @@ export default class <%= name %>Controller
 
   static remove(req, res)
   {
-    var _onSuccess = function()
-    {
-      res
-        .status(200) // all good
-        .end();
-    }
-
-    var _onError = function(error)
-    {
-      res
-        .status(400)  // bad request
-        .json(error);
-    }
-
     var _id = req.params.id;
 
     <%= name %>DAO
