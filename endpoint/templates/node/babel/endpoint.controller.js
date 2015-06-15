@@ -4,50 +4,20 @@ import <%= name %>DAO from '../dao/<%= name %>.dao';
 
 export default class <%= name %>Controller
 {
-  static getAll(req, res)
-  {
-    var _onSuccess = function(<%= nameLowerCase %>s)
-    {
-      res
-        .status(200)
-        .json(<%= nameLowerCase %>s);
-    }
-
-    var _onError = function(error)
-    {
-      res
-        .status(400)
-        .json(error);
-    }
-
+  static getAll(req, res) {
     <%= name %>DAO
       .getAll()
-      .then(_onSuccess)
-      .catch(_onError);
+      .then(<%= nameLowerCase %> => res.status(200).json(<%= nameLowerCase %>s))
+      .catch(error => res.status(400).json(error));
   }
 
-  static createNew(req, res)
-  {
-    var _onSuccess = function(<%= nameLowerCase %>)
-    {r
-      res
-        .status(201) // created
-        .json(<%= nameLowerCase %>);
-    }
-
-    var _onError = function(error)
-    {
-      res
-        .status(400) // bad request
-        .json(error);
-    }
-
+  static createNew(req, res) {
     var _<%= nameLowerCase %> = req.body;
 
     <%= name %>DAO
       .createNew(_<%= nameLowerCase %>)
-      .then(_onSuccess)
-      .catch(_onError);
+      .then(<%= nameLowerCase %> => res.status(201).json(<%= nameLowerCase %>))
+      .catch(error => res.status(400).json(error));
   }
 
   static remove(req, res)
@@ -70,7 +40,7 @@ export default class <%= name %>Controller
 
     <%= name %>DAO
       .removeById(_id)
-      .then(_onSuccess)
-      .catch(_onError);
+      .then(() => res.status(200).end())
+      .catch(error => res.status(400).json(error));
   }
 }
