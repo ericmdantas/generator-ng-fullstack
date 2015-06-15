@@ -94,7 +94,7 @@ describe('ng-fullstack:app', function () {
         })
       })
 
-      describe('node', function()
+      describe('node - babel', function()
       {
         var _nodeFiles = [
           // server stuff
@@ -140,6 +140,60 @@ describe('ng-fullstack:app', function () {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withOptions({ 'skip-install': true })
             .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'Babel'})
+            .on('end', done);
+        });
+
+        it('creates default files - node', function () {
+          assert.file(_nodeFiles);
+        });
+      })
+
+      describe('node - typescript', function()
+      {
+        var _nodeFiles = [
+          // server stuff
+
+          'index.js', // babel's entry point
+
+          'server/server.ts',
+
+          'server/routes/index.ts',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.ts',
+          'server/config/routes.conf.ts',
+
+          'server/commons/socket/socket-events.ts',
+          'server/commons/static/index.ts',
+          'server/commons/static/index.ts',
+          'server/commons/static/index.ts',
+
+          'server/auth/local/index.ts',
+
+          'server/api/todo/controller/todo.controller.ts',
+          'server/api/todo/dao/todo.dao.ts',
+          'server/api/todo/model/todo.model.ts',
+          'server/api/todo/routes/todo.routes.ts',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo.dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        _commonFiles
+          .forEach(function(common){
+            _nodeFiles.push(common);
+          })
+
+        before(function (done) {
+          helpers
+            .run(path.join(__dirname, '../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withOptions({ 'skip-install': true })
+            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'Typescript'})
             .on('end', done);
         });
 
