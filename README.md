@@ -1,18 +1,14 @@
 # ng-fullstack
 [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack)
-
-# join the chat
-
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ericmdantas/generator-ng-fullstack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# install
+# install 
 
 ```
 
 $ npm install -g generator-ng-fullstack
 
 ```
-
 
 # what is this?
 
