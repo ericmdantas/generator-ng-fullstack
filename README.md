@@ -1,11 +1,8 @@
 # ng-fullstack
 [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack)
-
-# join the chat
-
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ericmdantas/generator-ng-fullstack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# install
+# install 
 
 ```
 
@@ -13,6 +10,9 @@ $ npm install -g generator-ng-fullstack
 
 ```
 
+# quick start
+
+[Quick start](https://github.com/ericmdantas/generator-ng-fullstack/wiki#do-i-need-anything).
 
 # what is this?
 
@@ -41,10 +41,6 @@ You'll be using the **latest** versions of:
 - [Integration with Google Analytics](http://www.google.com/analytics/);
 - And a bunch of great other modules out there!
 
-# usage
-
-[Take a look here](https://github.com/ericmdantas/generator-ng-fullstack/wiki).
-
 
 # why did you create this?
 
@@ -53,7 +49,7 @@ Most solutions out there are either outdated or not as complete.
 The idea is to keep this one going strong and updated.
 
 
-# not interested, what else is out there?
+# meh, I'm not interested. What else is out there?
 
 This project is one of many things that you can use to get started building a new app.  
 For a detailed comparison of the options and trade-offs between them, please visit [this](http://www.dancancro.com/comparison-of-angularjs-application-starters) link.
