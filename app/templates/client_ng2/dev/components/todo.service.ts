@@ -1,19 +1,27 @@
 /// <reference path="../typings/tsd.d.ts" />
 
 import {Promise} from 'angular2/src/facade/async';
+import {IHttp} from 'angular2/src/http/interfaces';
+import {HttpFactory} from 'angular2/src/http/http';
+import {Inject} from 'angular2/di';
 
 export class TodoService {
   endpoint: string = '/api/todos/:id';
+  http: IHttp;
 
-  getAll():Promise {
-    return new Promise((res, rej) => res([]));
+  constructor(@Inject(HttpFactory) http: IHttp) {
+      this.http = http;
   }
 
-  add(message:string):Promise {
-    return new Promise((res, rej) => res(message));
+  getAll():Rx.Observable {
+    return this.http(this.endpoint.replace(':id', ''));
   }
 
-  remove(id:string|number):Promise {
-    return new Promise((res, rej) => res(id));
+  add(message:string):Rx.Observable {
+    return this.http(this.endpoint.replace(':id', ''));
+  }
+
+  remove(id:string|number):Rx.Observable {
+    return this.http(this.endpoint.replace(':id', id));
   }
 }

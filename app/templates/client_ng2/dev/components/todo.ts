@@ -29,18 +29,26 @@ export class Todo {
     this.todoForm = fb.group({
       todoMessage: ["", Validators.required]
     });
+
+    this.getAll();
+  }
+
+  getAll() {
+    this.todoService
+        .getAll()
+        .subscribe(todos => this.todos = todos);
   }
 
   add(message: string):void {
     this.todoService
         .add(message)
-        .then(m => this.todos.push({todoMessage: m, id: Date.now()}));
+        .subscribe(m => this.todos.push(m));
   }
 
   remove(id:string|number):void {
     this.todoService
         .remove(id)
-        .then(id => {
+        .subscribe(() => {
           this.todos.forEach((t, i) => {
             if (t.id === id)
                return this.todos.splice(1, i);
