@@ -127,7 +127,6 @@ NgFullstack.prototype.prompUser = function() {
     this.config.set('username', this.githubUsername);
     this.config.set('appName', this.appName);
     this.config.set('angular', this.angular);
-    //this.config.set('jspm', this.jspm);
 
     done();
   }.bind(this));
