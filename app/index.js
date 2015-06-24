@@ -106,6 +106,13 @@ NgFullstack.prototype.prompUser = function() {
         message: "What are you using in server side?",
         choices: ["node", "Go"],
         default: 0
+      },
+      {
+        type: "list",
+        name: "angular",
+        message: "What AngularJS version do you want?",
+        choices: ["1.x ", "2.x"],
+        default: 0
       }
     ];
 
@@ -114,10 +121,12 @@ NgFullstack.prototype.prompUser = function() {
     this.githubUsername = props.githubUsername;
     this.server = props.server;
     this.jspm = props.jspm;
+    this.angular = props.angular;
 
     this.config.set('server', this.server);
     this.config.set('username', this.githubUsername);
     this.config.set('appName', this.appName);
+    this.config.set('angular', this.angular);
     //this.config.set('jspm', this.jspm);
 
     done();
