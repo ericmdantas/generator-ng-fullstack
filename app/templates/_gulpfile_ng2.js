@@ -10,6 +10,7 @@ var less = require('gulp-less');
 var del = require('del');
 var coveralls = require('gulp-coveralls');
 var browserSync = require('browser-sync');
+var tsc = require('gulp-typescript');
 
 var DEV_DIR = './client/dev/';
 var TEMP_DIR = './client/__tmp/'; // working on it dir
