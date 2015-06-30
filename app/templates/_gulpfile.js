@@ -13,7 +13,6 @@ var coveralls = require('gulp-coveralls');
 var karma = require('karma').server;
 var browserSync = require('browser-sync');
 var wiredep = require('wiredep').stream;
-var inject = require('gulp-inject');
 
 var DEV_DIR = './client/dev/';
 var TEMP_DIR = './client/__tmp/'; // working on it dir
