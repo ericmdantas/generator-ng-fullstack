@@ -12,7 +12,7 @@ $ npm install -g generator-ng-fullstack
 
 # quick start
 
-[Quick start](https://github.com/ericmdantas/generator-ng-fullstack/wiki#do-i-need-anything).
+[Take a look here](https://github.com/ericmdantas/generator-ng-fullstack/wiki#do-i-need-anything).
 
 # what is this?
 
