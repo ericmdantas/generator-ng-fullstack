@@ -33,7 +33,7 @@ export class Todo {
     this.getAll();
   }
 
-  getAll() {
+  getAll():void {
     this.todoService
         .getAll()
         .subscribe(todos => this.todos = todos);
@@ -50,9 +50,3 @@ export class Todo {
         .remove(id)
         .subscribe(() => {
           this.todos.forEach((t, i) => {
-            if (t.id === id)
-               return this.todos.splice(1, i);
-          });
-        });
-  }
-}

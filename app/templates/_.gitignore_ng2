@@ -1,0 +1,5 @@
+.idea/
+node_modules/
+unit_coverage/
+client/dev/**/*.js
+server/**/*.js
