@@ -12,18 +12,18 @@ type Todo = {
 
 @Component({
   selector: 'todo',
-  appInjector: [FormBuilder, TodoService]
+  viewInjector: [FormBuilder, TodoService]
 })
 @View({
   templateUrl: 'components/todo.html',
   directives: [formDirectives]
 })
 export class Todo {
-  todos: Array<Todo>;
-  todoForm: ControlGroup;
-  todoService: TodoService;
+  todos:Array<Todo>;
+  todoForm:ControlGroup;
+  todoService:TodoService;
 
-  constructor(@Inject(FormBuilder) fb:FormBuilder, ts: TodoService) {
+  constructor(@Inject(FormBuilder) fb:FormBuilder, ts:TodoService) {
     this.todos = [];
     this.todoService = ts;
     this.todoForm = fb.group({
@@ -35,18 +35,24 @@ export class Todo {
 
   getAll():void {
     this.todoService
-        .getAll()
-        .subscribe(todos => this.todos = todos);
+      .getAll()
+      .subscribe(todos => this.todos = todos);
   }
 
-  add(message: string):void {
+  add(message:string):void {
     this.todoService
-        .add(message)
-        .subscribe(m => this.todos.push(m));
+      .add(message)
+      .subscribe(m => this.todos.push(m));
   }
 
   remove(id:string|number):void {
     this.todoService
-        .remove(id)
-        .subscribe(() => {
-          this.todos.forEach((t, i) => {
+      .remove(id)
+      .subscribe(() => {
+        this.todos.forEach((t, i) => {
+          if (t.id === id)
+            return this.todos.splice(1, i);
+        })
+      })
+  }
+}
