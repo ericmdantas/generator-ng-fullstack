@@ -70,6 +70,7 @@ NgFullstack.prototype.writing = function() {
 
                   break;
 
+    //TODO: in case it's go server, change the paths, because the username and appname will have to be part of it
     case "Go": this.directory('server_go', 'server');
                this.template('server_go/main.go', 'server/main.go', {appName: _app.app, username: _username.username});
                this.template('server_go/routes/routes.go', 'server/routes/routes.go', {appName: _app.app, username: _username.username});

@@ -28,18 +28,6 @@ var _copyNodeJS = function(feature, name, transpiler)
       this.template('node/babel/endpoint.dao_test.js', knownPaths.PATH_SERVER_FEATURES_TEST + feature + '/dao/' + name + '.dao_test.js', {name: name, nameLowerCase: name.toLowerCase(), feature: feature});
     }
   }
-
-  if (transpiler === "babel") {
-
-
-    return;
-  }
-
-  if (transpiler === "typescript") {
-
-
-    return;
-  }
 }
 
 var _copyGo = function(feature, name, username, appName)
