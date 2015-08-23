@@ -3,6 +3,7 @@
 // TODO: modularize (https://github.com/ericmdantas/generator-ng-fullstack/issues/6)
 
 var gulp = require('gulp');
+var babel = require('gulp-babel');
 var uglify = require('gulp-uglify');
 var cssmin = require('gulp-minify-css');
 var usemin = require('gulp-usemin');
@@ -126,11 +127,12 @@ gulp.task('watch', ['del_temp', 'build_temp', 'browser_sync'], function()
   _watchable.push(_less);
   _watchable.push(_images);
   _watchable.push(_partials);
+  _watchable.push(_views);
   _watchable.push(_fonts);
   _watchable.push(_bower);
   _watchable.push(_es6);
 
-  return gulp.watch(_watchable, ['compile:babel', 'bower', 'build_temp', 'browser_sync']);
+  return gulp.watch(_watchable, ['del_temp', 'bower', 'build_temp', 'browser_sync']);
 });
 
 gulp.task('del_temp', function()
