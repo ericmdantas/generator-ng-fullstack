@@ -5,25 +5,21 @@ var util = require('util');
 var knownPaths = require('../known-paths');
 var optionsParser = require('../options-parser');
 
-var ControllerGenerator = function(args, options, config)
-{
+var ControllerGenerator = function(args, options, config) {
     yeoman.generators.Base.apply(this, arguments);
 }
 
 util.inherits(ControllerGenerator,  yeoman.generators.NamedBase);
 
-ControllerGenerator.prototype.initializing = function()
-{
-  this.argument('name',
-  {
+ControllerGenerator.prototype.initializing = function() {
+  this.argument('name', {
     required: true,
     type: String,
     desc: 'controller_client'
   });
 };
 
-ControllerGenerator.prototype.writing = function()
-{
+ControllerGenerator.prototype.writing = function() {
   var _feature = optionsParser.getFeature(this.options);
   var _name = this.name;
 

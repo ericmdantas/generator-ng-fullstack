@@ -4,7 +4,7 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 
-describe('NgFullstack:resource', function () {
+describe('NgFullstack:resource', () => {
   before(function (done) {
     helpers.run(path.join(__dirname, '../resource'))
       .withArguments('country')
@@ -12,7 +12,7 @@ describe('NgFullstack:resource', function () {
       .on('end', done);
   });
 
-  it('creates files', function () {
+  it('creates files', () => {
     assert.file([
       'client/dev/js/user-resource/resource/country.resource.js'
     ]);

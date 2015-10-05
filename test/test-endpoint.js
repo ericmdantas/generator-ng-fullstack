@@ -5,23 +5,20 @@ var os = require('os');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 
-describe('NgFullstack:endpoint', function () {
+describe('NgFullstack:endpoint', () => {
 
-  describe('node', function()
-  {
+  describe('node', () => {
      before(function (done) {
         helpers
           .run(path.join(__dirname, '../app'))
           .inDir(path.join(os.tmpdir(), './temp-test'))
           .withOptions({ 'skip-install': true })
           .withPrompts({appName: "a", githubUsername: "b", server: "node"})
-          .on('end', function()
-          {
+          .on('end', () => {
             _runSub(done)
           });
 
-        var _runSub = function(done)
-        {
+        var _runSub = (done) => {
            helpers
             .run(path.join(__dirname, '../endpoint'))
             .withArguments('endp')
@@ -30,7 +27,7 @@ describe('NgFullstack:endpoint', function () {
         }
       });
 
-      it('creates files', function () {
+      it('creates files', () => {
         assert.file([
           'server/api/todo2/controller/endp.controller.js',
           'server/api/todo2/dao/endp.dao.js',
@@ -42,21 +39,18 @@ describe('NgFullstack:endpoint', function () {
       });
   })
 
-  describe('go', function()
-  {
-     before(function (done) {
+  describe('go', () => {
+     before((done) => {
         helpers
           .run(path.join(__dirname, '../app'))
           .inDir(path.join(os.tmpdir(), './temp-test'))
           .withOptions({ 'skip-install': true })
           .withPrompts({appName: "a", githubUsername: "b", server: "Go"})
-          .on('end', function()
-          {
+          .on('end', () => {
             _runSub(done)
           });
 
-        var _runSub = function(done)
-        {
+        var _runSub = (done) => {
            helpers
             .run(path.join(__dirname, '../endpoint'))
             .withArguments('endp')
@@ -68,7 +62,7 @@ describe('NgFullstack:endpoint', function () {
       //TODO: fix this test, this.config.get('server') is undefined in this test
 
 
-/*      it('creates files', function () {
+      /*it('creates files', () => {
         assert.file([
           'server/api/todo2/controller/endpcontroller.go',
           'server/api/todo2/dao/endpdao.go',

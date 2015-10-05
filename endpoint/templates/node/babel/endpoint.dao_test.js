@@ -5,30 +5,24 @@ var <%= name %>DAO = require(process.cwd() + '/server/api/<%= feature %>dao/<%= 
 var expect = require('chai').expect;
 var setupMongoose = require('../../_helpers/db').setupMongoose;
 
-describe('<%= name %>DAO', function()
-{
-  before(function()
-  {
+describe('<%= name %>DAO', () => {
+  before(() => {
     setupMongoose(mongoose);
   });
 
-  afterEach(function()
-  {
+  afterEach(() => {
     <%= name %>DAO.remove();
   })
 
-  describe('getAll', function()
-  {
+  describe('getAll', () => {
 
   })
 
-  describe('createNew', function()
-  {
+  describe('createNew', () => {
 
   })
 
-  describe('removeById', function()
-  {
+  describe('removeById', () => {
 
   })
 })

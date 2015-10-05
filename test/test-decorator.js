@@ -4,7 +4,7 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 
-describe('NgFullstack:decorator', function () {
+describe('NgFullstack:decorator', () => {
   before(function (done) {
     helpers.run(path.join(__dirname, '../decorator'))
       .withArguments('newHttp')
@@ -12,7 +12,7 @@ describe('NgFullstack:decorator', function () {
       .on('end', done);
   });
 
-  it('creates files', function () {
+  it('creates files', () => {
     assert.file([
       'client/dev/js/dec/decorator/newHttp.decorator.js'
     ]);

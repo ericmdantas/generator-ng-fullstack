@@ -4,7 +4,7 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 
-describe('NgFullstack:service', function () {
+describe('NgFullstack:service', () => {
   before(function (done) {
     helpers.run(path.join(__dirname, '../filter'))
       .withArguments('something')
@@ -12,7 +12,7 @@ describe('NgFullstack:service', function () {
       .on('end', done);
   });
 
-  it('creates files', function () {
+  it('creates files', () => {
     assert.file([
       'client/dev/js/beautifiers/filters/something.filter.js',
       'tests/client/beautifiers/filters/something.filter_test.js'

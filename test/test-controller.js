@@ -4,7 +4,7 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 
-describe('NgFullstack:controller', function () {
+describe('NgFullstack:controller', () => {
   before(function (done) {
     helpers.run(path.join(__dirname, '../controller'))
       .withArguments('hue')
@@ -12,7 +12,7 @@ describe('NgFullstack:controller', function () {
       .on('end', done);
   });
 
-  it('creates files', function () {
+  it('creates files', () => {
     assert.file(
     [
       'client/dev/js/user/controllers/hue.controller.js',

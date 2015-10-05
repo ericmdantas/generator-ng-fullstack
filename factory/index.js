@@ -6,15 +6,13 @@ var knownPaths = require('../known-paths');
 var optionsParser = require('../options-parser');
 var utils = require('../utils');
 
-var FactoryGenerator = function(args, options, config)
-{
+var FactoryGenerator = function(args, options, config) {
     yeoman.generators.Base.apply(this, arguments);
 }
 
 util.inherits(FactoryGenerator,  yeoman.generators.NamedBase);
 
-FactoryGenerator.prototype.initializing = function()
-{
+FactoryGenerator.prototype.initializing = function() {
   this.argument('name',
   {
     required: true,
@@ -23,8 +21,7 @@ FactoryGenerator.prototype.initializing = function()
   });
 };
 
-FactoryGenerator.prototype.writing = function()
-{
+FactoryGenerator.prototype.writing = function() {
   var _feature = optionsParser.getFeature(this.options);
   var _name = this.name;
 

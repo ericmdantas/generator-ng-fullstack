@@ -4,7 +4,7 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 
-describe('NgFullstack:directive', function () {
+describe('NgFullstack:directive', () => {
   before(function (done) {
     helpers.run(path.join(__dirname, '../directive'))
       .withArguments('something')
@@ -12,7 +12,7 @@ describe('NgFullstack:directive', function () {
       .on('end', done);
   });
 
-  it('creates files', function () {
+  it('creates files', () => {
     assert.file([
       'client/dev/js/common/directives/something.directive.js',
       'tests/client/common/directives/something.directive_test.js'

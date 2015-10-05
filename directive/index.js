@@ -5,15 +5,13 @@ var util = require('util');
 var knownPaths = require('../known-paths');
 var optionsParser = require('../options-parser');
 
-var DirectiveGenerator = function(args, options, config)
-{
+var DirectiveGenerator = function(args, options, config) {
     yeoman.generators.Base.apply(this, arguments);
 }
 
 util.inherits(DirectiveGenerator,  yeoman.generators.NamedBase);
 
-DirectiveGenerator.prototype.initializing = function()
-{
+DirectiveGenerator.prototype.initializing = function() {
   this.argument('name',
   {
     required: true,
@@ -22,8 +20,7 @@ DirectiveGenerator.prototype.initializing = function()
   });
 };
 
-DirectiveGenerator.prototype.writing = function()
-{
+DirectiveGenerator.prototype.writing = function() {
   var _feature = optionsParser.getFeature(this.options);
   var _name = this.name;
 

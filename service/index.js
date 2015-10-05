@@ -5,15 +5,13 @@ var util = require('util');
 var knownPaths = require('../known-paths');
 var optionsParser = require('../options-parser');
 
-var ServiceGenerator = function(args, options, config)
-{
+var ServiceGenerator = function(args, options, config) {
     yeoman.generators.Base.apply(this, arguments);
 }
 
 util.inherits(ServiceGenerator,  yeoman.generators.NamedBase);
 
-ServiceGenerator.prototype.initializing = function()
-{
+ServiceGenerator.prototype.initializing = function() {
   this.argument('name',
   {
     required: true,
@@ -22,8 +20,7 @@ ServiceGenerator.prototype.initializing = function()
   });
 };
 
-ServiceGenerator.prototype.writing = function()
-{
+ServiceGenerator.prototype.writing = function() {
   var _feature = optionsParser.getFeature(this.options);
   var _name = this.name;
 

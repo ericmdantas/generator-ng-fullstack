@@ -5,15 +5,13 @@ var util = require('util');
 var knownPaths = require('../known-paths');
 var optionsParser = require('../options-parser');
 
-var ResourceGenerator = function(args, options, config)
-{
+var ResourceGenerator = function(args, options, config) {
     yeoman.generators.Base.apply(this, arguments);
 }
 
 util.inherits(ResourceGenerator,  yeoman.generators.NamedBase);
 
-ResourceGenerator.prototype.initializing = function()
-{
+ResourceGenerator.prototype.initializing = function() {
   this.argument('name',
   {
     required: true,
@@ -22,8 +20,7 @@ ResourceGenerator.prototype.initializing = function()
   });
 };
 
-ResourceGenerator.prototype.writing = function()
-{
+ResourceGenerator.prototype.writing = function() {
   var _feature = optionsParser.getFeature(this.options);
   var _name = this.name;
 

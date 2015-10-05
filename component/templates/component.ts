@@ -8,7 +8,6 @@ import {Component, View} from 'angular2/angular2';
 @View({
   templateUrl: 'components/<%= name %>/<%= name %>.html'
 })
-
 export class <%= name %> {
   name: string = 'something';
 }

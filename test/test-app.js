@@ -8,10 +8,9 @@ var optionsParser = require('../options-parser');
 var knownPaths = require('../known-paths');
 var utils = require('../utils');
 
-describe('ng-fullstack:app', function () {
+describe('ng-fullstack:app', () => {
 
-  describe('files copy', function()
-  {
+  describe('files copy', () => {
     var _commonFiles = [
       '.editorconfig',
       '.jshintrc',
@@ -65,7 +64,7 @@ describe('ng-fullstack:app', function () {
 
       'tests/e2e/todo.e2e._test.js']
 
-      xdescribe('jspm', function() { // not implemented now
+      xdescribe('jspm', () => { // not implemented now
         var _jspmFiles = [
           'client/dev/config.js',
           'client/dev/index.js',
@@ -88,14 +87,12 @@ describe('ng-fullstack:app', function () {
               .on('end', done);
         });
 
-        it('should have the right files for jspm', function()
-        {
+        it('should have the right files for jspm', () => {
             assert.file(_jspmFiles);
         })
       })
 
-      describe('node - babel', function()
-      {
+      describe('node - babel', () => {
         var _nodeFiles = [
           // server stuff
 
@@ -143,13 +140,12 @@ describe('ng-fullstack:app', function () {
             .on('end', done);
         });
 
-        it('creates default files - node', function () {
+        it('creates default files - node', () => {
           assert.file(_nodeFiles);
         });
       })
 
-      describe('node - typescript', function()
-      {
+      describe('node - typescript', () => {
         var _nodeFiles = [
           // server stuff
 
@@ -197,13 +193,12 @@ describe('ng-fullstack:app', function () {
             .on('end', done);
         });
 
-        it('creates default files - node', function () {
+        it('creates default files - node', () =>  {
           assert.file(_nodeFiles);
         });
       })
 
-      describe('Go', function()
-      {
+      describe('Go', () => {
         var _goFiles = [
           // server stuff
 
@@ -252,67 +247,54 @@ describe('ng-fullstack:app', function () {
             .on('end', done);
         });
 
-        it('creates default files - Go', function () {
+        it('creates default files - Go', () =>  {
           assert.file(_goFiles);
         });
       })
   })
 
-  describe('options-parser', function()
-  {
-    it('should return ``, no params', function()
-    {
+  describe('options-parser', () => {
+    it('should return ``, no params', () => {
       assert.equal(optionsParser.getFeature({}), '');
     })
 
-    it('should return ``, empty object', function()
-    {
+    it('should return ``, empty object', () => {
       assert.equal(optionsParser.getFeature({}), '');
     })
 
-    it('should return /something, no params', function()
-    {
+    it('should return /something, no params', () => {
       assert.equal(optionsParser.getFeature({feature: 'something'}), 'something/');
     })
   })
 
-  describe('knownPaths', function()
-  {
-    it('should have the right info for PATH_CLIENT_FEATURES', function()
-    {
+  describe('knownPaths', () => {
+    it('should have the right info for PATH_CLIENT_FEATURES', () => {
       assert.equal(knownPaths.PATH_CLIENT_FEATURES, 'client/dev/js/');
     })
 
-    it('should have the right info for PATH_CLIENT_FEATURES_TEST', function()
-    {
+    it('should have the right info for PATH_CLIENT_FEATURES_TEST', () => {
       assert.equal(knownPaths.PATH_CLIENT_FEATURES_TEST, 'tests/client/');
     })
 
-    it('should have the right info for PATH_SERVER_FEATURES', function()
-    {
+    it('should have the right info for PATH_SERVER_FEATURES', () => {
       assert.equal(knownPaths.PATH_SERVER_FEATURES, 'server/api/');
     })
 
-    it('should have the right info for PATH_SERVER_FEATURES_TEST', function()
-    {
+    it('should have the right info for PATH_SERVER_FEATURES_TEST', () => {
       assert.equal(knownPaths.PATH_SERVER_FEATURES_TEST, 'tests/server/');
     })
   })
 
-  describe('capitalizeFirst', function()
-  {
-      it('should not capitalize it - nothing passed', function()
-      {
+  describe('capitalizeFirst', () => {
+      it('should not capitalize it - nothing passed', () => {
           assert.equal(utils.capitalizeFirst(), '');
       })
 
-      it('should capitalize it - one letter', function()
-      {
+      it('should capitalize it - one letter', () => {
         assert.equal(utils.capitalizeFirst('a'), 'A');
       })
 
-      it('should capitalize it - two words', function()
-      {
+      it('should capitalize it - two words', () => {
         assert.equal(utils.capitalizeFirst('a b'), 'A b');
       })
   })

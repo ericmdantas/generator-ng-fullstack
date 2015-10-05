@@ -1,6 +1,5 @@
 "use strict";
 
-describe('<%= name %>Component', function()
-{
+describe('<%= name %>Component', () => {
 
 })
