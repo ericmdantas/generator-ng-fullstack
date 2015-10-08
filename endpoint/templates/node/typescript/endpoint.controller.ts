@@ -4,8 +4,7 @@
 
 import {<%= name %>DAO} from '../dao/<%= name %>.dao';
 
-export class <%= name %>Controller
-{
+export class <%= name %>Controller {
   static getAll(req:Object, res:Object) {
     <%= name %>DAO
       .getAll()
@@ -22,8 +21,7 @@ export class <%= name %>Controller
       .catch(error => res.status(400).json(error));
   }
 
-  static remove(req:Object, res:Object)
-  {
+  static remove(req:Object, res:Object) {
     var _id = req.params.id;
 
     <%= name %>DAO

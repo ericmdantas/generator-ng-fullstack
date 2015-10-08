@@ -7,10 +7,8 @@ import * as Promise from 'bluebird';
 import <%= nameLowerCase %>Schema from '../model/<%= name %>.model';
 import *as _ from 'lodash';
 
-<%= nameLowerCase %>Schema.statics.getAll = () =>
-{
-  var _promise = (resolve, reject) =>
-  {
+<%= nameLowerCase %>Schema.statics.getAll = () => {
+  var _promise = (resolve, reject) => {
     var _query = {};
 
     <%= name %>
@@ -25,19 +23,15 @@ import *as _ from 'lodash';
   return new Promise(_promise);
 }
 
-<%= nameLowerCase %>Schema.statics.createNew = (<%= nameLowerCase %>) =>
-{
-  var _promise = (resolve, reject) =>
-  {
-    if (!_.isObject(<%= nameLowerCase %>))
-    {
+<%= nameLowerCase %>Schema.statics.createNew = (<%= nameLowerCase %>) => {
+  var _promise = (resolve, reject) => {
+    if (!_.isObject(<%= nameLowerCase %>)) {
       return reject(new TypeError('Todo is not a valid object.'));
     }
 
     var _something = new <%= name %>(<%= nameLowerCase %>);
 
-    _something.save((err, saved) =>
-    {
+    _something.save((err, saved) => {
       err ? reject(err)
         : resolve(saved);
     });
@@ -46,12 +40,9 @@ import *as _ from 'lodash';
   return new Promise(_promise);
 }
 
-<%= nameLowerCase %>chema.statics.removeById = (id) =>
-{
-  var _promise = (resolve, reject) =>
-  {
-    if (!_.isString(id))
-    {
+<%= nameLowerCase %>chema.statics.removeById = (id) => {
+  var _promise = (resolve, reject) => {
+    if (!_.isString(id)) {
       return reject(new TypeError('Id is not a valid string.'));
     }
 

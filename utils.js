@@ -1,7 +1,6 @@
 "use strict";
 
-exports.capitalizeFirst = function(str)
-{
+exports.capitalizeFirst = (str) => {
     if (!str)
         return '';
 

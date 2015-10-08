@@ -4,10 +4,8 @@
 
 import {<%= name %>Controller} from '../controller/<%= name %>.controller';
 
-export class <%= name %>Routes
-{
-  static init(router:Object)
-  {
+export class <%= name %>Routes {
+  static init(router:Object) {
     router
       .route('/api/<%= nameLowerCase %>')
       .get(<%= name %>Controller.getAll)

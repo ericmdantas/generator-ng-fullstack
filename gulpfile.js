@@ -1,12 +1,10 @@
-"use strict";
+const gulp = require('gulp');
+const babel = require('gulp-babel');
 
-var gulp = require('gulp');
-var babel = require('gulp-babel');
-
-var _es6 = '**/*.es6';
+const ES6_PATH = ['**/*.es6', '!node_modules'];
 
 gulp.task('compile:babel', () => {
-    return gulp.src(_es6)
+    return gulp.src(ES6_PATH)
                .pipe(babel({optional: ["es7.decorators"]}))
                .pipe(gulp.dest('.'));
 });

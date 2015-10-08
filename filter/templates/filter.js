@@ -1,11 +1,9 @@
-;(function(angular)
-{
+;(function(angular) {
   "use strict";
 
   angular
     .module('myAwesomeApp')
-    .filter('<%= name %>', [function(input)
-    {
+    .filter('<%= name %>', [function(input) {
         if (!input)
           return '';
 

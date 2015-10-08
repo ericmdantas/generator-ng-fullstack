@@ -4,26 +4,21 @@ import yeoman from 'yeoman-generator';
 import chalk from 'chalk';
 import yosay from 'yosay';
 
-export default class NgFullstack extends yeoman.generators.Base
-{
-    constructor(args, options, config)
-    {
+export default class NgFullstack extends yeoman.generators.Base {
+    constructor(args, options, config) {
         super(args, options, config);
         //yeoman.generators.Base.apply(this, arguments);
     }
 
-    initializing()
-    {
+    initializing() {
       this.pkg = require('../package.json');
     }
 
-    prompting()
-    {
+    prompting() {
       this.log(yosay('Welcome to the terrific ' + chalk.green('NgFullstack') + ' generator!'));
     }
 
-    writing()
-    {
+    writing() {
       var _app = {app: this.appName};
       var _username = {username: this.githubUsername};
       var _appAndUsername = {app: _app.app, username: _username.username};
@@ -51,15 +46,6 @@ export default class NgFullstack extends yeoman.generators.Base
       this.directory('client', 'client');
       this.directory('tests', 'tests');
 
-      if (_jspm) {
-        this.template('client_jspm/dev/config.js', 'client/dev/config.js');
-        this.template('client_jspm/dev/index.js', 'client/dev/index.js');
-        this.template('client_jspm/dev/index.html', 'client/dev/index.html');
-
-        this.directory('client_jspm/dev/views', 'client/dev/views');
-        this.directory('client_jspm/dev/js', 'client/dev/js');
-      }
-
       switch(_server) {
         case "io.js": this.directory('server_io.js', 'server');
           this.template('index.js', 'index.js');
@@ -72,15 +58,13 @@ export default class NgFullstack extends yeoman.generators.Base
       }
     }
 
-    install()
-    {
+    install() {
       var _installOpts = {skipInstall: this.options['skip-install']};
 
       this.installDependencies(_installOpts);
     }
 
-    prompUser()
-    {
+    prompUser() {
       var done = this.async();
 
       var prompts =
@@ -116,13 +100,11 @@ export default class NgFullstack extends yeoman.generators.Base
         this.appName = props.appName;
         this.githubUsername = props.githubUsername;
         this.server = props.server;
-        this.jspm = props.jspm;
         this.transpilerServer = props.transpilerServer;
 
         this.config.set('server', this.server.toLowerCase());
         this.config.set('username', this.githubUsername);
         this.config.set('appName', this.appName);
-        this.config.set('jspm', this.jspm);
         this.config.set('transpilerServer', this.transpilerServer);
 
         done();

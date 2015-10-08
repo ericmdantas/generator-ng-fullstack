@@ -1,164 +1,152 @@
 'use strict';
 
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var yosay = require('yosay');
-var util = require('util');
+var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
 
-var NgFullstack = function() {
-  yeoman.generators.Base.apply(this, arguments);
-}
+var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
 
-util.inherits(NgFullstack, yeoman.generators.Base)
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-NgFullstack.prototype.initializing = function() {
-  this.pkg = require('../package.json');
-}
+var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-NgFullstack.prototype.prompting = function() {
-  this.log(yosay('Welcome to the terrific ' + chalk.green('NgFullstack') + ' generator!'));
-}
+var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
 
-NgFullstack.prototype.writing = function() {
-  var _app = {app: this.appName};
-  var _username = {username: this.githubUsername};
-  var _appAndUsername = {app: _app.app, username: _username.username};
-  var _server = this.server;
-  var _transpilerServer = this.transpilerServer;
-  var _jspm = this.jspm;
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 
-  this.template('_package.json', 'package.json', _appAndUsername);
-  this.template('_bower.json', 'bower.json', _appAndUsername);
-  this.template('_README.md', 'README.md', _appAndUsername);
+var _yeoman = require('yeoman-generator');
 
-  this.template('_gulpfile.js', 'gulpfile.js', _app);
-  this.template('_karma.conf.js', 'karma.conf.js', _app);
-  this.template('_protractor.conf.js', 'protractor.conf.js', _app);
+var _yeoman2 = _interopRequireWildcard(_yeoman);
 
-  this.template('_newrelic.js', 'newrelic.js', _app);
+var _chalk = require('chalk');
 
-  this.template('_procfile.txt', 'procfile.txt', _app);
+var _chalk2 = _interopRequireWildcard(_chalk);
 
-  this.template('_.bowerrc', '.bowerrc');
-  this.template('_.travis.yml', '.travis.yml');
-  this.template('_.gitignore', '.gitignore');
-  this.template('_.editorconfig', '.editorconfig');
-  this.template('_.jshintrc','.jshintrc');
+var _yosay = require('yosay');
 
-  this.directory('client', 'client');
+var _yosay2 = _interopRequireWildcard(_yosay);
 
-  if (_jspm) {
-    this.template('client_jspm/dev/config.js', 'client/dev/config.js');
-    this.template('client_jspm/dev/index.js', 'client/dev/index.js');
-    this.template('client_jspm/dev/index.html', 'client/dev/index.html');
+'use strict';
 
-    this.directory('client_jspm/dev/views', 'client/dev/views');
-    this.directory('client_jspm/dev/js', 'client/dev/js');
+var NgFullstack = (function (_yeoman$generators$Base) {
+  function NgFullstack(args, options, config) {
+    _classCallCheck(this, NgFullstack);
+
+    _get(Object.getPrototypeOf(NgFullstack.prototype), 'constructor', this).call(this, args, options, config);
+    //yeoman.generators.Base.apply(this, arguments);
   }
 
-  switch(_server) {
-    case "node":
-                  if (_transpilerServer !== "Typescript")
-                  {
-                    this.directory('server_node_babel', 'server');
-                    this.template('index.js', 'index.js');
-                    break;
-                  }
+  _inherits(NgFullstack, _yeoman$generators$Base);
 
-                  this.directory('server_node_typescript', 'server');
-                  this.template('index_tsc.js', 'index.js');
+  _createClass(NgFullstack, [{
+    key: 'initializing',
+    value: function initializing() {
+      this.pkg = require('../package.json');
+    }
+  }, {
+    key: 'prompting',
+    value: function prompting() {
+      this.log(_yosay2['default']('Welcome to the terrific ' + _chalk2['default'].green('NgFullstack') + ' generator!'));
+    }
+  }, {
+    key: 'writing',
+    value: function writing() {
+      var _app = { app: this.appName };
+      var _username = { username: this.githubUsername };
+      var _appAndUsername = { app: _app.app, username: _username.username };
+      var _server = this.server;
+      var _jspm = this.jspm;
 
-                  break;
+      this.template('_package.json', 'package.json', _appAndUsername);
+      this.template('_bower.json', 'bower.json', _appAndUsername);
+      this.template('_README.md', 'README.md', _appAndUsername);
 
-    //TODO: in case it's go server, change the paths, because the username and appname will have to be part of it
-    case "Go": this.directory('server_go', 'server');
-               this.template('server_go/main.go', 'server/main.go', {appName: _app.app, username: _username.username});
-               this.template('server_go/routes/routes.go', 'server/routes/routes.go', {appName: _app.app, username: _username.username});
-               break;
-  }
+      this.template('_gulpfile.js', 'gulpfile.js', _app);
+      this.template('_karma.conf.js', 'karma.conf.js', _app);
+      this.template('_protractor.conf.js', 'protractor.conf.js', _app);
 
-  this.directory('tests', 'tests');
-}
+      this.template('_newrelic.js', 'newrelic.js', _app);
 
-NgFullstack.prototype.install = function() {
-  var _installOpts = {skipInstall: this.options['skip-install']};
+      this.template('_procfile.txt', 'procfile.txt', _app);
 
-  this.installDependencies(_installOpts);
-}
+      this.template('_.bowerrc', '.bowerrc');
+      this.template('_.travis.yml', '.travis.yml');
+      this.template('_.gitignore', '.gitignore');
+      this.template('_.editorconfig', '.editorconfig');
+      this.template('_.jshintrc', '.jshintrc');
 
-NgFullstack.prototype.prompUser = function() {
-  var done = this.async();
+      this.directory('client', 'client');
+      this.directory('tests', 'tests');
 
-  var prompts =
-    [
-      {
+      switch (_server) {
+        case 'io.js':
+          this.directory('server_io.js', 'server');
+          this.template('index.js', 'index.js');
+          break;
+
+        case 'Go':
+          this.directory('server_go', 'server');
+          this.template('server_go/main.go', 'server/main.go', { appName: _app.app, username: _username.username });
+          this.template('server_go/routes/routes.go', 'server/routes/routes.go', { appName: _app.app, username: _username.username });
+          break;
+      }
+    }
+  }, {
+    key: 'install',
+    value: function install() {
+      var _installOpts = { skipInstall: this.options['skip-install'] };
+
+      this.installDependencies(_installOpts);
+    }
+  }, {
+    key: 'prompUser',
+    value: function prompUser() {
+      var _this = this;
+
+      var done = this.async();
+
+      var prompts = [{
         name: 'appName',
         message: 'What is the name of your app?',
-        default: 'some-name-here'
-      },
-      {
+        'default': 'some-name-here'
+      }, {
         name: 'githubUsername',
         message: 'What is your username on Github?',
-        default: 'some-username-here'
-      },
-      {
-        type: "list",
-        name: "server",
-        message: "What are you using in server side?",
-        choices: ["node", "Go"],
-        default: 0
-      },
-      {
-        type: "list",
-        name: "angular",
-        message: "What AngularJS version do you want?",
-        choices: ["1.x ", "2.x"],
-        default: 0
-      }
-    ];
-
-  this.prompt(prompts, function(props) {
-    this.appName = props.appName;
-    this.githubUsername = props.githubUsername;
-    this.server = props.server;
-    this.jspm = props.jspm;
-    this.angular = props.angular;
-
-    this.config.set('server', this.server);
-    this.config.set('username', this.githubUsername);
-    this.config.set('appName', this.appName);
-    this.config.set('angular', this.angular);
-
-    done();
-  }.bind(this));
-
-  this.config.save();
-}
-
-NgFullstack.prototype.promptUserTranspilerServer = function() {
-
-  var done = this.async();
-
-  var _prompts = [{
-        type: "list",
-        name: "transpilerServer",
-        message: "What transpiler do you want to use in server side?",
-        choices: ["Babel", "Typescript"],
-        default: 0,
-        when: function() {
-            return this.server === "node";
-        }.bind(this)
+        'default': 'some-username-here'
+      }, {
+        type: 'list',
+        name: 'server',
+        message: 'What do you want in server side?',
+        choices: ['io.js', 'Go'],
+        'default': 0
+      }, {
+        type: 'list',
+        name: 'transpilerServer',
+        message: 'What transpiler do you want to use in server side?',
+        choices: ['Babel', 'Typescript'],
+        'default': 1
       }];
 
-  this.prompt(_prompts, function(props) {
-    this.transpilerServer = props.transpilerServer;
+      this.prompt(prompts, function (props) {
+        _this.appName = props.appName;
+        _this.githubUsername = props.githubUsername;
+        _this.server = props.server;
+        _this.transpilerServer = props.transpilerServer;
 
-    this.config.set('transpilerServer', this.transpilerServer);
+        _this.config.set('server', _this.server.toLowerCase());
+        _this.config.set('username', _this.githubUsername);
+        _this.config.set('appName', _this.appName);
+        _this.config.set('transpilerServer', _this.transpilerServer);
 
-    done();
-  }.bind(this));
+        done();
+      });
 
-  this.config.save();
-}
+      this.config.save();
+    }
+  }]);
 
-module.exports = NgFullstack;
+  return NgFullstack;
+})(_yeoman2['default'].generators.Base);
+
+exports['default'] = NgFullstack;
+module.exports = exports['default'];

@@ -1,23 +1,18 @@
-;(function(angular)
-{
+;(function(angular) {
   "use strict";
 
   angular
     .module('myAwesomeApp')
-    .factory('<%= name %>', [function()
-    {
-      var <%= name %> = function()
-    {
+    .factory('<%= name %>', [function() {
+      var <%= name %> = function() {
       this.something = 123;
     }
 
-    <%= name %>.prototype.isValid = function()
-    {
+    <%= name %>.prototype.isValid = function() {
       return !!this.something;
     }
 
       return <%= name %>;
     }]);
 
-}(window.angular))
-
+}(window.angular));

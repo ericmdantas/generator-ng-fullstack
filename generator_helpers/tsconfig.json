@@ -1,8 +1,0 @@
-{
-	"compilerOptions": 
-	{
-		"watch": true,
-		"target": "es5",
-		"module": "commonjs"
-	}
-}

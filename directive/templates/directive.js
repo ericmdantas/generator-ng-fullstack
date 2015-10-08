@@ -1,13 +1,10 @@
-;(function(angular)
-{
+;(function(angular) {
   "use strict";
 
   angular
     .module('myAwesomeApp')
-    .directive('<%= name %>', [function()
-    {
-      var _link = function(scope, element, attrs)
-      {
+    .directive('<%= name %>', [function() {
+      var _link = function(scope, element, attrs) {
 
       };
 
@@ -26,4 +23,3 @@
     }]);
 
 }(window.angular));
-
