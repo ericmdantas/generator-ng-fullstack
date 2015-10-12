@@ -1,5 +1,5 @@
-const gulp = require('gulp');
-const babel = require('gulp-babel');
+import gulp from 'gulp';
+import babel from 'gulp-babel';
 
 const ES6_PATH = ['**/*.es6', '!node_modules'];
 

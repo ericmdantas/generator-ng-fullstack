@@ -47,16 +47,18 @@
     "angular go jspm"
   ],
   "dependencies": {
-    "babel": "^5.0.12",
     "chalk": "^0.5.0",
-    "gulp": "^3.8.11",
-    "gulp-babel": "^5.1.0",
-    "gulp-rename": "^1.2.2",
     "lodash": "^3.10.1",
     "yeoman-generator": "^0.18.0",
     "yosay": "^0.3.0"
   },
   "devDependencies": {
-    "mocha": "*"
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.25",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-rename": "^1.2.2",
+    "mocha": "*",
+    "sinon": "^1.17.1"
   }
 }

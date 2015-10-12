@@ -4,9 +4,9 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
-var optionsParser = require('../options-parser');
-var knownPaths = require('../known-paths');
-var utils = require('../utils');
+var optionsParser = require('../_ng/options_parser');
+var knownPaths = require('../_ng/known_paths');
+var utils = require('../_ng/utils');
 
 describe('ng-fullstack:app', () => {
 

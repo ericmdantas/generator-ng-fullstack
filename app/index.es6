@@ -3,13 +3,13 @@
 import yeoman from 'yeoman-generator';
 import chalk from 'chalk';
 import yosay from 'yosay';
-import {MainGenerator} from '../ng/generator.js';
+import {MainGenerator} from '../_ng/generator.js';
 
 export default class NgFullstack extends yeoman.generators.Base {
     constructor(args, options, config) {
         super(args, options, config);
 
-        this.generator = new MainGenerator();
+        this.generator = new MainGenerator(this);
     }
 
     initializing() {
@@ -17,22 +17,22 @@ export default class NgFullstack extends yeoman.generators.Base {
     }
 
     prompting() {
-      this.generator.sayHello(this);
+      this.generator.sayHello();
     }
 
     writing() {
-      this.generator.writing(this);
+      this.generator.writing();
     }
 
     install() {
-      this.generator.install(this);
+      this.generator.install();
     }
 
     prompUser() {
-      this.generator.promptUser(this);
+      this.generator.promptUser();
     }
 
     promptUserTranspilerServer() {
-      this.generator.promptTranspilerServer(this);
+      this.generator.promptTranspilerServer();
     }
 }

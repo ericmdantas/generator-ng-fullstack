@@ -1,5 +1,3 @@
-"use strict";
-
 exports.capitalizeFirst = (str) => {
     if (!str)
         return '';

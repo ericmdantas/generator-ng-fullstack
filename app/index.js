@@ -26,7 +26,7 @@ var _yosay = require('yosay');
 
 var _yosay2 = _interopRequireDefault(_yosay);
 
-var _ngGeneratorJs = require('../ng/generator.js');
+var _ngGeneratorJs = require('../_ng/generator.js');
 
 var NgFullstack = (function (_yeoman$generators$Base) {
     _inherits(NgFullstack, _yeoman$generators$Base);
@@ -36,7 +36,7 @@ var NgFullstack = (function (_yeoman$generators$Base) {
 
         _get(Object.getPrototypeOf(NgFullstack.prototype), 'constructor', this).call(this, args, options, config);
 
-        this.generator = new _ngGeneratorJs.MainGenerator();
+        this.generator = new _ngGeneratorJs.MainGenerator(this);
     }
 
     _createClass(NgFullstack, [{
@@ -47,27 +47,27 @@ var NgFullstack = (function (_yeoman$generators$Base) {
     }, {
         key: 'prompting',
         value: function prompting() {
-            this.generator.sayHello(this);
+            this.generator.sayHello();
         }
     }, {
         key: 'writing',
         value: function writing() {
-            this.generator.writing(this);
+            this.generator.writing();
         }
     }, {
         key: 'install',
         value: function install() {
-            this.generator.install(this);
+            this.generator.install();
         }
     }, {
         key: 'prompUser',
         value: function prompUser() {
-            this.generator.promptUser(this);
+            this.generator.promptUser();
         }
     }, {
         key: 'promptUserTranspilerServer',
         value: function promptUserTranspilerServer() {
-            this.generator.promptTranspilerServer(this);
+            this.generator.promptTranspilerServer();
         }
     }]);
 
