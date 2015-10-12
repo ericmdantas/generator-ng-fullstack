@@ -1,18 +1,50 @@
-import * as fs from 'fs';
-import * as _ from 'lodash';
-
 export class GeneratorConfig {
-  constructor(gen) {
+  static KEY_SERVER = "server";
+  static KEY_USERNAME = 'username';
+  static KEY_APP_NAME = 'appName';
+  static KEY_TRANSPILER_SERVER = 'transpilerServer';
+
+  constructor(generator) {
     this.server = 'node';
     this.username = undefined;
     this.appName = undefined;
     this.transpilerServer = undefined;
-    this.generator = {};
-
-    _.assign(this, gen);
+    this.wrapper = generator;
   }
 
-  save() {
-    this.generator.config.save();
+  withServer(s) {
+    this.server = s;
+    this.set(GeneratorConfig.KEY_SERVER, s);
+    return this;
+  }
+
+  withUsername(u) {
+    this.username = u;
+    this.set(GeneratorConfig.KEY_USERNAME, u);
+    return this;
+  }
+
+  withAppName(a) {
+    this.appname = a;
+    this.set(GeneratorConfig.KEY_APP_NAME, a);
+    return this;
+  }
+
+  withTranspilerServer(t) {
+    this.transpilerServer = t;
+    this.set(GeneratorConfig.KEY_TRANSPILER_SERVER, t);
+    return this;
+  }
+
+  set(key, info) {
+    this.wrapper.config.set(key, info);
+  }
+
+  get(key) {
+    return this.wrapper.config.get(key);
+  }
+
+  save(key, info) {
+    this.wrapper.config.save();
   }
 }

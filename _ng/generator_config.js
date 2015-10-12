@@ -6,35 +6,79 @@ Object.defineProperty(exports, '__esModule', {
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-var _fs = require('fs');
-
-var fs = _interopRequireWildcard(_fs);
-
-var _lodash = require('lodash');
-
-var _ = _interopRequireWildcard(_lodash);
-
 var GeneratorConfig = (function () {
-  function GeneratorConfig(gen) {
+  _createClass(GeneratorConfig, null, [{
+    key: 'KEY_SERVER',
+    value: "server",
+    enumerable: true
+  }, {
+    key: 'KEY_USERNAME',
+    value: 'username',
+    enumerable: true
+  }, {
+    key: 'KEY_APP_NAME',
+    value: 'appName',
+    enumerable: true
+  }, {
+    key: 'KEY_TRANSPILER_SERVER',
+    value: 'transpilerServer',
+    enumerable: true
+  }]);
+
+  function GeneratorConfig(generator) {
     _classCallCheck(this, GeneratorConfig);
 
     this.server = 'node';
     this.username = undefined;
     this.appName = undefined;
     this.transpilerServer = undefined;
-    this.generator = {};
-
-    _.assign(this, gen);
+    this.wrapper = generator;
   }
 
   _createClass(GeneratorConfig, [{
+    key: 'withServer',
+    value: function withServer(s) {
+      this.server = s;
+      this.set(GeneratorConfig.KEY_SERVER, s);
+      return this;
+    }
+  }, {
+    key: 'withUsername',
+    value: function withUsername(u) {
+      this.username = u;
+      this.set(GeneratorConfig.KEY_USERNAME, u);
+      return this;
+    }
+  }, {
+    key: 'withAppName',
+    value: function withAppName(a) {
+      this.appname = a;
+      this.set(GeneratorConfig.KEY_APP_NAME, a);
+      return this;
+    }
+  }, {
+    key: 'withTranspilerServer',
+    value: function withTranspilerServer(t) {
+      this.transpilerServer = t;
+      this.set(GeneratorConfig.KEY_TRANSPILER_SERVER, t);
+      return this;
+    }
+  }, {
+    key: 'set',
+    value: function set(key, info) {
+      this.wrapper.config.set(key, info);
+    }
+  }, {
+    key: 'get',
+    value: function get(key) {
+      return this.wrapper.config.get(key);
+    }
+  }, {
     key: 'save',
-    value: function save() {
-      this.generator.config.save();
+    value: function save(key, info) {
+      this.wrapper.config.save();
     }
   }]);
 

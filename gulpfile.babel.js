@@ -5,7 +5,7 @@ const ES6_PATH = ['**/*.es6', '!node_modules'];
 
 gulp.task('compile', () => {
     return gulp.src(ES6_PATH)
-               .pipe(babel({optional: ["es7.decorators"]}))
+               .pipe(babel({stage: 0}))
                .pipe(gulp.dest('.'));
 });
 

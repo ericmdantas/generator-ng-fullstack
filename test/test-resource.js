@@ -1,8 +1,6 @@
-'use strict';
-
-var path = require('path');
-var assert = require('yeoman-generator').assert;
-var helpers = require('yeoman-generator').test;
+import path from 'path';
+import {assert} from 'yeoman-generator';
+import {test as helpers} from 'yeoman-generator';
 
 describe('NgFullstack:resource', () => {
   before(function (done) {

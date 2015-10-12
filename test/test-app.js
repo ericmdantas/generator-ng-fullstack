@@ -1,12 +1,10 @@
-'use strict';
-
-var path = require('path');
-var assert = require('yeoman-generator').assert;
-var helpers = require('yeoman-generator').test;
-var os = require('os');
-var optionsParser = require('../_ng/options_parser');
-var knownPaths = require('../_ng/known_paths');
-var utils = require('../_ng/utils');
+import path from 'path';
+import {assert} from 'yeoman-generator';
+import {test as helpers} from 'yeoman-generator';
+import os from 'os';
+import optionsParser from '../_ng/options_parser';
+import knownPaths from '../_ng/known_paths';
+import utils from '../_ng/utils';
 
 describe('ng-fullstack:app', () => {
 

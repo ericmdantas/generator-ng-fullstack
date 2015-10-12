@@ -1,12 +1,9 @@
-'use strict';
-
-var path = require('path');
-var os = require('os');
-var assert = require('yeoman-generator').assert;
-var helpers = require('yeoman-generator').test;
+import path from 'path';
+import os from 'os';
+import {assert} from 'yeoman-generator';
+import {test as helpers} from 'yeoman-generator';
 
 describe('NgFullstack:endpoint', () => {
-
   describe('node', () => {
      before(function (done) {
         helpers

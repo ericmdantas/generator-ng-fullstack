@@ -16,7 +16,7 @@
   "scripts": {
     "start": "gulp compile",
     "watch:es6": "gulp watch",
-    "test": "gulp compile && mocha --reporter min"
+    "test": "gulp compile && mocha --reporter min --require babel/register"
   },
   "files": [
     "app",
@@ -55,6 +55,7 @@
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-core": "^5.8.25",
+    "chai": "^3.3.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
     "gulp-rename": "^1.2.2",
