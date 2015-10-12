@@ -18,17 +18,7 @@ var _yeomanGenerator = require('yeoman-generator');
 
 var _yeomanGenerator2 = _interopRequireDefault(_yeomanGenerator);
 
-var _util = require('util');
-
-var _util2 = _interopRequireDefault(_util);
-
-var _ngKnown_paths = require('../_ng/known_paths');
-
-var _ngKnown_paths2 = _interopRequireDefault(_ngKnown_paths);
-
-var _ngOptions_parser = require('../_ng/options_parser');
-
-var _ngOptions_parser2 = _interopRequireDefault(_ngOptions_parser);
+var _ngSub_generators = require('../_ng/sub_generators');
 
 var ControllerGenerator = (function (_yeoman$generators$Base) {
   _inherits(ControllerGenerator, _yeoman$generators$Base);
@@ -37,27 +27,19 @@ var ControllerGenerator = (function (_yeoman$generators$Base) {
     _classCallCheck(this, ControllerGenerator);
 
     _get(Object.getPrototypeOf(ControllerGenerator.prototype), 'constructor', this).call(this, args, options, config);
+
+    this.generator = new _ngSub_generators.ControllerSubGenerator(this);
   }
 
   _createClass(ControllerGenerator, [{
     key: 'initializing',
     value: function initializing() {
-      this.argument('name', {
-        required: true,
-        type: String,
-        desc: 'controller_client'
-      });
+      this.generator.initializing();
     }
   }, {
     key: 'writing',
     value: function writing() {
-      var _feature = _ngOptions_parser2['default'].getFeature(this.options);
-      var _name = this.name;
-
-      if (!_feature.length) throw new Error('Feature is needed. Do it like this: --feature something-here');
-
-      this.template('controller_client.js', _ngKnown_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/controllers/' + _name + '.controller.js', { name: _name });
-      this.template('controller_client_test.js', _ngKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/controllers/' + _name + '.controller_test.js', { name: _name, nameLowerCase: _name.toLowerCase() });
+      this.generator.writing();
     }
   }]);
 

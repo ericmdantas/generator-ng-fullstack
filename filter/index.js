@@ -18,51 +18,33 @@ var _yeomanGenerator = require('yeoman-generator');
 
 var _yeomanGenerator2 = _interopRequireDefault(_yeomanGenerator);
 
-var _util = require('util');
+var _ngSub_generators = require('../_ng/sub_generators');
 
-var _util2 = _interopRequireDefault(_util);
+var FilterGenerator = (function (_yeoman$generators$Base) {
+  _inherits(FilterGenerator, _yeoman$generators$Base);
 
-var _ngKnown_paths = require('../_ng/known_paths');
+  function FilterGenerator(args, options, config) {
+    _classCallCheck(this, FilterGenerator);
 
-var _ngKnown_paths2 = _interopRequireDefault(_ngKnown_paths);
+    _get(Object.getPrototypeOf(FilterGenerator.prototype), 'constructor', this).call(this, args, options, config);
 
-var _ngOptions_parser = require('../_ng/options_parser');
-
-var _ngOptions_parser2 = _interopRequireDefault(_ngOptions_parser);
-
-var filterGenerator = (function (_yeoman$generators$Base) {
-  _inherits(filterGenerator, _yeoman$generators$Base);
-
-  function filterGenerator(args, options, config) {
-    _classCallCheck(this, filterGenerator);
-
-    _get(Object.getPrototypeOf(filterGenerator.prototype), 'constructor', this).call(this, args, options, config);
+    this.generator = new _ngSub_generators.FilterSubGenerator(this);
   }
 
-  _createClass(filterGenerator, [{
+  _createClass(FilterGenerator, [{
     key: 'initializing',
     value: function initializing() {
-      this.argument('name', {
-        required: true,
-        type: String,
-        desc: 'filter'
-      });
+      this.generator.initializing();
     }
   }, {
     key: 'writing',
     value: function writing() {
-      var _feature = _ngOptions_parser2['default'].getFeature(this.options);
-      var _name = this.name;
-
-      if (!_feature.length) throw new Error('Feature is needed. Do it like this: --feature something-here');
-
-      this.template('filter.js', _ngKnown_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/filters/' + this.name + '.filter.js', { name: _name });
-      this.template('filter_test.js', _ngKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/filters/' + this.name + '.filter_test.js', { name: _name });
+      this.generator.writing();
     }
   }]);
 
-  return filterGenerator;
+  return FilterGenerator;
 })(_yeomanGenerator2['default'].generators.Base);
 
-exports['default'] = filterGenerator;
+exports['default'] = FilterGenerator;
 module.exports = exports['default'];

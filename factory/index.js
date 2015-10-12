@@ -18,21 +18,7 @@ var _yeomanGenerator = require('yeoman-generator');
 
 var _yeomanGenerator2 = _interopRequireDefault(_yeomanGenerator);
 
-var _util = require('util');
-
-var _util2 = _interopRequireDefault(_util);
-
-var _ngKnown_paths = require('../_ng/known_paths');
-
-var _ngKnown_paths2 = _interopRequireDefault(_ngKnown_paths);
-
-var _ngOptions_parser = require('../_ng/options_parser');
-
-var _ngOptions_parser2 = _interopRequireDefault(_ngOptions_parser);
-
-var _ngUtils = require('../_ng/utils');
-
-var _ngUtils2 = _interopRequireDefault(_ngUtils);
+var _ngSub_generators = require('../_ng/sub_generators');
 
 var FactoryGenerator = (function (_yeoman$generators$Base) {
   _inherits(FactoryGenerator, _yeoman$generators$Base);
@@ -41,27 +27,19 @@ var FactoryGenerator = (function (_yeoman$generators$Base) {
     _classCallCheck(this, FactoryGenerator);
 
     _get(Object.getPrototypeOf(FactoryGenerator.prototype), 'constructor', this).call(this, args, options, config);
+
+    this.generator = new _ngSub_generators.FactorySubGenerator(this);
   }
 
   _createClass(FactoryGenerator, [{
     key: 'initializing',
     value: function initializing() {
-      this.argument('name', {
-        required: true,
-        type: String,
-        desc: 'factory'
-      });
+      this.generator.initializing();
     }
   }, {
     key: 'writing',
     value: function writing() {
-      var _feature = _ngOptions_parser2['default'].getFeature(this.options);
-      var _name = this.name;
-
-      if (!_feature.length) throw new Error('Feature is needed. Do it like this: --feature something-here');
-
-      this.template('factory.js', _ngKnown_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/factory/' + _name + '.factory.js', { name: _ngUtils2['default'].capitalizeFirst(_name) });
-      this.template('factory_test.js', _ngKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/factory/' + _name + '.factory_test.js', { name: _ngUtils2['default'].capitalizeFirst(_name) });
+      this.generator.writing();
     }
   }]);
 

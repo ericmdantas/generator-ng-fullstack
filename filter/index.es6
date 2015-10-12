@@ -1,29 +1,18 @@
 import yeoman from 'yeoman-generator';
-import util from 'util';
-import knownPaths from '../_ng/known_paths';
-import optionsParser from '../_ng/options_parser';
+import {FilterSubGenerator} from '../_ng/sub_generators';
 
-export default class filterGenerator extends yeoman.generators.Base {
+export default class FilterGenerator extends yeoman.generators.Base {
   constructor(args, options, config) {
     super(args, options, config);
+
+    this.generator = new FilterSubGenerator(this);
   }
 
   initializing() {
-    this.argument('name', {
-      required: true,
-      type: String,
-      desc: 'filter'
-    });
+    this.generator.initializing();
   }
 
   writing() {
-    const _feature = optionsParser.getFeature(this.options);
-    const _name = this.name;
-
-    if (!_feature.length)
-      throw new Error('Feature is needed. Do it like this: --feature something-here');
-
-    this.template('filter.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/filters/' + this.name + '.filter.js', {name: _name});
-    this.template('filter_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _feature + '/filters/' + this.name + '.filter_test.js', {name: _name});
+    this.generator.writing();
   }
 }

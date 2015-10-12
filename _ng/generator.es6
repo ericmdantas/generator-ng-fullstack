@@ -9,7 +9,7 @@ export class MainGenerator {
     this.wrapper = gen;
   }
 
-  sayHello() {
+  sayHello() {1
     this.wrapper.log(yosay('Welcome to the terrific ' + chalk.green('NgFullstack') + ' this.wrapper!'));
   }
 

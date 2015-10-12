@@ -18,13 +18,7 @@ var _yeomanGenerator = require('yeoman-generator');
 
 var _yeomanGenerator2 = _interopRequireDefault(_yeomanGenerator);
 
-var _util = require('util');
-
-var _util2 = _interopRequireDefault(_util);
-
-var _ngKnown_paths = require('../_ng/known_paths');
-
-var _ngKnown_paths2 = _interopRequireDefault(_ngKnown_paths);
+var _ngSub_generators = require('../_ng/sub_generators');
 
 var ComponentGenerator = (function (_yeoman$generators$Base) {
   _inherits(ComponentGenerator, _yeoman$generators$Base);
@@ -33,27 +27,19 @@ var ComponentGenerator = (function (_yeoman$generators$Base) {
     _classCallCheck(this, ComponentGenerator);
 
     _get(Object.getPrototypeOf(ComponentGenerator.prototype), 'constructor', this).call(this, args, options, config);
+
+    this.generator = new _ngSub_generators.ComponentSubGenerator(this);
   }
 
   _createClass(ComponentGenerator, [{
     key: 'initializing',
     value: function initializing() {
-      this.argument('name', {
-        required: true,
-        type: String,
-        desc: 'component'
-      });
+      this.generator.initializing();
     }
   }, {
     key: 'writing',
     value: function writing() {
-      var _name = this.name;
-      var _firstLetterUppercased = _name.charAt(0).toUpperCase() + _name.slice(1);
-      var _nameLowerCased = _name.toLowerCase();
-
-      this.template('component.ts', _ngKnown_paths2['default'].PATH_CLIENT_FEATURES + '../components/' + _name + '/' + _name + '.ts', { name: _firstLetterUppercased });
-      this.template('component.html', _ngKnown_paths2['default'].PATH_CLIENT_FEATURES + '../components/' + _name + '/' + _name + '.html', { name: _name });
-      this.template('component_test.ts', _ngKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + '/components/' + _name + '/' + _name + '_test.ts', { name: _firstLetterUppercased, nameLowerCase: _nameLowerCased });
+      this.generator.writing();
     }
   }]);
 

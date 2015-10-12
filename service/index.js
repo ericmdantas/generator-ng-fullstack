@@ -18,17 +18,7 @@ var _yeomanGenerator = require('yeoman-generator');
 
 var _yeomanGenerator2 = _interopRequireDefault(_yeomanGenerator);
 
-var _util = require('util');
-
-var _util2 = _interopRequireDefault(_util);
-
-var _ngKnown_paths = require('../_ng/known_paths');
-
-var _ngKnown_paths2 = _interopRequireDefault(_ngKnown_paths);
-
-var _ngOptions_parser = require('../_ng/options_parser');
-
-var _ngOptions_parser2 = _interopRequireDefault(_ngOptions_parser);
+var _ngSub_generators = require('../_ng/sub_generators');
 
 var ServiceGenerator = (function (_yeoman$generators$Base) {
   _inherits(ServiceGenerator, _yeoman$generators$Base);
@@ -37,27 +27,19 @@ var ServiceGenerator = (function (_yeoman$generators$Base) {
     _classCallCheck(this, ServiceGenerator);
 
     _get(Object.getPrototypeOf(ServiceGenerator.prototype), 'constructor', this).call(this, args, options, config);
+
+    this.generator = new _ngSub_generators.ServiceSubGenerator(this);
   }
 
   _createClass(ServiceGenerator, [{
     key: 'initializing',
     value: function initializing() {
-      this.argument('name', {
-        required: true,
-        type: String,
-        desc: 'service'
-      });
+      this.generator.initializing();
     }
   }, {
     key: 'writing',
     value: function writing() {
-      var _feature = _ngOptions_parser2['default'].getFeature(this.options);
-      var _name = this.name;
-
-      if (!_feature.length) throw new Error('Feature is needed. Do it like this: --feature something-here');
-
-      this.template('service.js', _ngKnown_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/services/' + this.name + '.service.js', { name: _name });
-      this.template('service_test.js', _ngKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/services/' + this.name + '.service_test.js', { name: _name });
+      this.generator.writing();
     }
   }]);
 
