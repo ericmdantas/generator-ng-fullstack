@@ -7,7 +7,12 @@ export class GeneratorConfig {
     this.username = undefined;
     this.appName = undefined;
     this.transpilerServer = undefined;
+    this.generator = {};
 
     _.assign(this, gen);
+  }
+
+  save() {
+    this.generator.config.save();
   }
 }

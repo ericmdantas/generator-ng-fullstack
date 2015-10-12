@@ -107,8 +107,8 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'babel'})
             .withOptions({ 'skip-install': true })
-            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'Babel'})
             .on('end', done);
         });
 
@@ -121,7 +121,7 @@ describe('ng-fullstack:app', () => {
         var _nodeFiles = [
           // server stuff
 
-          'index.js', // babel's entry point
+          'index.js', // typescript's entry point
 
           'server/server.ts',
 
@@ -161,7 +161,7 @@ describe('ng-fullstack:app', () => {
             .run(path.join(__dirname, '../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withOptions({ 'skip-install': true })
-            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'Typescript'})
+            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'typescript'})
             .on('end', done);
         });
 
@@ -214,8 +214,8 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({appName: "a", githubUsername: "b", server: "go"})
             .withOptions({ 'skip-install': true })
-            .withPrompts({appName: "a", githubUsername: "b", server: "Go"})
             .on('end', done);
         });
 

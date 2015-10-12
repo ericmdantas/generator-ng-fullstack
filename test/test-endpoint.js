@@ -15,7 +15,7 @@ describe('NgFullstack:endpoint', () => {
           .withOptions({ 'skip-install': true })
           .withPrompts({appName: "a", githubUsername: "b", server: "node"})
           .on('end', () => {
-            _runSub(done)
+            _runSub(done);
           });
 
         var _runSub = (done) => {
@@ -47,7 +47,7 @@ describe('NgFullstack:endpoint', () => {
           .withOptions({ 'skip-install': true })
           .withPrompts({appName: "a", githubUsername: "b", server: "Go"})
           .on('end', () => {
-            _runSub(done)
+            _runSub(done);
           });
 
         var _runSub = (done) => {

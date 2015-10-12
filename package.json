@@ -11,12 +11,12 @@
     "url": "https://github.com/ericmdantas"
   },
   "engines": {
-    "iojs": "1.x.x"
+    "node": "4.1"
   },
   "scripts": {
-    "start": "gulp compile:babel",
-    "watch:es6": "gulp watch:es6",
-    "test": "mocha --reporter min"
+    "start": "gulp compile",
+    "watch:es6": "gulp watch",
+    "test": "gulp compile && mocha --reporter min"
   },
   "files": [
     "app",
