@@ -2,9 +2,6 @@ import path from 'path';
 import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
 import os from 'os';
-import optionsParser from '../_ng/options_parser';
-import knownPaths from '../_ng/known_paths';
-import utils from '../_ng/utils';
 
 describe('ng-fullstack:app', () => {
 
@@ -220,52 +217,6 @@ describe('ng-fullstack:app', () => {
         it('creates default files - Go', () =>  {
           assert.file(_goFiles);
         });
-      })
-  })
-
-  describe('options-parser', () => {
-    it('should return ``, no params', () => {
-      assert.equal(optionsParser.getFeature({}), '');
-    })
-
-    it('should return ``, empty object', () => {
-      assert.equal(optionsParser.getFeature({}), '');
-    })
-
-    it('should return /something, no params', () => {
-      assert.equal(optionsParser.getFeature({feature: 'something'}), 'something/');
-    })
-  })
-
-  describe('knownPaths', () => {
-    it('should have the right info for PATH_CLIENT_FEATURES', () => {
-      assert.equal(knownPaths.PATH_CLIENT_FEATURES, 'client/dev/js/');
-    })
-
-    it('should have the right info for PATH_CLIENT_FEATURES_TEST', () => {
-      assert.equal(knownPaths.PATH_CLIENT_FEATURES_TEST, 'tests/client/');
-    })
-
-    it('should have the right info for PATH_SERVER_FEATURES', () => {
-      assert.equal(knownPaths.PATH_SERVER_FEATURES, 'server/api/');
-    })
-
-    it('should have the right info for PATH_SERVER_FEATURES_TEST', () => {
-      assert.equal(knownPaths.PATH_SERVER_FEATURES_TEST, 'tests/server/');
-    })
-  })
-
-  describe('capitalizeFirst', () => {
-      it('should not capitalize it - nothing passed', () => {
-          assert.equal(utils.capitalizeFirst(), '');
-      })
-
-      it('should capitalize it - one letter', () => {
-        assert.equal(utils.capitalizeFirst('a'), 'A');
-      })
-
-      it('should capitalize it - two words', () => {
-        assert.equal(utils.capitalizeFirst('a b'), 'A b');
       })
   })
 })

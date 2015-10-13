@@ -25,10 +25,18 @@ var GeneratorConfig = (function () {
     key: 'KEY_TRANSPILER_SERVER',
     value: 'transpilerServer',
     enumerable: true
+  }, {
+    key: 'canCreate',
+    value: false,
+    enumerable: true
   }]);
 
   function GeneratorConfig(generator) {
     _classCallCheck(this, GeneratorConfig);
+
+    if (!GeneratorConfig.canCreate) {
+      throw new Error('Use getInstance(generator) instead.');
+    }
 
     this.server = 'node';
     this.username = undefined;
@@ -54,7 +62,7 @@ var GeneratorConfig = (function () {
   }, {
     key: 'withAppName',
     value: function withAppName(a) {
-      this.appname = a;
+      this.appName = a;
       this.set(GeneratorConfig.KEY_APP_NAME, a);
       return this;
     }
@@ -79,6 +87,15 @@ var GeneratorConfig = (function () {
     key: 'save',
     value: function save(key, info) {
       this.wrapper.config.save();
+    }
+  }], [{
+    key: 'getInstance',
+    value: function getInstance(generator) {
+      GeneratorConfig.canCreate = true;
+      GeneratorConfig.instance = GeneratorConfig.instance || new GeneratorConfig(generator);
+      GeneratorConfig.canCreate = false;
+
+      return GeneratorConfig.instance;
     }
   }]);
 

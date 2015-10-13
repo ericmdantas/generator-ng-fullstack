@@ -60,6 +60,7 @@
     "gulp-babel": "^5.2.1",
     "gulp-rename": "^1.2.2",
     "mocha": "*",
-    "sinon": "^1.17.1"
+    "sinon": "^1.17.1",
+    "sinon-chai": "^2.8.0"
   }
 }

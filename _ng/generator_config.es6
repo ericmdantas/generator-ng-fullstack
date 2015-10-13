@@ -3,13 +3,27 @@ export class GeneratorConfig {
   static KEY_USERNAME = 'username';
   static KEY_APP_NAME = 'appName';
   static KEY_TRANSPILER_SERVER = 'transpilerServer';
+  static canCreate = false;
+  static instance;
 
   constructor(generator) {
+    if (!GeneratorConfig.canCreate) {
+      throw new Error('Use getInstance(generator) instead.');
+    }
+
     this.server = 'node';
     this.username = undefined;
     this.appName = undefined;
     this.transpilerServer = undefined;
     this.wrapper = generator;
+  }
+
+  static getInstance(generator) {
+    GeneratorConfig.canCreate = true;
+    GeneratorConfig.instance = GeneratorConfig.instance || new GeneratorConfig(generator);
+    GeneratorConfig.canCreate = false;
+
+    return GeneratorConfig.instance;
   }
 
   withServer(s) {
@@ -25,7 +39,7 @@ export class GeneratorConfig {
   }
 
   withAppName(a) {
-    this.appname = a;
+    this.appName = a;
     this.set(GeneratorConfig.KEY_APP_NAME, a);
     return this;
   }
