@@ -1,5 +1,6 @@
 import {expect} from 'chai';
 import sinon from 'sinon';
+import knownPaths from '../_ng/known_paths';
 
 import {DirectiveSubGenerator} from '../_ng/sub_generators_directive';
 
@@ -35,7 +36,7 @@ describe('sub_generators', () => {
         let _gen = {
           name: 'a',
           options: {feature: 'c'},
-          template: () => {}
+          template: sinon.spy()
         };
 
         sinon.mock(_gen.template);
@@ -44,7 +45,12 @@ describe('sub_generators', () => {
 
         _dsg.writing();
 
+        let _firstCall = ['directive.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '//directives/' + _gen.name + '.directive.js', {name: _gen.name}];
+        let _secondCall = ['directive_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '//directives/' + _gen.name + '.directive_test.js', {name: _gen.name}];
+
         expect(_dsg.wrapper.writing).to.have.been.called;
+        expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_dsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     });
   });

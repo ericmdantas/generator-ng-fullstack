@@ -1,51 +1,53 @@
 import {expect} from 'chai';
 import sinon from 'sinon';
+import knownPaths from '../_ng/known_paths';
 
 import {ServiceSubGenerator} from '../_ng/sub_generators_service';
 
-describe('sub_generators', () => {
-  describe('ServiceSubGenerator', () => {
-    describe('creation', () => {
-      it('should have the right param passed to wrapper', () => {
-        let _gen = {a: true};
-        let _ssg = new ServiceSubGenerator(_gen);
+describe('ServiceSubGenerator', () => {
+  describe('creation', () => {
+    it('should have the right param passed to wrapper', () => {
+      let _gen = {a: true};
+      let _ssg = new ServiceSubGenerator(_gen);
 
-        expect(_ssg.wrapper).to.equal(_gen);
-      });
+      expect(_ssg.wrapper).to.equal(_gen);
     });
+  });
 
-    describe('initializing', () => {
-      it('should have the initializing called with the right stuff', () => {
-        let _gen = {
-          argument: () => {}
-        };
+  describe('initializing', () => {
+    it('should have the initializing called with the right stuff', () => {
+      let _gen = {
+        argument: () => {}
+      };
 
-        sinon.mock(_gen.argument);
+      sinon.mock(_gen.argument);
 
-        let _ssg = new ServiceSubGenerator(_gen);
+      let _ssg = new ServiceSubGenerator(_gen);
 
-        _ssg.initializing();
+      _ssg.initializing();
 
-        expect(_ssg.wrapper.argument).to.have.been.called;
-      });
+      expect(_ssg.wrapper.argument).to.have.been.called;
     });
+  });
 
-    describe('writing', () => {
-      it('should have the initializing called with the right stuff', () => {
-        let _gen = {
-          name: 'a',
-          options: {feature: 'c'},
-          template: () => {}
-        };
+  describe('writing', () => {
+    it('should have the initializing called with the right stuff', () => {
+      let _gen = {
+        name: 'a',
+        options: {feature: 'c'},
+        template: sinon.spy()
+      };
 
-        sinon.mock(_gen.template);
+      let _ssg = new ServiceSubGenerator(_gen);
 
-        let _ssg = new ServiceSubGenerator(_gen);
+      let _firstCall = ['service.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '//services/' + _gen.name + '.service.js', {name: _gen.name}]
+      let _secondCall = ['service_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '//services/' + _gen.name + '.service_test.js', {name: _gen.name}]
 
-        _ssg.writing();
+      _ssg.writing();
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-      });
+      expect(_ssg.wrapper.writing).to.have.been.called;
+      expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
     });
   });
 });
