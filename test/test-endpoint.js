@@ -19,7 +19,7 @@ describe('NgFullstack:endpoint', () => {
            helpers
             .run(path.join(__dirname, '../endpoint'))
             .withArguments('endp')
-            .withOptions({ 'skip-install': true, feature: 'todo2' })
+            .withOptions({ 'skip-install': true, feature: 'todo2'})
             .on('end', done);
         }
       });

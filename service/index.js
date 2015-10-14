@@ -18,7 +18,7 @@ var _yeomanGenerator = require('yeoman-generator');
 
 var _yeomanGenerator2 = _interopRequireDefault(_yeomanGenerator);
 
-var _ngSub_generators = require('../_ng/sub_generators');
+var _ngSub_generators_service = require('../_ng/sub_generators_service');
 
 var ServiceGenerator = (function (_yeoman$generators$Base) {
   _inherits(ServiceGenerator, _yeoman$generators$Base);
@@ -28,7 +28,7 @@ var ServiceGenerator = (function (_yeoman$generators$Base) {
 
     _get(Object.getPrototypeOf(ServiceGenerator.prototype), 'constructor', this).call(this, args, options, config);
 
-    this.generator = new _ngSub_generators.ServiceSubGenerator(this);
+    this.generator = new _ngSub_generators_service.ServiceSubGenerator(this);
   }
 
   _createClass(ServiceGenerator, [{

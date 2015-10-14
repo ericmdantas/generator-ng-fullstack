@@ -1,5 +1,5 @@
 import yeoman from 'yeoman-generator';
-import {ComponentSubGenerator} from '../_ng/sub_generators';
+import {ComponentSubGenerator} from '../_ng/sub_generators_component';
 
 export default class ComponentGenerator extends yeoman.generators.Base {
   constructor(args, options, config) {

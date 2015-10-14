@@ -1,5 +1,5 @@
 import yeoman from 'yeoman-generator';
-import {FilterSubGenerator} from '../_ng/sub_generators';
+import {FilterSubGenerator} from '../_ng/sub_generators_filter';
 
 export default class FilterGenerator extends yeoman.generators.Base {
   constructor(args, options, config) {
