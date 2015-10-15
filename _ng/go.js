@@ -59,6 +59,13 @@ var GoServer = (function () {
       this.wrapper.template('go/endpoint.controller_test.go', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/controller/' + this.wrapper.name + 'controller_test.go', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: _featureWithoutTrailingSlash, username: this.wrapper.username, appName: this.wrapper.appName });
       this.wrapper.template('go/endpoint.route_test.go', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/routes/' + this.wrapper.name + 'route_test.go', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: _featureWithoutTrailingSlash, username: this.wrapper.username, appName: this.wrapper.appName });
     }
+  }, {
+    key: 'copyForMainGenerator',
+    value: function copyForMainGenerator() {
+      this.wrapper.directory('server_go', 'server');
+      this.wrapper.template('server_go/main.go', 'server/main.go', { appName: this.wrapper.appName, username: this.wrapper.username });
+      this.wrapper.template('server_go/routes/routes.go', 'server/routes/routes.go', { appName: this.wrapper.appName, username: this.wrapper.username });
+    }
   }]);
 
   return GoServer;

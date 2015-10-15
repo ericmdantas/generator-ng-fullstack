@@ -37,6 +37,12 @@ var NodeStandard = (function () {
 
       this.wrapper.template('node/node/endpoint.dao_test.js', _known_paths2['default'].PATH_SERVER_FEATURES_TEST + this.wrapper.feature + '/dao/' + this.wrapper.name + '.dao_test.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
     }
+  }, {
+    key: 'copyForMainGenerator',
+    value: function copyForMainGenerator() {
+      this.wrapper.directory('server_node', 'server');
+      this.wrapper.template('index.js', 'index.js');
+    }
   }]);
 
   return NodeStandard;
@@ -61,6 +67,12 @@ var NodeBabel = (function () {
 
       this.wrapper.template('node/babel/endpoint.dao_test.js', _known_paths2['default'].PATH_SERVER_FEATURES_TEST + this.wrapper.feature + '/dao/' + this.wrapper.name + '.dao_test.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
     }
+  }, {
+    key: 'copyForMainGenerator',
+    value: function copyForMainGenerator() {
+      this.wrapper.directory('server_node_babel', 'server');
+      this.wrapper.template('index.js', 'index.js');
+    }
   }]);
 
   return NodeBabel;
@@ -84,6 +96,12 @@ var NodeTypescript = (function () {
       this.wrapper.template('node/typescript/endpoint.model.ts', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/model/' + this.wrapper.name + '.model.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
 
       this.wrapper.template('node/typescript/endpoint.dao_test.ts', _known_paths2['default'].PATH_SERVER_FEATURES_TEST + this.wrapper.feature + '/dao/' + this.wrapper.name + '.dao_test.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
+    }
+  }, {
+    key: 'copyForMainGenerator',
+    value: function copyForMainGenerator() {
+      this.wrapper.directory('server_node_typescript', 'server');
+      this.wrapper.template('index_tsc.js', 'index.js');
     }
   }]);
 

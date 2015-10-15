@@ -3,6 +3,8 @@ import chalk from 'chalk';
 import yosay from 'yosay';
 import {NodeStandard, NodeBabel, NodeTypescript} from './node';
 import {GeneratorConfig} from './generator_config';
+import {NodeFactory} from './node';
+import {GoFactory} from './go';
 
 export class MainGenerator {
   constructor(gen) {
@@ -42,31 +44,8 @@ export class MainGenerator {
       this.wrapper.directory('tests', 'tests');
 
       switch(_server) {
-        case "node":
-                  if (_transpilerServer === "typescript") {
-                    this.wrapper.directory('server_node_typescript', 'server');
-                    this.wrapper.template('index_tsc.js', 'index.js');
-
-                    break;
-                  }
-
-                  if (_transpilerServer === "babel") {
-                    this.wrapper.directory('server_node_babel', 'server');
-                    this.wrapper.template('index.js', 'index.js');
-
-                    break;
-                  }
-
-                  this.wrapper.directory('server_node', 'server');
-                  this.wrapper.template('index.js', 'index.js');
-
-                  break;
-
-        case "go": this.wrapper.directory('server_go', 'server');
-                   this.wrapper.template('server_go/main.go', 'server/main.go', {appName: _app.app, username: _username.username});
-                   this.wrapper.template('server_go/routes/routes.go', 'server/routes/routes.go', {appName: _app.app, username: _username.username});
-
-                   break;
+        case "node": return NodeFactory.build(this.wrapper).copyForMainGenerator();
+        case "go": return GoFactory.build(this.wrapper).copyForMainGenerator();
       }
   }
 
