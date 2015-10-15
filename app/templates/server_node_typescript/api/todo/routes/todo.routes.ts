@@ -4,10 +4,8 @@
 
 import {TodoController} from '../controller/todo.controller';
 
-export class TodoRoutes
-{
-    static init(router)
-    {
+export class TodoRoutes {
+    static init(router) {
       router
         .route('/api/todos')
         .get(TodoController.getAll)

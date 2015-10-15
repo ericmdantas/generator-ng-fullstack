@@ -1,20 +1,16 @@
-;(function(angular)
-{
+;(function(angular) {
   "use strict";
 
   angular
     .module('myAwesomeApp')
-    .controller('TodoController', ['$log', 'Todo', 'TodoDAO', function($log, Todo, TodoDAO)
-    {
+    .controller('TodoController', ['$log', 'Todo', 'TodoDAO', function($log, Todo, TodoDAO) {
       var self = this;
 
       self.todo = new Todo();
       self.todos = [];
 
-      self.createTodo = function(todo)
-      {
-        var _onSuccess = function(newTodo)
-        {
+      self.createTodo = function(todo) {
+        var _onSuccess = function(newTodo) {
           self.todos.push(newTodo);
           self.todo = new Todo();
         };
@@ -25,18 +21,15 @@
           .catch($log.error);
       };
 
-      self.deleteTodo = function(id)
-      {
+      self.deleteTodo = function(id) {
         TodoDAO
           .deleteTodo(id)
           .then(_getAll)
           .catch($log.error);
       }
 
-      var _getAll = function()
-      {
-        var _onSuccess = function(todos)
-        {
+      var _getAll = function() {
+        var _onSuccess = function(todos) {
           return self.todos = todos;
         };
 

@@ -4,10 +4,8 @@
 
 import * as fs from 'fs';
 
-export class StaticDispatcher
-{
-    static sendIndex(req, res):void
-    {
+export class StaticDispatcher {
+    static sendIndex(req, res):void {
       var _root = process.cwd();
 
       res.setHeader('Content-Type', 'text/html');

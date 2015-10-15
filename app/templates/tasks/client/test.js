@@ -1,11 +1,8 @@
-"use strict";
-
 const gulp = require('gulp');
 const coveralls = require('gulp-coveralls');
 const karma = require('karma').server;
 
-gulp.task('test_client', function(done)
-{
+gulp.task('test_client', (done) => {
   return karma
     .start({
       configFile: __dirname + '/karma.conf.js',
@@ -14,8 +11,7 @@ gulp.task('test_client', function(done)
     }, done);
 })
 
-gulp.task('coverage_frontend', ['test_client'], function()
-{
+gulp.task('coverage_frontend', ['test_client'], () => {
   return gulp
     .src('unit_coverage/**/lcov.info')
     .pipe(coveralls());

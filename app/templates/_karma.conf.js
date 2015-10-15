@@ -1,8 +1,7 @@
 // Karma configuration
 // Generated on Sun Apr 27 2014 18:49:56 GMT-0300 (Hora oficial do Brasil)
 
-var KarmaConf = function(config)
-{
+module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -96,5 +95,3 @@ var KarmaConf = function(config)
     singleRun: true
   });
 };
-
-module.exports = KarmaConf;

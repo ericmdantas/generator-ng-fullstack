@@ -1,123 +1,106 @@
-"use strict";
+import gulp from 'gulp';
+import babel from 'gulp-babel';
+import uglify from 'gulp-uglify';
+import cssmin from 'gulp-minify-css';
+import usemin from 'gulp-usemin';
+import less from 'gulp-less';
+import del from 'del';
+import coveralls from 'gulp-coveralls';
+import browserSync from 'browser-sync';
+import tsc from 'gulp-typescript';
 
-// TODO: modularize (https://github.com/ericmdantas/generator-ng-fullstack/issues/6)
+const DEV_DIR = './client/dev/';
+const TEMP_DIR = './client/__tmp/'; // working on it dir
+const DIST_DIR = './client/dist/';
 
-var gulp = require('gulp');
-var babel = require('gulp-babel');
-var uglify = require('gulp-uglify');
-var cssmin = require('gulp-minify-css');
-var usemin = require('gulp-usemin');
-var less = require('gulp-less');
-var del = require('del');
-var coveralls = require('gulp-coveralls');
-var browserSync = require('browser-sync');
-var tsc = require('gulp-typescript');
+const _js = DEV_DIR + 'js/**/*.js';
+const _less = DEV_DIR + 'css/**/*.less';
+const _images = DEV_DIR + 'imgs/*';
+const _fonts = DEV_DIR + 'fonts/*';
+const _partials = DEV_DIR + 'partials/**/*';
+const _views = DEV_DIR + 'views/**/*';
+const _indexHTML = DEV_DIR + 'index.html';
+const _bower = 'bower.json';
+const _es6 = '**/*.es6';
 
-var DEV_DIR = './client/dev/';
-var TEMP_DIR = './client/__tmp/'; // working on it dir
-var DIST_DIR = './client/dist/';
-
-var _js = DEV_DIR + 'js/**/*.js';
-var _less = DEV_DIR + 'css/**/*.less';
-var _images = DEV_DIR + 'imgs/*';
-var _fonts = DEV_DIR + 'fonts/*';
-var _partials = DEV_DIR + 'partials/**/*';
-var _views = DEV_DIR + 'views/**/*';
-var _indexHTML = DEV_DIR + 'index.html';
-var _bower = 'bower.json';
-var _es6 = '**/*.es6';
-
-gulp.task('compile:babel', function()
-{
+gulp.task('compile:babel', () => {
     return gulp.src(['**/*.es6', '!node_modules/**'])
                .pipe(babel({optional: ['es7.decorators']}))
                .pipe(gulp.dest('.'));
 })
 
-gulp.task('html,css,js:temp', function()
-{
+gulp.task('html,css,js:temp', () => {
   return gulp
           .src(_indexHTML)
           .pipe(usemin({css0: [rev(), less()]}))
           .pipe(gulp.dest(TEMP_DIR));
 })
 
-gulp.task('partials:temp', function()
-{
+gulp.task('partials:temp', () => {
   return gulp
     .src(_partials)
     .pipe(gulp.dest(TEMP_DIR + 'partials/'));
 })
 
-gulp.task('partials:dist', function()
-{
+gulp.task('partials:dist', () => {
   return gulp
           .src(_partials)
           .pipe(gulp.dest(DIST_DIR + 'partials/'));
 })
 
-gulp.task('views:temp', function()
-{
+gulp.task('views:temp', () => {
   return gulp
     .src(_views)
     .pipe(gulp.dest(TEMP_DIR + 'views/'));
 })
 
-gulp.task('views:dist', function()
-{
+gulp.task('views:dist', () => {
   return gulp
           .src(_views)
           .pipe(gulp.dest(DIST_DIR + 'views/'));
 })
 
-gulp.task('imgs:temp', function()
-{
+gulp.task('imgs:temp', () => {
   return gulp
     .src(_images)
     .pipe(gulp.dest(TEMP_DIR + 'imgs/'));
 })
 
-gulp.task('fonts:temp', function()
-{
+gulp.task('fonts:temp', () => {
   return gulp
     .src(_fonts)
     .pipe(gulp.dest(TEMP_DIR + 'fonts/'));
 })
 
 
-gulp.task('html,css,js:dist', function()
-{
+gulp.task('html,css,js:dist', () => {
   return gulp
     .src(_indexHTML)
     .pipe(usemin({js0: [rev(), uglify()], js1: [rev(), uglify()], css0: [cssmin(), rev(), less()]}))
     .pipe(gulp.dest(DIST_DIR));
 })
 
-gulp.task('fonts:dist', function()
-{
+gulp.task('fonts:dist', () => {
   return gulp
           .src(_fonts)
           .pipe(gulp.dest(DIST_DIR + 'fonts/'));
 })
 
 
-gulp.task('imgs:dist', function()
-{
+gulp.task('imgs:dist', () => {
   return gulp
           .src(_images)
           .pipe(gulp.dest(DIST_DIR+ 'imgs/'));
 })
 
-gulp.task('browser_sync', function()
-{
+gulp.task('browser_sync', () => {
   return browserSync.reload();
 })
 
 gulp.task('build', ['del_dist', 'test_client', 'partials:dist', 'views:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist']); // dist build
 gulp.task('build_temp', ['del_temp', 'partials:temp', 'views:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp']); // browser-sync build
 
-gulp.task('watch', ['del_temp', 'build_temp', 'browser_sync'], function()
-{
+gulp.task('watch', ['del_temp', 'build_temp', 'browser_sync'], () => {
   browserSync({proxy: "http://localhost:3333", reloadDelay: 1000});
 
   var _watchable = [];
@@ -135,18 +118,15 @@ gulp.task('watch', ['del_temp', 'build_temp', 'browser_sync'], function()
   return gulp.watch(_watchable, ['del_temp', 'bower', 'build_temp', 'browser_sync']);
 });
 
-gulp.task('del_temp', function()
-{
+gulp.task('del_temp', () => {
   return del.sync([TEMP_DIR]);
 })
 
-gulp.task('del_dist', function()
-{
+gulp.task('del_dist', () => {
     return del.sync([DIST_DIR]);
 })
 
-gulp.task('test_client', function(done)
-{
+gulp.task('test_client', (done) => {
     return karma
             .start({
                 configFile: __dirname + '/karma.conf.js',
@@ -155,8 +135,7 @@ gulp.task('test_client', function(done)
             }, done);
 })
 
-gulp.task('coverage_frontend', ['test_client'], function()
-{
+gulp.task('coverage_frontend', ['test_client'], () => {
     return gulp
             .src('unit_coverage/**/lcov.info')
             .pipe(coveralls());

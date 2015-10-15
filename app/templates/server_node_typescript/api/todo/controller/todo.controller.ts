@@ -1,21 +1,16 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
-"use strict";
-
 import TodoDAO from '../dao/todo.dao';
 
-export class TodoController
-{
-  static getAll(req:Object, res:Object):void
-  {
+export class TodoController {
+  static getAll(req:Object, res:Object):void {
       TodoDAO
         .getAll()
         .then(todos => res.status(200).json(todos))
         .catch(error => res.status(400).json(error));
   }
 
-  static createTodo(req:Object, res:Object):void
-  {
+  static createTodo(req:Object, res:Object):void {
       var _todo = req.body;
 
       TodoDAO
@@ -24,8 +19,7 @@ export class TodoController
         .catch(error => res.status(400).json(error));
   }
 
-  static deleteTodo(req:Object, res:Object):void
-  {
+  static deleteTodo(req:Object, res:Object):void {
     var _id = req.params.id;
 
     TodoDAO

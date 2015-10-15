@@ -1,15 +1,9 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-"use strict";
-
-export class SocketEvents
-{
-    static init(io:Object):void
-    {
-        io.on('connection', function(client:Object)
-        {
-          client.on('users:online', function()
-          {
+export class SocketEvents {
+    static init(io:Object):void {
+        io.on('connection', (client:Object) => {
+          client.on('users:online', () => {
             io.emit('users:online', 1);
           });
         });

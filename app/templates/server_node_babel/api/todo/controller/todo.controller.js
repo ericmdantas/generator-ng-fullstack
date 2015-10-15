@@ -2,18 +2,15 @@
 
 import TodoDAO from '../dao/todo.dao';
 
-export default class TodoController
-{
-  static getAll(req, res)
-  {
+export default class TodoController {
+  static getAll(req, res) {
       TodoDAO
         .getAll()
         .then(todos => res.status(200).json(todos))
         .catch(error => res.status(400).json(error));
   }
 
-  static createTodo(req, res)
-  {
+  static createTodo(req, res) {
       var _todo = req.body;
 
       TodoDAO
@@ -22,8 +19,7 @@ export default class TodoController
         .catch(error => res.status(400).json(error));
   }
 
-  static deleteTodo(req, res)
-  {
+  static deleteTodo(req, res) {
     var _id = req.params.id;
 
     TodoDAO

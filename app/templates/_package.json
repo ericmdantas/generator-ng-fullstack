@@ -35,6 +35,7 @@
     "protractor": "^2.0.0",
     "wiredep": "^2.2.2",
     "browser-sync": "^2.5.2",
+    "require-dir": "^0.3.0",
     "gulp-concat": "^2.4.3",
     "gulp-coveralls": "^0.1.3",
     "gulp-less": "^3.0.0",

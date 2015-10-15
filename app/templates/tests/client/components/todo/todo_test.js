@@ -1,7 +1,6 @@
 "use strict";
 
-describe('todos.controller', function()
-{
+describe('todos.controller', function() {
     var _scope, _Todo, _httpBackend, _logMock;
     var CONTROLLER_NAME = 'TodoController as todoCtrl';
     var URL_GET_ALL = '/api/todos';
@@ -10,40 +9,33 @@ describe('todos.controller', function()
 
     beforeEach(module('myAwesomeApp'));
 
-    beforeEach(inject(function($injector)
-    {
+    beforeEach(inject(function($injector) {
         _scope = $injector.get('$rootScope').$new();
         _httpBackend = $injector.get('$httpBackend');
         _logMock = $injector.get('$log');
         _Todo = $injector.get('Todo');
     }))
 
-    describe('init', function()
-    {
-        it('should be initialized correctly', inject(function($controller)
-        {
+    describe('init', function() {
+        it('should be initialized correctly', inject(function($controller) {
             $controller(CONTROLLER_NAME, {$scope: _scope});
         }));
 
-        it('should have todo as the instanceof Todo', inject(function($controller)
-        {
+        it('should have todo as the instanceof Todo', inject(function($controller) {
             $controller(CONTROLLER_NAME, {$scope: _scope});
 
             expect(_scope.todoCtrl.todo instanceof _Todo).toBeTruthy();
         }))
 
-        it('should have todos as an empty array', inject(function($controller)
-        {
+        it('should have todos as an empty array', inject(function($controller) {
           $controller(CONTROLLER_NAME, {$scope: _scope});
 
           expect(angular.equals(_scope.todoCtrl.todos, [])).toBeTruthy();
         }))
     })
 
-    describe('onLoad', function()
-    {
-        it('should fill the todos array with the server response', inject(function($controller)
-        {
+    describe('onLoad', function() {
+        it('should fill the todos array with the server response', inject(function($controller) {
             var _response = [{todoMessage: 'hello', createdAt: Date.now()}, {todoMessage: 'oh, hey!', createdAt: Date.now()}];
 
             _httpBackend.expectGET(URL_GET_ALL).respond(_response);
@@ -56,10 +48,8 @@ describe('todos.controller', function()
         }))
     })
 
-    describe('createTodo', function()
-    {
-        it('should try to createTodo, but server returns error - 400', inject(function($controller)
-        {
+    describe('createTodo', function() {
+        it('should try to createTodo, but server returns error - 400', inject(function($controller) {
             spyOn(_logMock, 'error').and.callFake(angular.noop);
 
             var _todo = new _Todo();
@@ -77,8 +67,7 @@ describe('todos.controller', function()
             expect(_logMock.error).toHaveBeenCalled();
         }))
 
-        it('should createTodo correctly', inject(function($controller)
-        {
+        it('should createTodo correctly', inject(function($controller) {
           var _response = {_id: 'abcdef123', todoMessage: 'abcdef', createdAt: Date.now()};
 
           var _todo = new _Todo();
@@ -98,10 +87,8 @@ describe('todos.controller', function()
         }))
     })
 
-    describe('deleteTodo', function()
-    {
-      it('should try to deleteTodo, but server returns error - 400', inject(function($controller)
-      {
+    describe('deleteTodo', function() {
+      it('should try to deleteTodo, but server returns error - 400', inject(function($controller) {
         var _id = "1";
         var _response = [{_id: 1}];
 
@@ -119,8 +106,7 @@ describe('todos.controller', function()
         expect(_logMock.error).toHaveBeenCalled();
       }))
 
-      it('should deleteTodo correctly', inject(function($controller)
-      {
+      it('should deleteTodo correctly', inject(function($controller) {
         var _id = "1";
         var _responseGET = [{_id: "0"}, {_id: "1"}];
         var _responseGETAfterDelete = [{_id: "0"}];

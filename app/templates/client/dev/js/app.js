@@ -1,5 +1,4 @@
-;(function(angular)
-{
+;(function(angular) {
   "use strict";
 
   angular
@@ -8,8 +7,7 @@
       'ngMessages',
       'btford.socket-io',
       'emd.ng-xtorage'])
-    .config(['$routeProvider', function($routeProvider)
-    {
+    .config(['$routeProvider', function($routeProvider) {
       $routeProvider
         .when('/', {
           templateUrl: '../views/todo.html',
@@ -24,4 +22,3 @@
     }]);
 
 }(window.angular));
-

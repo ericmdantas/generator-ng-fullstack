@@ -1,8 +1,6 @@
 {
-  "db":
-  {
-    "test":
-    {
+  "db": {
+    "test": {
       "url": "mongodb://localhost/my-awesome-app_test"
     }
   }

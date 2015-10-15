@@ -5,10 +5,8 @@ import bodyParser from 'body-parser';
 import contentLength from 'express-content-length-validator';
 import helmet from 'helmet';
 
-export default class RouteConfig
-{
-    static init(application, exp)
-    {
+export default class RouteConfig {
+    static init(application, exp) {
         var _files = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/__tmp/';
         var _root = process.cwd();
 

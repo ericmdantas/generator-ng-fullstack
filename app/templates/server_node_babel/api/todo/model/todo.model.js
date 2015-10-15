@@ -2,8 +2,7 @@
 
 import mongoose from 'mongoose';
 
-var _todoSchema =
-{
+var _todoSchema = {
     todoMessage: {type: String, required: true, trim: true},
     createdAt: {type: Date, default: Date.now}
 }
