@@ -99,7 +99,8 @@ export class MainGenerator {
       type: "list",
       name: "transpilerServer",
       message: "What transpiler do you want to use in server side?",
-      choices: ["node", "babel", "typescript"],
+      //choices: ["node", "babel", "typescript"],
+      choices: ["babel", "typescript"],
       default: 0,
       when: () => this.wrapper.server === "node"
     }];
