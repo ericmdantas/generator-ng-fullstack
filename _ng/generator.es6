@@ -12,7 +12,7 @@ export class MainGenerator {
   }
 
   sayHello() {
-    this.wrapper.log(yosay('Welcome to the terrific ' + chalk.green('NgFullstack') + ' this.wrapper!'));
+    this.wrapper.log(yosay('Welcome to the terrific ' + chalk.green('NgFullstack') + ' generator!'));
   }
 
   writing() {

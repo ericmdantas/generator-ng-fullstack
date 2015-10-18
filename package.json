@@ -18,18 +18,6 @@
     "watch:es6": "gulp watch",
     "test": "gulp compile && mocha --reporter min --require babel/register"
   },
-  "files": [
-    "app",
-    "controller",
-    "directive",
-    "service",
-    "resource",
-    "factory",
-    "decorator",
-    "endpoint",
-    "component",
-    "filter"
-  ],
   "keywords": [
     "yeoman-generator",
     "angular-generator",

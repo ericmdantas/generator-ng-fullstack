@@ -38,7 +38,7 @@ var MainGenerator = (function () {
   _createClass(MainGenerator, [{
     key: 'sayHello',
     value: function sayHello() {
-      this.wrapper.log((0, _yosay2['default'])('Welcome to the terrific ' + _chalk2['default'].green('NgFullstack') + ' this.wrapper!'));
+      this.wrapper.log((0, _yosay2['default'])('Welcome to the terrific ' + _chalk2['default'].green('NgFullstack') + ' generator!'));
     }
   }, {
     key: 'writing',
