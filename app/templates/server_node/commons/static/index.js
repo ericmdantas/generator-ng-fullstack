@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 
-export class StaticDispatcher {
+module.exports = class StaticDispatcher {
     static sendIndex(req, res) {
       var _root = process.cwd();
 

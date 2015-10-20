@@ -3,7 +3,7 @@
 const TodoRoutes = require('../api/todo/routes/todo.routes');
 const StaticDispatcher = require('../commons/static/index');
 
-export default class Routes {
+module.exports = class Routes {
    static init(app, router) {
      TodoRoutes.init(router);
 

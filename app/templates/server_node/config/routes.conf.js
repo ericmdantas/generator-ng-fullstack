@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const contentLength = require('express-content-length-validator');
 const helmet = require('helmet');
 
-export class RouteConfig {
+module.exports = class RouteConfig {
     static init(application, exp) {
         var _files = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/__tmp/';
         var _root = process.cwd();

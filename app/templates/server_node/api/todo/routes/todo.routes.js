@@ -2,7 +2,7 @@
 
 import TodoController from '../controller/todo.controller';
 
-export default class TodoRoutes {
+module.exports = class TodoRoutes {
     static init(router) {
       router
         .route('/api/todos')

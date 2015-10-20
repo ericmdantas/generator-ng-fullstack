@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const dbConst = require('../constants/db.json');
 
-export class DBConfig {
+module.exports = class DBConfig {
     static init() {
       const URL = (process.env.NODE_ENV === 'production') ? process.env.MONGOHQ_URL
                                                           : dbConst.localhost;

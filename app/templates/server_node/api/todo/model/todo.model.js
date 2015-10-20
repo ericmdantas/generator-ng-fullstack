@@ -7,4 +7,4 @@ var _todoSchema = {
     createdAt: {type: Date, default: Date.now}
 }
 
-export mongoose.Schema(_todoSchema);
+module.exports = mongoose.Schema(_todoSchema);
