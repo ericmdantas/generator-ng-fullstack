@@ -1,6 +1,8 @@
-import <%= name %>Controller from '../controller/<%= name %>.controller';
+"use strict";
 
-export default class <%= name %>Routes {
+const <%= name %>Controller = require('../controller/<%= name %>.controller');
+
+module.exports = class <%= name %>Routes {
   static init(router) {
     router
       .route('/api/<%= nameLowerCase %>')

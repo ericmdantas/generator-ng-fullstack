@@ -1,70 +1,52 @@
-"use strict";
-
 import mongoose from 'mongoose';
 import Promise from 'bluebird';
 import <%= nameLowerCase %>Schema from '../model/<%= name %>.model';
 import _ from 'lodash';
 
-<%= nameLowerCase %>Schema.statics.getAll = function()
-{
-  var _promise = function(resolve, reject)
-  {
-    var _query = {};
+<%= nameLowerCase %>Schema.statics.getAll = () => {
+  return new Promise((resolve, reject) => {
+    let _query = {};
 
     <%= name %>
-      .find(_query)
-      .exec(function(err, todos)
-      {
-        err ? reject(err)
-          : resolve(todos);
-      });
-  }
-
-  return new Promise(_promise);
-}
-
-<%= nameLowerCase %>Schema.statics.createNew = function(<%= nameLowerCase %>)
-{
-  var _promise = function(resolve, reject)
-  {
-    if (!_.isObject(<%= nameLowerCase %>))
-    {
-      return reject(new TypeError('Todo is not a valid object.'));
-    }
-
-    var _something = new <%= name %>(<%= nameLowerCase %>);
-
-    _something.save(function(err, saved)
-    {
+    .find(_query)
+    .exec(function(err, todos) {
       err ? reject(err)
-        : resolve(saved);
+      : resolve(todos);
     });
-  }
-
-  return new Promise(_promise);
+  });
 }
 
-<%= nameLowerCase %>chema.statics.removeById = function(id)
-{
-  var _promise = function(resolve, reject)
-  {
-    if (!_.isString(id))
-    {
+<%= nameLowerCase %>Schema.statics.createNew = (<%= nameLowerCase %>) => {
+    return new Promise((resolve, reject) => {
+      if (!_.isObject(<%= nameLowerCase %>)) {
+        return reject(new TypeError('Todo is not a valid object.'));
+      }
+
+      var _something = new <%= name %>(<%= nameLowerCase %>);
+
+      _something.save(function(err, saved) {
+        err ? reject(err)
+        : resolve(saved);
+      });
+    });
+}
+
+<%= nameLowerCase %>chema.statics.removeById = (id) => {
+
+  return new Promise((resolve, reject) => {
+    if (!_.isString(id)) {
       return reject(new TypeError('Id is not a valid string.'));
     }
 
     <%= name %>
-      .findByIdAndRemove(id)
-      .exec(function(err, deleted)
-      {
-        err ? reject(err)
-          : resolve();
-      });
-  }
-
-  return new Promise(_promise);
+    .findByIdAndRemove(id)
+    .exec(function(err, deleted) {
+      err ? reject(err)
+      : resolve();
+    });
+  });
 }
 
-var <%= name %> = mongoose.model('<%= name %>', <%= nameLowerCase %>Schema);
+const <%= name %> = mongoose.model('<%= name %>', <%= nameLowerCase %>Schema);
 
 export default <%= name %>;

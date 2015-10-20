@@ -1,3 +1,5 @@
+"use strict";
+
 const mongoose = require('mongoose');
 const <%= name %>DAO = require(process.cwd() + '/server/api/<%= feature %>dao/<%= name %>.dao');
 const expect = require('chai').expect;

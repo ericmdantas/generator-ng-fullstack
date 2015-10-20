@@ -9,4 +9,4 @@ var _<%= nameLowerCase %>Schema = {
   createdAt: {type: Date, default: Date.now}
 }
 
-export default mongoose.Schema(<%= nameLowerCase %>Schema);
+export mongoose.Schema(<%= nameLowerCase %>Schema);
