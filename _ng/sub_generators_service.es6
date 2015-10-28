@@ -23,7 +23,7 @@ export class ServiceSubGenerator {
     if (!_feature.length)
       throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-    this.wrapper.template('service.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/services/' + _name + '.service.js', {name: _name});
-    this.wrapper.template('service_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _feature + '/services/' + _name + '.service_test.js', {name: _name});
+    this.wrapper.template('service.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/services/${_name}.service.js`, {name: _name});
+    this.wrapper.template('service_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/services/${_name}.service_test.js`, {name: _name});
   }
 }

@@ -23,7 +23,7 @@ export class DirectiveSubGenerator {
     if (!_feature.length)
       throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-    this.wrapper.template('directive.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/directives/' + _name + '.directive.js', {name: _name});
-    this.wrapper.template('directive_test.js',knownPaths.PATH_CLIENT_FEATURES_TEST + _feature + '/directives/' + _name + '.directive_test.js', {name: _name});
+    this.wrapper.template('directive.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/directives/${_name}.directive.js`, {name: _name});
+    this.wrapper.template('directive_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/directives/${_name}.directive_test.js`, {name: _name});
   }
 }

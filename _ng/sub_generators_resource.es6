@@ -23,6 +23,6 @@ export class ResourceSubGenerator {
     if (!_feature.length)
       throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-    this.wrapper.template('resource.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/resource/' + _name + '.resource.js', {name: _name});
+    this.wrapper.template('resource.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/resource/${_name}.resource.js`, {name: _name});
   }
 }

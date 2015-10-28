@@ -23,7 +23,7 @@ export class FilterSubGenerator {
     if (!_feature.length)
       throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-    this.wrapper.template('filter.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/filters/' + _name + '.filter.js', {name: _name});
-    this.wrapper.template('filter_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _feature + '/filters/' + _name + '.filter_test.js', {name: _name});
+    this.wrapper.template('filter.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/filters/${_name}.filter.js`, {name: _name});
+    this.wrapper.template('filter_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/filters/${_name}.filter_test.js`, {name: _name});
   }
 }

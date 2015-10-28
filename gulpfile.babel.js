@@ -8,7 +8,3 @@ gulp.task('compile', () => {
                .pipe(babel({stage: 0}))
                .pipe(gulp.dest('.'));
 });
-
-gulp.task('watch', () => {
-    return gulp.watch(ES6_PATH, ['compile']);
-});

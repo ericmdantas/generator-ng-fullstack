@@ -23,6 +23,6 @@ export class DecoratorSubGenerator {
     if (!_feature.length)
       throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-    this.wrapper.template('decorator.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/decorator/' + _name + '.decorator.js');
+    this.wrapper.template('decorator.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/decorator/${_name}.decorator.js`);
   }
 }

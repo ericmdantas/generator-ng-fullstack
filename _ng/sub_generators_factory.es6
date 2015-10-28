@@ -23,7 +23,7 @@ export class FactorySubGenerator {
     if (!_feature.length)
       throw new Error('Feature is needed. Do it like this: --feature something-here');
 
-    this.wrapper.template('factory.js', knownPaths.PATH_CLIENT_FEATURES + _feature + '/factory/' + _name + '.factory.js', {name: utils.capitalizeFirst(_name)});
-    this.wrapper.template('factory_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _feature + '/factory/' + _name + '.factory_test.js', {name: utils.capitalizeFirst(_name)});
+    this.wrapper.template('factory.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/factory/${_name}.factory.js`, {name: utils.capitalizeFirst(_name)});
+    this.wrapper.template('factory_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/factory/${_name}.factory_test.js`, {name: utils.capitalizeFirst(_name)});
   }
 }

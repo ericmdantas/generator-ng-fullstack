@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "gulp compile",
-    "watch:es6": "gulp watch",
+    "prepublish": "gulp compile",
     "test": "gulp compile && mocha --reporter min --require babel/register"
   },
   "keywords": [
