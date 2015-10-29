@@ -2,6 +2,7 @@ import util from 'util';
 import knownPaths from './known_paths';
 import optionsParser from './options_parser';
 import utils from './utils';
+import {FeatureMissingError} from './errors';
 
 export class FactorySubGenerator {
   constructor(generator) {
@@ -21,7 +22,7 @@ export class FactorySubGenerator {
     const _name = this.wrapper.name;
 
     if (!_feature.length)
-      throw new Error('Feature is needed. Do it like this: --feature something-here');
+      throw new FeatureMissingError();
 
     this.wrapper.template('factory.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/factory/${_name}.factory.js`, {name: utils.capitalizeFirst(_name)});
     this.wrapper.template('factory_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/factory/${_name}.factory_test.js`, {name: utils.capitalizeFirst(_name)});

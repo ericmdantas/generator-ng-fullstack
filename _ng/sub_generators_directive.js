@@ -26,6 +26,8 @@ var _utils = require('./utils');
 
 var _utils2 = _interopRequireDefault(_utils);
 
+var _errors = require('./errors');
+
 var DirectiveSubGenerator = (function () {
   function DirectiveSubGenerator(generator) {
     _classCallCheck(this, DirectiveSubGenerator);
@@ -48,7 +50,7 @@ var DirectiveSubGenerator = (function () {
       var _feature = _options_parser2['default'].getFeature(this.wrapper.options);
       var _name = this.wrapper.name;
 
-      if (!_feature.length) throw new Error('Feature is needed. Do it like this: --feature something-here');
+      if (!_feature.length) throw new _errors.FeatureMissingError();
 
       this.wrapper.template('directive.js', _known_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/directives/' + _name + '.directive.js', { name: _name });
       this.wrapper.template('directive_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/directives/' + _name + '.directive_test.js', { name: _name });

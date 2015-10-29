@@ -26,6 +26,8 @@ var _utils = require('./utils');
 
 var _utils2 = _interopRequireDefault(_utils);
 
+var _errors = require('./errors');
+
 var ServiceSubGenerator = (function () {
   function ServiceSubGenerator(generator) {
     _classCallCheck(this, ServiceSubGenerator);
@@ -48,7 +50,7 @@ var ServiceSubGenerator = (function () {
       var _feature = _options_parser2['default'].getFeature(this.wrapper.options);
       var _name = this.wrapper.name;
 
-      if (!_feature.length) throw new Error('Feature is needed. Do it like this: --feature something-here');
+      if (!_feature.length) throw new _errors.FeatureMissingError();
 
       this.wrapper.template('service.js', _known_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/services/' + _name + '.service.js', { name: _name });
       this.wrapper.template('service_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/services/' + _name + '.service_test.js', { name: _name });

@@ -7,7 +7,6 @@
       this.doSomething = function() {
 
       };
-
     }]);
 
 }(window.angular));

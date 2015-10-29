@@ -30,6 +30,8 @@ var _node = require('./node');
 
 var _go = require('./go');
 
+var _errors = require('./errors');
+
 var EndpointSubGenerator = (function () {
   function EndpointSubGenerator(generator) {
     _classCallCheck(this, EndpointSubGenerator);
@@ -56,7 +58,7 @@ var EndpointSubGenerator = (function () {
       this.wrapper.server = this.wrapper.config.get('server') ? this.wrapper.config.get('server').toLowerCase() : undefined;
       this.wrapper.transpilerServer = this.wrapper.config.get('transpilerServer') ? this.wrapper.config.get('transpilerServer').toLowerCase() : undefined;
 
-      if (!this.wrapper.feature.length) throw new Error('Feature is needed. Do it like this: --feature something-here');
+      if (!this.wrapper.feature.length) throw new _errors.FeatureMissingError();
 
       switch (this.wrapper.server) {
         case "go":

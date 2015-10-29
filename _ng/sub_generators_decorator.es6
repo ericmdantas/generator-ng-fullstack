@@ -2,6 +2,7 @@ import util from 'util';
 import knownPaths from './known_paths';
 import optionsParser from './options_parser';
 import utils from './utils';
+import {FeatureMissingError} from './errors';
 
 export class DecoratorSubGenerator {
   constructor(generator) {
@@ -21,7 +22,7 @@ export class DecoratorSubGenerator {
     const _name = this.wrapper.name;
 
     if (!_feature.length)
-      throw new Error('Feature is needed. Do it like this: --feature something-here');
+      throw new FeatureMissingError();
 
     this.wrapper.template('decorator.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/decorator/${_name}.decorator.js`);
   }

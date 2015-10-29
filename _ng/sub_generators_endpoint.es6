@@ -4,6 +4,7 @@ import optionsParser from './options_parser';
 import utils from './utils';
 import {NodeFactory} from './node';
 import {GoFactory} from './go';
+import {FeatureMissingError} from './errors';
 
 export class EndpointSubGenerator {
   constructor(generator) {
@@ -27,7 +28,7 @@ export class EndpointSubGenerator {
     this.wrapper.transpilerServer = this.wrapper.config.get('transpilerServer') ? this.wrapper.config.get('transpilerServer').toLowerCase() : undefined;
 
     if (!this.wrapper.feature.length)
-      throw new Error('Feature is needed. Do it like this: --feature something-here');
+        throw new FeatureMissingError();
 
     switch (this.wrapper.server) {
         case "go" : GoFactory.build(this.wrapper).copyFiles(); break;

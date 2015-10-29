@@ -20,6 +20,16 @@ var _known_paths = require('./known_paths');
 
 var _known_paths2 = _interopRequireDefault(_known_paths);
 
+var basePath = function basePath(generator) {
+  return {
+    route: _known_paths2['default'].PATH_SERVER_FEATURES + generator.feature + '/routes/' + generator.name + '.route',
+    controller: _known_paths2['default'].PATH_SERVER_FEATURES + generator.feature + '/controller/' + generator.name + '.controller',
+    dao: _known_paths2['default'].PATH_SERVER_FEATURES + generator.feature + '/dao/' + generator.name + '.dao',
+    model: _known_paths2['default'].PATH_SERVER_FEATURES + generator.feature + '/model/' + generator.name + '.model',
+    test: _known_paths2['default'].PATH_SERVER_FEATURES_TEST + generator.feature + '/dao/' + generator.name + '.dao_test'
+  };
+};
+
 var NodeStandard = (function () {
   function NodeStandard(generator) {
     _classCallCheck(this, NodeStandard);
@@ -30,12 +40,14 @@ var NodeStandard = (function () {
   _createClass(NodeStandard, [{
     key: 'copyFiles',
     value: function copyFiles() {
-      this.wrapper.template('node/node/endpoint.route.js', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/routes/' + this.wrapper.name + '.route.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
-      this.wrapper.template('node/node/endpoint.controller.js', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/controller/' + this.wrapper.name + '.controller.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
-      this.wrapper.template('node/node/endpoint.dao.js', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/dao/' + this.wrapper.name + '.dao.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
-      this.wrapper.template('node/node/endpoint.model.js', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/model/' + this.wrapper.name + '.model.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      var gen = basePath(this.wrapper);
 
-      this.wrapper.template('node/node/endpoint.dao_test.js', _known_paths2['default'].PATH_SERVER_FEATURES_TEST + this.wrapper.feature + '/dao/' + this.wrapper.name + '.dao_test.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
+      this.wrapper.template('node/node/endpoint.route.js', gen.route + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/node/endpoint.controller.js', gen.controller + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/node/endpoint.dao.js', gen.dao + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/node/endpoint.model.js', gen.model + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+
+      this.wrapper.template('node/node/endpoint.dao_test.js', gen.test + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
     }
   }, {
     key: 'copyForMainGenerator',
@@ -60,12 +72,14 @@ var NodeBabel = (function () {
   _createClass(NodeBabel, [{
     key: 'copyFiles',
     value: function copyFiles() {
-      this.wrapper.template('node/babel/endpoint.route.js', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/routes/' + this.wrapper.name + '.route.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
-      this.wrapper.template('node/babel/endpoint.controller.js', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/controller/' + this.wrapper.name + '.controller.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
-      this.wrapper.template('node/babel/endpoint.dao.js', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/dao/' + this.wrapper.name + '.dao.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
-      this.wrapper.template('node/babel/endpoint.model.js', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/model/' + this.wrapper.name + '.model.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      var gen = basePath(this.wrapper);
 
-      this.wrapper.template('node/babel/endpoint.dao_test.js', _known_paths2['default'].PATH_SERVER_FEATURES_TEST + this.wrapper.feature + '/dao/' + this.wrapper.name + '.dao_test.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
+      this.wrapper.template('node/babel/endpoint.route.js', gen.route + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/babel/endpoint.controller.js', gen.controller + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/babel/endpoint.dao.js', gen.dao + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/babel/endpoint.model.js', gen.model + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+
+      this.wrapper.template('node/babel/endpoint.dao_test.js', gen.test + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
     }
   }, {
     key: 'copyForMainGenerator',
@@ -90,12 +104,14 @@ var NodeTypescript = (function () {
   _createClass(NodeTypescript, [{
     key: 'copyFiles',
     value: function copyFiles() {
-      this.wrapper.template('node/typescript/endpoint.route.ts', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/routes/' + this.wrapper.name + '.route.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
-      this.wrapper.template('node/typescript/endpoint.controller.ts', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/controller/' + this.wrapper.name + '.controller.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
-      this.wrapper.template('node/typescript/endpoint.dao.ts', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/dao/' + this.wrapper.name + '.dao.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
-      this.wrapper.template('node/typescript/endpoint.model.ts', _known_paths2['default'].PATH_SERVER_FEATURES + this.wrapper.feature + '/model/' + this.wrapper.name + '.model.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      var gen = basePath(this.wrapper);
 
-      this.wrapper.template('node/typescript/endpoint.dao_test.ts', _known_paths2['default'].PATH_SERVER_FEATURES_TEST + this.wrapper.feature + '/dao/' + this.wrapper.name + '.dao_test.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
+      this.wrapper.template('node/typescript/endpoint.route.ts', gen.route + '.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/typescript/endpoint.controller.ts', gen.controller + '.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/typescript/endpoint.dao.ts', gen.dao + '.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/typescript/endpoint.model.ts', gen.model + '.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+
+      this.wrapper.template('node/typescript/endpoint.dao_test.ts', gen.test + '.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
     }
   }, {
     key: 'copyForMainGenerator',
