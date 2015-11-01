@@ -118,6 +118,8 @@ var NodeTypescript = (function () {
     value: function copyForMainGenerator() {
       this.wrapper.directory('server_node_typescript', 'server');
       this.wrapper.template('index_tsc.js', 'index.js');
+      this.wrapper.template('server_node_typescript/tsconfig.json', 'tsconfig.json');
+      this.wrapper.template('server_node_typescript/tsd.json', 'tsd.json');
     }
   }]);
 
@@ -135,12 +137,22 @@ var NodeFactory = (function () {
     key: 'build',
     value: function build(generator) {
       switch (generator.transpilerServer) {
-        case "typescript":
+        case NodeFactory.tokens.NODE:
+          return new NodeStandard(generator);
+        case NodeFactory.tokens.NODE_TYPESCRIPT:
           return new NodeTypescript(generator);
         default:
           return new NodeBabel(generator);
       }
     }
+  }, {
+    key: 'tokens',
+    value: {
+      NODE: "node",
+      NODE_BABEL: "babel",
+      NODE_TYPESCRIPT: "typescript"
+    },
+    enumerable: true
   }]);
 
   return NodeFactory;

@@ -52,8 +52,8 @@ var ServiceSubGenerator = (function () {
 
       if (!_feature.length) throw new _errors.FeatureMissingError();
 
-      this.wrapper.template('service.js', _known_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/services/' + _name + '.service.js', { name: _name });
-      this.wrapper.template('service_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/services/' + _name + '.service_test.js', { name: _name });
+      this.wrapper.template('ng1/service.js', _known_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/services/' + _name + '.service.js', { name: _name });
+      this.wrapper.template('ng1/service_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/services/' + _name + '.service_test.js', { name: _name });
     }
   }]);
 

@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
-    value: true
+  value: true
 });
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -16,61 +16,35 @@ function _inherits(subClass, superClass) { if (typeof superClass !== 'function' 
 
 var _yeomanGenerator = require('yeoman-generator');
 
-var _chalk = require('chalk');
+var _yeomanGenerator2 = _interopRequireDefault(_yeomanGenerator);
 
-var _chalk2 = _interopRequireDefault(_chalk);
+var _ngSub_generators_Pipe = require('../_ng/sub_generators_Pipe');
 
-var _yosay = require('yosay');
+var PipeGenerator = (function (_yeoman$generators$Base) {
+  _inherits(PipeGenerator, _yeoman$generators$Base);
 
-var _yosay2 = _interopRequireDefault(_yosay);
+  function PipeGenerator(args, options, config) {
+    _classCallCheck(this, PipeGenerator);
 
-var _ngGeneratorJs = require('../_ng/generator.js');
+    _get(Object.getPrototypeOf(PipeGenerator.prototype), 'constructor', this).call(this, args, options, config);
 
-var NgFullstack = (function (_Base) {
-    _inherits(NgFullstack, _Base);
+    this.generator = new _ngSub_generators_Pipe.PipeSubGenerator(this);
+  }
 
-    function NgFullstack(args, options, config) {
-        _classCallCheck(this, NgFullstack);
-
-        _get(Object.getPrototypeOf(NgFullstack.prototype), 'constructor', this).call(this, args, options, config);
-
-        this.generator = new _ngGeneratorJs.MainGenerator(this);
+  _createClass(PipeGenerator, [{
+    key: 'initializing',
+    value: function initializing() {
+      this.generator.initializing();
     }
+  }, {
+    key: 'writing',
+    value: function writing() {
+      this.generator.writing();
+    }
+  }]);
 
-    _createClass(NgFullstack, [{
-        key: 'initializing',
-        value: function initializing() {
-            this.pkg = require('../package.json');
-        }
-    }, {
-        key: 'prompting',
-        value: function prompting() {
-            this.generator.sayHello();
-        }
-    }, {
-        key: 'writing',
-        value: function writing() {
-            this.generator.writing();
-        }
-    }, {
-        key: 'install',
-        value: function install() {
-            this.generator.install();
-        }
-    }, {
-        key: 'prompUser',
-        value: function prompUser() {
-            this.generator.promptUser();
-        }
-    }, {
-        key: 'promptUserTranspilerServer',
-        value: function promptUserTranspilerServer() {
-            this.generator.promptTranspilerServer();
-        }
-    }]);
+  return PipeGenerator;
+})(_yeomanGenerator2['default'].generators.Base);
 
-    return NgFullstack;
-})(_yeomanGenerator.Base);
-
-exports['default'] = NgFullstack;
+exports['default'] = PipeGenerator;
 module.exports = exports['default'];

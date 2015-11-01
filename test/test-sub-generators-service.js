@@ -40,8 +40,8 @@ describe('ServiceSubGenerator', () => {
 
       let _ssg = new ServiceSubGenerator(_gen);
 
-      let _firstCall = ['service.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '//services/' + _gen.name + '.service.js', {name: _gen.name}]
-      let _secondCall = ['service_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '//services/' + _gen.name + '.service_test.js', {name: _gen.name}]
+      let _firstCall = ['ng1/service.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '//services/' + _gen.name + '.service.js', {name: _gen.name}]
+      let _secondCall = ['ng1/service_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '//services/' + _gen.name + '.service_test.js', {name: _gen.name}]
 
       _ssg.writing();
 

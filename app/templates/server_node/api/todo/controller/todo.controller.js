@@ -11,7 +11,7 @@ module.exports = class TodoController {
   }
 
   static createTodo(req, res) {
-      var _todo = req.body;
+      let _todo = req.body;
 
       TodoDAO
         .createTodo(_todo)
@@ -20,7 +20,7 @@ module.exports = class TodoController {
   }
 
   static deleteTodo(req, res) {
-    var _id = req.params.id;
+    let _id = req.params.id;
 
     TodoDAO
       .deleteTodo(_id)

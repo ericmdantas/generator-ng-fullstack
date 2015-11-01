@@ -24,7 +24,7 @@ export class FactorySubGenerator {
     if (!_feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('factory.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/factory/${_name}.factory.js`, {name: utils.capitalizeFirst(_name)});
-    this.wrapper.template('factory_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/factory/${_name}.factory_test.js`, {name: utils.capitalizeFirst(_name)});
+    this.wrapper.template('ng1/factory.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/factory/${_name}.factory.js`, {name: utils.capitalizeFirst(_name)});
+    this.wrapper.template('ng1/factory_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/factory/${_name}.factory_test.js`, {name: utils.capitalizeFirst(_name)});
   }
 }

@@ -1,9 +1,29 @@
 import {expect} from 'chai';
 import sinon from 'sinon';
 import knownPaths from '../_ng/known_paths';
-import {NodeStandard, NodeBabel, NodeTypescript} from '../_ng/node';
+import {NodeFactory, NodeStandard, NodeBabel, NodeTypescript} from '../_ng/node';
 
 describe('node', () => {
+  describe('factory', () => {
+    it('should have the right values for the tokens', () => {
+      expect(NodeFactory.tokens.NODE).to.equal('node');
+      expect(NodeFactory.tokens.NODE_BABEL).to.equal('babel');
+      expect(NodeFactory.tokens.NODE_TYPESCRIPT).to.equal('typescript');
+    });
+
+    it('should have an instance of NodeStandard', () => {
+      expect(NodeFactory.build({transpilerServer: 'node'}) instanceof NodeStandard).to.be.true;
+    });
+
+    it('should have an instance of NodeBabel', () => {
+      expect(NodeFactory.build({transpilerServer: 'babel'}) instanceof NodeBabel).to.be.true;
+    });
+
+    it('should have an instance of NodeTypescript', () => {
+      expect(NodeFactory.build({transpilerServer: 'typescript'}) instanceof NodeTypescript).to.be.true;
+    });
+  });
+
   describe('node_standard', () => {
     describe('creation', () => {
       it('should have the wrapper as the object passed by param', () => {
@@ -119,5 +139,34 @@ describe('node', () => {
         expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
       });
     });
-  })
+
+    describe('copyForMainGenerator', () => {
+      it('should call with the right params', () => {
+        let _newGenerator = {
+          feature: 'a',
+          name: 'b',
+          directory: sinon.spy(),
+          template: sinon.spy()
+        }
+
+        let _n = new NodeTypescript(_newGenerator);
+
+        _n.copyForMainGenerator();
+
+        let _directoryCall = [`server_node_typescript`, 'server'];
+
+        let _firstTemplateCall = [`index_tsc.js`, 'index.js'];
+        let _secondTemplateCall = [`server_node_typescript/tsconfig.json`, `tsconfig.json`];
+        let _thirdTemplatecall = [`server_node_typescript/tsd.json`, `tsd.json`];
+
+        expect(_n.wrapper.template).to.have.been.called;
+
+        expect(_n.wrapper.directory.calledWith(_directoryCall[0], _directoryCall[1])).to.be.true;
+
+        expect(_n.wrapper.template.calledWith(_firstTemplateCall[0], _firstTemplateCall[1])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_secondTemplateCall[0], _secondTemplateCall[1])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_thirdTemplatecall[0], _thirdTemplatecall[1])).to.be.true;
+      });
+    })
+  });
 })

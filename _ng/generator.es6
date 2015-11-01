@@ -56,8 +56,7 @@ export class MainGenerator {
   promptUser() {
       let done = this.wrapper.async();
 
-      let prompts =
-        [
+      let prompts =[
           {
             name: 'appName',
             message: 'What is the name of your app?',
@@ -99,8 +98,7 @@ export class MainGenerator {
       type: "list",
       name: "transpilerServer",
       message: "What transpiler do you want to use in server side?",
-      //choices: ["node", "babel", "typescript"],
-      choices: ["babel", "typescript"],
+      choices: [/*"node",*/ "babel", "typescript"],
       default: 0,
       when: () => this.wrapper.server === "node"
     }];

@@ -5,11 +5,11 @@
 import * as mongoose from 'mongoose';
 import * as Promise from 'bluebird';
 import {<%= nameLowerCase %>Schema} from '../model/<%= name %>.model';
-import *as _ from 'lodash';
+import * as _ from 'lodash';
 
 <%= nameLowerCase %>Schema.statics.getAll = () => {
   return new Promise((resolve, reject) => {
-    var _query = {};
+    let _query = {};
 
     <%= name %>
     .find(_query)
@@ -26,7 +26,7 @@ import *as _ from 'lodash';
         return reject(new TypeError('Todo is not a valid object.'));
       }
 
-      var _something = new <%= name %>(<%= nameLowerCase %>);
+      let _something = new <%= name %>(<%= nameLowerCase %>);
 
       _something.save((err, saved) => {
         err ? reject(err)
@@ -50,6 +50,6 @@ import *as _ from 'lodash';
     });
 }
 
-var <%= name %> = mongoose.model('<%= name %>', <%= nameLowerCase %>Schema);
+let <%= name %> = mongoose.model('<%= name %>', <%= nameLowerCase %>Schema);
 
 export <%= name %>;

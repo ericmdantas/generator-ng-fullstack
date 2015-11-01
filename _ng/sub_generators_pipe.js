@@ -28,20 +28,20 @@ var _utils2 = _interopRequireDefault(_utils);
 
 var _errors = require('./errors');
 
-var DirectiveSubGenerator = (function () {
-  function DirectiveSubGenerator(generator) {
-    _classCallCheck(this, DirectiveSubGenerator);
+var PipeSubGenerator = (function () {
+  function PipeSubGenerator(generator) {
+    _classCallCheck(this, PipeSubGenerator);
 
     this.wrapper = generator;
   }
 
-  _createClass(DirectiveSubGenerator, [{
+  _createClass(PipeSubGenerator, [{
     key: 'initializing',
     value: function initializing() {
       this.wrapper.argument('name', {
         required: true,
         type: String,
-        desc: 'directive'
+        desc: 'pipe'
       });
     }
   }, {
@@ -52,12 +52,12 @@ var DirectiveSubGenerator = (function () {
 
       if (!_feature.length) throw new _errors.FeatureMissingError();
 
-      this.wrapper.template('ng1/directive.js', _known_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/directives/' + _name + '.directive.js', { name: _name });
-      this.wrapper.template('ng1/directive_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/directives/' + _name + '.directive_test.js', { name: _name });
+      this.wrapper.template('pipe.ts', _known_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/pipes/' + _name + '.pipe.ts', { name: _name });
+      this.wrapper.template('pipe_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/pipes/' + _name + '.pipe_test.js', { name: _name });
     }
   }]);
 
-  return DirectiveSubGenerator;
+  return PipeSubGenerator;
 })();
 
-exports.DirectiveSubGenerator = DirectiveSubGenerator;
+exports.PipeSubGenerator = PipeSubGenerator;

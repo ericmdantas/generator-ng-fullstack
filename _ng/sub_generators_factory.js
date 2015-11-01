@@ -52,8 +52,8 @@ var FactorySubGenerator = (function () {
 
       if (!_feature.length) throw new _errors.FeatureMissingError();
 
-      this.wrapper.template('factory.js', _known_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/factory/' + _name + '.factory.js', { name: _utils2['default'].capitalizeFirst(_name) });
-      this.wrapper.template('factory_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/factory/' + _name + '.factory_test.js', { name: _utils2['default'].capitalizeFirst(_name) });
+      this.wrapper.template('ng1/factory.js', _known_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/factory/' + _name + '.factory.js', { name: _utils2['default'].capitalizeFirst(_name) });
+      this.wrapper.template('ng1/factory_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/factory/' + _name + '.factory_test.js', { name: _utils2['default'].capitalizeFirst(_name) });
     }
   }]);
 

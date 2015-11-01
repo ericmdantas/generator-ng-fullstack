@@ -4,7 +4,7 @@ import optionsParser from './options_parser';
 import utils from './utils';
 import {FeatureMissingError} from './errors';
 
-export class ServiceSubGenerator {
+export class PipeSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
   }
@@ -13,7 +13,7 @@ export class ServiceSubGenerator {
     this.wrapper.argument('name', {
       required: true,
       type: String,
-      desc: 'service'
+      desc: 'pipe'
     });
   }
 
@@ -24,7 +24,7 @@ export class ServiceSubGenerator {
     if (!_feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('ng1/service.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/services/${_name}.service.js`, {name: _name});
-    this.wrapper.template('ng1/service_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/services/${_name}.service_test.js`, {name: _name});
+    this.wrapper.template('pipe.ts', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/pipes/${_name}.pipe.ts`, {name: _name});
+    this.wrapper.template('pipe_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/pipes/${_name}.pipe_test.js`, {name: _name});
   }
 }

@@ -33,23 +33,6 @@ var basePath = function basePath(generator) {
   };
 };
 
-var GoFactory = (function () {
-  function GoFactory() {
-    _classCallCheck(this, GoFactory);
-  }
-
-  _createClass(GoFactory, null, [{
-    key: 'build',
-    value: function build(generator) {
-      return new GoServer(generator);
-    }
-  }]);
-
-  return GoFactory;
-})();
-
-exports.GoFactory = GoFactory;
-
 var GoServer = (function () {
   function GoServer(generator) {
     _classCallCheck(this, GoServer);
@@ -86,3 +69,20 @@ var GoServer = (function () {
 })();
 
 exports.GoServer = GoServer;
+
+var GoFactory = (function () {
+  function GoFactory() {
+    _classCallCheck(this, GoFactory);
+  }
+
+  _createClass(GoFactory, null, [{
+    key: 'build',
+    value: function build(generator) {
+      return new GoServer(generator);
+    }
+  }]);
+
+  return GoFactory;
+})();
+
+exports.GoFactory = GoFactory;

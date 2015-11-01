@@ -74,13 +74,22 @@ export class NodeTypescript {
   copyForMainGenerator() {
     this.wrapper.directory('server_node_typescript', 'server');
     this.wrapper.template('index_tsc.js', 'index.js');
+    this.wrapper.template('server_node_typescript/tsconfig.json', 'tsconfig.json');
+    this.wrapper.template('server_node_typescript/tsd.json', 'tsd.json');
   }
 }
 
 export class NodeFactory {
+  static tokens = {
+    NODE: "node",
+    NODE_BABEL: "babel",
+    NODE_TYPESCRIPT: "typescript"
+  }
+
   static build(generator) {
     switch(generator.transpilerServer) {
-      case "typescript": return new NodeTypescript(generator);
+      case NodeFactory.tokens.NODE: return new NodeStandard(generator);
+      case NodeFactory.tokens.NODE_TYPESCRIPT: return new NodeTypescript(generator);
       default: return new NodeBabel(generator);
     }
   }

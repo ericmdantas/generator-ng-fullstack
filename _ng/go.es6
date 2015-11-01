@@ -14,12 +14,6 @@ const basePath = (generator) => {
   }
 }
 
-export class GoFactory {
-  static build(generator) {
-    return new GoServer(generator);
-  }
-}
-
 export class GoServer {
   constructor(generator) {
     this.wrapper = generator;
@@ -45,5 +39,11 @@ export class GoServer {
     this.wrapper.directory('server_go', 'server');
     this.wrapper.template('server_go/main.go', 'server/main.go', {appName: this.wrapper.appName, username: this.wrapper.username});
     this.wrapper.template('server_go/routes/routes.go', 'server/routes/routes.go', {appName: this.wrapper.appName, username: this.wrapper.username});
+  }
+}
+
+export class GoFactory {
+  static build(generator) {
+    return new GoServer(generator);
   }
 }

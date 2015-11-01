@@ -13,7 +13,7 @@ export class <%= name %>Controller {
   }
 
   static createNew(req:Object, res:Object) {
-    var _<%= nameLowerCase %> = req.body;
+    let _<%= nameLowerCase %> = req.body;
 
     <%= name %>DAO
       .createNew(_<%= nameLowerCase %>)
@@ -22,7 +22,7 @@ export class <%= name %>Controller {
   }
 
   static remove(req:Object, res:Object) {
-    var _id = req.params.id;
+    let _id = req.params.id;
 
     <%= name %>DAO
       .removeById(_id)

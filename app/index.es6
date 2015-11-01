@@ -1,9 +1,9 @@
-import yeoman from 'yeoman-generator';
+import {Base} from 'yeoman-generator';
 import chalk from 'chalk';
 import yosay from 'yosay';
 import {MainGenerator} from '../_ng/generator.js';
 
-export default class NgFullstack extends yeoman.generators.Base {
+export default class NgFullstack extends Base {
     constructor(args, options, config) {
         super(args, options, config);
 

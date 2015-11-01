@@ -4,7 +4,7 @@
 
 import * as mongoose from 'mongoose';
 
-var _<%= nameLowerCase %>Schema = {
+const _<%= nameLowerCase %>Schema = {
   somethingSomething: {type: String, required: true, trim: true},
   createdAt: {type: Date, default: Date.now}
 }
