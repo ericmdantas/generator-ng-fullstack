@@ -18,7 +18,7 @@ var _yeomanGenerator = require('yeoman-generator');
 
 var _yeomanGenerator2 = _interopRequireDefault(_yeomanGenerator);
 
-var _ngSub_generators_Pipe = require('../_ng/sub_generators_Pipe');
+var _ngSub_generators_pipe = require('../_ng/sub_generators_pipe');
 
 var PipeGenerator = (function (_yeoman$generators$Base) {
   _inherits(PipeGenerator, _yeoman$generators$Base);
@@ -28,7 +28,7 @@ var PipeGenerator = (function (_yeoman$generators$Base) {
 
     _get(Object.getPrototypeOf(PipeGenerator.prototype), 'constructor', this).call(this, args, options, config);
 
-    this.generator = new _ngSub_generators_Pipe.PipeSubGenerator(this);
+    this.generator = new _ngSub_generators_pipe.PipeSubGenerator(this);
   }
 
   _createClass(PipeGenerator, [{

@@ -1,5 +1,5 @@
 import yeoman from 'yeoman-generator';
-import {PipeSubGenerator} from '../_ng/sub_generators_Pipe';
+import {PipeSubGenerator} from '../_ng/sub_generators_pipe';
 
 export default class PipeGenerator extends yeoman.generators.Base {
   constructor(args, options, config) {
