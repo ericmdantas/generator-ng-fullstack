@@ -3,10 +3,12 @@ import knownPaths from './known_paths';
 import optionsParser from './options_parser';
 import utils from './utils';
 import {FeatureMissingError} from './errors';
+import {AngularFactory} from './angular';
 
 export class FactorySubGenerator {
   constructor(generator) {
     this.wrapper = generator;
+    this.wrapper.ngVersion = this.wrapper.config.get('ngVersion');
   }
 
   initializing() {
@@ -24,7 +26,6 @@ export class FactorySubGenerator {
     if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('ng1/factory.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/factory/${name}.factory.js`, {name: utils.capitalizeFirst(name)});
-    this.wrapper.template('ng1/factory_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/factory/${name}.factory_test.js`, {name: utils.capitalizeFirst(name)});
+    AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyFactory();
   }
 }

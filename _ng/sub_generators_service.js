@@ -28,11 +28,14 @@ var _utils2 = _interopRequireDefault(_utils);
 
 var _errors = require('./errors');
 
+var _angular = require('./angular');
+
 var ServiceSubGenerator = (function () {
   function ServiceSubGenerator(generator) {
     _classCallCheck(this, ServiceSubGenerator);
 
     this.wrapper = generator;
+    this.wrapper.ngVersion = this.wrapper.config.get('ngVersion');
   }
 
   _createClass(ServiceSubGenerator, [{
@@ -52,8 +55,7 @@ var ServiceSubGenerator = (function () {
 
       if (!feature.length) throw new _errors.FeatureMissingError();
 
-      this.wrapper.template('ng1/service.js', _known_paths2['default'].PATH_CLIENT_FEATURES + feature + '/services/' + name + '.service.js', { name: name });
-      this.wrapper.template('ng1/service_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + feature + '/services/' + name + '.service_test.js', { name: name });
+      _angular.AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyService();
     }
   }]);
 

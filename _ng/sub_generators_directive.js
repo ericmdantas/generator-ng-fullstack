@@ -28,11 +28,14 @@ var _utils2 = _interopRequireDefault(_utils);
 
 var _errors = require('./errors');
 
+var _angular = require('./angular');
+
 var DirectiveSubGenerator = (function () {
   function DirectiveSubGenerator(generator) {
     _classCallCheck(this, DirectiveSubGenerator);
 
     this.wrapper = generator;
+    this.wrapper.ngVersion = this.wrapper.config.get('ngVersion');
   }
 
   _createClass(DirectiveSubGenerator, [{
@@ -52,8 +55,7 @@ var DirectiveSubGenerator = (function () {
 
       if (!feature.length) throw new _errors.FeatureMissingError();
 
-      this.wrapper.template('ng1/directive.js', _known_paths2['default'].PATH_CLIENT_FEATURES + feature + '/directives/' + name + '.directive.js', { name: name });
-      this.wrapper.template('ng1/directive_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + feature + '/directives/' + name + '.directive_test.js', { name: name });
+      _angular.AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyDirective();
     }
   }]);
 

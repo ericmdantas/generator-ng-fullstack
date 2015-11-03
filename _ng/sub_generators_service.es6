@@ -3,10 +3,12 @@ import knownPaths from './known_paths';
 import optionsParser from './options_parser';
 import utils from './utils';
 import {FeatureMissingError} from './errors';
+import {AngularFactory} from './angular';
 
 export class ServiceSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
+    this.wrapper.ngVersion = this.wrapper.config.get('ngVersion');
   }
 
   initializing() {
@@ -24,7 +26,6 @@ export class ServiceSubGenerator {
     if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('ng1/service.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/services/${name}.service.js`, {name});
-    this.wrapper.template('ng1/service_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/services/${name}.service_test.js`, {name});
+    AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyService();
   }
 }

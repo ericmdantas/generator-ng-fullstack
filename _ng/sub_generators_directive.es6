@@ -3,10 +3,12 @@ import knownPaths from './known_paths';
 import optionsParser from './options_parser';
 import utils from './utils';
 import {FeatureMissingError} from './errors';
+import {AngularFactory} from './angular';
 
 export class DirectiveSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
+    this.wrapper.ngVersion = this.wrapper.config.get('ngVersion');
   }
 
   initializing() {
@@ -24,7 +26,6 @@ export class DirectiveSubGenerator {
     if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('ng1/directive.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/directives/${name}.directive.js`, {name});
-    this.wrapper.template('ng1/directive_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/directives/${name}.directive_test.js`, {name});
+    AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyDirective();
   }
 }

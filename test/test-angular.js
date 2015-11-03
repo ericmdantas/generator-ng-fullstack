@@ -36,6 +36,9 @@ describe('angular', () => {
         let _gen = {
           name: 'a',
           options: {feature: 'c'},
+          config: {
+            get(){return 'ng1'}
+          },
           template: sinon.spy()
         };
 
@@ -98,6 +101,9 @@ describe('angular', () => {
         let _gen = {
           name: 'a',
           options: {feature: 'c'},
+          config: {
+            get(){return 'ng2'}
+          },
           template: sinon.spy()
         };
 

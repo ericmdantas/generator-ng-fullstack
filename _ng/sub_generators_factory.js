@@ -28,11 +28,14 @@ var _utils2 = _interopRequireDefault(_utils);
 
 var _errors = require('./errors');
 
+var _angular = require('./angular');
+
 var FactorySubGenerator = (function () {
   function FactorySubGenerator(generator) {
     _classCallCheck(this, FactorySubGenerator);
 
     this.wrapper = generator;
+    this.wrapper.ngVersion = this.wrapper.config.get('ngVersion');
   }
 
   _createClass(FactorySubGenerator, [{
@@ -52,8 +55,7 @@ var FactorySubGenerator = (function () {
 
       if (!feature.length) throw new _errors.FeatureMissingError();
 
-      this.wrapper.template('ng1/factory.js', _known_paths2['default'].PATH_CLIENT_FEATURES + feature + '/factory/' + name + '.factory.js', { name: _utils2['default'].capitalizeFirst(name) });
-      this.wrapper.template('ng1/factory_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + feature + '/factory/' + name + '.factory_test.js', { name: _utils2['default'].capitalizeFirst(name) });
+      _angular.AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyFactory();
     }
   }]);
 
