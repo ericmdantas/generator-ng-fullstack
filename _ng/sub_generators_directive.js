@@ -47,13 +47,13 @@ var DirectiveSubGenerator = (function () {
   }, {
     key: 'writing',
     value: function writing() {
-      var _feature = _options_parser2['default'].getFeature(this.wrapper.options);
-      var _name = this.wrapper.name;
+      var feature = _options_parser2['default'].getFeature(this.wrapper.options);
+      var name = this.wrapper.name;
 
-      if (!_feature.length) throw new _errors.FeatureMissingError();
+      if (!feature.length) throw new _errors.FeatureMissingError();
 
-      this.wrapper.template('ng1/directive.js', _known_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/directives/' + _name + '.directive.js', { name: _name });
-      this.wrapper.template('ng1/directive_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/directives/' + _name + '.directive_test.js', { name: _name });
+      this.wrapper.template('ng1/directive.js', _known_paths2['default'].PATH_CLIENT_FEATURES + feature + '/directives/' + name + '.directive.js', { name: name });
+      this.wrapper.template('ng1/directive_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + feature + '/directives/' + name + '.directive_test.js', { name: name });
     }
   }]);
 

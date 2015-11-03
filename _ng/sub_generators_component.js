@@ -45,13 +45,13 @@ var ComponentSubGenerator = (function () {
   }, {
     key: 'writing',
     value: function writing() {
-      var _name = this.wrapper.name;
-      var _firstLetterUppercased = _name.charAt(0).toUpperCase() + _name.slice(1);
-      var _nameLowerCased = _name.toLowerCase();
+      var name = this.wrapper.name;
+      var _firstLetterUppercased = name.charAt(0).toUpperCase() + name.slice(1);
+      var nameLowerCase = name.toLowerCase();
 
-      this.wrapper.template('component.ts', _known_paths2['default'].PATH_CLIENT_FEATURES + '../components/' + _name + '/' + _name + '.ts', { name: _firstLetterUppercased });
-      this.wrapper.template('component.html', _known_paths2['default'].PATH_CLIENT_FEATURES + '../components/' + _name + '/' + _name + '.html', { name: _name });
-      this.wrapper.template('component_test.ts', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + '/components/' + _name + '/' + _name + '_test.ts', { name: _firstLetterUppercased, nameLowerCase: _nameLowerCased });
+      this.wrapper.template('component.ts', _known_paths2['default'].PATH_CLIENT_FEATURES + '../components/' + name + '/' + name + '.ts', { name: _firstLetterUppercased });
+      this.wrapper.template('component.html', _known_paths2['default'].PATH_CLIENT_FEATURES + '../components/' + name + '/' + name + '.html', { name: name });
+      this.wrapper.template('component_test.ts', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + '/components/' + name + '/' + name + '_test.ts', { name: _firstLetterUppercased, nameLowerCase: nameLowerCase });
     }
   }]);
 

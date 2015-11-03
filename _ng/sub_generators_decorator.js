@@ -47,12 +47,12 @@ var DecoratorSubGenerator = (function () {
   }, {
     key: 'writing',
     value: function writing() {
-      var _feature = _options_parser2['default'].getFeature(this.wrapper.options);
-      var _name = this.wrapper.name;
+      var feature = _options_parser2['default'].getFeature(this.wrapper.options);
+      var name = this.wrapper.name;
 
-      if (!_feature.length) throw new _errors.FeatureMissingError();
+      if (!feature.length) throw new _errors.FeatureMissingError();
 
-      this.wrapper.template('decorator.js', _known_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/decorator/' + _name + '.decorator.js');
+      this.wrapper.template('decorator.js', _known_paths2['default'].PATH_CLIENT_FEATURES + feature + '/decorator/' + name + '.decorator.js');
     }
   }]);
 

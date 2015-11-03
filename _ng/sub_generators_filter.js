@@ -47,13 +47,13 @@ var FilterSubGenerator = (function () {
   }, {
     key: 'writing',
     value: function writing() {
-      var _feature = _options_parser2['default'].getFeature(this.wrapper.options);
-      var _name = this.wrapper.name;
+      var feature = _options_parser2['default'].getFeature(this.wrapper.options);
+      var name = this.wrapper.name;
 
-      if (!_feature.length) throw new _errors.FeatureMissingError();
+      if (!feature.length) throw new _errors.FeatureMissingError();
 
-      this.wrapper.template('filter.js', _known_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/filters/' + _name + '.filter.js', { name: _name });
-      this.wrapper.template('filter_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/filters/' + _name + '.filter_test.js', { name: _name });
+      this.wrapper.template('filter.js', _known_paths2['default'].PATH_CLIENT_FEATURES + feature + '/filters/' + name + '.filter.js', { name: name });
+      this.wrapper.template('filter_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + feature + '/filters/' + name + '.filter_test.js', { name: name });
     }
   }]);
 

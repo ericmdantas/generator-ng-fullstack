@@ -18,13 +18,13 @@ export class ServiceSubGenerator {
   }
 
   writing() {
-    const _feature = optionsParser.getFeature(this.wrapper.options);
-    const _name = this.wrapper.name;
+    const feature = optionsParser.getFeature(this.wrapper.options);
+    const name = this.wrapper.name;
 
-    if (!_feature.length)
+    if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('ng1/service.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/services/${_name}.service.js`, {name: _name});
-    this.wrapper.template('ng1/service_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/services/${_name}.service_test.js`, {name: _name});
+    this.wrapper.template('ng1/service.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/services/${name}.service.js`, {name});
+    this.wrapper.template('ng1/service_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/services/${name}.service_test.js`, {name});
   }
 }

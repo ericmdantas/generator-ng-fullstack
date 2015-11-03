@@ -18,13 +18,13 @@ export class PipeSubGenerator {
   }
 
   writing() {
-    const _feature = optionsParser.getFeature(this.wrapper.options);
-    const _name = this.wrapper.name;
+    const feature = optionsParser.getFeature(this.wrapper.options);
+    const name = this.wrapper.name;
 
-    if (!_feature.length)
+    if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('pipe.ts', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/pipes/${_name}.pipe.ts`, {name: _name});
-    this.wrapper.template('pipe_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/pipes/${_name}.pipe_test.js`, {name: _name});
+    this.wrapper.template('pipe.ts', `${knownPaths.PATH_CLIENT_FEATURES + feature}/pipes/${name}.pipe.ts`, {name});
+    this.wrapper.template('pipe_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/pipes/${name}.pipe_test.js`, {name});
   }
 }

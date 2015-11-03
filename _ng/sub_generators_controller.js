@@ -47,13 +47,14 @@ var ControllerSubGenerator = (function () {
   }, {
     key: 'writing',
     value: function writing() {
-      var _feature = _options_parser2['default'].getFeature(this.wrapper.options);
-      var _name = this.wrapper.name;
+      var feature = _options_parser2['default'].getFeature(this.wrapper.options);
+      var name = this.wrapper.name;
+      var nameLowerCase = name.toLowerCase();
 
-      if (!_feature.length) throw new _errors.FeatureMissingError();
+      if (!feature.length) throw new _errors.FeatureMissingError();
 
-      this.wrapper.template('controller_client.js', _known_paths2['default'].PATH_CLIENT_FEATURES + _feature + '/controllers/' + _name + '.controller.js', { name: _name });
-      this.wrapper.template('controller_client_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + '/controllers/' + _name + '.controller_test.js', { name: _name, nameLowerCase: _name.toLowerCase() });
+      this.wrapper.template('controller_client.js', _known_paths2['default'].PATH_CLIENT_FEATURES + feature + '/controllers/' + name + '.controller.js', { name: name });
+      this.wrapper.template('controller_client_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + feature + '/controllers/' + name + '.controller_test.js', { name: name, nameLowerCase: nameLowerCase });
     }
   }]);
 

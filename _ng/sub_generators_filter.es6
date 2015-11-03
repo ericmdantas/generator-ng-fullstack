@@ -18,13 +18,13 @@ export class FilterSubGenerator {
   }
 
   writing() {
-    const _feature = optionsParser.getFeature(this.wrapper.options);
-    const _name = this.wrapper.name;
+    const feature = optionsParser.getFeature(this.wrapper.options);
+    const name = this.wrapper.name;
 
-    if (!_feature.length)
+    if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('filter.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/filters/${_name}.filter.js`, {name: _name});
-    this.wrapper.template('filter_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/filters/${_name}.filter_test.js`, {name: _name});
+    this.wrapper.template('filter.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/filters/${name}.filter.js`, {name});
+    this.wrapper.template('filter_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/filters/${name}.filter_test.js`, {name});
   }
 }

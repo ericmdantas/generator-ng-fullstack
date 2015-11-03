@@ -18,12 +18,12 @@ export class ResourceSubGenerator {
   }
 
   writing() {
-    const _feature = optionsParser.getFeature(this.wrapper.options);
-    const _name = this.wrapper.name;
+    const feature = optionsParser.getFeature(this.wrapper.options);
+    const name = this.wrapper.name;
 
-    if (!_feature.length)
+    if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('resource.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/resource/${_name}.resource.js`, {name: _name});
+    this.wrapper.template('resource.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/resource/${name}.resource.js`, {name});
   }
 }

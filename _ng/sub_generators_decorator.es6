@@ -18,12 +18,12 @@ export class DecoratorSubGenerator {
   }
 
   writing() {
-    const _feature = optionsParser.getFeature(this.wrapper.options);
-    const _name = this.wrapper.name;
+    const feature = optionsParser.getFeature(this.wrapper.options);
+    const name = this.wrapper.name;
 
-    if (!_feature.length)
+    if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('decorator.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/decorator/${_name}.decorator.js`);
+    this.wrapper.template('decorator.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/decorator/${name}.decorator.js`);
   }
 }

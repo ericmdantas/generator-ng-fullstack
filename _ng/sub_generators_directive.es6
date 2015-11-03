@@ -18,13 +18,13 @@ export class DirectiveSubGenerator {
   }
 
   writing() {
-    const _feature = optionsParser.getFeature(this.wrapper.options);
-    const _name = this.wrapper.name;
+    const feature = optionsParser.getFeature(this.wrapper.options);
+    const name = this.wrapper.name;
 
-    if (!_feature.length)
+    if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('ng1/directive.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/directives/${_name}.directive.js`, {name: _name});
-    this.wrapper.template('ng1/directive_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/directives/${_name}.directive_test.js`, {name: _name});
+    this.wrapper.template('ng1/directive.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/directives/${name}.directive.js`, {name});
+    this.wrapper.template('ng1/directive_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/directives/${name}.directive_test.js`, {name});
   }
 }

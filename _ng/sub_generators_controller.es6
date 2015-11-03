@@ -18,13 +18,14 @@ export class ControllerSubGenerator {
     }
 
     writing() {
-      const _feature = optionsParser.getFeature(this.wrapper.options);
-      const _name = this.wrapper.name;
+      const feature = optionsParser.getFeature(this.wrapper.options);
+      const name = this.wrapper.name;
+      const nameLowerCase = name.toLowerCase();
 
-      if (!_feature.length)
+      if (!feature.length)
         throw new FeatureMissingError();
 
-      this.wrapper.template('controller_client.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/controllers/${_name}.controller.js`, {name: _name});
-      this.wrapper.template('controller_client_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/controllers/${_name}.controller_test.js`, {name: _name, nameLowerCase: _name.toLowerCase()});
+      this.wrapper.template('controller_client.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/controllers/${name}.controller.js`, {name});
+      this.wrapper.template('controller_client_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/controllers/${name}.controller_test.js`, {name, nameLowerCase});
     }
 }

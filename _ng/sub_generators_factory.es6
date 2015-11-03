@@ -18,13 +18,13 @@ export class FactorySubGenerator {
   }
 
   writing() {
-    const _feature = optionsParser.getFeature(this.wrapper.options);
-    const _name = this.wrapper.name;
+    const feature = optionsParser.getFeature(this.wrapper.options);
+    const name = this.wrapper.name;
 
-    if (!_feature.length)
+    if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('ng1/factory.js', `${knownPaths.PATH_CLIENT_FEATURES + _feature}/factory/${_name}.factory.js`, {name: utils.capitalizeFirst(_name)});
-    this.wrapper.template('ng1/factory_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}/factory/${_name}.factory_test.js`, {name: utils.capitalizeFirst(_name)});
+    this.wrapper.template('ng1/factory.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/factory/${name}.factory.js`, {name: utils.capitalizeFirst(name)});
+    this.wrapper.template('ng1/factory_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/factory/${name}.factory_test.js`, {name: utils.capitalizeFirst(name)});
   }
 }
