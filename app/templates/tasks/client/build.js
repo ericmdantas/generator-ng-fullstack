@@ -1,11 +1,11 @@
-const gulp = require('gulp');
-const uglify = require('gulp-uglify');
-const cssmin = require('gulp-minify-css');
-const usemin = require('gulp-usemin');
-const rev = require('gulp-rev');
-const less = require('gulp-less');
-const coveralls = require('gulp-coveralls');
-const browserSync = require('browser-sync');
+import gulp from 'gulp';
+import uglify from 'gulp-uglify';
+import cssmin from 'gulp-minify-css';
+import usemin from 'gulp-usemin';
+import rev from 'gulp-rev';
+import less from 'gulp-less';
+import coveralls from 'gulp-coveralls';
+import browserSync from 'browser-sync';
 
 const DEV_DIR = './client/dev/';
 const TEMP_DIR = './client/__tmp/'; // working on it dir
@@ -17,13 +17,13 @@ const PARTIALS = DEV_DIR + 'partials/**/*';
 const INDEX_HTML = DEV_DIR + 'index.html';
 const COMPONENTS = DEV_DIR + 'components/';
 
-gulp.task('components:temp', () => {
+gulp.task('client.components:temp', () => {
   return gulp
     .src(COMPONENTS + '**/*')
     .pipe(gulp.dest(TEMP_DIR + 'components/'));
-})
+});
 
-gulp.task('components:dist', () => {
+gulp.task('client.components:dist', () => {
   gulp
     .src(COMPONENTS + '**/*')
     .pipe(gulp.dest(DIST_DIR + 'components/'));
@@ -32,86 +32,61 @@ gulp.task('components:dist', () => {
     .src(COMPONENTS + '**/*.js')
     .pipe(uglify())
     .pipe(gulp.dest(DIST_DIR + 'components/'));
-})
+});
 
-gulp.task('html,css,js:temp', () => {
+gulp.task('client.html,css,js:temp', () => {
   return gulp
     .src(INDEX_HTML)
     .pipe(usemin({js0: [rev()], js1: [rev()], css0: [rev(), less()]}))
     .pipe(gulp.dest(TEMP_DIR));
-})
+});
 
-gulp.task('partials:temp', () => {
+gulp.task('client.partials:temp', () => {
   return gulp
     .src(PARTIALS)
     .pipe(gulp.dest(TEMP_DIR + 'partials/'));
-})
+});
 
-gulp.task('imgs:temp', () => {
+gulp.task('client.imgs:temp', () => {
   return gulp
     .src(IMAGES)
     .pipe(gulp.dest(TEMP_DIR + 'imgs/'));
-})
+});
 
-gulp.task('fonts:temp', () => {
+gulp.task('client.fonts:temp', () => {
   return gulp
     .src(FONTS)
     .pipe(gulp.dest(TEMP_DIR + 'fonts/'));
-})
+});
 
-gulp.task('html,css,js:dist', () => {
+gulp.task('client.html,css,js:dist', () => {
   return gulp
     .src(INDEX_HTML)
     .pipe(usemin({js0: [rev(), uglify()], js1: [rev(), uglify()], css0: [cssmin(), rev(), less()]}))
     .pipe(gulp.dest(DIST_DIR));
-})
+});
 
-gulp.task('fonts:dist', () => {
+gulp.task('client.fonts:dist', () => {
   return gulp
     .src(FONTS)
     .pipe(gulp.dest(DIST_DIR + 'fonts/'));
-})
+});
 
-gulp.task('partials:dist', () => {
+gulp.task('client.partials:dist', () => {
   return gulp
     .src(PARTIALS)
     .pipe(gulp.dest(DIST_DIR + 'partials/'));
-})
+});
 
-gulp.task('imgs:dist', () => {
+gulp.task('client.imgs:dist', () => {
   return gulp
     .src(IMAGES)
     .pipe(gulp.dest(DIST_DIR+ 'imgs/'));
-})
+});
 
-gulp.task('browser_sync', () => {
+gulp.task('client.browser_sync', () => {
   return browserSync.reload();
-})
+});
 
-gulp.task('build', ['del_dist', 'test_client', 'inject:css:index', 'inject:js:index', 'partials:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist', 'components:dist']); // dist build
-gulp.task('build_temp', ['del_temp', 'inject:css:index', 'inject:js:index', 'partials:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp', 'components:temp']); // browser-sync build
-
-gulp.task('del_temp', () => {
-  return del.sync([TEMP_DIR]);
-})
-
-gulp.task('del_dist', () => {
-  return del.sync([DIST_DIR]);
-})
-
-gulp.task('test_client', (done) => {
-  return karma
-    .start({
-      configFile: __dirname + '/karma.conf.js',
-      browsers: ['PhantomJS'],
-      singleRun: true
-    }, done);
-})
-
-gulp.task('coverage_frontend', ['test_client'], () => {
-  return gulp
-    .src('unit_coverage/**/lcov.info')
-    .pipe(coveralls());
-})
-
-gulp.task('default', ['build_temp', 'watch']);
+gulp.task('client.build', ['del_dist', 'test_client', 'inject:css:index', 'inject:js:index', 'partials:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist', 'components:dist']); // dist build
+gulp.task('client.build_temp', ['del_temp', 'inject:css:index', 'inject:js:index', 'partials:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp', 'components:temp']); // browser-sync build
