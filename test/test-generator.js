@@ -38,8 +38,8 @@ describe('generator_config', () => {
         githubUsername: 'b',
         server: 'node',
         transpilerServer: 'typescript',
-        template: () => {},
-        directory: () => {}
+        template(){},
+        directory(){}
       }
 
       let _g = new MainGenerator(_gen);
@@ -56,8 +56,8 @@ describe('generator_config', () => {
         githubUsername: 'b',
         server: 'node',
         transpilerServer: 'babel',
-        template: () => {},
-        directory: () => {}
+        template(){},
+        directory(){}
       }
 
       let _g = new MainGenerator(_gen);
@@ -73,9 +73,9 @@ describe('generator_config', () => {
         appName: 'a',
         githubUsername: 'b',
         server: 'node',
-        transpilerServer: 'none',
-        template: () => {},
-        directory: () => {}
+        transpilerServer: 'node',
+        template(){},
+        directory(){}
       }
 
       let _g = new MainGenerator(_gen);

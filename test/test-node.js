@@ -47,11 +47,11 @@ describe('node', () => {
 
         _n.copyFiles();
 
-        let _firstCall = [`node/node/endpoint.route.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}.route.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _secondCall = [`node/node/endpoint.controller.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}.controller.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _thirdCall = [`node/node/endpoint.dao.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}.dao.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _fourthCall = [`node/node/endpoint.model.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}.model.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _fifthCall = [`node/node/endpoint.dao_test.js`, `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}.dao_test.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase(), feature: _newGenerator.feature}];
+        let _firstCall = [`node/no_transpiler/endpoint.route.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}.route.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _secondCall = [`node/no_transpiler/endpoint.controller.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}.controller.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _thirdCall = [`node/no_transpiler/endpoint.dao.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}.dao.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _fourthCall = [`node/no_transpiler/endpoint.model.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}.model.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _fifthCall = [`node/no_transpiler/endpoint.dao_test.js`, `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}.dao_test.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase(), feature: _newGenerator.feature}];
 
         expect(_n.wrapper.template).to.have.been.called;
         expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;

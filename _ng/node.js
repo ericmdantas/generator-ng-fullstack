@@ -42,12 +42,12 @@ var NodeStandard = (function () {
     value: function copyFiles() {
       var gen = basePath(this.wrapper);
 
-      this.wrapper.template('node/node/endpoint.route.js', gen.route + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
-      this.wrapper.template('node/node/endpoint.controller.js', gen.controller + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
-      this.wrapper.template('node/node/endpoint.dao.js', gen.dao + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
-      this.wrapper.template('node/node/endpoint.model.js', gen.model + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/no_transpiler/endpoint.route.js', gen.route + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/no_transpiler/endpoint.controller.js', gen.controller + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/no_transpiler/endpoint.dao.js', gen.dao + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
+      this.wrapper.template('node/no_transpiler/endpoint.model.js', gen.model + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
 
-      this.wrapper.template('node/node/endpoint.dao_test.js', gen.test + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
+      this.wrapper.template('node/no_transpiler/endpoint.dao_test.js', gen.test + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
     }
   }, {
     key: 'copyForMainGenerator',
@@ -141,7 +141,7 @@ var NodeFactory = (function () {
           return new NodeStandard(generator);
         case NodeFactory.tokens.NODE_TYPESCRIPT:
           return new NodeTypescript(generator);
-        default:
+        case NodeFactory.tokens.NODE_BABEL:
           return new NodeBabel(generator);
       }
     }

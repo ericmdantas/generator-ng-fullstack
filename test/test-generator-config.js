@@ -6,14 +6,16 @@ import {GeneratorConfig} from '../_ng/generator_config';
 describe('generator_config', () => {
   let _generatorMock = {
     config: {
-      set: () => {},
-      get: () => {},
-      save: () => {}
+      set(){},
+      get(){},
+      save(){}
     }
   };
 
   beforeEach(() => {
      sinon.mock(_generatorMock.config.set);
+     sinon.mock(_generatorMock.config.get);
+     sinon.mock(_generatorMock.config.save);
   });
 
   describe('creation', () => {

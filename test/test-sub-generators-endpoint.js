@@ -7,7 +7,14 @@ import {EndpointSubGenerator} from '../_ng/sub_generators_endpoint';
 describe('EndpointSubGenerator', () => {
   describe('creation', () => {
     it('should have the right param passed to wrapper', () => {
-      let _gen = {a: true};
+      let _gen = {
+        a: true,
+        transpilerServer: 'node',
+        server: 'node',
+        config: {
+          get(){return 'node'}
+        }
+      };
       let _esg = new EndpointSubGenerator(_gen);
 
       expect(_esg.wrapper).to.equal(_gen);
@@ -17,7 +24,11 @@ describe('EndpointSubGenerator', () => {
   describe('initializing', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
-        argument: () => {}
+        argument: () => {},
+        transpilerServer: 'node',
+        config: {
+          get(){return 'node'}
+        }
       };
 
       sinon.mock(_gen.argument);
@@ -35,9 +46,10 @@ describe('EndpointSubGenerator', () => {
       let _gen = {
         name: 'a',
         options: {feature: 'c'},
+        transpilerServer: 'node',
         template: () => {},
         config: {
-          get: () => {}
+          get() {return 'node'}
         }
       };
 

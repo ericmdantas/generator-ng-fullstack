@@ -54,7 +54,7 @@ export class MainGenerator {
   }
 
   promptUser() {
-      let done = this.wrapper.async();
+      const done = this.wrapper.async();
 
       let prompts =[
           {
@@ -92,13 +92,13 @@ export class MainGenerator {
   }
 
   promptTranspilerServer() {
-    let done = this.wrapper.async();
+    const done = this.wrapper.async();
 
     let _prompts = [{
       type: "list",
       name: "transpilerServer",
       message: "What transpiler do you want to use in server side?",
-      choices: [/*"node",*/ "babel", "typescript"],
+      choices: ["node", "babel", "typescript"],
       default: 0,
       when: () => this.wrapper.server === "node"
     }];
