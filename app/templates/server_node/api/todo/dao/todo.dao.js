@@ -15,12 +15,11 @@ todoSchema.statics.getAll = () => {
               err ? reject(err)
                   : resolve(todos);
           });
-      );
+      });
 }
 
 todoSchema.statics.createTodo = (todo) => {
-
-    return new Promise((res, rej) => {
+    return new Promise((resolve, reject) => {
       if (!_.isObject(todo))
           return reject(new TypeError('Todo is not a valid object.'));
 
@@ -30,7 +29,7 @@ todoSchema.statics.createTodo = (todo) => {
         err ? reject(err)
             : resolve(saved);
       });
-    }));
+    });
 }
 
 todoSchema.statics.deleteTodo = (id) => {
@@ -44,7 +43,9 @@ todoSchema.statics.deleteTodo = (id) => {
               err ? reject(err)
                   : resolve();
           });
-    );
+    });
 }
 
-export const Todo = mongoose.model('Todo', todoSchema);
+const Todo  = mongoose.model('Todo', todoSchema);
+
+module.exports = Todo;

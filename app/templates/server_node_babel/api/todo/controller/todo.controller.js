@@ -1,26 +1,24 @@
-"use strict";
-
 import TodoDAO from '../dao/todo.dao';
 
 export default class TodoController {
   static getAll(req, res) {
-      TodoDAO
-        .getAll()
-        .then(todos => res.status(200).json(todos))
-        .catch(error => res.status(400).json(error));
+    TodoDAO
+      .getAll()
+      .then(todos => res.status(200).json(todos))
+      .catch(error => res.status(400).json(error));
   }
 
   static createTodo(req, res) {
-      var _todo = req.body;
+    let _todo = req.body;
 
-      TodoDAO
-        .createTodo(_todo)
-        .then(todo => res.status(201).json(todo))
-        .catch(error => res.status(400).json(error));
+    TodoDAO
+      .createTodo(_todo)
+      .then(todo => res.status(201).json(todo))
+      .catch(error => res.status(400).json(error));
   }
 
   static deleteTodo(req, res) {
-    var _id = req.params.id;
+    let _id = req.params.id;
 
     TodoDAO
       .deleteTodo(_id)

@@ -18,7 +18,7 @@ describe('ng-fullstack:app', () => {
 
       'bower.json',
       'package.json',
-      'gulpfile.js',
+      'gulpfile.babel.js',
       'karma.conf.js',
       'protractor.conf.js',
       'newrelic.js',

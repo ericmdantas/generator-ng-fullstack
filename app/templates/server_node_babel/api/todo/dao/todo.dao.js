@@ -1,55 +1,47 @@
-"use strict";
-
 import mongoose from 'mongoose';
 import Promise from 'bluebird';
 import todoSchema from '../model/todo.model';
 import _ from 'lodash';
 
 todoSchema.statics.getAll = () => {
-    var _promise = (resolve, reject) => {
-        var _query = {};
+  return new Promise((resolve, reject) => {
+    var _query = {};
 
-        Todo
-          .find(_query)
-          .exec((err, todos) => {
-              err ? reject(err)
-                  : resolve(todos);
-          });
-    }
-
-    return new Promise(_promise);
+    Todo
+    .find(_query)
+    .exec((err, todos) => {
+      err ? reject(err)
+      : resolve(todos);
+    });
+  });
 }
 
 todoSchema.statics.createTodo = (todo) => {
-    var _promise = function(resolve, reject) {
-      if (!_.isObject(todo))
-          return reject(new TypeError('Todo is not a valid object.'));
+  return new Promise((resolve, reject) {
+    if (!_.isObject(todo))
+    return reject(new TypeError('Todo is not a valid object.'));
 
-      var _todo = new Todo(todo);
+    var _todo = new Todo(todo);
 
-      _todo.save((err, saved) => {
-        err ? reject(err)
-            : resolve(saved);
-      });
-    }
-
-    return new Promise(_promise);
+    _todo.save((err, saved) => {
+      err ? reject(err)
+      : resolve(saved);
+    });
+  });
 }
 
 todoSchema.statics.deleteTodo = (id) => {
-    var _promise = (resolve, reject) => {
-        if (!_.isString(id))
-            return reject(new TypeError('Id is not a valid string.'));
+  return new Promise((resolve, reject) => {
+    if (!_.isString(id))
+    return reject(new TypeError('Id is not a valid string.'));
 
-        Todo
-          .findByIdAndRemove(id)
-          .exec((err, deleted) => {
-              err ? reject(err)
-                  : resolve();
-          });
-    }
-
-    return new Promise(_promise);
+    Todo
+    .findByIdAndRemove(id)
+    .exec((err, deleted) => {
+      err ? reject(err)
+      : resolve();
+    });
+  });
 }
 
 var Todo = mongoose.model('Todo', todoSchema);

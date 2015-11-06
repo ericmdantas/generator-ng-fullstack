@@ -26,7 +26,7 @@ export class MainGenerator {
       this.wrapper.template('_bower.json', 'bower.json', _appAndUsername);
       this.wrapper.template('_README.md', 'README.md', _appAndUsername);
 
-      this.wrapper.template('_gulpfile.js', 'gulpfile.js', _app);
+      this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
       this.wrapper.template('_karma.conf.js', 'karma.conf.js', _app);
       this.wrapper.template('_protractor.conf.js', 'protractor.conf.js', _app);
 
@@ -42,6 +42,7 @@ export class MainGenerator {
 
       this.wrapper.directory('client', 'client');
       this.wrapper.directory('tests', 'tests');
+      this.wrapper.directory('tasks', 'tasks');
 
       switch(_server) {
         case "node": return NodeFactory.build(this.wrapper).copyForMainGenerator();
@@ -98,7 +99,7 @@ export class MainGenerator {
       type: "list",
       name: "transpilerServer",
       message: "What transpiler do you want to use in server side?",
-      choices: ["node", "babel", "typescript"],
+      choices: [NodeFactory.tokens.NODE, NodeFactory.tokens.NODE_BABEL, NodeFactory.tokens.NODE_TYPESCRIPT],
       default: 0,
       when: () => this.wrapper.server === "node"
     }];

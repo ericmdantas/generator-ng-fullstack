@@ -1,7 +1,7 @@
 /// <reference path="../typings/tsd.d.ts" />
 
 import {Http} from 'angular2/http';
-import {Inject} from 'angular2/di';
+import {Inject} from 'angular2/angular2';
 
 export class TodoService {
   endpoint: string = '/api/todos/:id';
