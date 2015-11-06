@@ -30,6 +30,14 @@ export default class NgFullstack extends Base {
       this.generator.promptUser();
     }
 
+    promptServer() {
+      this.generator.promptServer();
+    }
+
+    promptClient() {
+      this.generator.promptClient();
+    }
+
     promptUserTranspilerServer() {
       this.generator.promptTranspilerServer();
     }

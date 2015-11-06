@@ -103,6 +103,63 @@ describe('generator_config', () => {
       expect(_g.wrapper.template).to.have.been.called;
       expect(_g.wrapper.directory).to.have.been.called;
     })
+
+    it('should have the right calls - stack fullstack', () => {
+      let _gen = {
+        appName: 'a',
+        githubUsername: 'b',
+        stack: 'fullstack',
+        server: 'go',
+        transpilerServer: undefined,
+        template: () => {},
+        directory: () => {}
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.writing();
+
+      expect(_g.wrapper.template).to.have.been.called;
+      expect(_g.wrapper.directory).to.have.been.called;
+    })
+
+    it('should have the right calls - stack server', () => {
+      let _gen = {
+        appName: 'a',
+        githubUsername: 'b',
+        stack: 'server',
+        server: 'go',
+        transpilerServer: undefined,
+        template: () => {},
+        directory: () => {}
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.writing();
+
+      expect(_g.wrapper.template).to.have.been.called;
+      expect(_g.wrapper.directory).to.have.been.called;
+    })
+
+    it('should have the right calls - stack client', () => {
+      let _gen = {
+        appName: 'a',
+        githubUsername: 'b',
+        stack: 'client',
+        server: 'go',
+        transpilerServer: undefined,
+        template: () => {},
+        directory: () => {}
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.writing();
+
+      expect(_g.wrapper.template).to.have.been.called;
+      expect(_g.wrapper.directory).to.have.been.called;
+    })
   });
 
   describe('install', () => {
@@ -131,6 +188,7 @@ describe('generator_config', () => {
         githubUsername: 'b',
         server: 'node',
         transpilerServer: 'typescript',
+        stack: 'fullstack',
         async: () => {},
         prompt: () => {},
         config: {
@@ -147,12 +205,38 @@ describe('generator_config', () => {
     })
   });
 
+  describe('promptServer', () => {
+    it('should have the right calls', () => {
+      let _gen = {
+        appName: 'a',
+        githubUsername: 'b',
+        server: 'node',
+        stack: 'fullstack',
+        client: 'ng2',
+        transpilerServer: 'typescript',
+        async: () => {},
+        prompt: () => {},
+        config: {
+          save: () => {}
+        }
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.promptServer();
+
+      expect(_g.wrapper.prompt).to.have.been.called;
+      expect(_g.wrapper.config.save).to.have.been.called;
+    })
+  });
+
   describe('promptTranspilerServer', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
         githubUsername: 'b',
         server: 'node',
+        client: 'ng2',
         transpilerServer: 'typescript',
         async: () => {},
         prompt: () => {},
@@ -164,6 +248,30 @@ describe('generator_config', () => {
       let _g = new MainGenerator(_gen);
 
       _g.promptTranspilerServer();
+
+      expect(_g.wrapper.prompt).to.have.been.called;
+      expect(_g.wrapper.config.save).to.have.been.called;
+    })
+  });
+
+  describe('promptClient', () => {
+    it('should have the right calls', () => {
+      let _gen = {
+        appName: 'a',
+        githubUsername: 'b',
+        server: 'node',
+        client: 'ng2',
+        transpilerServer: 'typescript',
+        async: () => {},
+        prompt: () => {},
+        config: {
+          save: () => {}
+        }
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.promptClient();
 
       expect(_g.wrapper.prompt).to.have.been.called;
       expect(_g.wrapper.config.save).to.have.been.called;

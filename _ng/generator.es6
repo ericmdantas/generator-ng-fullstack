@@ -5,6 +5,7 @@ import {NodeStandard, NodeBabel, NodeTypescript} from './node';
 import {GeneratorConfig} from './generator_config';
 import {NodeFactory} from './node';
 import {GoFactory} from './go';
+import {AngularFactory} from './angular';
 
 export class MainGenerator {
   constructor(gen) {
@@ -21,6 +22,8 @@ export class MainGenerator {
       let _appAndUsername = {app: _app.app, username: _username.username};
       let _server = this.wrapper.server;
       let _transpilerServer = this.wrapper.transpilerServer;
+      let _copiesServer = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "server");
+      let _copiesClient = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "client");
 
       this.wrapper.template('_package.json', 'package.json', _appAndUsername);
       this.wrapper.template('_bower.json', 'bower.json', _appAndUsername);
@@ -40,13 +43,18 @@ export class MainGenerator {
       this.wrapper.template('_.editorconfig', '.editorconfig');
       this.wrapper.template('_.jshintrc','.jshintrc');
 
-      this.wrapper.directory('client', 'client');
+      if (_copiesClient) {
+          this.wrapper.directory('client', 'client');
+      }
+
       this.wrapper.directory('tests', 'tests');
       this.wrapper.directory('tasks', 'tasks');
 
-      switch(_server) {
-        case "node": return NodeFactory.build(this.wrapper).copyForMainGenerator();
-        case "go": return GoFactory.build(this.wrapper).copyForMainGenerator();
+      if (_copiesServer) {
+        switch(_server) {
+          case "node": return NodeFactory.build(this.wrapper).copyForMainGenerator();
+          case "go": return GoFactory.build(this.wrapper).copyForMainGenerator();
+        }
       }
   }
 
@@ -70,26 +78,85 @@ export class MainGenerator {
           },
           {
             type: "list",
-            name: "server",
-            message: "What do you want in server side?",
-            choices: ["node", "go"],
+            name: "stack",
+            message: "What stack do you want? Full, client or server?",
+            choices: ["fullstack", "client", "server"],
             default: 0
           }
-        ];
+        ]
 
       this.wrapper.prompt(prompts, (props) => {
         this.wrapper.appName = props.appName;
         this.wrapper.githubUsername = props.githubUsername;
-        this.wrapper.server = props.server;
+        this.wrapper.stack = props.stack;
 
-        this.wrapper.config.set('server', this.wrapper.server.toLowerCase());
         this.wrapper.config.set('username', this.wrapper.githubUsername);
         this.wrapper.config.set('appName', this.wrapper.appName);
+        this.wrapper.config.set('stack', this.wrapper.stack);
 
         done();
       });
 
       this.wrapper.config.save();
+  }
+
+  promptServer() {
+    const done = this.wrapper.async();
+
+    let prompts = [
+      {
+        type: "list",
+        name: "server",
+        message: "What do you want in server side?",
+        choices: ["node", "go"],
+        when: () => {
+          let _isServer = this.wrapper.stack === "server";
+          let _isFullstack = this.wrapper.stack === "fullstack";
+
+          return _isServer || _isFullstack;
+        },
+        default: 0
+      }
+    ]
+
+    this.wrapper.prompt(prompts, (props) => {
+      this.wrapper.server = props.server;
+      this.wrapper.config.set('server', this.wrapper.server ? this.wrapper.server.toLowerCase() : '');
+
+      done();
+    });
+
+    this.wrapper.config.save();
+  }
+
+  promptClient() {
+    const done = this.wrapper.async();
+
+    let prompts = [
+      {
+        type: "list",
+        name: "client",
+        message: "What do you want in client side?",
+        choices: [AngularFactory.tokens.NG1, AngularFactory.tokens.NG2],
+        when: () => {
+          let _isClient = this.wrapper.stack === "client";
+          let _isFullstack = this.wrapper.stack === "fullstack";
+
+          return _isClient || _isFullstack;
+        },
+        default: 0
+      }
+    ]
+
+    this.wrapper.prompt(prompts, (props) => {
+
+      this.wrapper.client = props.client;
+      this.wrapper.config.set('client', this.wrapper.client ? this.wrapper.client.toLowerCase() : '');
+
+      done();
+    });
+
+    this.wrapper.config.save();
   }
 
   promptTranspilerServer() {

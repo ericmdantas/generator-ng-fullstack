@@ -63,6 +63,16 @@ var NgFullstack = (function (_Base) {
             this.generator.promptUser();
         }
     }, {
+        key: 'promptServer',
+        value: function promptServer() {
+            this.generator.promptServer();
+        }
+    }, {
+        key: 'promptClient',
+        value: function promptClient() {
+            this.generator.promptClient();
+        }
+    }, {
         key: 'promptUserTranspilerServer',
         value: function promptUserTranspilerServer() {
             this.generator.promptTranspilerServer();
