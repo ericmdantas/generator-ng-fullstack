@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "main": "src/<%= app %>.js",
   "scripts": {
-    "build_dev": "node index && gulp watch",
+    "build_dev": "node index && gulp client.watch",
     "start": "node index",
-    "test-client": "gulp coverage_frontend",
-    "test-server": "mocha ./tests/server/**/*_test.js --recursive --check-leaks --reporter min --compilers js:babel/register",
-    "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --compilers js:babel/register",
-    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --compilers js:babel/register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test-client": "gulp client.coverage",
+    "test-server": "mocha ./tests/server/**/*_test.js --recursive --check-leaks --reporter min --require babel/register",
+    "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --require babel/register",
+    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --require babel/register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "dependencies": {
     "lodash": "^3.10.0",

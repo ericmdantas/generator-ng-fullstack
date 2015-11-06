@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import browserSync from 'browser-sync';
 
+const DEV_DIR = './client/dev/';
 const JS = DEV_DIR + 'js/**/*.js';
 const LESS = DEV_DIR + 'css/**/*.less';
 const IMAGES = DEV_DIR + 'imgs/*';
@@ -11,7 +12,7 @@ const BOWER = 'bower.json';
 const COMPONENTS = DEV_DIR + 'components/';
 const ES6 = '**/*.es6';
 
-gulp.task('client.watch', ['del_temp', 'bower', 'build_temp', 'browser_sync'], () => {
+gulp.task('client.watch', ['client.del_temp', 'client.build_temp', 'client.browser_sync'], () => {
   browserSync({proxy: "http://localhost:3333", reloadDelay: 1000});
 
   let _watchable = [];
@@ -25,5 +26,5 @@ gulp.task('client.watch', ['del_temp', 'bower', 'build_temp', 'browser_sync'], (
   _watchable.push(BOWER);
   _watchable.push(ES6);
 
-  return gulp.watch(_watchable, ['bower', 'build_temp', 'browser_sync']);
+  return gulp.watch(_watchable, ['client.build_temp', 'client.browser_sync']);
 });

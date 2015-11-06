@@ -14,6 +14,7 @@ const DIST_DIR = './client/dist/';
 const IMAGES = DEV_DIR + 'imgs/*';
 const FONTS = DEV_DIR + 'fonts/*';
 const PARTIALS = DEV_DIR + 'partials/**/*';
+const VIEWS = DEV_DIR + 'views/**/*';
 const INDEX_HTML = DEV_DIR + 'index.html';
 const COMPONENTS = DEV_DIR + 'components/';
 
@@ -88,5 +89,17 @@ gulp.task('client.browser_sync', () => {
   return browserSync.reload();
 });
 
-gulp.task('client.build', ['del_dist', 'test_client', 'inject:css:index', 'inject:js:index', 'partials:dist', 'imgs:dist', 'fonts:dist', 'html,css,js:dist', 'components:dist']); // dist build
-gulp.task('client.build_temp', ['del_temp', 'inject:css:index', 'inject:js:index', 'partials:temp', 'imgs:temp', 'fonts:temp', 'html,css,js:temp', 'components:temp']); // browser-sync build
+gulp.task('client.views:temp', () => {
+  return gulp
+    .src(VIEWS)
+    .pipe(gulp.dest(TEMP_DIR + 'views/'));
+})
+
+gulp.task('client.views:dist', () => {
+  return gulp
+    .src(VIEWS)
+    .pipe(gulp.dest(DIST_DIR + 'views/'));
+})
+
+gulp.task('client.build', ['client.del_dist', 'client.test_client', 'client.partials:dist', 'client.views:dist', 'client.imgs:dist', 'client.fonts:dist', 'client.html,css,js:dist', 'client.components:dist']); // dist build
+gulp.task('client.build_temp', ['client.del_temp', 'client.partials:temp', 'client.views:temp', 'client.imgs:temp', 'client.fonts:temp', 'client.html,css,js:temp', 'client.components:temp']); // browser-sync build

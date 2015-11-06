@@ -1,5 +1,3 @@
-"use strict";
-
 import TodoRoutes from '../api/todo/routes/todo.routes';
 import StaticDispatcher from '../commons/static/index';
 

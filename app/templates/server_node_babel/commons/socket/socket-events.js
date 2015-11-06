@@ -1,5 +1,3 @@
-"use strict";
-
 export default class SocketEvents {
     static init(io) {
         io.on('connection', (client) => {

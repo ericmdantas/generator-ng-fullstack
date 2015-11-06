@@ -1,3 +1,4 @@
-import gulp from 'gulp';
+require('./default');
 
-gulp.task('default', ['build_temp', 'watch']);
+require('require-dir')('client');
+require('require-dir')('server');

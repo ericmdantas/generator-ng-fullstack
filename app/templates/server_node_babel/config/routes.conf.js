@@ -1,5 +1,3 @@
-"use strict";
-
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import contentLength from 'express-content-length-validator';

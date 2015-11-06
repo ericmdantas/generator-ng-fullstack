@@ -1,10 +1,8 @@
-"use strict";
-
 import mongoose from 'mongoose';
 
-var _todoSchema = {
-    todoMessage: {type: String, required: true, trim: true},
-    createdAt: {type: Date, default: Date.now}
+const _todoSchema = {
+  todoMessage: {type: String, required: true, trim: true},
+  createdAt: {type: Date, default: Date.now}
 }
 
 export default mongoose.Schema(_todoSchema);
