@@ -50,6 +50,8 @@ var MainGenerator = (function () {
       var _appAndUsername = { app: _app.app, username: _username.username };
       var _server = this.wrapper.server;
       var _transpilerServer = this.wrapper.transpilerServer;
+      var _copiesServer = this.wrapper.stack === "fullstack" || this.wrapper.stack === "server";
+      var _copiesClient = this.wrapper.stack === "fullstack" || this.wrapper.stack === "client";
 
       this.wrapper.template('_package.json', 'package.json', _appAndUsername);
       this.wrapper.template('_bower.json', 'bower.json', _appAndUsername);
@@ -69,15 +71,20 @@ var MainGenerator = (function () {
       this.wrapper.template('_.editorconfig', '.editorconfig');
       this.wrapper.template('_.jshintrc', '.jshintrc');
 
-      this.wrapper.directory('client', 'client');
+      if (_copiesClient) {
+        this.wrapper.directory('client', 'client');
+      }
+
       this.wrapper.directory('tests', 'tests');
       this.wrapper.directory('tasks', 'tasks');
 
-      switch (_server) {
-        case "node":
-          return _node.NodeFactory.build(this.wrapper).copyForMainGenerator();
-        case "go":
-          return _go.GoFactory.build(this.wrapper).copyForMainGenerator();
+      if (_copiesServer) {
+        switch (_server) {
+          case "node":
+            return _node.NodeFactory.build(this.wrapper).copyForMainGenerator();
+          case "go":
+            return _go.GoFactory.build(this.wrapper).copyForMainGenerator();
+        }
       }
     }
   }, {
@@ -145,7 +152,7 @@ var MainGenerator = (function () {
 
       this.wrapper.prompt(prompts, function (props) {
         _this2.wrapper.server = props.server;
-        _this2.wrapper.config.set('server', _this2.wrapper.server.toLowerCase());
+        _this2.wrapper.config.set('server', _this2.wrapper.server ? _this2.wrapper.server.toLowerCase() : '');
 
         done();
       });
@@ -174,8 +181,9 @@ var MainGenerator = (function () {
       }];
 
       this.wrapper.prompt(prompts, function (props) {
+
         _this3.wrapper.client = props.client;
-        _this3.wrapper.config.set('client', _this3.wrapper.client.toLowerCase());
+        _this3.wrapper.config.set('client', _this3.wrapper.client ? _this3.wrapper.client.toLowerCase() : '');
 
         done();
       });

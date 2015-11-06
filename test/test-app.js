@@ -6,8 +6,8 @@ import {MockConfigFile} from '../_test_helpers/mocks';
 
 describe('ng-fullstack:app', () => {
 
-  describe('files copy', () => {
-    var _commonFiles = [
+  describe('fullstack', () => {
+    let _commonFiles = [
       '.editorconfig',
       '.jshintrc',
       '.bowerrc',
@@ -60,8 +60,8 @@ describe('ng-fullstack:app', () => {
 
       'tests/e2e/todo.e2e._test.js']
 
-      describe('node - babel', () => {
-        var _nodeFiles = [
+      describe('node - standard', () => {
+        let _nodeFiles = [
           // server stuff
 
           'index.js', // babel's entry point
@@ -94,12 +94,59 @@ describe('ng-fullstack:app', () => {
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json']
 
-        _commonFiles
-          .forEach(function(common){
-            _nodeFiles.push(common);
-          })
+        _commonFiles.forEach((common) => _nodeFiles.push(common));
 
-        before(function (done) {
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'node', stack: 'fullstack', client: 'ng1'})
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+        });
+      })
+
+      describe('node - babel', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'index.js', // babel's entry point
+
+          'server/server.js',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/routes.conf.js',
+
+          'server/commons/socket/socket-events.js',
+          'server/commons/static/index.js',
+          'server/commons/static/index.js',
+          'server/commons/static/index.js',
+
+          'server/auth/local/index.js',
+
+          'server/api/todo/controller/todo.controller.js',
+          'server/api/todo/dao/todo.dao.js',
+          'server/api/todo/model/todo.model.js',
+          'server/api/todo/routes/todo.routes.js',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo.dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        _commonFiles.forEach((common) => _nodeFiles.push(common))
+
+        before((done) => {
           helpers
             .run(path.join(__dirname, '../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
@@ -114,7 +161,7 @@ describe('ng-fullstack:app', () => {
       })
 
       describe('node - typescript', () => {
-        var _nodeFiles = [
+        let _tscFiles = [
           // server stuff
 
           'index.js', // typescript's entry point
@@ -147,12 +194,9 @@ describe('ng-fullstack:app', () => {
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json']
 
-        _commonFiles
-          .forEach(function(common){
-            _nodeFiles.push(common);
-          })
+        _commonFiles.forEach((common) => _tscFiles.push(common))
 
-        before(function (done) {
+        before((done) => {
           helpers
             .run(path.join(__dirname, '../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
@@ -162,12 +206,12 @@ describe('ng-fullstack:app', () => {
         });
 
         it('creates default files - node', () =>  {
-          assert.file(_nodeFiles);
+          assert.file(_tscFiles);
         });
       })
 
       describe('Go', () => {
-        var _goFiles = [
+        let _goFiles = [
           // server stuff
 
           'server/main.go',
@@ -201,12 +245,9 @@ describe('ng-fullstack:app', () => {
 
           'tests/e2e/todo.e2e._test.js']
 
-        _commonFiles
-          .forEach(function(common){
-            _goFiles.push(common)
-          });
+        _commonFiles.forEach((common) => _goFiles.push(common));
 
-        before(function (done) {
+        before((done) => {
           helpers
             .run(path.join(__dirname, '../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
@@ -219,5 +260,123 @@ describe('ng-fullstack:app', () => {
           assert.file(_goFiles);
         });
       })
-  })
-})
+    })
+
+    describe('server', () => {
+      let _serverFiles = [
+          // server stuff
+
+          'index.js', // babel's entry point
+
+          'server/server.js',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/routes.conf.js',
+
+          'server/commons/socket/socket-events.js',
+          'server/commons/static/index.js',
+          'server/commons/static/index.js',
+          'server/commons/static/index.js',
+
+          'server/auth/local/index.js',
+
+          'server/api/todo/controller/todo.controller.js',
+          'server/api/todo/dao/todo.dao.js',
+          'server/api/todo/model/todo.model.js',
+          'server/api/todo/routes/todo.routes.js',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo.dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json'];
+
+          before((done) => {
+            helpers
+              .run(path.join(__dirname, '../app'))
+              .inDir(path.join(os.tmpdir(), './temp-test'))
+              .withOptions({ 'skip-install': true })
+              .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'node', stack: 'server', client: 'ng1'})
+              .on('end', done);
+        });
+
+      it('should only copy server side files', () => {
+          assert.file(_serverFiles);
+          assert.noFile('client/dev/index.html');
+      });
+    });
+
+    describe('client', () => {
+      let _clientFiles = [
+        '.editorconfig',
+        '.jshintrc',
+        '.bowerrc',
+        '.travis.yml',
+        '.gitignore',
+        '.editorconfig',
+        '.jshintrc',
+
+        'bower.json',
+        'package.json',
+        'gulpfile.babel.js',
+        'karma.conf.js',
+        'protractor.conf.js',
+        'newrelic.js',
+        'procfile.txt',
+
+        // client stuff
+
+        'client/dev/favicon.png',
+        'client/dev/index.html',
+
+        'client/dev/css/events.less',
+        'client/dev/css/fonts.less',
+        'client/dev/css/frameworks_overrides.less',
+        'client/dev/css/media_queries.less',
+        'client/dev/css/position.less',
+        'client/dev/css/styles.less',
+
+        'client/dev/imgs/todo-bkg.png',
+
+        'client/dev/js/app.js',
+
+        'client/dev/js/todo/dao/todo.dao.js',
+        'client/dev/js/todo/model/todo.model.js',
+        'client/dev/js/todo/resource/todo.resource.js',
+        'client/dev/js/todo/controllers/todo.controller.js',
+
+        'client/dev/views/todo.html',
+
+        // tests - client
+
+        'tests/client/_helpers/invalid-inputs.js',
+
+        'tests/client/common/controllers/router.controller_test.js',
+        'tests/client/todo/dao/todo.dao_test.js',
+        'tests/client/todo/models/todo.model_test.js',
+        'tests/client/components/todo/todo_test.js',
+
+        // tests - e2e
+
+        'tests/e2e/todo.e2e._test.js'];
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({appName: "a", githubUsername: "b", server: "go", stack: 'client', client: 'ng1'})
+            .on('end', done)
+            .withOptions({ 'skip-install': true })
+        });
+
+        it('should only copy client side files', () => {
+            assert.file(_clientFiles);
+            assert.noFile('server/server.js');
+        });
+      });
+    })

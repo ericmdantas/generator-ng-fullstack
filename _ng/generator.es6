@@ -22,6 +22,8 @@ export class MainGenerator {
       let _appAndUsername = {app: _app.app, username: _username.username};
       let _server = this.wrapper.server;
       let _transpilerServer = this.wrapper.transpilerServer;
+      let _copiesServer = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "server");
+      let _copiesClient = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "client");
 
       this.wrapper.template('_package.json', 'package.json', _appAndUsername);
       this.wrapper.template('_bower.json', 'bower.json', _appAndUsername);
@@ -41,13 +43,18 @@ export class MainGenerator {
       this.wrapper.template('_.editorconfig', '.editorconfig');
       this.wrapper.template('_.jshintrc','.jshintrc');
 
-      this.wrapper.directory('client', 'client');
+      if (_copiesClient) {
+          this.wrapper.directory('client', 'client');
+      }
+
       this.wrapper.directory('tests', 'tests');
       this.wrapper.directory('tasks', 'tasks');
 
-      switch(_server) {
-        case "node": return NodeFactory.build(this.wrapper).copyForMainGenerator();
-        case "go": return GoFactory.build(this.wrapper).copyForMainGenerator();
+      if (_copiesServer) {
+        switch(_server) {
+          case "node": return NodeFactory.build(this.wrapper).copyForMainGenerator();
+          case "go": return GoFactory.build(this.wrapper).copyForMainGenerator();
+        }
       }
   }
 
@@ -114,7 +121,7 @@ export class MainGenerator {
 
     this.wrapper.prompt(prompts, (props) => {
       this.wrapper.server = props.server;
-      this.wrapper.config.set('server', this.wrapper.server.toLowerCase());
+      this.wrapper.config.set('server', this.wrapper.server ? this.wrapper.server.toLowerCase() : '');
 
       done();
     });
@@ -142,8 +149,9 @@ export class MainGenerator {
     ]
 
     this.wrapper.prompt(prompts, (props) => {
+
       this.wrapper.client = props.client;
-      this.wrapper.config.set('client', this.wrapper.client.toLowerCase());
+      this.wrapper.config.set('client', this.wrapper.client ? this.wrapper.client.toLowerCase() : '');
 
       done();
     });

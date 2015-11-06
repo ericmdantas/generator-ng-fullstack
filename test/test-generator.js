@@ -103,6 +103,63 @@ describe('generator_config', () => {
       expect(_g.wrapper.template).to.have.been.called;
       expect(_g.wrapper.directory).to.have.been.called;
     })
+
+    it('should have the right calls - stack fullstack', () => {
+      let _gen = {
+        appName: 'a',
+        githubUsername: 'b',
+        stack: 'fullstack',
+        server: 'go',
+        transpilerServer: undefined,
+        template: () => {},
+        directory: () => {}
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.writing();
+
+      expect(_g.wrapper.template).to.have.been.called;
+      expect(_g.wrapper.directory).to.have.been.called;
+    })
+
+    it('should have the right calls - stack server', () => {
+      let _gen = {
+        appName: 'a',
+        githubUsername: 'b',
+        stack: 'server',
+        server: 'go',
+        transpilerServer: undefined,
+        template: () => {},
+        directory: () => {}
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.writing();
+
+      expect(_g.wrapper.template).to.have.been.called;
+      expect(_g.wrapper.directory).to.have.been.called;
+    })
+
+    it('should have the right calls - stack client', () => {
+      let _gen = {
+        appName: 'a',
+        githubUsername: 'b',
+        stack: 'client',
+        server: 'go',
+        transpilerServer: undefined,
+        template: () => {},
+        directory: () => {}
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.writing();
+
+      expect(_g.wrapper.template).to.have.been.called;
+      expect(_g.wrapper.directory).to.have.been.called;
+    })
   });
 
   describe('install', () => {
