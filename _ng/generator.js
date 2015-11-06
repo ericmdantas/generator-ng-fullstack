@@ -28,6 +28,8 @@ var _generator_config = require('./generator_config');
 
 var _go = require('./go');
 
+var _angular = require('./angular');
+
 var MainGenerator = (function () {
   function MainGenerator(gen) {
     _classCallCheck(this, MainGenerator);
@@ -100,20 +102,80 @@ var MainGenerator = (function () {
         'default': 'some-username-here'
       }, {
         type: "list",
-        name: "server",
-        message: "What do you want in server side?",
-        choices: ["node", "go"],
+        name: "stack",
+        message: "What stack do you want? Full, client or server?",
+        choices: ["fullstack", "client", "server"],
         'default': 0
       }];
 
       this.wrapper.prompt(prompts, function (props) {
         _this.wrapper.appName = props.appName;
         _this.wrapper.githubUsername = props.githubUsername;
-        _this.wrapper.server = props.server;
+        _this.wrapper.stack = props.stack;
 
-        _this.wrapper.config.set('server', _this.wrapper.server.toLowerCase());
         _this.wrapper.config.set('username', _this.wrapper.githubUsername);
         _this.wrapper.config.set('appName', _this.wrapper.appName);
+        _this.wrapper.config.set('stack', _this.wrapper.stack);
+
+        done();
+      });
+
+      this.wrapper.config.save();
+    }
+  }, {
+    key: 'promptServer',
+    value: function promptServer() {
+      var _this2 = this;
+
+      var done = this.wrapper.async();
+
+      var prompts = [{
+        type: "list",
+        name: "server",
+        message: "What do you want in server side?",
+        choices: ["node", "go"],
+        when: function when() {
+          var _isServer = _this2.wrapper.stack === "server";
+          var _isFullstack = _this2.wrapper.stack === "fullstack";
+
+          return _isServer || _isFullstack;
+        },
+        'default': 0
+      }];
+
+      this.wrapper.prompt(prompts, function (props) {
+        _this2.wrapper.server = props.server;
+        _this2.wrapper.config.set('server', _this2.wrapper.server.toLowerCase());
+
+        done();
+      });
+
+      this.wrapper.config.save();
+    }
+  }, {
+    key: 'promptClient',
+    value: function promptClient() {
+      var _this3 = this;
+
+      var done = this.wrapper.async();
+
+      var prompts = [{
+        type: "list",
+        name: "client",
+        message: "What do you want in client side?",
+        choices: [_angular.AngularFactory.tokens.NG1, _angular.AngularFactory.tokens.NG2],
+        when: function when() {
+          var _isClient = _this3.wrapper.stack === "client";
+          var _isFullstack = _this3.wrapper.stack === "fullstack";
+
+          return _isClient || _isFullstack;
+        },
+        'default': 0
+      }];
+
+      this.wrapper.prompt(prompts, function (props) {
+        _this3.wrapper.client = props.client;
+        _this3.wrapper.config.set('client', _this3.wrapper.client.toLowerCase());
 
         done();
       });
@@ -123,7 +185,7 @@ var MainGenerator = (function () {
   }, {
     key: 'promptTranspilerServer',
     value: function promptTranspilerServer() {
-      var _this2 = this;
+      var _this4 = this;
 
       var done = this.wrapper.async();
 
@@ -134,14 +196,14 @@ var MainGenerator = (function () {
         choices: [_node.NodeFactory.tokens.NODE, _node.NodeFactory.tokens.NODE_BABEL, _node.NodeFactory.tokens.NODE_TYPESCRIPT],
         'default': 0,
         when: function when() {
-          return _this2.wrapper.server === "node";
+          return _this4.wrapper.server === "node";
         }
       }];
 
       this.wrapper.prompt(_prompts, function (props) {
-        _this2.wrapper.transpilerServer = props.transpilerServer;
+        _this4.wrapper.transpilerServer = props.transpilerServer;
 
-        _this2.wrapper.config.set('transpilerServer', _this2.wrapper.transpilerServer);
+        _this4.wrapper.config.set('transpilerServer', _this4.wrapper.transpilerServer);
 
         done();
       });

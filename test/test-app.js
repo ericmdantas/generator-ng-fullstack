@@ -103,7 +103,7 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'babel'})
+            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'babel', stack: 'fullstack', client: 'ng1'})
             .withOptions({ 'skip-install': true })
             .on('end', done);
         });
@@ -157,7 +157,7 @@ describe('ng-fullstack:app', () => {
             .run(path.join(__dirname, '../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withOptions({ 'skip-install': true })
-            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'typescript'})
+            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'typescript', stack: 'fullstack', client: 'ng1'})
             .on('end', done);
         });
 
@@ -210,7 +210,7 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withPrompts({appName: "a", githubUsername: "b", server: "go"})
+            .withPrompts({appName: "a", githubUsername: "b", server: "go", stack: 'fullstack', client: 'ng1'})
             .withOptions({ 'skip-install': true })
             .on('end', done);
         });
