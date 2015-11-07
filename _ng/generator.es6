@@ -43,14 +43,21 @@ export class MainGenerator {
       this.wrapper.template('_.editorconfig', '.editorconfig');
       this.wrapper.template('_.jshintrc','.jshintrc');
 
+      this.wrapper.directory('tests/e2e', 'tests/e2e');
+
       if (_copiesClient) {
           this.wrapper.directory('client', 'client');
+          this.wrapper.directory('tasks/client', 'tasks/client');
+          this.wrapper.directory('tests/client', 'tests/client');
       }
 
-      this.wrapper.directory('tests', 'tests');
-      this.wrapper.directory('tasks', 'tasks');
+      this.wrapper.template('tasks/default.js', 'tasks/default.js');
+      this.wrapper.template('tasks/index.js', 'tasks/index.js');
 
       if (_copiesServer) {
+        this.wrapper.directory('tasks/server', 'tasks/server');
+        this.wrapper.directory('tests/server', 'tests/server');
+
         switch(_server) {
           case "node": return NodeFactory.build(this.wrapper).copyForMainGenerator();
           case "go": return GoFactory.build(this.wrapper).copyForMainGenerator();

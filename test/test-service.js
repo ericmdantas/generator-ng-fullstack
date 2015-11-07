@@ -29,7 +29,5 @@ describe('NgFullstack:service', () => {
         'tests/client/http/services/post.service_test.js'
       ]);
     });
-  })
-
-
+  });
 });

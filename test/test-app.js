@@ -342,6 +342,8 @@ describe('ng-fullstack:app', () => {
           assert.file(_serverFiles);
           assert.file(_taskFilesServer);
           assert.noFile('client/dev/index.html');
+          assert.noFile('tasks/client/index.js');
+          assert.noFile('tests/client');
       });
     });
 
@@ -426,6 +428,8 @@ describe('ng-fullstack:app', () => {
         it('should only copy client side files', () => {
             assert.file(_clientFiles);
             assert.noFile('server/server.js');
+            assert.noFile('tasks/server/index.js');
+            assert.noFile('tests/server');
         });
       });
     })
