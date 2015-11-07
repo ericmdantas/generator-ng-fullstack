@@ -22,7 +22,6 @@
     "socket.io-client": "^1.3.5",
     "newrelic": "^1.18.2",
     "helmet": "^0.7.1"
-
   },
   "devDependencies": {
     "karma-ng-html2js-preprocessor": "^0.1.2",

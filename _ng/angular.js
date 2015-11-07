@@ -26,6 +26,11 @@ var Angular1 = (function () {
   }
 
   _createClass(Angular1, [{
+    key: 'copyClient',
+    value: function copyClient() {
+      this.generator.directory('client_ng1', 'client');
+    }
+  }, {
     key: 'copyDirective',
     value: function copyDirective() {
       this.generator.template('ng1/directive.js', _known_pathsJs2['default'].PATH_CLIENT_FEATURES + this.generator.options.feature + '/directives/' + this.generator.name + '.directive.js', { name: this.generator.name });
@@ -58,6 +63,11 @@ var Angular2 = (function () {
   }
 
   _createClass(Angular2, [{
+    key: 'copyClient',
+    value: function copyClient() {
+      this.generator.directory('client_ng2', 'client');
+    }
+  }, {
     key: 'copyDirective',
     value: function copyDirective() {
       this.generator.template('ng2/directive.ts', _known_pathsJs2['default'].PATH_CLIENT_FEATURES + this.generator.options.feature + '/directives/' + this.generator.name + '.directive.ts', { name: this.generator.name });

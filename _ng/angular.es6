@@ -6,6 +6,10 @@ export class Angular1 {
     this.generator = gen;
   }
 
+  copyClient() {
+    this.generator.directory('client_ng1', 'client');
+  }
+
   copyDirective() {
     this.generator.template('ng1/directive.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/directives/${this.generator.name}.directive.js`, {name: this.generator.name});
     this.generator.template('ng1/directive_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/directives/${this.generator.name}.directive_test.js`, {name: this.generator.name});
@@ -25,6 +29,10 @@ export class Angular1 {
 export class Angular2 {
   constructor(gen) {
     this.generator = gen;
+  }
+
+  copyClient() {
+    this.generator.directory('client_ng2', 'client');
   }
 
   copyDirective() {

@@ -348,7 +348,8 @@ describe('ng-fullstack:app', () => {
     });
 
     describe('client', () => {
-      let _taskFilesClient = [
+      describe('ng1', () => {
+        let _taskFilesClient = [
         'tasks/default.js',
         'tasks/index.js',
 
@@ -432,4 +433,81 @@ describe('ng-fullstack:app', () => {
             assert.noFile('tests/server');
         });
       });
-    })
+
+      describe('ng2', () => {
+        let _taskFilesClient = [
+        'tasks/default.js',
+        'tasks/index.js',
+
+        'tasks/client/index.js',
+        'tasks/client/build_font.js',
+        'tasks/client/build_html.js',
+        'tasks/client/build_image.js',
+        'tasks/client/build_rev.js',
+        'tasks/client/del.js',
+        'tasks/client/test.js',
+        'tasks/client/const.js',
+        'tasks/client/watch.js'
+      ]
+
+      let _clientFiles = [
+        '.editorconfig',
+        '.jshintrc',
+        '.travis.yml',
+        '.gitignore',
+        '.editorconfig',
+        '.jshintrc',
+
+        'bower.json',
+        'package.json',
+        'gulpfile.babel.js',
+        'karma.conf.js',
+        'protractor.conf.js',
+        'newrelic.js',
+        'procfile.txt',
+
+        // client stuff
+
+        'client/dev/index.html',
+
+        'client/dev/index.ts',
+
+        'client/dev/tsconfig.json',
+        'client/dev/tsd.json',
+
+        'client/dev/todo/todo.css',
+        'client/dev/todo/todo_cmp.ts',
+        'client/dev/todo/todo.html',
+        'client/dev/todo/todo_service.ts',
+
+        // tests - client
+
+        'tests/client/_helpers/invalid-inputs.js',
+
+        'tests/client/common/controllers/router.controller_test.js',
+        'tests/client/todo/dao/todo.dao_test.js',
+        'tests/client/todo/models/todo.model_test.js',
+        'tests/client/components/todo/todo_test.js',
+
+        // tests - e2e
+
+        'tests/e2e/todo.e2e._test.js'];
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({appName: "a", githubUsername: "b", server: "go", stack: 'client', client: 'ng2'})
+            .on('end', done)
+            .withOptions({ 'skip-install': true })
+        });
+
+        it('should only copy client side files', () => {
+            assert.file(_clientFiles);
+            assert.noFile('server/server.js');
+            assert.noFile('tasks/server/index.js');
+            assert.noFile('tests/server');
+        });
+      });
+    });
+})

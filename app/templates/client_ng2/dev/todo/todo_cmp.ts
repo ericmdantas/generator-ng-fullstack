@@ -25,9 +25,8 @@ type Todo = {
   directives: [formDirectives]
 })
 export class Todo implements OnInit {
-  todos: Array[] = [];
+  todos: Todo[] = [];
   todoForm: ControlGroup;
-  todoService: TodoService;
 
   constructor(@Inject(FormBuilder) fb:FormBuilder, @Inject(TodoService) private _ts: TodoService) {
     this.todoForm = fb.group({
@@ -42,7 +41,7 @@ export class Todo implements OnInit {
   private _getAll():void {
     this.todoService
         .getAll()
-        .subscribe(todos => this.todos = todos);
+        .subscribe(todos => this.todos = todos.json());
   }
 
   add(message:string):void {

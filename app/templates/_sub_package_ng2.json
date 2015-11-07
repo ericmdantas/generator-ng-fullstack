@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.45",
+    "reflect-metadata": "^0.1.2",
+    "systemjs": "^0.19.4"
+  }
+}

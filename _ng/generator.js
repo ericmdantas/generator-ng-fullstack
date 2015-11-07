@@ -50,6 +50,7 @@ var MainGenerator = (function () {
       var _appAndUsername = { app: _app.app, username: _username.username };
       var _server = this.wrapper.server;
       var _transpilerServer = this.wrapper.transpilerServer;
+      var _client = this.wrapper.client;
       var _copiesServer = this.wrapper.stack === "fullstack" || this.wrapper.stack === "server";
       var _copiesClient = this.wrapper.stack === "fullstack" || this.wrapper.stack === "client";
 
@@ -60,9 +61,7 @@ var MainGenerator = (function () {
       this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
       this.wrapper.template('_karma.conf.js', 'karma.conf.js', _app);
       this.wrapper.template('_protractor.conf.js', 'protractor.conf.js', _app);
-
       this.wrapper.template('_newrelic.js', 'newrelic.js', _app);
-
       this.wrapper.template('_procfile.txt', 'procfile.txt', _app);
 
       this.wrapper.template('_.bowerrc', '.bowerrc');
@@ -77,9 +76,19 @@ var MainGenerator = (function () {
       this.wrapper.directory('tests/e2e', 'tests/e2e');
 
       if (_copiesClient) {
-        this.wrapper.directory('client', 'client');
-        this.wrapper.directory('tasks/client', 'tasks/client');
-        this.wrapper.directory('tests/client', 'tests/client');
+        switch (_client) {
+          case "ng1":
+            this.wrapper.directory('tasks/client_ng1', 'tasks/client');
+            this.wrapper.directory('tests/client_ng1', 'tests/client');
+            this.wrapper.directory('client_ng1', 'client');
+            break;
+
+          case "ng2":
+            this.wrapper.directory('tasks/client_ng2', 'tasks/client');
+            this.wrapper.directory('tests/client_ng2', 'tests/client');
+            this.wrapper.directory('client_ng2', 'client');
+            break;
+        }
       }
 
       if (_copiesServer) {
