@@ -43,6 +43,9 @@ export class MainGenerator {
       this.wrapper.template('_.editorconfig', '.editorconfig');
       this.wrapper.template('_.jshintrc','.jshintrc');
 
+      this.wrapper.template('tasks/index.js', 'tasks/index.js');
+      this.wrapper.template('tasks/default.js', 'tasks/default.js');
+
       this.wrapper.directory('tests/e2e', 'tests/e2e');
 
       if (_copiesClient) {
@@ -50,9 +53,6 @@ export class MainGenerator {
           this.wrapper.directory('tasks/client', 'tasks/client');
           this.wrapper.directory('tests/client', 'tests/client');
       }
-
-      this.wrapper.template('tasks/default.js', 'tasks/default.js');
-      this.wrapper.template('tasks/index.js', 'tasks/index.js');
 
       if (_copiesServer) {
         this.wrapper.directory('tasks/server', 'tasks/server');
