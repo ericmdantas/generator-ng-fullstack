@@ -1,0 +1,15 @@
+import gulp from 'gulp';
+import {path} from './const';
+
+const VIEWS = path.DEV + 'views/**/*';
+const INDEX_HTML = path.DEV + 'index.html';
+
+gulp.task('client.views:temp', () => {
+  return gulp.src(VIEWS)
+             .pipe(gulp.dest(path.TMP + 'views/'));
+});
+
+gulp.task('client.views:dist', () => {
+  return gulp.src(VIEWS)
+             .pipe(gulp.dest(path.DIST + 'views/'));
+});

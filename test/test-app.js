@@ -7,6 +7,26 @@ import {MockConfigFile} from '../_test_helpers/mocks';
 describe('ng-fullstack:app', () => {
 
   describe('fullstack', () => {
+    let _taskFiles = [
+      'tasks/default.js',
+      'tasks/index.js',
+
+      'tasks/client/index.js',
+      'tasks/client/build_font.js',
+      'tasks/client/build_html.js',
+      'tasks/client/build_image.js',
+      'tasks/client/build_rev.js',
+      'tasks/client/del.js',
+      'tasks/client/test.js',
+      'tasks/client/watch.js',
+      'tasks/client/const.js',
+
+      'tasks/server/build.js',
+      'tasks/server/del.js',
+      'tasks/server/test.js',
+      'tasks/server/watch.js'
+    ]
+
     let _commonFiles = [
       '.editorconfig',
       '.jshintrc',
@@ -95,6 +115,7 @@ describe('ng-fullstack:app', () => {
           'tests/server/_helpers/db.json']
 
         _commonFiles.forEach((common) => _nodeFiles.push(common));
+        _taskFiles.forEach((t) => _nodeFiles.push(t));
 
         before((done) => {
           helpers
@@ -144,7 +165,8 @@ describe('ng-fullstack:app', () => {
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json']
 
-        _commonFiles.forEach((common) => _nodeFiles.push(common))
+        _commonFiles.forEach((common) => _nodeFiles.push(common));
+        _taskFiles.forEach((t) => _nodeFiles.push(t));
 
         before((done) => {
           helpers
@@ -194,7 +216,8 @@ describe('ng-fullstack:app', () => {
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json']
 
-        _commonFiles.forEach((common) => _tscFiles.push(common))
+        _commonFiles.forEach((common) => _tscFiles.push(common));
+        _taskFiles.forEach((t) => _tscFiles.push(t));
 
         before((done) => {
           helpers
@@ -263,6 +286,16 @@ describe('ng-fullstack:app', () => {
     })
 
     describe('server', () => {
+      let _taskFilesServer = [
+        'tasks/default.js',
+        'tasks/index.js',
+
+        'tasks/server/build.js',
+        'tasks/server/del.js',
+        'tasks/server/test.js',
+        'tasks/server/watch.js'
+      ]
+
       let _serverFiles = [
           // server stuff
 
@@ -307,11 +340,29 @@ describe('ng-fullstack:app', () => {
 
       it('should only copy server side files', () => {
           assert.file(_serverFiles);
+          assert.file(_taskFilesServer);
           assert.noFile('client/dev/index.html');
+          assert.noFile('tasks/client/index.js');
+          assert.noFile('tests/client');
       });
     });
 
     describe('client', () => {
+      let _taskFilesClient = [
+        'tasks/default.js',
+        'tasks/index.js',
+
+        'tasks/client/index.js',
+        'tasks/client/build_font.js',
+        'tasks/client/build_html.js',
+        'tasks/client/build_image.js',
+        'tasks/client/build_rev.js',
+        'tasks/client/del.js',
+        'tasks/client/test.js',
+        'tasks/client/const.js',
+        'tasks/client/watch.js'
+      ]
+
       let _clientFiles = [
         '.editorconfig',
         '.jshintrc',
@@ -377,6 +428,8 @@ describe('ng-fullstack:app', () => {
         it('should only copy client side files', () => {
             assert.file(_clientFiles);
             assert.noFile('server/server.js');
+            assert.noFile('tasks/server/index.js');
+            assert.noFile('tests/server');
         });
       });
     })

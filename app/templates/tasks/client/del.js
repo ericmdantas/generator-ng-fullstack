@@ -1,8 +1,6 @@
 import gulp from 'gulp';
 import del from 'del';
+import {path} from './const';
 
-const TEMP_DIR = './client/__tmp/'; // working on it dir
-const DIST_DIR = './client/dist/';
-
-gulp.task('client.del_temp', () => del.sync([TEMP_DIR]));
-gulp.task('client.del_dist', () => del.sync([DIST_DIR]));
+gulp.task('client.del_temp', () => del.sync([path.TMP]));
+gulp.task('client.del_dist', () => del.sync([path.DIST]));
