@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 
-gulp.task('client.build', [
+gulp.task('client.build_dist', [
   'client.del_dist',
   'client.test_client',
   'client.views:dist',

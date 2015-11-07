@@ -11,5 +11,5 @@ gulp.task('client.views:temp', () => {
 
 gulp.task('client.views:dist', () => {
   return gulp.src(VIEWS)
-             .pipe(gulp.dest(path.TMP + 'views/'));
+             .pipe(gulp.dest(path.DIST + 'views/'));
 });
