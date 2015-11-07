@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "5"
+  - "stable"
 
 before_install:
     - npm install -g istanbul mocha
