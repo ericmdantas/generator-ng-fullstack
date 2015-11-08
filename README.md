@@ -1,4 +1,6 @@
-# ng-fullstack
+![abc](logo.png)
+
+
 [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ericmdantas/generator-ng-fullstack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
@@ -59,7 +61,7 @@ For a detailed comparison of the options and trade-offs between them, please vis
 Inspired by [generator-angular-fullstack](https://github.com/DaftMonk/generator-angular-fullstack).
 
 
-# got any idea to improve this generator?
+# got any idea?
 
 PRs are welcome! Either commit them, or let me know and we'll talk about it =]
 
