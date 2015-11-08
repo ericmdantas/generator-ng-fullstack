@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import sinon from 'sinon';
 
-import {GeneratorConfig} from '../_ng/generator_config';
+import {GeneratorConfig} from '../_ng/full/generator_config';
 
 describe('generator_config', () => {
   let _generatorMock = {

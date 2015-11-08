@@ -1,7 +1,6 @@
-import util from 'util';
-import knownPaths from './known_paths';
-import optionsParser from './options_parser';
-import utils from './utils';
+import knownPaths from '../utils/known_paths';
+import optionsParser from '../utils/options_parser';
+import utils from '../utils/utils';
 
 export class ComponentSubGenerator {
   constructor(generator) {
@@ -17,9 +16,9 @@ export class ComponentSubGenerator {
   }
 
   writing() {
-    const name = this.wrapper.name;
-    const _firstLetterUppercased = name.charAt(0).toUpperCase() + name.slice(1);
-    const nameLowerCase = name.toLowerCase();
+    let name = this.wrapper.name;
+    let _firstLetterUppercased = name.charAt(0).toUpperCase() + name.slice(1);
+    let nameLowerCase = name.toLowerCase();
 
     this.wrapper.template('component.ts', `${knownPaths.PATH_CLIENT_FEATURES}../components/${name}/${name}.ts`, {name: _firstLetterUppercased});
     this.wrapper.template('component.html', `${knownPaths.PATH_CLIENT_FEATURES}../components/${name}/${name}.html`, {name});

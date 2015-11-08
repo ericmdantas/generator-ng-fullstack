@@ -1,5 +1,5 @@
-import utils from './utils';
-import knownPaths from './known_paths.js';
+import utils from '../utils/utils';
+import knownPaths from '../utils/known_paths';
 
 export class Angular1 {
   constructor(gen) {

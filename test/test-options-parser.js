@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import optionsParser from '../_ng/options_parser';
+import optionsParser from '../_ng/utils/options_parser';
 
 describe('options-parser', () => {
   describe('getFeature', () => {

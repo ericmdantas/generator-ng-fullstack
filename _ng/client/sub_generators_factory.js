@@ -10,54 +10,51 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-var _util = require('util');
+var _utilsKnown_paths = require('../utils/known_paths');
 
-var _util2 = _interopRequireDefault(_util);
+var _utilsKnown_paths2 = _interopRequireDefault(_utilsKnown_paths);
 
-var _known_paths = require('./known_paths');
+var _utilsOptions_parser = require('../utils/options_parser');
 
-var _known_paths2 = _interopRequireDefault(_known_paths);
+var _utilsOptions_parser2 = _interopRequireDefault(_utilsOptions_parser);
 
-var _options_parser = require('./options_parser');
+var _utilsUtils = require('../utils/utils');
 
-var _options_parser2 = _interopRequireDefault(_options_parser);
+var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
 
-var _utils = require('./utils');
+var _utilsErrors = require('../utils/errors');
 
-var _utils2 = _interopRequireDefault(_utils);
+var _angular = require('./angular');
 
-var _errors = require('./errors');
-
-var FilterSubGenerator = (function () {
-  function FilterSubGenerator(generator) {
-    _classCallCheck(this, FilterSubGenerator);
+var FactorySubGenerator = (function () {
+  function FactorySubGenerator(generator) {
+    _classCallCheck(this, FactorySubGenerator);
 
     this.wrapper = generator;
+    this.wrapper.ngVersion = this.wrapper.config.get('ngVersion');
   }
 
-  _createClass(FilterSubGenerator, [{
+  _createClass(FactorySubGenerator, [{
     key: 'initializing',
     value: function initializing() {
       this.wrapper.argument('name', {
         required: true,
         type: String,
-        desc: 'filter'
+        desc: 'factory'
       });
     }
   }, {
     key: 'writing',
     value: function writing() {
-      var feature = _options_parser2['default'].getFeature(this.wrapper.options);
-      var name = this.wrapper.name;
+      var feature = _utilsOptions_parser2['default'].getFeature(this.wrapper.options);
 
-      if (!feature.length) throw new _errors.FeatureMissingError();
+      if (!feature.length) throw new _utilsErrors.FeatureMissingError();
 
-      this.wrapper.template('filter.js', _known_paths2['default'].PATH_CLIENT_FEATURES + feature + '/filters/' + name + '.filter.js', { name: name });
-      this.wrapper.template('filter_test.js', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + feature + '/filters/' + name + '.filter_test.js', { name: name });
+      _angular.AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyFactory();
     }
   }]);
 
-  return FilterSubGenerator;
+  return FactorySubGenerator;
 })();
 
-exports.FilterSubGenerator = FilterSubGenerator;
+exports.FactorySubGenerator = FactorySubGenerator;

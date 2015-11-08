@@ -14,7 +14,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== 'function' 
 
 var _yeomanGenerator = require('yeoman-generator');
 
-var _ngSub_generators_filter = require('../_ng/sub_generators_filter');
+var _ngClientSub_generators_filter = require('../_ng/client/sub_generators_filter');
 
 var FilterGenerator = (function (_Base) {
   _inherits(FilterGenerator, _Base);
@@ -24,7 +24,7 @@ var FilterGenerator = (function (_Base) {
 
     _get(Object.getPrototypeOf(FilterGenerator.prototype), 'constructor', this).call(this, args, options, config);
 
-    this.generator = new _ngSub_generators_filter.FilterSubGenerator(this);
+    this.generator = new _ngClientSub_generators_filter.FilterSubGenerator(this);
   }
 
   _createClass(FilterGenerator, [{

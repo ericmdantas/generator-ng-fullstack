@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import utils from '../_ng/utils';
+import utils from '../_ng/utils/utils';
 
 describe('capitalizeFirst', () => {
   it('should not capitalize it - nothing passed', () => {

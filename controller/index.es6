@@ -1,5 +1,5 @@
 import {Base} from 'yeoman-generator';
-import {ControllerSubGenerator} from '../_ng/sub_generators_controller';
+import {ControllerSubGenerator} from '../_ng/client/sub_generators_controller';
 
 export default class ControllerGenerator extends Base {
     constructor(args, options, config) {

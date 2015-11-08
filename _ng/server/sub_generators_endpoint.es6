@@ -1,10 +1,9 @@
-import util from 'util';
-import knownPaths from './known_paths';
-import optionsParser from './options_parser';
-import utils from './utils';
+import knownPaths from '../utils/known_paths';
+import optionsParser from '../utils/options_parser';
+import utils from '../utils/utils';
 import {NodeFactory} from './node';
 import {GoFactory} from './go';
-import {FeatureMissingError} from './errors';
+import {FeatureMissingError} from '../utils/errors';
 
 export class EndpointSubGenerator {
   constructor(generator) {

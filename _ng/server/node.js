@@ -16,17 +16,17 @@ var _lodash = require('lodash');
 
 var _ = _interopRequireWildcard(_lodash);
 
-var _known_paths = require('./known_paths');
+var _utilsKnown_paths = require('../utils/known_paths');
 
-var _known_paths2 = _interopRequireDefault(_known_paths);
+var _utilsKnown_paths2 = _interopRequireDefault(_utilsKnown_paths);
 
 var basePath = function basePath(generator) {
   return {
-    route: _known_paths2['default'].PATH_SERVER_FEATURES + generator.feature + '/routes/' + generator.name + '.route',
-    controller: _known_paths2['default'].PATH_SERVER_FEATURES + generator.feature + '/controller/' + generator.name + '.controller',
-    dao: _known_paths2['default'].PATH_SERVER_FEATURES + generator.feature + '/dao/' + generator.name + '.dao',
-    model: _known_paths2['default'].PATH_SERVER_FEATURES + generator.feature + '/model/' + generator.name + '.model',
-    test: _known_paths2['default'].PATH_SERVER_FEATURES_TEST + generator.feature + '/dao/' + generator.name + '.dao_test'
+    route: _utilsKnown_paths2['default'].PATH_SERVER_FEATURES + generator.feature + '/routes/' + generator.name + '.route',
+    controller: _utilsKnown_paths2['default'].PATH_SERVER_FEATURES + generator.feature + '/controller/' + generator.name + '.controller',
+    dao: _utilsKnown_paths2['default'].PATH_SERVER_FEATURES + generator.feature + '/dao/' + generator.name + '.dao',
+    model: _utilsKnown_paths2['default'].PATH_SERVER_FEATURES + generator.feature + '/model/' + generator.name + '.model',
+    test: _utilsKnown_paths2['default'].PATH_SERVER_FEATURES_TEST + generator.feature + '/dao/' + generator.name + '.dao_test'
   };
 };
 

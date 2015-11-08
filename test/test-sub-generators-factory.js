@@ -1,9 +1,9 @@
 import {expect} from 'chai';
 import sinon from 'sinon';
-import knownPaths from '../_ng/known_paths';
-import utils from '../_ng/utils';
+import knownPaths from '../_ng/utils/known_paths';
+import utils from '../_ng/utils/utils';
 
-import {FactorySubGenerator} from '../_ng/sub_generators_factory';
+import {FactorySubGenerator} from '../_ng/client/sub_generators_factory';
 
 describe('FactorySubGenerator', () => {
   describe('creation', () => {

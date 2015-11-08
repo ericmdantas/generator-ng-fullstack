@@ -10,21 +10,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-var _util = require('util');
+var _utilsKnown_paths = require('../utils/known_paths');
 
-var _util2 = _interopRequireDefault(_util);
+var _utilsKnown_paths2 = _interopRequireDefault(_utilsKnown_paths);
 
-var _known_paths = require('./known_paths');
+var _utilsOptions_parser = require('../utils/options_parser');
 
-var _known_paths2 = _interopRequireDefault(_known_paths);
+var _utilsOptions_parser2 = _interopRequireDefault(_utilsOptions_parser);
 
-var _options_parser = require('./options_parser');
+var _utilsUtils = require('../utils/utils');
 
-var _options_parser2 = _interopRequireDefault(_options_parser);
-
-var _utils = require('./utils');
-
-var _utils2 = _interopRequireDefault(_utils);
+var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
 
 var ComponentSubGenerator = (function () {
   function ComponentSubGenerator(generator) {
@@ -49,9 +45,9 @@ var ComponentSubGenerator = (function () {
       var _firstLetterUppercased = name.charAt(0).toUpperCase() + name.slice(1);
       var nameLowerCase = name.toLowerCase();
 
-      this.wrapper.template('component.ts', _known_paths2['default'].PATH_CLIENT_FEATURES + '../components/' + name + '/' + name + '.ts', { name: _firstLetterUppercased });
-      this.wrapper.template('component.html', _known_paths2['default'].PATH_CLIENT_FEATURES + '../components/' + name + '/' + name + '.html', { name: name });
-      this.wrapper.template('component_test.ts', _known_paths2['default'].PATH_CLIENT_FEATURES_TEST + '/components/' + name + '/' + name + '_test.ts', { name: _firstLetterUppercased, nameLowerCase: nameLowerCase });
+      this.wrapper.template('component.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + '../components/' + name + '/' + name + '.ts', { name: _firstLetterUppercased });
+      this.wrapper.template('component.html', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + '../components/' + name + '/' + name + '.html', { name: name });
+      this.wrapper.template('component_test.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + '/components/' + name + '/' + name + '_test.ts', { name: _firstLetterUppercased, nameLowerCase: nameLowerCase });
     }
   }]);
 

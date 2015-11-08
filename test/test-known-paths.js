@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import knownPaths from '../_ng/known_paths';
+import knownPaths from '../_ng/utils/known_paths';
 
 describe('knownPaths', () => {
   it('should have the right info for PATH_CLIENT_FEATURES', () => {

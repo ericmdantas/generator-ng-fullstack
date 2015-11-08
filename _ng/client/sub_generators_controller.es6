@@ -1,8 +1,7 @@
-import util from 'util';
-import knownPaths from './known_paths';
-import optionsParser from './options_parser';
-import utils from './utils';
-import {FeatureMissingError} from './errors';
+import knownPaths from '../utils/known_paths';
+import optionsParser from '../utils/options_parser';
+import utils from '../utils/utils';
+import {FeatureMissingError} from '../utils/errors';
 
 export class ControllerSubGenerator {
     constructor(generator) {
@@ -18,9 +17,9 @@ export class ControllerSubGenerator {
     }
 
     writing() {
-      const feature = optionsParser.getFeature(this.wrapper.options);
-      const name = this.wrapper.name;
-      const nameLowerCase = name.toLowerCase();
+      let feature = optionsParser.getFeature(this.wrapper.options);
+      let name = this.wrapper.name;
+      let nameLowerCase = name.toLowerCase();
 
       if (!feature.length)
         throw new FeatureMissingError();

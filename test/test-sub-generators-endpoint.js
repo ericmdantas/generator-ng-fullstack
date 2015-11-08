@@ -1,8 +1,8 @@
 import {expect} from 'chai';
 import sinon from 'sinon';
-import knownPaths from '../_ng/known_paths';
+import knownPaths from '../_ng/utils/known_paths';
 
-import {EndpointSubGenerator} from '../_ng/sub_generators_endpoint';
+import {EndpointSubGenerator} from '../_ng/server/sub_generators_endpoint';
 
 describe('EndpointSubGenerator', () => {
   describe('creation', () => {

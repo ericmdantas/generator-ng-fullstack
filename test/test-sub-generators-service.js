@@ -1,8 +1,8 @@
 import {expect} from 'chai';
 import sinon from 'sinon';
-import knownPaths from '../_ng/known_paths';
+import knownPaths from '../_ng/utils/known_paths';
 
-import {ServiceSubGenerator} from '../_ng/sub_generators_service';
+import {ServiceSubGenerator} from '../_ng/client/sub_generators_service';
 
 describe('ServiceSubGenerator', () => {
   describe('creation', () => {

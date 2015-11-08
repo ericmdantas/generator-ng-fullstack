@@ -1,5 +1,5 @@
 import {Base} from 'yeoman-generator';
-import {FactorySubGenerator} from '../_ng/sub_generators_factory';
+import {FactorySubGenerator} from '../_ng/client/sub_generators_factory';
 
 export default class FactoryGenerator extends Base {
   constructor(args, options, config) {

@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import knownPaths from './known_paths';
+import knownPaths from '../utils/known_paths';
 
 const basePath = (generator) => {
   return {

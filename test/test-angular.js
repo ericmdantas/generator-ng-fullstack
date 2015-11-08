@@ -1,8 +1,8 @@
 import {expect} from 'chai';
-import knownPaths from '../_ng/known_paths';
-import utils from '../_ng/utils';
+import knownPaths from '../_ng/utils/known_paths';
+import utils from '../_ng/utils/utils';
 import * as sinon from 'sinon';
-import {AngularFactory, Angular1, Angular2} from '../_ng/angular';
+import {AngularFactory, Angular1, Angular2} from '../_ng/client/angular';
 
 describe('angular', () => {
   beforeEach(() => {

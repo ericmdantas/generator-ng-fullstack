@@ -1,11 +1,10 @@
 import _ from 'lodash';
 import chalk from 'chalk';
 import yosay from 'yosay';
-import {NodeStandard, NodeBabel, NodeTypescript} from './node';
+import {NodeFactory, NodeStandard, NodeBabel, NodeTypescript} from '../server/node';
 import {GeneratorConfig} from './generator_config';
-import {NodeFactory} from './node';
-import {GoFactory} from './go';
-import {AngularFactory} from './angular';
+import {GoFactory} from '../server/go';
+import {AngularFactory} from '../client/angular';
 
 export class MainGenerator {
   constructor(gen) {
@@ -52,8 +51,6 @@ export class MainGenerator {
       }
 
       if (_copiesServer) {
-        
-
         switch(_server) {
           case "node": return NodeFactory.build(this.wrapper).copyForMainGenerator();
           case "go": return GoFactory.build(this.wrapper).copyForMainGenerator();

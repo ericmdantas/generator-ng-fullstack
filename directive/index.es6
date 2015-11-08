@@ -1,5 +1,5 @@
 import {Base} from 'yeoman-generator';
-import {DirectiveSubGenerator} from '../_ng/sub_generators_directive';
+import {DirectiveSubGenerator} from '../_ng/client/sub_generators_directive';
 
 export default class DirectiveGenerator extends Base {
   constructor(args, options, config) {

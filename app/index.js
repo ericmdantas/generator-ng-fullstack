@@ -24,7 +24,7 @@ var _yosay = require('yosay');
 
 var _yosay2 = _interopRequireDefault(_yosay);
 
-var _ngGeneratorJs = require('../_ng/generator.js');
+var _ngFullGenerator = require('../_ng/full/generator');
 
 var NgFullstack = (function (_Base) {
     _inherits(NgFullstack, _Base);
@@ -34,7 +34,7 @@ var NgFullstack = (function (_Base) {
 
         _get(Object.getPrototypeOf(NgFullstack.prototype), 'constructor', this).call(this, args, options, config);
 
-        this.generator = new _ngGeneratorJs.MainGenerator(this);
+        this.generator = new _ngFullGenerator.MainGenerator(this);
     }
 
     _createClass(NgFullstack, [{

@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import sinon from 'sinon';
 
-import {MainGenerator} from '../_ng/generator';
+import {MainGenerator} from '../_ng/full/generator';
 
 describe('generator_config', () => {
   before(() => {

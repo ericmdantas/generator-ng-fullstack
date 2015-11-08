@@ -1,8 +1,7 @@
-import util from 'util';
-import knownPaths from './known_paths';
-import optionsParser from './options_parser';
-import utils from './utils';
-import {FeatureMissingError} from './errors';
+import knownPaths from '../utils/known_paths';
+import optionsParser from '../utils/options_parser';
+import utils from '../utils/utils';
+import {FeatureMissingError} from '../utils/errors';
 import {AngularFactory} from './angular';
 
 export class DirectiveSubGenerator {
@@ -20,8 +19,7 @@ export class DirectiveSubGenerator {
   }
 
   writing() {
-    const feature = optionsParser.getFeature(this.wrapper.options);
-    const name = this.wrapper.name;
+    let feature = optionsParser.getFeature(this.wrapper.options);
 
     if (!feature.length)
       throw new FeatureMissingError();

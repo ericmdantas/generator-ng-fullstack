@@ -1,5 +1,5 @@
 import {Base} from 'yeoman-generator';
-import {ResourceSubGenerator} from '../_ng/sub_generators_resource';
+import {ResourceSubGenerator} from '../_ng/client/sub_generators_resource';
 
 export default class ResourceGenerator extends Base {
   constructor(args, options, config) {

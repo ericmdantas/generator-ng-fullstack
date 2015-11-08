@@ -1,5 +1,5 @@
 import {Base} from 'yeoman-generator';
-import {ServiceSubGenerator} from '../_ng/sub_generators_service';
+import {ServiceSubGenerator} from '../_ng/client/sub_generators_service';
 
 export default class ServiceGenerator extends Base {
   constructor(args, options, config) {

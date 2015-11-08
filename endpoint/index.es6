@@ -1,5 +1,5 @@
 import {Base} from 'yeoman-generator';
-import {EndpointSubGenerator} from '../_ng/sub_generators_endpoint';
+import {EndpointSubGenerator} from '../_ng/server/sub_generators_endpoint';
 
 export default class EndpointGenerator extends Base {
   constructor(args, options, config) {

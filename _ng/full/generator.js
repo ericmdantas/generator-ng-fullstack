@@ -22,13 +22,13 @@ var _yosay = require('yosay');
 
 var _yosay2 = _interopRequireDefault(_yosay);
 
-var _node = require('./node');
+var _serverNode = require('../server/node');
 
 var _generator_config = require('./generator_config');
 
-var _go = require('./go');
+var _serverGo = require('../server/go');
 
-var _angular = require('./angular');
+var _clientAngular = require('../client/angular');
 
 var MainGenerator = (function () {
   function MainGenerator(gen) {
@@ -76,16 +76,15 @@ var MainGenerator = (function () {
       this.wrapper.directory('tests/e2e', 'tests/e2e');
 
       if (_copiesClient) {
-        _angular.AngularFactory.build(_client, this.wrapper).copyClient();
+        _clientAngular.AngularFactory.build(_client, this.wrapper).copyClient();
       }
 
       if (_copiesServer) {
-
         switch (_server) {
           case "node":
-            return _node.NodeFactory.build(this.wrapper).copyForMainGenerator();
+            return _serverNode.NodeFactory.build(this.wrapper).copyForMainGenerator();
           case "go":
-            return _go.GoFactory.build(this.wrapper).copyForMainGenerator();
+            return _serverGo.GoFactory.build(this.wrapper).copyForMainGenerator();
         }
       }
     }
@@ -172,7 +171,7 @@ var MainGenerator = (function () {
         type: "list",
         name: "client",
         message: "What do you want in client side?",
-        choices: [_angular.AngularFactory.tokens.NG1, _angular.AngularFactory.tokens.NG2],
+        choices: [_clientAngular.AngularFactory.tokens.NG1, _clientAngular.AngularFactory.tokens.NG2],
         when: function when() {
           var _isClient = _this3.wrapper.stack === "client";
           var _isFullstack = _this3.wrapper.stack === "fullstack";
@@ -203,7 +202,7 @@ var MainGenerator = (function () {
         type: "list",
         name: "transpilerServer",
         message: "What transpiler do you want to use in server side?",
-        choices: [_node.NodeFactory.tokens.NODE, _node.NodeFactory.tokens.NODE_BABEL, _node.NodeFactory.tokens.NODE_TYPESCRIPT],
+        choices: [_serverNode.NodeFactory.tokens.NODE, _serverNode.NodeFactory.tokens.NODE_BABEL, _serverNode.NodeFactory.tokens.NODE_TYPESCRIPT],
         'default': 0,
         when: function when() {
           return _this4.wrapper.server === "node";

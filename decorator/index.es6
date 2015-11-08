@@ -1,5 +1,5 @@
 import {Base} from 'yeoman-generator';
-import {DecoratorSubGenerator} from '../_ng/sub_generators_decorator';
+import {DecoratorSubGenerator} from '../_ng/client/sub_generators_decorator';
 
 export default class DecoratorGenerator extends Base {
   constructor(args, options, config) {

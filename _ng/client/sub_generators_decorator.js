@@ -10,35 +10,28 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-var _util = require('util');
+var _utilsKnown_paths = require('../utils/known_paths');
 
-var _util2 = _interopRequireDefault(_util);
+var _utilsKnown_paths2 = _interopRequireDefault(_utilsKnown_paths);
 
-var _known_paths = require('./known_paths');
+var _utilsOptions_parser = require('../utils/options_parser');
 
-var _known_paths2 = _interopRequireDefault(_known_paths);
+var _utilsOptions_parser2 = _interopRequireDefault(_utilsOptions_parser);
 
-var _options_parser = require('./options_parser');
+var _utilsUtils = require('../utils/utils');
 
-var _options_parser2 = _interopRequireDefault(_options_parser);
+var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
 
-var _utils = require('./utils');
+var _utilsErrors = require('../utils/errors');
 
-var _utils2 = _interopRequireDefault(_utils);
-
-var _errors = require('./errors');
-
-var _angular = require('./angular');
-
-var ServiceSubGenerator = (function () {
-  function ServiceSubGenerator(generator) {
-    _classCallCheck(this, ServiceSubGenerator);
+var DecoratorSubGenerator = (function () {
+  function DecoratorSubGenerator(generator) {
+    _classCallCheck(this, DecoratorSubGenerator);
 
     this.wrapper = generator;
-    this.wrapper.ngVersion = this.wrapper.config.get('ngVersion');
   }
 
-  _createClass(ServiceSubGenerator, [{
+  _createClass(DecoratorSubGenerator, [{
     key: 'initializing',
     value: function initializing() {
       this.wrapper.argument('name', {
@@ -50,16 +43,16 @@ var ServiceSubGenerator = (function () {
   }, {
     key: 'writing',
     value: function writing() {
-      var feature = _options_parser2['default'].getFeature(this.wrapper.options);
+      var feature = _utilsOptions_parser2['default'].getFeature(this.wrapper.options);
       var name = this.wrapper.name;
 
-      if (!feature.length) throw new _errors.FeatureMissingError();
+      if (!feature.length) throw new _utilsErrors.FeatureMissingError();
 
-      _angular.AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyService();
+      this.wrapper.template('decorator.js', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + feature + '/decorator/' + name + '.decorator.js');
     }
   }]);
 
-  return ServiceSubGenerator;
+  return DecoratorSubGenerator;
 })();
 
-exports.ServiceSubGenerator = ServiceSubGenerator;
+exports.DecoratorSubGenerator = DecoratorSubGenerator;

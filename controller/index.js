@@ -14,7 +14,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== 'function' 
 
 var _yeomanGenerator = require('yeoman-generator');
 
-var _ngSub_generators_controller = require('../_ng/sub_generators_controller');
+var _ngClientSub_generators_controller = require('../_ng/client/sub_generators_controller');
 
 var ControllerGenerator = (function (_Base) {
   _inherits(ControllerGenerator, _Base);
@@ -24,7 +24,7 @@ var ControllerGenerator = (function (_Base) {
 
     _get(Object.getPrototypeOf(ControllerGenerator.prototype), 'constructor', this).call(this, args, options, config);
 
-    this.generator = new _ngSub_generators_controller.ControllerSubGenerator(this);
+    this.generator = new _ngClientSub_generators_controller.ControllerSubGenerator(this);
   }
 
   _createClass(ControllerGenerator, [{
