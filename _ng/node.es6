@@ -28,8 +28,10 @@ export class NodeStandard {
   }
 
   copyForMainGenerator() {
-    this.wrapper.directory('server_node', 'server');
     this.wrapper.template('index.js', 'index.js');
+    this.wrapper.directory('server_node', 'server');
+    this.wrapper.directory('tasks/server', 'tasks/server');
+    this.wrapper.directory('tests/server', 'tests/server');
   }
 }
 
@@ -50,8 +52,10 @@ export class NodeBabel {
   }
 
   copyForMainGenerator() {
-    this.wrapper.directory('server_node_babel', 'server');
     this.wrapper.template('index.js', 'index.js');
+    this.wrapper.directory('server_node_babel', 'server');
+    this.wrapper.directory('tasks/server', 'tasks/server');
+    this.wrapper.directory('tests/server', 'tests/server');
   }
 }
 
@@ -76,6 +80,8 @@ export class NodeTypescript {
     this.wrapper.template('index_tsc.js', 'index.js');
     this.wrapper.template('server_node_typescript/tsconfig.json', 'tsconfig.json');
     this.wrapper.template('server_node_typescript/tsd.json', 'tsd.json');
+    this.wrapper.directory('tasks/server', 'tasks/server');
+    this.wrapper.directory('tests/server', 'tests/server');
   }
 }
 

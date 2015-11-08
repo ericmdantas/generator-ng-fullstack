@@ -7,6 +7,8 @@ export class Angular1 {
   }
 
   copyClient() {
+    this.generator.directory('tasks/client_ng1', 'tasks/client');
+    this.generator.directory('tests/client_ng1', 'tests/client');
     this.generator.directory('client_ng1', 'client');
   }
 
@@ -32,6 +34,8 @@ export class Angular2 {
   }
 
   copyClient() {
+    this.generator.directory('tasks/client_ng2', 'tasks/client');
+    this.generator.directory('tests/client_ng2', 'tests/client');
     this.generator.directory('client_ng2', 'client');
   }
 

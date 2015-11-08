@@ -40,7 +40,8 @@ describe('node', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
-          template: sinon.spy()
+          template: sinon.spy(),
+          directory: sinon.spy()
         }
 
         let _n = new NodeStandard(_newGenerator);
@@ -61,6 +62,33 @@ describe('node', () => {
         expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
       });
     });
+
+    describe('copyForMainGenerator', () => {
+      it('should call with the right params', () => {
+        let _newGenerator = {
+          feature: 'a',
+          name: 'b',
+          directory: sinon.spy(),
+          template: sinon.spy()
+        }
+
+        let _n = new NodeStandard(_newGenerator);
+
+        _n.copyForMainGenerator();
+
+        let _firstCall = [`index.js`, 'index.js'];
+        let _secondCall = [`server_node`, `server`];
+        let _thirdCall = [`tasks/server`, `tasks/server`];
+        let _fourthCall = [`tests/server`, `tests/server`];
+
+        expect(_n.wrapper.template).to.have.been.called;
+
+        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+      });
+    })
   })
 
   describe('node_babel', () => {
@@ -100,6 +128,33 @@ describe('node', () => {
         expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
       });
     });
+
+    describe('copyForMainGenerator', () => {
+      it('should call with the right params', () => {
+        let _newGenerator = {
+          feature: 'a',
+          name: 'b',
+          directory: sinon.spy(),
+          template: sinon.spy()
+        }
+
+        let _n = new NodeBabel(_newGenerator);
+
+        _n.copyForMainGenerator();
+
+        let _firstCall = [`index.js`, 'index.js'];
+        let _secondCall = [`server_node_babel`, `server`];
+        let _thirdCall = [`tasks/server`, `tasks/server`];
+        let _fourthCall = [`tests/server`, `tests/server`];
+
+        expect(_n.wrapper.template).to.have.been.called;
+
+        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+      });
+    })
   })
 
   describe('node_typescript', () => {
@@ -155,17 +210,21 @@ describe('node', () => {
 
         let _directoryCall = [`server_node_typescript`, 'server'];
 
-        let _firstTemplateCall = [`index_tsc.js`, 'index.js'];
-        let _secondTemplateCall = [`server_node_typescript/tsconfig.json`, `tsconfig.json`];
-        let _thirdTemplatecall = [`server_node_typescript/tsd.json`, `tsd.json`];
+        let _firstCall = [`index_tsc.js`, 'index.js'];
+        let _secondCall = [`server_node_typescript/tsconfig.json`, `tsconfig.json`];
+        let _thirdCall = [`server_node_typescript/tsd.json`, `tsd.json`];
+        let _fourthCall = [`tasks/server`, `tasks/server`];
+        let _fifthCall = [`tests/server`, `tests/server`];
 
         expect(_n.wrapper.template).to.have.been.called;
 
         expect(_n.wrapper.directory.calledWith(_directoryCall[0], _directoryCall[1])).to.be.true;
 
-        expect(_n.wrapper.template.calledWith(_firstTemplateCall[0], _firstTemplateCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondTemplateCall[0], _secondTemplateCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_thirdTemplatecall[0], _thirdTemplatecall[1])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
       });
     })
   });

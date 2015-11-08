@@ -76,24 +76,10 @@ var MainGenerator = (function () {
       this.wrapper.directory('tests/e2e', 'tests/e2e');
 
       if (_copiesClient) {
-        switch (_client) {
-          case "ng1":
-            this.wrapper.directory('tasks/client_ng1', 'tasks/client');
-            this.wrapper.directory('tests/client_ng1', 'tests/client');
-            this.wrapper.directory('client_ng1', 'client');
-            break;
-
-          case "ng2":
-            this.wrapper.directory('tasks/client_ng2', 'tasks/client');
-            this.wrapper.directory('tests/client_ng2', 'tests/client');
-            this.wrapper.directory('client_ng2', 'client');
-            break;
-        }
+        _angular.AngularFactory.build(_client, this.wrapper).copyClient();
       }
 
       if (_copiesServer) {
-        this.wrapper.directory('tasks/server', 'tasks/server');
-        this.wrapper.directory('tests/server', 'tests/server');
 
         switch (_server) {
           case "node":

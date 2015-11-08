@@ -28,6 +28,8 @@ var Angular1 = (function () {
   _createClass(Angular1, [{
     key: 'copyClient',
     value: function copyClient() {
+      this.generator.directory('tasks/client_ng1', 'tasks/client');
+      this.generator.directory('tests/client_ng1', 'tests/client');
       this.generator.directory('client_ng1', 'client');
     }
   }, {
@@ -65,6 +67,8 @@ var Angular2 = (function () {
   _createClass(Angular2, [{
     key: 'copyClient',
     value: function copyClient() {
+      this.generator.directory('tasks/client_ng2', 'tasks/client');
+      this.generator.directory('tests/client_ng2', 'tests/client');
       this.generator.directory('client_ng2', 'client');
     }
   }, {
