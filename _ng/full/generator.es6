@@ -5,6 +5,8 @@ import {NodeFactory, NodeStandard, NodeBabel, NodeTypescript} from '../server/no
 import {GeneratorConfig} from './generator_config';
 import {GoFactory} from '../server/go';
 import {AngularFactory} from '../client/angular';
+import {ClientFactory} from '../client/client_factory';
+import {ServerFactory} from '../server/server_factory';
 
 export class MainGenerator {
   constructor(gen) {
@@ -47,14 +49,11 @@ export class MainGenerator {
       this.wrapper.directory('tests/e2e', 'tests/e2e');
 
       if (_copiesClient) {
-        AngularFactory.build(_client, this.wrapper).copyClient();
+        ClientFactory.create('angular', _client, this.wrapper).copyClient();
       }
 
       if (_copiesServer) {
-        switch(_server) {
-          case "node": return NodeFactory.build(this.wrapper).copyForMainGenerator();
-          case "go": return GoFactory.build(this.wrapper).copyForMainGenerator();
-        }
+        ServerFactory.create(_server, this.wrapper).copyForMainGenerator();
       }
   }
 

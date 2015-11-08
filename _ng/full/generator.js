@@ -30,6 +30,10 @@ var _serverGo = require('../server/go');
 
 var _clientAngular = require('../client/angular');
 
+var _clientClient_factory = require('../client/client_factory');
+
+var _serverServer_factory = require('../server/server_factory');
+
 var MainGenerator = (function () {
   function MainGenerator(gen) {
     _classCallCheck(this, MainGenerator);
@@ -76,16 +80,11 @@ var MainGenerator = (function () {
       this.wrapper.directory('tests/e2e', 'tests/e2e');
 
       if (_copiesClient) {
-        _clientAngular.AngularFactory.build(_client, this.wrapper).copyClient();
+        _clientClient_factory.ClientFactory.create('angular', _client, this.wrapper).copyClient();
       }
 
       if (_copiesServer) {
-        switch (_server) {
-          case "node":
-            return _serverNode.NodeFactory.build(this.wrapper).copyForMainGenerator();
-          case "go":
-            return _serverGo.GoFactory.build(this.wrapper).copyForMainGenerator();
-        }
+        _serverServer_factory.ServerFactory.create(_server, this.wrapper).copyForMainGenerator();
       }
     }
   }, {
