@@ -49,12 +49,12 @@ describe('ng-fullstack:app', () => {
       'client/dev/favicon.png',
       'client/dev/index.html',
 
-      'client/dev/css/events.less',
-      'client/dev/css/fonts.less',
-      'client/dev/css/frameworks_overrides.less',
-      'client/dev/css/media_queries.less',
-      'client/dev/css/position.less',
-      'client/dev/css/styles.less',
+      'client/dev/css/events.css',
+      'client/dev/css/fonts.css',
+      'client/dev/css/frameworks_overrides.css',
+      'client/dev/css/media_queries.css',
+      'client/dev/css/position.css',
+      'client/dev/css/styles.css',
 
       'client/dev/imgs/todo-bkg.png',
 
@@ -386,12 +386,12 @@ describe('ng-fullstack:app', () => {
         'client/dev/favicon.png',
         'client/dev/index.html',
 
-        'client/dev/css/events.less',
-        'client/dev/css/fonts.less',
-        'client/dev/css/frameworks_overrides.less',
-        'client/dev/css/media_queries.less',
-        'client/dev/css/position.less',
-        'client/dev/css/styles.less',
+        'client/dev/css/events.css',
+        'client/dev/css/fonts.css',
+        'client/dev/css/frameworks_overrides.css',
+        'client/dev/css/media_queries.css',
+        'client/dev/css/position.css',
+        'client/dev/css/styles.css',
 
         'client/dev/imgs/todo-bkg.png',
 
@@ -428,6 +428,7 @@ describe('ng-fullstack:app', () => {
 
         it('should only copy client side files', () => {
             assert.file(_clientFiles);
+            assert.file(_taskFilesClient);
             assert.noFile('server/server.js');
             assert.noFile('tasks/server/index.js');
             assert.noFile('tests/server');
@@ -443,7 +444,7 @@ describe('ng-fullstack:app', () => {
         'tasks/client/build_font.js',
         'tasks/client/build_html.js',
         'tasks/client/build_image.js',
-        'tasks/client/build_rev.js',
+        'tasks/client/build_ts.js',
         'tasks/client/del.js',
         'tasks/client/test.js',
         'tasks/client/const.js',
@@ -484,10 +485,10 @@ describe('ng-fullstack:app', () => {
 
         'tests/client/_helpers/invalid-inputs.js',
 
-        'tests/client/common/controllers/router.controller_test.js',
-        'tests/client/todo/dao/todo.dao_test.js',
-        'tests/client/todo/models/todo.model_test.js',
-        'tests/client/components/todo/todo_test.js',
+        'tests/client/todo/todo_dao_test.js',
+        'tests/client/todo/todo_model_test.js',
+        'tests/client/todo/todo_component_test.js',
+        'tests/client/todo/todo_test.js',
 
         // tests - e2e
 
@@ -504,6 +505,7 @@ describe('ng-fullstack:app', () => {
 
         it('should only copy client side files', () => {
             assert.file(_clientFiles);
+            assert.file(_taskFilesClient);
             assert.noFile('server/server.js');
             assert.noFile('tasks/server/index.js');
             assert.noFile('tests/server');

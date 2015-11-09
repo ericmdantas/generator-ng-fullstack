@@ -2,8 +2,6 @@ import _ from 'lodash';
 import chalk from 'chalk';
 import yosay from 'yosay';
 import {NodeFactory, NodeStandard, NodeBabel, NodeTypescript} from '../server/node';
-import {GeneratorConfig} from './generator_config';
-import {GoFactory} from '../server/go';
 import {AngularFactory} from '../client/angular';
 import {ClientFactory} from '../client/client_factory';
 import {ServerFactory} from '../server/server_factory';

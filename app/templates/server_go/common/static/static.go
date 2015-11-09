@@ -1,13 +1,14 @@
 package static
 
 import (
-	"github.com/julienschmidt/httprouter"
 	"net/http"
 	"os"
+
+	"github.com/julienschmidt/httprouter"
 )
 
 const (
-	devsatic   string = "../client/__tmp/"
+	devsatic   string = "../client/dev/"
 	diststatic string = "../client/dist/"
 )
 

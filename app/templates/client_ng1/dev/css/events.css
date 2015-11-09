@@ -1,16 +1,13 @@
-.todo-in-todos:hover .todo-done
-{
+.todo-in-todos:hover .todo-done {
   opacity: 1;
 }
 
-.todo-done:hover
-{
+.todo-done:hover {
   background-color: red;
 }
 
 
-.todo-done:hover
-{
+.todo-done:hover {
   background-color: rgba(228, 43, 43, 1);
   color: #fff;
 }

@@ -8,11 +8,3 @@ gulp.task('client.build_dist', [
   'client.fonts:dist',
   'client.rev:dist'
 ]); // dist build
-
-gulp.task('client.build_temp', [
-  'client.del_temp',
-  'client.views:temp',
-  'client.imgs:temp',
-  'client.fonts:temp',
-  'client.rev:temp'
-]); // browser-sync build

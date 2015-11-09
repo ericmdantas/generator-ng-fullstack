@@ -24,10 +24,6 @@ var _yosay2 = _interopRequireDefault(_yosay);
 
 var _serverNode = require('../server/node');
 
-var _generator_config = require('./generator_config');
-
-var _serverGo = require('../server/go');
-
 var _clientAngular = require('../client/angular');
 
 var _clientClient_factory = require('../client/client_factory');

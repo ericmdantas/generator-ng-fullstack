@@ -1,24 +1,20 @@
-.todo-panel
-{
+.todo-panel {
   width: 100%;
   max-width: 700px;
   margin: 30px auto;
   padding: 0 25px 25px;
 }
 
-.todos-container .form-control
-{
+.todos-container .form-control {
   font-size: 17px;
   border-radius: 0;
 }
 
-.todo-in-todos
-{
+.todo-in-todos {
   position: relative;
 }
 
-.todo-done
-{
+.todo-done {
   position: absolute;
   right: 0;
   top: 0;

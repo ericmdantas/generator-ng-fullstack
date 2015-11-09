@@ -1,7 +1,78 @@
 {
+  "name": "<%= app %>",
+  "version": "0.0.1",
+  "main": "src/<%= app %>.js",
+  "scripts": {
+    "build_dev": "node index && gulp client.watch",
+    "start": "node index",
+    "test-client": "gulp client.coverage",
+    "test-server": "mocha ./tests/server/**/*_test.js --recursive --check-leaks --reporter min --require babel/register",
+    "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --require babel/register",
+    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --require babel/register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
   "dependencies": {
+    "lodash": "^3.10.0",
+    "bluebird": "^2.9.24",
+    "body-parser": "^1.12.2",
+    "express": "~4.12.3",
+    "express-content-length-validator": "1.0.0",
+    "mongoose": "^4.1.11",
+    "morgan": "^1.5.2",
+    "socket.io": "^1.3.5",
+    "socket.io-client": "^1.3.5",
+    "newrelic": "^1.18.2",
+    "helmet": "^0.7.1",
+
     "angular2": "^2.0.0-alpha.45",
     "reflect-metadata": "^0.1.2",
     "systemjs": "^0.19.4"
+  },
+  "devDependencies": {
+    "karma-ng-html2js-preprocessor": "^0.1.2",
+    "del": "^1.1.1",
+  	"gulp": "^3.9.0",
+    "babel": "^5.8.23",
+    "protractor": "^2.0.0",
+    "wiredep": "^2.2.2",
+    "browser-sync": "^2.5.2",
+    "require-dir": "^0.3.0",
+    "gulp-concat": "^2.4.3",
+    "gulp-coveralls": "^0.1.3",
+    "gulp-babel": "^5.1.0",
+    "gulp-typescript": "^2.9.2",
+    "gulp-minify-css": "^0.4.5",
+    "gulp-rename": "^1.2.0",
+    "gulp-rev": "^3.0.0",
+    "gulp-uglify": "^1.1.0",
+    "gulp-usemin": "^0.3.11",
+    "gulp-util": "^3.0.3",
+    "jasmine-core": "^2.1.3",
+    "karma": "^0.12.28",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-coverage": "^0.2.7",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-ie-launcher": "^0.1.5",
+    "karma-jasmine": "^0.3.3",
+    "karma-opera-launcher": "^0.1.0",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-safari-launcher": "^0.1.1",
+    "mocha": "^2.1.0",
+    "chai": "^2.0.0",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.5",
+    "require-dir": "0.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<%= username %>/<%= app %>.git"
+  },
+  "author": "<%= username %>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/<%= username %>/<%= app %>/issues"
+  },
+  "homepage": "https://github.com/<%= username %>/<%= app %>",
+  "engines": {
+    "node": "5"
   }
 }

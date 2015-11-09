@@ -1,18 +1,15 @@
-.todo-panel
-{
+.todo-panel {
   border: 1px solid #ddd;
   box-shadow: 1px 1px 1px rgba(72, 176, 72, 0.49);
   background-color: #fff;
 }
 
-.todos-container .form-control
-{
+.todos-container .form-control {
   font-size: 17px;
   border-radius: 0;
 }
 
-.todo-done
-{
+.todo-done {
   background-color: rgba(228, 43, 43, 0.72);
   color: #fff;
   font-weight: bold;
@@ -22,13 +19,11 @@
   color: rgba(228, 43, 43, 1);
 }
 
-.footer-container .btn
-{
+.footer-container .btn {
   border-radius: 0;
 }
 
-.transition
-{
+.transition {
   -webkit-transition: all 1s;
   -moz-transition: all 1s;
   -ms-transition: all 1s;
@@ -36,17 +31,14 @@
   transition: all 1s;
 }
 
-.error-msg
-{
+.error-msg {
   color: red;
 }
 
-body
-{
+body {
   background: url(../imgs/todo-bkg.png) #fafbfc;
 }
 
-input.ng-invalid.ng-dirty
-{
+input.ng-invalid.ng-dirty {
   border: 1px solid red;
 }
