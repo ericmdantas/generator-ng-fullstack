@@ -1,7 +1,7 @@
 import path from 'path';
 import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
-import {MockConfigFile} from '../../_test_helpers/mocks';
+import {MockConfigFile} from '../helpers/mocks';
 
 describe('NgFullstack:directive', () => {
   describe('ng1', () => {

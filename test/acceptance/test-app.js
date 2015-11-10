@@ -2,7 +2,7 @@ import path from 'path';
 import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
 import os from 'os';
-import {MockConfigFile} from '../../_test_helpers/mocks';
+import {MockConfigFile} from '../helpers/mocks';
 
 describe('ng-fullstack:app', () => {
 
