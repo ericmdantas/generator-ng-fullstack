@@ -9,12 +9,12 @@ import RoutesConfig from './config/routes.conf';
 import DBConfig from './config/db.conf';
 import Routes from './routes/index';
 
-var app = express();
-var server = app.listen(PORT);
+const app = express();
+const server = app.listen(PORT);
 
 import Socket from './commons/socket/socket-events';
 
-var io = require('socket.io').listen(server);
+const io = require('socket.io').listen(server);
 
 RoutesConfig.init(app, express);
 DBConfig.init();

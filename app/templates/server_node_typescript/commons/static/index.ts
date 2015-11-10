@@ -6,9 +6,9 @@ import * as fs from 'fs';
 
 export class StaticDispatcher {
     static sendIndex(req, res):void {
-      var _root = process.cwd();
+      let _root = process.cwd();
 
-      res.setHeader('Content-Type', 'text/html');
+      res.type('.html');
 
       fs.createReadStream(_root + '/client/dev/index.html')
         .pipe(res);

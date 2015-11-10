@@ -6,8 +6,8 @@ import todoSchema from '../model/todo.model';
 import * as _ from 'lodash';
 
 todoSchema.statics.getAll = ():void => {
-    var _promise = (resolve:Function, reject:Function) => {
-        var _query = {};
+    return new Promise(resolve:Function, reject:Function) => {
+        let _query = {};
 
         Todo
           .find(_query)
@@ -15,13 +15,11 @@ todoSchema.statics.getAll = ():void => {
               err ? reject(err)
                   : resolve(todos);
           });
-    }
-
-    return new Promise(_promise);
+    };
 }
 
 todoSchema.statics.createTodo = (todo:Object):void => {
-    var _promise = (resolve:Function, reject:Function):void => {
+    return new Promise;(resolve:Function, reject:Function):void => {
       if (!_.isObject(todo)) {
         return reject(new TypeError('Todo is not a valid object.'));
       }
@@ -32,13 +30,11 @@ todoSchema.statics.createTodo = (todo:Object):void => {
         err ? reject(err)
             : resolve(saved);
       });
-    }
-
-    return new Promise(_promise);
+    };
 }
 
 todoSchema.statics.deleteTodo = (id:string):void => {
-    var _promise = (resolve, reject):void => {
+    return new Promise(resolve:Function, reject:Function):void => {
         if (!_.isString(id)) {
             return reject(new TypeError('Id is not a valid string.'));
         }
@@ -49,11 +45,9 @@ todoSchema.statics.deleteTodo = (id:string):void => {
               err ? reject(err)
                   : resolve();
           });
-    }
-
-    return new Promise(_promise);
+    };
 }
 
-var Todo = mongoose.model('Todo', todoSchema);
+let Todo = mongoose.model('Todo', todoSchema);
 
 export default Todo;

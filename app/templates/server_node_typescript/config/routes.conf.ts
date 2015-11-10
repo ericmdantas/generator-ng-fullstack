@@ -9,7 +9,7 @@ import * as helmet from 'helmet';
 
 export class RoutesConfig {
     static init(application:Object, exp:Object):void {
-        var _files = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/__tmp/';
+        var _files = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/dev/';
         var _root = process.cwd();
 
         application.use(exp.static(_root + _files));

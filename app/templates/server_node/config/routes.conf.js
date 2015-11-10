@@ -7,7 +7,7 @@ const helmet = require('helmet');
 
 module.exports = class RouteConfig {
     static init(application, exp) {
-        var _files = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/__tmp/';
+        var _files = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/dev/';
         var _root = process.cwd();
 
         application.use(exp.static(_root + _files));

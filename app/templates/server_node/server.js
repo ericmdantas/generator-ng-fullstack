@@ -11,8 +11,8 @@ const RoutesConfig = require('./config/routes.conf');
 const DBConfig = require('./config/db.conf');
 const Routes = require('./routes/index');
 
-var app = express();
-var server = app.listen(PORT);
+const app = express();
+const server = app.listen(PORT);
 
 const Socket = require('./commons/socket/socket-events');
 

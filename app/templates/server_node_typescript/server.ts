@@ -14,10 +14,10 @@ import {DBConfig} from './config/db.conf';
 import {Routes} from './routes/index';
 import {SocketEvents} from './commons/socket/socket-events';
 
-var app = express();
-var server = app.listen(PORT);
+const app = express();
+const server = app.listen(PORT);
 
-var io = require('socket.io').listen(server);
+const io = require('socket.io').listen(server);
 
 RoutesConfig.init(app, express);
 DBConfig.init();
