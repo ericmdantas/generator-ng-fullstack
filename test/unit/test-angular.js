@@ -162,8 +162,8 @@ describe('ng2', () => {
 
       _ng2.copyDirective();
 
-      let _firstCall = ['ng2/directive.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.directive.ts', {name: _gen.name}];
-      let _secondCall = ['ng2/directive_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.directive_test.ts', {name: _gen.name}];
+      let _firstCall = ['ng2/directive.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/' + _gen.name + '_directive.ts', {name: _gen.name}];
+      let _secondCall = ['ng2/directive_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/' + _gen.name + '_directive_test.ts', {name: _gen.name}];
 
       expect(_ng2.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng2.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
@@ -182,8 +182,8 @@ describe('ng2', () => {
 
       _ng2.copyFactory();
 
-      let _firstCall = ['ng2/factory.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.factory.ts', {name: utils.capitalizeFirst(_gen.name)}];
-      let _secondCall = ['ng2/factory_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.factory_test.ts', {name: utils.capitalizeFirst(_gen.name)}];
+      let _firstCall = ['ng2/factory.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/' + _gen.name + '_factory.ts', {name: utils.capitalizeFirst(_gen.name)}];
+      let _secondCall = ['ng2/factory_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/' + _gen.name + '_factory_test.ts', {name: utils.capitalizeFirst(_gen.name)}];
 
       expect(_ng2.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng2.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
@@ -200,8 +200,8 @@ describe('ng2', () => {
 
       let _ng2 = new Angular2(_gen);
 
-      let _firstCall = ['ng2/service.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.service.ts', {name: _gen.name}]
-      let _secondCall = ['ng2/service_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.service_test.ts', {name: _gen.name}]
+      let _firstCall = ['ng2/service.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/' + _gen.name + '_service.ts', {name: _gen.name}]
+      let _secondCall = ['ng2/service_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/' + _gen.name + '_service_test.ts', {name: _gen.name}]
 
       _ng2.copyService();
 

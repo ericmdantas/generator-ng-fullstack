@@ -74,20 +74,20 @@ var Angular2 = (function () {
   }, {
     key: 'copyDirective',
     value: function copyDirective() {
-      this.generator.template('ng2/directive.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + this.generator.options.feature + '/directives/' + this.generator.name + '.directive.ts', { name: this.generator.name });
-      this.generator.template('ng2/directive_test.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + this.generator.options.feature + '/directives/' + this.generator.name + '.directive_test.ts', { name: this.generator.name });
+      this.generator.template('ng2/directive.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + this.generator.options.feature + '/' + this.generator.name + '_directive.ts', { name: this.generator.name });
+      this.generator.template('ng2/directive_test.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + this.generator.options.feature + '/' + this.generator.name + '_directive_test.ts', { name: this.generator.name });
     }
   }, {
     key: 'copyFactory',
     value: function copyFactory() {
-      this.generator.template('ng2/factory.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + this.generator.options.feature + '/factory/' + this.generator.name + '.factory.ts', { name: _utilsUtils2['default'].capitalizeFirst(this.generator.name) });
-      this.generator.template('ng2/factory_test.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + this.generator.options.feature + '/factory/' + this.generator.name + '.factory_test.ts', { name: _utilsUtils2['default'].capitalizeFirst(this.generator.name) });
+      this.generator.template('ng2/factory.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + this.generator.options.feature + '/' + this.generator.name + '_factory.ts', { name: _utilsUtils2['default'].capitalizeFirst(this.generator.name) });
+      this.generator.template('ng2/factory_test.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + this.generator.options.feature + '/' + this.generator.name + '_factory_test.ts', { name: _utilsUtils2['default'].capitalizeFirst(this.generator.name) });
     }
   }, {
     key: 'copyService',
     value: function copyService() {
-      this.generator.template('ng2/service.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + this.generator.options.feature + '/services/' + this.generator.name + '.service.ts', { name: this.generator.name });
-      this.generator.template('ng2/service_test.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + this.generator.options.feature + '/services/' + this.generator.name + '.service_test.ts', { name: this.generator.name });
+      this.generator.template('ng2/service.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + this.generator.options.feature + '/' + this.generator.name + '_service.ts', { name: this.generator.name });
+      this.generator.template('ng2/service_test.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + this.generator.options.feature + '/' + this.generator.name + '_service_test.ts', { name: this.generator.name });
     }
   }]);
 
