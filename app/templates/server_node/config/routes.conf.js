@@ -10,6 +10,7 @@ module.exports = class RouteConfig {
         let _root = process.cwd();
         let _clientFiles = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/dev/';
 
+        application.use(exp.static(_root));
         application.use(exp.static(_root + _clientFiles));
         application.use(bodyParser());
         application.use(morgan('dev'));
