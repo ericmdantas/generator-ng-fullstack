@@ -462,6 +462,7 @@ describe('ng-fullstack:app', () => {
         '.jshintrc',
 
         'package.json',
+        'karma-test-shim.js',
         'gulpfile.babel.js',
         'karma.conf.js',
         'protractor.conf.js',

@@ -54,6 +54,7 @@ describe('angular', () => {
         expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng1.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
         expect(_ng1.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+
       });
     });
 
@@ -140,10 +141,15 @@ describe('ng2', () => {
       let _firstCall = ['tasks/client_ng2', 'tasks/client'];
       let _secondCall = ['tests/client_ng2', 'tests/client'];
       let _thirdCall = ['client_ng2', 'client'];
+      let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
+      let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
       expect(_ng2.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+
+      expect(_ng2.generator.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+      expect(_ng2.generator.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
     });
   });
 
