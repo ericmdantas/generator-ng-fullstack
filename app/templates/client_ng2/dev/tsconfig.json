@@ -1,16 +1,9 @@
 {
 	"compilerOptions": {
 		"module": "commonjs",
-		"watch": true,
 		"target": "es5",
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true
 	},
-	"filesGlob": [
-		"index.ts"
-	],
-	"files": [
-		"index.ts"
-	],
 	"exclude": []
 }

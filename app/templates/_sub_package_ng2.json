@@ -23,7 +23,7 @@
     "newrelic": "^1.18.2",
     "helmet": "^0.7.1",
 
-    "angular2": "^2.0.0-alpha.45",
+    "angular2": "^2.0.0-alpha.46",
     "reflect-metadata": "^0.1.2",
     "systemjs": "^0.19.4"
   },
