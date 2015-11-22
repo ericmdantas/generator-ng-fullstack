@@ -5,5 +5,5 @@
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true
 	},
-	"exclude": []
+	"exclude": ["typings"]
 }
