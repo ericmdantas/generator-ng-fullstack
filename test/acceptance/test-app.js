@@ -459,7 +459,6 @@ describe('ng-fullstack:app', () => {
         '.editorconfig',
         '.jshintrc',
 
-        'bower.json',
         'package.json',
         'gulpfile.babel.js',
         'karma.conf.js',
@@ -509,6 +508,7 @@ describe('ng-fullstack:app', () => {
             assert.noFile('server/server.js');
             assert.noFile('tasks/server/index.js');
             assert.noFile('tests/server');
+            assert.noFile('.bower.json');
         });
       });
     });

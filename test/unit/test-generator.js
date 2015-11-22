@@ -165,21 +165,56 @@ describe('generator_config', () => {
   });
 
   describe('install', () => {
-    it('should call the right stuff', () => {
+    it('should call the right stuff - ng1', () => {
       let _newGenerator = {
-        installDependencies: () =>{},
+        installDependencies: sinon.spy(),
         options: {
           "skip-install": false
-        }
+        },
+        client: 'ng1'
       };
-
-      sinon.spy(_newGenerator, 'installDependencies');
 
       let _g = new MainGenerator(_newGenerator);
 
       _g.install();
 
+      let _call = [
+        {
+          skipInstall: false,
+          npm: true,
+          bower: true
+        }
+      ]
+
       expect(_g.wrapper.installDependencies).to.have.been.called;
+
+      expect(_g.wrapper.installDependencies.calledWith(_call[0])).to.be.true;
+    });
+
+    it('should call the right stuff - ng2', () => {
+      let _newGenerator = {
+        installDependencies: sinon.spy(),
+        options: {
+          "skip-install": false
+        },
+        client: 'ng2'
+      };
+
+      let _g = new MainGenerator(_newGenerator);
+
+      _g.install();
+
+      let _call = [
+        {
+          skipInstall: false,
+          npm: true,
+          bower: false
+        }
+      ]
+
+      expect(_g.wrapper.installDependencies).to.have.been.called;
+
+      expect(_g.wrapper.installDependencies.calledWith(_call[0])).to.be.true;
     });
   });
 

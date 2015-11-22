@@ -26,7 +26,6 @@ export class MainGenerator {
       let _copiesClient = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "client");
 
       this.wrapper.template('_package.json', 'package.json', _appAndUsername);
-      this.wrapper.template('_bower.json', 'bower.json', _appAndUsername);
       this.wrapper.template('_README.md', 'README.md', _appAndUsername);
 
       this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
@@ -47,6 +46,10 @@ export class MainGenerator {
       this.wrapper.directory('tests/e2e', 'tests/e2e');
 
       if (_copiesClient) {
+        if (this.wrapper.client !== AngularFactory.tokens.NG2) {
+          this.wrapper.template('_bower.json', 'bower.json', _appAndUsername);
+        }
+
         ClientFactory.create('angular', _client, this.wrapper).copyClient();
       }
 
@@ -56,7 +59,11 @@ export class MainGenerator {
   }
 
   install() {
-      this.wrapper.installDependencies({skipInstall: this.wrapper.options['skip-install']});
+      this.wrapper.installDependencies({
+        skipInstall: this.wrapper.options['skip-install'],
+        npm: true,
+        bower: this.wrapper.client !== AngularFactory.tokens.NG2
+      });
   }
 
   promptUser() {

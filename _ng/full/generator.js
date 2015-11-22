@@ -55,7 +55,6 @@ var MainGenerator = (function () {
       var _copiesClient = this.wrapper.stack === "fullstack" || this.wrapper.stack === "client";
 
       this.wrapper.template('_package.json', 'package.json', _appAndUsername);
-      this.wrapper.template('_bower.json', 'bower.json', _appAndUsername);
       this.wrapper.template('_README.md', 'README.md', _appAndUsername);
 
       this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
@@ -76,6 +75,10 @@ var MainGenerator = (function () {
       this.wrapper.directory('tests/e2e', 'tests/e2e');
 
       if (_copiesClient) {
+        if (this.wrapper.client !== _clientAngular.AngularFactory.tokens.NG2) {
+          this.wrapper.template('_bower.json', 'bower.json', _appAndUsername);
+        }
+
         _clientClient_factory.ClientFactory.create('angular', _client, this.wrapper).copyClient();
       }
 
@@ -86,7 +89,11 @@ var MainGenerator = (function () {
   }, {
     key: 'install',
     value: function install() {
-      this.wrapper.installDependencies({ skipInstall: this.wrapper.options['skip-install'] });
+      this.wrapper.installDependencies({
+        skipInstall: this.wrapper.options['skip-install'],
+        npm: true,
+        bower: this.wrapper.client !== _clientAngular.AngularFactory.tokens.NG2
+      });
     }
   }, {
     key: 'promptUser',
