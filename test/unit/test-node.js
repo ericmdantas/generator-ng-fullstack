@@ -76,7 +76,7 @@ describe('node', () => {
 
         _n.copyForMainGenerator();
 
-        let _firstCall = [`index.js`, 'index.js'];
+        let _firstCall = [`index_node.js`, 'index.js'];
         let _secondCall = [`server_node`, `server`];
         let _thirdCall = [`tasks/server`, `tasks/server`];
         let _fourthCall = [`tests/server`, `tests/server`];
@@ -142,7 +142,7 @@ describe('node', () => {
 
         _n.copyForMainGenerator();
 
-        let _firstCall = [`index.js`, 'index.js'];
+        let _firstCall = [`index_babel.js`, 'index.js'];
         let _secondCall = [`server_node_babel`, `server`];
         let _thirdCall = [`tasks/server`, `tasks/server`];
         let _fourthCall = [`tests/server`, `tests/server`];

@@ -28,7 +28,7 @@ export class NodeStandard {
   }
 
   copyForMainGenerator() {
-    this.wrapper.template('index.js', 'index.js');
+    this.wrapper.template('index_node.js', 'index.js');
     this.wrapper.directory('server_node', 'server');
     this.wrapper.directory('tasks/server', 'tasks/server');
     this.wrapper.directory('tests/server', 'tests/server');
@@ -52,7 +52,7 @@ export class NodeBabel {
   }
 
   copyForMainGenerator() {
-    this.wrapper.template('index.js', 'index.js');
+    this.wrapper.template('index_babel.js', 'index.js');
     this.wrapper.directory('server_node_babel', 'server');
     this.wrapper.directory('tasks/server', 'tasks/server');
     this.wrapper.directory('tests/server', 'tests/server');
