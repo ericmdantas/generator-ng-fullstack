@@ -1,26 +1,23 @@
 <div>
   <form class="overflow-hidden"
         onsubmit="return false;"
-        [ng-form-model]="todoForm">
+        [ng-form-model]="todoForm"
+        (submit)="add(todoForm.value.todoMessage)">
 
     <h1 align="center">{{title}}</h1>
 
     <input type="text"
-           #tmessage
-           ng-control="message"
-           (keyup.enter)="add(tmessage)"
+           ng-control="todoMessage"
            [class.error]="!todoForm.valid"
            placeholder="What do you have todo?"
            autofocus/>
 
-    <button type="button"
-            logger
-            (click)="add(tmessage);"
+    <button type="submit"
             [disabled]="!todoForm.valid">+</button>
   </form>
 
   <ul>
-    <li *ng-for="#t of todoList; #i = index;"
-        (click)="remove(t.id);">{{i}}: {{t.todoMessage}}</li>
+    <li *ng-for="#t of todos; #i = index;"
+        (click)="remove(t._id);">{{i + 1}}: {{t.todoMessage}}</li>
   </ul>
 </div>
