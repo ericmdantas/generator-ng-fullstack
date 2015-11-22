@@ -68,6 +68,7 @@ var MainGenerator = (function () {
       this.wrapper.template('_.gitignore', '.gitignore');
       this.wrapper.template('_.editorconfig', '.editorconfig');
       this.wrapper.template('_.jshintrc', '.jshintrc');
+      this.wrapper.template('_.babelrc', '.babelrc');
 
       this.wrapper.template('tasks/index.js', 'tasks/index.js');
       this.wrapper.template('tasks/default.js', 'tasks/default.js');

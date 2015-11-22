@@ -35,6 +35,7 @@ describe('ng-fullstack:app', () => {
       '.gitignore',
       '.editorconfig',
       '.jshintrc',
+      '.babelrc',
 
       'bower.json',
       'package.json',
@@ -380,6 +381,7 @@ describe('ng-fullstack:app', () => {
         'protractor.conf.js',
         'newrelic.js',
         'procfile.txt',
+        '.babelrc',
 
         // client stuff
 
