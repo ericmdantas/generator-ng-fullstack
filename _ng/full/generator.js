@@ -54,8 +54,8 @@ var MainGenerator = (function () {
       var _copiesServer = this.wrapper.stack === "fullstack" || this.wrapper.stack === "server";
       var _copiesClient = this.wrapper.stack === "fullstack" || this.wrapper.stack === "client";
 
-      this.wrapper.template('_package.json', 'package.json', _appAndUsername);
       this.wrapper.template('_README.md', 'README.md', _appAndUsername);
+      this.wrapper.template('_package.json', 'package.json', { app: _app.app, username: _username.username, client: _client });
 
       this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
       this.wrapper.template('_karma.conf.js', 'karma.conf.js', _app);
@@ -76,7 +76,7 @@ var MainGenerator = (function () {
       this.wrapper.directory('tests/e2e', 'tests/e2e');
 
       if (_copiesClient) {
-        if (this.wrapper.client !== _clientAngular.AngularFactory.tokens.NG2) {
+        if (_client !== _clientAngular.AngularFactory.tokens.NG2) {
           this.wrapper.template('_bower.json', 'bower.json', _appAndUsername);
         }
 

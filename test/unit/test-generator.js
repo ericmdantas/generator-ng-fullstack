@@ -3,14 +3,14 @@ import sinon from 'sinon';
 
 import {MainGenerator} from '../../_ng/full/generator';
 
-describe('generator_config', () => {
+describe('generator', () => {
   before(() => {
 
   })
 
   describe('creation', () => {
     it('should have the object passed in constructor as the generator', () => {
-      let _newGenerator = {a: true};
+      let _newGenerator = {"a": true};
       let _g = new MainGenerator(_newGenerator);
 
       expect(_g.wrapper).to.be.equal(_newGenerator);
@@ -39,7 +39,9 @@ describe('generator_config', () => {
         server: 'node',
         transpilerServer: 'typescript',
         template(){},
-        directory(){}
+        directory(){},
+        read: () => '{"a": true}',
+        write(){}
       }
 
       let _g = new MainGenerator(_gen);
@@ -57,7 +59,9 @@ describe('generator_config', () => {
         server: 'node',
         transpilerServer: 'babel',
         template(){},
-        directory(){}
+        directory(){},
+        read: () => '{"a": true}',
+        write(){}
       }
 
       let _g = new MainGenerator(_gen);
@@ -75,7 +79,9 @@ describe('generator_config', () => {
         server: 'node',
         transpilerServer: 'node',
         template(){},
-        directory(){}
+        read: () => '{"a": true}',
+        directory(){},
+        write(){}
       }
 
       let _g = new MainGenerator(_gen);
@@ -93,7 +99,9 @@ describe('generator_config', () => {
         server: 'go',
         transpilerServer: undefined,
         template: () => {},
-        directory: () => {}
+        directory: () => {},
+        read: () => '{"a": true}',
+        write(){}
       }
 
       let _g = new MainGenerator(_gen);
@@ -113,6 +121,8 @@ describe('generator_config', () => {
         server: 'go',
         transpilerServer: undefined,
         template: () => {},
+        read: () => '{"a": true}',
+        write(){},
         directory: () => {}
       }
 
@@ -132,7 +142,9 @@ describe('generator_config', () => {
         server: 'go',
         transpilerServer: undefined,
         template: () => {},
-        directory: () => {}
+        directory: () => {},
+        read: () => '{"a": true}',
+        write(){}
       }
 
       let _g = new MainGenerator(_gen);
@@ -152,7 +164,9 @@ describe('generator_config', () => {
         server: 'go',
         transpilerServer: undefined,
         template: () => {},
-        directory: () => {}
+        directory: () => {},
+        read: () => '{"a": true}',
+        write(){}
       }
 
       let _g = new MainGenerator(_gen);
@@ -227,6 +241,7 @@ describe('generator_config', () => {
         transpilerServer: 'typescript',
         stack: 'fullstack',
         async: () => {},
+        read(){},
         prompt: () => {},
         config: {
           save: () => {}
