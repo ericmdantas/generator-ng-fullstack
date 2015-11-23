@@ -485,8 +485,6 @@ describe('ng-fullstack:app', () => {
 
         // tests - client
 
-        'tests/client/_helpers/invalid-inputs.js',
-
         'tests/client/todo/todo_dao_test.js',
         'tests/client/todo/todo_model_test.js',
         'tests/client/todo/todo_component_test.js',
