@@ -485,10 +485,8 @@ describe('ng-fullstack:app', () => {
 
         // tests - client
 
-        'tests/client/todo/todo_dao_test.js',
-        'tests/client/todo/todo_model_test.js',
-        'tests/client/todo/todo_component_test.js',
-        'tests/client/todo/todo_test.js',
+        'tests/client/todo/todo_service_test.ts',
+        'tests/client/todo/todo_component_test.ts',
 
         // tests - e2e
 
