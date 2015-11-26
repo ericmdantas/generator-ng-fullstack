@@ -23,7 +23,6 @@ export class GoServer {
     let _featureWithoutTrailingSlash = this.wrapper.feature.replace('/', '');
     let gen = basePath(this.wrapper);
 
-
     this.wrapper.template('go/endpoint.route.go', `${gen.route}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), username: this.wrapper.username, appName: this.wrapper.appName, feature: _featureWithoutTrailingSlash});
     this.wrapper.template('go/endpoint.controller.go', `${gen.controller}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), username: this.wrapper.username, appName: this.wrapper.appName, feature: _featureWithoutTrailingSlash});
     this.wrapper.template('go/endpoint.dao.go', `${gen.dao}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), username: this.wrapper.username, appName: this.wrapper.appName, feature: _featureWithoutTrailingSlash});

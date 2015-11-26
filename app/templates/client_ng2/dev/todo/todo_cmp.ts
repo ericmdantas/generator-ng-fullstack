@@ -24,7 +24,7 @@ type Todo = {
   directives: [FORM_DIRECTIVES]
 })
 export class TodoCmp implements OnInit {
-  title: string = "Todo :D";
+  title: string = "ng2do";
   todos: Todo[] = [];
   todoForm: ControlGroup;
 
@@ -54,7 +54,7 @@ export class TodoCmp implements OnInit {
         });
   }
 
-  remove(id:string|number):void {
+  remove(id:string):void {
     this._todoService
       .remove(id)
       .subscribe(() => {

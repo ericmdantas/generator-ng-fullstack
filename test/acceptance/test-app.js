@@ -476,7 +476,6 @@ describe('ng-fullstack:app', () => {
         'client/dev/index.ts',
 
         'client/dev/tsconfig.json',
-        'client/dev/tsd.json',
 
         'client/dev/todo/todo.css',
         'client/dev/todo/todo_cmp.ts',
@@ -485,12 +484,8 @@ describe('ng-fullstack:app', () => {
 
         // tests - client
 
-        'tests/client/_helpers/invalid-inputs.js',
-
-        'tests/client/todo/todo_dao_test.js',
-        'tests/client/todo/todo_model_test.js',
-        'tests/client/todo/todo_component_test.js',
-        'tests/client/todo/todo_test.js',
+        'tests/client/todo/todo_service_test.ts',
+        'tests/client/todo/todo_component_test.ts',
 
         // tests - e2e
 
