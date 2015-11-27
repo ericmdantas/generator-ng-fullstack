@@ -1,5 +1,14 @@
+import {
+  it,
+  describe,
+  expect,
+  beforeEachProviders
+} from 'angular2/testing';
+
 describe('directive', () => {
-  beforeEach(() => {
+  beforeEachProviders([]);
+
+  describe('creation', () => {
 
   });
 });

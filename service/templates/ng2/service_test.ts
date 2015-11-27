@@ -1,5 +1,14 @@
+import {
+  it,
+  expect,
+  describe,
+  beforeEachProviders
+} from 'angular2/testing';
+
 describe('myService', () => {
-  beforeEach(() => {
+  beforeEachProviders([]);
+
+  describe('creation', () => {
 
   });
 });
