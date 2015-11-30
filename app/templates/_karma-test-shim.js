@@ -14,11 +14,11 @@ System.config({
       format: 'register',
       map: Object.keys(window.__karma__.files)
                  .filter(onlyAppFiles)
-                 .reduce(createPathRecords(pathsMapping, appPath) => {
+                 .reduce((pathsMapping, appPath) => {
                    // creates local module name mapping to global path with karma's fingerprint in path, e.g.:
                    // './hero.service': '/base/app/hero.service.js?f4523daf879cfb7310ef6242682ccf10b2041b3e'
 
-                   let moduleName = appPath.replace(/^\/base\/client\/dev\//, './').replace(/\.js$/, '');
+                   var moduleName = appPath.replace(/^\/base\/client\/dev\//, './').replace(/\.js$/, '');
                    pathsMapping[moduleName] = appPath + '?' + window.__karma__.files[appPath]
 
                    return pathsMapping;

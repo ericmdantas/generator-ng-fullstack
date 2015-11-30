@@ -5,8 +5,8 @@ import {server as karma} from 'karma';
 gulp.task('client.unit_test', (done) => {
   return karma
     .start({
-      configFile: __dirname + '/karma.conf.js',
-      browsers: ['PhantomJS'],
+      configFile: __dirname + '/../../karma.conf.js',
+      browsers: ['Chrome'],
       singleRun: true
     }, done);
 });
