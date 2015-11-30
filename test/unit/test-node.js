@@ -184,7 +184,7 @@ describe('node', () => {
         let _secondCall = [`node/typescript/endpoint.controller.ts`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}.controller.ts`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
         let _thirdCall = [`node/typescript/endpoint.dao.ts`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}.dao.ts`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
         let _fourthCall = [`node/typescript/endpoint.model.ts`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}.model.ts`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _fifthCall = [`node/typescript/endpoint.dao_test.ts`, `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}.dao_test.ts`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase(), feature: _newGenerator.feature}];
+        let _fifthCall = [`node/typescript/endpoint.dao_test.js`, `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}.dao_test.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase(), feature: _newGenerator.feature}];
 
         expect(_n.wrapper.template).to.have.been.called;
         expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;

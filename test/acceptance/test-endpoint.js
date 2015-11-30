@@ -6,33 +6,95 @@ import {MockConfigFile} from '../helpers/mocks';
 
 describe('NgFullstack:endpoint', () => {
   describe('node', () => {
-    before(function (done) {
-      helpers
-      .run(path.join(__dirname, '../../endpoint'))
-      .inTmpDir(function() {
-        MockConfigFile.create({
-          "generator-ng-fullstack": {
-            "transpilerServer": "node",
-            "server": "node"
-          }
-        }, this.async());
+    describe('standard', () => {
+      before(function (done) {
+        helpers
+        .run(path.join(__dirname, '../../endpoint'))
+        .inTmpDir(function() {
+          MockConfigFile.create({
+            "generator-ng-fullstack": {
+              "transpilerServer": "node",
+              "server": "node"
+            }
+          }, this.async());
+        })
+        .withArguments('endp')
+        .withPrompts({appName: "a", githubUsername: "b", transpilerServer: "node", server: "node"})
+        .withOptions({feature: 'todo2'})
+        .on('end', done);
+      });
+
+      it('creates files', () => {
+        assert.file([
+          'server/api/todo2/controller/endp.controller.js',
+          'server/api/todo2/dao/endp.dao.js',
+          'server/api/todo2/model/endp.model.js',
+          'server/api/todo2/routes/endp.route.js',
+
+          'tests/server/todo2/dao/endp.dao_test.js'
+        ]);
       })
-      .withArguments('endp')
-      .withPrompts({appName: "a", githubUsername: "b", transpilerServer: "node", server: "node"})
-      .withOptions({feature: 'todo2'})
-      .on('end', done);
-    });
+    })
 
-    it('creates files', () => {
-      assert.file([
-        'server/api/todo2/controller/endp.controller.js',
-        'server/api/todo2/dao/endp.dao.js',
-        'server/api/todo2/model/endp.model.js',
-        'server/api/todo2/routes/endp.route.js',
+    describe('babel', () => {
+      before(function (done) {
+        helpers
+        .run(path.join(__dirname, '../../endpoint'))
+        .inTmpDir(function() {
+          MockConfigFile.create({
+            "generator-ng-fullstack": {
+              "transpilerServer": "babel",
+              "server": "node"
+            }
+          }, this.async());
+        })
+        .withArguments('endp')
+        .withPrompts({appName: "a", githubUsername: "b", transpilerServer: "babel", server: "node"})
+        .withOptions({feature: 'todo2'})
+        .on('end', done);
+      });
 
-        'tests/server/todo2/dao/endp.dao_test.js'
-      ]);
-    });
+      it('creates files', () => {
+        assert.file([
+          'server/api/todo2/controller/endp.controller.js',
+          'server/api/todo2/dao/endp.dao.js',
+          'server/api/todo2/model/endp.model.js',
+          'server/api/todo2/routes/endp.route.js',
+
+          'tests/server/todo2/dao/endp.dao_test.js'
+        ]);
+      })
+    })
+
+    describe('typescript', () => {
+      before(function (done) {
+        helpers
+        .run(path.join(__dirname, '../../endpoint'))
+        .inTmpDir(function() {
+          MockConfigFile.create({
+            "generator-ng-fullstack": {
+              "transpilerServer": "typescript",
+              "server": "node"
+            }
+          }, this.async());
+        })
+        .withArguments('endp')
+        .withPrompts({appName: "a", githubUsername: "b", transpilerServer: "typescript", server: "node"})
+        .withOptions({feature: 'todo2'})
+        .on('end', done);
+      });
+
+      it('creates files', () => {
+        assert.file([
+          'server/api/todo2/controller/endp.controller.ts',
+          'server/api/todo2/dao/endp.dao.ts',
+          'server/api/todo2/model/endp.model.ts',
+          'server/api/todo2/routes/endp.route.ts',
+
+          'tests/server/todo2/dao/endp.dao_test.js'
+        ]);
+      })
+    })
   })
 
   describe('go', () => {

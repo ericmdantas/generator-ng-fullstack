@@ -115,7 +115,7 @@ var NodeTypescript = (function () {
       this.wrapper.template('node/typescript/endpoint.dao.ts', gen.dao + '.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
       this.wrapper.template('node/typescript/endpoint.model.ts', gen.model + '.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase() });
 
-      this.wrapper.template('node/typescript/endpoint.dao_test.ts', gen.test + '.ts', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
+      this.wrapper.template('node/typescript/endpoint.dao_test.js', gen.test + '.js', { name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: this.wrapper.feature });
     }
   }, {
     key: 'copyForMainGenerator',
@@ -145,10 +145,10 @@ var NodeFactory = (function () {
       switch (generator.transpilerServer) {
         case NodeFactory.tokens.NODE:
           return new NodeStandard(generator);
-        case NodeFactory.tokens.NODE_TYPESCRIPT:
-          return new NodeTypescript(generator);
         case NodeFactory.tokens.NODE_BABEL:
           return new NodeBabel(generator);
+        case NodeFactory.tokens.NODE_TYPESCRIPT:
+          return new NodeTypescript(generator);
       }
     }
   }, {
