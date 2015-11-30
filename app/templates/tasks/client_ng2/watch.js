@@ -8,12 +8,12 @@ gulp.task('client.browser_sync', () => {
   return browserSync.reload();
 });
 
-gulp.task('client.watch', ['client.build_ts', 'client.browser_sync'], () => {
+gulp.task('client.watch', ['client.build_ts:dev', 'client.browser_sync'], () => {
   browserSync({proxy: "http://localhost:3333", reloadDelay: 1000});
 
   let _watchable = [];
 
   _watchable.push(TS);
 
-  return gulp.watch(_watchable, ['client.build_ts', 'client.browser_sync']);
+  return gulp.watch(_watchable, ['client.build_ts:dev', 'client.browser_sync']);
 });
