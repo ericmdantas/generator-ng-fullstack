@@ -9,6 +9,7 @@ module.exports = function(config) {
       // paths loaded by Karma
       {pattern: 'node_modules/systemjs/dist/system.js', included: true, watched: true},
       {pattern: 'node_modules/angular2/bundles/angular2.js', included: true, watched: true},
+      {pattern: 'node_modules/angular2/bundles/http.js', included: true, watched: true},
       {pattern: 'node_modules/angular2/bundles/testing.js', included: true, watched: true},
       {pattern: 'karma-test-shim.js', included: true, watched: true},
 

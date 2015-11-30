@@ -29,7 +29,7 @@ System.config({
 
 System.import('angular2/src/core/dom/browser_adapter')
       .then((browser_adapter) => {
-        browser_adapter.BrowserDomAdapter.makeCurrent();
+        return browser_adapter.BrowserDomAdapter.makeCurrent();
       })
       .then(() => {
         return Promise.all(
@@ -41,9 +41,10 @@ System.import('angular2/src/core/dom/browser_adapter')
         );
       })
       .then(() => {
-        __karma__.start();
-      }, (error) => {
-        __karma__.error(error.stack || error);
+        return __karma__.start();
+      })
+      .catch((error) => {
+        return __karma__.error(error.stack || error);
       });
 
 function filePath2moduleName(filePath) {
@@ -55,5 +56,5 @@ function onlyAppFiles(filePath) {
 }
 
 function onlySpecFiles(path) {
-  return /_test\.js$/.test(path);
+  return /_test\.ts$/.test(path);
 }
