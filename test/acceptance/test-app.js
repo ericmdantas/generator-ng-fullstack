@@ -484,6 +484,7 @@ describe('ng-fullstack:app', () => {
 
         // tests - client
 
+        'tests/client/tsconfig.json',
         'tests/client/todo/todo_service_test.ts',
         'tests/client/todo/todo_component_test.ts',
 
