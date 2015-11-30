@@ -8,7 +8,7 @@ const TS_CONFIG = path.DEV + 'tsconfig.json';
 
 gulp.task('client.build_ts:dev', () => {
   let tsconfigSrc = tsc.createProject(path.DEV + 'tsconfig.json');
-  let tsconfigTest = tsc.createProject(path.TEST + '/client/todo/tsconfig.json');
+  let tsconfigTest = tsc.createProject(path.TEST + '/client/tsconfig.json');
 
   tsconfigSrc.src()
              .pipe(tsc(tsconfigSrc))
