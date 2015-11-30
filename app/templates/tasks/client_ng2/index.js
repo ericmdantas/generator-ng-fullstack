@@ -1,5 +1,9 @@
 import gulp from 'gulp';
 
+gulp.task('client.build_dev', [
+  'client.build_ts:dev'
+]); // dev build
+
 gulp.task('client.build_dist', [
   'client.del_dist',
   'client.test_client',
