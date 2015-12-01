@@ -27,7 +27,7 @@ System.config({
     }
 });
 
-System.import('angular2/src/core/dom/browser_adapter')
+System.import('angular2/src/platform/browser/browser_adapter')
       .then((browser_adapter) => {
         return browser_adapter.BrowserDomAdapter.makeCurrent();
       })
