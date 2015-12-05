@@ -34,7 +34,7 @@ export class TodoCmp implements OnInit {
     });
   }
 
-  onInit() {
+  ngOnInit() {
     this._getAll();
   }
 
