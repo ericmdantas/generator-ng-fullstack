@@ -2,12 +2,14 @@ import {
   Component,
   View,
   Inject,
+  OnInit
+} from 'angular2/core';
+
+import {
   Validators,
   FormBuilder,
-  ControlGroup,
-  OnInit,
-  FORM_DIRECTIVES
-} from 'angular2/angular2';
+  ControlGroup
+} from 'angular2/common';
 
 import {TodoService} from './todo_service.js';
 
@@ -20,8 +22,7 @@ type Todo = {
   selector: 'todo-cmp',
   templateUrl: 'client/dev/todo/todo.html',
   styleUrls: ['client/dev/todo/todo.css'],
-  providers: [TodoService],
-  directives: [FORM_DIRECTIVES]
+  providers: [TodoService]
 })
 export class TodoCmp implements OnInit {
   title: string = "ng2do";
