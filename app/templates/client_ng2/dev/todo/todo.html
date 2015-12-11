@@ -1,13 +1,12 @@
 <div class="todo-container">
   <form class="todo-form"
-        onsubmit="return false;"
-        [ng-form-model]="todoForm"
+        [ngFormModel]="todoForm"
         (submit)="add(todoForm.value.todoMessage)">
 
     <h1 class="todo-title">{{title}}</h1>
 
     <input type="text"
-           ng-control="todoMessage"
+           ngControl="todoMessage"
            [class.todo-error]="!todoForm.valid"
            placeholder="What do you have todo?"
            autofocus />
@@ -17,7 +16,7 @@
   </form>
 
   <div class="todo-list">
-    <div *ng-for="#todo of todos;" class="todo-item" (click)="remove(todo._id);">
+    <div *ngFor="#todo of todos;" class="todo-item" (click)="remove(todo._id);">
       <p>{{todo.todoMessage}}</p>
     </div>
   </div>

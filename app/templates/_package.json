@@ -20,7 +20,7 @@
     "morgan": "^1.5.2",
     "socket.io": "^1.3.5",
     "socket.io-client": "^1.3.5", <% if (client === "ng2") { %>
-    "angular2": "^2.0.0-alpha.50",
+    "angular2": "^2.0.0-alpha.52",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.13",
     "reflect-metadata": "^0.1.0",
