@@ -9,9 +9,12 @@ import {
 } from 'angular2/testing';
 
 import {
-  provide,
+  provide
+} from 'angular2/core';
+
+import {
   Observable
-} from 'angular2/angular2';
+} from 'rxjs/Observable';
 
 import {TodoCmp} from '../client/dev/todo/todo_cmp.js';
 import {TodoService} from '../client/dev/todo/todo_service.js';
