@@ -8,10 +8,12 @@ module.exports = function(config) {
     files: [
       // paths loaded by Karma
       {pattern: 'node_modules/systemjs/dist/system.js', included: true, watched: true},
+      {pattern: 'node_modules/rxjs/bundles/Rx.js', included: true, watched: true},
+      {pattern: 'node_modules/angular2/bundles/angular2-polyfills.js', included: true, watched: true},
       {pattern: 'node_modules/angular2/bundles/angular2.js', included: true, watched: true},
       {pattern: 'node_modules/angular2/bundles/http.js', included: true, watched: true},
       {pattern: 'node_modules/angular2/bundles/router.js', included: true, watched: true},
-      {pattern: 'node_modules/angular2/bundles/testing.js', included: true, watched: true},
+      {pattern: 'node_modules/angular2/bundles/testing.dev.js', included: true, watched: true},
       {pattern: 'karma-test-shim.js', included: true, watched: true},
 
       // paths loaded via module imports
