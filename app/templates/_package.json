@@ -20,14 +20,14 @@
     "morgan": "^1.5.2",
     "socket.io": "^1.3.5",
     "socket.io-client": "^1.3.5", <% if (client === "ng2") { %>
-    "angular2": "^2.0.0-beta.0",
+    "angular2": "^2.0.0-beta.1",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.13",
-    "reflect-metadata": "^0.1.0",
-    "rxjs": "^5.0.0-alpha.14",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "^5.0.0-beta.1",
     "systemjs": "^0.19.5",
     "typescript": "^1.7.3",
-    "zone.js": "^0.5.9", <% } %>
+    "zone.js": "^0.5.10", <% } %>
     "newrelic": "^1.18.2",
     "helmet": "^0.7.1"
   },
