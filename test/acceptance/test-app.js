@@ -97,7 +97,6 @@ describe('ng-fullstack:app', () => {
           'server/config/db.conf.js',
           'server/config/routes.conf.js',
 
-          'server/commons/socket/socket-events.js',
           'server/commons/static/index.js',
           'server/commons/static/index.js',
           'server/commons/static/index.js',
@@ -148,7 +147,6 @@ describe('ng-fullstack:app', () => {
           'server/config/db.conf.js',
           'server/config/routes.conf.js',
 
-          'server/commons/socket/socket-events.js',
           'server/commons/static/index.js',
           'server/commons/static/index.js',
           'server/commons/static/index.js',
@@ -199,7 +197,6 @@ describe('ng-fullstack:app', () => {
           'server/config/db.conf.ts',
           'server/config/routes.conf.ts',
 
-          'server/commons/socket/socket-events.ts',
           'server/commons/static/index.ts',
           'server/commons/static/index.ts',
           'server/commons/static/index.ts',
@@ -312,7 +309,6 @@ describe('ng-fullstack:app', () => {
           'server/config/db.conf.js',
           'server/config/routes.conf.js',
 
-          'server/commons/socket/socket-events.js',
           'server/commons/static/index.js',
           'server/commons/static/index.js',
           'server/commons/static/index.js',

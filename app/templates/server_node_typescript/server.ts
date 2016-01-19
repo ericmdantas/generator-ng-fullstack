@@ -17,12 +17,9 @@ import {SocketEvents} from './commons/socket/socket-events';
 const app = express();
 const server = app.listen(PORT);
 
-const io = require('socket.io').listen(server);
-
 RoutesConfig.init(app, express);
 DBConfig.init();
 Routes.init(app, express.Router());
-SocketEvents.init(io);
 
 console.log(`up and running @: ${os.hostname()} on port: ${PORT}`);
 console.log(`enviroment: ${process.env.NODE_ENV}`);
