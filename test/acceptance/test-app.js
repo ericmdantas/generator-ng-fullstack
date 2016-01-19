@@ -50,32 +50,33 @@ describe('ng-fullstack:app', () => {
       'client/dev/favicon.png',
       'client/dev/index.html',
 
-      'client/dev/css/events.css',
-      'client/dev/css/fonts.css',
-      'client/dev/css/frameworks_overrides.css',
-      'client/dev/css/media_queries.css',
-      'client/dev/css/position.css',
-      'client/dev/css/styles.css',
+      'client/dev/todo/styles/events.css',
+      'client/dev/todo/styles/fonts.css',
+      'client/dev/todo/styles/frameworks_overrides.css',
+      'client/dev/todo/styles/media_queries.css',
+      'client/dev/todo/styles/position.css',
+      'client/dev/todo/styles/styles.css',
 
-      'client/dev/imgs/todo-bkg.png',
+      'client/dev/common/images/todo-bkg.png',
 
-      'client/dev/js/app.js',
+      'client/dev/app.js',
+      'client/dev/app.config.js',
 
-      'client/dev/js/todo/dao/todo.dao.js',
-      'client/dev/js/todo/model/todo.model.js',
-      'client/dev/js/todo/resource/todo.resource.js',
-      'client/dev/js/todo/controllers/todo.controller.js',
+      'client/dev/todo/services/todo.dao.js',
+      'client/dev/todo/services/todo.resource.js',
+      'client/dev/todo/models/todo.js',
+      'client/dev/todo/controllers/todo.controller.js',
 
-      'client/dev/views/todo.html',
+      'client/dev/todo/templates/todo.html',
 
       // tests - client
 
       'tests/client/_helpers/invalid-inputs.js',
 
-      'tests/client/common/controllers/router.controller_test.js',
-      'tests/client/todo/dao/todo.dao_test.js',
+      'tests/client/todo/controllers/todo.controller_test.js',
+      'tests/client/todo/services/todo.dao_test.js',
       'tests/client/todo/models/todo.model_test.js',
-      'tests/client/components/todo/todo_test.js',
+      'tests/client/todo/controllers/todo.controller_test.js',
 
       // tests - e2e
 
@@ -388,32 +389,32 @@ describe('ng-fullstack:app', () => {
         'client/dev/favicon.png',
         'client/dev/index.html',
 
-        'client/dev/css/events.css',
-        'client/dev/css/fonts.css',
-        'client/dev/css/frameworks_overrides.css',
-        'client/dev/css/media_queries.css',
-        'client/dev/css/position.css',
-        'client/dev/css/styles.css',
+        'client/dev/todo/styles/events.css',
+        'client/dev/todo/styles/fonts.css',
+        'client/dev/todo/styles/frameworks_overrides.css',
+        'client/dev/todo/styles/media_queries.css',
+        'client/dev/todo/styles/position.css',
+        'client/dev/todo/styles/styles.css',
 
-        'client/dev/imgs/todo-bkg.png',
+        'client/dev/common/images/todo-bkg.png',
 
-        'client/dev/js/app.js',
+        'client/dev/app.js',
+        'client/dev/app.config.js',
 
-        'client/dev/js/todo/dao/todo.dao.js',
-        'client/dev/js/todo/model/todo.model.js',
-        'client/dev/js/todo/resource/todo.resource.js',
-        'client/dev/js/todo/controllers/todo.controller.js',
+        'client/dev/todo/services/todo.dao.js',
+        'client/dev/todo/services/todo.resource.js',
+        'client/dev/todo/models/todo.js',
+        'client/dev/todo/controllers/todo.controller.js',
 
-        'client/dev/views/todo.html',
+        'client/dev/todo/templates/todo.html',
 
         // tests - client
 
         'tests/client/_helpers/invalid-inputs.js',
 
-        'tests/client/common/controllers/router.controller_test.js',
-        'tests/client/todo/dao/todo.dao_test.js',
+        'tests/client/todo/services/todo.dao_test.js',
         'tests/client/todo/models/todo.model_test.js',
-        'tests/client/components/todo/todo_test.js',
+        'tests/client/todo/controllers/todo.controller_test.js',
 
         // tests - e2e
 

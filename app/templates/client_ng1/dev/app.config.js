@@ -2,23 +2,17 @@
   "use strict";
 
   angular
-    .module('myAwesomeApp', ['ngResource',
-      'ngRoute',
-      'ngMessages',
-      'btford.socket-io',
-      'emd.ng-xtorage'])
+    .module('myAwesomeApp')
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider
         .when('/', {
-          templateUrl: '../views/todo.html',
+          templateUrl: 'todo/templates/todo.html',
           controller: 'TodoController',
           controllerAs: 'todo'
         })
         .otherwise({redirectTo: '/'});
     }])
-    .config(['$locationProvider', function($locationProvider)
-    {
+    .config(['$locationProvider', function($locationProvider) {
       $locationProvider.html5Mode(true);
     }]);
-
 }(window.angular));
