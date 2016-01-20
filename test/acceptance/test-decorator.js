@@ -12,7 +12,7 @@ describe('NgFullstack:decorator', () => {
 
   it('creates files', () => {
     assert.file([
-      'client/dev/js/dec/decorator/newHttp.decorator.js'
+      'client/dev/dec/decorator/newHttp.decorator.js'
     ]);
   });
 });

@@ -13,8 +13,8 @@
   "engines": {
     "node": "stable"
   },
-  "scripts": {
-    "start": "gulp compile",
+  "scripts": {    
+    "build": "gulp compile",
     "prepublish": "gulp compile",
     "test": "gulp compile && mocha test/ --recursive --reporter min --require babel/register"
   },

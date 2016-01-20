@@ -45,14 +45,16 @@ describe('ComponentSubGenerator', () => {
 
       _csg.writing();
 
-      let _firstCall = ['component.ts', knownPaths.PATH_CLIENT_FEATURES + '../components/' + _gen.name + '/' + _gen.name + '.ts', {name: utils.capitalizeFirst(_gen.name)}]
-      let _secondCall = ['component.html', knownPaths.PATH_CLIENT_FEATURES + '../components/' + _gen.name + '/' + _gen.name + '.html', {name: _gen.name}]
-      let _thirdCall = ['component_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + '/components/' + _gen.name + '/' + _gen.name + '_test.ts', {name: utils.capitalizeFirst(_gen.name), nameLowerCase: _gen.name.toLowerCase()}]
+      let _firstCall = ['component.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '_cmp.ts', {name: utils.capitalizeFirst(_gen.name)}]
+      let _secondCall = ['component.html', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.html', {name: _gen.name}]
+      let _thirdCall = ['component.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.css']
+      let _fourthCall = ['component_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '_cmp_test.ts', {name: utils.capitalizeFirst(_gen.name), nameLowerCase: _gen.name.toLowerCase()}]
 
       expect(_csg.wrapper.writing).to.have.been.called;
       expect(_csg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_csg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-      expect(_csg.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+      expect(_csg.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+      expect(_csg.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
     });
   });
 });

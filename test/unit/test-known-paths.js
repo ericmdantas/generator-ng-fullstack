@@ -3,7 +3,7 @@ import knownPaths from '../../_ng/utils/known_paths';
 
 describe('knownPaths', () => {
   it('should have the right info for PATH_CLIENT_FEATURES', () => {
-    expect(knownPaths.PATH_CLIENT_FEATURES).to.equal('client/dev/js/');
+    expect(knownPaths.PATH_CLIENT_FEATURES).to.equal('client/dev/');
   })
 
   it('should have the right info for PATH_CLIENT_FEATURES_TEST', () => {

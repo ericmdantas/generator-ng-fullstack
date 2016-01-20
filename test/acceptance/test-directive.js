@@ -26,7 +26,7 @@ describe('NgFullstack:directive', () => {
 
     it('creates files', () => {
       assert.file([
-        'client/dev/js/common/directives/something.directive.js',
+        'client/dev/common/directives/something.directive.js',
         'tests/client/common/directives/something.directive_test.js'
       ]);
     });
@@ -54,7 +54,7 @@ describe('NgFullstack:directive', () => {
 
     it('creates files', () => {
       assert.file([
-        'client/dev/js/common/something_directive.ts',
+        'client/dev/common/something_directive.ts',
         'tests/client/common/something_directive_test.ts'
       ]);
     });

@@ -44,10 +44,12 @@ var ComponentSubGenerator = (function () {
       var name = this.wrapper.name;
       var _firstLetterUppercased = name.charAt(0).toUpperCase() + name.slice(1);
       var nameLowerCase = name.toLowerCase();
+      var _feature = _utilsOptions_parser2['default'].getFeature(this.wrapper.options);
 
-      this.wrapper.template('component.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + '../components/' + name + '/' + name + '.ts', { name: _firstLetterUppercased });
-      this.wrapper.template('component.html', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + '../components/' + name + '/' + name + '.html', { name: name });
-      this.wrapper.template('component_test.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + '/components/' + name + '/' + name + '_test.ts', { name: _firstLetterUppercased, nameLowerCase: nameLowerCase });
+      this.wrapper.template('component.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + _feature + 'components/' + name + '_cmp.ts', { name: _firstLetterUppercased });
+      this.wrapper.template('component.html', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + _feature + 'components/' + name + '.html', { name: name });
+      this.wrapper.template('component.css', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES + _feature + 'components/' + name + '.css');
+      this.wrapper.template('component_test.ts', _utilsKnown_paths2['default'].PATH_CLIENT_FEATURES_TEST + _feature + 'components/' + name + '_cmp_test.ts', { name: _firstLetterUppercased, nameLowerCase: nameLowerCase });
     }
   }]);
 

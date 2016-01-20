@@ -12,7 +12,7 @@ describe('NgFullstack:pipe', function () {
 
   it('creates files', function() {
     assert.file([
-      'client/dev/js/something-useful/pipes/something.pipe.ts',
+      'client/dev/something-useful/pipes/something.pipe.ts',
       'tests/client/something-useful/pipes/something.pipe_test.js'
     ]);
   });

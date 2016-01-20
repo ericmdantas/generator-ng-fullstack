@@ -12,7 +12,7 @@ describe('NgFullstack:resource', () => {
 
   it('creates files', () => {
     assert.file([
-      'client/dev/js/user-resource/resource/country.resource.js'
+      'client/dev/user-resource/resource/country.resource.js'
     ]);
   });
 });
