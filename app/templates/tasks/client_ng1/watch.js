@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import browserSync from 'browser-sync';
 import {path} from './const';
 
-const JS = path.DEV + 'js/**/*.js';
+const JS = path.DEV + '**/*.js';
 const INDEX_HTML = path.DEV + 'index.html';
 
 gulp.task('client.browser_sync', () => {

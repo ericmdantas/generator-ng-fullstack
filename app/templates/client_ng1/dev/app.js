@@ -5,7 +5,5 @@
     .module('myAwesomeApp', [
       'ngResource',
       'ngRoute',
-      'ngMessages',
-      'btford.socket-io',
-      'emd.ng-xtorage']);
+      'ngMessages']);      
 }(window.angular));
