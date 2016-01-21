@@ -12,16 +12,16 @@ $ npm install -g generator-ng-fullstack
 
 ```
 
-# quick start
-
-[Take a look here](https://github.com/ericmdantas/generator-ng-fullstack/wiki#do-i-need-anything).
-
 # what is this?
 
 This is a [Yeoman](http://yeoman.io) generator for the now and next generation fullstack applications.
 
 Forget about initial setup, ```yo ng-fullstack``` and be happy!
 
+
+# quick start
+
+[Take a look here](https://github.com/ericmdantas/generator-ng-fullstack/wiki#do-i-need-anything).
 
 # what am I going to be using?
 
