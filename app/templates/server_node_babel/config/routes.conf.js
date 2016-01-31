@@ -10,7 +10,7 @@ export default class RouteConfig {
 
         application.use(exp.static(_root));
         application.use(exp.static(_root + _clientFiles));
-        application.use(bodyParser());
+        application.use(bodyParser.json());
         application.use(morgan('dev'));
         application.use(contentLength.validateMax({max: 999}));
         application.use(helmet());

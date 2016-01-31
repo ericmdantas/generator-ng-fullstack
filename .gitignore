@@ -1,3 +1,6 @@
 node_modules/
 .idea
+
 *.log
+app/**/*.map
+app/templates/client_ng2/**/*.js

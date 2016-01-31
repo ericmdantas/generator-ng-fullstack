@@ -8,7 +8,8 @@ import {
 import {
   Validators,
   FormBuilder,
-  ControlGroup
+  ControlGroup,
+  Control
 } from 'angular2/common';
 
 import {TodoService} from './todo_service.js';
@@ -43,7 +44,7 @@ export class TodoCmp implements OnInit {
     this._todoService
         .getAll()
         .subscribe((todos) => {
-          this.todos = todos.json();
+          this.todos = todos;
         });
   }
 
@@ -52,6 +53,7 @@ export class TodoCmp implements OnInit {
         .add(message)
         .subscribe((m) => {
           this.todos.push(m);
+          (<Control>this.todoForm.controls['todoMessage']).updateValue("");
         });
   }
 
