@@ -474,16 +474,16 @@ describe('ng-fullstack:app', () => {
 
         'client/dev/tsconfig.json',
 
-        'client/dev/todo/todo.css',
-        'client/dev/todo/todo_cmp.ts',
-        'client/dev/todo/todo.html',
-        'client/dev/todo/todo_service.ts',
+        'client/dev/todo/styles/todo.css',
+        'client/dev/todo/components/todo_cmp.ts',
+        'client/dev/todo/templates/todo.html',
+        'client/dev/todo/services/todo_service.ts',
 
         // tests - client
 
         'tests/client/tsconfig.json',
-        'tests/client/todo/todo_service_test.ts',
-        'tests/client/todo/todo_component_test.ts',
+        'tests/client/todo/services/todo_service_test.ts',
+        'tests/client/todo/components/todo_component_test.ts',
 
         // tests - e2e
 
