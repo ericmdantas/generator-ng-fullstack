@@ -27,9 +27,9 @@ Forget about initial setup, ```yo ng-fullstack``` and be happy!
 
 You'll be using the **latest** versions of:
 
-- [node.js](https://github.com/nodejs/node) / [Go](https://golang.org/);
+- [Node](https://github.com/nodejs/node) / [Go](https://golang.org/);
 - [AngularJS](https://github.com/angular/angular.js) / [Angular2](https://github.com/angular/angular);
-- ES6/ES7 [Babel](https://github.com/babel/babel) / [Typescript](https://github.com/Microsoft/Typescript);
+- [Babel](https://github.com/babel/babel) / [Typescript](https://github.com/Microsoft/Typescript);
 - [Bootstrap](https://github.com/twbs/bootstrap);
 - [Gulp](https://github.com/gulpjs/gulp);
 - [Express](https://github.com/strongloop/express);
@@ -63,7 +63,7 @@ Inspired by [generator-angular-fullstack](https://github.com/DaftMonk/generator-
 
 # got any idea?
 
-PRs are welcome! Either commit them, or let me know and we'll talk about it =]
+PRs are welcome! Either commit them or let me know and we'll talk about it =]
 
 # license
 
