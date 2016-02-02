@@ -1,6 +1,6 @@
 {
   "name": "generator-ng-fullstack",
-  "version": "1.6.0-0",
+  "version": "1.6.0-1",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -13,7 +13,7 @@
   "engines": {
     "node": "stable"
   },
-  "scripts": {    
+  "scripts": {
     "build": "gulp compile",
     "prepublish": "gulp compile",
     "test": "gulp compile && mocha test/ --recursive --reporter min --require babel/register"
