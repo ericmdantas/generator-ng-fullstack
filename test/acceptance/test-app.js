@@ -466,6 +466,8 @@ describe('ng-fullstack:app', () => {
         'newrelic.js',
         'procfile.txt',
 
+        'tsd.json',
+
         // client stuff
 
         'client/dev/index.html',

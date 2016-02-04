@@ -39,6 +39,7 @@ export class Angular2 {
     this.generator.directory('client_ng2', 'client');
     this.generator.template('_karma.conf_ng2.js', 'karma.conf.js');
     this.generator.template('_karma-test-shim.js', 'karma-test-shim.js');
+    this.generator.template('_tsd_ng2.json', 'tsd.json');
   }
 
   copyDirective() {

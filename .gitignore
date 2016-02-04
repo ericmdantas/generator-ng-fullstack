@@ -4,3 +4,4 @@ node_modules/
 *.log
 app/**/*.map
 app/templates/client_ng2/**/*.js
+app/templates/tests/client_ng2/**/*.js

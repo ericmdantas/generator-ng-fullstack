@@ -1,5 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
-
 import {Component, Inject} from 'angular2/angular2';
 
 @Component({
