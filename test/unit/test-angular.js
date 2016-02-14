@@ -143,7 +143,7 @@ describe('ng2', () => {
       let _thirdCall = ['client_ng2', 'client'];
       let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
       let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
-      let _sixthCall = ['_tsd_ng2.json', 'tsd.json'];
+      let _sixthCall = ['_typings_ng2.json', 'typings.json'];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;

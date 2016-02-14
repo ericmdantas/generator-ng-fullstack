@@ -186,6 +186,8 @@ describe('ng-fullstack:app', () => {
         let _tscFiles = [
           // server stuff
 
+          'typings.json', // typings
+
           'index.js', // typescript's entry point
 
           'server/server.ts',
@@ -466,7 +468,7 @@ describe('ng-fullstack:app', () => {
         'newrelic.js',
         'procfile.txt',
 
-        'tsd.json',
+        'typings.json',
 
         // client stuff
 

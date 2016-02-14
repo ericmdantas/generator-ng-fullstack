@@ -79,7 +79,7 @@ export class NodeTypescript {
     this.wrapper.directory('server_node_typescript', 'server');
     this.wrapper.template('index_tsc.js', 'index.js');
     this.wrapper.template('server_node_typescript/tsconfig.json', 'tsconfig.json');
-    this.wrapper.template('server_node_typescript/tsd.json', 'tsd.json');
+    this.wrapper.template('server_node_typescript/typings.json', 'typings.json');
     this.wrapper.directory('tasks/server', 'tasks/server');
     this.wrapper.directory('tests/server', 'tests/server');
   }
