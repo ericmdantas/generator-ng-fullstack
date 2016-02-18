@@ -16,7 +16,7 @@
   "scripts": {
     "build": "gulp compile",
     "prepublish": "gulp compile",
-    "test": "gulp compile && mocha test/ --recursive --reporter min --require babel/register"
+    "test": "gulp compile && mocha test/ --recursive --reporter landing --check-leaks --require babel/register"
   },
   "keywords": [
     "yeoman-generator",
