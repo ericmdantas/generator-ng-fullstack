@@ -5,10 +5,10 @@ import {NodeFactory, NodeStandard, NodeBabel, NodeTypescript} from '../../_ng/se
 
 describe('node', () => {
   describe('factory', () => {
-    it('should have the right values for the tokens', () => {
-      expect(NodeFactory.tokens.NODE).to.equal('node');
-      expect(NodeFactory.tokens.NODE_BABEL).to.equal('babel');
-      expect(NodeFactory.tokens.NODE_TYPESCRIPT).to.equal('typescript');
+    it('should have the right values for the tokens()', () => {
+      expect(NodeFactory.tokens().NODE).to.equal('node');
+      expect(NodeFactory.tokens().NODE_BABEL).to.equal('babel');
+      expect(NodeFactory.tokens().NODE_TYPESCRIPT).to.equal('typescript');
     });
 
     it('should have an instance of NodeStandard', () => {

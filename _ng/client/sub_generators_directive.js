@@ -1,60 +1,31 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
+const knownPaths = require('../utils/known_paths');
+const optionsParser = require('../utils/options_parser');
+const utils = require('../utils/utils');
+const FeatureMissingError = require('../utils/errors').FeatureMissingError;
+const AngularFactory = require('./angular').AngularFactory;
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-var _utilsKnown_paths = require('../utils/known_paths');
-
-var _utilsKnown_paths2 = _interopRequireDefault(_utilsKnown_paths);
-
-var _utilsOptions_parser = require('../utils/options_parser');
-
-var _utilsOptions_parser2 = _interopRequireDefault(_utilsOptions_parser);
-
-var _utilsUtils = require('../utils/utils');
-
-var _utilsUtils2 = _interopRequireDefault(_utilsUtils);
-
-var _utilsErrors = require('../utils/errors');
-
-var _angular = require('./angular');
-
-var DirectiveSubGenerator = (function () {
-  function DirectiveSubGenerator(generator) {
-    _classCallCheck(this, DirectiveSubGenerator);
-
+export class DirectiveSubGenerator {
+  constructor(generator) {
     this.wrapper = generator;
     this.wrapper.ngVersion = this.wrapper.config.get('ngVersion');
   }
 
-  _createClass(DirectiveSubGenerator, [{
-    key: 'initializing',
-    value: function initializing() {
-      this.wrapper.argument('name', {
-        required: true,
-        type: String,
-        desc: 'directive'
-      });
-    }
-  }, {
-    key: 'writing',
-    value: function writing() {
-      var feature = _utilsOptions_parser2['default'].getFeature(this.wrapper.options);
+  initializing() {
+    this.wrapper.argument('name', {
+      required: true,
+      type: String,
+      desc: 'directive'
+    });
+  }
 
-      if (!feature.length) throw new _utilsErrors.FeatureMissingError();
+  writing() {
+    let feature = optionsParser.getFeature(this.wrapper.options);
 
-      _angular.AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyDirective();
-    }
-  }]);
+    if (!feature.length)
+      throw new FeatureMissingError();
 
-  return DirectiveSubGenerator;
-})();
-
-exports.DirectiveSubGenerator = DirectiveSubGenerator;
+    AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyDirective();
+  }
+}

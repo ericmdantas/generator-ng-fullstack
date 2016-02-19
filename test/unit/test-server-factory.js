@@ -5,9 +5,9 @@ import {NodeFactory} from '../../_ng/server/node';
 import {GoFactory} from '../../_ng/server/go';
 
 describe('server_factory', () => {
-  it('should have the right values for the tokens', () => {
-    expect(ServerFactory.tokens.NODE).to.equal('node');
-    expect(ServerFactory.tokens.GO).to.equal('go');
+  it('should have the right values for the tokens()', () => {
+    expect(ServerFactory.tokens().NODE).to.equal('node');
+    expect(ServerFactory.tokens().GO).to.equal('go');
   })
 
   it('should return the right server - node', () => {
