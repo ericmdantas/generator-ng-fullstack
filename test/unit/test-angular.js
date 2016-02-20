@@ -11,8 +11,8 @@ describe('angular', () => {
 
   describe('factory', () => {
     it('should have the right values for the token', () => {
-      expect(AngularFactory.tokens.NG1).to.equal('ng1');
-      expect(AngularFactory.tokens.NG2).to.equal('ng2');
+      expect(AngularFactory.tokens().NG1).to.equal('ng1');
+      expect(AngularFactory.tokens().NG2).to.equal('ng2');
     })
 
     it('should return an error, token not found', () => {

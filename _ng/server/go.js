@@ -15,7 +15,7 @@ const basePath = (generator) => {
   }
 }
 
-exports.GoServer = class GoServer {
+class GoServer {
   constructor(generator) {
     this.wrapper = generator;
   }
@@ -42,8 +42,11 @@ exports.GoServer = class GoServer {
   }
 }
 
-exports.GoFactory = class GoFactory {
+class GoFactory {
   static build(generator) {
     return new GoServer(generator);
   }
 }
+
+exports.GoFactory = GoFactory;
+exports.GoServer = GoServer;

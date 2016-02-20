@@ -3,7 +3,7 @@
 const utils = require('../utils/utils');
 const knownPaths = require('../utils/known_paths');
 
-exports.Angular1 = class Angular1 {
+class Angular1 {
   constructor(gen) {
     this.generator = gen;
   }
@@ -30,7 +30,7 @@ exports.Angular1 = class Angular1 {
   }
 }
 
-exports.Angular2 = class Angular2 {
+class Angular2 {
   constructor(gen) {
     this.generator = gen;
   }
@@ -60,7 +60,7 @@ exports.Angular2 = class Angular2 {
   }
 }
 
-exports.AngularFactory = class AngularFactory {
+class AngularFactory {
   static tokens() {
     return {
       NG1: 'ng1',
@@ -76,3 +76,7 @@ exports.AngularFactory = class AngularFactory {
     }
   }
 }
+
+exports.Angular1 = Angular1;
+exports.Angular2 = Angular2;
+exports.AngularFactory = AngularFactory;

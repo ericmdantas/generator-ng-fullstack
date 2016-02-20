@@ -14,9 +14,8 @@
     "node": "stable"
   },
   "scripts": {
-    "build": "gulp compile",
-    "prepublish": "gulp compile",
-    "test": "gulp compile && mocha test/ --recursive --reporter list --check-leaks --require babel/register"
+    "prepublish": "npm t",
+    "test": "mocha test/ --recursive --reporter list --check-leaks --require babel/register"
   },
   "keywords": [
     "yeoman-generator",
@@ -44,11 +43,9 @@
     "yosay": "^1.0.2"
   },
   "devDependencies": {
-    "babel": "^5.8.23",
-    "babel-core": "^5.8.25",
+    "babel": "^5.8.35",
     "chai": "^3.3.0",
     "gulp": "^3.9.0",
-    "gulp-babel": "^5.2.1",
     "gulp-rename": "^1.2.2",
     "mocha": "*",
     "sinon": "^1.17.1",

@@ -12,7 +12,7 @@ const basePath = (generator) => {
   }
 }
 
-exports.NodeStandard = class NodeStandard {
+class NodeStandard {
   constructor(generator) {
     this.wrapper = generator;
   }
@@ -36,7 +36,7 @@ exports.NodeStandard = class NodeStandard {
   }
 }
 
-exports.NodeBabel = class NodeBabel {
+class NodeBabel {
   constructor(generator) {
     this.wrapper = generator;
   }
@@ -60,7 +60,7 @@ exports.NodeBabel = class NodeBabel {
   }
 }
 
-exports.NodeTypescript = class NodeTypescript {
+class NodeTypescript {
   constructor(generator) {
     this.wrapper = generator;
   }
@@ -86,7 +86,7 @@ exports.NodeTypescript = class NodeTypescript {
   }
 }
 
-exports.NodeFactory = class NodeFactory {
+class NodeFactory {
   static tokens() {
     return {
       NODE: "node",
@@ -103,3 +103,8 @@ exports.NodeFactory = class NodeFactory {
     }
   }
 }
+
+exports.NodeBabel = NodeBabel;
+exports.NodeTypescript = NodeTypescript;
+exports.NodeStandard = NodeStandard;
+exports.NodeFactory = NodeFactory;

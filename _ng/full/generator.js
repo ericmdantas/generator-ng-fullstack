@@ -51,7 +51,7 @@ exports.MainGenerator = class MainGenerator {
       this.wrapper.directory('tests/e2e', 'tests/e2e');
 
       if (_copiesClient) {
-        if (_client !== AngularFactory.tokens.NG2) {
+        if (_client !== AngularFactory.tokens().NG2) {
           this.wrapper.template('_bower.json', 'bower.json', _appAndUsername);
         }
 
@@ -67,7 +67,7 @@ exports.MainGenerator = class MainGenerator {
       this.wrapper.installDependencies({
         skipInstall: this.wrapper.options['skip-install'],
         npm: true,
-        bower: this.wrapper.client !== AngularFactory.tokens.NG2
+        bower: this.wrapper.client !== AngularFactory.tokens().NG2
       });
   }
 
@@ -146,7 +146,7 @@ exports.MainGenerator = class MainGenerator {
         type: "list",
         name: "client",
         message: "What do you want in client side?",
-        choices: [AngularFactory.tokens.NG1, AngularFactory.tokens.NG2],
+        choices: [AngularFactory.tokens().NG1, AngularFactory.tokens().NG2],
         when: () => {
           let _isClient = this.wrapper.stack === "client";
           let _isFullstack = this.wrapper.stack === "fullstack";
