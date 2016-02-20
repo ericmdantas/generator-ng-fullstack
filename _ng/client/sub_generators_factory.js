@@ -9,7 +9,7 @@ const AngularFactory = require('./angular').AngularFactory;
 exports.FactorySubGenerator = class FactorySubGenerator {
   constructor(generator) {
     this.wrapper = generator;
-    this.wrapper.ngVersion = this.wrapper.config.get('ngVersion');
+    this.wrapper.ngVersion = this.wrapper.config.get('client');
   }
 
   initializing() {

@@ -9,7 +9,7 @@ const AngularFactory = require('./angular').AngularFactory;
 export class DirectiveSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
-    this.wrapper.ngVersion = this.wrapper.config.get('ngVersion');
+    this.wrapper.ngVersion = this.wrapper.config.get('client');
   }
 
   initializing() {

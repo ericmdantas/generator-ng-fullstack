@@ -11,7 +11,7 @@ describe('NgFullstack:directive', () => {
         .inTmpDir(function(dir) {
           MockConfigFile.create({
             "generator-ng-fullstack": {
-              "ngVersion": "ng1"
+              "client": "ng1"
             }
           }, this.async());
         })
@@ -39,7 +39,7 @@ describe('NgFullstack:directive', () => {
         .inTmpDir(function(dir) {
           MockConfigFile.create({
             "generator-ng-fullstack": {
-              "ngVersion": "ng2"
+              "client": "ng2"
             }
           }, this.async());
         })
