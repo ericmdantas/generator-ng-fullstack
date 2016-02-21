@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import Promise from 'bluebird';
-import todoSchema from '../model/todo.model';
+import todoSchema from '../model/todo-model';
 import _ from 'lodash';
 
 todoSchema.statics.getAll = () => {

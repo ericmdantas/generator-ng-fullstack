@@ -1,6 +1,6 @@
 "use strict";
 
-const TodoController = require('../controller/todo.controller');
+const TodoController = require('../controller/todo-controller');
 
 module.exports = class TodoRoutes {
     static init(router) {

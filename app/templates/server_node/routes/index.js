@@ -1,6 +1,6 @@
 "use strict";
 
-const TodoRoutes = require('../api/todo/routes/todo.routes');
+const TodoRoutes = require('../api/todo/routes/todo-routes');
 const StaticDispatcher = require('../commons/static/index');
 
 module.exports = class Routes {

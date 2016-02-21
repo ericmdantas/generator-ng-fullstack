@@ -6,5 +6,8 @@
 	"filesGlob": [
 		"server/**/*.ts"
 	],
-	"files": []
+	"files": [],
+	"atom": {
+		"rewriteTsconfig": true
+	}
 }

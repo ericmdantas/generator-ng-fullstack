@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 const Promise = require('bluebird');
-const todoSchema = require('../model/todo.model');
+const todoSchema = require('../model/todo-model');
 const _ = require('lodash');
 
 todoSchema.statics.getAll = () => {

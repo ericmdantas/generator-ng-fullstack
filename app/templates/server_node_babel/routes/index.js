@@ -1,4 +1,4 @@
-import TodoRoutes from '../api/todo/routes/todo.routes';
+import TodoRoutes from '../api/todo/routes/todo-routes';
 import StaticDispatcher from '../commons/static/index';
 
 export default class Routes {

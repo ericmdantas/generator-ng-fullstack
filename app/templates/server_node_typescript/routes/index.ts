@@ -1,6 +1,6 @@
 /// <reference path="../typings/tsd.d.ts" />
 
-import {TodoRoutes} from '../api/todo/routes/todo.routes';
+import {TodoRoutes} from '../api/todo/routes/todo-routes';
 import {StaticDispatcher} from '../commons/static/index';
 
 export class Routes {

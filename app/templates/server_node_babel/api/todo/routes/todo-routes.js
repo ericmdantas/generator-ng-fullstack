@@ -1,4 +1,4 @@
-import TodoController from '../controller/todo.controller';
+import TodoController from '../controller/todo-controller';
 
 export default class TodoRoutes {
   static init(router) {
