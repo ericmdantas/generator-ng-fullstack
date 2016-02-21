@@ -5,7 +5,7 @@ const optionsParser = require('../utils/options_parser');
 const utils = require('../utils/utils');
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 
-export class ResourceSubGenerator {
+exports.ResourceSubGenerator = class ResourceSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
   }

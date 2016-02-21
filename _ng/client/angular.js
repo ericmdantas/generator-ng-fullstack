@@ -28,6 +28,11 @@ class Angular1 {
     this.generator.template('ng1/service.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/services/${this.generator.name}.js`, {name: this.generator.name});
     this.generator.template('ng1/service_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/services/${this.generator.name}_test.js`, {name: this.generator.name});
   }
+
+  copyModel() {
+    this.generator.template('ng1/model.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/models/${this.generator.name}.js`, {name: this.generator.name});
+    this.generator.template('ng1/model_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/models/${this.generator.name}_test.js`, {name: this.generator.name});
+  }
 }
 
 class Angular2 {
@@ -57,6 +62,11 @@ class Angular2 {
   copyService() {
     this.generator.template('ng2/service.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/${this.generator.name}.ts`, {name: this.generator.name});
     this.generator.template('ng2/service_test.ts', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/${this.generator.name}_test.ts`, {name: this.generator.name});
+  }
+
+  copyModel() {
+    this.generator.template('ng2/model.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/${this.generator.name}.ts`, {name: this.generator.name});
+    this.generator.template('ng2/model_test.ts', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/${this.generator.name}_test.ts`, {name: this.generator.name});
   }
 }
 

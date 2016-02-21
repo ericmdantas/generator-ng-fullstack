@@ -119,6 +119,26 @@ describe('angular', () => {
       expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
     });
   });
+
+  describe('copyModel', () => {
+    it('should have the initializing called with the right stuff', () => {
+      let _gen = {
+        name: 'a',
+        options: {feature: 'c'},
+        template: sinon.spy()
+      };
+
+      let _ng1 = new Angular1(_gen);
+
+      let _firstCall = ['ng1/model.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.js', {name: _gen.name}]
+      let _secondCall = ['ng1/model_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '_test.js', {name: _gen.name}]
+
+      _ng1.copyModel();
+
+      expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+    });
+  });
 });
 
 describe('ng2', () => {
@@ -213,6 +233,26 @@ describe('ng2', () => {
       let _secondCall = ['ng2/service_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/' + _gen.name + '_test.ts', {name: _gen.name}]
 
       _ng2.copyService();
+
+      expect(_ng2.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_ng2.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+    });
+  });
+
+  describe('copyModel', () => {
+    it('should have the initializing called with the right stuff', () => {
+      let _gen = {
+        name: 'a',
+        options: {feature: 'c'},
+        template: sinon.spy()
+      };
+
+      let _ng2 = new Angular2(_gen);
+
+      let _firstCall = ['ng2/model.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/' + _gen.name + '.ts', {name: _gen.name}]
+      let _secondCall = ['ng2/model_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/' + _gen.name + '_test.ts', {name: _gen.name}]
+
+      _ng2.copyModel();
 
       expect(_ng2.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng2.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;

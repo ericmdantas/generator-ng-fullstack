@@ -6,7 +6,7 @@ const utils = require('../utils/utils');
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 const AngularFactory = require('./angular').AngularFactory;
 
-export class DirectiveSubGenerator {
+export.DirectiveSubGenerator = class DirectiveSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
     this.wrapper.ngVersion = this.wrapper.config.get('client');
