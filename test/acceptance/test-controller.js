@@ -12,8 +12,8 @@ describe('NgFullstack:controller', () => {
 
   it('creates files', () => {
     assert.file([
-      'client/dev/user/controllers/hue.controller.js',
-      'tests/client/user/controllers/hue.controller_test.js'
+      'client/dev/user/controllers/hue.js',
+      'tests/client/user/controllers/hue_test.js'
     ]);
   });
 });

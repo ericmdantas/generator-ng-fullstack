@@ -12,8 +12,8 @@ describe('NgFullstack:pipe', function () {
 
   it('creates files', function() {
     assert.file([
-      'client/dev/something-useful/pipes/something.pipe.ts',
-      'tests/client/something-useful/pipes/something.pipe_test.js'
+      'client/dev/something-useful/pipes/something.ts',
+      'tests/client/something-useful/pipes/something_test.js'
     ]);
   });
 });

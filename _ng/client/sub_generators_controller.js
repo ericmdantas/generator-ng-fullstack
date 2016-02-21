@@ -26,7 +26,7 @@ exports.ControllerSubGenerator = class ControllerSubGenerator {
       if (!feature.length)
         throw new FeatureMissingError();
 
-      this.wrapper.template('controller_client.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/controllers/${name}.controller.js`, {name: name});
-      this.wrapper.template('controller_client_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/controllers/${name}.controller_test.js`, {name: name, nameLowerCase: nameLowerCase});
+      this.wrapper.template('controller_client.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/controllers/${name}.js`, {name: name});
+      this.wrapper.template('controller_client_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/controllers/${name}_test.js`, {name: name, nameLowerCase: nameLowerCase});
     }
 }

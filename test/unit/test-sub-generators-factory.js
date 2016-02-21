@@ -57,8 +57,8 @@ describe('FactorySubGenerator', () => {
 
         _fsg.writing();
 
-        let _firstCall = ['ng1/factory.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.factory.js', {name: utils.capitalizeFirst(_gen.name)}];
-        let _secondCall = ['ng1/factory_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.factory_test.js', {name: utils.capitalizeFirst(_gen.name)}];
+        let _firstCall = ['ng1/factory.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.js', {name: utils.capitalizeFirst(_gen.name)}];
+        let _secondCall = ['ng1/factory_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '_test.js', {name: utils.capitalizeFirst(_gen.name)}];
 
         expect(_fsg.wrapper.writing).to.have.been.called;
         expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
@@ -83,8 +83,8 @@ describe('FactorySubGenerator', () => {
 
         _fsg.writing();
 
-        let _firstCall = ['ng2/factory.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/' + _gen.name + '_factory.ts', {name: utils.capitalizeFirst(_gen.name)}];
-        let _secondCall = ['ng2/factory_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/' + _gen.name + '_factory_test.ts', {name: utils.capitalizeFirst(_gen.name)}];
+        let _firstCall = ['ng2/factory.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/' + _gen.name + '.ts', {name: utils.capitalizeFirst(_gen.name)}];
+        let _secondCall = ['ng2/factory_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/' + _gen.name + '_test.ts', {name: utils.capitalizeFirst(_gen.name)}];
 
         expect(_fsg.wrapper.writing).to.have.been.called;
         expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;

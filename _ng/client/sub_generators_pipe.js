@@ -25,7 +25,7 @@ exports.PipeSubGenerator = class PipeSubGenerator {
     if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('pipe.ts', `${knownPaths.PATH_CLIENT_FEATURES + feature}/pipes/${name}.pipe.ts`, {name: name});
-    this.wrapper.template('pipe_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/pipes/${name}.pipe_test.js`, {name: name});
+    this.wrapper.template('pipe.ts', `${knownPaths.PATH_CLIENT_FEATURES + feature}/pipes/${name}.ts`, {name: name});
+    this.wrapper.template('pipe_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/pipes/${name}_test.js`, {name: name});
   }
 }

@@ -15,18 +15,18 @@ class Angular1 {
   }
 
   copyDirective() {
-    this.generator.template('ng1/directive.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/directives/${this.generator.name}.directive.js`, {name: this.generator.name});
-    this.generator.template('ng1/directive_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/directives/${this.generator.name}.directive_test.js`, {name: this.generator.name});
+    this.generator.template('ng1/directive.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/directives/${this.generator.name}.js`, {name: this.generator.name});
+    this.generator.template('ng1/directive_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/directives/${this.generator.name}_test.js`, {name: this.generator.name});
   }
 
   copyFactory() {
-    this.generator.template('ng1/factory.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/factory/${this.generator.name}.factory.js`, {name: utils.capitalizeFirst(this.generator.name)});
-    this.generator.template('ng1/factory_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/factory/${this.generator.name}.factory_test.js`, {name: utils.capitalizeFirst(this.generator.name)});
+    this.generator.template('ng1/factory.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/factory/${this.generator.name}.js`, {name: utils.capitalizeFirst(this.generator.name)});
+    this.generator.template('ng1/factory_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/factory/${this.generator.name}_test.js`, {name: utils.capitalizeFirst(this.generator.name)});
   }
 
   copyService() {
-    this.generator.template('ng1/service.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/services/${this.generator.name}.service.js`, {name: this.generator.name});
-    this.generator.template('ng1/service_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/services/${this.generator.name}.service_test.js`, {name: this.generator.name});
+    this.generator.template('ng1/service.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/services/${this.generator.name}.js`, {name: this.generator.name});
+    this.generator.template('ng1/service_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/services/${this.generator.name}_test.js`, {name: this.generator.name});
   }
 }
 
@@ -45,18 +45,18 @@ class Angular2 {
   }
 
   copyDirective() {
-    this.generator.template('ng2/directive.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/${this.generator.name}_directive.ts`, {name: this.generator.name});
-    this.generator.template('ng2/directive_test.ts', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/${this.generator.name}_directive_test.ts`, {name: this.generator.name});
+    this.generator.template('ng2/directive.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/${this.generator.name}.ts`, {name: this.generator.name});
+    this.generator.template('ng2/directive_test.ts', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/${this.generator.name}_test.ts`, {name: this.generator.name});
   }
 
   copyFactory() {
-    this.generator.template('ng2/factory.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/${this.generator.name}_factory.ts`, {name: utils.capitalizeFirst(this.generator.name)});
-    this.generator.template('ng2/factory_test.ts', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/${this.generator.name}_factory_test.ts`, {name: utils.capitalizeFirst(this.generator.name)});
+    this.generator.template('ng2/factory.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/${this.generator.name}.ts`, {name: utils.capitalizeFirst(this.generator.name)});
+    this.generator.template('ng2/factory_test.ts', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/${this.generator.name}_test.ts`, {name: utils.capitalizeFirst(this.generator.name)});
   }
 
   copyService() {
-    this.generator.template('ng2/service.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/${this.generator.name}_service.ts`, {name: this.generator.name});
-    this.generator.template('ng2/service_test.ts', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/${this.generator.name}_service_test.ts`, {name: this.generator.name});
+    this.generator.template('ng2/service.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/${this.generator.name}.ts`, {name: this.generator.name});
+    this.generator.template('ng2/service_test.ts', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/${this.generator.name}_test.ts`, {name: this.generator.name});
   }
 }
 

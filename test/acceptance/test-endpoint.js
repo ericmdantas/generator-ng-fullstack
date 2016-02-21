@@ -26,12 +26,12 @@ describe('NgFullstack:endpoint', () => {
 
       it('creates files', () => {
         assert.file([
-          'server/api/todo2/controller/endp.controller.js',
-          'server/api/todo2/dao/endp.dao.js',
-          'server/api/todo2/model/endp.model.js',
-          'server/api/todo2/routes/endp.route.js',
+          'server/api/todo2/controller/endp-controller.js',
+          'server/api/todo2/dao/endp-dao.js',
+          'server/api/todo2/model/endp-model.js',
+          'server/api/todo2/routes/endp-route.js',
 
-          'tests/server/todo2/dao/endp.dao_test.js'
+          'tests/server/todo2/dao/endp-dao_test.js'
         ]);
       })
     })
@@ -56,12 +56,12 @@ describe('NgFullstack:endpoint', () => {
 
       it('creates files', () => {
         assert.file([
-          'server/api/todo2/controller/endp.controller.js',
-          'server/api/todo2/dao/endp.dao.js',
-          'server/api/todo2/model/endp.model.js',
-          'server/api/todo2/routes/endp.route.js',
+          'server/api/todo2/controller/endp-controller.js',
+          'server/api/todo2/dao/endp-dao.js',
+          'server/api/todo2/model/endp-model.js',
+          'server/api/todo2/routes/endp-route.js',
 
-          'tests/server/todo2/dao/endp.dao_test.js'
+          'tests/server/todo2/dao/endp-dao_test.js'
         ]);
       })
     })
@@ -86,12 +86,12 @@ describe('NgFullstack:endpoint', () => {
 
       it('creates files', () => {
         assert.file([
-          'server/api/todo2/controller/endp.controller.ts',
-          'server/api/todo2/dao/endp.dao.ts',
-          'server/api/todo2/model/endp.model.ts',
-          'server/api/todo2/routes/endp.route.ts',
+          'server/api/todo2/controller/endp-controller.ts',
+          'server/api/todo2/dao/endp-dao.ts',
+          'server/api/todo2/model/endp-model.ts',
+          'server/api/todo2/routes/endp-route.ts',
 
-          'tests/server/todo2/dao/endp.dao_test.js'
+          'tests/server/todo2/dao/endp-dao_test.js'
         ]);
       })
     })

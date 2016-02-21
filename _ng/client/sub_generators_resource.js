@@ -25,6 +25,6 @@ export class ResourceSubGenerator {
     if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('resource.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/resource/${name}.resource.js`, {name: name});
+    this.wrapper.template('resource.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/resource/${name}.js`, {name: name});
   }
 }

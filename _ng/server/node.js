@@ -4,11 +4,11 @@ const knownPaths = require('../utils/known_paths');
 
 const basePath = (generator) => {
   return {
-    route: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/routes/${generator.name}.route`,
-    controller: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}.controller`,
-    dao: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/dao/${generator.name}.dao`,
-    model: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}.model`,
-    test: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/dao/${generator.name}.dao_test`
+    route: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/routes/${generator.name}-route`,
+    controller: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}-controller`,
+    dao: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/dao/${generator.name}-dao`,
+    model: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model`,
+    test: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/dao/${generator.name}-dao_test`
   }
 }
 

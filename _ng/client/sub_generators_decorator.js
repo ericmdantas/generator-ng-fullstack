@@ -25,6 +25,6 @@ export class DecoratorSubGenerator {
     if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('decorator.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/decorator/${name}.decorator.js`);
+    this.wrapper.template('decorator.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/decorator/${name}.js`);
   }
 }

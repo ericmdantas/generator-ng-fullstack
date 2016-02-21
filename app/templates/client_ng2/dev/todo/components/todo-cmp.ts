@@ -12,7 +12,7 @@ import {
   Control
 } from 'angular2/common';
 
-import {TodoService} from '../services/todo_service';
+import {TodoService} from '../services/todo-service';
 
 type Todo = {
   todoMessage: string;

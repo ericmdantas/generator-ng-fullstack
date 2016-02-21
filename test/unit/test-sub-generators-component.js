@@ -45,10 +45,10 @@ describe('ComponentSubGenerator', () => {
 
       _csg.writing();
 
-      let _firstCall = ['component.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '_cmp.ts', {name: utils.capitalizeFirst(_gen.name)}]
+      let _firstCall = ['component.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.ts', {name: utils.capitalizeFirst(_gen.name)}]
       let _secondCall = ['component.html', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.html', {name: _gen.name}]
       let _thirdCall = ['component.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.css']
-      let _fourthCall = ['component_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '_cmp_test.ts', {name: utils.capitalizeFirst(_gen.name), nameLowerCase: _gen.name.toLowerCase()}]
+      let _fourthCall = ['component_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '_test.ts', {name: utils.capitalizeFirst(_gen.name), nameLowerCase: _gen.name.toLowerCase()}]
 
       expect(_csg.wrapper.writing).to.have.been.called;
       expect(_csg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;

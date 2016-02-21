@@ -12,10 +12,10 @@ describe('NgFullstack:component', () => {
 
   it('creates files', () => {
     assert.file([
-        'client/dev/yo/components/user_cmp.ts',
+        'client/dev/yo/components/user.ts',
         'client/dev/yo/components/user.html',
         'client/dev/yo/components/user.css',
-        'tests/client/yo/components/user_cmp_test.ts'
+        'tests/client/yo/components/user_test.ts'
       ]);
   });
 });

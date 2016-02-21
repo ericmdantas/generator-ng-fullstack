@@ -23,9 +23,9 @@ exports.ComponentSubGenerator = class ComponentSubGenerator {
     let nameLowerCase = name.toLowerCase();
     let _feature = optionsParser.getFeature(this.wrapper.options);
 
-    this.wrapper.template('component.ts', `${knownPaths.PATH_CLIENT_FEATURES + _feature}components/${name}_cmp.ts`, {name: _firstLetterUppercased});
+    this.wrapper.template('component.ts', `${knownPaths.PATH_CLIENT_FEATURES + _feature}components/${name}.ts`, {name: _firstLetterUppercased});
     this.wrapper.template('component.html', `${knownPaths.PATH_CLIENT_FEATURES + _feature}components/${name}.html`, {name: name});
     this.wrapper.template('component.css', `${knownPaths.PATH_CLIENT_FEATURES + _feature}components/${name}.css`);
-    this.wrapper.template('component_test.ts', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}components/${name}_cmp_test.ts`, {name: _firstLetterUppercased, nameLowerCase: nameLowerCase});
+    this.wrapper.template('component_test.ts', `${knownPaths.PATH_CLIENT_FEATURES_TEST + _feature}components/${name}_test.ts`, {name: _firstLetterUppercased, nameLowerCase: nameLowerCase});
   }
 }

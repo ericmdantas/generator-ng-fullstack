@@ -25,7 +25,7 @@ exports.FilterSubGenerator = class FilterSubGenerator {
     if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('filter.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/filters/${name}.filter.js`, {name: name});
-    this.wrapper.template('filter_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/filters/${name}.filter_test.js`, {name: name});
+    this.wrapper.template('filter.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/filters/${name}.js`, {name: name});
+    this.wrapper.template('filter_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/filters/${name}_test.js`, {name: name});
   }
 }

@@ -44,8 +44,8 @@ describe('PipeSubGenerator', () => {
 
       _fsg.writing();
 
-      let _firstCall = ['pipe.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '//pipes/' + _gen.name + '.pipe.ts', {name: _gen.name}]
-      let _secondCall = ['pipe_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '//pipes/' + _gen.name + '.pipe_test.js', {name: _gen.name}]
+      let _firstCall = ['pipe.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '//pipes/' + _gen.name + '.ts', {name: _gen.name}]
+      let _secondCall = ['pipe_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '//pipes/' + _gen.name + '_test.js', {name: _gen.name}]
 
       expect(_fsg.wrapper.writing).to.have.been.called;
       expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;

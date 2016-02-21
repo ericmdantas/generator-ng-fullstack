@@ -62,10 +62,10 @@ describe('ng-fullstack:app', () => {
       'client/dev/app.js',
       'client/dev/app.config.js',
 
-      'client/dev/todo/services/todo.dao.js',
-      'client/dev/todo/services/todo.resource.js',
-      'client/dev/todo/models/todo.js',
-      'client/dev/todo/controllers/todo.controller.js',
+      'client/dev/todo/services/todo-dao.js',
+      'client/dev/todo/services/todo-resource.js',
+      'client/dev/todo/models/todo-model.js',
+      'client/dev/todo/controllers/todo-controller.js',
 
       'client/dev/todo/templates/todo.html',
 
@@ -73,10 +73,9 @@ describe('ng-fullstack:app', () => {
 
       'tests/client/_helpers/invalid-inputs.js',
 
-      'tests/client/todo/controllers/todo.controller_test.js',
-      'tests/client/todo/services/todo.dao_test.js',
-      'tests/client/todo/models/todo.model_test.js',
-      'tests/client/todo/controllers/todo.controller_test.js',
+      'tests/client/todo/controllers/todo-controller_test.js',
+      'tests/client/todo/services/todo-dao_test.js',
+      'tests/client/todo/models/todo-model_test.js',
 
       // tests - e2e
 
@@ -103,15 +102,15 @@ describe('ng-fullstack:app', () => {
 
           'server/auth/local/index.js',
 
-          'server/api/todo/controller/todo.controller.js',
-          'server/api/todo/dao/todo.dao.js',
-          'server/api/todo/model/todo.model.js',
-          'server/api/todo/routes/todo.routes.js',
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/routes/todo-routes.js',
 
 
           // tests - server
 
-          'tests/server/todo/daos/todo.dao_test.js',
+          'tests/server/todo/daos/todo-dao_test.js',
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json']
 
@@ -153,15 +152,15 @@ describe('ng-fullstack:app', () => {
 
           'server/auth/local/index.js',
 
-          'server/api/todo/controller/todo.controller.js',
-          'server/api/todo/dao/todo.dao.js',
-          'server/api/todo/model/todo.model.js',
-          'server/api/todo/routes/todo.routes.js',
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/routes/todo-routes.js',
 
 
           // tests - server
 
-          'tests/server/todo/daos/todo.dao_test.js',
+          'tests/server/todo/daos/todo-dao_test.js',
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json']
 
@@ -205,15 +204,15 @@ describe('ng-fullstack:app', () => {
 
           'server/auth/local/index.ts',
 
-          'server/api/todo/controller/todo.controller.ts',
-          'server/api/todo/dao/todo.dao.ts',
-          'server/api/todo/model/todo.model.ts',
-          'server/api/todo/routes/todo.routes.ts',
+          'server/api/todo/controller/todo-controller.ts',
+          'server/api/todo/dao/todo-dao.ts',
+          'server/api/todo/model/todo-model.ts',
+          'server/api/todo/routes/todo-routes.ts',
 
 
           // tests - server
 
-          'tests/server/todo/daos/todo.dao_test.js',
+          'tests/server/todo/daos/todo-dao_test.js',
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json']
 
@@ -317,15 +316,15 @@ describe('ng-fullstack:app', () => {
 
           'server/auth/local/index.js',
 
-          'server/api/todo/controller/todo.controller.js',
-          'server/api/todo/dao/todo.dao.js',
-          'server/api/todo/model/todo.model.js',
-          'server/api/todo/routes/todo.routes.js',
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/routes/todo-routes.js',
 
 
           // tests - server
 
-          'tests/server/todo/daos/todo.dao_test.js',
+          'tests/server/todo/daos/todo-dao_test.js',
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'];
 
@@ -399,10 +398,10 @@ describe('ng-fullstack:app', () => {
         'client/dev/app.js',
         'client/dev/app.config.js',
 
-        'client/dev/todo/services/todo.dao.js',
-        'client/dev/todo/services/todo.resource.js',
-        'client/dev/todo/models/todo.js',
-        'client/dev/todo/controllers/todo.controller.js',
+        'client/dev/todo/services/todo-dao.js',
+        'client/dev/todo/services/todo-resource.js',
+        'client/dev/todo/models/todo-model.js',
+        'client/dev/todo/controllers/todo-controller.js',
 
         'client/dev/todo/templates/todo.html',
 
@@ -410,9 +409,9 @@ describe('ng-fullstack:app', () => {
 
         'tests/client/_helpers/invalid-inputs.js',
 
-        'tests/client/todo/services/todo.dao_test.js',
-        'tests/client/todo/models/todo.model_test.js',
-        'tests/client/todo/controllers/todo.controller_test.js',
+        'tests/client/todo/services/todo-dao_test.js',
+        'tests/client/todo/models/todo-model_test.js',
+        'tests/client/todo/controllers/todo-controller_test.js',
 
         // tests - e2e
 
@@ -479,15 +478,15 @@ describe('ng-fullstack:app', () => {
         'client/dev/tsconfig.json',
 
         'client/dev/todo/styles/todo.css',
-        'client/dev/todo/components/todo_cmp.ts',
+        'client/dev/todo/components/todo-cmp.ts',
         'client/dev/todo/templates/todo.html',
-        'client/dev/todo/services/todo_service.ts',
+        'client/dev/todo/services/todo-service.ts',
 
         // tests - client
 
         'tests/client/tsconfig.json',
-        'tests/client/todo/services/todo_service_test.ts',
-        'tests/client/todo/components/todo_component_test.ts',
+        'tests/client/todo/services/todo-service_test.ts',
+        'tests/client/todo/components/todo-cmp_test.ts',
 
         // tests - e2e
 
