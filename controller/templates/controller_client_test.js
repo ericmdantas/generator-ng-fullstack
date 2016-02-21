@@ -1,8 +1,8 @@
 "use strict";
 
-describe('<%= name %>Controller', function() {
+describe('<%= name %>', function() {
     var _scope;
-    var CONTROLLER_NAME = '<%= name %>Controller as <%= nameLowerCase %>Ctrl';
+    var CONTROLLER_NAME = '<%= name %> as <%= nameLowerCase %>Ctrl';
 
     beforeEach(module('myAwesomeApp'));
 

@@ -1,10 +1,9 @@
-;(function(angular)
-{
+;(function(angular) {
   "use strict";
 
   angular
     .module('myAwesomeApp')
-    .controller('<%= name %>Controller', [function() {
+    .controller('<%= name %>', [function() {
       var self = this;
     }]);
 }(window.angular));

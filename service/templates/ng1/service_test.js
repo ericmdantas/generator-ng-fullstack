@@ -1,12 +1,12 @@
 "use strict";
 
-describe('<%= name %>Service', function() {
-    var _<%= name %>Service;
+describe('<%= name %>', function() {
+    var _<%= name %>;
 
     beforeEach(module('myAwesomeApp'));
 
     beforeEach(inject(function($injector) {
-        _<%= name %>Service = $injector.get('<%= name %>Service');
+        _<%= name %> = $injector.get('<%= name %>');
     }));
 
     describe('doSomething', function() {

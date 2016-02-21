@@ -1,5 +1,3 @@
-/// <referece path="../../../typings/tsd.d.ts">
-
 import {
   it,
   expect,

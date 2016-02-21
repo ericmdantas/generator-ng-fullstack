@@ -1,4 +1,7 @@
-import {Component, Inject} from 'angular2/angular2';
+import {
+  Component,
+  Inject
+} from 'angular2/core';
 
 @Component({
   selector: '<%= name %>',

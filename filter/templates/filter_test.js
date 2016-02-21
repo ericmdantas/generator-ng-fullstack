@@ -1,6 +1,6 @@
 "use strict";
 
-describe('<%= name %>Service', function() {
+describe('<%= name %>', function() {
   var _<%= name %>;
 
   beforeEach(module('myAwesomeApp'));

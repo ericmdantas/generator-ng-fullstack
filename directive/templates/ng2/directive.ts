@@ -1,10 +1,10 @@
 import {
   Directive,
   OnInit
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 @Directive({
-  selector: 'directive',
+  selector: '[directive]',
   host: {
     '(click)': 'clickHandler()'
   }

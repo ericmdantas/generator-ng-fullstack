@@ -3,7 +3,7 @@
 
   angular
     .module('myAwesomeApp')
-    .service('<%= name %>Service', ['$q', function($q) {
+    .service('<%= name %>', ['$q', function($q) {
       this.doSomething = function() {
 
       };
