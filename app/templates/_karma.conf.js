@@ -13,22 +13,17 @@ module.exports = (config) => {
     // list of files / patterns to load in the browser
     files:
       [
-        'client/dev/bower_components/jquery/dist/jquery.min.js',
-        'client/dev/bower_components/angular/angular.min.js',
-        'client/dev/bower_components/angular-socket-io/socket.min.js',
-        'client/dev/bower_components/angular-new-router/dist/router.es5.min.js',
-        'client/dev/bower_components/angular-resource/angular-resource.min.js',
-        'client/dev/bower_components/bootstrap/dist/js/bootstrap.min.js',
-        'client/dev/bower_components/ng-xtorage/ng-xtorage.min.js',
-        'client/dev/bower_components/angulartics/src/angulartics.js',
-        'client/dev/bower_components/angulartics/src/angulartics-ga.js',
+        'bower_components/jquery/dist/jquery.min.js',
+        'bower_components/angular/angular.min.js',
+        'bower_components/angular-resource/angular-resource.min.js',
+        'bower_components/angular-route/angular-route.min.js',
+        'bower_components/angular-messages/angular-messages.min.js',
 
+        'client/dev/app.js',
+        'client/dev/app.config.js',
+        'client/dev/**/*.js',
 
-        'client/dev/js/app.js',
-        'client/dev/js/**/*.js',
-
-        'client/dev/bower_components/angular-socket-io/mock/socket-io.js',
-        'client/dev/bower_components/angular-mocks/angular-mocks.js',
+        'bower_components/angular-mocks/angular-mocks.js',
 
         'tests/client/**/*_test.js',
 
