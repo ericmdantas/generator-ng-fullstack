@@ -46,8 +46,8 @@ describe('NgFullstack:factory', () => {
 
     it('creates files', () => {
       assert.file([
-        'client/dev/myModel/cars.ts',
-        'tests/client/myModel/cars_test.ts'
+        'client/dev/myModel/factory/cars.ts',
+        'tests/client/myModel/factory/cars_test.ts'
       ]);
     });
   })

@@ -76,8 +76,8 @@ describe('ModelSubGenerator', () => {
 
         let _ssg = new ModelSubGenerator(_gen);
 
-        let _firstCall = ['ng2/model.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/' + _gen.name + '.ts', {name: _gen.name}]
-        let _secondCall = ['ng2/model_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/' + _gen.name + '_test.ts', {name: _gen.name}]
+        let _firstCall = ['ng2/model.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.ts', {name: _gen.name}]
+        let _secondCall = ['ng2/model_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '_test.ts', {name: _gen.name}]
 
         _ssg.writing();
 

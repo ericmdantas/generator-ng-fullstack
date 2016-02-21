@@ -46,8 +46,8 @@ describe('NgFullstack:model', () => {
 
     it('creates files', () => {
       assert.file([
-        'client/dev/myModel/cars.ts',
-        'tests/client/myModel/cars_test.ts'
+        'client/dev/myModel/models/cars.ts',
+        'tests/client/myModel/models/cars_test.ts'
       ]);
     });
   })

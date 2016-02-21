@@ -52,8 +52,8 @@ describe('NgFullstack:service', () => {
 
     it('creates files', () => {
       assert.file([
-        'client/dev/http/post.ts',
-        'tests/client/http/post_test.ts'
+        'client/dev/http/services/post.ts',
+        'tests/client/http/services/post_test.ts'
       ]);
     });
   });
