@@ -5,12 +5,10 @@
 [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ericmdantas/generator-ng-fullstack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# install 
+# install
 
-```
-
+```shell
 $ npm install -g generator-ng-fullstack
-
 ```
 
 # what is this?
