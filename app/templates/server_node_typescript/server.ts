@@ -1,4 +1,4 @@
-/// <reference path="typings/tsd.d.ts" />
+/// <reference path="../typings/tsd.d.ts" />
 
 'use strict';
 
@@ -12,7 +12,6 @@ import * as os from 'os';
 import {RoutesConfig} from './config/routes.conf';
 import {DBConfig} from './config/db.conf';
 import {Routes} from './routes/index';
-import {SocketEvents} from './commons/socket/socket-events';
 
 const app = express();
 const server = app.listen(PORT);

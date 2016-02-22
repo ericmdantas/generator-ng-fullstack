@@ -78,6 +78,6 @@
   },
   "homepage": "https://github.com/<%= username %>/<%= app %>",
   "engines": {
-    "node": "5"
+    "node": "stable"
   }
 }
