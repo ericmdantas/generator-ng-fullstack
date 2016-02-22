@@ -1,4 +1,5 @@
 export const path = {
-  DEV: './client/dev/',  
+  ROT: './',  
+  DEV: './client/dev/',
   DIST: './client/dist/'
 }

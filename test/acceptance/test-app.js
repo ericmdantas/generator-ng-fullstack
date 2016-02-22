@@ -467,6 +467,7 @@ describe('ng-fullstack:app', () => {
         'newrelic.js',
         'procfile.txt',
 
+        'tsconfig.json',
         'typings.json',
 
         // client stuff
@@ -475,8 +476,6 @@ describe('ng-fullstack:app', () => {
 
         'client/dev/index.ts',
 
-        'client/dev/tsconfig.json',
-
         'client/dev/todo/styles/todo.css',
         'client/dev/todo/components/todo-cmp.ts',
         'client/dev/todo/templates/todo.html',
@@ -484,7 +483,6 @@ describe('ng-fullstack:app', () => {
 
         // tests - client
 
-        'tests/client/tsconfig.json',
         'tests/client/todo/services/todo-service_test.ts',
         'tests/client/todo/components/todo-cmp_test.ts',
 

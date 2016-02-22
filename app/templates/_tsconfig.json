@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "module": "system",
+        "module": "commonjs",
         "moduleResolution": "node",
         "target": "es5",
         "sourceMap": true,
@@ -9,6 +9,7 @@
         "noImplicitAny": false
     },
     "exclude": [
+	    "node_modules",
       "typings"
     ]
 }

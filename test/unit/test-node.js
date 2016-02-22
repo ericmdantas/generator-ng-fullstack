@@ -211,8 +211,9 @@ describe('node', () => {
         let _directoryCall = [`server_node_typescript`, 'server'];
 
         let _firstCall = [`index_tsc.js`, 'index.js'];
-        let _secondCall = [`server_node_typescript/tsconfig.json`, `tsconfig.json`];
-        let _thirdCall = [`server_node_typescript/typings.json`, `typings.json`];
+        let _secondCall = [`_tsconfig.json`, `tsconfig.json`];
+        let _thirdCall = [`_typings_ng2_and_tsc_server.json`, `typings.json`];
+
         let _fourthCall = [`tasks/server`, `tasks/server`];
         let _fifthCall = [`tests/server`, `tests/server`];
 
