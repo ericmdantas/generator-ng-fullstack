@@ -5,7 +5,7 @@ const optionsParser = require('../utils/options_parser');
 const utils = require('../utils/utils');
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 
-exports.DecoratorSubGenerator = class DecoratorSubGenerator {
+exports.ViewSubGenerator = class ViewSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
   }
@@ -14,7 +14,7 @@ exports.DecoratorSubGenerator = class DecoratorSubGenerator {
     this.wrapper.argument('name', {
       required: true,
       type: String,
-      desc: 'decorator'
+      desc: 'view'
     });
   }
 
@@ -25,6 +25,6 @@ exports.DecoratorSubGenerator = class DecoratorSubGenerator {
     if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('decorator.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/decorator/${name}.js`);
+    this.wrapper.template('view.html', `${knownPaths.PATH_CLIENT_FEATURES + feature}/templates/${name}.html`);
   }
 }
