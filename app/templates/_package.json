@@ -3,21 +3,22 @@
   "version": "0.0.1",
   "main": "src/<%= app %>.js",
   "scripts": {
-    "build_dev": "node index && gulp client.watch",
+    <% if (clientOnly) { %>"start": "cd client/dev && aliv --port 3333"<%} else {%>
     "start": "node index",
+    "build_dev": "node index && gulp client.watch",
     "test-client": "gulp client.coverage",
     "test-server": "mocha ./tests/server/**/*_test.js --recursive --check-leaks --reporter min --require babel/register",
     "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --require babel/register",
-    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --require babel/register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --require babel/register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"<% } %>
   },
   "dependencies": {
-    "lodash": "^3.10.0",
+    <% if (!clientOnly) { %>"lodash": "^3.10.0",
     "bluebird": "^2.9.24",
     "body-parser": "^1.12.2",
     "express": "~4.12.3",
     "express-content-length-validator": "1.0.0",
     "mongoose": "^4.1.11",
-    "morgan": "^1.5.2", <% if (client === "ng2") { %>
+    "morgan": "^1.5.2", <% } %> <% if (client === "ng2") { %>
     "angular2": "^2.0.0-beta.7",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.13",
