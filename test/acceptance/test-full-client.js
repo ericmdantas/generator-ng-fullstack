@@ -1,3 +1,4 @@
+
 import path from 'path';
 import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
@@ -7,7 +8,7 @@ describe('NgFullstack:factory', () => {
   describe('ng1', () => {
     before((done) => {
       helpers
-        .run(path.join(__dirname, '../../factory'))
+        .run(path.join(__dirname, '../../full-client'))
         .inTmpDir(function(dir) {
           MockConfigFile.create({
             "generator-ng-fullstack": {
@@ -22,8 +23,8 @@ describe('NgFullstack:factory', () => {
 
     it('creates files', () => {
       assert.file([
-        'client/dev/myModel/factory/cars.js',
-        'tests/client/myModel/factory/cars_test.js'
+        'client/dev/myModel/full-client/cars.js',
+        'tests/client/myModel/full-client/cars_test.js'
       ]);
     });
   })
@@ -31,7 +32,7 @@ describe('NgFullstack:factory', () => {
   describe('ng2', () => {
     before((done) => {
       helpers
-        .run(path.join(__dirname, '../../factory'))
+        .run(path.join(__dirname, '../../full-client'))
         .inTmpDir(function(dir) {
           MockConfigFile.create({
             "generator-ng-fullstack": {
@@ -46,8 +47,8 @@ describe('NgFullstack:factory', () => {
 
     it('creates files', () => {
       assert.file([
-        'client/dev/myModel/factory/cars.ts',
-        'tests/client/myModel/factory/cars_test.ts'
+        'client/dev/myModel/full-client/cars.ts',
+        'tests/client/myModel/full-client/cars_test.ts'
       ]);
     });
   })
