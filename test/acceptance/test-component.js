@@ -4,7 +4,8 @@ import {test as helpers} from 'yeoman-generator';
 
 describe('NgFullstack:component', () => {
   before(function (done) {
-    helpers.run(path.join(__dirname, '../../component'))
+    helpers
+      .run(path.join(__dirname, '../../component'))
       .withArguments('user')
       .withOptions({ 'skip-install': true, feature: 'yo'})
       .on('end', done);

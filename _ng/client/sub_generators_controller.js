@@ -3,6 +3,7 @@
 const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
 const utils = require('../utils/utils');
+const AngularFactory = require('./angular').AngularFactory;
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 
 exports.ControllerSubGenerator = class ControllerSubGenerator {
@@ -20,13 +21,10 @@ exports.ControllerSubGenerator = class ControllerSubGenerator {
 
     writing() {
       let feature = optionsParser.getFeature(this.wrapper.options);
-      let name = this.wrapper.name;
-      let nameLowerCase = name.toLowerCase();
 
       if (!feature.length)
         throw new FeatureMissingError();
 
-      this.wrapper.template('controller_client.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/controllers/${name}.js`, {name: name});
-      this.wrapper.template('controller_client_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/controllers/${name}_test.js`, {name: name, nameLowerCase: nameLowerCase});
+      AngularFactory.build(AngularFactory.tokens().NG1, this.wrapper).copyController();
     }
 }

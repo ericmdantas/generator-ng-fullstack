@@ -7,7 +7,14 @@ import {StyleSubGenerator} from '../../_ng/client/sub_generators_style';
 describe('StyleSubGenerator', () => {
   describe('creation', () => {
     it('should have the right param passed to wrapper', () => {
-      let _gen = {a: true};
+      let _gen = {
+        a: true,
+        config: {
+          get() {
+            return 'ng1'
+          }
+        }
+      };
       let _dsg = new StyleSubGenerator(_gen);
 
       expect(_dsg.wrapper).to.equal(_gen);
@@ -17,7 +24,12 @@ describe('StyleSubGenerator', () => {
   describe('initializing', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
-        argument: () => {}
+        argument: () => {},
+        config: {
+          get() {
+            return 'ng1'
+          }
+        }
       };
 
       sinon.mock(_gen.argument);
@@ -31,21 +43,52 @@ describe('StyleSubGenerator', () => {
   });
 
   describe('writing', () => {
-    it('should have the initializing called with the right stuff', () => {
-      let _gen = {
-        name: 'a',
-        options: {feature: 'c'},
-        template: sinon.spy()
-      };
+    describe('ng1', () => {
+      it('should have the writing called with the right stuff', () => {
+        let _gen = {
+          name: 'a',
+          options: {feature: 'c'},
+          config: {
+            get() {
+              return 'ng1';
+            }
+          },
+          template: sinon.spy()
+        };
 
-      let _dsg = new StyleSubGenerator(_gen);
+        let _dsg = new StyleSubGenerator(_gen);
 
-      _dsg.writing();
+        _dsg.writing();
 
-      let _firstCall = ['style.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '//styles/' + _gen.name + '.css'];
+        let _firstCall = ['style.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'];
 
-      expect(_dsg.wrapper.writing).to.have.been.called;
-      expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-    });
+        expect(_dsg.wrapper.writing).to.have.been.called;
+        expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+      });
+    })
+
+    describe('ng2', () => {
+      it('should have the writing called with the right stuff', () => {
+        let _gen = {
+          name: 'a',
+          options: {feature: 'c'},
+          config: {
+            get() {
+              return 'ng2';
+            }
+          },
+          template: sinon.spy()
+        };
+
+        let _dsg = new StyleSubGenerator(_gen);
+
+        _dsg.writing();
+
+        let _firstCall = ['style.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'];
+
+        expect(_dsg.wrapper.writing).to.have.been.called;
+        expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+      });
+    })
   });
 });

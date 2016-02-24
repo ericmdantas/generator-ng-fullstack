@@ -139,6 +139,62 @@ describe('angular', () => {
       expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
     });
   });
+
+  describe('copyTemplate', () => {
+    it('should have the initializing called with the right stuff', () => {
+      let _gen = {
+        name: 'a',
+        options: {feature: 'c'},
+        template: sinon.spy()
+      };
+
+      let _ng1 = new Angular1(_gen);
+
+      let _firstCall = ['view.html', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {name: _gen.name}];
+
+      _ng1.copyTemplate();
+
+      expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+    });
+  });
+
+  describe('copyStyle', () => {
+    it('should have the initializing called with the right stuff', () => {
+      let _gen = {
+        name: 'a',
+        options: {feature: 'c'},
+        template: sinon.spy()
+      };
+
+      let _ng1 = new Angular1(_gen);
+
+      let _firstCall = ['style.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'];
+
+      _ng1.copyStyle();
+
+      expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+    });
+  });
+
+  describe('copyController', () => {
+    it('should have the initializing called with the right stuff', () => {
+      let _gen = {
+        name: 'a',
+        options: {feature: 'c'},
+        template: sinon.spy()
+      };
+
+      let _ng1 = new Angular1(_gen);
+
+      let _firstCall = ['controller_client.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '.js', {name: _gen.name}];
+      let _secondCall = ['controller_client_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/controllers/' + _gen.name + '_test.js', {name: _gen.name, nameLowerCase: _gen.name.toLowerCase()}];
+
+      _ng1.copyController();
+
+      expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+    });
+  });
 });
 
 describe('ng2', () => {
@@ -258,6 +314,66 @@ describe('ng2', () => {
 
       expect(_ng2.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng2.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+    });
+  });
+
+  describe('copyTemplate', () => {
+    it('should have the initializing called with the right stuff', () => {
+      let _gen = {
+        name: 'a',
+        options: {feature: 'c'},
+        template: sinon.spy()
+      };
+
+      let _ng2 = new Angular2(_gen);
+
+      let _firstCall = ['view.html', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {name: _gen.name}];
+
+      _ng2.copyTemplate();
+
+      expect(_ng2.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+    });
+  });
+
+  describe('copyStyle', () => {
+    it('should have the initializing called with the right stuff', () => {
+      let _gen = {
+        name: 'a',
+        options: {feature: 'c'},
+        template: sinon.spy()
+      };
+
+      let _ng2 = new Angular2(_gen);
+
+      let _firstCall = ['style.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'];
+
+      _ng2.copyStyle();
+
+      expect(_ng2.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+    });
+  });
+
+  describe('copyComponent', () => {
+    it('should have the initializing called with the right stuff', () => {
+      let _gen = {
+        name: 'a',
+        options: {feature: 'c'},
+        template: sinon.spy()
+      };
+
+      let _ng2 = new Angular2(_gen);
+
+      let _firstCall = ['component.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.ts', {name: utils.capitalizeFirst(_gen.name)}]
+      let _secondCall = ['component.html', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.html', {name: _gen.name}]
+      let _thirdCall = ['component.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.css']
+      let _fourthCall = ['component_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '_test.ts', {name: utils.capitalizeFirst(_gen.name), nameLowerCase: _gen.name.toLowerCase()}]
+
+      _ng2.copyComponent();
+
+      expect(_ng2.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_ng2.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+      expect(_ng2.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+      expect(_ng2.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
     });
   });
 });

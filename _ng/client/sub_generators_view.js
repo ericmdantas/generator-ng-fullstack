@@ -3,11 +3,13 @@
 const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
 const utils = require('../utils/utils');
+const AngularFactory = require('./angular').AngularFactory;
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 
 exports.ViewSubGenerator = class ViewSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
+    this.wrapper.ngVersion = this.wrapper.config.get('client');
   }
 
   initializing() {
@@ -20,11 +22,10 @@ exports.ViewSubGenerator = class ViewSubGenerator {
 
   writing() {
     let feature = optionsParser.getFeature(this.wrapper.options);
-    let name = this.wrapper.name;
 
     if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('view.html', `${knownPaths.PATH_CLIENT_FEATURES + feature}/templates/${name}.html`);
+    AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyTemplate();
   }
 }

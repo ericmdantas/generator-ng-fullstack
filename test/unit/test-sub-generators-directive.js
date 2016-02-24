@@ -41,7 +41,7 @@ describe('sub_generators', () => {
 
     describe('writing', () => {
       describe('ng1', () => {
-        it('should have the initializing called with the right stuff', () => {
+        it('should have the writing called with the right stuff', () => {
           let _gen = {
             name: 'a',
             options: {feature: 'c'},
@@ -67,7 +67,7 @@ describe('sub_generators', () => {
       })
 
       describe('ng2', () => {
-        it('should have the initializing called with the right stuff', () => {
+        it('should have the writing called with the right stuff', () => {
           let _gen = {
             name: 'a',
             options: {feature: 'c'},
