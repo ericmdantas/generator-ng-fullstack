@@ -3,7 +3,8 @@ import browserSync from 'browser-sync';
 import {path} from './const';
 
 const JS = path.DEV + '**/*.js';
-const INDEX_HTML = path.DEV + 'index.html';
+const CSS = path.DEV + '**/*.css';
+const HTML = path.DEV + '**/*.html';
 
 gulp.task('client.browser_sync', () => {
   return browserSync.reload();
@@ -14,8 +15,9 @@ gulp.task('client.watch', ['client.browser_sync'], () => {
 
   let _watchable = [];
 
-  _watchable.push(INDEX_HTML);
   _watchable.push(JS);
+  _watchable.push(CSS);
+  _watchable.push(HTML);
 
   return gulp.watch(_watchable, ['client.browser_sync']);
 });
