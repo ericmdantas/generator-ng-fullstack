@@ -6,7 +6,7 @@ const utils = require('../utils/utils');
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 const AngularFactory = require('./angular').AngularFactory;
 
-exports.FullClientSubGenerator = class FullClientSubGenerator {
+exports.ModuleSubGenerator = class ModuleSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
     this.wrapper.ngVersion = this.wrapper.config.get('client');
@@ -26,6 +26,6 @@ exports.FullClientSubGenerator = class FullClientSubGenerator {
     if (!_feature.length)
       throw new FeatureMissingError();
 
-    AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyFullClient();
+    AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyModule();
   }
 }
