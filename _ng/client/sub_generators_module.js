@@ -16,7 +16,7 @@ exports.ModuleSubGenerator = class ModuleSubGenerator {
     this.wrapper.argument('name', {
       required: true,
       type: String,
-      desc: 'full-client'
+      desc: 'module'
     });
   }
 
