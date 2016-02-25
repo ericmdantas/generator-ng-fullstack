@@ -1,3 +1,4 @@
 import gulp from 'gulp';
+import {tasks} from 'client/const';
 
-gulp.task('default', ['client.watch']);
+gulp.task('default', [tasks.CLIENT_WATCH]);

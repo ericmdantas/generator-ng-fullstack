@@ -1,5 +1,5 @@
 import gulp from 'gulp';
 import del from 'del';
-import {path} from './const';
+import {path, tasks} from './const';
 
-gulp.task('client.del_dist', () => del.sync([path.DIST]));
+gulp.task(tasks.CLIENT_DEL_DIST, () => del.sync([path.DIST]));

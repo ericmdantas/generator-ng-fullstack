@@ -1,9 +1,9 @@
 import gulp from 'gulp';
-import {path} from './const';
+import {path, tasks} from './const';
 
 const IMAGES = path.DEV + 'common/images/*';
 
-gulp.task('client.imgs:dist', () => {
+gulp.task(tasks.CLIENT_IMAGE_DIST, () => {
   return gulp.src(IMAGES)
              .pipe(gulp.dest(path.DIST + 'imgs/'));
 });
