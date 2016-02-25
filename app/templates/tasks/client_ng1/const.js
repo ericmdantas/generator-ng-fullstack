@@ -1,5 +1,5 @@
 export const path = {
-  ROT: './',  
+  ROOT: './',  
   DEV: './client/dev/',
   DIST: './client/dist/'
 }
