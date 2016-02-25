@@ -44,7 +44,7 @@ describe('ResourceSubGenerator', () => {
 
       _rsg.writing();
 
-      let _firstCall = ['resource.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '//resource/' + _gen.name + '.js', {name: _gen.name}];
+      let _firstCall = ['resource.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/resource/' + _gen.name + '.js', {name: _gen.name}];
 
       expect(_rsg.wrapper.writing).to.have.been.called;
       expect(_rsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;

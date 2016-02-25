@@ -3,6 +3,7 @@
 const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
 const utils = require('../utils/utils');
+const AngularFactory = require('./angular').AngularFactory;
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 
 exports.ResourceSubGenerator = class ResourceSubGenerator {
@@ -25,6 +26,6 @@ exports.ResourceSubGenerator = class ResourceSubGenerator {
     if (!feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('resource.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/resource/${name}.js`, {name: name});
+    AngularFactory.build(AngularFactory.tokens().NG1, this.wrapper).copyResource();
   }
 }

@@ -56,6 +56,7 @@ describe('ModuleSubGenerator', () => {
         sinon.mock(_fsg.copyController);
         sinon.mock(_fsg.copyModel);
         sinon.mock(_fsg.copyFactory);
+        sinon.mock(_fsg.copyResource);
         sinon.mock(_fsg.copyStyle);
         sinon.mock(_fsg.copyService);
         sinon.mock(_fsg.copyTemplate);
@@ -66,6 +67,7 @@ describe('ModuleSubGenerator', () => {
         expect(_fsg.copyController).to.have.been.called;
         expect(_fsg.copyModel).to.have.been.called;
         expect(_fsg.copyFactory).to.have.been.called;
+        expect(_fsg.copyResource).to.have.been.called;
         expect(_fsg.copyStyle).to.have.been.called;
         expect(_fsg.copyService).to.have.been.called;
         expect(_fsg.copyTemplate).to.have.been.called;

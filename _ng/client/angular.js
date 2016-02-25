@@ -74,9 +74,16 @@ class Angular1 {
     this.generator.template(_pathTemplate + 'style.css', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`);
   }
 
+  copyResource(pathTemplate) {
+    let _pathTemplate = pathTemplate || '';
+
+    this.generator.template(_pathTemplate + 'resource.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/resource/${this.generator.name}.js`, {name: this.generator.name});
+  }
+
   copyModule() {
       this.copyController('../../controller/templates/');
       this.copyFactory('../../factory/templates/');
+      this.copyResource('../../resource/templates/');
       this.copyService('../../service/templates/');
       this.copyModel('../../model/templates/');
       this.copyStyle('../../style/templates/');
