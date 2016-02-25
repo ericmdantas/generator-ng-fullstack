@@ -3,6 +3,7 @@
 const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
 const utils = require('../utils/utils');
+const AngularFactory = require('./angular').AngularFactory;
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 
 exports.DecoratorSubGenerator = class DecoratorSubGenerator {
@@ -19,12 +20,11 @@ exports.DecoratorSubGenerator = class DecoratorSubGenerator {
   }
 
   writing() {
-    let feature = optionsParser.getFeature(this.wrapper.options);
-    let name = this.wrapper.name;
+    let _feature = optionsParser.getFeature(this.wrapper.options);
 
-    if (!feature.length)
+    if (!_feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('decorator.js', `${knownPaths.PATH_CLIENT_FEATURES + feature}/decorator/${name}.js`);
+    AngularFactory.build(AngularFactory.tokens().NG1, this.wrapper).copyDecorator();
   }
 }

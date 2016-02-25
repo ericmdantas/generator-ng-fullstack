@@ -49,6 +49,19 @@ class Angular1 {
     this.generator.template(_pathTemplate + 'ng1/model_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/models/${this.generator.name}_test.js`, {name: this.generator.name});
   }
 
+  copyDecorator(pathTemplate) {
+    let _pathTemplate = pathTemplate || '';
+
+    this.generator.template(_pathTemplate + 'decorator.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/decorator/${this.generator.name}.js`);
+  }
+
+  copyFilter(pathTemplate) {
+    let _pathTemplate = pathTemplate || '';
+
+    this.generator.template(_pathTemplate + 'filter.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/filters/${this.generator.name}.js`, {name: this.generator.name});
+    this.generator.template(_pathTemplate + 'filter_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/filters/${this.generator.name}_test.js`, {name: this.generator.name});
+  }
+
   copyTemplate(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
@@ -121,6 +134,13 @@ class Angular2 {
 
     this.generator.template(_pathTemplate + 'ng2/model.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/models/${this.generator.name}.ts`, {name: this.generator.name});
     this.generator.template(_pathTemplate + 'ng2/model_test.ts', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/models/${this.generator.name}_test.ts`, {name: this.generator.name});
+  }
+
+  copyPipe(pathTemplate) {
+    let _pathTemplate = pathTemplate || '';
+
+    this.generator.template(_pathTemplate + 'pipe.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/pipes/${this.generator.name}.ts`, {name: this.generator.name});
+    this.generator.template(_pathTemplate + 'pipe_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/pipes/${this.generator.name}_test.js`, {name: this.generator.name});
   }
 
   copyTemplate(pathTemplate) {

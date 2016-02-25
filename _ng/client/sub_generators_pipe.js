@@ -3,6 +3,7 @@
 const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
 const utils = require('../utils/utils');
+const AngularFactory = require('./angular').AngularFactory;
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 
 exports.PipeSubGenerator = class PipeSubGenerator {
@@ -19,13 +20,12 @@ exports.PipeSubGenerator = class PipeSubGenerator {
   }
 
   writing() {
-    let feature = optionsParser.getFeature(this.wrapper.options);
+    let _feature = optionsParser.getFeature(this.wrapper.options);
     let name = this.wrapper.name;
 
-    if (!feature.length)
+    if (!_feature.length)
       throw new FeatureMissingError();
 
-    this.wrapper.template('pipe.ts', `${knownPaths.PATH_CLIENT_FEATURES + feature}/pipes/${name}.ts`, {name: name});
-    this.wrapper.template('pipe_test.js', `${knownPaths.PATH_CLIENT_FEATURES_TEST + feature}/pipes/${name}_test.js`, {name: name});
+    AngularFactory.build(AngularFactory.tokens().NG2, this.wrapper).copyPipe();
   }
 }
