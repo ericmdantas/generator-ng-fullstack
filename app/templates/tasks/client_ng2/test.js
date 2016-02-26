@@ -1,17 +1,18 @@
 import gulp from 'gulp';
 import coveralls from 'gulp-coveralls';
 import {server as karma} from 'karma';
+import {tasks} from './const';
 
-gulp.task('client.unit_test', (done) => {
+gulp.task(tasks.CLIENT_UNIT_TEST, (done) => {
   return karma
-    .start({
-      configFile: __dirname + '/../../karma.conf.js',
-      browsers: ['Chrome'],
-      singleRun: true
-    }, done);
+          .start({
+            configFile: __dirname + '/../../karma.conf.js',
+            browsers: ['Chrome'],
+            singleRun: true
+          }, done);
 });
 
-gulp.task('client.coverage', ['client.unit_test'], () => {
+gulp.task(tasks.CLIENT_COVERAGE, [tasks.CLIENT_UNIT_TEST], () => {
   return gulp.src('unit_coverage/**/lcov.info')
              .pipe(coveralls());
 });

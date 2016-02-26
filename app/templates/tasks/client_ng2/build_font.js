@@ -1,9 +1,9 @@
 import gulp from 'gulp';
-import {path} from './const';
+import {path, tasks} from './const';
 
 const FONTS = path.DEV + 'fonts/*';
 
-gulp.task('client.fonts:dist', () => {
+gulp.task(tasks.CLIENT_FONT_DIST, () => {
   return gulp.src(FONTS)
              .pipe(gulp.dest(path.DIST + 'fonts/'));
 });

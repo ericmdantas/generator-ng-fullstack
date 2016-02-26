@@ -1,14 +1,17 @@
 import gulp from 'gulp';
+import {tasks} from './const';
 
-gulp.task('client.build_dev', [
-  'client.build_ts:dev'
-]); // dev build
+gulp.task(tasks.CLIENT_BUILD_DEV, [
+  tasks.CLIENT_BUILD_TS_DEV
+]);
 
-gulp.task('client.build_dist', [
-  'client.del_dist',
-  'client.test_client',
-  'client.views:dist',
-  'client.imgs:dist',
-  'client.fonts:dist',
-  'client.build_ts:dist'
-]); // dist build
+gulp.task(tasks.CLIENT_BUILD_DIST, [
+  tasks.CLIENT_BUILD_TS_DIST,
+
+  tasks.CLIENT_UNIT_TEST,
+
+  tasks.CLIENT_DEL_DIST,
+  tasks.CLIENT_VIEW_DIST,
+  tasks.CLIENT_IMAGE_DIST,
+  tasks.CLIENT_FONT_DIST  
+]);

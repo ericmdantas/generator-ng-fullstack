@@ -2,11 +2,11 @@ import gulp from 'gulp';
 import uglify from 'gulp-uglify';
 import cssmin from 'gulp-minify-css';
 import tsc from 'gulp-typescript';
-import {path} from './const';
+import {path, tasks} from './const';
 
 const TS_CONFIG = path.ROOT + 'tsconfig.json';
 
-gulp.task('client.build_ts:dev', () => {
+gulp.task(tasks.CLIENT_BUILD_TS_DEV, () => {
   let tsconfigSrc = tsc.createProject(TS_CONFIG);
 
   return tsconfigSrc.src()
