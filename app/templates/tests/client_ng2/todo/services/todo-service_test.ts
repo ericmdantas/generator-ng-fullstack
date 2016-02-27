@@ -6,7 +6,7 @@ import {
   describe
 } from 'angular2/testing';
 
-import {TodoService} from '../client/dev/todo/todo_service';
+import {TodoService} from '../../../../client/dev/todo/services/todo-service';
 
 describe('todo_service', () => {
   describe('creation', () => {
