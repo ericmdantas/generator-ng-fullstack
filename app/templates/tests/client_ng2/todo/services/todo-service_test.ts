@@ -1,4 +1,4 @@
-/// <referece path="../../../typings/tsd.d.ts">
+/// <referece path="../../../../typings/main.d.ts">
 
 import {
   it,

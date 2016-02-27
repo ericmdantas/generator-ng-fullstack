@@ -1,4 +1,4 @@
-/// <referece path="../../../typings/tsd.d.ts">
+/// <referece path="../../../../typings/main.d.ts">
 
 import {
   it,
@@ -25,32 +25,26 @@ import {
   TEST_BROWSER_APPLICATION_PROVIDERS
 } from 'angular2/platform/testing/browser';
 
-import {TodoCmp} from '../client/dev/todo/todo_cmp.js';
-import {TodoService} from '../client/dev/todo/todo_service.js';
+import {TodoCmp} from '../../../../client/dev/todo/components/todo-cmp';
+import {TodoService} from '../../../../client/dev/todo/services/todo-service';
 
 class MockTodoService extends TodoService {
-  getAll() {
-    return {
-      subscribe(cb) {
-        return cb();
-      }
-    }
+  getAll():Observable<any> {
+    return new Observable((o) => {
+      o.next([]);
+    })
   }
 
-  add(message: string) {
-    return {
-      subscribe(cb) {
-        return cb(message);
-      }
-    }
+  add(message: string):Observable<any> {
+    return new Observable((o) => {
+      o.next(message);
+    });
   }
 
-  remove(id: string) {
-    return {
-      subscribe(cb) {
-        return cb(id);
-      }
-    }
+  remove(id: string):Observable<any> {
+    return new Observable((o) => {
+      o.next(id);
+    });
   }
 }
 
