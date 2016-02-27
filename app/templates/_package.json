@@ -6,7 +6,7 @@
     <% if (clientOnly) { %>"start": "cd client/dev && aliv --port 3333"<%} else {%>
     "start": "node index",
     "build_dev": "node index && gulp client.watch",
-    "test-client": "gulp client.coverage",
+    "test-client": "gulp client.unit_test",
     "test-server": "mocha ./tests/server/**/*_test.js --recursive --check-leaks --reporter min --require babel/register",
     "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --require babel/register",
     "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --require babel/register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"<% } %>
