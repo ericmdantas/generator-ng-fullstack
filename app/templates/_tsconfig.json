@@ -11,5 +11,10 @@
     "exclude": [
 	    "node_modules",
       "typings"
+    ],
+    "filesGlob": [
+      "**/*.ts",
+      "typings/main.d.ts",
+      "node_modules/angular2/typings/browser.d.ts"
     ]
 }
