@@ -1,11 +1,11 @@
 /// <reference path="../../../typings/main.d.ts" />
 
 import * as mongoose from 'mongoose';
-import {Promise} from 'bluebird';
-import todoSchema from '../model/todo-model';
+import * as Promise from 'bluebird';
 import * as _ from 'lodash';
+import todoSchema from '../model/todo-model';
 
-todoSchema.statics.getAll = ():void => {
+todoSchema.statics.getAll = ():Promise<any> => {
     return new Promise((resolve:Function, reject:Function) => {
         let _query = {};
 
@@ -18,7 +18,7 @@ todoSchema.statics.getAll = ():void => {
     });
 }
 
-todoSchema.statics.createTodo = (todo:Object):void => {
+todoSchema.statics.createTodo = (todo:Object):Promise<any> => {
     return new Promise((resolve:Function, reject:Function) => {
       if (!_.isObject(todo)) {
         return reject(new TypeError('Todo is not a valid object.'));
@@ -33,7 +33,7 @@ todoSchema.statics.createTodo = (todo:Object):void => {
     });
 }
 
-todoSchema.statics.deleteTodo = (id:string):void => {
+todoSchema.statics.deleteTodo = (id:string):Promise<any> => {
     return new Promise((resolve:Function, reject:Function) => {
         if (!_.isString(id)) {
             return reject(new TypeError('Id is not a valid string.'));
