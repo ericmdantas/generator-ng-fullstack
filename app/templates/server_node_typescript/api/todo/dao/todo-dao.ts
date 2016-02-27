@@ -1,4 +1,4 @@
-/// <reference path="../../../typings/tsd.d.ts" />
+/// <reference path="../../../typings/main.d.ts" />
 
 import * as mongoose from 'mongoose';
 import {Promise} from 'bluebird';
