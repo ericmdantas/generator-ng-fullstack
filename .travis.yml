@@ -4,4 +4,7 @@ node_js:
   - "stable"
 
 before_install:
-    - npm install -g istanbul mocha
+  - npm install -g istanbul mocha
+
+script:
+  - npm run coverage

@@ -15,7 +15,8 @@
   },
   "scripts": {
     "prepublish": "npm t",
-    "test": "mocha test/ --recursive --reporter list --check-leaks --require babel/register"
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/ -- --recursive --reporter list --check-leaks --require babel/register",
+    "test": "./node_modules/.bin/istanbul test ./node_modules/.bin/_mocha test/ -- --recursive --reporter list --check-leaks --require babel/register"
   },
   "keywords": [
     "yeoman-generator",
@@ -47,6 +48,7 @@
     "chai": "^3.3.0",
     "gulp": "^3.9.0",
     "gulp-rename": "^1.2.2",
+    "istanbul": "^0.4.2",
     "mocha": "*",
     "sinon": "^1.17.1",
     "sinon-chai": "^2.8.0"
