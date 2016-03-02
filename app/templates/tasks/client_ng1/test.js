@@ -3,12 +3,10 @@ import coveralls from 'gulp-coveralls';
 import {server as karma} from 'karma';
 import {tasks} from './const';
 
-const _rootDir = process.cwd();
-
 gulp.task(tasks.CLIENT_UNIT_TEST, (done) => {
   return karma
     .start({
-      configFile: _rootDir + '/karma.conf.js',
+      configFile: process.cwd() + '/karma.conf.js',
       browsers: ['Chrome'],
       singleRun: true
     }, done);

@@ -7,7 +7,7 @@ import {path, tasks} from './const';
 const CSS = path.DEV + '**/*.css';
 
 gulp.task(tasks.CLIENT_CSS_DIST, () => {
-  return gulp.src(CSS, {base: 'client/dev'})
+  return gulp.src(CSS, {base: path.DEV})
              .pipe(cssmin())
              .pipe(rev())
              .pipe(gulp.dest(path.DIST));
