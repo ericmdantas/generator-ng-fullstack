@@ -8,6 +8,5 @@ const JS = path.DEV + '**/*.js';
 gulp.task(tasks.CLIENT_BUILD_JS_DIST, () => {
   return gulp.src(JS, {base: path.DEV})
              .pipe(uglify())
-             .pipe(rev())
              .pipe(gulp.dest(path.DIST));
 });
