@@ -14,3 +14,12 @@ gulp.task(tasks.CLIENT_BUILD_TS_DEV, () => {
                     .js
                     .pipe(gulp.dest('.'));
 });
+
+gulp.task(tasks.CLIENT_BUILD_TS_DIST, () => {
+  let tsconfigSrc = tsc.createProject(TS_CONFIG);
+
+  return tsconfigSrc.src({base: 'client/dev'})
+                    .pipe(tsc(tsconfigSrc))
+                    .js
+                    .pipe(gulp.dest(path.DIST));
+});
