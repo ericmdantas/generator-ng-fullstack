@@ -11,7 +11,6 @@ describe('ng-fullstack:app', () => {
       'tasks/default.js',
       'tasks/index.js',
 
-      'tasks/client/index.js',
       'tasks/client/build_font.js',
       'tasks/client/build_html.js',
       'tasks/client/build_js.js',
@@ -343,7 +342,6 @@ describe('ng-fullstack:app', () => {
           assert.file(_serverFiles);
           assert.file(_taskFilesServer);
           assert.noFile('client/dev/index.html');
-          assert.noFile('tasks/client/index.js');
           assert.noFile('tests/client');
       });
     });
@@ -354,7 +352,6 @@ describe('ng-fullstack:app', () => {
         'tasks/default.js',
         'tasks/index.js',
 
-        'tasks/client/index.js',
         'tasks/client/build_font.js',
         'tasks/client/build_html.js',
         'tasks/client/build_image.js',
@@ -444,11 +441,12 @@ describe('ng-fullstack:app', () => {
         'tasks/default.js',
         'tasks/index.js',
 
-        'tasks/client/index.js',
         'tasks/client/build_font.js',
         'tasks/client/build_html.js',
         'tasks/client/build_image.js',
         'tasks/client/build_ts.js',
+        'tasks/client/build_js.js',
+        'tasks/client/build.js',
         'tasks/client/del.js',
         'tasks/client/test.js',
         'tasks/client/const.js',
