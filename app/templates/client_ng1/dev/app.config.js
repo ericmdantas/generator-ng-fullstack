@@ -8,7 +8,7 @@
         .when('/', {
           templateUrl: 'todo/templates/todo.html',
           controller: 'TodoController',
-          controllerAs: 'todo'
+          controllerAs: 'todoCtrl'
         })
         .otherwise({redirectTo: '/'});
     }])
