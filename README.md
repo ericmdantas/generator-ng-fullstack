@@ -52,3 +52,7 @@ Our Wiki should cover all you need to get familiar with our tools, but if you ar
 [TypeScript](http://www.typescriptlang.org/Tutorial)
 [Go](https://tour.golang.org/welcome/1)
 [MongoDB](https://university.mongodb.com/)
+
+#License
+
+MIT
