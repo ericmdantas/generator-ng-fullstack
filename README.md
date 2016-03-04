@@ -41,7 +41,7 @@ then to create a new app:
 
     $ yo ng-fullstack
 
-and answer the on-screen questions. When it's done, you should have [[this | Getting-Started#result]] structure. The default starter project is our [[Todo app | Todo-walkthrough]].
+and answer the on-screen questions. When it's done, you should have [this](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started) structure. The default starter project is our [ToDO App](https://github.com/ericmdantas/generator-ng-fullstack/wiki/ToDo-Walkthrough).
 
 For full guidance on setting up the dependencies and generating your first app, see [[Getting Started | getting-started]]
 
