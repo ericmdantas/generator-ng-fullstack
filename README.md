@@ -18,7 +18,7 @@ There are many other generators out there, but they are often out of date and do
 
 You'll be working with the latest versions of:
 
-+ [Bootstrap](https://github.com/twbs/bootstrap) - A sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development. 
++ [Bootstrap](https://github.com/twbs/bootstrap) - A sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.
 + [Gulp](https://github.com/gulpjs/gulp)- A streaming build system, by using node's streams file manipulation is all done in memory, and a file isn't written until you tell it to do so.
 + [Bluebird](https://github.com/petkaantonov/bluebird) - Bluebird is a fully featured promise library with focus on innovative features and performance.
 + [Lodash](https://github.com/lodash/lodash) - A modern JavaScript utility library delivering modularity, performance, & extras.
@@ -43,11 +43,11 @@ then to create a new app:
 
 and answer the on-screen questions. When it's done, you should have [this](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started) structure. The default starter project is our [ToDO App](https://github.com/ericmdantas/generator-ng-fullstack/wiki/ToDo-Walkthrough).
 
-For full guidance on setting up the dependencies and generating your first app, see [[Getting Started | getting-started]]
+For full guidance on setting up the dependencies and generating your first app, see [Getting Started](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started)
 
 # Resources
 
-Our Wiki should cover all you need to get familiar with our tools, but if you are unfamiliar with any pats of the technology stack, we have linked to some official resources which may get you pointed in the right direction. 
+Our Wiki should cover all you need to get familiar with our tools, but if you are unfamiliar with any pats of the technology stack, we have linked to some official resources which may get you pointed in the right direction.
 [AngularJS 2](https://angular.io/docs/ts/latest/tutorial/)
 [TypeScript](http://www.typescriptlang.org/Tutorial)
 [Go](https://tour.golang.org/welcome/1)
