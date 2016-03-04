@@ -1,70 +1,54 @@
-![abc](logo.png)
+![abc](https://github.com/georgeedwards/generator-ng-fullstack/raw/master/logo.png)
 
-
+# Home
 [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack)
 [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master)
 [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ericmdantas/generator-ng-fullstack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-### install
+Generator ng-Fullstack is a project to allow you to rapidly get started with prototyping full-stack web applications, with the newest technologies available. Based of [Yeoman](http://yeoman.io/), this is the next generation of full-stack generators. We support the following technology options to allow you to customise your stack (Pick one from each column!).
 
-```shell
-$ npm install -g generator-ng-fullstack
-```
+| Client        | Server        | Node (Compiler) |
+| ------------- |:-------------:| :---------------:|
+| Angular 1.x for client (JS)      | node + express + mongoose + mongodb | No transpiler (pure nodejs, latest versions)  |
+| Angular 2.x for client (TS)      | go + httprouter + mgo + mongodb;      |   Babel          |
+|  |      |    Typescript          |
 
-### what is this?
+There are many other generators out there, but they are often out of date and don't reflect the newest technologies. We plan to keep this going strong and updated!
 
-This is a [Yeoman](http://yeoman.io) generator for the now and next generation fullstack applications.
+You'll be working with the latest versions of:
 
-Forget about initial setup, ```yo ng-fullstack``` and be happy!
++ [Bootstrap](https://github.com/twbs/bootstrap) - A sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development. 
++ [Gulp](https://github.com/gulpjs/gulp)- A streaming build system, by using node's streams file manipulation is all done in memory, and a file isn't written until you tell it to do so.
++ [Bluebird](https://github.com/petkaantonov/bluebird) - Bluebird is a fully featured promise library with focus on innovative features and performance.
++ [Lodash](https://github.com/lodash/lodash) - A modern JavaScript utility library delivering modularity, performance, & extras.
 
+and integrate with:
 
-### quick start
++ [Heroku](https://www.heroku.com/) - Heroku is a platform as a service (PaaS) that enables developers to build and run applications entirely in the cloud, powered by SalesForce.
++ [New Relic](http://newrelic.com/) - A popular and powerful web app analytics platform, providing everything you need to ship better software.
++ [MongoHQ](https://www.compose.io/) - Production grade managed MongoDB instances to help you focus on the parts of your app that matter.
++ [Google Analytics](https://www.google.com/analytics/) - Detailed website analytics, understand traffic, sources, cohort analysis, geographic and technological profiles of users and much, much more - all for free! (Pro analytics also available)
++ and Loads more!
 
-[Take a look here](https://github.com/ericmdantas/generator-ng-fullstack/wiki#do-i-need-anything).
+# Getting Started
 
-### what am I going to be using?
+If you already have Node/Go setup, all you have to do is run:
 
-You'll be using the **latest** versions of:
+    $ npm install -g generator-ng-fullstack
 
-- [Node](https://github.com/nodejs/node) / [Go](https://golang.org/);
-- [AngularJS](https://github.com/angular/angular.js) / [Angular2](https://github.com/angular/angular);
-- [Babel](https://github.com/babel/babel) / [Typescript](https://github.com/Microsoft/Typescript);
-- [Bootstrap](https://github.com/twbs/bootstrap);
-- [Gulp](https://github.com/gulpjs/gulp);
-- [Express](https://github.com/strongloop/express);
-- [MongoDB](https://github.com/mongodb/mongo) + [Mongoose](https://github.com/learnboost/mongoose) / [mgo](https://github.com/go-mgo/mgo);
-- [Bluebird](https://github.com/petkaantonov/bluebird);
-- [Lodash](https://github.com/lodash/lodash);
-- [Integration with Heroku](https://www.heroku.com/);
-- [Integration with New Relic](http://newrelic.com/);
-- [Integration with MongoHQ](https://www.compose.io/);
-- [Integration with Google Analytics](http://www.google.com/analytics/);
-- And a bunch of great other modules out there!
+then to create a new app:
 
+    $ yo ng-fullstack
 
-### why did you create this?
+and answer the on-screen questions. When it's done, you should have [[this | Getting-Started#result]] structure. The default starter project is our [[Todo app | Todo-walkthrough]].
 
-Most solutions out there are either outdated or not as complete.
+For full guidance on setting up the dependencies and generating your first app, see [[Getting Started | getting-started]]
 
-The idea is to keep this one going strong and updated.
+# Resources
 
-
-### meh, I'm not interested. What else is out there?
-
-This project is one of many things that you can use to get started building a new app.  
-For a detailed comparison of the options and trade-offs between them, please visit [this](http://www.dancancro.com/comparison-of-angularjs-application-starters) link.
-
-
-### inspiration
-
-Inspired by [generator-angular-fullstack](https://github.com/DaftMonk/generator-angular-fullstack).
-
-
-### got any idea?
-
-PRs are welcome! Either commit them or let me know and we'll talk about it =]
-
-### license
-
-MIT
+Our Wiki should cover all you need to get familiar with our tools, but if you are unfamiliar with any pats of the technology stack, we have linked to some official resources which may get you pointed in the right direction. 
+[AngularJS 2](https://angular.io/docs/ts/latest/tutorial/)
+[TypeScript](http://www.typescriptlang.org/Tutorial)
+[Go](https://tour.golang.org/welcome/1)
+[MongoDB](https://university.mongodb.com/)
