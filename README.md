@@ -1,6 +1,5 @@
 ![abc](https://github.com/georgeedwards/generator-ng-fullstack/raw/master/logo.png)
 
-# Home
 [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack)
 [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master)
 [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack)
@@ -43,7 +42,7 @@ then to create a new app:
 
 and answer the on-screen questions. When it's done, you should have [this](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started) structure. The default starter project is our [ToDO App](https://github.com/ericmdantas/generator-ng-fullstack/wiki/ToDo-Walkthrough).
 
-For full guidance on setting up the dependencies and generating your first app, see [Getting Started](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started)
+For full guidance on setting up the dependencies and generating your first app, see [Getting Started](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started).
 
 # Resources
 
