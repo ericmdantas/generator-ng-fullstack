@@ -24,21 +24,40 @@ class GoServer {
     let _featureWithoutTrailingSlash = this.wrapper.feature.replace('/', '');
     let gen = basePath(this.wrapper);
 
-    this.wrapper.template('go/endpoint.route.go', `${gen.route}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), username: this.wrapper.username, appName: this.wrapper.appName, feature: _featureWithoutTrailingSlash});
-    this.wrapper.template('go/endpoint.controller.go', `${gen.controller}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), username: this.wrapper.username, appName: this.wrapper.appName, feature: _featureWithoutTrailingSlash});
-    this.wrapper.template('go/endpoint.dao.go', `${gen.dao}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), username: this.wrapper.username, appName: this.wrapper.appName, feature: _featureWithoutTrailingSlash});
-    this.wrapper.template('go/endpoint.model.go', `${gen.model}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), username: this.wrapper.username, appName: this.wrapper.appName, feature: _featureWithoutTrailingSlash});
+    this.wrapper.template('go/endpoint.route.go', `${gen.route}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), username: this.wrapper.githubUsername, appName: this.wrapper.appName, feature: _featureWithoutTrailingSlash});
+    this.wrapper.template('go/endpoint.controller.go', `${gen.controller}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), username: this.wrapper.githubUsername, appName: this.wrapper.appName, feature: _featureWithoutTrailingSlash});
+    this.wrapper.template('go/endpoint.dao.go', `${gen.dao}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), username: this.wrapper.githubUsername, appName: this.wrapper.appName, feature: _featureWithoutTrailingSlash});
+    this.wrapper.template('go/endpoint.model.go', `${gen.model}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), username: this.wrapper.githubUsername, appName: this.wrapper.appName, feature: _featureWithoutTrailingSlash});
 
-    this.wrapper.template('go/endpoint.dao_test.go', `${gen.daoTest}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: _featureWithoutTrailingSlash, username: this.wrapper.username, appName: this.wrapper.appName});
-    this.wrapper.template('go/endpoint.model_test.go', `${gen.modelTest}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: _featureWithoutTrailingSlash, username: this.wrapper.username, appName: this.wrapper.appName});
-    this.wrapper.template('go/endpoint.controller_test.go', `${gen.controllerTest}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: _featureWithoutTrailingSlash, username: this.wrapper.username, appName: this.wrapper.appName});
-    this.wrapper.template('go/endpoint.route_test.go', `${gen.routeTest}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: _featureWithoutTrailingSlash, username: this.wrapper.username, appName: this.wrapper.appName});
+    this.wrapper.template('go/endpoint.dao_test.go', `${gen.daoTest}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: _featureWithoutTrailingSlash, username: this.wrapper.githubUsername, appName: this.wrapper.appName});
+    this.wrapper.template('go/endpoint.model_test.go', `${gen.modelTest}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: _featureWithoutTrailingSlash, username: this.wrapper.githubUsername, appName: this.wrapper.appName});
+    this.wrapper.template('go/endpoint.controller_test.go', `${gen.controllerTest}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: _featureWithoutTrailingSlash, username: this.wrapper.githubUsername, appName: this.wrapper.appName});
+    this.wrapper.template('go/endpoint.route_test.go', `${gen.routeTest}.go`, {name: this.wrapper.name, nameLowerCase: this.wrapper.name.toLowerCase(), feature: _featureWithoutTrailingSlash, username: this.wrapper.githubUsername, appName: this.wrapper.appName});
   }
 
   copyForMainGenerator() {
-    this.wrapper.directory('server_go', 'server');
-    this.wrapper.template('server_go/main.go', 'server/main.go', {appName: this.wrapper.appName, username: this.wrapper.username});
-    this.wrapper.template('server_go/routes/routes.go', 'server/routes/routes.go', {appName: this.wrapper.appName, username: this.wrapper.username});
+    this.wrapper.template('server_go/main.go', 'server/main.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+
+    this.wrapper.template('server_go/routes/routes.go', 'server/routes/routes.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+    this.wrapper.template('server_go/routes/routes_test.go', 'server/routes/routes_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+
+    this.wrapper.template('server_go/config/dbconfig.go', 'server/config/dbconfig.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+    this.wrapper.template('server_go/config/dbconfig_test.go', 'server/config/dbconfig_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+
+    this.wrapper.template('server_go/common/static/static.go', 'server/common/static/static.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+    this.wrapper.template('server_go/common/static/static_test.go', 'server/common/static/static_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+
+    this.wrapper.template('server_go/api/todo/routes/todoroutes.go', 'server/api/todo/routes/todoroutes.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+    this.wrapper.template('server_go/api/todo/routes/todoroutes_test.go', 'server/api/todo/routes/todoroutes_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+
+    this.wrapper.template('server_go/api/todo/model/todomodel.go', 'server/api/todo/model/todomodel.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+    this.wrapper.template('server_go/api/todo/model/todomodel_test.go', 'server/api/todo/model/todomodel_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+
+    this.wrapper.template('server_go/api/todo/dao/tododao.go', 'server/api/todo/dao/tododao.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+    this.wrapper.template('server_go/api/todo/dao/tododao_test.go', 'server/api/todo/dao/tododao_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+
+    this.wrapper.template('server_go/api/todo/controller/todocontroller.go', 'server/api/todo/controller/todocontroller.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+    this.wrapper.template('server_go/api/todo/controller/todocontroller_test.go', 'server/api/todo/controller/todocontroller_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
   }
 }
 
