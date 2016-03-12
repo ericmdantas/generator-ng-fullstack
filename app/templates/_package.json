@@ -12,14 +12,14 @@
     "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*_test.js --require babel/register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"<% } %>
   },
   "dependencies": {
-    <% if (!clientOnly) { %>"lodash": "^3.10.0",
+    <% if (!clientOnly) { %>"lodash": "^4.6.1",
     "bluebird": "^2.9.24",
     "body-parser": "^1.12.2",
     "express": "~4.12.3",
     "express-content-length-validator": "1.0.0",
     "mongoose": "^4.1.11",
     "morgan": "^1.5.2", <% } %> <% if (client === "ng2") { %>
-    "angular2": "^2.0.0-beta.8",
+    "angular2": "^2.0.0-beta.9",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.13",
     "reflect-metadata": "^0.1.3",
@@ -47,7 +47,7 @@
     "gulp-concat": "^2.4.3",
     "gulp-coveralls": "^0.1.3",
     "gulp-typescript": "^2.9.2",
-    "gulp-minify-css": "^0.4.5",
+    "gulp-clean-css": "^2.0.3",
     "gulp-rename": "^1.2.0",
     "gulp-rev": "^3.0.0",
     "gulp-uglify": "^1.1.0",

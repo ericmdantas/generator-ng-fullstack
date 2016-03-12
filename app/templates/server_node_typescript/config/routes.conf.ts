@@ -1,4 +1,4 @@
-/// <reference path="../typings/main.d.ts" />
+/// <reference path="../../typings/main.d.ts" />
 
 "use strict";
 
@@ -8,7 +8,7 @@ import * as contentLength from 'express-content-length-validator';
 import * as helmet from 'helmet';
 
 export class RoutesConfig {
-    static init(application:Object, exp:Object):void {
+    static init(application: express.Application, exp: express.Express):void {
         let _clientFiles = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/dev/';
         let _root = process.cwd();
 
