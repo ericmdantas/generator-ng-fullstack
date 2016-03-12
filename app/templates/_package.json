@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "karma-ng-html2js-preprocessor": "^0.1.2",
-    "aliv": "~0.3.3",
+    "aliv": "~0.5.0",
     "del": "^1.1.1",
   	"gulp": "^3.9.0",
     "babel": "^6.1.18",
