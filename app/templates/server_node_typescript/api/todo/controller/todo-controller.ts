@@ -3,14 +3,14 @@
 import TodoDAO from '../dao/todo-dao';
 
 export class TodoController {
-  static getAll(req:Object, res:Object):void {
+  static getAll(req: express.Request, res: express.Response):void {
       TodoDAO
         .getAll()
         .then(todos => res.status(200).json(todos))
         .catch(error => res.status(400).json(error));
   }
 
-  static createTodo(req:Object, res:Object):void {
+  static createTodo(req: express.Request, res: express.Response):void {
       let _todo = req.body;
 
       TodoDAO
@@ -19,7 +19,7 @@ export class TodoController {
         .catch(error => res.status(400).json(error));
   }
 
-  static deleteTodo(req:Object, res:Object):void {
+  static deleteTodo(req: express.Request, res: express.Response):void {
     let _id = req.params.id;
 
     TodoDAO

@@ -5,7 +5,7 @@
 import {TodoController} from '../controller/todo-controller';
 
 export class TodoRoutes {
-    static init(router) {
+    static init(router: express.Router) {
       router
         .route('/api/todos')
         .get(TodoController.getAll)
