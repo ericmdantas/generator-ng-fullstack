@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import cssmin from 'gulp-minify-css';
+import cssmin from 'gulp-clean-css';
 import rev from 'gulp-rev';
 import tsc from 'gulp-typescript';
 import {path, tasks} from './const';
