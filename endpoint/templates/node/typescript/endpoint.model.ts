@@ -1,5 +1,3 @@
-/// <reference path="../../../typings/tsd.d.ts" />
-
 "use strict";
 
 import * as mongoose from 'mongoose';

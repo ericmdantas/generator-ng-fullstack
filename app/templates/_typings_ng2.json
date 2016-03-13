@@ -1,5 +1,5 @@
 {
   "ambientDependencies": {
-    "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#dd638012d63e069f2c99d06ef4dcc9616a943ee4"
+    "jasmine": "registry:dt/jasmine#2.2.0+20160308082659"
   }
 }

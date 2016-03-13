@@ -1,5 +1,3 @@
-/// <reference path="../../typings/main.d.ts" />
-
 "use strict";
 
 import * as morgan from 'morgan';

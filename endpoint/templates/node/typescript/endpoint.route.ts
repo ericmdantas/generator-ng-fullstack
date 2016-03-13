@@ -1,11 +1,9 @@
-/// <reference path="../../../typings/tsd.d.ts" />
-
 "use strict";
 
 import {<%= name %>Controller} from '../controller/<%= name %>.controller';
 
 export class <%= name %>Routes {
-  static init(router:Object) {
+  static init(router:express.Router) {
     router
       .route('/api/<%= nameLowerCase %>')
       .get(<%= name %>Controller.getAll)

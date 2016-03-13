@@ -1,18 +1,16 @@
-/// <reference path="../../../typings/tsd.d.ts" />
-
 "use strict";
 
 import {<%= name %>DAO} from '../dao/<%= name %>.dao';
 
 export class <%= name %>Controller {
-  static getAll(req:Object, res:Object) {
+  static getAll(req:express.Request, res:express.Response) {
     <%= name %>DAO
       .getAll()
       .then(<%= nameLowerCase %> => res.status(200).json(<%= nameLowerCase %>s))
       .catch(error => res.status(400).json(error));
   }
 
-  static createNew(req:Object, res:Object) {
+  static createNew(req:express.Request, res:express.Response) {
     let _<%= nameLowerCase %> = req.body;
 
     <%= name %>DAO
@@ -21,7 +19,7 @@ export class <%= name %>Controller {
       .catch(error => res.status(400).json(error));
   }
 
-  static remove(req:Object, res:Object) {
+  static remove(req:express.Request, res:express.Response) {
     let _id = req.params.id;
 
     <%= name %>DAO

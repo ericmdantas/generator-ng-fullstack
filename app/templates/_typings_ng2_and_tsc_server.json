@@ -1,10 +1,17 @@
 {
+  "dependencies": {
+    "bluebird": "registry:npm/bluebird#3.2.1+20160211005852",
+    "lodash": "registry:npm/lodash#4.0.0+20160305082308"
+  },
   "ambientDependencies": {
-    "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#dd638012d63e069f2c99d06ef4dcc9616a943ee4",
-	  "bluebird": "github:DefinitelyTyped/DefinitelyTyped/bluebird/bluebird.d.ts#dd328830dddffbe19e9addd7cf8532cbd3600816",
-    "express": "github:DefinitelyTyped/DefinitelyTyped/express/express.d.ts#dd638012d63e069f2c99d06ef4dcc9616a943ee4",
-    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash-3.10.d.ts#86dbea8fc37d9473fee465da4f0a21bea4f8cbd9",
-    "mongoose": "github:DefinitelyTyped/DefinitelyTyped/mongoose/mongoose.d.ts#cebde64b3a1d63d07ee7c7dbc49b631ce220d027",
-    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#aee0039a2d6686ec78352125010ebb38a7a7d743"
+    "body-parser": "registry:dt/body-parser#0.0.0+20160112113357",
+    "express": "registry:dt/express#4.0.0+20160208031452",
+    "helmet": "registry:dt/helmet#0.0.0+20160112163250",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160308082659",
+    "mime": "registry:dt/mime#0.0.0+20151204023458",
+    "mongoose": "registry:dt/mongoose#3.8.5+20160209123716",
+    "morgan": "registry:dt/morgan#1.2.2+20160104041339",
+    "node": "registry:dt/node#4.0.0+20160311162451",
+    "serve-static": "registry:dt/serve-static#0.0.0+20160104095738"
   }
 }

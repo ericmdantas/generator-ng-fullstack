@@ -1,5 +1,3 @@
-/// <reference path="../../../../typings/main.d.ts" />
-
 import * as mongoose from 'mongoose';
 
 const _todoSchema = {

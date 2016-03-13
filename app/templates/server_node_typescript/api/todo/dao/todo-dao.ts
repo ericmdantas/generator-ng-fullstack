@@ -1,5 +1,3 @@
-/// <reference path="../../../../typings/main.d.ts" />
-
 import * as mongoose from 'mongoose';
 import * as Promise from 'bluebird';
 import * as _ from 'lodash';

@@ -1,5 +1,3 @@
-/// <reference path="../../typings/main.d.ts" />
-
 import {TodoRoutes} from '../api/todo/routes/todo-routes';
 import {StaticDispatcher} from '../commons/static/index';
 

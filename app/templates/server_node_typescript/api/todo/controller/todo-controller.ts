@@ -1,5 +1,3 @@
-/// <reference path="../../../../typings/main.d.ts" />
-
 import TodoDAO from '../dao/todo-dao';
 
 export class TodoController {
