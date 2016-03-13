@@ -43,7 +43,7 @@ exports.MainGenerator = class MainGenerator {
       this.wrapper.template('_.jshintrc','.jshintrc');
       this.wrapper.template('_.babelrc', '.babelrc');
 
-      this.wrapper.template('tasks/index.js', 'tasks/index.js', {clientOnly: _clientOnly});
+      this.wrapper.template('tasks/index.js', 'tasks/index.js', {nodeServer: _server === ServerFactory.tokens().NODE && !_clientOnly});
       this.wrapper.template('tasks/default.js', 'tasks/default.js');
 
       this.wrapper.directory('tests/e2e', 'tests/e2e');
