@@ -28,7 +28,7 @@ and integrate with:
 + [New Relic](http://newrelic.com/) - A popular and powerful web app analytics platform, providing everything you need to ship better software.
 + [MongoHQ](https://www.compose.io/) - Production grade managed MongoDB instances to help you focus on the parts of your app that matter.
 + [Google Analytics](https://www.google.com/analytics/) - Detailed website analytics, understand traffic, sources, cohort analysis, geographic and technological profiles of users and much, much more - all for free! (Pro analytics also available)
-+ and Loads more!
++ and loads more!
 
 # Getting Started
 
@@ -47,10 +47,11 @@ For full guidance on setting up the dependencies and generating your first app, 
 # Resources
 
 Our Wiki should cover all you need to get familiar with our tools, but if you are unfamiliar with any pats of the technology stack, we have linked to some official resources which may get you pointed in the right direction.
-[AngularJS 2](https://angular.io/docs/ts/latest/tutorial/)
-[TypeScript](http://www.typescriptlang.org/Tutorial)
-[Go](https://tour.golang.org/welcome/1)
-[MongoDB](https://university.mongodb.com/)
+
+- [AngularJS 2](https://angular.io/docs/ts/latest/tutorial/)
+- [TypeScript](http://www.typescriptlang.org/Tutorial)
+- [Go](https://tour.golang.org/welcome/1)
+- [MongoDB](https://university.mongodb.com/)
 
 #License
 
