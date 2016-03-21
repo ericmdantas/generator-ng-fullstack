@@ -23,7 +23,7 @@ export const tasks = {
   CLIENT_UNIT_TEST: 'client.unit_test',
   CLIENT_COVERAGE: 'client.coverage',
 
-  CLIENT_BROWSER_SYNC: 'client.browser_sync',
+  CLIENT_RELOAD: 'client.reload',
 
   CLIENT_WATCH: 'client.watch'
 }
