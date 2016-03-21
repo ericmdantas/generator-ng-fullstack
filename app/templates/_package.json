@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "src/<%= app %>.js",
   "scripts": {
-    <% if (clientOnly) { %>"start": "aliv --quiet --port 3333 --pathIndex \"client/dev\" --only client"<%} else {%>
+    <% if (clientOnly) { %>"start": "aliv --quiet --port 3333 --pathIndex client/dev --only client/dev"<%} else {%>
     "start": "node index",
     "build_dev": "node index && gulp client.watch",
     "test-client": "gulp client.unit_test",
@@ -19,7 +19,7 @@
     "express-content-length-validator": "1.0.0",
     "mongoose": "^4.4.7",
     "morgan": "^1.5.2", <% } %> <% if (client === "ng2") { %>
-    "angular2": "^2.0.0-beta.9",
+    "angular2": "^2.0.0-beta.11",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.13",
     "reflect-metadata": "^0.1.3",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "karma-ng-html2js-preprocessor": "^0.1.2",
-    "aliv": "~1.0.0",
+    "aliv": "~1.1.0",
     "del": "^1.1.1",
   	"gulp": "^3.9.0",
     "babel": "^6.1.18",
