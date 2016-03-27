@@ -1,14 +1,16 @@
+'use strict';
+
 if ('production' === process.env.NODE_ENV)
     require('newrelic');
 
-const PORT = process.env.PORT || 3333;
+var PORT = process.env.PORT || 3333;
 
-import os from 'os';
-import express from 'express';
-import http2 from 'http2';
-import RoutesConfig from './config/routes.conf';
-import DBConfig from './config/db.conf';
-import Routes from './routes/index';
+import * as express from 'express';
+import * as os from 'os';
+import * as https from 'https';
+import {RoutesConfig} from './config/routes.conf';
+import {DBConfig} from './config/db.conf';
+import {Routes} from './routes/index';
 
 const app = express();
 
@@ -21,7 +23,7 @@ const opts = {
   cert: fs.readFileSync('./cert/server.crt')
 }
 
-http2.createServer(opts, app)
+https.createServer(opts, app)
      .listen(PORT, () => {
        console.log(`up and running @: ${os.hostname()} on port: ${PORT}`);
        console.log(`enviroment: ${process.env.NODE_ENV}`);
