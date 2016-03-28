@@ -234,11 +234,127 @@ describe('ng-fullstack:app', () => {
         });
       })
 
-      describe('Go', () => {
+      describe('node - secure', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'index.js', // babel's entry point
+
+          'server/server.js',
+
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/routes.conf.js',
+
+          'server/commons/static/index.js',
+          'server/commons/static/index.js',
+          'server/commons/static/index.js',
+
+          'server/auth/local/index.js',
+
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/routes/todo-routes.js',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        _commonFiles.forEach((common) => _nodeFiles.push(common));
+        _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'node', stack: 'fullstack', client: 'ng1', secure: true})
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+        });
+      })
+
+      describe('golang', () => {
         let _goFiles = [
           // server stuff
 
           'server/main.go',
+
+          'server/routes/routes.go',
+
+          'server/config/dbconfig.go',
+
+          'server/common/static/static.go',
+
+          'server/api/todo/controller/todocontroller.go',
+          'server/api/todo/dao/tododao.go',
+          'server/api/todo/model/todomodel.go',
+          'server/api/todo/routes/todoroutes.go',
+
+
+          // tests - server
+
+          'server/routes/routes_test.go',
+
+          'server/config/dbconfig_test.go',
+
+          'server/common/static/static_test.go',
+
+          'server/api/todo/controller/todocontroller_test.go',
+          'server/api/todo/dao/tododao_test.go',
+          'server/api/todo/model/todomodel_test.go',
+          'server/api/todo/routes/todoroutes_test.go',
+
+          // tests - e2e
+
+          'tests/e2e/todo.e2e._test.js']
+
+        _commonFiles.forEach((common) => _goFiles.push(common));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({appName: "a", githubUsername: "b", server: "go", stack: 'fullstack', client: 'ng1'})
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - Go', () =>  {
+          assert.file(_goFiles);
+        });
+      })
+
+      describe('golang - secure', () => {
+        let _goFiles = [
+          // server stuff
+
+          'server/main.go',
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
 
           'server/routes/routes.go',
 
