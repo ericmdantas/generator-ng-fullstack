@@ -112,7 +112,8 @@ describe('go', () => {
           name: 'b',
           appName: 'c',
           githubUsername: 'd',
-          template: sinon.spy()
+          template: sinon.spy(),
+          secure: true
         }
 
         let _n = new GoServer(_newGenerator);

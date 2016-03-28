@@ -37,13 +37,11 @@ class GoServer {
 
   copyForMainGenerator() {
     if (this.wrapper.secure) {
-      this.wrapper.template('server_go/main.go', 'server/main.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
-    }
-    else {
       this.wrapper.template('server_go/main_http2.go', 'server/main.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
     }
-
-    this.wrapper.template('server_go/main.go', 'server/main.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+    else {
+      this.wrapper.template('server_go/main.go', 'server/main.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+    }
 
     this.wrapper.template('server_go/routes/routes.go', 'server/routes/routes.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
     this.wrapper.template('server_go/routes/routes_test.go', 'server/routes/routes_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
