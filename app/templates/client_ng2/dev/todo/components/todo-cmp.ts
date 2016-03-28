@@ -1,6 +1,5 @@
 import {
   Component,
-  View,
   Inject,
   OnInit
 } from 'angular2/core';
