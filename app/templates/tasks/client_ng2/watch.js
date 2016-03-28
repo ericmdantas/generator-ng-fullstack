@@ -6,11 +6,11 @@ const TS = path.DEV + '**/*.ts';
 const CSS = path.DEV + '**/*.css';
 const HTML = path.DEV + '**/*.html';
 
-gulp.task(tasks.CLIENT_BROWSER_SYNC, () => {
+gulp.task(tasks.CLIENT_RELOAD, () => {
   return browserSync.reload();
 });
 
-gulp.task(tasks.CLIENT_WATCH, [tasks.CLIENT_BUILD_TS_DEV, tasks.CLIENT_BROWSER_SYNC], () => {
+gulp.task(tasks.CLIENT_WATCH, [tasks.CLIENT_BUILD_TS_DEV, tasks.CLIENT_RELOAD], () => {
   browserSync({proxy: "http://localhost:3333", reloadDelay: 1000});
 
   let _watchable = [];
@@ -19,5 +19,5 @@ gulp.task(tasks.CLIENT_WATCH, [tasks.CLIENT_BUILD_TS_DEV, tasks.CLIENT_BROWSER_S
   _watchable.push(CSS);
   _watchable.push(HTML);
 
-  return gulp.watch(_watchable, [tasks.CLIENT_BUILD_TS_DEV, tasks.CLIENT_BROWSER_SYNC]);
+  return gulp.watch(_watchable, [tasks.CLIENT_BUILD_TS_DEV, tasks.CLIENT_RELOAD]);
 });

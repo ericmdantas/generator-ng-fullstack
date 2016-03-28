@@ -18,5 +18,5 @@ export const tasks = {
 
   CLIENT_WATCH: 'client.watch',
 
-  CLIENT_BROWSER_SYNC: 'client.browser_sync'
+  CLIENT_RELOAD: 'client.reload'
 }

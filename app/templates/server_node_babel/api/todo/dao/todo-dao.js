@@ -17,7 +17,7 @@ todoSchema.statics.getAll = () => {
 }
 
 todoSchema.statics.createTodo = (todo) => {
-  return new Promise((resolve, reject) {
+  return new Promise((resolve, reject) => {
     if (!_.isObject(todo))
     return reject(new TypeError('Todo is not a valid object.'));
 
