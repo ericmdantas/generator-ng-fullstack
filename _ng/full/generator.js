@@ -200,7 +200,7 @@ exports.MainGenerator = class MainGenerator {
     let _prompts = [{
       type: 'confirm',
       name: 'secure',
-      message: 'Do you want a secure app (http/https/http2)?',
+      message: 'Do you want a secure app (http/2)?',
       default: true
     }];
 
