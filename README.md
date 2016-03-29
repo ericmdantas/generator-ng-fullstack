@@ -32,6 +32,7 @@ and integrate with:
 + [Heroku](https://www.heroku.com/) - Heroku is a platform as a service (PaaS) that enables developers to build and run applications entirely in the cloud, powered by SalesForce;
 + [New Relic](http://newrelic.com/) - A popular and powerful web app analytics platform, providing everything you need to ship better software;
 + [MongoHQ](https://www.compose.io/) - Production grade managed MongoDB instances to help you focus on the parts of your app that matter;
++ [MongoLAB](https://www.mlab.com/) - Proudly powering over 250,000 MongoDB deployments on AWS, Azure, and Google;
 + [Google Analytics](https://www.google.com/analytics/) - Detailed website analytics, understand traffic, sources, cohort analysis, geographic and technological profiles of users and much, much more - all for free! (Pro analytics also available)
 + and loads more!
 
