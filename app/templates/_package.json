@@ -21,11 +21,11 @@
     "morgan": "^1.5.2", <% } %> <% if (client === "ng2") { %>
     "angular2": "^2.0.0-beta.11",
     "es6-promise": "^3.0.2",
-    "es6-shim": "^0.33.13",
-    "rxjs": "^5.0.0-beta.2",
+    "es6-shim": "^0.35.0",
+    "rxjs": "5.0.0-beta.2",
     "systemjs": "^0.19.5",
     "typescript": "^1.7.3",
-    "zone.js": "^0.5.10", <% } %>
+    "zone.js": "^0.6.6", <% } %>
     "newrelic": "^1.18.2",
     "helmet": "^0.7.1"
   },
