@@ -64,7 +64,7 @@ describe('node', () => {
     });
 
     describe('copyForMainGenerator', () => {
-      it('should call with the right params', () => {
+      it('should call with the right params - not secure', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
@@ -77,14 +77,40 @@ describe('node', () => {
         _n.copyForMainGenerator();
 
         let _firstCall = [`index_node.js`, 'index.js'];
-        let _secondCall = [`server_node`, `server`];
+        let _secondCall = [`server_node/server.js`, `server/server.js`];
         let _thirdCall = [`tasks/server`, `tasks/server`];
         let _fourthCall = [`tests/server`, `tests/server`];
 
         expect(_n.wrapper.template).to.have.been.called;
 
         expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+      });
+
+      it('should call with the right params - secure', () => {
+        let _newGenerator = {
+          feature: 'a',
+          name: 'b',
+          secure: true,
+          directory: sinon.spy(),
+          template: sinon.spy()
+        }
+
+        let _n = new NodeStandard(_newGenerator);
+
+        _n.copyForMainGenerator();
+
+        let _firstCall = [`index_node.js`, 'index.js'];
+        let _secondCall = [`server_node/server_https.js`, `server/server.js`];
+        let _thirdCall = [`tasks/server`, `tasks/server`];
+        let _fourthCall = [`tests/server`, `tests/server`];
+
+        expect(_n.wrapper.template).to.have.been.called;
+
+        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
         expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
         expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
       });
@@ -130,7 +156,7 @@ describe('node', () => {
     });
 
     describe('copyForMainGenerator', () => {
-      it('should call with the right params', () => {
+      it('should call with the right params - not secure', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
@@ -143,14 +169,40 @@ describe('node', () => {
         _n.copyForMainGenerator();
 
         let _firstCall = [`index_babel.js`, 'index.js'];
-        let _secondCall = [`server_node_babel`, `server`];
+        let _secondCall = [`server_node_babel/server.js`, `server/server.js`];
         let _thirdCall = [`tasks/server`, `tasks/server`];
         let _fourthCall = [`tests/server`, `tests/server`];
 
         expect(_n.wrapper.template).to.have.been.called;
 
         expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+      });
+
+      it('should call with the right params - secure', () => {
+        let _newGenerator = {
+          feature: 'a',
+          secure: true,
+          name: 'b',
+          directory: sinon.spy(),
+          template: sinon.spy()
+        }
+
+        let _n = new NodeBabel(_newGenerator);
+
+        _n.copyForMainGenerator();
+
+        let _firstCall = [`index_babel.js`, 'index.js'];
+        let _secondCall = [`server_node_babel/server_https.js`, `server/server.js`];
+        let _thirdCall = [`tasks/server`, `tasks/server`];
+        let _fourthCall = [`tests/server`, `tests/server`];
+
+        expect(_n.wrapper.template).to.have.been.called;
+
+        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
         expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
         expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
       });
@@ -196,7 +248,7 @@ describe('node', () => {
     });
 
     describe('copyForMainGenerator', () => {
-      it('should call with the right params', () => {
+      it('should call with the right params - not secure', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
@@ -208,7 +260,7 @@ describe('node', () => {
 
         _n.copyForMainGenerator();
 
-        let _directoryCall = [`server_node_typescript`, 'server'];
+        let _templateCall = [`server_node_typescript/server.ts`, 'server/server.ts'];
 
         let _firstCall = [`index_tsc.js`, 'index.js'];
         let _secondCall = [`_tsconfig.json`, `tsconfig.json`];
@@ -219,7 +271,40 @@ describe('node', () => {
 
         expect(_n.wrapper.template).to.have.been.called;
 
-        expect(_n.wrapper.directory.calledWith(_directoryCall[0], _directoryCall[1])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_templateCall[0], _templateCall[1])).to.be.true;
+
+        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.wrapper.directory.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
+      });
+
+      it('should call with the right params - secure', () => {
+        let _newGenerator = {
+          feature: 'a',
+          name: 'b',
+          secure: true,
+          directory: sinon.spy(),
+          template: sinon.spy()
+        }
+
+        let _n = new NodeTypescript(_newGenerator);
+
+        _n.copyForMainGenerator();
+
+        let _templateCall = [`server_node_typescript/server_https.ts`, 'server/server.ts'];
+
+        let _firstCall = [`index_tsc.js`, 'index.js'];
+        let _secondCall = [`_tsconfig.json`, `tsconfig.json`];
+        let _thirdCall = [`_typings_ng2_and_tsc_server.json`, `typings.json`];
+
+        let _fourthCall = [`tasks/server`, `tasks/server`];
+        let _fifthCall = [`tests/server`, `tests/server`];
+
+        expect(_n.wrapper.template).to.have.been.called;
+
+        expect(_n.wrapper.template.calledWith(_templateCall[0], _templateCall[1])).to.be.true;
 
         expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;

@@ -43,4 +43,8 @@ module.exports = class NgFullstack extends Base {
     promptUserTranspilerServer() {
       this.generator.promptTranspilerServer();
     }
+
+    promptSecure() {
+      this.generator.promptSecure();
+    }
 }

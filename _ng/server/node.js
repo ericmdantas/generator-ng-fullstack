@@ -1,6 +1,7 @@
 "use strict";
 
 const knownPaths = require('../utils/known_paths');
+const yoUtils = require('../utils/yeoman-utils');
 
 const basePath = (generator) => {
   return {
@@ -30,9 +31,30 @@ class NodeStandard {
 
   copyForMainGenerator() {
     this.wrapper.template('index_node.js', 'index.js');
-    this.wrapper.directory('server_node', 'server');
     this.wrapper.directory('tasks/server', 'tasks/server');
     this.wrapper.directory('tests/server', 'tests/server');
+
+    if (this.wrapper.secure) {
+      this.wrapper.template('server_node/server_https.js', 'server/server.js');
+    }
+    else {
+      this.wrapper.template('server_node/server.js', 'server/server.js');
+    }
+
+    let _paths = [
+      ['server_node/routes/index.js', 'server/routes/index.js'],
+      ['server_node/constants/db.json', 'server/constants/db.json'],
+      ['server_node/config/db.conf.js', 'server/config/db.conf.js'],
+      ['server_node/config/routes.conf.js', 'server/config/routes.conf.js'],
+      ['server_node/commons/static/index.js', 'server/commons/static/index.js'],
+      ['server_node/auth/local/index.js', 'server/auth/local/index.js'],
+      ['server_node/api/todo/controller/todo-controller.js', 'server/api/todo/controller/todo-controller.js'],
+      ['server_node/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
+      ['server_node/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
+      ['server_node/api/todo/routes/todo-routes.js', 'server/api/todo/routes/todo-routes.js']
+    ]
+
+    yoUtils.directory(this.wrapper, _paths);
   }
 }
 
@@ -54,9 +76,30 @@ class NodeBabel {
 
   copyForMainGenerator() {
     this.wrapper.template('index_babel.js', 'index.js');
-    this.wrapper.directory('server_node_babel', 'server');
     this.wrapper.directory('tasks/server', 'tasks/server');
     this.wrapper.directory('tests/server', 'tests/server');
+
+    if (this.wrapper.secure) {
+      this.wrapper.template('server_node_babel/server_https.js', 'server/server.js');
+    }
+    else {
+      this.wrapper.template('server_node_babel/server.js', 'server/server.js');
+    }
+
+    let _paths = [
+      ['server_node_babel/routes/index.js', 'server/routes/index.js'],
+      ['server_node_babel/constants/db.json', 'server/constants/db.json'],
+      ['server_node_babel/config/db.conf.js', 'server/config/db.conf.js'],
+      ['server_node_babel/config/routes.conf.js', 'server/config/routes.conf.js'],
+      ['server_node_babel/commons/static/index.js', 'server/commons/static/index.js'],
+      ['server_node_babel/auth/local/index.js', 'server/auth/local/index.js'],
+      ['server_node_babel/api/todo/controller/todo-controller.js', 'server/api/todo/controller/todo-controller.js'],
+      ['server_node_babel/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
+      ['server_node_babel/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
+      ['server_node_babel/api/todo/routes/todo-routes.js', 'server/api/todo/routes/todo-routes.js']
+    ]
+
+    yoUtils.directory(this.wrapper, _paths);
   }
 }
 
@@ -77,12 +120,33 @@ class NodeTypescript {
   }
 
   copyForMainGenerator() {
-    this.wrapper.directory('server_node_typescript', 'server');
     this.wrapper.template('index_tsc.js', 'index.js');
     this.wrapper.template('_tsconfig.json', 'tsconfig.json');
     this.wrapper.template('_typings_ng2_and_tsc_server.json', 'typings.json');
     this.wrapper.directory('tasks/server', 'tasks/server');
     this.wrapper.directory('tests/server', 'tests/server');
+
+    if (this.wrapper.secure) {
+      this.wrapper.template('server_node_typescript/server_https.ts', 'server/server.ts');
+    }
+    else {
+      this.wrapper.template('server_node_typescript/server.ts', 'server/server.ts');
+    }
+
+    let _paths = [
+      ['server_node_typescript/routes/index.ts', 'server/routes/index.ts'],
+      ['server_node_typescript/constants/db.json', 'server/constants/db.json'],
+      ['server_node_typescript/config/db.conf.ts', 'server/config/db.conf.ts'],
+      ['server_node_typescript/config/routes.conf.ts', 'server/config/routes.conf.ts'],
+      ['server_node_typescript/commons/static/index.ts', 'server/commons/static/index.ts'],
+      ['server_node_typescript/auth/local/index.ts', 'server/auth/local/index.ts'],
+      ['server_node_typescript/api/todo/controller/todo-controller.ts', 'server/api/todo/controller/todo-controller.ts'],
+      ['server_node_typescript/api/todo/dao/todo-dao.ts', 'server/api/todo/dao/todo-dao.ts'],
+      ['server_node_typescript/api/todo/model/todo-model.ts', 'server/api/todo/model/todo-model.ts'],
+      ['server_node_typescript/api/todo/routes/todo-routes.ts', 'server/api/todo/routes/todo-routes.ts']
+    ]
+
+    yoUtils.directory(this.wrapper, _paths);
   }
 }
 

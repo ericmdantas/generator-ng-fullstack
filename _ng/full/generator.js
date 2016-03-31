@@ -26,6 +26,7 @@ exports.MainGenerator = class MainGenerator {
       let _copiesServer = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "server");
       let _copiesClient = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "client");
       let _clientOnly = this.wrapper.stack === "client";
+      let _secure = this.wrapper.secure;
 
       this.wrapper.template('_README.md', 'README.md', _appAndUsername);
       this.wrapper.template('_package.json', 'package.json', {app: _app.app, username: _username.username, client: _client, clientOnly: _clientOnly});
@@ -47,6 +48,10 @@ exports.MainGenerator = class MainGenerator {
       this.wrapper.template('tasks/default.js', 'tasks/default.js');
 
       this.wrapper.directory('tests/e2e', 'tests/e2e');
+
+      if (_secure) {
+        this.wrapper.directory('cert', 'server/cert');
+      }
 
       if (_copiesClient) {
         if (_client !== AngularFactory.tokens().NG2) {
@@ -187,5 +192,24 @@ exports.MainGenerator = class MainGenerator {
     });
 
     this.wrapper.config.save();
+  }
+
+  promptSecure() {
+    const done = this.wrapper.async();
+
+    let _prompts = [{
+      type: 'confirm',
+      name: 'secure',
+      message: 'Do you want a secure app (http/2)?',
+      default: true
+    }];
+
+    this.wrapper.prompt(_prompts, (props) => {
+      this.wrapper.secure = props.secure;
+
+      this.wrapper.config.set('secure', this.wrapper.secure);
+
+      done();
+    });
   }
 }
