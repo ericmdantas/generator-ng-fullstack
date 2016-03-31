@@ -46,11 +46,14 @@ describe('yeoman-utils', () => {
           template: sinon.spy()
       };
 
-      let _paths = ['1'];
+      let _paths = [
+        ['1', '2']
+      ];
       let _opts = undefined;
 
       expect(() => utils.directory(_obj, _paths, _opts)).not.to.throw(TypeError);
       expect(_obj.template).to.have.been.called;
+      expect(_obj.template.calledWith(_paths[0][0], _paths[0][1])).to.have.been.called;
     });
 
     it('should call template correctly', () => {
@@ -58,11 +61,14 @@ describe('yeoman-utils', () => {
           template: sinon.spy()
       };
 
-      let _paths = ['1'];
+      let _paths = [
+        ['1', '2']
+      ];
+
       let _opts = undefined;
 
       expect(() => utils.directory(_obj, _paths, _opts)).not.to.throw(TypeError);
-      expect(_obj.template).to.have.been.called;
+      expect(_obj.template.calledWith(_paths[0][0], _paths[0][1])).to.have.been.called;
     });
 
     it('should call template multiple times', () => {
@@ -70,11 +76,18 @@ describe('yeoman-utils', () => {
           template: sinon.spy()
       };
 
-      let _paths = ['1', '2', '3'];
+      let _paths = [
+        ['1', '2'],
+        ['3', '4'],
+        ['5', '6']
+      ];
       let _opts = undefined;
 
       expect(() => utils.directory(_obj, _paths, _opts)).not.to.throw(TypeError);
       expect(_obj.template).to.have.been.called;
+      expect(_obj.template.calledWith(_paths[0][0], _paths[0][1])).to.have.been.called;
+      expect(_obj.template.calledWith(_paths[1][0], _paths[1][1])).to.have.been.called;
+      expect(_obj.template.calledWith(_paths[2][0], _paths[2][1])).to.have.been.called;
     });
   });
 })
