@@ -1,6 +1,7 @@
 "use strict";
 
 const knownPaths = require('../utils/known_paths');
+const yoUtils = require('../utils/yeoman-utils');
 
 const basePath = (generator) => {
   return {
@@ -43,26 +44,30 @@ class GoServer {
       this.wrapper.template('server_go/main.go', 'server/main.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
     }
 
-    this.wrapper.template('server_go/routes/routes.go', 'server/routes/routes.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
-    this.wrapper.template('server_go/routes/routes_test.go', 'server/routes/routes_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+    let _paths = [
+      ['server_go/routes/routes.go', 'server/routes/routes.go'],
+      ['server_go/routes/routes_test.go', 'server/routes/routes_test.go'],
 
-    this.wrapper.template('server_go/config/dbconfig.go', 'server/config/dbconfig.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
-    this.wrapper.template('server_go/config/dbconfig_test.go', 'server/config/dbconfig_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+      ['server_go/config/dbconfig.go', 'server/config/dbconfig.go'],
+      ['server_go/config/dbconfig_test.go', 'server/config/dbconfig_test.go'],
 
-    this.wrapper.template('server_go/common/static/static.go', 'server/common/static/static.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
-    this.wrapper.template('server_go/common/static/static_test.go', 'server/common/static/static_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+      ['server_go/common/static/static.go', 'server/common/static/static.go'],
+      ['server_go/common/static/static_test.go', 'server/common/static/static_test.go'],
 
-    this.wrapper.template('server_go/api/todo/routes/todoroutes.go', 'server/api/todo/routes/todoroutes.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
-    this.wrapper.template('server_go/api/todo/routes/todoroutes_test.go', 'server/api/todo/routes/todoroutes_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+      ['server_go/api/todo/routes/todoroutes.go', 'server/api/todo/routes/todoroutes.go'],
+      ['server_go/api/todo/routes/todoroutes_test.go', 'server/api/todo/routes/todoroutes_test.go'],
 
-    this.wrapper.template('server_go/api/todo/model/todomodel.go', 'server/api/todo/model/todomodel.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
-    this.wrapper.template('server_go/api/todo/model/todomodel_test.go', 'server/api/todo/model/todomodel_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+      ['server_go/api/todo/model/todomodel.go', 'server/api/todo/model/todomodel.go'],
+      ['server_go/api/todo/model/todomodel_test.go', 'server/api/todo/model/todomodel_test.go'],
 
-    this.wrapper.template('server_go/api/todo/dao/tododao.go', 'server/api/todo/dao/tododao.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
-    this.wrapper.template('server_go/api/todo/dao/tododao_test.go', 'server/api/todo/dao/tododao_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+      ['server_go/api/todo/dao/tododao.go', 'server/api/todo/dao/tododao.go'],
+      ['server_go/api/todo/dao/tododao_test.go', 'server/api/todo/dao/tododao_test.go'],
 
-    this.wrapper.template('server_go/api/todo/controller/todocontroller.go', 'server/api/todo/controller/todocontroller.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
-    this.wrapper.template('server_go/api/todo/controller/todocontroller_test.go', 'server/api/todo/controller/todocontroller_test.go', {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
+      ['server_go/api/todo/controller/todocontroller.go', 'server/api/todo/controller/todocontroller.go'],
+      ['server_go/api/todo/controller/todocontroller_test.go', 'server/api/todo/controller/todocontroller_test.go'],
+    ]
+
+    yoUtils.directory(this.wrapper, _paths, {appName: this.wrapper.appName, username: this.wrapper.githubUsername});
   }
 }
 
