@@ -3,6 +3,7 @@
 const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
 const utils = require('../utils/utils');
+const ServerFactory = require('./server_factory').ServerFactory;
 const NodeFactory = require('./node').NodeFactory;
 const GoFactory = require('./go').GoFactory;
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
@@ -31,8 +32,8 @@ exports.EndpointSubGenerator = class EndpointSubGenerator {
         throw new FeatureMissingError();
 
     switch (this.wrapper.server) {
-        case "go" : GoFactory.build(this.wrapper).copyFiles(); break;
-        case "node": NodeFactory.build(this.wrapper).copyFiles(); break;
+        case ServerFactory.tokens().GO: GoFactory.build(this.wrapper).copyFiles(); break;
+        case ServerFactory.tokens().NODE: NodeFactory.build(this.wrapper).copyFiles(); break;
     }
   }
 }

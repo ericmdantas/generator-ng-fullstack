@@ -120,7 +120,7 @@ exports.MainGenerator = class MainGenerator {
         type: "list",
         name: "server",
         message: "What do you want in server side?",
-        choices: ["node", "go"],
+        choices: [ServerFactory.tokens().NODE, ServerFactory.tokens().GO],
         when: () => {
           let _isServer = this.wrapper.stack === "server";
           let _isFullstack = this.wrapper.stack === "fullstack";
@@ -180,7 +180,7 @@ exports.MainGenerator = class MainGenerator {
       message: "What transpiler do you want to use in server side?",
       choices: [NodeFactory.tokens().NODE, NodeFactory.tokens().NODE_BABEL, NodeFactory.tokens().NODE_TYPESCRIPT],
       default: 0,
-      when: () => this.wrapper.server === "node"
+      when: () => this.wrapper.server === ServerFactory.tokens().NODE
     }];
 
     this.wrapper.prompt(_prompts, (props) => {
