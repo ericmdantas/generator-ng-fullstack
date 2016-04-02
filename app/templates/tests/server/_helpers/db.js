@@ -14,7 +14,7 @@ var _createTodos = function() {
         _array.push({_id: '507c7f79bcf86cd7994f6c'+ (i + 10), todoMessage: 'aaaaaaa'+i});
     }
 
-    return Todo.create(_array);
+    return Todo.createTodo(_array);
 }
 
 exports.setupMongoose = _setupMongoose;
