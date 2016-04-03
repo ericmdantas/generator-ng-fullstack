@@ -1,11 +1,9 @@
-"use strict";
-
-const Todo = require('../../../server/api/todo/dao/todo-dao');
-const dbJson = require('./db.json').db.test.url;
+import Todo from '../../../server/api/todo/dao/todo-dao';
+import dbJson from './db.json';
 
 exports.setupMongoose = (mongoose) => {
   mongoose.models = {};
-  mongoose.connect(dbJson);
+  mongoose.connect(dbJson.db.test.url);
   mongoose.connection.on('error', () => {});
 }
 
