@@ -27,6 +27,7 @@ exports.MainGenerator = class MainGenerator {
       let _copiesClient = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "client");
       let _clientOnly = this.wrapper.stack === "client";
       let _secure = this.wrapper.secure;
+      let _usesTypescript = (_transpilerServer === "typescript") || (_client === "ng2");
 
       this.wrapper.template('_README.md', 'README.md', _appAndUsername);
       this.wrapper.template('_package.json', 'package.json', {app: _app.app, username: _username.username, client: _client, clientOnly: _clientOnly});
@@ -38,7 +39,7 @@ exports.MainGenerator = class MainGenerator {
       this.wrapper.template('_procfile.txt', 'procfile.txt', _app);
 
       this.wrapper.template('_.bowerrc', '.bowerrc');
-      this.wrapper.template('_.travis.yml', '.travis.yml');
+      this.wrapper.template('_.travis.yml', '.travis.yml', {typescript: _usesTypescript});
       this.wrapper.template('_.gitignore', '.gitignore');
       this.wrapper.template('_.editorconfig', '.editorconfig');
       this.wrapper.template('_.jshintrc','.jshintrc');
