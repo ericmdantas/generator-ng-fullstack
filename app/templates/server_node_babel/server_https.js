@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3333;
 import os from 'os';
 import express from 'express';
 import https from 'https';
+import fs from 'fs';
 import RoutesConfig from './config/routes.conf';
 import DBConfig from './config/db.conf';
 import Routes from './routes/index';
@@ -17,8 +18,8 @@ DBConfig.init();
 Routes.init(app, express.Router());
 
 const opts = {
-  key: fs.readFileSync('./cert/server.key'),
-  cert: fs.readFileSync('./cert/server.crt')
+  key: fs.readFileSync(__dirname + '/cert/server.key'),
+  cert: fs.readFileSync(__dirname + '/cert/server.crt')
 }
 
 https.createServer(opts, app)
