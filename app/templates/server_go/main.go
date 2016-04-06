@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/<%= username %>/<%= appName %>/server/routes"
-	"github.com/julienschmidt/httprouter"
+	"github.com/labstack/echo"
+	"github.com/labstack/echo/engine/fashttp"
 	"net/http"
 )
 
@@ -12,9 +13,9 @@ const port string = ":3333"
 func main() {
 	fmt.Printf("Running at %v\n", port)
 
-	r := httprouter.New()
+	e := echo.New()
 
-	routes.Init(r)
+	routes.Init(e)
 
-	http.ListenAndServe(port, r)
+	e.Run(fasthttp.New(port))
 }

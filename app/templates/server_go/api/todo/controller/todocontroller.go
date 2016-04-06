@@ -4,12 +4,12 @@ import (
 	"encoding/json"
 	"github.com/<%= username %>/<%= appName %>/server/api/todo/dao"
 	todo "github.com/<%= username %>/<%= appName %>/server/api/todo/model"
-	"github.com/julienschmidt/httprouter"
+	"github.com/labstack/echo"
 	"io/ioutil"
 	"net/http"
 )
 
-func GetAll(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func GetAll(c echo.Context) {
 	ts, err := tododao.All()
 
 	w.Header().Set("Content-Type", "application/json")
@@ -31,7 +31,7 @@ func GetAll(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Write(tsm)
 }
 
-func NewTodo(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func NewTodo(c echo.Context) {
 	w.Header().Set("Content-Type", "application/json")
 
 	t := todo.Todo{}
@@ -71,7 +71,7 @@ func NewTodo(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Write(ntm)
 }
 
-func RemoveTodo(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+func RemoveTodo(c echo.Context) {
 
 	id := ps.ByName("id")
 

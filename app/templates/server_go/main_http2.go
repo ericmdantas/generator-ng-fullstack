@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/<%= username %>/<%= appName %>/server/routes"
-	"github.com/julienschmidt/httprouter"
+	"github.com/labstack/echo"
+	"github.com/labstack/echo/engine/fasthttp"
 	"net/http"
 
 	"golang.org/x/net/http2"
@@ -14,9 +15,9 @@ const port string = ":3333"
 func main() {
 	fmt.Printf("Running at %v\n", port)
 
-	r := httprouter.New()
+	e := echo.New()
 
-	routes.Init(r)
+	routes.Init(e)
 
-	log.Fatal(http.ListenAndServeTLS(port, "crt/server.crt", "crt/server.key", r))
+	e.RunTLSServer(fasthttp.New(), "crt/server.crt", "crt/server.key")
 }

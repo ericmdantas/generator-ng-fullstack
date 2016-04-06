@@ -1,10 +1,8 @@
 package static
 
 import (
-	"net/http"
-	"os"
-
-	"github.com/julienschmidt/httprouter"
+	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 )
 
 const (
@@ -12,13 +10,7 @@ const (
 	diststatic string = "../client/dist/"
 )
 
-func Init(router *httprouter.Router) {
-
-	router.NotFound = http.FileServer(http.Dir(devsatic)).ServeHTTP
-
-	env := os.Getenv("production")
-
-	if env != "" {
-		router.NotFound = http.FileServer(http.Dir(diststatic)).ServeHTTP
-	}
+func Init(e echo.Echo) {
+	e.Use(middleware.Static("/"))
+	e.Use(middleware.Static("/client/dev"))
 }

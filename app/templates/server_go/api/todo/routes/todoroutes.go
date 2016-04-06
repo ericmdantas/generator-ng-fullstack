@@ -2,11 +2,11 @@ package todoroutes
 
 import (
 	"github.com/<%= username %>/<%= appName %>/server/api/todo/controller"
-	"github.com/julienschmidt/httprouter"
+	"github.com/labstack/echo"
 )
 
-func Init(router *httprouter.Router) {
-	router.GET("/api/todos", todocontroller.GetAll)
-	router.POST("/api/todos", todocontroller.NewTodo)
-	router.DELETE("/api/todos/:id", todocontroller.RemoveTodo)
+func Init(e echo.Echo) {
+	e.Get("/api/todos", todocontroller.GetAll)
+	e.Post("/api/todos", todocontroller.NewTodo)
+	e.Delete("/api/todos/:id", todocontroller.RemoveTodo)
 }
