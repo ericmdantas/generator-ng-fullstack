@@ -10,7 +10,7 @@ const (
 	diststatic string = "../client/dist/"
 )
 
-func Init(e echo.Echo) {
-	e.Use(middleware.Static("/"))
-	e.Use(middleware.Static("/client/dev"))
+func Init(e *echo.Echo) {
+	e.Use(middleware.Static(""))
+	e.Use(middleware.Static(devsatic))
 }

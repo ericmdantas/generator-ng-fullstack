@@ -9,78 +9,30 @@ import (
 	"net/http"
 )
 
-func GetAll(c echo.Context) {
-	ts, err := tododao.All()
+func GetAll(c echo.Context) error {
+	ts, _ := tododao.All()
 
-	w.Header().Set("Content-Type", "application/json")
+	c.JSON(http.StatusOK, ts)
 
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	tsm, err := json.Marshal(ts)
-
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	w.WriteHeader(http.StatusOK)
-
-	w.Write(tsm)
+	return nil
 }
 
-func NewTodo(c echo.Context) {
-	w.Header().Set("Content-Type", "application/json")
-
+func NewTodo(c echo.Context) error {
 	t := todo.Todo{}
 
-	tf, err := ioutil.ReadAll(r.Body)
+	nt, _ := tododao.NewTodo(t)
 
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		return
-	}
+	c.JSON(http.StatusOK, nt)
 
-	defer r.Body.Close()
-
-	err = json.Unmarshal(tf, &t)
-
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	nt, err := tododao.NewTodo(t)
-
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	ntm, err := json.Marshal(nt)
-
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	w.WriteHeader(http.StatusCreated)
-
-	w.Write(ntm)
+	return nil
 }
 
-func RemoveTodo(c echo.Context) {
+func RemoveTodo(c echo.Context) error {
+	id := c.Param("id")
 
-	id := ps.ByName("id")
+	tododao.DeleteTodo(id)
 
-	err := tododao.DeleteTodo(id)
+	c.String(http.StatusOK, "")
 
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	w.WriteHeader(http.StatusOK)
+	return nil
 }
