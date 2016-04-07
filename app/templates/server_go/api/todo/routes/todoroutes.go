@@ -6,7 +6,7 @@ import (
 )
 
 func Init(e *echo.Echo) {
-	e.Get("/api/todos/", todocontroller.GetAll)
-	e.Post("/api/todos/", todocontroller.NewTodo)
+	e.Get("/api/todos", todocontroller.GetAll)
+	e.Post("/api/todos", todocontroller.NewTodo)
 	e.Delete("/api/todos/:id", todocontroller.RemoveTodo)
 }
