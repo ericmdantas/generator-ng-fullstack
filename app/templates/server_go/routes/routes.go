@@ -7,6 +7,6 @@ import (
 )
 
 func Init(e *echo.Echo) {
-	todoroutes.Init(e)
 	static.Init(e)
+	todoroutes.Init(e)
 }

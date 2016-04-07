@@ -6,8 +6,8 @@ import (
 )
 
 const (
-	devsatic   string = "../client/dev/"
-	diststatic string = "../client/dist/"
+	devsatic   string = "client/dev"
+	diststatic string = "client/dist"
 )
 
 func Init(e *echo.Echo) {
