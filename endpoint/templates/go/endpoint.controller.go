@@ -4,23 +4,23 @@ import (
 	_ "encoding/json"
 	_ "github.com/<%= username %>/<%= appName %>/server/api/<%= feature %>/dao"
 	_ <%= nameLowerCase %> "github.com/<%= username %>/<%= appName %>/server/api/<%= feature %>/model"
-	"github.com/julienschmidt/httprouter"
+	"github.com/labstack/echo"
 	_ "io/ioutil"
 	_ "net/http"
 )
 
-func GetAll(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func GetAll(c echo.Context) {
 }
 
-func GetById(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+func GetById(c echo.Context) {
 }
 
-func New(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func New(c echo.Context) {
 }
 
-func Update(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+func Update(c echo.Context) {
 }
 
-func Remove(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+func Remove(c echo.Context) {
 
 }
