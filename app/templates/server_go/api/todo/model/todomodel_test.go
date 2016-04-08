@@ -1,10 +1,11 @@
 package todomodel
 
 import (
-	"github.com/stretchr/testify/assert"
-	"gopkg.in/mgo.v2/bson"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/assert"
+	"gopkg.in/mgo.v2/bson"
 )
 
 var testsModel = []struct {
@@ -32,7 +33,7 @@ var testsModel = []struct {
 		out: true,
 	},
 	{
-		in:  Todo{bson.NewObjectId(), "1231231321123123132112312313211231231321123123132112312313211231231321123123132112312313211231231321", time.Now()},
+		in:  Todo{bson.NewObjectId(), "12312313211231231321123123132112312313211231231321123123132", time.Now()},
 		out: true,
 	},
 }
@@ -44,7 +45,6 @@ func TestIsValid(t *testing.T) {
 }
 
 func BenchmarkIsValid(b *testing.B) {
-
 	t := Todo{bson.NewObjectId(), "", time.Now()}
 
 	for i := 0; i < b.N; i++ {

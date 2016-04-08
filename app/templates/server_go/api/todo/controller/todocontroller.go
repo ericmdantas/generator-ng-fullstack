@@ -18,9 +18,11 @@ func GetAll(c echo.Context) error {
 }
 
 func NewTodo(c echo.Context) error {
-	t := todo.Todo{}
+	t := new(todo.Todo)
 
-	nt, _ := tododao.NewTodo(t)
+	c.Bind(t)
+
+	nt, _ := tododao.NewTodo(*t)
 
 	c.JSON(http.StatusOK, nt)
 

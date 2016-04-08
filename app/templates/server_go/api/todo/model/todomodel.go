@@ -1,8 +1,9 @@
 package todomodel
 
 import (
-	"gopkg.in/mgo.v2/bson"
 	"time"
+
+	"gopkg.in/mgo.v2/bson"
 )
 
 type Todo struct {
@@ -12,7 +13,6 @@ type Todo struct {
 }
 
 func (t Todo) IsValid() bool {
-
 	if l := len(t.TodoMessage); l > 4 {
 		return true
 	}
