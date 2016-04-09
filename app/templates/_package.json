@@ -19,12 +19,12 @@
     "express-content-length-validator": "1.0.0",
     "mongoose": "^4.4.7",
     "morgan": "^1.5.2", <% } %> <% if (client === "ng2") { %>
-    "angular2": "^2.0.0-beta.13",
+    "angular2": "^2.0.0-beta.14",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.35.0",
     "rxjs": "5.0.0-beta.2",
     "systemjs": "^0.19.5",
-    "typescript": "^1.7.3",
+    "typescript": "^1.8.9",
     "zone.js": "^0.6.6", <% } %>
     "newrelic": "^1.18.2",
     "helmet": "^0.7.1"
@@ -66,8 +66,7 @@
     "mocha": "^2.4.5",
     "chai": "^3.5.0",
     "coveralls": "^2.11.2",
-    "istanbul": "^0.3.5",
-    "require-dir": "0.3.0"
+    "istanbul": "^0.3.5"
   },
   "repository": {
     "type": "git",
