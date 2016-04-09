@@ -2,7 +2,6 @@ package static
 
 import (
 	"github.com/labstack/echo"
-	"github.com/labstack/echo/middleware"
 )
 
 const (
@@ -11,6 +10,6 @@ const (
 )
 
 func Init(e *echo.Echo) {
-	e.Use(middleware.Static(""))
-	e.Use(middleware.Static(devsatic))
+	e.Use(echo.Static(""))
+	e.Use(echo.Static(devsatic))
 }
