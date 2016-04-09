@@ -12,9 +12,7 @@ import (
 func GetAll(c echo.Context) error {
 	ts, _ := tododao.All()
 
-	c.JSON(http.StatusOK, ts)
-
-	return nil
+	return c.JSON(http.StatusOK, ts)
 }
 
 func NewTodo(c echo.Context) error {
@@ -22,9 +20,7 @@ func NewTodo(c echo.Context) error {
 
 	nt, _ := tododao.NewTodo(t)
 
-	c.JSON(http.StatusOK, nt)
-
-	return nil
+	return c.JSON(http.StatusOK, nt)
 }
 
 func RemoveTodo(c echo.Context) error {
@@ -32,7 +28,5 @@ func RemoveTodo(c echo.Context) error {
 
 	tododao.DeleteTodo(id)
 
-	c.String(http.StatusOK, "")
-
-	return nil
+	return c.String(http.StatusOK, "")
 }

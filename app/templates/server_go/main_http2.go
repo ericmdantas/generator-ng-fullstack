@@ -5,7 +5,6 @@ import (
 	"github.com/<%= username %>/<%= appName %>/server/routes"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/engine/fasthttp"
-	"net/http"
 
 	"golang.org/x/net/http2"
 )
