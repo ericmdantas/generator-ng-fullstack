@@ -1,7 +1,7 @@
 {
   "name": "generator-ng-fullstack",
   "version": "1.7.1",
-  "description": "Next generation stack. Use the best latest stuff: node, Go, http/2, Angular 1, Angular2, Express, MongoDB, Gulp, Babel, Typescript and much more.",
+  "description": "Next generation stack. Use the best latest stuff: Node, Go, http/2, Angular 1, Angular2, Express, MongoDB, Gulp, Babel, Typescript and much more.",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "ericmdantas/generator-ng-fullstack",
@@ -32,6 +32,7 @@
     "generator-es6",
     "go",
     "http2",
+    "go-http2",
     "ng2",
     "go-generator",
     "generator-go",
