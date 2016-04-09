@@ -11,7 +11,6 @@ import (
 const col string = "todos"
 
 func All() (todo.Todos, error) {
-
 	db := dbconfig.DB{}
 	ts := todo.Todos{}
 
@@ -35,7 +34,6 @@ func All() (todo.Todos, error) {
 }
 
 func NewTodo(t todo.Todo) (todo.Todo, error) {
-
 	db := dbconfig.DB{}
 	t.Id = bson.NewObjectId()
 	t.CreatedAt = time.Now()
