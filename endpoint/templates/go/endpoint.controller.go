@@ -22,5 +22,4 @@ func Update(c echo.Context) {
 }
 
 func Remove(c echo.Context) {
-
 }
