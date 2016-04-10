@@ -10,6 +10,6 @@ const (
 )
 
 func Init(e *echo.Echo) {
-	e.Use(echo.Static(""))
-	e.Use(echo.Static(devsatic))
+	e.Get("/", echo.Static(""))
+	e.Get("/client/dev", echo.Static(devsatic))
 }
