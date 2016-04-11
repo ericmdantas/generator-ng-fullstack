@@ -6,11 +6,11 @@ import (
 )
 
 const (
-	devsatic   string = "client/dev"
-	diststatic string = "client/dist"
+	dev  string = "client/dev"
+	dist string = "client/dist"
 )
 
 func Init(e *echo.Echo) {
 	e.Use(middleware.Static(""))
-	e.Use(middleware.Static(devsatic))
+	e.Use(middleware.Static(dev))
 }
