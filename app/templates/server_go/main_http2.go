@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/<%= username %>/<%= appName %>/server/routes"
 	"github.com/labstack/echo"
-	"github.com/labstack/echo/engine/fasthttp"
+	"github.com/labstack/echo/engine/standard"
 )
 
 const port string = ":3333"
@@ -16,5 +16,5 @@ func main() {
 
 	routes.Init(e)
 
-	e.Run(fasthttp.WithTLS(port, "server/cert/server.crt", "server/cert/server.key"))
+	e.Run(standard.WithTLS(port, "server/cert/server.crt", "server/cert/server.key"))
 }
