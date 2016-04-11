@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/<%= username %>/<%= appName %>/server/routes"
 	"github.com/labstack/echo"
-	"github.com/labstack/echo/engine/fashttp"
+	"github.com/labstack/echo/engine/fasthttp"
 )
 
 const port string = ":3333"
