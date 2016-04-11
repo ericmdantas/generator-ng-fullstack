@@ -5,8 +5,6 @@ import (
 	"github.com/<%= username %>/<%= appName %>/server/routes"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/engine/fasthttp"
-
-	"golang.org/x/net/http2"
 )
 
 const port string = ":3333"
@@ -18,5 +16,5 @@ func main() {
 
 	routes.Init(e)
 
-	e.RunTLSServer(fasthttp.New(port), "crt/server.crt", "crt/server.key")
+	e.Run(fasthttp.WithTLS(port, "crt/server.crt", "crt/server.key")
 }
