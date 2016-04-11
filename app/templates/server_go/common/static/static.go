@@ -2,6 +2,7 @@ package static
 
 import (
 	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 )
 
 const (
@@ -10,6 +11,6 @@ const (
 )
 
 func Init(e *echo.Echo) {
-	e.Get("/", echo.Static(""))
-	e.Get("/client/dev", echo.Static(devsatic))
+	e.Use(middleware.Static(""))
+	e.Use(middleware.Static(devsatic))
 }
