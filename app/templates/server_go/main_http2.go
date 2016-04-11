@@ -16,5 +16,5 @@ func main() {
 
 	routes.Init(e)
 
-	e.Run(fasthttp.WithTLS(port, "crt/server.crt", "crt/server.key")
+	e.Run(fasthttp.WithTLS(port, "server/cert/server.crt", "server/cert/server.key"))
 }
