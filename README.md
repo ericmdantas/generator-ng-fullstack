@@ -46,7 +46,7 @@ then to create a new app:
 
     $ yo ng-fullstack
 
-and answer the on-screen questions. When it's done, you should have [this](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started) structure. The default starter project is our [Todo App](https://github.com/ericmdantas/generator-ng-fullstack/wiki/ToDo-Walkthrough).
+and answer the on-screen questions. When it's done, you should have [this](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started#result) structure. The default starter project is our [Todo App](https://github.com/ericmdantas/generator-ng-fullstack/wiki/ToDo-Walkthrough).
 
 For full guidance on setting up the dependencies and generating your first app, see [Getting Started](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started).
 
@@ -58,6 +58,7 @@ Our Wiki should cover all you need to get familiar with our tools, but if you ar
 - [TypeScript](http://www.typescriptlang.org/Tutorial)
 - [Go](https://tour.golang.org/welcome/1)
 - [MongoDB](https://university.mongodb.com/)
+- [HTTP/2](https://daniel.haxx.se/http2/)
 
 #License
 
