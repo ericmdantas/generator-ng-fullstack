@@ -9,9 +9,6 @@ export const tasks = {
   CLIENT_BUILD_DEV: 'client.build:dev',
   CLIENT_BUILD_DIST: 'client.build:dist',
 
-  CLIENT_BUILD_TS_DEV: 'client.build_ts:dev',
-  CLIENT_BUILD_TS_DIST: 'client.build_ts:dist',
-
   CLIENT_CSS_DIST: 'client.build_css:dist',
   CLIENT_JS_DIST: 'client.build_js:dist',
   CLIENT_FONT_DIST: 'client.fonts:dist',
@@ -25,5 +22,8 @@ export const tasks = {
 
   CLIENT_RELOAD: 'client.reload',
 
-  CLIENT_WATCH: 'client.watch'
+  CLIENT_WATCH: 'client.watch',
+
+  CLIENT_BUILD_TS_DEV: 'client.build_ts:dev',
+  CLIENT_BUILD_TS_DIST: 'client.build_ts:dist'
 }

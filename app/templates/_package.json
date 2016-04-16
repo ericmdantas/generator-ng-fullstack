@@ -5,7 +5,8 @@
   "scripts": {
     <% if (clientOnly) { %>"start": "aliv --quiet --port 3333 --pathIndex client/dev --only client/dev"<%} else {%>
     "start": "node index",
-    "build_dev": "node index && gulp client.watch",
+    "build-dev": "node index && gulp client.watch",
+    "build-dist": "gulp client.build:dist",
     "test-client": "gulp client.unit_test",
     "test-server": "mocha ./tests/server/**/*.js --recursive --check-leaks --reporter min --require babel-core/register",
     "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/**/*.js --require babel-core/register",

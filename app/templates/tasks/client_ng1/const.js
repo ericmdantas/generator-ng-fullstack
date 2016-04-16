@@ -11,12 +11,13 @@ export const tasks = {
   CLIENT_BUILD_CSS_DIST: 'client.build_css:dist',
   CLIENT_BUILD_JS_DIST: 'client.build_js:dist',
   CLIENT_DEL_DIST: 'client.del:dist',
-  CLIENT_BUILD_DIST: 'client.build:dist',
 
   CLIENT_UNIT_TEST: 'client.unit_test',
   CLIENT_COVERAGE: 'client.coverage',
 
   CLIENT_WATCH: 'client.watch',
 
-  CLIENT_RELOAD: 'client.reload'
+  CLIENT_RELOAD: 'client.reload',
+
+  CLIENT_BUILD_DIST: 'client.build:dist'
 }
