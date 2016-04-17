@@ -1,6 +1,5 @@
 import gulp from 'gulp';
 import uglify from 'gulp-uglify';
-import rev from 'gulp-rev';
 import {path, tasks} from './const';
 
 const JS = path.DEV + '**/*.js';

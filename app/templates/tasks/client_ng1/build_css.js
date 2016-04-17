@@ -1,6 +1,5 @@
 import gulp from 'gulp';
 import cssmin from 'gulp-clean-css';
-import rev from 'gulp-rev';
 import {path, tasks} from './const';
 
 const CSS = path.DEV + '**/*.css';
