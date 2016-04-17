@@ -2,10 +2,10 @@
 
 import * as mongoose from 'mongoose';
 import * as Promise from 'bluebird';
-import {<%= nameLowerCase %>Schema} from '../model/<%= name %>.model';
+import <%= nameLowerCase %>Schema from '../model/<%= name %>-model';
 import * as _ from 'lodash';
 
-<%= nameLowerCase %>Schema.statics.getAll = () => {
+<%= nameLowerCase %>Schema.static('getAll', () => {
   return new Promise((resolve, reject) => {
     let _query = {};
 
@@ -15,10 +15,10 @@ import * as _ from 'lodash';
       err ? reject(err)
       : resolve(todos);
     });
-  }
+  });
 });
 
-<%= nameLowerCase %>Schema.statics.createNew = (<%= nameLowerCase %>) => {
+<%= nameLowerCase %>Schema.static('createNew', (<%= nameLowerCase %>) => {
   return new Promise((resolve, reject) => {
       if (!_.isObject(<%= nameLowerCase %>)) {
         return reject(new TypeError('Todo is not a valid object.'));
@@ -31,9 +31,9 @@ import * as _ from 'lodash';
         : resolve(saved);
       });
   });
-}
+});
 
-<%= nameLowerCase %>chema.statics.removeById = (id) => {
+<%= nameLowerCase %>Schema.static('removeById', (id) => {
   return new Promise((resolve, reject) => {
       if (!_.isString(id)) {
         return reject(new TypeError('Id is not a valid string.'));
@@ -46,8 +46,8 @@ import * as _ from 'lodash';
         : resolve();
       });
     });
-}
+});
 
-let <%= name %> = mongoose.model('<%= name %>', <%= nameLowerCase %>Schema);
+let <%= name %>Model = mongoose.model('<%= name %>', <%= nameLowerCase %>Schema);
 
-export <%= name %>;
+export default <%= name %>Model;
