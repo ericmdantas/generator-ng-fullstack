@@ -10,7 +10,7 @@ Generator ng-Fullstack is a project to allow you to rapidly get started with pro
 | Client        | Server        | Node (Compiler) |
 | :-------------: |:-------------:| :---------------:|
 | Angular 1.x for client (JS)      | node + express + mongoose + mongodb | no compiler  |
-| Angular 2.x for client (TS)      | go + httprouter + mgo + mongodb      |   Babel          |
+| Angular 2.x for client (TS)      | go + echo + mgo + mongodb      |   Babel          |
 |  -- |    --  |    Typescript          |
 
 There are many other generators out there, but they are often out of date and don't reflect the newest technologies. We plan to keep this going strong and updated!
