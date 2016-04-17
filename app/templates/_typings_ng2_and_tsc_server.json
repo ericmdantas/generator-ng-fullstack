@@ -5,11 +5,12 @@
   },
   "ambientDependencies": {
     "body-parser": "registry:dt/body-parser#0.0.0+20160112113357",
-    "express": "registry:dt/express#4.0.0+20160208031452",
+    "express": "registry:dt/express#4.0.0+20160317120654",
+    "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160322035842",
     "helmet": "registry:dt/helmet#0.0.0+20160112163250",
     "jasmine": "registry:dt/jasmine#2.2.0+20160308082659",
     "mime": "registry:dt/mime#0.0.0+20151204023458",
-    "mongoose": "registry:dt/mongoose#3.8.5+20160209123716",
+    "mongoose": "registry:dt/mongoose#3.8.5+20160316155526",
     "morgan": "registry:dt/morgan#1.2.2+20160104041339",
     "node": "registry:dt/node#4.0.0+20160311162451",
     "serve-static": "registry:dt/serve-static#0.0.0+20160104095738"

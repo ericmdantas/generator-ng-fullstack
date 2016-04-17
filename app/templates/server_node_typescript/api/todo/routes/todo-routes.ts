@@ -1,5 +1,6 @@
 "use strict";
 
+import * as express from 'express';
 import {TodoController} from '../controller/todo-controller';
 
 export class TodoRoutes {

@@ -1,6 +1,7 @@
 "use strict";
 
-import {<%= name %>Controller} from '../controller/<%= name %>.controller';
+import * as express from 'express';
+import {<%= name %>Controller} from '../controller/<%= name %>-controller';
 
 export class <%= name %>Routes {
   static init(router:express.Router) {

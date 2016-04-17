@@ -1,5 +1,6 @@
 "use strict";
 
+import * as express from 'express';
 import * as fs from 'fs';
 
 export class StaticDispatcher {

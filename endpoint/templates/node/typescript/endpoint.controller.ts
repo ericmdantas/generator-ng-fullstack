@@ -1,5 +1,6 @@
 "use strict";
 
+import * as express from 'express';
 import {<%= name %>DAO} from '../dao/<%= name %>.dao';
 
 export class <%= name %>Controller {

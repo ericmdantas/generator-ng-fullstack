@@ -1,3 +1,4 @@
+import * as express from 'express';
 import TodoDAO from '../dao/todo-dao';
 
 export class TodoController {
