@@ -1,15 +1,10 @@
-;(function(angular) {
+;(function(ng) {
   'use strict';
 
-  angular
-    .module('myAwesomeApp')
-    .service('<%= name %>', [
-      '$q',
-      function($q) {
+  ng.module('myAwesomeApp')
+    .service('<%= name %>', ['$q', function($q) {
         this.doSomething = function() {
-          var deferred = $q.defer();
-
-          return deferred.promise;
+          return $q.when({yo: '!'});
         };
       }
     ]);

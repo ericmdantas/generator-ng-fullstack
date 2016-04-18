@@ -1,7 +1,7 @@
-;(function() {
+;(function(ng) {
   'use strict';
 
-  window.angular
+  ng.angular
     .module('myAwesomeApp')
     .config([
       '$provide',
@@ -14,4 +14,4 @@
         ]);
       }
     ]);
-}());
+}(window.angular));

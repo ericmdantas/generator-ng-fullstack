@@ -1,8 +1,7 @@
-;(function(angular) {
+;(function(ng) {
   'use strict';
 
-  angular
-    .module('myAwesomeApp')
+  ng.module('myAwesomeApp')
     .controller('TodoController', ['$log', 'Todo', 'TodoDAO', function($log, Todo, TodoDAO) {
       var self = this;
 

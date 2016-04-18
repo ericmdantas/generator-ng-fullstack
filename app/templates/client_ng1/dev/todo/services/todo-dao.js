@@ -1,8 +1,7 @@
-;(function(angular) {
+;(function(ng) {
   'use strict';
 
-  angular
-    .module('myAwesomeApp')
+  ng.module('myAwesomeApp')
     .factory('TodoDAO', ['$q', 'Todo', 'TodoResource', function($q, Todo, TodoResource) {
       var TodoDAO = function(){};
 
@@ -27,7 +26,7 @@
       };
 
       TodoDAO.prototype.createTodo = function(todo) {
-        if (!angular.isObject(todo) || !(todo instanceof Todo) || !todo.isValid()) {
+        if (!ng.isObject(todo) || !(todo instanceof Todo) || !todo.isValid()) {
           return $q.reject(new TypeError('Invalid todo to be created.'));
         }
 
@@ -47,7 +46,7 @@
       };
 
       TodoDAO.prototype.deleteTodo = function(id) {
-        if (!angular.isString(id)) {
+        if (!ng.isString(id)) {
           return $q.reject(new TypeError('Invalid id for deletion.'));
         }
 

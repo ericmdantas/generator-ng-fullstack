@@ -1,8 +1,7 @@
-;(function(angular) {
+;(function(ng) {
   'use strict';
 
-  angular
-    .module('myAwesomeApp')
+  ng.module('myAwesomeApp')
     .controller('<%= name %>', [
       function() {
         var self = this;

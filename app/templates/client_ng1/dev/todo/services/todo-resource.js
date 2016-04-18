@@ -1,8 +1,7 @@
-;(function(angular) {
+;(function(ng) {
   'use strict';
 
-  angular
-    .module('myAwesomeApp')
+  ng.module('myAwesomeApp')
     .factory('TodoResource', ['$resource', function($resource) {
       var _url = '/api/todos/:id';
       var _params = {};
