@@ -2,6 +2,7 @@
 
 const utils = require('../utils/utils');
 const knownPaths = require('../utils/known_paths');
+const yoUtils = require('../utils/yeoman-utils');
 
 class Angular1 {
   constructor(gen) {
@@ -9,9 +10,36 @@ class Angular1 {
   }
 
   copyClient() {
+    let _pathSrc = [
+      ['client_ng1/dev/index.html', 'client/dev/index.html'],
+      ['client_ng1/dev/favicon.png', 'client/dev/favicon.png'],
+      ['client_ng1/dev/app.js', 'client/dev/app.js'],
+      ['client_ng1/dev/app.config.js', 'client/dev/app.config.js'],
+      ['client_ng1/dev/common/images/todo-bkg.png', 'client/dev/common/images/todo-bkg.png'],
+      ['client_ng1/dev/todo/controllers/todo-controller.js', 'client/dev/todo/controllers/todo-controller.js'],
+      ['client_ng1/dev/todo/models/todo-model.js', 'client/dev/todo/models/todo-model.js'],
+      ['client_ng1/dev/todo/services/todo-dao.js', 'client/dev/todo/services/todo-dao.js'],
+      ['client_ng1/dev/todo/services/todo-resource.js', 'client/dev/todo/services/todo-resource.js'],
+      ['client_ng1/dev/todo/styles/events.css', 'client/dev/todo/styles/events.css'],
+      ['client_ng1/dev/todo/styles/fonts.css', 'client/dev/todo/styles/fonts.css'],
+      ['client_ng1/dev/todo/styles/frameworks_overrides.css', 'client/dev/todo/styles/frameworks_overrides.css'],
+      ['client_ng1/dev/todo/styles/media_queries.css', 'client/dev/todo/styles/media_queries.css'],
+      ['client_ng1/dev/todo/styles/position.css', 'client/dev/todo/styles/position.css'],
+      ['client_ng1/dev/todo/styles/styles.css', 'client/dev/todo/styles/styles.css'],
+      ['client_ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
+    ]
+
+    let _pathTest = [
+      ['tests/client_ng1/_helpers/invalid-inputs.js', 'tests/client/_helpers/invalid-inputs.js'],
+      ['tests/client_ng1/todo/controllers/todo-controller_test.js', 'tests/client/todo/controllers/todo-controller_test.js'],
+      ['tests/client_ng1/todo/models/todo-model_test.js', 'tests/client/todo/models/todo-model_test.js'],
+      ['tests/client_ng1/todo/services/todo-dao_test.js', 'tests/client/todo/services/todo-dao_test.js']
+    ]
+
     this.generator.directory('tasks/client_ng1', 'tasks/client');
-    this.generator.directory('tests/client_ng1', 'tests/client');
-    this.generator.directory('client_ng1', 'client');
+
+    yoUtils.directory(this.generator, _pathSrc, this.generator);
+    yoUtils.directory(this.generator, _pathTest, this.generator);
   }
 
   copyController(pathTemplate) {

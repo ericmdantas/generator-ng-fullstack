@@ -3,7 +3,7 @@
 describe('Todo', function() {
     var _Todo;
 
-    beforeEach(module('myAwesomeApp'));
+    beforeEach(module('<%= appName %>'));
 
     beforeEach(inject(function($injector) {
         _Todo = $injector.get('Todo');

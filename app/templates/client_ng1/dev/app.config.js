@@ -1,7 +1,7 @@
 ;(function(ng) {
   'use strict';
 
-  ng.module('myAwesomeApp')
+  ng.module('<%= appName %>')
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider
         .when('/', {

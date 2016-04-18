@@ -1,7 +1,7 @@
 ;(function(ng) {
   'use strict';
 
-  ng.module('myAwesomeApp')
+  ng.module('<%= appName %>')
     .factory('TodoDAO', ['$q', 'Todo', 'TodoResource', function($q, Todo, TodoResource) {
       var TodoDAO = function(){};
 
