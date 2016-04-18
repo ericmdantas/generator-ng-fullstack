@@ -1,9 +1,9 @@
 ;(function(angular) {
-  "use strict";
+  'use strict';
 
   angular
     .module('myAwesomeApp', [
       'ngResource',
       'ngRoute',
-      'ngMessages']);      
+      'ngMessages']);
 }(window.angular));
