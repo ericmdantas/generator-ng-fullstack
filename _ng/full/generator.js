@@ -50,7 +50,11 @@ exports.MainGenerator = class MainGenerator {
 
       this.wrapper.directory('tests/e2e', 'tests/e2e');
 
-      if (_secure) {
+      if (_clientOnly) {
+        this.wrapper.template('_.alivrc', '.alivrc', {secure: !!_secure});
+      }
+
+      if (_secure && !_clientOnly) {
         this.wrapper.directory('cert', 'server/cert');
       }
 

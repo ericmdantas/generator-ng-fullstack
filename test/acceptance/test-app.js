@@ -129,6 +129,7 @@ describe('ng-fullstack:app', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
+          assert.noFile('.alivrc');
         });
       })
 
@@ -179,6 +180,7 @@ describe('ng-fullstack:app', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
+          assert.noFile('.alivrc');
         });
       })
 
@@ -231,6 +233,7 @@ describe('ng-fullstack:app', () => {
 
         it('creates default files - node', () =>  {
           assert.file(_tscFiles);
+          assert.noFile('.alivrc');
         });
       })
 
@@ -289,6 +292,7 @@ describe('ng-fullstack:app', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
+          assert.noFile('.alivrc');
         });
       })
 
@@ -340,6 +344,7 @@ describe('ng-fullstack:app', () => {
 
         it('creates default files - Go', () =>  {
           assert.file(_goFiles);
+          assert.noFile('.alivrc');
         });
       })
 
@@ -398,6 +403,7 @@ describe('ng-fullstack:app', () => {
 
         it('creates default files - Go', () =>  {
           assert.file(_goFiles);
+          assert.noFile('.alivrc');
         });
       })
     })
@@ -459,6 +465,7 @@ describe('ng-fullstack:app', () => {
           assert.file(_taskFilesServer);
           assert.noFile('client/dev/index.html');
           assert.noFile('tests/client');
+          assert.noFile('.alivrc');
       });
     });
 
@@ -488,6 +495,7 @@ describe('ng-fullstack:app', () => {
         '.gitignore',
         '.editorconfig',
         '.jshintrc',
+        '.alivrc',
 
         'bower.json',
         'package.json',
@@ -576,6 +584,7 @@ describe('ng-fullstack:app', () => {
         '.gitignore',
         '.editorconfig',
         '.jshintrc',
+        '.alivrc',
 
         'package.json',
         'karma-test-shim.js',

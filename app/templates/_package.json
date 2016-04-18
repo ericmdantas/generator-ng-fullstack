@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "src/<%= app %>.js",
   "scripts": {
-    <% if (clientOnly) { %>"start": "aliv --quiet --port 3333 --pathIndex client/dev --only client/dev"<%} else {%>
+    <% if (clientOnly) { %>"start": "aliv"<%} else {%>
     "start": "node index",
     "build-dev": "node index && gulp client.watch",
     "build-dist": "gulp client.build:dist",

@@ -1,0 +1,10 @@
+{
+    "quiet": true,
+    "port": 3000,
+    "secure": <%= secure %>,
+    "pathIndex": "client/dev",
+    "only": "client/dev/**/*",
+    "proxy": true,
+    "proxyWhen": "/api/path/to/proxy/*",
+    "proxyTarget": "http://proxy-to-my-target:8080"
+}
