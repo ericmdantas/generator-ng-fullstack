@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const Base = require('yeoman-generator').Base;
 const FactorySubGenerator = require('../_ng/client/sub_generators_factory').FactorySubGenerator;
@@ -17,4 +17,4 @@ module.exports = class FactoryGenerator extends Base {
   writing() {
     this.generator.writing();
   }
-}
+};

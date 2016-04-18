@@ -1,14 +1,15 @@
 ;(function(angular) {
-  "use strict";
+  'use strict';
 
   angular
     .module('myAwesomeApp')
-    .factory('<%= name %>', [function() {
-      var Something = function() {
+    .factory('<%= name %>', [
+      function() {
+        var Something = function() {
 
+        };
+
+        return Something;
       }
-
-      return Something;
-    }]);
-
+    ]);
 }(window.angular));

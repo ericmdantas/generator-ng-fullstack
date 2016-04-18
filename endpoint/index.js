@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const Base = require('yeoman-generator').Base;
 const EndpointSubGenerator = require('../_ng/server/sub_generators_endpoint').EndpointSubGenerator;
@@ -17,4 +17,4 @@ module.exports = class EndpointGenerator extends Base {
   writing() {
     this.generator.writing();
   }
-}
+};
