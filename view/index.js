@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const Base = require('yeoman-generator').Base;
 const ViewSubGenerator = require('../_ng/client/sub_generators_view').ViewSubGenerator;

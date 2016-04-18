@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 describe('<%= name %>', function() {
     var _<%= name %>;
@@ -12,6 +12,6 @@ describe('<%= name %>', function() {
     describe('doSomething', function() {
         it('should doSomething', function() {
             _<%= name %>Service.doSomething();
-        })
-    })
-})
+        });
+    });
+});

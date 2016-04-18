@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 describe('<%= name %>', function() {
     var _scope, _compile, _element;
@@ -11,15 +11,15 @@ describe('<%= name %>', function() {
 
         var _html = '<<%= name %>></<%= name %>>';
 
-        _element = angular.element(_html);
+        _element = window.angular.element(_html);
 
         _compile(_element)(_scope);
         _scope.$digest();
-    }))
+    }));
 
     describe('init', function() {
         it('should have the directive created', function() {
             expect(_element).toBeDefined();
-        })
-    })
-})
+        });
+    });
+});
