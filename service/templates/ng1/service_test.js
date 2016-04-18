@@ -11,7 +11,7 @@ describe('<%= name %>', function() {
 
     describe('doSomething', function() {
         it('should doSomething', function() {
-            _<%= name %>Service.doSomething();
+            _<%= name %>.doSomething();
         });
     });
 });
