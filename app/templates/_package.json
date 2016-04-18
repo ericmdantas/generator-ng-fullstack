@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "main": "src/<%= app %>.js",
   "scripts": {
-    <% if (clientOnly) { %>"start": "aliv", "test": "gulp client.unit_test"<%} else {%>
+    <% if (clientOnly) { %>"start": "aliv",
+    "test": "gulp client.unit_test",
+    "build-dist": "gulp client.build:dist"<%} else {%>
     "start": "node index",
     "build-dev": "node index && gulp client.watch",
     "build-dist": "gulp client.build:dist",
