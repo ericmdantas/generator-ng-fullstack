@@ -1,9 +1,8 @@
 ;(function(ng) {
   'use strict';
 
-  ng.module('myAwesomeApp')
-    .factory('<%= name %>', [
-      function() {
+  ng.module('<%= appName %>')
+    .factory('<%= name %>', [function() {
         var <%= name %> = function() {
           this.something = 123;
         };

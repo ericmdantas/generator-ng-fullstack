@@ -3,7 +3,7 @@
 describe('<%= name %>', function() {
     var _scope, _compile, _element;
 
-    beforeEach(module('myAwesomeApp'));
+    beforeEach(module('<%= appName %>'));
 
     beforeEach(inject(function($injector) {
         _scope = $injector.get('$rootScope').$new();

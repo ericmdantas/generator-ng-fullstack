@@ -9,6 +9,7 @@ const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 exports.ResourceSubGenerator = class ResourceSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
+    this.wrapper.appName = this.wrapper.config.get('appName');
   }
 
   initializing() {
