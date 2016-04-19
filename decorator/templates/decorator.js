@@ -2,13 +2,9 @@
   'use strict';
 
   ng.angular
-    .module('myAwesomeApp')
-    .config([
-      '$provide',
-      function($provide) {
-        $provide.decorator('SomethingToBeDecorated', [
-          '$delegate',
-          function($delegate) {
+    .module('<%= appName %>')
+    .config(['$provide', function($provide) {
+        $provide.decorator('SomethingToBeDecorated', ['$delegate',function($delegate) {
             return $delegate;
           }
         ]);

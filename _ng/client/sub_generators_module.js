@@ -10,6 +10,7 @@ exports.ModuleSubGenerator = class ModuleSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
     this.wrapper.ngVersion = this.wrapper.config.get('client');
+    this.wrapper.appName = this.wrapper.config.get('appName');
   }
 
   initializing() {

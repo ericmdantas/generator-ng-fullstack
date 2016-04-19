@@ -7,7 +7,12 @@ import {FilterSubGenerator} from '../../_ng/client/sub_generators_filter';
 describe('FilterSubGenerator', () => {
   describe('creation', () => {
     it('should have the right param passed to wrapper', () => {
-      let _gen = {a: true};
+      let _gen = {
+        a: true,
+        config: {
+          get(){}
+        }
+      };
       let _fsg = new FilterSubGenerator(_gen);
 
       expect(_fsg.wrapper).to.equal(_gen);
@@ -17,10 +22,11 @@ describe('FilterSubGenerator', () => {
   describe('initializing', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
-        argument: () => {}
+        argument: () => {},
+        config: {
+          get(){}
+        }
       };
-
-      sinon.mock(_gen.argument);
 
       let _fsg = new FilterSubGenerator(_gen);
 
@@ -34,18 +40,20 @@ describe('FilterSubGenerator', () => {
     it('should have the writing called with the right stuff', () => {
       let _gen = {
         name: 'a',
+        appName: 'b',
+        config: {
+          get(){}
+        },
         options: {feature: 'c'},
         template: sinon.spy()
       };
-
-      sinon.mock(_gen.template);
 
       let _fsg = new FilterSubGenerator(_gen);
 
       _fsg.writing();
 
-      let _firstCall = ['filter.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/filters/' + _gen.name + '.js', {name: _gen.name}]
-      let _secondCall = ['filter_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/filters/' + _gen.name + '_test.js', {name: _gen.name}]
+      let _firstCall = ['filter.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/filters/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}]
+      let _secondCall = ['filter_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/filters/' + _gen.name + '_test.js', {name: _gen.name, appName: _gen.appName}]
 
       expect(_fsg.wrapper.writing).to.have.been.called;
       expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;

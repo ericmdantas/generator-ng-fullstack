@@ -44,6 +44,7 @@ describe('FactorySubGenerator', () => {
       it('should have the writing called with the right stuff', () => {
         let _gen = {
           name: 'a',
+          appName: 'b',
           options: {feature: 'c'},
           config: {
             get() {return 'ng1'}
@@ -51,14 +52,12 @@ describe('FactorySubGenerator', () => {
           template: sinon.spy()
         };
 
-        sinon.mock(_gen.template);
-
         let _fsg = new FactorySubGenerator(_gen);
 
         _fsg.writing();
 
-        let _firstCall = ['ng1/factory.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.js', {name: utils.capitalizeFirst(_gen.name)}];
-        let _secondCall = ['ng1/factory_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '_test.js', {name: utils.capitalizeFirst(_gen.name)}];
+        let _firstCall = ['ng1/factory.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.js', {name: utils.capitalizeFirst(_gen.name), appName: _gen.appName}];
+        let _secondCall = ['ng1/factory_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '_test.js', {name: utils.capitalizeFirst(_gen.name), appName: _gen.appName}];
 
         expect(_fsg.wrapper.writing).to.have.been.called;
         expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;

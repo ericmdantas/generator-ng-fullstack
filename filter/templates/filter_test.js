@@ -3,7 +3,7 @@
 describe('<%= name %>', function() {
   var _<%= name %>;
 
-  beforeEach(module('myAwesomeApp'));
+  beforeEach(module('<%= appName %>'));
 
   beforeEach(inject(function($filter) {
     _<%= name %> = $filter('<%= name %>');

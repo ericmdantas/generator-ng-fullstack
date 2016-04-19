@@ -1,7 +1,7 @@
 ;(function(ng) {
   'use strict';
 
-  ng.module('myAwesomeApp')
+  ng.module('<%= appName %>')
     .factory('<%= name %>', [function() {
         var Something = function() {
 

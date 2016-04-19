@@ -29,8 +29,6 @@ describe('ModuleSubGenerator', () => {
         }
       };
 
-      sinon.mock(_gen.argument);
-
       let _fsg = new ModuleSubGenerator(_gen);
 
       _fsg.initializing();

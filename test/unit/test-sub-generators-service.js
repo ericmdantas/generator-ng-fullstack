@@ -13,6 +13,7 @@ describe('ServiceSubGenerator', () => {
           get(){return 'ng1'}
         }
       };
+
       let _ssg = new ServiceSubGenerator(_gen);
 
       expect(_ssg.wrapper).to.equal(_gen);
@@ -28,8 +29,6 @@ describe('ServiceSubGenerator', () => {
         }
       };
 
-      sinon.mock(_gen.argument);
-
       let _ssg = new ServiceSubGenerator(_gen);
 
       _ssg.initializing();
@@ -43,6 +42,7 @@ describe('ServiceSubGenerator', () => {
       it('should have the writing called with the right stuff', () => {
         let _gen = {
           name: 'a',
+          appName: 'b',
           options: {feature: 'c'},
           template: sinon.spy(),
           config: {
@@ -52,8 +52,8 @@ describe('ServiceSubGenerator', () => {
 
         let _ssg = new ServiceSubGenerator(_gen);
 
-        let _firstCall = ['ng1/service.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {name: _gen.name}]
-        let _secondCall = ['ng1/service_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '_test.js', {name: _gen.name}]
+        let _firstCall = ['ng1/service.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}]
+        let _secondCall = ['ng1/service_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '_test.js', {name: _gen.name, appName: _gen.appName}]
 
         _ssg.writing();
 

@@ -6,7 +6,7 @@ describe('todo.dao', function() {
     var URL_CREATE_TODO = '/api/todos';
     var URL_DELETE_TODO = '/api/todos/';
 
-    beforeEach(module('myAwesomeApp'));
+    beforeEach(module('<%= appName %>'));
 
     beforeEach(inject(function($injector) {
         _rootScope = $injector.get('$rootScope');

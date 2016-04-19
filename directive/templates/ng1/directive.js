@@ -1,7 +1,7 @@
 ;(function(ng) {
   'use strict';
 
-  ng.module('myAwesomeApp')
+  ng.module('<%= appName %>')
     .directive('<%= name %>', [
       function() {
         var _link = function(scope, element, attrs) {

@@ -44,6 +44,7 @@ describe('sub_generators', () => {
         it('should have the writing called with the right stuff', () => {
           let _gen = {
             name: 'a',
+            appName: 'b',
             options: {feature: 'c'},
             config: {
               get(){return 'ng1'}
@@ -51,14 +52,12 @@ describe('sub_generators', () => {
             template: sinon.spy()
           };
 
-          sinon.mock(_gen.template);
-
           let _dsg = new DirectiveSubGenerator(_gen);
 
           _dsg.writing();
 
-          let _firstCall = ['ng1/directive.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {name: _gen.name}];
-          let _secondCall = ['ng1/directive_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '_test.js', {name: _gen.name}];
+          let _firstCall = ['ng1/directive.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
+          let _secondCall = ['ng1/directive_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '_test.js', {name: _gen.name, appName: _gen.appName}];
 
           expect(_dsg.wrapper.writing).to.have.been.called;
           expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
@@ -76,8 +75,6 @@ describe('sub_generators', () => {
             },
             template: sinon.spy()
           };
-
-          sinon.mock(_gen.template);
 
           let _dsg = new DirectiveSubGenerator(_gen);
 

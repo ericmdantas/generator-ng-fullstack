@@ -48,19 +48,15 @@ describe('angular', () => {
         _ng1.copyClient();
 
         let _firstCall = ['tasks/client_ng1', 'tasks/client'];
-        let _secondCall = ['tests/client_ng1', 'tests/client'];
-        let _thirdCall = ['client_ng1', 'client'];
 
         expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_ng1.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_ng1.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-
       });
     });
 
     it('should call the methods with the right params', () => {
       let _gen = {
         name: 'a',
+        appName: 'b',
         options: {feature: 'c'},
         config: {
           get(){return 'ng1'}
@@ -72,8 +68,8 @@ describe('angular', () => {
 
       _ng1.copyDirective();
 
-      let _firstCall = ['ng1/directive.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {name: _gen.name}];
-      let _secondCall = ['ng1/directive_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '_test.js', {name: _gen.name}];
+      let _firstCall = ['ng1/directive.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
+      let _secondCall = ['ng1/directive_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '_test.js', {name: _gen.name, appName: _gen.appName}];
 
       expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
@@ -84,6 +80,7 @@ describe('angular', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
         name: 'a',
+        appName: 'a',
         options: {feature: 'c'},
         template: sinon.spy()
       };
@@ -92,8 +89,8 @@ describe('angular', () => {
 
       _ng1.copyFactory();
 
-      let _firstCall = ['ng1/factory.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.js', {name: utils.capitalizeFirst(_gen.name)}];
-      let _secondCall = ['ng1/factory_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '_test.js', {name: utils.capitalizeFirst(_gen.name)}];
+      let _firstCall = ['ng1/factory.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.js', {name: utils.capitalizeFirst(_gen.name), appName: _ng1.generator.appName}];
+      let _secondCall = ['ng1/factory_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '_test.js', {name: utils.capitalizeFirst(_gen.name), appName: _ng1.generator.appName}];
 
       expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
@@ -104,14 +101,15 @@ describe('angular', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
         name: 'a',
+        appName: 'b',
         options: {feature: 'c'},
         template: sinon.spy()
       };
 
       let _ng1 = new Angular1(_gen);
 
-      let _firstCall = ['ng1/service.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {name: _gen.name}]
-      let _secondCall = ['ng1/service_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '_test.js', {name: _gen.name}]
+      let _firstCall = ['ng1/service.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}]
+      let _secondCall = ['ng1/service_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '_test.js', {name: _gen.name, appName: _gen.appName}]
 
       _ng1.copyService();
 
@@ -124,14 +122,15 @@ describe('angular', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
         name: 'a',
+        appName: 'b',
         options: {feature: 'c'},
         template: sinon.spy()
       };
 
       let _ng1 = new Angular1(_gen);
 
-      let _firstCall = ['ng1/model.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.js', {name: _gen.name}]
-      let _secondCall = ['ng1/model_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '_test.js', {name: _gen.name}]
+      let _firstCall = ['ng1/model.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}]
+      let _secondCall = ['ng1/model_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '_test.js', {name: _gen.name, appName: _gen.appName}]
 
       _ng1.copyModel();
 
@@ -180,14 +179,15 @@ describe('angular', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
         name: 'a',
+        appName: 'b',
         options: {feature: 'c'},
         template: sinon.spy()
       };
 
       let _ng1 = new Angular1(_gen);
 
-      let _firstCall = ['controller_client.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '.js', {name: _gen.name}];
-      let _secondCall = ['controller_client_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/controllers/' + _gen.name + '_test.js', {name: _gen.name, nameLowerCase: _gen.name.toLowerCase()}];
+      let _firstCall = ['controller_client.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
+      let _secondCall = ['controller_client_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/controllers/' + _gen.name + '_test.js', {name: _gen.name, nameLowerCase: _gen.name.toLowerCase(), appName: _gen.appName}];
 
       _ng1.copyController();
 

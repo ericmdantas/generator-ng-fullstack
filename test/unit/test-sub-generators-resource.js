@@ -7,7 +7,12 @@ import {ResourceSubGenerator} from '../../_ng/client/sub_generators_resource';
 describe('ResourceSubGenerator', () => {
   describe('creation', () => {
     it('should have the right param passed to wrapper', () => {
-      let _gen = {a: true};
+      let _gen = {
+        a: true,
+        config: {
+          get(){}
+        }
+      };
       let _rsg = new ResourceSubGenerator(_gen);
 
       expect(_rsg.wrapper).to.equal(_gen);
@@ -17,10 +22,11 @@ describe('ResourceSubGenerator', () => {
   describe('initializing', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
-        argument: () => {}
+        argument: () => {},
+        config: {
+          get(){}
+        }
       };
-
-      sinon.mock(_gen.argument);
 
       let _rsg = new ResourceSubGenerator(_gen);
 
@@ -34,17 +40,19 @@ describe('ResourceSubGenerator', () => {
     it('should have the writing called with the right stuff', () => {
       let _gen = {
         name: 'a',
+        appName: 'a',
+        config: {
+          get(){}
+        },
         options: {feature: 'c'},
         template: sinon.spy()
       };
-
-      sinon.mock(_gen.template);
 
       let _rsg = new ResourceSubGenerator(_gen);
 
       _rsg.writing();
 
-      let _firstCall = ['resource.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/resource/' + _gen.name + '.js', {name: _gen.name}];
+      let _firstCall = ['resource.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/resource/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
 
       expect(_rsg.wrapper.writing).to.have.been.called;
       expect(_rsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;

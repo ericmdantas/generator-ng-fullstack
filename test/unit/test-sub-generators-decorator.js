@@ -7,7 +7,12 @@ import {DecoratorSubGenerator} from '../../_ng/client/sub_generators_decorator';
 describe('DecoratorSubGenerator', () => {
   describe('creation', () => {
     it('should have the right param passed to wrapper', () => {
-      let _gen = {a: true};
+      let _gen = {
+        a: true,
+        config: {
+          get(){}
+        }
+      };
       let _dsg = new DecoratorSubGenerator(_gen);
 
       expect(_dsg.wrapper).to.equal(_gen);
@@ -17,10 +22,11 @@ describe('DecoratorSubGenerator', () => {
   describe('initializing', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
-        argument: () => {}
+        argument: () => {},
+        config: {
+          get(){}
+        }
       };
-
-      sinon.mock(_gen.argument);
 
       let _dsg = new DecoratorSubGenerator(_gen);
 
@@ -34,7 +40,11 @@ describe('DecoratorSubGenerator', () => {
     it('should have the writing called with the right stuff', () => {
       let _gen = {
         name: 'a',
+        appName: 'b',
         options: {feature: 'c'},
+        config: {
+          get(){}
+        },
         template: sinon.spy()
       };
 
@@ -42,7 +52,7 @@ describe('DecoratorSubGenerator', () => {
 
       _dsg.writing();
 
-      let _firstCall = ['decorator.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/decorator/' + _gen.name + '.js'];
+      let _firstCall = ['decorator.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/decorator/' + _gen.name + '.js', {appName: _gen.appName}];
 
       expect(_dsg.wrapper.writing).to.have.been.called;
       expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
