@@ -11,7 +11,7 @@
       self.createTodo = function(todo) {
         TodoDAO
           .createTodo(todo)
-          .then(function(todo) {
+          .then(function(newTodo) {
             self.todos.push(newTodo);
             self.todo = new Todo();
           })
@@ -30,7 +30,7 @@
       var _getAll = function() {
         return TodoDAO
           .getAll()
-          .then(function() {
+          .then(function(todos) {
             return self.todos = todos;
           })
           .catch($log.error);
