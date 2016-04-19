@@ -8,7 +8,7 @@ gulp.task(tasks.CLIENT_UNIT_TEST, (done) => {
     configFile: process.cwd() + '/karma.conf.js',
     browsers: ['Chrome'],
     singleRun: true
-  }, () => done);
+  }, done);
 });
 
 gulp.task(tasks.CLIENT_COVERAGE, [tasks.CLIENT_UNIT_TEST], () => {
