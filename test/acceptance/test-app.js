@@ -11,7 +11,6 @@ describe('ng-fullstack:app', () => {
       'tasks/default.js',
       'tasks/index.js',
 
-      'tasks/client/build_font.js',
       'tasks/client/build_html.js',
       'tasks/client/build_js.js',
       'tasks/client/build_css.js',
@@ -23,7 +22,6 @@ describe('ng-fullstack:app', () => {
       'tasks/client/const.js',
 
       'tasks/server/build.js',
-      'tasks/server/del.js',
       'tasks/server/test.js',
       'tasks/server/watch.js'
     ]
@@ -414,7 +412,6 @@ describe('ng-fullstack:app', () => {
         'tasks/index.js',
 
         'tasks/server/build.js',
-        'tasks/server/del.js',
         'tasks/server/test.js',
         'tasks/server/watch.js'
       ]
@@ -475,7 +472,6 @@ describe('ng-fullstack:app', () => {
         'tasks/default.js',
         'tasks/index.js',
 
-        'tasks/client/build_font.js',
         'tasks/client/build_html.js',
         'tasks/client/build_image.js',
         'tasks/client/build_css.js',
@@ -565,7 +561,6 @@ describe('ng-fullstack:app', () => {
         'tasks/default.js',
         'tasks/index.js',
 
-        'tasks/client/build_font.js',
         'tasks/client/build_html.js',
         'tasks/client/build_image.js',
         'tasks/client/build_ts.js',
