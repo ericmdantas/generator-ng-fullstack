@@ -10,8 +10,12 @@ gulp.task(tasks.CLIENT_RELOAD, () => {
   return browserSync.reload();
 });
 
-gulp.task(tasks.CLIENT_WATCH, [tasks.CLIENT_BUILD_TS, tasks.CLIENT_RELOAD], () => {
+gulp.task(tasks.CLIENT_WATCH, [tasks.CLIENT_BUILD_TS], () => {
+  <% if (!!secure) { %>
+  browserSync({proxy: "https://localhost:3333", reloadDelay: 1000});
+  <%} else {%>
   browserSync({proxy: "http://localhost:3333", reloadDelay: 1000});
+  <% } %>
 
   let _watchable = [];
 

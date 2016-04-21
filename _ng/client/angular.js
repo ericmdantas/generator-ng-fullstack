@@ -37,6 +37,7 @@ class Angular1 {
     ]
 
     this.generator.directory('tasks/client_ng1', 'tasks/client');
+    this.generator.template('tasks/client_ng1/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
 
     yoUtils.directory(this.generator, _pathSrc, this.generator);
     yoUtils.directory(this.generator, _pathTest, this.generator);
@@ -132,6 +133,8 @@ class Angular2 {
     this.generator.template('_karma-test-shim.js', 'karma-test-shim.js');
     this.generator.template('_typings_ng2.json', 'typings.json');
     this.generator.template('_tsconfig.json', 'tsconfig.json');
+
+    this.generator.template('tasks/client_ng2/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
   }
 
   copyComponent(pathTemplate) {

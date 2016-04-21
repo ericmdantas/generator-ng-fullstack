@@ -32,9 +32,10 @@ describe('angular', () => {
 
   describe('ng1', () => {
     describe('copyClient', () => {
-      it('should call the methods with the right params', () => {
+      it('should call the methods with the right params - secure is false', () => {
         let _gen = {
           name: 'a',
+          secure: false,
           options: {feature: 'c'},
           config: {
             get(){return 'ng1'}
@@ -48,7 +49,32 @@ describe('angular', () => {
         _ng1.copyClient();
 
         let _firstCall = ['tasks/client_ng1', 'tasks/client'];
+        let _secondCall = ['tasks/client_ng1/watch.js', 'tasks/client/watch.js', {secure: false}];
 
+        expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+      });
+
+      it('should call the methods with the right params - secure is true', () => {
+        let _gen = {
+          name: 'a',
+          secure: true,
+          options: {feature: 'c'},
+          config: {
+            get(){return 'ng1'}
+          },
+          template: sinon.spy(),
+          directory: sinon.spy()
+        };
+
+        let _ng1 = new Angular1(_gen);
+
+        _ng1.copyClient();
+
+        let _firstCall = ['tasks/client_ng1', 'tasks/client'];
+        let _secondCall = ['tasks/client_ng1/watch.js', 'tasks/client/watch.js', {secure: true}];
+
+        expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       });
     });
@@ -199,9 +225,10 @@ describe('angular', () => {
 
 describe('ng2', () => {
   describe('copyClient', () => {
-    it('should call the methods with the right params', () => {
+    it('should call the methods with the right params - secure is false', () => {
       let _gen = {
         name: 'a',
+        secure: false,
         options: {feature: 'c'},
         config: {
           get(){return 'ng2'}
@@ -221,6 +248,7 @@ describe('ng2', () => {
       let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
       let _sixthCall = ['_typings_ng2.json', 'typings.json'];
       let _seventhCall = ['_tsconfig.json', 'tsconfig.json'];
+      let _eightCall = ['tasks/client_ng2/watch.js', 'tasks/client/watch.js', {secure: false}];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
@@ -231,6 +259,44 @@ describe('ng2', () => {
 
       expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
       expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
+      expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1], _eightCall[2])).to.be.true;
+    });
+
+    it('should call the methods with the right params - secure is true', () => {
+      let _gen = {
+        name: 'a',
+        secure: true,
+        options: {feature: 'c'},
+        config: {
+          get(){return 'ng2'}
+        },
+        template: sinon.spy(),
+        directory: sinon.spy()
+      };
+
+      let _ng2 = new Angular2(_gen);
+
+      _ng2.copyClient();
+
+      let _firstCall = ['tasks/client_ng2', 'tasks/client'];
+      let _secondCall = ['tests/client_ng2', 'tests/client'];
+      let _thirdCall = ['client_ng2', 'client'];
+      let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
+      let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
+      let _sixthCall = ['_typings_ng2.json', 'typings.json'];
+      let _seventhCall = ['_tsconfig.json', 'tsconfig.json'];
+      let _eightCall = ['tasks/client_ng2/watch.js', 'tasks/client/watch.js', {secure: true}];
+
+      expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+      expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+      expect(_ng2.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+
+      expect(_ng2.generator.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+      expect(_ng2.generator.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
+
+      expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
+      expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
+      expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1], _eightCall[2])).to.be.true;
     });
   });
 
