@@ -18,15 +18,8 @@ import {
   Observable
 } from 'rxjs/Observable';
 
-import {setBaseTestProviders} from 'angular2/testing';
-
-import {
-  TEST_BROWSER_PLATFORM_PROVIDERS,
-  TEST_BROWSER_APPLICATION_PROVIDERS
-} from 'angular2/platform/testing/browser';
-
-import {TodoCmp} from '../../../../client/dev/todo/components/todo-cmp';
-import {TodoService} from '../../../../client/dev/todo/services/todo-service';
+import {TodoCmp} from '../../../../client/dev/todo/components/todo-cmp.js';
+import {TodoService} from '../../../../client/dev/todo/services/todo-service.js';
 
 class MockTodoService extends TodoService {
   getAll():Observable<any> {
@@ -49,8 +42,6 @@ class MockTodoService extends TodoService {
 }
 
 describe('todo_component', () => {
-  setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
-
   beforeEachProviders(() => [provide(TodoService, {useClass: MockTodoService})]);
 
   describe('creation', () => {
