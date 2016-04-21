@@ -14,7 +14,7 @@ const Routes = require('./routes/index');
 
 const app = express();
 
-RoutesConfig.init(app, express);
+RoutesConfig.init(app);
 DBConfig.init();
 Routes.init(app, express.Router());
 
