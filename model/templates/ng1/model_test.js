@@ -9,9 +9,9 @@ describe('<%= name %>', function() {
         _<%= name %> = $injector.get('<%= name %>');
     }));
 
-    describe('doSomething', function() {
-        it('should doSomething', function() {
-            _<%= name %>Service.doSomething();
+    describe('creation', function() {
+        it('return a function', function() {
+            expect(typeof _<%= name %>).toBe('function');
         });
     });
 });
