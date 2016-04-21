@@ -4,20 +4,11 @@ import {path, tasks} from './const';
 
 const TS_CONFIG = path.ROOT + 'tsconfig.json';
 
-gulp.task(tasks.CLIENT_BUILD_TS_DEV, () => {
+gulp.task(tasks.CLIENT_BUILD_TS, () => {
   let tsconfigSrc = tsc.createProject(TS_CONFIG);
 
   return tsconfigSrc.src()
                     .pipe(tsc(tsconfigSrc))
                     .js
                     .pipe(gulp.dest('.'));
-});
-
-gulp.task(tasks.CLIENT_BUILD_TS_DIST, () => {
-  let tsconfigSrc = tsc.createProject(TS_CONFIG);
-
-  return tsconfigSrc.src({base: path.DEV})
-                    .pipe(tsc(tsconfigSrc))
-                    .js
-                    .pipe(gulp.dest(path.DIST));
 });

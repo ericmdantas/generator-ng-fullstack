@@ -14,7 +14,6 @@ export const tasks = {
   CLIENT_VIEWS_DIST: 'client.views:dist',
   CLIENT_IMAGE_DIST: 'client.imgs:dist',
   CLIENT_DEL_DIST: 'client.del:dist',
-  CLIENT_COPY_DEPS_DIST: 'client.copy_deps:dist',
 
   CLIENT_COPY: 'client.copy',
 
@@ -25,6 +24,5 @@ export const tasks = {
 
   CLIENT_WATCH: 'client.watch',
 
-  CLIENT_BUILD_TS_DEV: 'client.build_ts:dev',
-  CLIENT_BUILD_TS_DIST: 'client.build_ts:dist'
+  CLIENT_BUILD_TS: 'client.build_ts'
 }
