@@ -14,8 +14,8 @@ describe('NgFullstack:component', () => {
   it('creates files', () => {
     assert.file([
         'client/dev/yo/components/user.ts',
-        'client/dev/yo/components/user.html',
-        'client/dev/yo/components/user.css',
+        'client/dev/yo/templates/user.html',
+        'client/dev/yo/styles/user.css',
         'tests/client/yo/components/user_test.ts'
       ]);
   });

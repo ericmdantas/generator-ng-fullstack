@@ -141,8 +141,8 @@ class Angular2 {
     let _pathTemplate = pathTemplate || '';
 
     this.generator.template(_pathTemplate + 'component.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.ts`, {name: this.generator.name.charAt(0).toUpperCase() + this.generator.name.slice(1)});
-    this.generator.template(_pathTemplate + 'component.html', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.html`, {name: this.generator.name});
-    this.generator.template(_pathTemplate + 'component.css', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.css`);
+    this.generator.template(_pathTemplate + 'component.html', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/templates/${this.generator.name}.html`, {name: this.generator.name});
+    this.generator.template(_pathTemplate + 'component.css', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`);
     this.generator.template(_pathTemplate + 'component_test.ts', `${knownPaths.PATH_CLIENT_FEATURES_TEST + this.generator.options.feature}/components/${this.generator.name}_test.ts`, {name: this.generator.name.charAt(0).toUpperCase() + this.generator.name.slice(1), nameLowerCase: this.generator.name.toLowerCase()});
   }
 
