@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
@@ -23,9 +23,10 @@ exports.PipeSubGenerator = class PipeSubGenerator {
     let _feature = optionsParser.getFeature(this.wrapper.options);
     let name = this.wrapper.name;
 
-    if (!_feature.length)
+    if (!_feature.length) {
       throw new FeatureMissingError();
+    }
 
     AngularFactory.build(AngularFactory.tokens().NG2, this.wrapper).copyPipe();
   }
-}
+};

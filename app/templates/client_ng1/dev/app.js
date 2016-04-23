@@ -2,8 +2,8 @@
   'use strict';
 
   ng.module('<%= appName %>', [
-            'ngResource',
-            'ngRoute',
-            'ngMessages'
-          ]);
+      'ngResource',
+      'ngRoute',
+      'ngMessages'
+    ]);
 }(window.angular));

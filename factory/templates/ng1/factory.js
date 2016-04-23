@@ -2,7 +2,8 @@
   'use strict';
 
   ng.module('<%= appName %>')
-    .factory('<%= name %>', [function() {
+    .factory('<%= name %>', [
+      function() {
         var <%= name %> = function() {
           this.something = 123;
         };

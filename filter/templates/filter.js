@@ -2,7 +2,8 @@
   'use strict';
 
   ng.module('<%= appName %>')
-    .filter('<%= name %>', [function(input) {
+    .filter('<%= name %>', [
+      function(input) {
         if (!input) {
           return '';
         }

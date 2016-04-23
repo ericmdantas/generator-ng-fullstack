@@ -2,12 +2,18 @@
   'use strict';
 
   ng.module('<%= appName %>')
-    .factory('<%= name %>', [function() {
-        var Something = function() {
-
+    .factory('<%= name %>', [
+      function() {
+        var <%= name %> = function() {
+          this.name = '';
+          this.birthDate = null;
         };
 
-        return Something;
+        <%= name %>.prototype.isValid = function() {
+          return !!this.name && !!this.birthDate;
+        };
+
+        return <%= name %>;
       }
     ]);
 }(window.angular));

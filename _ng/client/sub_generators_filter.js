@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
@@ -23,9 +23,10 @@ exports.FilterSubGenerator = class FilterSubGenerator {
   writing() {
     let _feature = optionsParser.getFeature(this.wrapper.options);
 
-    if (!_feature.length)
+    if (!_feature.length) {
       throw new FeatureMissingError();
+    }
 
     AngularFactory.build(AngularFactory.tokens().NG1, this.wrapper).copyFilter();
   }
-}
+};

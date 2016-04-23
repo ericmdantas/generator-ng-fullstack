@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const utils = require('../utils/utils');
 const knownPaths = require('../utils/known_paths');
@@ -27,14 +27,14 @@ class Angular1 {
       ['client_ng1/dev/todo/styles/position.css', 'client/dev/todo/styles/position.css'],
       ['client_ng1/dev/todo/styles/styles.css', 'client/dev/todo/styles/styles.css'],
       ['client_ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
-    ]
+    ];
 
     let _pathTest = [
       ['tests/client_ng1/_helpers/invalid-inputs.js', 'tests/client/_helpers/invalid-inputs.js'],
       ['tests/client_ng1/todo/controllers/todo-controller_test.js', 'tests/client/todo/controllers/todo-controller_test.js'],
       ['tests/client_ng1/todo/models/todo-model_test.js', 'tests/client/todo/models/todo-model_test.js'],
       ['tests/client_ng1/todo/services/todo-dao_test.js', 'tests/client/todo/services/todo-dao_test.js']
-    ]
+    ];
 
     this.generator.directory('tasks/client_ng1', 'tasks/client');
     this.generator.template('tasks/client_ng1/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
@@ -208,7 +208,7 @@ class AngularFactory {
     return {
       NG1: 'ng1',
       NG2: 'ng2'
-    }
+    };
   }
 
   static build(token, gen) {

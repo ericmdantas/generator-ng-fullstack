@@ -4,10 +4,14 @@
   ng.module('<%= appName %>')
     .factory('Todo', [function() {
       var Todo = function(todo) {
-        this.todoMessage = null;
+        var self = this;
 
-        angular.extend(this, todo);
-      }
+        self.todoMessage = null;
+
+        ng.extend(self, todo);
+
+        return self;
+      };
 
       var MIN_ACCEPTED_LENGTH = 5;
 
@@ -17,7 +21,7 @@
         var _isBigEnough = (_isDefined && _isString) ? this.todoMessage.length >= MIN_ACCEPTED_LENGTH : false;
 
         return _isDefined && _isString && _isBigEnough;
-      }
+      };
 
       return Todo;
     }]);

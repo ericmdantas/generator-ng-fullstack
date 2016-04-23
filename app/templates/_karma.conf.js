@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = (config) => {
   config.set({
 
@@ -21,6 +23,7 @@ module.exports = (config) => {
 
         'client/dev/app.js',
         'client/dev/app.config.js',
+        'client/dev/app.route.js',
         'client/dev/!(bower_components)/**/*.js',
 
         'client/dev/bower_components/angular-mocks/angular-mocks.js',
