@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import Promise from 'bluebird';
-import <%= nameLowerCase %>Schema from '../model/<%= name %>.model';
+import <%= nameLowerCase %>Schema from '../model/<%= name %>-model';
 import _ from 'lodash';
 
 <%= nameLowerCase %>Schema.statics.getAll = () => {

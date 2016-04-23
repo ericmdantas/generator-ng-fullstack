@@ -1,4 +1,4 @@
-import <%= name %>DAO from '../dao/<%= name %>.dao';
+import <%= name %>DAO from '../dao/<%= name %>-dao';
 
 export default class <%= name %>Controller {
   static getAll(req, res) {

@@ -1,6 +1,6 @@
 "use strict";
 
-const <%= name %>Controller = require('../controller/<%= name %>.controller');
+const <%= name %>Controller = require('../controller/<%= name %>-controller');
 
 module.exports = class <%= name %>Routes {
   static init(router) {

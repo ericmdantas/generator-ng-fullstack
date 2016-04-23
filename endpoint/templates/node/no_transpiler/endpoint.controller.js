@@ -1,6 +1,6 @@
 "use strict";
 
-import <%= name %>DAO from '../dao/<%= name %>.dao';
+import <%= name %>DAO from '../dao/<%= name %>-dao';
 
 module.exports = class <%= name %>Controller {
   static getAll(req, res) {

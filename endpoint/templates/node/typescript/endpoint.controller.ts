@@ -1,7 +1,7 @@
 "use strict";
 
 import * as express from 'express';
-import {<%= name %>DAO} from '../dao/<%= name %>.dao';
+import {<%= name %>DAO} from '../dao/<%= name %>-dao';
 
 export class <%= name %>Controller {
   static getAll(req:express.Request, res:express.Response) {

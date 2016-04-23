@@ -1,4 +1,4 @@
-import <%= name %>Controller from '../controller/<%= name %>.controller';
+import <%= name %>Controller from '../controller/<%= name %>-controller';
 
 export default class <%= name %>Routes {
   static init(router) {

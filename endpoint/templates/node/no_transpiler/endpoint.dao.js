@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 const Promise = require('bluebird');
-const <%= nameLowerCase %>Schema = require('../model/<%= name %>.model');
+const <%= nameLowerCase %>Schema = require('../model/<%= name %>-model');
 const _ = require('lodash');
 
 <%= nameLowerCase %>Schema.statics.getAll = () => {
