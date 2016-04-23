@@ -1,8 +1,7 @@
 ;(function(ng) {
   'use strict';
 
-  ng
-    .module('<%= appName %>')
+  ng.module('<%= appName %>')
     .factory('Todo', [function() {
       var Todo = function(todo) {
         var self = this;

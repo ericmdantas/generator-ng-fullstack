@@ -1,8 +1,7 @@
 ;(function(ng) {
   'use strict';
 
-  ng
-    .module('<%= appName %>')
+  ng.module('<%= appName %>')
     .config([
       '$routeProvider',
       function($routeProvider) {

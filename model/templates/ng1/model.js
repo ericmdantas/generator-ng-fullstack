@@ -1,21 +1,16 @@
 ;(function(ng) {
   'use strict';
 
-  ng
-    .module('<%= appName %>')
+  ng.module('<%= appName %>')
     .factory('<%= name %>', [
       function() {
         var <%= name %> = function() {
-          var self = this;
-
-          self.name = undefined;
-          self.birthdate = undefined;
-
-          return self;
+          this.name = '';
+          this.birthDate = null;
         };
 
         <%= name %>.prototype.isValid = function() {
-          return !!this.name && !!this.birthdate;
+          return !!this.name && !!this.birthDate;
         };
 
         return <%= name %>;

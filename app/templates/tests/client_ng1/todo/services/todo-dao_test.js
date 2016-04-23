@@ -129,7 +129,7 @@ describe('todo.dao', function() {
       };
 
       /* jshint -W055 */
-var _validTodo = new _Todo();
+      var _validTodo = new _Todo();
       _validTodo.todoMessage = 'abcdef';
 
       _httpBackend.expectPOST(URL_CREATE_TODO, _validTodo).respond(200, _response);

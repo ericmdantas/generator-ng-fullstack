@@ -1,17 +1,18 @@
 ;(function(ng) {
   'use strict';
 
-  ng
-    .module('<%= appName %>')
-    .factory('<%= name %>', [function() {
-      var <%= name %> = function() {
-        this.something = 123;
-      };
+  ng.module('<%= appName %>')
+    .factory('<%= name %>', [
+      function() {
+        var <%= name %> = function() {
+          this.something = 123;
+        };
 
-      <%= name %>.prototype.isValid = function() {
-        return !!this.something;
-      };
+        <%= name %>.prototype.isValid = function() {
+          return !!this.something;
+        };
 
-      return <%= name %>;
-    }]);
+        return <%= name %>;
+      }
+    ]);
 }(window.angular));
