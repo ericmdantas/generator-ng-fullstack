@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
@@ -23,9 +23,10 @@ exports.StyleSubGenerator = class StyleSubGenerator {
   writing() {
     let feature = optionsParser.getFeature(this.wrapper.options);
 
-    if (!feature.length)
+    if (!feature.length) {
       throw new FeatureMissingError();
+    }
 
     AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyStyle();
   }
-}
+};

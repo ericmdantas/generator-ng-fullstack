@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
@@ -24,9 +24,10 @@ exports.ResourceSubGenerator = class ResourceSubGenerator {
     let feature = optionsParser.getFeature(this.wrapper.options);
     let name = this.wrapper.name;
 
-    if (!feature.length)
+    if (!feature.length) {
       throw new FeatureMissingError();
+    }
 
     AngularFactory.build(AngularFactory.tokens().NG1, this.wrapper).copyResource();
   }
-}
+};
