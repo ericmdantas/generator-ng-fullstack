@@ -34,14 +34,24 @@ describe('ComponentSubGenerator', () => {
   });
 
   describe('writing', () => {
+    it('throw error, feature not defined', () => {
+      let _gen = {
+        name: 'a',
+        options: {},
+        template: sinon.spy()
+      };
+
+      let _csg = new ComponentSubGenerator(_gen);
+
+      expect(() => _csg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
+    });
+
     it('should call writing with the right stuff', () => {
       let _gen = {
         name: 'a',
         options: {feature: 'c'},
         template: sinon.spy()
       };
-
-      sinon.mock(_gen.template);
 
       let _csg = new ComponentSubGenerator(_gen);
 

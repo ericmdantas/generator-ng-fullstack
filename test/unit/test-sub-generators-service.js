@@ -39,6 +39,22 @@ describe('ServiceSubGenerator', () => {
 
   describe('writing', () => {
     describe('ng1', () => {
+      it('should throw FeatureMissingError', () => {
+        let _gen = {
+          name: 'a',
+          appName: 'b',
+          options: {},
+          template: sinon.spy(),
+          config: {
+            get(){return 'ng1'}
+          }
+        };
+
+        let _ssg = new ServiceSubGenerator(_gen);
+
+        expect(() => _ssg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
+      });
+
       it('should have the writing called with the right stuff', () => {
         let _gen = {
           name: 'a',
@@ -64,6 +80,21 @@ describe('ServiceSubGenerator', () => {
     })
 
     describe('ng2', () => {
+      it('should throw FeatureMissingError', () => {
+        let _gen = {
+          name: 'a',
+          options: {},
+          template: sinon.spy(),
+          config: {
+            get(){return 'ng2'}
+          }
+        };
+
+        let _ssg = new ServiceSubGenerator(_gen);
+
+        expect(() => _ssg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
+      });
+
       it('should have the writing called with the right stuff', () => {
         let _gen = {
           name: 'a',

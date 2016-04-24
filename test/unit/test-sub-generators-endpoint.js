@@ -42,6 +42,22 @@ describe('EndpointSubGenerator', () => {
   });
 
   describe('writing', () => {
+    it('should throw FeatureMissingError', () => {
+      let _gen = {
+        name: 'a',
+        options: {},
+        transpilerServer: 'node',
+        template: () => {},
+        config: {
+          get() {return 'node'}
+        }
+      };
+
+      let _esg = new EndpointSubGenerator(_gen);
+
+      expect(() => _esg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
+    });
+
     it('should have the writing called with the right stuff', () => {
       let _gen = {
         name: 'a',
@@ -52,9 +68,6 @@ describe('EndpointSubGenerator', () => {
           get() {return 'node'}
         }
       };
-
-      sinon.mock(_gen.template);
-      sinon.mock(_gen.config.get);
 
       let _esg = new EndpointSubGenerator(_gen);
 

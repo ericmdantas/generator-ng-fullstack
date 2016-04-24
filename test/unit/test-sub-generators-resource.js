@@ -37,6 +37,22 @@ describe('ResourceSubGenerator', () => {
   });
 
   describe('writing', () => {
+    it('should throw FeatureMissingError', () => {
+      let _gen = {
+        name: 'a',
+        appName: 'a',
+        config: {
+          get(){}
+        },
+        options: {},
+        template: sinon.spy()
+      };
+
+      let _rsg = new ResourceSubGenerator(_gen);
+
+      expect(() => _rsg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
+    });
+
     it('should have the writing called with the right stuff', () => {
       let _gen = {
         name: 'a',

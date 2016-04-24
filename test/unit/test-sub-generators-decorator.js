@@ -37,6 +37,22 @@ describe('DecoratorSubGenerator', () => {
   });
 
   describe('writing', () => {
+    it('should throw FeatureMissingError', () => {
+      let _gen = {
+        name: 'a',
+        appName: 'b',
+        options: {},
+        config: {
+          get(){}
+        },
+        template: sinon.spy()
+      };
+
+      let _dsg = new DecoratorSubGenerator(_gen);
+
+      expect(() => _dsg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
+    });
+
     it('should have the writing called with the right stuff', () => {
       let _gen = {
         name: 'a',

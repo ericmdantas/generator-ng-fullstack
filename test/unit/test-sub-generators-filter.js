@@ -37,6 +37,22 @@ describe('FilterSubGenerator', () => {
   });
 
   describe('writing', () => {
+    it('should throw FeatureMissingError', () => {
+      let _gen = {
+        name: 'a',
+        appName: 'b',
+        config: {
+          get(){}
+        },
+        options: {},
+        template: sinon.spy()
+      };
+
+      let _fsg = new FilterSubGenerator(_gen);
+
+      expect(() => _fsg.writing()).to.throw(Error, /Do it like this: --feature something-here/);      
+    });
+
     it('should have the writing called with the right stuff', () => {
       let _gen = {
         name: 'a',

@@ -39,6 +39,21 @@ describe('ModuleSubGenerator', () => {
 
   describe('writing', () => {
     describe('ng1', () => {
+      it('should throw FeatureMissingError', () => {
+        let _gen = {
+          name: 'a',
+          options: {},
+          config: {
+            get() {return 'ng1'}
+          },
+          template: sinon.spy()
+        };
+
+        let _fsg = new ModuleSubGenerator(_gen);
+
+        expect(() => _fsg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
+      });
+
       it('should have the writing called with the right stuff', () => {
         let _gen = {
           name: 'a',
@@ -74,6 +89,21 @@ describe('ModuleSubGenerator', () => {
     });
 
     describe('ng2', () => {
+      it('should throw FeatureMissingError', () => {
+        let _gen = {
+          name: 'a',
+          options: {},
+          config: {
+            get() {return 'ng2'}
+          },
+          template: sinon.spy()
+        };
+
+        let _fsg = new ModuleSubGenerator(_gen);
+
+        expect(() => _fsg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
+      });
+
       it('should have the writing called with the right stuff', () => {
         let _gen = {
           name: 'a',
