@@ -15,8 +15,8 @@
   },
   "scripts": {
     "prepublish": "npm t",
-    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/  --report lcovonly -- --recursive -R min --check-leaks --require babel-core/register && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "test": "mocha test/ --recursive -R dot --check-leaks --require babel-core/register"
+    "test": "mocha test/ --recursive -R dot --check-leaks --require babel-core/register",
+    "coverage": "babel-node ./node_modules/istanbul/lib/cli cover ./node_modules/.bin/_mocha test/  --report lcovonly -- --recursive -R min --check-leaks --require babel-core/register && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "keywords": [
     "yeoman-generator",
@@ -53,7 +53,7 @@
     "coveralls": "^2.11.8",
     "gulp": "^3.9.0",
     "gulp-rename": "^1.2.2",
-    "istanbul": "^0.4.2",
+    "istanbul": "^1.0.0-alpha.2",
     "mocha": "*",
     "mocha-lcov-reporter": "^1.2.0",
     "sinon": "^1.17.1",
