@@ -22,7 +22,7 @@
     "express-content-length-validator": "1.0.0",
     "mongoose": "^4.4.7",
     "morgan": "^1.5.2", <% } %> <% if (client === "ng2") { %>
-    "angular2": "^2.0.0-beta.16",
+    "angular2": "^2.0.0-beta.17",
     "rxjs": "5.0.0-beta.2",
     "systemjs": "^0.19.26",
     "typescript": "^1.8.9",

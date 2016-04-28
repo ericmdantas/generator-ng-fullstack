@@ -16,7 +16,7 @@
   </form>
 
   <div class="todo-list">
-    <div *ngFor="#todo of todos;" class="todo-item" (click)="remove(todo._id);">
+    <div *ngFor="let todo of todos;" class="todo-item" (click)="remove(todo._id);">
       <p>{{todo.todoMessage}}</p>
     </div>
   </div>
