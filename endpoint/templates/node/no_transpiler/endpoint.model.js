@@ -7,4 +7,4 @@ const _<%= nameLowerCase %>Schema = {
   createdAt: {type: Date, default: Date.now}
 }
 
-module.exports = mongoose.Schema(<%= nameLowerCase %>Schema);
+module.exports = mongoose.Schema(_<%= nameLowerCase %>Schema);

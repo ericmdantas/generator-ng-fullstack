@@ -5,4 +5,4 @@ const _<%= nameLowerCase %>Schema = {
   createdAt: {type: Date, default: Date.now}
 }
 
-export default mongoose.Schema(<%= nameLowerCase %>Schema);
+export default mongoose.Schema(_<%= nameLowerCase %>Schema);
