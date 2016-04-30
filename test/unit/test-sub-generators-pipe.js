@@ -7,7 +7,12 @@ import {PipeSubGenerator} from '../../_ng/client/sub_generators_pipe';
 describe('PipeSubGenerator', () => {
   describe('creation', () => {
     it('should have the right param passed to wrapper', () => {
-      let _gen = {a: true};
+      let _gen = {
+        a: true,
+        config: {
+          get(){}
+        }
+      };
       let _fsg = new PipeSubGenerator(_gen);
 
       expect(_fsg.wrapper).to.equal(_gen);
@@ -17,7 +22,10 @@ describe('PipeSubGenerator', () => {
   describe('initializing', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
-        argument: () => {}
+        argument: () => {},
+        config: {
+          get(){}
+        }
       };
 
       sinon.mock(_gen.argument);
@@ -35,7 +43,12 @@ describe('PipeSubGenerator', () => {
       let _gen = {
         name: 'a',
         options: {},
-        template: sinon.spy()
+        template: sinon.spy(),
+        config: {
+          get(){
+            return 'ng2'
+          }
+        }
       };
 
       sinon.mock(_gen.template);
@@ -45,11 +58,37 @@ describe('PipeSubGenerator', () => {
       expect(() => _fsg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
     });
 
+    it('should throw ModuleDoesntImplementError', () => {
+      let _gen = {
+        name: 'a',
+        options: {
+          feature: 'c'
+        },
+        template: sinon.spy(),
+        config: {
+          get(){
+            return 'ng1'
+          }
+        }
+      };
+
+      sinon.mock(_gen.template);
+
+      let _fsg = new PipeSubGenerator(_gen);
+
+      expect(() => _fsg.writing()).to.throw(Error, /ng1 doesn't implement pipe/);
+    });
+
     it('should have the writing called with the right stuff', () => {
       let _gen = {
         name: 'a',
         options: {feature: 'c'},
-        template: sinon.spy()
+        template: sinon.spy(),
+        config: {
+          get(){
+            return 'ng2'
+          }
+        }
       };
 
       let _fsg = new PipeSubGenerator(_gen);

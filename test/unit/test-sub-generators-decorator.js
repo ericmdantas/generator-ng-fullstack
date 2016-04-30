@@ -10,7 +10,9 @@ describe('DecoratorSubGenerator', () => {
       let _gen = {
         a: true,
         config: {
-          get(){}
+          get(){
+            return 'ng1'
+          }
         }
       };
       let _dsg = new DecoratorSubGenerator(_gen);
@@ -24,7 +26,9 @@ describe('DecoratorSubGenerator', () => {
       let _gen = {
         argument: () => {},
         config: {
-          get(){}
+          get(){
+            return 'ng1'
+          }
         }
       };
 
@@ -43,7 +47,9 @@ describe('DecoratorSubGenerator', () => {
         appName: 'b',
         options: {},
         config: {
-          get(){}
+          get(){
+            return 'ng1'
+          }
         },
         template: sinon.spy()
       };
@@ -53,13 +59,35 @@ describe('DecoratorSubGenerator', () => {
       expect(() => _dsg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
     });
 
+    it('should throw ModuleDoesntImplementError', () => {
+      let _gen = {
+        name: 'a',
+        appName: 'b',
+        options: {
+          feature: 'c'
+        },
+        config: {
+          get(){
+            return 'ng2'
+          }
+        },
+        template: sinon.spy()
+      };
+
+      let _dsg = new DecoratorSubGenerator(_gen);
+
+      expect(() => _dsg.writing()).to.throw(Error, /ng2 doesn't implement decorator/);
+    });
+
     it('should have the writing called with the right stuff', () => {
       let _gen = {
         name: 'a',
         appName: 'b',
         options: {feature: 'c'},
         config: {
-          get(){}
+          get(){
+            return 'ng1'
+          }
         },
         template: sinon.spy()
       };

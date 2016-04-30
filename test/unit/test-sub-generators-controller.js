@@ -10,7 +10,9 @@ describe('ControllerSubGenerator', () => {
       let _gen = {
         a: true,
         config: {
-          get(){}
+          get(){
+            return 'ng1';
+          }
         }
       };
       let _csg = new ControllerSubGenerator(_gen);
@@ -24,7 +26,9 @@ describe('ControllerSubGenerator', () => {
       let _gen = {
         argument: () => {},
         config: {
-          get(){}
+          get(){
+            return 'ng1'
+          }
         }
       };
 
@@ -43,7 +47,9 @@ describe('ControllerSubGenerator', () => {
         appName: 'b',
         options: {},
         config: {
-          get(){}
+          get(){
+            return 'ng1'
+          }
         },
         template: sinon.spy()
       };
@@ -51,6 +57,26 @@ describe('ControllerSubGenerator', () => {
       let _csg = new ControllerSubGenerator(_gen);
 
       expect(() => _csg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
+    });
+
+    it('should throw ModuleDoesntImplementError', () => {
+      let _gen = {
+        name: 'a',
+        appName: 'b',
+        options: {
+          feature: 'c'
+        },
+        config: {
+          get(){
+            return 'ng2'
+          }
+        },
+        template: sinon.spy()
+      };
+
+      let _csg = new ControllerSubGenerator(_gen);
+
+      expect(() => _csg.writing()).to.throw(Error, /ng2 doesn't implement controller/);
     });
 
     it('should have the writing called with the right stuff', () => {
@@ -61,7 +87,9 @@ describe('ControllerSubGenerator', () => {
           feature: 'c',
         },
         config: {
-          get(){}
+          get(){
+            return 'ng1'
+          }
         },
         template: sinon.spy()
       };

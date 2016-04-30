@@ -9,7 +9,12 @@ describe('ComponentSubGenerator', () => {
   describe('creation', () => {
     it('should have the right param passed to wrapper', () => {
       let _gen = {
-        a: true
+        a: true,
+        config: {
+          get(){
+            return 'ng2'
+          }
+        }
       };
       let _csg = new ComponentSubGenerator(_gen);
 
@@ -20,7 +25,12 @@ describe('ComponentSubGenerator', () => {
   describe('initializing', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
-        argument: () => {}
+        argument: () => {},
+        config: {
+          get(){
+            return 'ng2'
+          }
+        }
       };
 
       sinon.mock(_gen.argument);
@@ -38,7 +48,12 @@ describe('ComponentSubGenerator', () => {
       let _gen = {
         name: 'a',
         options: {},
-        template: sinon.spy()
+        template: sinon.spy(),
+        config: {
+          get(){
+            return 'ng2'
+          }
+        }
       };
 
       let _csg = new ComponentSubGenerator(_gen);
@@ -46,11 +61,35 @@ describe('ComponentSubGenerator', () => {
       expect(() => _csg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
     });
 
+    it('should throw error, module doesnt implement', () => {
+      let _gen = {
+        name: 'a',
+        options: {
+          feature: 'c'
+        },
+        template: sinon.spy(),
+        config: {
+          get(){
+            return 'ng1'
+          }
+        }
+      };
+
+      let _csg = new ComponentSubGenerator(_gen);
+
+      expect(() => _csg.writing()).to.throw(Error, /ng1 doesn't implement component/);
+    });
+
     it('should call writing with the right stuff', () => {
       let _gen = {
         name: 'a',
         options: {feature: 'c'},
-        template: sinon.spy()
+        template: sinon.spy(),
+        config: {
+          get(){
+            return 'ng2';
+          }
+        }
       };
 
       let _csg = new ComponentSubGenerator(_gen);

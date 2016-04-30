@@ -10,7 +10,9 @@ describe('FilterSubGenerator', () => {
       let _gen = {
         a: true,
         config: {
-          get(){}
+          get(){
+            return 'ng1'
+          }
         }
       };
       let _fsg = new FilterSubGenerator(_gen);
@@ -24,7 +26,9 @@ describe('FilterSubGenerator', () => {
       let _gen = {
         argument: () => {},
         config: {
-          get(){}
+          get(){
+            return 'ng1'
+          }
         }
       };
 
@@ -42,7 +46,9 @@ describe('FilterSubGenerator', () => {
         name: 'a',
         appName: 'b',
         config: {
-          get(){}
+          get(){
+            return 'ng1'
+          }
         },
         options: {},
         template: sinon.spy()
@@ -50,7 +56,27 @@ describe('FilterSubGenerator', () => {
 
       let _fsg = new FilterSubGenerator(_gen);
 
-      expect(() => _fsg.writing()).to.throw(Error, /Do it like this: --feature something-here/);      
+      expect(() => _fsg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
+    });
+
+    it('should throw ModuleDoesntImplementError', () => {
+      let _gen = {
+        name: 'a',
+        appName: 'b',
+        config: {
+          get(){
+            return 'ng2'
+          }
+        },
+        options: {
+          feature: 'c'
+        },
+        template: sinon.spy()
+      };
+
+      let _fsg = new FilterSubGenerator(_gen);
+
+      expect(() => _fsg.writing()).to.throw(Error, /ng2 doesn't implement filter/);
     });
 
     it('should have the writing called with the right stuff', () => {
@@ -58,7 +84,9 @@ describe('FilterSubGenerator', () => {
         name: 'a',
         appName: 'b',
         config: {
-          get(){}
+          get(){
+            return 'ng1'
+          }
         },
         options: {feature: 'c'},
         template: sinon.spy()

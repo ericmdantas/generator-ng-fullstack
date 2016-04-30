@@ -5,11 +5,13 @@ const optionsParser = require('../utils/options_parser');
 const utils = require('../utils/utils');
 const AngularFactory = require('./angular').AngularFactory;
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
+const ModuleDoesntImplementError = require('../utils/errors').ModuleDoesntImplementError;
 
 exports.ControllerSubGenerator = class ControllerSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
     this.wrapper.appName = this.wrapper.config.get('appName');
+    this.wrapper.ngVersion = this.wrapper.config.get('client');
   }
 
   initializing() {
@@ -21,10 +23,15 @@ exports.ControllerSubGenerator = class ControllerSubGenerator {
   }
 
   writing() {
-    let feature = optionsParser.getFeature(this.wrapper.options);
+    let _feature = optionsParser.getFeature(this.wrapper.options);
+    let _ngVersion = this.wrapper.ngVersion;
 
-    if (!feature.length) {
+    if (!_feature.length) {
       throw new FeatureMissingError();
+    }
+
+    if (_ngVersion !== AngularFactory.tokens().NG1) {
+      throw new ModuleDoesntImplementError(_ngVersion, 'controller');
     }
 
     AngularFactory.build(AngularFactory.tokens().NG1, this.wrapper).copyController();
