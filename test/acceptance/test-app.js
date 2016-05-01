@@ -59,6 +59,7 @@ describe('ng-fullstack:app', () => {
       'client/dev/common/images/todo-bkg.png',
 
       'client/dev/app.js',
+      'client/dev/app.route.js',
       'client/dev/app.config.js',
 
       'client/dev/todo/services/todo-dao.js',
@@ -517,6 +518,7 @@ describe('ng-fullstack:app', () => {
         'client/dev/common/images/todo-bkg.png',
 
         'client/dev/app.js',
+        'client/dev/app.route.js',
         'client/dev/app.config.js',
 
         'client/dev/todo/services/todo-dao.js',
