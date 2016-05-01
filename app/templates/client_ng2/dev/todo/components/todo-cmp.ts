@@ -20,8 +20,8 @@ type Todo = {
 
 @Component({
   selector: 'todo-cmp',
-  templateUrl: 'client/dev/todo/templates/todo.html',
-  styleUrls: ['client/dev/todo/styles/todo.css'],
+  templateUrl: 'todo/templates/todo.html',
+  styleUrls: ['todo/styles/todo.css'],
   providers: [TodoService]
 })
 export class TodoCmp implements OnInit {

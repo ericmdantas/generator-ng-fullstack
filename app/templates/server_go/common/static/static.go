@@ -1,16 +1,18 @@
 package static
 
 import (
+	"os"
+
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
 
-const (
-	dev  string = "client/dev"
-	dist string = "client/dist"
-)
-
 func Init(e *echo.Echo) {
-	e.Use(middleware.Static(""))
-	e.Use(middleware.Static(dev))
+	e.Use(middleware.Static("node_modules"))
+
+	if env := os.Getenv("GO_ENV"); env == "" {
+		e.Use(middleware.Static("client/dev"))
+	} else {
+		e.Use(middleware.Static("client/dist"))
+	}
 }

@@ -14,6 +14,7 @@ class Angular1 {
       ['client_ng1/dev/index.html', 'client/dev/index.html'],
       ['client_ng1/dev/favicon.png', 'client/dev/favicon.png'],
       ['client_ng1/dev/app.js', 'client/dev/app.js'],
+      ['client_ng1/dev/app.route.js', 'client/dev/app.route.js'],
       ['client_ng1/dev/app.config.js', 'client/dev/app.config.js'],
       ['client_ng1/dev/common/images/todo-bkg.png', 'client/dev/common/images/todo-bkg.png'],
       ['client_ng1/dev/todo/controllers/todo-controller.js', 'client/dev/todo/controllers/todo-controller.js'],

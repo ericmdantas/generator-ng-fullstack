@@ -5,8 +5,8 @@ import {
 
 @Component({
   selector: '<%= name %>',
-  templateUrl: 'client/dev/<%= feature %>/templates/<%= name %>.html',
-  styleUrls: ['client/dev/<%= feature %>/styles/<%= name %>.css']
+  templateUrl: '<%= feature %>/templates/<%= name %>.html',
+  styleUrls: ['<%= feature %>/styles/<%= name %>.css']
 })
 export class <%= nameCapitalized %> {
   name: string = `yo, I'm your component :D`;
