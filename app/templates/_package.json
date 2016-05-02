@@ -7,6 +7,8 @@
     "test": "gulp client.unit_test",
     "build-dist": "gulp client.build:dist"<%} else {%>
     "start": "node index",
+    "watch": "gulp",
+    "dev": "concurrently \"npm start\" \"gulp\"",
     "build-dev": "node index && gulp client.watch",
     "build-dist": "gulp client.build:dist",
     "test-client": "gulp client.unit_test",
@@ -68,7 +70,8 @@
     "mocha": "^2.4.5",
     "chai": "^3.5.0",
     "coveralls": "^2.11.2",
-    "istanbul": "^0.3.5"
+    "istanbul": "^0.3.5",
+    "concurrently": "^2.0.0"
   },
   "repository": {
     "type": "git",
