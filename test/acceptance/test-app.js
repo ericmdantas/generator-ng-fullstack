@@ -121,7 +121,14 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'node', stack: 'fullstack', client: 'ng1'})
+            .withPrompts({
+              appName: "a",
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'node',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
             .withOptions({ 'skip-install': true })
             .on('end', done);
         });
@@ -132,7 +139,7 @@ describe('ng-fullstack:app', () => {
         });
       })
 
-      describe('node - babel', () => {
+      describe('node - standard - not secure', () => {
         let _nodeFiles = [
           // server stuff
 
@@ -172,7 +179,15 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'babel', stack: 'fullstack', client: 'ng1'})
+            .withPrompts({
+              appName: "a",
+              secure: false,
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'node',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
             .withOptions({ 'skip-install': true })
             .on('end', done);
         });
@@ -180,63 +195,16 @@ describe('ng-fullstack:app', () => {
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
           assert.noFile('.alivrc');
+          assert.noFile('server/cert/ca.crt');
+          assert.noFile('server/cert/ca.csr');
+          assert.noFile('server/cert/ca.key');
+          assert.noFile('server/cert/server.crt');
+          assert.noFile('server/cert/server.csr');
+          assert.noFile('server/cert/server.key');
         });
       })
 
-      describe('node - typescript', () => {
-        let _tscFiles = [
-          // server stuff
-
-          'typings.json', // typings
-
-          'index.js', // typescript's entry point
-
-          'server/server.ts',
-
-          'server/routes/index.ts',
-
-          'server/constants/db.json',
-
-          'server/config/db.conf.ts',
-          'server/config/routes.conf.ts',
-
-          'server/commons/static/index.ts',
-          'server/commons/static/index.ts',
-          'server/commons/static/index.ts',
-
-          'server/auth/local/index.ts',
-
-          'server/api/todo/controller/todo-controller.ts',
-          'server/api/todo/dao/todo-dao.ts',
-          'server/api/todo/model/todo-model.ts',
-          'server/api/todo/routes/todo-routes.ts',
-
-
-          // tests - server
-
-          'tests/server/todo/daos/todo-dao_test.js',
-          'tests/server/_helpers/db.js',
-          'tests/server/_helpers/db.json']
-
-        _commonFiles.forEach((common) => _tscFiles.push(common));
-        _taskFiles.forEach((t) => _tscFiles.push(t));
-
-        before((done) => {
-          helpers
-            .run(path.join(__dirname, '../../app'))
-            .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withOptions({ 'skip-install': true })
-            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'typescript', stack: 'fullstack', client: 'ng1'})
-            .on('end', done);
-        });
-
-        it('creates default files - node', () =>  {
-          assert.file(_tscFiles);
-          assert.noFile('.alivrc');
-        });
-      })
-
-      describe('node - secure', () => {
+      describe('node - standard - secure', () => {
         let _nodeFiles = [
           // server stuff
 
@@ -260,7 +228,127 @@ describe('ng-fullstack:app', () => {
           'server/config/routes.conf.js',
 
           'server/commons/static/index.js',
-          'server/commons/static/index.js',
+
+          'server/auth/local/index.js',
+
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/routes/todo-routes.js',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        _commonFiles.forEach((common) => _nodeFiles.push(common));
+        _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'node',
+              stack: 'fullstack',
+              client: 'ng1',
+              secure: true
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+          assert.noFile('.alivrc');
+        });
+      })
+
+      describe('node - standard - secure and with differentStaticServer', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'index.js', // babel's entry point
+
+          'server/server.js',
+
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/routes.conf.js',
+
+          'server/auth/local/index.js',
+
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/routes/todo-routes.js',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        _commonFiles.forEach((common) => _nodeFiles.push(common));
+        _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              differentStaticServer: true,
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'node',
+              stack: 'fullstack',
+              client: 'ng1',
+              secure: true
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+          assert.noFile('.alivrc');
+          assert.noFile('server/commons/static/index.js');
+        });
+      })
+
+      describe('node - babel', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'index.js', // babel's entry point
+
+          'server/server.js',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/routes.conf.js',
+
           'server/commons/static/index.js',
 
           'server/auth/local/index.js',
@@ -284,7 +372,14 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'node', stack: 'fullstack', client: 'ng1', secure: true})
+            .withPrompts({
+              appName: "a",
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'babel',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
             .withOptions({ 'skip-install': true })
             .on('end', done);
         });
@@ -292,6 +387,452 @@ describe('ng-fullstack:app', () => {
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
           assert.noFile('.alivrc');
+        });
+      })
+
+      describe('node - babel - not secure', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'index.js', // babel's entry point
+
+          'server/server.js',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/routes.conf.js',
+
+          'server/commons/static/index.js',
+
+          'server/auth/local/index.js',
+
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/routes/todo-routes.js',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        _commonFiles.forEach((common) => _nodeFiles.push(common));
+        _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              secure: false,
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'babel',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+          assert.noFile('.alivrc');
+          assert.noFile('server/cert/ca.crt');
+          assert.noFile('server/cert/ca.csr');
+          assert.noFile('server/cert/ca.key');
+          assert.noFile('server/cert/server.crt');
+          assert.noFile('server/cert/server.csr');
+          assert.noFile('server/cert/server.key');
+        });
+      })
+
+      describe('node - babel - secure', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'index.js', // babel's entry point
+
+          'server/server.js',
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/routes.conf.js',
+
+          'server/commons/static/index.js',
+
+          'server/auth/local/index.js',
+
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/routes/todo-routes.js',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        _commonFiles.forEach((common) => _nodeFiles.push(common));
+        _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              secure: true,
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'babel',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+          assert.noFile('.alivrc');
+        });
+      })
+
+      describe('node - babel - secure and with differentStaticServer', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'index.js', // babel's entry point
+
+          'server/server.js',
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/routes.conf.js',
+
+          'server/auth/local/index.js',
+
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/routes/todo-routes.js',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        _commonFiles.forEach((common) => _nodeFiles.push(common));
+        _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              secure: true,
+              differentStaticServer: true,
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'babel',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+          assert.noFile('.alivrc');
+          assert.noFile('server/commons/static/index.js');
+        });
+      })
+
+      describe('node - typescript', () => {
+        let _tscFiles = [
+          // server stuff
+
+          'typings.json', // typings
+
+          'index.js', // typescript's entry point
+
+          'server/server.ts',
+
+          'server/routes/index.ts',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.ts',
+          'server/config/routes.conf.ts',
+
+          'server/commons/static/index.ts',
+
+          'server/auth/local/index.ts',
+
+          'server/api/todo/controller/todo-controller.ts',
+          'server/api/todo/dao/todo-dao.ts',
+          'server/api/todo/model/todo-model.ts',
+          'server/api/todo/routes/todo-routes.ts',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        _commonFiles.forEach((common) => _tscFiles.push(common));
+        _taskFiles.forEach((t) => _tscFiles.push(t));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'typescript',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () =>  {
+          assert.file(_tscFiles);
+          assert.noFile('.alivrc');
+        });
+      })
+
+      describe('node - typescript - not secure', () => {
+        let _tscFiles = [
+          // server stuff
+
+          'typings.json', // typings
+
+          'index.js', // typescript's entry point
+
+          'server/server.ts',
+
+          'server/routes/index.ts',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.ts',
+          'server/config/routes.conf.ts',
+
+          'server/commons/static/index.ts',
+
+          'server/auth/local/index.ts',
+
+          'server/api/todo/controller/todo-controller.ts',
+          'server/api/todo/dao/todo-dao.ts',
+          'server/api/todo/model/todo-model.ts',
+          'server/api/todo/routes/todo-routes.ts',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        _commonFiles.forEach((common) => _tscFiles.push(common));
+        _taskFiles.forEach((t) => _tscFiles.push(t));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              secure: false,
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'typescript',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () =>  {
+          assert.file(_tscFiles);
+          assert.noFile('.alivrc');
+          assert.noFile('server/cert/ca.crt');
+          assert.noFile('server/cert/ca.csr');
+          assert.noFile('server/cert/ca.key');
+          assert.noFile('server/cert/server.crt');
+          assert.noFile('server/cert/server.csr');
+          assert.noFile('server/cert/server.key');
+        });
+      })
+
+      describe('node - typescript - secure', () => {
+        let _tscFiles = [
+          // server stuff
+
+          'typings.json', // typings
+
+          'index.js', // typescript's entry point
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/server.ts',
+
+          'server/routes/index.ts',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.ts',
+          'server/config/routes.conf.ts',
+
+          'server/commons/static/index.ts',
+
+          'server/auth/local/index.ts',
+
+          'server/api/todo/controller/todo-controller.ts',
+          'server/api/todo/dao/todo-dao.ts',
+          'server/api/todo/model/todo-model.ts',
+          'server/api/todo/routes/todo-routes.ts',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        _commonFiles.forEach((common) => _tscFiles.push(common));
+        _taskFiles.forEach((t) => _tscFiles.push(t));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              secure: true,
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'typescript',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () =>  {
+          assert.file(_tscFiles);
+          assert.noFile('.alivrc');
+        });
+      })
+
+      describe('node - typescript - secure and with differentStaticServer', () => {
+        let _tscFiles = [
+          // server stuff
+
+          'typings.json', // typings
+
+          'index.js', // typescript's entry point
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/server.ts',
+
+          'server/routes/index.ts',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.ts',
+          'server/config/routes.conf.ts',
+
+          'server/auth/local/index.ts',
+
+          'server/api/todo/controller/todo-controller.ts',
+          'server/api/todo/dao/todo-dao.ts',
+          'server/api/todo/model/todo-model.ts',
+          'server/api/todo/routes/todo-routes.ts',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        _commonFiles.forEach((common) => _tscFiles.push(common));
+        _taskFiles.forEach((t) => _tscFiles.push(t));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withOptions({ 'skip-install': true })
+            .withPrompts({
+              appName: "a",
+              differentStaticServer: true,
+              secure: true,
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'typescript',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () =>  {
+          assert.file(_tscFiles);
+          assert.noFile('.alivrc');
+          assert.noFile('server/commons/static/index.ts');
         });
       })
 
@@ -336,7 +877,13 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withPrompts({appName: "a", githubUsername: "b", server: "go", stack: 'fullstack', client: 'ng1'})
+            .withPrompts({
+              appName: "a",
+              githubUsername: "b",
+              server: "go",
+              stack: 'fullstack',
+              client: 'ng1'
+            })
             .withOptions({ 'skip-install': true })
             .on('end', done);
         });
@@ -344,6 +891,71 @@ describe('ng-fullstack:app', () => {
         it('creates default files - Go', () =>  {
           assert.file(_goFiles);
           assert.noFile('.alivrc');
+        });
+      })
+
+      describe('golang - not secure', () => {
+        let _goFiles = [
+          // server stuff
+
+          'server/main.go',
+
+          'server/routes/routes.go',
+
+          'server/config/dbconfig.go',
+
+          'server/common/static/static.go',
+
+          'server/api/todo/controller/todocontroller.go',
+          'server/api/todo/dao/tododao.go',
+          'server/api/todo/model/todomodel.go',
+          'server/api/todo/routes/todoroutes.go',
+
+
+          // tests - server
+
+          'server/routes/routes_test.go',
+
+          'server/config/dbconfig_test.go',
+
+          'server/common/static/static_test.go',
+
+          'server/api/todo/controller/todocontroller_test.go',
+          'server/api/todo/dao/tododao_test.go',
+          'server/api/todo/model/todomodel_test.go',
+          'server/api/todo/routes/todoroutes_test.go',
+
+          // tests - e2e
+
+          'tests/e2e/todo.e2e._test.js']
+
+        _commonFiles.forEach((common) => _goFiles.push(common));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              secure: false,
+              githubUsername: "b",
+              server: "go",
+              stack: 'fullstack',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - Go', () =>  {
+          assert.file(_goFiles);
+          assert.noFile('.alivrc');
+          assert.noFile('server/cert/ca.crt');
+          assert.noFile('server/cert/ca.csr');
+          assert.noFile('server/cert/ca.key');
+          assert.noFile('server/cert/server.crt');
+          assert.noFile('server/cert/server.csr');
+          assert.noFile('server/cert/server.key');
         });
       })
 
@@ -395,7 +1007,13 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withPrompts({appName: "a", githubUsername: "b", server: "go", stack: 'fullstack', client: 'ng1'})
+            .withPrompts({
+              appName: "a",
+              githubUsername: "b",
+              server: "go",
+              stack: 'fullstack',
+              client: 'ng1'
+            })
             .withOptions({ 'skip-install': true })
             .on('end', done);
         });
@@ -443,7 +1061,15 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withPrompts({appName: "a", secure: false, differentStaticServer: true, githubUsername: "b", server: "go", stack: 'fullstack', client: 'ng1'})
+            .withPrompts({
+              appName: "a",
+              secure: false,
+              differentStaticServer: true,
+              githubUsername: "b",
+              server: "go",
+              stack: 'fullstack',
+              client: 'ng1'
+            })
             .withOptions({ 'skip-install': true })
             .on('end', done);
         });
@@ -501,7 +1127,15 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withPrompts({appName: "a", secure: true, differentStaticServer: true, githubUsername: "b", server: "go", stack: 'fullstack', client: 'ng1'})
+            .withPrompts({
+              appName: "a",
+              secure: true,
+              differentStaticServer: true,
+              githubUsername: "b",
+              server: "go",
+              stack: 'fullstack',
+              client: 'ng1'
+            })
             .withOptions({ 'skip-install': true })
             .on('end', done);
         });
@@ -541,8 +1175,6 @@ describe('ng-fullstack:app', () => {
           'server/config/routes.conf.js',
 
           'server/commons/static/index.js',
-          'server/commons/static/index.js',
-          'server/commons/static/index.js',
 
           'server/auth/local/index.js',
 
@@ -563,7 +1195,14 @@ describe('ng-fullstack:app', () => {
               .run(path.join(__dirname, '../../app'))
               .inDir(path.join(os.tmpdir(), './temp-test'))
               .withOptions({ 'skip-install': true })
-              .withPrompts({appName: "a", githubUsername: "b", server: "node", transpilerServer: 'node', stack: 'server', client: 'ng1'})
+              .withPrompts({
+                appName: "a",
+                githubUsername: "b",
+                server: "node",
+                transpilerServer: 'node',
+                stack: 'server',
+                client: 'ng1'
+              })
               .on('end', done);
         });
 
@@ -653,7 +1292,13 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withPrompts({appName: "a", githubUsername: "b", server: "go", stack: 'client', client: 'ng1'})
+            .withPrompts({
+              appName: "a",
+              githubUsername: "b",
+              server: "go",
+              stack: 'client',
+              client: 'ng1'
+            })
             .on('end', done)
             .withOptions({ 'skip-install': true })
         });
@@ -727,9 +1372,15 @@ describe('ng-fullstack:app', () => {
           helpers
             .run(path.join(__dirname, '../../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withPrompts({appName: "a", githubUsername: "b", server: "go", stack: 'client', client: 'ng2'})
-            .on('end', done)
+            .withPrompts({
+              appName: "a",
+              githubUsername: "b",
+              server: "go",
+              stack: 'client',
+              client: 'ng2'
+            })
             .withOptions({ 'skip-install': true })
+            .on('end', done)
         });
 
         it('should only copy client side files', () => {
