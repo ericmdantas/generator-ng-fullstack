@@ -8,7 +8,6 @@ describe('ng-fullstack:app', () => {
 
   describe('fullstack', () => {
     let _taskFiles = [
-      'tasks/default.js',
       'tasks/index.js',
 
       'tasks/client/build_html.js',
@@ -409,7 +408,6 @@ describe('ng-fullstack:app', () => {
 
     describe('server', () => {
       let _taskFilesServer = [
-        'tasks/default.js',
         'tasks/index.js',
 
         'tasks/server/build.js',
@@ -470,7 +468,6 @@ describe('ng-fullstack:app', () => {
     describe('client', () => {
       describe('ng1', () => {
         let _taskFilesClient = [
-        'tasks/default.js',
         'tasks/index.js',
 
         'tasks/client/build_html.js',
@@ -560,7 +557,6 @@ describe('ng-fullstack:app', () => {
 
       describe('ng2', () => {
         let _taskFilesClient = [
-        'tasks/default.js',
         'tasks/index.js',
 
         'tasks/client/build_html.js',
