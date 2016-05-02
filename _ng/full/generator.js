@@ -26,6 +26,7 @@ exports.MainGenerator = class MainGenerator {
       let _copiesServer = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "server");
       let _copiesClient = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "client");
       let _clientOnly = this.wrapper.stack === "client";
+      let _serverOnly = this.wrapper.stack === "server";
       let _secure = this.wrapper.secure;
       let _usesTypescript = (_transpilerServer === "typescript") || (_client === "ng2");
 
@@ -45,8 +46,10 @@ exports.MainGenerator = class MainGenerator {
       this.wrapper.template('_.jshintrc','.jshintrc');
       this.wrapper.template('_.babelrc', '.babelrc');
 
-      this.wrapper.template('tasks/index.js', 'tasks/index.js', {nodeServer: _server === ServerFactory.tokens().NODE && !_clientOnly});
-      this.wrapper.template('tasks/default.js', 'tasks/default.js');
+      this.wrapper.template('tasks/index.js', 'tasks/index.js', {
+        nodeServer: _server === ServerFactory.tokens().NODE && !_clientOnly,
+        serverOnly: _serverOnly
+      });
 
       this.wrapper.directory('tests/e2e', 'tests/e2e');
 
