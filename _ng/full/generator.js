@@ -226,7 +226,7 @@ exports.MainGenerator = class MainGenerator {
       name: 'differentStaticServer',
       message: 'Do you want to use a different static server? Such as nginx, apache, IIS?',
       default: false,
-      when: () => (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "server")
+      when: () => this.wrapper.stack === "fullstack"
     }];
 
     this.wrapper.prompt(_prompts, (props) => {

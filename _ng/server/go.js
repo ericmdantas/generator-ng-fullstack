@@ -91,6 +91,8 @@ class GoServer {
   }
 
   copyForMainGenerator() {
+    this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
+
     if (this.wrapper.secure) {
       this.wrapper.template('server_go/main_http2.go', 'server/main.go', {
         appName: this.wrapper.appName,

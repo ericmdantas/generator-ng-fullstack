@@ -49,6 +49,8 @@ class NodeStandard {
   }
 
   copyForMainGenerator() {
+    this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
+
     this.wrapper.template('index_node.js', 'index.js');
     this.wrapper.directory('tasks/server', 'tasks/server');
     this.wrapper.directory('tests/server', 'tests/server');
@@ -80,7 +82,9 @@ class NodeStandard {
       _paths.push(['server_node/commons/static/index.js', 'server/commons/static/index.js']);
     }
 
-    yoUtils.directory(this.wrapper, _paths, {differentStaticServer: !!this.wrapper.differentStaticServer});
+    yoUtils.directory(this.wrapper, _paths, {
+      differentStaticServer: !!this.wrapper.differentStaticServer
+    });
   }
 }
 
@@ -120,15 +124,21 @@ class NodeBabel {
   }
 
   copyForMainGenerator() {
+    this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
+
     this.wrapper.template('index_babel.js', 'index.js');
     this.wrapper.directory('tasks/server', 'tasks/server');
     this.wrapper.directory('tests/server', 'tests/server');
 
     if (this.wrapper.secure) {
-      this.wrapper.template('server_node_babel/server_https.js', 'server/server.js', {differentStaticServer: !!this.wrapper.differentStaticServer});
+      this.wrapper.template('server_node_babel/server_https.js', 'server/server.js', {
+        differentStaticServer: !!this.wrapper.differentStaticServer
+      });
     }
     else {
-      this.wrapper.template('server_node_babel/server.js', 'server/server.js', {differentStaticServer: !!this.wrapper.differentStaticServer});
+      this.wrapper.template('server_node_babel/server.js', 'server/server.js', {
+        differentStaticServer: !!this.wrapper.differentStaticServer
+      });
     }
 
     let _paths = [
@@ -147,7 +157,9 @@ class NodeBabel {
       _paths.push(['server_node_babel/commons/static/index.js', 'server/commons/static/index.js']);
     }
 
-    yoUtils.directory(this.wrapper, _paths, {differentStaticServer: !!this.wrapper.differentStaticServer});
+    yoUtils.directory(this.wrapper, _paths, {
+      differentStaticServer: !!this.wrapper.differentStaticServer
+    });
   }
 }
 
@@ -187,6 +199,8 @@ class NodeTypescript {
   }
 
   copyForMainGenerator() {
+    this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
+
     this.wrapper.template('index_tsc.js', 'index.js');
     this.wrapper.template('_tsconfig.json', 'tsconfig.json');
     this.wrapper.template('_typings_ng2_and_tsc_server.json', 'typings.json');
@@ -194,10 +208,14 @@ class NodeTypescript {
     this.wrapper.directory('tests/server', 'tests/server');
 
     if (this.wrapper.secure) {
-      this.wrapper.template('server_node_typescript/server_https.ts', 'server/server.ts', {differentStaticServer: !!this.wrapper.differentStaticServer});
+      this.wrapper.template('server_node_typescript/server_https.ts', 'server/server.ts', {
+        differentStaticServer: !!this.wrapper.differentStaticServer
+      });
     }
     else {
-      this.wrapper.template('server_node_typescript/server.ts', 'server/server.ts', {differentStaticServer: !!this.wrapper.differentStaticServer});
+      this.wrapper.template('server_node_typescript/server.ts', 'server/server.ts', {
+        differentStaticServer: !!this.wrapper.differentStaticServer
+      });
     }
 
     let _paths = [
@@ -216,7 +234,9 @@ class NodeTypescript {
       _paths.push(['server_node_typescript/commons/static/index.ts', 'server/commons/static/index.ts']);
     }
 
-    yoUtils.directory(this.wrapper, _paths, {differentStaticServer: !!this.wrapper.differentStaticServer});
+    yoUtils.directory(this.wrapper, _paths, {
+      differentStaticServer: !!this.wrapper.differentStaticServer
+    });
   }
 }
 

@@ -333,6 +333,68 @@ describe('ng-fullstack:app', () => {
         });
       })
 
+      describe('node - standard - secure and with differentStaticServer being false, but stack is server', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'index.js', // babel's entry point
+
+          'server/server.js',
+
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/routes.conf.js',
+
+          'server/auth/local/index.js',
+
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/routes/todo-routes.js',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              differentStaticServer: true,
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'node',
+              stack: "server",
+              client: 'ng1',
+              secure: true
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+          assert.noFile('.alivrc');
+          assert.noFile('server/commons/static/index.js');
+        });
+      })
+
       describe('node - babel', () => {
         let _nodeFiles = [
           // server stuff
@@ -580,6 +642,66 @@ describe('ng-fullstack:app', () => {
         });
       })
 
+      describe('node - babel - secure and with differentStaticServer being false, but stack is server', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'index.js', // babel's entry point
+
+          'server/server.js',
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/routes.conf.js',
+
+          'server/auth/local/index.js',
+
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/routes/todo-routes.js',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              secure: true,
+              differentStaticServer: true,
+              githubUsername: "b",
+              server: "node",
+              stack: "server",
+              transpilerServer: 'babel',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+          assert.noFile('.alivrc');
+          assert.noFile('server/commons/static/index.js');
+        });
+      })
       describe('node - typescript', () => {
         let _tscFiles = [
           // server stuff
@@ -823,6 +945,69 @@ describe('ng-fullstack:app', () => {
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
+              client: 'ng1'
+            })
+            .on('end', done);
+        });
+
+        it('creates default files - node', () =>  {
+          assert.file(_tscFiles);
+          assert.noFile('.alivrc');
+          assert.noFile('server/commons/static/index.ts');
+        });
+      })
+
+      describe('node - typescript - secure and with differentStaticServer being false, but stack is server', () => {
+        let _tscFiles = [
+          // server stuff
+
+          'typings.json', // typings
+
+          'index.js', // typescript's entry point
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/server.ts',
+
+          'server/routes/index.ts',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.ts',
+          'server/config/routes.conf.ts',
+
+          'server/auth/local/index.ts',
+
+          'server/api/todo/controller/todo-controller.ts',
+          'server/api/todo/dao/todo-dao.ts',
+          'server/api/todo/model/todo-model.ts',
+          'server/api/todo/routes/todo-routes.ts',
+
+
+          // tests - server
+
+          'tests/server/todo/daos/todo-dao_test.js',
+          'tests/server/_helpers/db.js',
+          'tests/server/_helpers/db.json']
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withOptions({ 'skip-install': true })
+            .withPrompts({
+              appName: "a",
+              differentStaticServer: true,
+              secure: true,
+              githubUsername: "b",
+              server: "node",
+              stack: "server",
+              transpilerServer: 'typescript',
               client: 'ng1'
             })
             .on('end', done);
@@ -1082,6 +1267,63 @@ describe('ng-fullstack:app', () => {
         });
       })
 
+      describe('golang - not secure - and with differentStaticServer is false, but stack is set to server', () => {
+        let _goFiles = [
+          // server stuff
+
+          'server/main.go',
+
+          'server/routes/routes.go',
+
+          'server/config/dbconfig.go',
+
+          'server/api/todo/controller/todocontroller.go',
+          'server/api/todo/dao/tododao.go',
+          'server/api/todo/model/todomodel.go',
+          'server/api/todo/routes/todoroutes.go',
+
+
+          // tests - server
+
+          'server/routes/routes_test.go',
+
+          'server/config/dbconfig_test.go',
+
+          'server/api/todo/controller/todocontroller_test.go',
+          'server/api/todo/dao/tododao_test.go',
+          'server/api/todo/model/todomodel_test.go',
+          'server/api/todo/routes/todoroutes_test.go',
+
+          // tests - e2e
+
+          'tests/e2e/todo.e2e._test.js']
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              secure: false,
+              differentStaticServer: true,
+              githubUsername: "b",
+              server: "go",
+              stack: 'server',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - Go - without the files responsible for the static stuff', () =>  {
+          assert.file(_goFiles);
+
+          assert.noFile('.alivrc');
+          assert.noFile('server/common/static/static.go');
+          assert.noFile('server/common/static/static_test.go');
+        });
+      })
+
       describe('golang - secure - and with different static server', () => {
         let _goFiles = [
           // server stuff
@@ -1172,8 +1414,6 @@ describe('ng-fullstack:app', () => {
           'server/config/db.conf.js',
           'server/config/routes.conf.js',
 
-          'server/commons/static/index.js',
-
           'server/auth/local/index.js',
 
           'server/api/todo/controller/todo-controller.js',
@@ -1210,6 +1450,7 @@ describe('ng-fullstack:app', () => {
           assert.noFile('client/dev/index.html');
           assert.noFile('tests/client');
           assert.noFile('.alivrc');
+          assert.noFile('server/commons/static/index.js');
       });
     });
 
