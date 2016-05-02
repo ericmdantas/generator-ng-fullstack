@@ -405,6 +405,115 @@ describe('ng-fullstack:app', () => {
           assert.noFile('.alivrc');
         });
       })
+
+      describe('golang - not secure - and with different static server', () => {
+        let _goFiles = [
+          // server stuff
+
+          'server/main.go',
+
+          'server/routes/routes.go',
+
+          'server/config/dbconfig.go',
+
+          'server/api/todo/controller/todocontroller.go',
+          'server/api/todo/dao/tododao.go',
+          'server/api/todo/model/todomodel.go',
+          'server/api/todo/routes/todoroutes.go',
+
+
+          // tests - server
+
+          'server/routes/routes_test.go',
+
+          'server/config/dbconfig_test.go',
+
+          'server/api/todo/controller/todocontroller_test.go',
+          'server/api/todo/dao/tododao_test.go',
+          'server/api/todo/model/todomodel_test.go',
+          'server/api/todo/routes/todoroutes_test.go',
+
+          // tests - e2e
+
+          'tests/e2e/todo.e2e._test.js']
+
+        _commonFiles.forEach((common) => _goFiles.push(common));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({appName: "a", secure: false, differentStaticServer: true, githubUsername: "b", server: "go", stack: 'fullstack', client: 'ng1'})
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - Go - without the files responsible for the static stuff', () =>  {
+          assert.file(_goFiles);
+
+          assert.noFile('.alivrc');
+          assert.noFile('server/common/static/static.go');
+          assert.noFile('server/common/static/static_test.go');
+        });
+      })
+
+      describe('golang - secure - and with different static server', () => {
+        let _goFiles = [
+          // server stuff
+
+          'server/main.go',
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/routes/routes.go',
+
+          'server/config/dbconfig.go',
+
+          'server/api/todo/controller/todocontroller.go',
+          'server/api/todo/dao/tododao.go',
+          'server/api/todo/model/todomodel.go',
+          'server/api/todo/routes/todoroutes.go',
+
+
+          // tests - server
+
+          'server/routes/routes_test.go',
+
+          'server/config/dbconfig_test.go',
+
+          'server/api/todo/controller/todocontroller_test.go',
+          'server/api/todo/dao/tododao_test.go',
+          'server/api/todo/model/todomodel_test.go',
+          'server/api/todo/routes/todoroutes_test.go',
+
+          // tests - e2e
+
+          'tests/e2e/todo.e2e._test.js']
+
+        _commonFiles.forEach((common) => _goFiles.push(common));
+
+        before((done) => {
+          helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({appName: "a", secure: true, differentStaticServer: true, githubUsername: "b", server: "go", stack: 'fullstack', client: 'ng1'})
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+        });
+
+        it('creates default files - Go - without the files responsible for the static stuff', () =>  {
+          assert.file(_goFiles);
+
+          assert.noFile('.alivrc');
+          assert.noFile('server/common/static/static.go');
+          assert.noFile('server/common/static/static_test.go');
+        });
+      })
     })
 
     describe('server', () => {

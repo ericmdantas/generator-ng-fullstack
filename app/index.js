@@ -47,4 +47,8 @@ module.exports = class NgFullstack extends Base {
     promptSecure() {
       this.generator.promptSecure();
     }
+
+    promptDifferentStaticServer() {
+      this.generator.promptDifferentStaticServer();
+    }
 }

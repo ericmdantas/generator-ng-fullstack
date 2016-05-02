@@ -166,7 +166,6 @@ exports.MainGenerator = class MainGenerator {
     ]
 
     this.wrapper.prompt(prompts, (props) => {
-
       this.wrapper.client = props.client;
       this.wrapper.config.set('client', this.wrapper.client ? this.wrapper.client.toLowerCase() : '');
 
@@ -190,7 +189,6 @@ exports.MainGenerator = class MainGenerator {
 
     this.wrapper.prompt(_prompts, (props) => {
       this.wrapper.transpilerServer = props.transpilerServer;
-
       this.wrapper.config.set('transpilerServer', this.wrapper.transpilerServer);
 
       done();
@@ -211,8 +209,26 @@ exports.MainGenerator = class MainGenerator {
 
     this.wrapper.prompt(_prompts, (props) => {
       this.wrapper.secure = props.secure;
-
       this.wrapper.config.set('secure', this.wrapper.secure);
+
+      done();
+    });
+  }
+
+  promptDifferentStaticServer() {
+    const done = this.wrapper.async();
+
+    let _prompts = [{
+      type: 'confirm',
+      name: 'differentStaticServer',
+      message: 'Do you want to use a different static server? Such as nginx, apache, IIS?',
+      default: false,
+      when: () => (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "server")
+    }];
+
+    this.wrapper.prompt(_prompts, (props) => {
+      this.wrapper.differentStaticServer = props.differentStaticServer;
+      this.wrapper.config.set('differentStaticServer', this.wrapper.differentStaticServer);
 
       done();
     });
