@@ -242,7 +242,7 @@ exports.MainGenerator = class MainGenerator {
 
     let _prompts = [{
       type: 'confirm',
-      name: 'differentStaticServer',
+      name: 'cordova',
       message: 'Are you using Cordova (for mobile development)?',
       default: false,
       when: () => (this.wrapper.stack === "client") && (this.wrapper.client === "ng1")
