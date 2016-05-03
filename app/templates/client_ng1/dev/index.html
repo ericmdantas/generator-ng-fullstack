@@ -1,16 +1,18 @@
 <!doctype html>
 <html ng-app="<%= appName %>">
   <head>
-    <!-- in case you're using cordova, remove the <base href="/" /> -->
+    <% if (!cordova) {%>
     <base href="/"/>
+    <% } %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="description" content="My awesome application">
     <meta name="keywords" content="Todo,myAwesomeApp,App">
     <meta name="author" content="Author">
 
-    <!-- in case you're using cordova, uncomment the meta -->
-    <!--<meta http-equiv="Content-Security-Policy"
-              content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * data:;">-->
+    <% if (!!cordova) { %>
+    <meta http-equiv="Content-Security-Policy"
+              content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * data:;">
+    <% } %>
 
     <title>todo :D</title>
     <link rel="shortcut icon" type="image/ico" href="./favicon.png"/>
@@ -45,6 +47,10 @@
       ga('create', 'UA-XXXXX-X', 'auto');
       ga('send', 'pageview');
     </script>
+
+    <% if (!!cordova) { %>
+    <script type="text/javascript" src="./cordova.js?rev=@@hash"></script>
+    <% } %>
 
     <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js?rev=@@hash"></script>
     <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.js?rev=@@hash"></script>

@@ -51,4 +51,8 @@ module.exports = class NgFullstack extends Base {
     promptDifferentStaticServer() {
       this.generator.promptDifferentStaticServer();
     }
+
+    promptCordova() {
+      this.generator.promptCordova();
+    }
 }

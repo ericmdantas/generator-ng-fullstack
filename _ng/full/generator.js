@@ -236,4 +236,23 @@ exports.MainGenerator = class MainGenerator {
       done();
     });
   }
+
+  promptCordova() {
+    const done = this.wrapper.async();
+
+    let _prompts = [{
+      type: 'confirm',
+      name: 'differentStaticServer',
+      message: 'Are you using Cordova (for mobile distribution)?',
+      default: false,
+      when: () => (this.wrapper.stack === "client") && (this.wrapper.client === "ng1")
+    }];
+
+    this.wrapper.prompt(_prompts, (props) => {
+      this.wrapper.cordova = props.cordova;
+      this.wrapper.config.set('cordova', this.wrapper.cordova);
+
+      done();
+    });
+  }
 }
