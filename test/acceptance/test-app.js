@@ -21,8 +21,7 @@ describe('ng-fullstack:app', () => {
       'tasks/client/const.js',
 
       'tasks/server/build.js',
-      'tasks/server/test.js',
-      'tasks/server/watch.js'
+      'tasks/server/test.js'
     ]
 
     let _commonFiles = [
@@ -1396,8 +1395,7 @@ describe('ng-fullstack:app', () => {
         'tasks/index.js',
 
         'tasks/server/build.js',
-        'tasks/server/test.js',
-        'tasks/server/watch.js'
+        'tasks/server/test.js'
       ]
 
       let _serverFiles = [
