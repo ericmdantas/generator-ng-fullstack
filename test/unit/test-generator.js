@@ -353,4 +353,28 @@ describe('generator', () => {
       expect(_g.wrapper.config.save).to.have.been.called;
     })
   });
+
+  describe('promptDifferentStaticServer', () => {
+    it('should have the right calls', () => {
+      let _gen = {
+        appName: 'a',
+        githubUsername: 'b',
+        server: 'node',
+        client: 'ng2',
+        transpilerServer: 'typescript',
+        async: () => {},
+        prompt: () => {},
+        config: {
+          save: () => {}
+        }
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.promptDifferentStaticServer();
+
+      expect(_g.wrapper.prompt).to.have.been.called;
+      expect(_g.wrapper.config.save).to.have.been.called;
+    })
+  });
 });
