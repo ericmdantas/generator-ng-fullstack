@@ -1,3 +1,27 @@
+## [1.8](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.8.0)
+
+Better separation of concerns:
+
+- Option to have a separated static server such as: Nginx, Apache, IIS, etc;
+- Cordova friendly app - available for client only app with Angular 1;
+- Single command to run server and client (with watcher);
+- Do not serve files from the root.
+ 
+### Breaking change
+
+Since the files are not being served from the root anymore, getting dependencies for Angular 2 applications had to change. Both in components and in index.html. Before you had to come down all the way from the root.
+
+Before: `node_modules/angular2/somewhere...`; 
+
+After: `./angular2/somewhere...`. 
+
+The same goes for the way components pick up `templateUrl` and `styleUrls`:
+
+Before: `client/dev/todo/templates/todo.html`;
+
+After: `todo/templates/todo.html`;
+
+
 ## [1.7](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.7.0)
 
 Added http2/https support for server and fixed some bugs.
