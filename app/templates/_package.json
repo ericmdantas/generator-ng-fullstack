@@ -8,7 +8,11 @@
     "build-dist": "gulp client.build:dist"<%} else {%>
     "start": "node index",
     "watch": "gulp",
+    <% if (usesTypescript) { %>
+    "dev": "tsc && concurrently \"npm start\" \"gulp\"",
+    <% } else { %>
     "dev": "concurrently \"npm start\" \"gulp\"",
+    <% } %>
     "build-dev": "node index && gulp client.watch",
     "build-dist": "gulp client.build:dist",
     "test-client": "gulp client.unit_test",

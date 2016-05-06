@@ -31,7 +31,13 @@ exports.MainGenerator = class MainGenerator {
       let _usesTypescript = (_transpilerServer === "typescript") || (_client === "ng2");
 
       this.wrapper.template('_README.md', 'README.md', _appAndUsername);
-      this.wrapper.template('_package.json', 'package.json', {app: _app.app, username: _username.username, client: _client, clientOnly: _clientOnly});
+      this.wrapper.template('_package.json', 'package.json', {
+        app: _app.app,
+        username: _username.username,
+        usesTypescript: _usesTypescript,
+        client: _client,
+        clientOnly: _clientOnly
+      });
 
       this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
       this.wrapper.template('_karma.conf.js', 'karma.conf.js', _app);
