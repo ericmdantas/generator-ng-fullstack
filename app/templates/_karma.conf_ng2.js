@@ -9,12 +9,16 @@ module.exports = function(config) {
       // paths loaded by Karma
       {pattern: 'node_modules/systemjs/dist/system.js', included: true, watched: true},
       {pattern: 'node_modules/rxjs/bundles/Rx.js', included: true, watched: true},
-      {pattern: 'node_modules/angular2/bundles/angular2-polyfills.js', included: true, watched: true},
+      {pattern: 'node_modules/zone.js/dist/zone.js', included: true, watched: true},
       {pattern: 'node_modules/zone.js/dist/async-test.js', included: true, watched: true},
-      {pattern: 'node_modules/angular2/bundles/angular2.js', included: true, watched: true},
-      {pattern: 'node_modules/angular2/bundles/http.js', included: true, watched: true},
-      {pattern: 'node_modules/angular2/bundles/router.js', included: true, watched: true},
-      {pattern: 'node_modules/angular2/bundles/testing.dev.js', included: true, watched: true},
+      {pattern: 'node_modules/@angular/common/index.js', included: true, watched: true},
+      {pattern: 'node_modules/@angular/common/testing.js', included: true, watched: true},
+      {pattern: 'node_modules/@angular/compiler/index.js', included: true, watched: true},
+      {pattern: 'node_modules/@angular/compiler/testing.js', included: true, watched: true},
+      {pattern: 'node_modules/@angular/core/index.js', included: true, watched: true},
+      {pattern: 'node_modules/@angular/core/testing.js', included: true, watched: true},
+      {pattern: 'node_modules/@angular/platform-browser-dynamic/index.js', included: true, watched: true},
+      {pattern: 'node_modules/@angular/platform-browser-dynamic/testing.js', included: true, watched: true},
       {pattern: 'karma-test-shim.js', included: true, watched: true},
 
       // paths loaded via module imports

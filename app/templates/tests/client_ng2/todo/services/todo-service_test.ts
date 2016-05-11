@@ -4,7 +4,7 @@ import {
   it,
   expect,
   describe
-} from 'angular2/testing';
+} from '@angular/core/testing';
 
 import {TodoService} from '../../../../client/dev/todo/services/todo-service';
 

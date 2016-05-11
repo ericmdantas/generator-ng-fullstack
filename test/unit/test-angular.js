@@ -249,6 +249,7 @@ describe('ng2', () => {
       let _sixthCall = ['_typings_ng2.json', 'typings.json'];
       let _seventhCall = ['_tsconfig.json', 'tsconfig.json'];
       let _eightCall = ['tasks/client_ng2/watch.js', 'tasks/client/watch.js', {secure: false}];
+      let _ninethCall = ['_ng2_systemjs_config.js', 'client/dev/config.js'];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
@@ -260,6 +261,7 @@ describe('ng2', () => {
       expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
       expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
       expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1], _eightCall[2])).to.be.true;
+      expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1])).to.be.true;
     });
 
     it('should call the methods with the right params - secure is true', () => {
@@ -286,6 +288,7 @@ describe('ng2', () => {
       let _sixthCall = ['_typings_ng2.json', 'typings.json'];
       let _seventhCall = ['_tsconfig.json', 'tsconfig.json'];
       let _eightCall = ['tasks/client_ng2/watch.js', 'tasks/client/watch.js', {secure: true}];
+      let _ninethCall = ['_ng2_systemjs_config.js', 'client/dev/config.js'];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
@@ -297,6 +300,7 @@ describe('ng2', () => {
       expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
       expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
       expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1], _eightCall[2])).to.be.true;
+      expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1])).to.be.true;
     });
   });
 

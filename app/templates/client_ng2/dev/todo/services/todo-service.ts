@@ -1,6 +1,6 @@
 import {
   Inject
-} from 'angular2/core';
+} from '@angular/core';
 
 import {
   Observable
@@ -9,7 +9,7 @@ import {
 import {
   Http,
   Headers
-} from 'angular2/http';
+} from '@angular/http';
 
 import 'rxjs/add/operator/map';
 

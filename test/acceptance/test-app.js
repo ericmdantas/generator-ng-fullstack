@@ -1586,6 +1586,7 @@ describe('ng-fullstack:app', () => {
         // client stuff
 
         'client/dev/index.html',
+        'client/dev/config.js',
 
         'client/dev/index.ts',
 

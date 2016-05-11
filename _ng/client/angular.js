@@ -134,6 +134,7 @@ class Angular2 {
     this.generator.template('_karma-test-shim.js', 'karma-test-shim.js');
     this.generator.template('_typings_ng2.json', 'typings.json');
     this.generator.template('_tsconfig.json', 'tsconfig.json');
+    this.generator.template('_ng2_systemjs_config.js', 'client/dev/config.js');
 
     this.generator.template('tasks/client_ng2/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
   }

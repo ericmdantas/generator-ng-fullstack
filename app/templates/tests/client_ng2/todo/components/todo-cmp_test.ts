@@ -6,13 +6,16 @@ import {
   describe,
   inject,
   injectAsync,
-  TestComponentBuilder,
   beforeEachProviders
-} from 'angular2/testing';
+} from '@angular/core/testing';
+
+import {
+  TestComponentBuilder
+} from '@angular/compiler/testing';
 
 import {
   provide
-} from 'angular2/core';
+} from '@angular/core';
 
 import {
   Observable

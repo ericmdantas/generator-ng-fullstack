@@ -2,16 +2,18 @@ import {
   Component,
   Inject,
   OnInit
-} from 'angular2/core';
+} from '@angular/core';
 
 import {
   Validators,
   FormBuilder,
   ControlGroup,
   Control
-} from 'angular2/common';
+} from '@angular/common';
 
-import {TodoService} from '../services/todo-service';
+import {
+  TodoService
+} from '../services/todo-service';
 
 type Todo = {
   todoMessage: string;

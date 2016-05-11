@@ -15,28 +15,14 @@
 
     <% if (stack !== "client") { %>
     <script src="./systemjs/dist/system.js?rev=@@hash"></script>
-    <script>
-      System.config({
-                      defaultJSExtensions: true
-                    });
-    </script>
-    <script src="./rxjs/bundles/Rx.js?rev=@@hash"></script>
-    <script src="./angular2/bundles/angular2-polyfills.js?rev=@@hash"></script>
-    <script src="./angular2/bundles/angular2.js?rev=@@hash"></script>
-    <script src="./angular2/bundles/http.js?rev=@@hash"></script>
-    <script src="./angular2/bundles/router.js?rev=@@hash"></script>
+    <script src="./reflect-metadata/Reflect.js?rev=@@hash"></script>
+    <script src="./zone.js/dist/zone.js?rev=@@hash"></script>
+    <script src="./config.js?rev=@@hash"></script>
     <% } else { %>
     <script src="node_modules/systemjs/dist/system.js?rev=@@hash"></script>
-    <script>
-      System.config({
-                      defaultJSExtensions: true
-                    });
-    </script>
-    <script src="node_modules/rxjs/bundles/Rx.js?rev=@@hash"></script>
-    <script src="node_modules/angular2/bundles/angular2-polyfills.js?rev=@@hash"></script>
-    <script src="node_modules/angular2/bundles/angular2.js?rev=@@hash"></script>
-    <script src="node_modules/angular2/bundles/http.js?rev=@@hash"></script>
-    <script src="node_modules/angular2/bundles/router.js?rev=@@hash"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js?rev=@@hash"></script>
+    <script src="node_modules/zone.js/dist/zone.js?rev=@@hash"></script>    
+    <script src="./config.js"></script>
     <% } %>
 
     <script>
