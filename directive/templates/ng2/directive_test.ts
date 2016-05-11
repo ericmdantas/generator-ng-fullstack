@@ -3,7 +3,7 @@ import {
   describe,
   expect,
   beforeEachProviders
-} from 'angular2/testing';
+} from '@angular/core/testing';
 
 describe('directive', () => {
   beforeEachProviders([]);

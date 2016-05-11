@@ -1,7 +1,7 @@
 import {
   Component,
   Inject
-} from 'angular2/core';
+} from '@angular/core';
 
 @Component({
   selector: '<%= name %>',

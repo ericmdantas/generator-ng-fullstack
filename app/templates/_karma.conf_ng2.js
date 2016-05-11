@@ -7,18 +7,30 @@ module.exports = function(config) {
 
     files: [
       // paths loaded by Karma
-      {pattern: 'node_modules/systemjs/dist/system.js', included: true, watched: true},
-      {pattern: 'node_modules/rxjs/bundles/Rx.js', included: true, watched: true},
-      {pattern: 'node_modules/zone.js/dist/zone.js', included: true, watched: true},
-      {pattern: 'node_modules/zone.js/dist/async-test.js', included: true, watched: true},
-      {pattern: 'node_modules/@angular/common/index.js', included: true, watched: true},
-      {pattern: 'node_modules/@angular/common/testing.js', included: true, watched: true},
-      {pattern: 'node_modules/@angular/compiler/index.js', included: true, watched: true},
-      {pattern: 'node_modules/@angular/compiler/testing.js', included: true, watched: true},
-      {pattern: 'node_modules/@angular/core/index.js', included: true, watched: true},
-      {pattern: 'node_modules/@angular/core/testing.js', included: true, watched: true},
-      {pattern: 'node_modules/@angular/platform-browser-dynamic/index.js', included: true, watched: true},
-      {pattern: 'node_modules/@angular/platform-browser-dynamic/testing.js', included: true, watched: true},
+      'node_modules/es6-shim/es6-shim.js',
+
+      'node_modules/reflect-metadata/Reflect.js',
+
+      // System.js for module loading
+      'node_modules/systemjs/dist/system-polyfills.js',
+      'node_modules/systemjs/dist/system.src.js',
+
+      // Zone.js dependencies
+      'node_modules/zone.js/dist/zone.js',
+      'node_modules/zone.js/dist/jasmine-patch.js',
+      'node_modules/zone.js/dist/async-test.js',
+      'node_modules/zone.js/dist/fake-async-test.js',
+
+      // RxJs.
+      { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
+
+      {pattern: 'karma-test-shim.js', included: true, watched: true},
+
+      // paths loaded via module imports
+      // Angular itself
+      {pattern: 'node_modules/@angular/**/*.js', included: false, watched: true},
+      {pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: true},
       {pattern: 'karma-test-shim.js', included: true, watched: true},
 
       // paths loaded via module imports
