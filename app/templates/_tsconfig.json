@@ -14,7 +14,7 @@
     ],
     "filesGlob": [
       "**/*.ts",
-      "typings/main.d.ts",
-      "node_modules/angular2/typings/browser.d.ts"
+      "typings/main",
+      "typings/main.d.ts"
     ]
 }

@@ -3,7 +3,7 @@ import {
   expect,
   describe,
   beforeEachProviders
-} from 'angular2/testing';
+} from '@angular/core/testing';
 
 describe('myFactory', () => {
   beforeEachProviders([]);
