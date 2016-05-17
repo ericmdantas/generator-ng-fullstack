@@ -33,7 +33,7 @@ const _ = require('lodash');
   });
 }
 
-<%= nameLowerCase %>chema.statics.removeById = (id) => {
+<%= nameLowerCase %>Schema.statics.removeById = (id) => {
   return new Promise((resolve, reject) => {
     if (!_.isString(id)) {
       return reject(new TypeError('Id is not a valid string.'));

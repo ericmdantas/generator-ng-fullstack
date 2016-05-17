@@ -1,6 +1,6 @@
 "use strict";
 
-import <%= name %>DAO from '../dao/<%= name %>-dao';
+const <%= name %> = require('../dao/<%= name %>-dao');
 
 module.exports = class <%= name %>Controller {
   static getAll(req, res) {
@@ -19,7 +19,7 @@ module.exports = class <%= name %>Controller {
       .catch(error => res.status(400).json(error));
   }
 
-  static remove(req, res) {
+  static removeById(req, res) {
     let _id = req.params.id;
 
     <%= name %>DAO
