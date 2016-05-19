@@ -3,7 +3,7 @@
     "bluebird": "registry:npm/bluebird#3.2.1+20160211005852",
     "lodash": "registry:npm/lodash#4.0.0+20160305082308"
   },
-  "ambientDependencies": {
+  "globalDependencies": {
     "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
     "body-parser": "registry:dt/body-parser#0.0.0+20160112113357",
     "express": "registry:dt/express#4.0.0+20160317120654",

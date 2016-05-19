@@ -3,7 +3,7 @@
     "bluebird": "registry:npm/bluebird#3.2.1+20160211005852",
     "lodash": "registry:npm/lodash#4.0.0+20160305082308"
   },
-  "ambientDependencies": {
+  "globalDependencies": {
     "body-parser": "registry:dt/body-parser#0.0.0+20160112113357",
     "express": "registry:dt/express#4.0.0+20160208031452",
     "helmet": "registry:dt/helmet#0.0.0+20160112163250",
