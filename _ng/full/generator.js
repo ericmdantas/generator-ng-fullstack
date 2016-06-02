@@ -18,7 +18,8 @@ exports.MainGenerator = class MainGenerator {
 
   writing() {
       let _app = {app: this.wrapper.appName};
-      let _username = {username: this.wrapper.githubUsername};
+      let _username = {username: this.wrapper.userName};
+      let _useremail = {useremail: this.wrapper.userEmail};
       let _appAndUsername = {app: _app.app, username: _username.username};
       let _server = this.wrapper.server;
       let _transpilerServer = this.wrapper.transpilerServer;
@@ -95,12 +96,24 @@ exports.MainGenerator = class MainGenerator {
           {
             name: 'appName',
             message: 'What is the name of your app?',
-            default: 'some-name-here'
+            default: 'ng-fullstack'
           },
           {
-            name: 'githubUsername',
-            message: 'What is your username on Github?',
-            default: 'some-username-here'
+            name: 'userName',
+            message: 'What is your username?',
+            default: 'userName'
+          },
+          {
+            name: 'userEmail',
+            message: 'What is your email-id?',
+            default: 'userName'
+          },
+          {
+            type: "list",
+            name: "repository",
+            message: "Which Git repository hosting service are you using? GitHub, BitBucket, GitLab?",
+            choices: ["github", "bitbucket", "gitlab"],
+            default: 0
           },
           {
             type: "list",
@@ -113,11 +126,12 @@ exports.MainGenerator = class MainGenerator {
 
       this.wrapper.prompt(prompts, (props) => {
         this.wrapper.appName = props.appName;
-        this.wrapper.githubUsername = props.githubUsername;
+        this.wrapper.userName = props.userName;
         this.wrapper.stack = props.stack;
 
-        this.wrapper.config.set('username', this.wrapper.githubUsername);
+        this.wrapper.config.set('username', this.wrapper.userName);
         this.wrapper.config.set('appName', this.wrapper.appName);
+        this.wrapper.config.set('repository', this.wrapper.stack);
         this.wrapper.config.set('stack', this.wrapper.stack);
 
         done();

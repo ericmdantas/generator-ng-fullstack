@@ -35,7 +35,7 @@ describe('generator', () => {
     it('should have the right calls - server node typescript', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         server: 'node',
         transpilerServer: 'typescript',
         template(){},
@@ -55,7 +55,7 @@ describe('generator', () => {
     it('should have the right calls - server node babel', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         server: 'node',
         transpilerServer: 'babel',
         template(){},
@@ -75,7 +75,7 @@ describe('generator', () => {
     it('should have the right calls - server node standard', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         server: 'node',
         transpilerServer: 'node',
         template(){},
@@ -95,7 +95,7 @@ describe('generator', () => {
     it('should have the right calls - server go', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         server: 'go',
         transpilerServer: undefined,
         template: () => {},
@@ -115,7 +115,7 @@ describe('generator', () => {
     it('should have the right calls - stack fullstack', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         stack: 'fullstack',
         client: 'ng2',
         server: 'go',
@@ -137,7 +137,7 @@ describe('generator', () => {
     it('should have the right calls - stack server', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         stack: 'server',
         server: 'go',
         transpilerServer: undefined,
@@ -158,7 +158,7 @@ describe('generator', () => {
     it('should have the right calls - stack client', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         stack: 'client',
         client: 'ng1',
         server: 'go',
@@ -236,7 +236,7 @@ describe('generator', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         server: 'node',
         transpilerServer: 'typescript',
         stack: 'fullstack',
@@ -261,7 +261,7 @@ describe('generator', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         server: 'node',
         stack: 'fullstack',
         client: 'ng2',
@@ -286,7 +286,7 @@ describe('generator', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         server: 'node',
         client: 'ng2',
         transpilerServer: 'typescript',
@@ -310,7 +310,7 @@ describe('generator', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         server: 'node',
         client: 'ng2',
         transpilerServer: 'typescript',
@@ -334,7 +334,7 @@ describe('generator', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         server: 'node',
         client: 'ng2',
         transpilerServer: 'typescript',
@@ -358,7 +358,7 @@ describe('generator', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        userName: 'b',
         server: 'node',
         client: 'ng2',
         transpilerServer: 'typescript',

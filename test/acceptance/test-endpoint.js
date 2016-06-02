@@ -19,7 +19,7 @@ describe('NgFullstack:endpoint', () => {
           }, this.async());
         })
         .withArguments('endp')
-        .withPrompts({appName: "a", githubUsername: "b", transpilerServer: "node", server: "node"})
+        .withPrompts({appName: "a", userName: "b", transpilerServer: "node", server: "node"})
         .withOptions({feature: 'todo2'})
         .on('end', done);
       });
@@ -49,7 +49,7 @@ describe('NgFullstack:endpoint', () => {
           }, this.async());
         })
         .withArguments('endp')
-        .withPrompts({appName: "a", githubUsername: "b", transpilerServer: "babel", server: "node"})
+        .withPrompts({appName: "a", userName: "b", transpilerServer: "babel", server: "node"})
         .withOptions({feature: 'todo2'})
         .on('end', done);
       });
@@ -79,7 +79,7 @@ describe('NgFullstack:endpoint', () => {
           }, this.async());
         })
         .withArguments('endp')
-        .withPrompts({appName: "a", githubUsername: "b", transpilerServer: "typescript", server: "node"})
+        .withPrompts({appName: "a", userName: "b", transpilerServer: "typescript", server: "node"})
         .withOptions({feature: 'todo2'})
         .on('end', done);
       });
@@ -109,7 +109,7 @@ describe('NgFullstack:endpoint', () => {
         }, this.async());
       })
       .withArguments('endp')
-      .withPrompts({appName: "a", githubUsername: "b", server: "go"})
+      .withPrompts({appName: "a", userName: "b", server: "go"})
       .withOptions({feature: 'todo2'})
       .on('end', done);
     });
