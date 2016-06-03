@@ -22,14 +22,14 @@ describe('todo.dao', () => {
         it('should get all todos', (done) => {
             let _onSuccess = todos => {
                 expect(todos).to.be.defined;
-                expect(todos[0]).to.have.property('todoMessage').and.to.equal('a0');
+                expect(todos[0]).to.have.property('todoMessage').and.to.equal('aaaaaaa0');
                 expect(todos[0]).to.have.property('createdAt').and.to.be.defined;
 
                 done();
             }
 
-            let _onError = () => {
-                expect(true).to.be.false; // should not come here;
+            let _onError = (err) => {
+                expect(true).to.be.false; // should not come here
             }
 
             TodoDAO
