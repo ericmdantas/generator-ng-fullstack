@@ -8,8 +8,8 @@ describe('todo.dao', () => {
         setupMongoose(mongoose);
     });
 
-    afterEach(() => {
-        TodoDAO.remove();
+    afterEach((done) => {
+        TodoDAO.remove({}, () => done());
     })
 
     describe('getAll', () => {
