@@ -18,9 +18,12 @@ exports.MainGenerator = class MainGenerator {
 
   writing() {
       let _app = {app: this.wrapper.appName};
-      let _username = {username: this.wrapper.userName};
-      let _useremail = {useremail: this.wrapper.userEmail};
-      let _appAndUsername = {app: _app.app, username: _username.username};
+      let _user = {
+        username: this.wrapper.userName,
+        useremail: this.wrapper.userEmail,
+        usernamespace: this.wrapper.userNameSpace
+      };
+      let _repoHostUrl = {repohosturl: this.wrapper.repoHostUrl};
       let _server = this.wrapper.server;
       let _transpilerServer = this.wrapper.transpilerServer;
       let _client = this.wrapper.client;
@@ -31,10 +34,16 @@ exports.MainGenerator = class MainGenerator {
       let _secure = this.wrapper.secure;
       let _usesTypescript = (_transpilerServer === "typescript") || (_client === "ng2");
 
-      this.wrapper.template('_README.md', 'README.md', _appAndUsername);
+      this.wrapper.template('_README.md', 'README.md', {
+        app: _app.app,
+        username: _user.username
+      });
+
       this.wrapper.template('_package.json', 'package.json', {
         app: _app.app,
-        username: _username.username,
+        username: _user.username,
+        repohosturl: _repoHostUrl.repohosturl,
+        usernamespace: _user.usernamespace,
         usesTypescript: _usesTypescript,
         client: _client,
         clientOnly: _clientOnly
@@ -70,7 +79,13 @@ exports.MainGenerator = class MainGenerator {
 
       if (_copiesClient) {
         if (_client !== AngularFactory.tokens().NG2) {
-          this.wrapper.template('_bower.json', 'bower.json', _appAndUsername);
+          this.wrapper.template('_bower.json', 'bower.json', {
+            app: _app.app,
+            username: _user.username,
+            useremail: _user.useremail,
+            repohosturl: _repoHostUrl.repohosturl,
+            usernamespace: _user.usernamespace
+          });
         }
 
         ClientFactory.create('angular', _client, this.wrapper).copyClient();
@@ -101,19 +116,12 @@ exports.MainGenerator = class MainGenerator {
           {
             name: 'userName',
             message: 'What is your username?',
-            default: 'userName'
+            default: 'user.name'
           },
           {
             name: 'userEmail',
             message: 'What is your email-id?',
-            default: 'userName'
-          },
-          {
-            type: "list",
-            name: "repository",
-            message: "Which Git repository hosting service are you using? GitHub, BitBucket, GitLab?",
-            choices: ["github", "bitbucket", "gitlab"],
-            default: 0
+            default: 'user.email@example.com'
           },
           {
             type: "list",
@@ -121,18 +129,52 @@ exports.MainGenerator = class MainGenerator {
             message: "What stack do you want? Full, client or server?",
             choices: ["fullstack", "client", "server"],
             default: 0
+          },
+          {
+            type: "list",
+            name: "repoHost",
+            message: "Which Git repository hosting service are you using? GitHub, BitBucket, GitLab?",
+            choices: ["github", "bitbucket", "gitlab"],
+            default: 0
+          },
+          {
+            name: 'repoHostUrl',
+            message: 'What is your GitLab URL?',
+            when: (answersHash) => {
+              return answersHash.repoHost === "gitlab";
+            },
+            default: "gitlab.com"
+          },
+          {
+            name: 'userNameSpace',
+            message: 'What is your GitLab NameSpace?',
+            when: (answersHash) => {
+              return answersHash.repoHost === "gitlab";
+            },
+            default: "namespace"
           }
         ]
 
       this.wrapper.prompt(prompts, (props) => {
         this.wrapper.appName = props.appName;
         this.wrapper.userName = props.userName;
+        this.wrapper.userEmail = props.userEmail;
         this.wrapper.stack = props.stack;
 
-        this.wrapper.config.set('username', this.wrapper.userName);
+        if (props.repoHost === "gitlab") {
+          this.wrapper.repoHostUrl = props.repoHostUrl;
+          this.wrapper.userNameSpace = props.userNameSpace;
+        } else {
+          this.wrapper.repoHostUrl = props.repoHost + ".com";
+          this.wrapper.userNameSpace = props.userName;
+        }
+
         this.wrapper.config.set('appName', this.wrapper.appName);
-        this.wrapper.config.set('repository', this.wrapper.stack);
+        this.wrapper.config.set('userName', this.wrapper.userName);
+        this.wrapper.config.set('userEmail', this.wrapper.userEmail);
         this.wrapper.config.set('stack', this.wrapper.stack);
+        this.wrapper.config.set('repoHostUrl', this.wrapper.repoHostUrl);
+        this.wrapper.config.set('userNameSpace', this.wrapper.userNameSpace);
 
         done();
       });

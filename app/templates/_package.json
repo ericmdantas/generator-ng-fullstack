@@ -84,14 +84,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<%= username %>/<%= app %>.git"
+    "url": "https://<%= repohosturl %>/<%= usernamespace %>/<%= app %>.git"
   },
   "author": "<%= username %>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/<%= username %>/<%= app %>/issues"
+    "url": "https://<%= repohosturl %>/<%= usernamespace %>/<%= app %>/issues"
   },
-  "homepage": "https://github.com/<%= username %>/<%= app %>",
+  "homepage": "https://<%= repohosturl %>/<%= usernamespace %>/<%= app %>",
   "engines": {
     "node": "stable"
   }
