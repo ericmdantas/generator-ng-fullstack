@@ -14,5 +14,5 @@ exports.createTodos = () => {
         _array.push({_id: '507c7f79bcf86cd7994f6c'+ (i + 10), todoMessage: 'aaaaaaa'+i});
     }
 
-    return Todo.createTodo(_array);
+    return Todo.create(_array);
 }
