@@ -28,7 +28,7 @@ class GoServer {
     this.wrapper.template('go/endpoint.route.go', `${gen.route}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      username: this.wrapper.userName,
+      userNameSpace: this.wrapper.userNameSpace,
       appName: this.wrapper.appName,
       feature: _featureWithoutTrailingSlash
     });
@@ -36,7 +36,7 @@ class GoServer {
     this.wrapper.template('go/endpoint.controller.go', `${gen.controller}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      username: this.wrapper.userName,
+      userNameSpace: this.wrapper.userNameSpace,
       appName: this.wrapper.appName,
       feature: _featureWithoutTrailingSlash
     });
@@ -44,7 +44,7 @@ class GoServer {
     this.wrapper.template('go/endpoint.dao.go', `${gen.dao}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      username: this.wrapper.userName,
+      userNameSpace: this.wrapper.userNameSpace,
       appName: this.wrapper.appName,
       feature: _featureWithoutTrailingSlash
     });
@@ -52,7 +52,7 @@ class GoServer {
     this.wrapper.template('go/endpoint.model.go', `${gen.model}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      username: this.wrapper.userName,
+      userNameSpace: this.wrapper.userNameSpace,
       appName: this.wrapper.appName,
       feature: _featureWithoutTrailingSlash
     });
@@ -61,7 +61,7 @@ class GoServer {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       feature: _featureWithoutTrailingSlash,
-      username: this.wrapper.userName,
+      userNameSpace: this.wrapper.userNameSpace,
       appName: this.wrapper.appName
     });
 
@@ -69,7 +69,7 @@ class GoServer {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       feature: _featureWithoutTrailingSlash,
-      username: this.wrapper.userName,
+      userNameSpace: this.wrapper.userNameSpace,
       appName: this.wrapper.appName
     });
 
@@ -77,7 +77,7 @@ class GoServer {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       feature: _featureWithoutTrailingSlash,
-      username: this.wrapper.userName,
+      userNameSpace: this.wrapper.userNameSpace,
       appName: this.wrapper.appName
     });
 
@@ -85,7 +85,7 @@ class GoServer {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       feature: _featureWithoutTrailingSlash,
-      username: this.wrapper.userName,
+      userNameSpace: this.wrapper.userNameSpace,
       appName: this.wrapper.appName
     });
   }
@@ -96,14 +96,14 @@ class GoServer {
     if (this.wrapper.secure) {
       this.wrapper.template('server_go/main_http2.go', 'server/main.go', {
         appName: this.wrapper.appName,
-        username: this.wrapper.userName,
+        userNameSpace: this.wrapper.userNameSpace,
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
     else {
       this.wrapper.template('server_go/main.go', 'server/main.go', {
         appName: this.wrapper.appName,
-        username: this.wrapper.userName,
+        userNameSpace: this.wrapper.userNameSpace,
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
@@ -135,7 +135,7 @@ class GoServer {
 
     yoUtils.directory(this.wrapper, _paths, {
       appName: this.wrapper.appName,
-      username: this.wrapper.userName,
+      userNameSpace: this.wrapper.userNameSpace,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
   }

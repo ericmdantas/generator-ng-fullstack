@@ -2,8 +2,8 @@ package <%= nameLowerCase %>dao
 
 import (
 	_ "errors"
-	_ "github.com/<%= username %>/<%= appName %>/server/api/<%= feature %>/model"
-	_ "github.com/<%= username %>/<%= appName %>/server/config"
+	_ "<%= repohosturl %>/<%= userNameSpace %>/<%= appName %>/server/api/<%= feature %>/model"
+	_ "<%= repohosturl %>/<%= userNameSpace %>/<%= appName %>/server/config"
 	_ "gopkg.in/mgo.v2/bson"
 )
 

@@ -161,12 +161,15 @@ exports.MainGenerator = class MainGenerator {
         this.wrapper.userEmail = props.userEmail;
         this.wrapper.stack = props.stack;
 
-        if (props.repoHost === "gitlab") {
+        if (props.repoHost === "github") {
+          this.wrapper.repoHostUrl = "github.com";
+          this.wrapper.userNameSpace = props.userName;
+        } else if (props.repoHost === "bitbucket") {
+          this.wrapper.repoHostUrl = "bitbucket.org";
+          this.wrapper.userNameSpace = props.userName;
+        } else {
           this.wrapper.repoHostUrl = props.repoHostUrl;
           this.wrapper.userNameSpace = props.userNameSpace;
-        } else {
-          this.wrapper.repoHostUrl = props.repoHost + ".com";
-          this.wrapper.userNameSpace = props.userName;
         }
 
         this.wrapper.config.set('appName', this.wrapper.appName);

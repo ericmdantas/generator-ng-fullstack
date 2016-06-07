@@ -2,8 +2,8 @@ package tododao
 
 import (
 	"errors"
-	todo "github.com/<%= username %>/<%= appName %>/server/api/todo/model"
-	"github.com/<%= username %>/<%= appName %>/server/config"
+	todo "<%= repohosturl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/model"
+	"<%= repohosturl %>/<%= userNameSpace %>/<%= appName %>/server/config"
 	"gopkg.in/mgo.v2/bson"
 	"time"
 )
