@@ -9,16 +9,17 @@
     "start": "node index",
     "watch": "gulp",
     <% if (usesTypescript) { %>
-    "dev": "tsc && concurrently \"npm start\" \"gulp\"",
+    "dev": "tsc && concurrently \"nodemon ./index --watch server\" \"gulp\"",
     <% } else { %>
-    "dev": "concurrently \"npm start\" \"gulp\"",
+    "dev": "concurrently \"nodemon ./index --watch server\" \"gulp\"",
     <% } %>
-    "build-dev": "node index && gulp client.watch",
+    "build-dev": "gulp client.build:dev",
     "build-dist": "gulp client.build:dist",
     "test-client": "gulp client.unit_test",
     "test-server": "mocha ./tests/server/**/*.js --recursive --check-leaks --reporter min --compilers js:babel-register",
     "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/**/*.js --compilers js:babel-register",
-    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/**/*.js --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"<% } %>
+    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/**/*.js --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    <% } %>
   },
   "dependencies": {
     <% if (!clientOnly) { %>"lodash": "^4.6.1",
@@ -27,6 +28,7 @@
     "express": "~4.13.4",
     "express-content-length-validator": "1.0.0",
     "mongoose": "^4.4.7",
+    "nodemon": "^1.9.2",
     "morgan": "^1.5.2", <% } %> <% if (client === "ng2") { %>
     "@angular/common": "^2.0.0-rc.1",
     "@angular/compiler": "^2.0.0-rc.1",
