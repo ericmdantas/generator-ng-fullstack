@@ -1,4 +1,4 @@
-![abc](https://github.com/georgeedwards/generator-ng-fullstack/raw/master/logo.png)
+![logo](https://github.com/georgeedwards/generator-ng-fullstack/raw/master/logo.png)
 
 [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack)
 [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master)
@@ -49,6 +49,18 @@ then to create a new app:
 and answer the on-screen questions. When it's done, you should have [this](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started#result) structure. The default starter project is our [Todo App](https://github.com/ericmdantas/generator-ng-fullstack/wiki/ToDo-Walkthrough).
 
 For full guidance on setting up the dependencies and generating your first app, see [Getting Started](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started).
+
+# Sub generators
+
+Ready to scale? Take a look at the sub generator session in the wiki! [Here](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Sub-Generators).
+
+# Troubleshooting
+
+We've got a wiki session specific for that, [take a look](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Troubleshooting).
+
+# Contributing
+
+Pull requests, helping others solving issues, improving wiki, etc; are all valid, and more than welcome, contributions - don't hesitate. When in doubt, feel free to ping me.
 
 # Resources
 
