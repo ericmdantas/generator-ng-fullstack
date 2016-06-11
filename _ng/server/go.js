@@ -25,7 +25,7 @@ class GoServer {
     let _featureWithoutTrailingSlash = this.wrapper.feature.replace('/', '');
     let gen = basePath(this.wrapper);
 
-    this.wrapper.template('go/endpoint.route.go', `${gen.route}.go`, {
+    this.wrapper.template('go/echo/endpoint.route.go', `${gen.route}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       username: this.wrapper.githubUsername,
@@ -33,7 +33,7 @@ class GoServer {
       feature: _featureWithoutTrailingSlash
     });
 
-    this.wrapper.template('go/endpoint.controller.go', `${gen.controller}.go`, {
+    this.wrapper.template('go/echo/endpoint.controller.go', `${gen.controller}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       username: this.wrapper.githubUsername,
@@ -41,7 +41,7 @@ class GoServer {
       feature: _featureWithoutTrailingSlash
     });
 
-    this.wrapper.template('go/endpoint.dao.go', `${gen.dao}.go`, {
+    this.wrapper.template('go/echo/endpoint.dao.go', `${gen.dao}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       username: this.wrapper.githubUsername,
@@ -49,7 +49,7 @@ class GoServer {
       feature: _featureWithoutTrailingSlash
     });
 
-    this.wrapper.template('go/endpoint.model.go', `${gen.model}.go`, {
+    this.wrapper.template('go/echo/endpoint.model.go', `${gen.model}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       username: this.wrapper.githubUsername,
@@ -57,7 +57,7 @@ class GoServer {
       feature: _featureWithoutTrailingSlash
     });
 
-    this.wrapper.template('go/endpoint.dao_test.go', `${gen.daoTest}.go`, {
+    this.wrapper.template('go/echo/endpoint.dao_test.go', `${gen.daoTest}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       feature: _featureWithoutTrailingSlash,
@@ -65,7 +65,7 @@ class GoServer {
       appName: this.wrapper.appName
     });
 
-    this.wrapper.template('go/endpoint.model_test.go', `${gen.modelTest}.go`, {
+    this.wrapper.template('go/echo/endpoint.model_test.go', `${gen.modelTest}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       feature: _featureWithoutTrailingSlash,
@@ -73,7 +73,7 @@ class GoServer {
       appName: this.wrapper.appName
     });
 
-    this.wrapper.template('go/endpoint.controller_test.go', `${gen.controllerTest}.go`, {
+    this.wrapper.template('go/echo/endpoint.controller_test.go', `${gen.controllerTest}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       feature: _featureWithoutTrailingSlash,
@@ -81,7 +81,7 @@ class GoServer {
       appName: this.wrapper.appName
     });
 
-    this.wrapper.template('go/endpoint.route_test.go', `${gen.routeTest}.go`, {
+    this.wrapper.template('go/echo/endpoint.route_test.go', `${gen.routeTest}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       feature: _featureWithoutTrailingSlash,
