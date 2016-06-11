@@ -11,23 +11,23 @@ class Angular1 {
 
   copyClient() {
     let _pathSrc = [
-      ['client_ng1/dev/index.html', 'client/dev/index.html'],
-      ['client_ng1/dev/favicon.png', 'client/dev/favicon.png'],
-      ['client_ng1/dev/app.js', 'client/dev/app.js'],
-      ['client_ng1/dev/app.route.js', 'client/dev/app.route.js'],
-      ['client_ng1/dev/app.config.js', 'client/dev/app.config.js'],
-      ['client_ng1/dev/common/images/todo-bkg.png', 'client/dev/common/images/todo-bkg.png'],
-      ['client_ng1/dev/todo/controllers/todo-controller.js', 'client/dev/todo/controllers/todo-controller.js'],
-      ['client_ng1/dev/todo/models/todo-model.js', 'client/dev/todo/models/todo-model.js'],
-      ['client_ng1/dev/todo/services/todo-dao.js', 'client/dev/todo/services/todo-dao.js'],
-      ['client_ng1/dev/todo/services/todo-resource.js', 'client/dev/todo/services/todo-resource.js'],
-      ['client_ng1/dev/todo/styles/events.css', 'client/dev/todo/styles/events.css'],
-      ['client_ng1/dev/todo/styles/fonts.css', 'client/dev/todo/styles/fonts.css'],
-      ['client_ng1/dev/todo/styles/frameworks_overrides.css', 'client/dev/todo/styles/frameworks_overrides.css'],
-      ['client_ng1/dev/todo/styles/media_queries.css', 'client/dev/todo/styles/media_queries.css'],
-      ['client_ng1/dev/todo/styles/position.css', 'client/dev/todo/styles/position.css'],
-      ['client_ng1/dev/todo/styles/styles.css', 'client/dev/todo/styles/styles.css'],
-      ['client_ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
+      ['client/ng1/dev/index.html', 'client/dev/index.html'],
+      ['client/ng1/dev/favicon.png', 'client/dev/favicon.png'],
+      ['client/ng1/dev/app.js', 'client/dev/app.js'],
+      ['client/ng1/dev/app.route.js', 'client/dev/app.route.js'],
+      ['client/ng1/dev/app.config.js', 'client/dev/app.config.js'],
+      ['client/ng1/dev/common/images/todo-bkg.png', 'client/dev/common/images/todo-bkg.png'],
+      ['client/ng1/dev/todo/controllers/todo-controller.js', 'client/dev/todo/controllers/todo-controller.js'],
+      ['client/ng1/dev/todo/models/todo-model.js', 'client/dev/todo/models/todo-model.js'],
+      ['client/ng1/dev/todo/services/todo-dao.js', 'client/dev/todo/services/todo-dao.js'],
+      ['client/ng1/dev/todo/services/todo-resource.js', 'client/dev/todo/services/todo-resource.js'],
+      ['client/ng1/dev/todo/styles/events.css', 'client/dev/todo/styles/events.css'],
+      ['client/ng1/dev/todo/styles/fonts.css', 'client/dev/todo/styles/fonts.css'],
+      ['client/ng1/dev/todo/styles/frameworks_overrides.css', 'client/dev/todo/styles/frameworks_overrides.css'],
+      ['client/ng1/dev/todo/styles/media_queries.css', 'client/dev/todo/styles/media_queries.css'],
+      ['client/ng1/dev/todo/styles/position.css', 'client/dev/todo/styles/position.css'],
+      ['client/ng1/dev/todo/styles/styles.css', 'client/dev/todo/styles/styles.css'],
+      ['client/ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
     ];
 
     let _pathTest = [
@@ -129,7 +129,7 @@ class Angular2 {
   copyClient() {
     this.generator.directory('tasks/client_ng2', 'tasks/client');
     this.generator.directory('tests/client_ng2', 'tests/client');
-    this.generator.directory('client_ng2', 'client');
+    this.generator.directory('client/ng2', 'client');
     this.generator.template('_karma.conf_ng2.js', 'karma.conf.js');
     this.generator.template('_karma-test-shim.js', 'karma-test-shim.js');
     this.generator.template('_typings_ng2.json', 'typings.json');

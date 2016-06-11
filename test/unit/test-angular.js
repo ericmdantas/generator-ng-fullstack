@@ -243,7 +243,7 @@ describe('ng2', () => {
 
       let _firstCall = ['tasks/client_ng2', 'tasks/client'];
       let _secondCall = ['tests/client_ng2', 'tests/client'];
-      let _thirdCall = ['client_ng2', 'client'];
+      let _thirdCall = ['client/ng2', 'client'];
       let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
       let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
       let _sixthCall = ['_typings_ng2.json', 'typings.json'];
@@ -282,7 +282,7 @@ describe('ng2', () => {
 
       let _firstCall = ['tasks/client_ng2', 'tasks/client'];
       let _secondCall = ['tests/client_ng2', 'tests/client'];
-      let _thirdCall = ['client_ng2', 'client'];
+      let _thirdCall = ['client/ng2', 'client'];
       let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
       let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
       let _sixthCall = ['_typings_ng2.json', 'typings.json'];
@@ -322,7 +322,7 @@ describe('ng2', () => {
 
       let _firstCall = ['tasks/client_ng2', 'tasks/client'];
       let _secondCall = ['tests/client_ng2', 'tests/client'];
-      let _thirdCall = ['client_ng2', 'client'];
+      let _thirdCall = ['client/ng2', 'client'];
       let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
       let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
       let _sixthCall = ['_typings_ng2.json', 'typings.json'];
@@ -363,7 +363,7 @@ describe('ng2', () => {
 
       let _firstCall = ['tasks/client_ng2', 'tasks/client'];
       let _secondCall = ['tests/client_ng2', 'tests/client'];
-      let _thirdCall = ['client_ng2', 'client'];
+      let _thirdCall = ['client/ng2', 'client'];
       let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
       let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
       let _sixthCall = ['_typings_ng2.json', 'typings.json'];
