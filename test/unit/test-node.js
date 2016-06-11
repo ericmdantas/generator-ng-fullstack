@@ -48,11 +48,11 @@ describe('node', () => {
 
         _n.copyFiles();
 
-        let _firstCall = [`node/no_transpiler/endpoint.route.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}-route.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _secondCall = [`node/no_transpiler/endpoint.controller.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _thirdCall = [`node/no_transpiler/endpoint.dao.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _fourthCall = [`node/no_transpiler/endpoint.model.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _fifthCall = [`node/no_transpiler/endpoint.dao_test.js`, `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase(), feature: _newGenerator.feature}];
+        let _firstCall = [`node/express/no_transpiler/endpoint.route.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}-route.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _secondCall = [`node/express/no_transpiler/endpoint.controller.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _thirdCall = [`node/express/no_transpiler/endpoint.dao.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _fourthCall = [`node/express/no_transpiler/endpoint.model.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _fifthCall = [`node/express/no_transpiler/endpoint.dao_test.js`, `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase(), feature: _newGenerator.feature}];
 
         expect(_n.wrapper.template).to.have.been.called;
         expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
@@ -77,7 +77,7 @@ describe('node', () => {
         _n.copyForMainGenerator();
 
         let _firstCall = [`index_node.js`, 'index.js'];
-        let _secondCall = [`server_node_express/server.js`, `server/server.js`];
+        let _secondCall = [`server_node/express/server_node_express/server.js`, `server/server.js`];
         let _thirdCall = [`tasks/server`, `tasks/server`];
         let _fourthCall = [`tests/server`, `tests/server`];
 
@@ -103,7 +103,7 @@ describe('node', () => {
         _n.copyForMainGenerator();
 
         let _firstCall = [`index_node.js`, 'index.js'];
-        let _secondCall = [`server_node_express/server_https.js`, `server/server.js`];
+        let _secondCall = [`server_node/express/server_node_express/server_https.js`, `server/server.js`];
         let _thirdCall = [`tasks/server`, `tasks/server`];
         let _fourthCall = [`tests/server`, `tests/server`];
 
@@ -140,11 +140,11 @@ describe('node', () => {
 
         _n.copyFiles();
 
-        let _firstCall = [`node/babel/endpoint.route.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}-route.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _secondCall = [`node/babel/endpoint.controller.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _thirdCall = [`node/babel/endpoint.dao.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _fourthCall = [`node/babel/endpoint.model.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _fifthCall = [`node/babel/endpoint.dao_test.js`, `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase(), feature: _newGenerator.feature}];
+        let _firstCall = [`node/express/babel/endpoint.route.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}-route.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _secondCall = [`node/express/babel/endpoint.controller.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _thirdCall = [`node/express/babel/endpoint.dao.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _fourthCall = [`node/express/babel/endpoint.model.js`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _fifthCall = [`node/express/babel/endpoint.dao_test.js`, `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase(), feature: _newGenerator.feature}];
 
         expect(_n.wrapper.template).to.have.been.called;
         expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
@@ -169,7 +169,7 @@ describe('node', () => {
         _n.copyForMainGenerator();
 
         let _firstCall = [`index_babel.js`, 'index.js'];
-        let _secondCall = [`server_node_express_babel/server.js`, `server/server.js`];
+        let _secondCall = [`server_node/express/server_node_express_babel/server.js`, `server/server.js`];
         let _thirdCall = [`tasks/server`, `tasks/server`];
         let _fourthCall = [`tests/server`, `tests/server`];
 
@@ -195,7 +195,7 @@ describe('node', () => {
         _n.copyForMainGenerator();
 
         let _firstCall = [`index_babel.js`, 'index.js'];
-        let _secondCall = [`server_node_express_babel/server_https.js`, `server/server.js`];
+        let _secondCall = [`server_node/express/server_node_express_babel/server_https.js`, `server/server.js`];
         let _thirdCall = [`tasks/server`, `tasks/server`];
         let _fourthCall = [`tests/server`, `tests/server`];
 
@@ -232,11 +232,11 @@ describe('node', () => {
 
         _n.copyFiles();
 
-        let _firstCall = [`node/typescript/endpoint.route.ts`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}-route.ts`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _secondCall = [`node/typescript/endpoint.controller.ts`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.ts`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _thirdCall = [`node/typescript/endpoint.dao.ts`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.ts`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _fourthCall = [`node/typescript/endpoint.model.ts`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.ts`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
-        let _fifthCall = [`node/typescript/endpoint.dao_test.js`, `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase(), feature: _newGenerator.feature}];
+        let _firstCall = [`node/express/typescript/endpoint.route.ts`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}-route.ts`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _secondCall = [`node/express/typescript/endpoint.controller.ts`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.ts`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _thirdCall = [`node/express/typescript/endpoint.dao.ts`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.ts`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _fourthCall = [`node/express/typescript/endpoint.model.ts`, `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.ts`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase()}];
+        let _fifthCall = [`node/express/typescript/endpoint.dao_test.js`, `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {name: _newGenerator.name, nameLowerCase: _newGenerator.name.toLowerCase(), feature: _newGenerator.feature}];
 
         expect(_n.wrapper.template).to.have.been.called;
         expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
@@ -260,7 +260,7 @@ describe('node', () => {
 
         _n.copyForMainGenerator();
 
-        let _templateCall = [`server_node_express_typescript/server.ts`, 'server/server.ts'];
+        let _templateCall = [`server_node/express/server_node_express_typescript/server.ts`, 'server/server.ts'];
 
         let _firstCall = [`index_tsc.js`, 'index.js'];
         let _secondCall = [`_tsconfig.json`, `tsconfig.json`];
@@ -293,7 +293,7 @@ describe('node', () => {
 
         _n.copyForMainGenerator();
 
-        let _templateCall = [`server_node_express_typescript/server_https.ts`, 'server/server.ts'];
+        let _templateCall = [`server_node/express/server_node_express_typescript/server_https.ts`, 'server/server.ts'];
 
         let _firstCall = [`index_tsc.js`, 'index.js'];
         let _secondCall = [`_tsconfig.json`, `tsconfig.json`];
