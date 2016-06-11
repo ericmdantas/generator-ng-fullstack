@@ -37,8 +37,8 @@ class Angular1 {
       ['tests/client_ng1/todo/services/todo-dao_test.js', 'tests/client/todo/services/todo-dao_test.js']
     ];
 
-    this.generator.directory('tasks/client_ng1', 'tasks/client');
-    this.generator.template('tasks/client_ng1/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
+    this.generator.directory('tasks/client/ng1', 'tasks/client');
+    this.generator.template('tasks/client/ng1/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
 
     yoUtils.directory(this.generator, _pathSrc, this.generator);
     yoUtils.directory(this.generator, _pathTest, this.generator);
@@ -127,7 +127,7 @@ class Angular2 {
   }
 
   copyClient() {
-    this.generator.directory('tasks/client_ng2', 'tasks/client');
+    this.generator.directory('tasks/client/ng2', 'tasks/client');
     this.generator.directory('tests/client_ng2', 'tests/client');
     this.generator.directory('client/ng2', 'client');
     this.generator.template('_karma.conf_ng2.js', 'karma.conf.js');
@@ -141,7 +141,7 @@ class Angular2 {
       this.generator.template('_ng2_systemjs_config_serving_node_modules.js', 'client/dev/config.js');
     }
 
-    this.generator.template('tasks/client_ng2/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
+    this.generator.template('tasks/client/ng2/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
   }
 
   copyComponent(pathTemplate) {
