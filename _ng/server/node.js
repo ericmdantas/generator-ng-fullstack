@@ -56,30 +56,30 @@ class NodeStandard {
     this.wrapper.directory('tests/server', 'tests/server');
 
     if (this.wrapper.secure) {
-      this.wrapper.template('server_node/server_https.js', 'server/server.js', {
+      this.wrapper.template('server_node_express/server_https.js', 'server/server.js', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
     else {
-      this.wrapper.template('server_node/server.js', 'server/server.js', {
+      this.wrapper.template('server_node_express/server.js', 'server/server.js', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
 
     let _paths = [
-      ['server_node/routes/index.js', 'server/routes/index.js'],
-      ['server_node/constants/db.json', 'server/constants/db.json'],
-      ['server_node/config/db.conf.js', 'server/config/db.conf.js'],
-      ['server_node/config/routes.conf.js', 'server/config/routes.conf.js'],
-      ['server_node/auth/local/index.js', 'server/auth/local/index.js'],
-      ['server_node/api/todo/controller/todo-controller.js', 'server/api/todo/controller/todo-controller.js'],
-      ['server_node/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
-      ['server_node/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
-      ['server_node/api/todo/routes/todo-routes.js', 'server/api/todo/routes/todo-routes.js']
+      ['server_node_express/routes/index.js', 'server/routes/index.js'],
+      ['server_node_express/constants/db.json', 'server/constants/db.json'],
+      ['server_node_express/config/db.conf.js', 'server/config/db.conf.js'],
+      ['server_node_express/config/routes.conf.js', 'server/config/routes.conf.js'],
+      ['server_node_express/auth/local/index.js', 'server/auth/local/index.js'],
+      ['server_node_express/api/todo/controller/todo-controller.js', 'server/api/todo/controller/todo-controller.js'],
+      ['server_node_express/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
+      ['server_node_express/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
+      ['server_node_express/api/todo/routes/todo-routes.js', 'server/api/todo/routes/todo-routes.js']
     ]
 
     if (!this.wrapper.differentStaticServer) {
-      _paths.push(['server_node/commons/static/index.js', 'server/commons/static/index.js']);
+      _paths.push(['server_node_express/commons/static/index.js', 'server/commons/static/index.js']);
     }
 
     yoUtils.directory(this.wrapper, _paths, {
@@ -131,30 +131,30 @@ class NodeBabel {
     this.wrapper.directory('tests/server', 'tests/server');
 
     if (this.wrapper.secure) {
-      this.wrapper.template('server_node_babel/server_https.js', 'server/server.js', {
+      this.wrapper.template('server_node_express_babel/server_https.js', 'server/server.js', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
     else {
-      this.wrapper.template('server_node_babel/server.js', 'server/server.js', {
+      this.wrapper.template('server_node_express_babel/server.js', 'server/server.js', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
 
     let _paths = [
-      ['server_node_babel/routes/index.js', 'server/routes/index.js'],
-      ['server_node_babel/constants/db.json', 'server/constants/db.json'],
-      ['server_node_babel/config/db.conf.js', 'server/config/db.conf.js'],
-      ['server_node_babel/config/routes.conf.js', 'server/config/routes.conf.js'],
-      ['server_node_babel/auth/local/index.js', 'server/auth/local/index.js'],
-      ['server_node_babel/api/todo/controller/todo-controller.js', 'server/api/todo/controller/todo-controller.js'],
-      ['server_node_babel/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
-      ['server_node_babel/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
-      ['server_node_babel/api/todo/routes/todo-routes.js', 'server/api/todo/routes/todo-routes.js']
+      ['server_node_express_babel/routes/index.js', 'server/routes/index.js'],
+      ['server_node_express_babel/constants/db.json', 'server/constants/db.json'],
+      ['server_node_express_babel/config/db.conf.js', 'server/config/db.conf.js'],
+      ['server_node_express_babel/config/routes.conf.js', 'server/config/routes.conf.js'],
+      ['server_node_express_babel/auth/local/index.js', 'server/auth/local/index.js'],
+      ['server_node_express_babel/api/todo/controller/todo-controller.js', 'server/api/todo/controller/todo-controller.js'],
+      ['server_node_express_babel/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
+      ['server_node_express_babel/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
+      ['server_node_express_babel/api/todo/routes/todo-routes.js', 'server/api/todo/routes/todo-routes.js']
     ]
 
     if (!this.wrapper.differentStaticServer) {
-      _paths.push(['server_node_babel/commons/static/index.js', 'server/commons/static/index.js']);
+      _paths.push(['server_node_express_babel/commons/static/index.js', 'server/commons/static/index.js']);
     }
 
     yoUtils.directory(this.wrapper, _paths, {
@@ -208,30 +208,30 @@ class NodeTypescript {
     this.wrapper.directory('tests/server', 'tests/server');
 
     if (this.wrapper.secure) {
-      this.wrapper.template('server_node_typescript/server_https.ts', 'server/server.ts', {
+      this.wrapper.template('server_node_express_typescript/server_https.ts', 'server/server.ts', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
     else {
-      this.wrapper.template('server_node_typescript/server.ts', 'server/server.ts', {
+      this.wrapper.template('server_node_express_typescript/server.ts', 'server/server.ts', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
 
     let _paths = [
-      ['server_node_typescript/routes/index.ts', 'server/routes/index.ts'],
-      ['server_node_typescript/constants/db.json', 'server/constants/db.json'],
-      ['server_node_typescript/config/db.conf.ts', 'server/config/db.conf.ts'],
-      ['server_node_typescript/config/routes.conf.ts', 'server/config/routes.conf.ts'],
-      ['server_node_typescript/auth/local/index.ts', 'server/auth/local/index.ts'],
-      ['server_node_typescript/api/todo/controller/todo-controller.ts', 'server/api/todo/controller/todo-controller.ts'],
-      ['server_node_typescript/api/todo/dao/todo-dao.ts', 'server/api/todo/dao/todo-dao.ts'],
-      ['server_node_typescript/api/todo/model/todo-model.ts', 'server/api/todo/model/todo-model.ts'],
-      ['server_node_typescript/api/todo/routes/todo-routes.ts', 'server/api/todo/routes/todo-routes.ts']
+      ['server_node_express_typescript/routes/index.ts', 'server/routes/index.ts'],
+      ['server_node_express_typescript/constants/db.json', 'server/constants/db.json'],
+      ['server_node_express_typescript/config/db.conf.ts', 'server/config/db.conf.ts'],
+      ['server_node_express_typescript/config/routes.conf.ts', 'server/config/routes.conf.ts'],
+      ['server_node_express_typescript/auth/local/index.ts', 'server/auth/local/index.ts'],
+      ['server_node_express_typescript/api/todo/controller/todo-controller.ts', 'server/api/todo/controller/todo-controller.ts'],
+      ['server_node_express_typescript/api/todo/dao/todo-dao.ts', 'server/api/todo/dao/todo-dao.ts'],
+      ['server_node_express_typescript/api/todo/model/todo-model.ts', 'server/api/todo/model/todo-model.ts'],
+      ['server_node_express_typescript/api/todo/routes/todo-routes.ts', 'server/api/todo/routes/todo-routes.ts']
     ]
 
     if (!this.wrapper.differentStaticServer) {
-      _paths.push(['server_node_typescript/commons/static/index.ts', 'server/commons/static/index.ts']);
+      _paths.push(['server_node_express_typescript/commons/static/index.ts', 'server/commons/static/index.ts']);
     }
 
     yoUtils.directory(this.wrapper, _paths, {

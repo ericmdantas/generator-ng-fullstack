@@ -77,7 +77,7 @@ describe('node', () => {
         _n.copyForMainGenerator();
 
         let _firstCall = [`index_node.js`, 'index.js'];
-        let _secondCall = [`server_node/server.js`, `server/server.js`];
+        let _secondCall = [`server_node_express/server.js`, `server/server.js`];
         let _thirdCall = [`tasks/server`, `tasks/server`];
         let _fourthCall = [`tests/server`, `tests/server`];
 
@@ -103,7 +103,7 @@ describe('node', () => {
         _n.copyForMainGenerator();
 
         let _firstCall = [`index_node.js`, 'index.js'];
-        let _secondCall = [`server_node/server_https.js`, `server/server.js`];
+        let _secondCall = [`server_node_express/server_https.js`, `server/server.js`];
         let _thirdCall = [`tasks/server`, `tasks/server`];
         let _fourthCall = [`tests/server`, `tests/server`];
 
@@ -169,7 +169,7 @@ describe('node', () => {
         _n.copyForMainGenerator();
 
         let _firstCall = [`index_babel.js`, 'index.js'];
-        let _secondCall = [`server_node_babel/server.js`, `server/server.js`];
+        let _secondCall = [`server_node_express_babel/server.js`, `server/server.js`];
         let _thirdCall = [`tasks/server`, `tasks/server`];
         let _fourthCall = [`tests/server`, `tests/server`];
 
@@ -195,7 +195,7 @@ describe('node', () => {
         _n.copyForMainGenerator();
 
         let _firstCall = [`index_babel.js`, 'index.js'];
-        let _secondCall = [`server_node_babel/server_https.js`, `server/server.js`];
+        let _secondCall = [`server_node_express_babel/server_https.js`, `server/server.js`];
         let _thirdCall = [`tasks/server`, `tasks/server`];
         let _fourthCall = [`tests/server`, `tests/server`];
 
@@ -260,7 +260,7 @@ describe('node', () => {
 
         _n.copyForMainGenerator();
 
-        let _templateCall = [`server_node_typescript/server.ts`, 'server/server.ts'];
+        let _templateCall = [`server_node_express_typescript/server.ts`, 'server/server.ts'];
 
         let _firstCall = [`index_tsc.js`, 'index.js'];
         let _secondCall = [`_tsconfig.json`, `tsconfig.json`];
@@ -293,7 +293,7 @@ describe('node', () => {
 
         _n.copyForMainGenerator();
 
-        let _templateCall = [`server_node_typescript/server_https.ts`, 'server/server.ts'];
+        let _templateCall = [`server_node_express_typescript/server_https.ts`, 'server/server.ts'];
 
         let _firstCall = [`index_tsc.js`, 'index.js'];
         let _secondCall = [`_tsconfig.json`, `tsconfig.json`];
