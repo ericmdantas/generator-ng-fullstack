@@ -141,11 +141,4 @@ class GoServer {
   }
 }
 
-class GoFactory {
-  static build(generator) {
-    return new GoServer(generator);
-  }
-}
-
-exports.GoFactory = GoFactory;
 exports.GoServer = GoServer;

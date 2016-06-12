@@ -240,25 +240,6 @@ class NodeTypescript {
   }
 }
 
-class NodeFactory {
-  static tokens() {
-    return {
-      NODE: "node",
-      NODE_BABEL: "babel",
-      NODE_TYPESCRIPT: "typescript"
-    }
-  }
-
-  static build(generator) {
-    switch(generator.transpilerServer) {
-      case NodeFactory.tokens().NODE: return new NodeStandard(generator);
-      case NodeFactory.tokens().NODE_BABEL: return new NodeBabel(generator);
-      case NodeFactory.tokens().NODE_TYPESCRIPT: return new NodeTypescript(generator);
-    }
-  }
-}
-
 exports.NodeBabel = NodeBabel;
 exports.NodeTypescript = NodeTypescript;
 exports.NodeStandard = NodeStandard;
-exports.NodeFactory = NodeFactory;

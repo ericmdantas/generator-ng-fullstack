@@ -2,7 +2,7 @@
 
 const chalk = require('chalk');
 const yosay = require('yosay');
-const NodeFactory = require('../server/node').NodeFactory;
+const NodeFactory = require('../server/node_factory').NodeFactory;
 const AngularFactory = require('../client/angular').AngularFactory;
 const ClientFactory = require('../client/client_factory').ClientFactory;
 const ServerFactory = require('../server/server_factory').ServerFactory;
