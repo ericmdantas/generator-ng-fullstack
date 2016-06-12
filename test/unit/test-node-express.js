@@ -8,20 +8,20 @@ describe('node', () => {
   describe('factory', () => {
     it('should have the right values for the tokens()', () => {
       expect(NodeFactory.tokensCompiler().NODE).to.equal('node');
-      expect(NodeFactory.tokensCompiler().NODE_BABEL).to.equal('babel');
-      expect(NodeFactory.tokensCompiler().NODE_TYPESCRIPT).to.equal('typescript');
+      expect(NodeFactory.tokensCompiler().BABEL).to.equal('babel');
+      expect(NodeFactory.tokensCompiler().TYPESCRIPT).to.equal('typescript');
     });
 
     it('should have an instance of NodeExpressStandard', () => {
-      expect(NodeFactory.build({transpilerServer: 'node'}) instanceof NodeExpressStandard).to.be.true;
+      expect(NodeFactory.build({transpilerServer: 'node', webFramework: 'express'}) instanceof NodeExpressStandard).to.be.true;
     });
 
     it('should have an instance of NodeExpressBabel', () => {
-      expect(NodeFactory.build({transpilerServer: 'babel'}) instanceof NodeExpressBabel).to.be.true;
+      expect(NodeFactory.build({transpilerServer: 'babel', webFramework: 'express'}) instanceof NodeExpressBabel).to.be.true;
     });
 
     it('should have an instance of NodeExpressTypescript', () => {
-      expect(NodeFactory.build({transpilerServer: 'typescript'}) instanceof NodeExpressTypescript).to.be.true;
+      expect(NodeFactory.build({transpilerServer: 'typescript', webFramework: 'express'}) instanceof NodeExpressTypescript).to.be.true;
     });
   });
 

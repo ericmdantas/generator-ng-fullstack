@@ -9,30 +9,31 @@ exports.NodeFactory = class NodeFactory {
   static tokensCompiler() {
     return {
       NODE: "node",
-      NODE_BABEL: "babel",
-      NODE_TYPESCRIPT: "typescript"
+      BABEL: "babel",
+      TYPESCRIPT: "typescript"
     }
   }
 
   static tokensWebFramework() {
     return {
-      NODE_EXPRESS: "node-express",
-      NODE_EXPRESS_BABEL: "babel-express",
-      NODE_EXPRESS_TYPESCRIPT: "typescript-express",
-      NODE_KOA: "node-koa",
-      NODE_KOA_BABEL: "babel-koa",
-      NODE_KOA_TYPESCRIPT: "typescript-koa"
+      EXPRESS: "express",
+      KOA: "koa"
     }
   }
 
   static build(generator) {
-    switch(generator.transpilerServer) {
-      case NodeFactory.tokensCompiler().NODE: return new NodeExpressStandard(generator);
-      case NodeFactory.tokensCompiler().NODE_BABEL: return new NodeExpressBabel(generator);
-      case NodeFactory.tokensCompiler().NODE_TYPESCRIPT: return new NodeExpressTypescript(generator);
-      //case NodeFactory.tokensCompiler().NODE_KOA: return new NodeKoaStandard(generator);
-      //case NodeFactory.tokensCompiler().NODE_KOA_BABEL: return new NodeKoaBabel(generator);
-      //case NodeFactory.tokensCompiler().NODE_KOA_TYPESCRIPT: return new NodeKoaTypescript(generator);
+    if (generator.webFramework === NodeFactory.tokensWebFramework().KOA) {
+      switch(generator.transpilerServer) {
+        case NodeFactory.tokensCompiler().NODE: return new NodeKoaStandard(generator);
+        case NodeFactory.tokensCompiler().BABEL: return new NodeKoaBabel(generator);
+        case NodeFactory.tokensCompiler().TYPESCRIPT: return new NodeKoaTypescript(generator);
+      }
+    } else {
+      switch(generator.transpilerServer) {
+        case NodeFactory.tokensCompiler().NODE: return new NodeExpressStandard(generator);
+        case NodeFactory.tokensCompiler().BABEL: return new NodeExpressBabel(generator);
+        case NodeFactory.tokensCompiler().TYPESCRIPT: return new NodeExpressTypescript(generator);
+      }
     }
   }
 }

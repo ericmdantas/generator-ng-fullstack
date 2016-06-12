@@ -191,7 +191,7 @@ exports.MainGenerator = class MainGenerator {
       type: "list",
       name: "transpilerServer",
       message: "What transpiler do you want to use in server side?",
-      choices: [NodeFactory.tokensCompiler().NODE, NodeFactory.tokensCompiler().NODE_BABEL, NodeFactory.tokensCompiler().NODE_TYPESCRIPT],
+      choices: [NodeFactory.tokensCompiler().NODE, NodeFactory.tokensCompiler().BABEL, NodeFactory.tokensCompiler().TYPESCRIPT],
       default: 0,
       when: () => this.wrapper.server === ServerFactory.tokens().NODE
     }];

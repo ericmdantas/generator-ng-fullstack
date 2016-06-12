@@ -8,20 +8,20 @@ describe('node', () => {
   describe('factory', () => {
     it('should have the right values for the tokens()', () => {
       expect(NodeFactory.tokensCompiler().NODE).to.equal('node');
-      expect(NodeFactory.tokensCompiler().NODE_BABEL).to.equal('babel');
-      expect(NodeFactory.tokensCompiler().NODE_TYPESCRIPT).to.equal('typescript');
+      expect(NodeFactory.tokensCompiler().BABEL).to.equal('babel');
+      expect(NodeFactory.tokensCompiler().TYPESCRIPT).to.equal('typescript');
     });
 
     it('should have an instance of NodeKoaStandard', () => {
-      expect(NodeFactory.build({transpilerServer: 'node'}) instanceof NodeKoaStandard).to.be.true;
+      expect(NodeFactory.build({transpilerServer: 'node', webFramework: 'koa'}) instanceof NodeKoaStandard).to.be.true;
     });
 
     it('should have an instance of NodeKoaBabel', () => {
-      expect(NodeFactory.build({transpilerServer: 'babel'}) instanceof NodeKoaBabel).to.be.true;
+      expect(NodeFactory.build({transpilerServer: 'babel', webFramework: 'koa'}) instanceof NodeKoaBabel).to.be.true;
     });
 
     it('should have an instance of NodeKoaTypescript', () => {
-      expect(NodeFactory.build({transpilerServer: 'typescript'}) instanceof NodeKoaTypescript).to.be.true;
+      expect(NodeFactory.build({transpilerServer: 'typescript', webFramework: 'koa'}) instanceof NodeKoaTypescript).to.be.true;
     });
   });
 
