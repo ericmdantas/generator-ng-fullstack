@@ -184,6 +184,28 @@ exports.MainGenerator = class MainGenerator {
     this.wrapper.config.save();
   }
 
+  promptWebFrameworkServer() {
+    const done = this.wrapper.async();
+
+    let _prompts = [{
+      type: "list",
+      name: "webFrameworkServer",
+      message: "What framework do you want to use in server side?",
+      choices: [NodeFactory.tokensWebFramework().EXPRESS, NodeFactory.tokensWebFramework().KOA],
+      default: 0,
+      when: () => this.wrapper.server === ServerFactory.tokens().NODE
+    }];
+
+    this.wrapper.prompt(_prompts, (props) => {
+      this.wrapper.webFrameworkServer = props.webFrameworkServer;
+      this.wrapper.config.set('webFrameworkServer', this.wrapper.webFrameworkServer);
+
+      done();
+    });
+
+    this.wrapper.config.save();
+  }
+
   promptTranspilerServer() {
     const done = this.wrapper.async();
 

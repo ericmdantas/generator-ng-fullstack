@@ -13,15 +13,15 @@ describe('node', () => {
     });
 
     it('should have an instance of NodeKoaStandard', () => {
-      expect(NodeFactory.build({transpilerServer: 'node', webFramework: 'koa'}) instanceof NodeKoaStandard).to.be.true;
+      expect(NodeFactory.build({transpilerServer: 'node', webFrameworkServer: 'koa'}) instanceof NodeKoaStandard).to.be.true;
     });
 
     it('should have an instance of NodeKoaBabel', () => {
-      expect(NodeFactory.build({transpilerServer: 'babel', webFramework: 'koa'}) instanceof NodeKoaBabel).to.be.true;
+      expect(NodeFactory.build({transpilerServer: 'babel', webFrameworkServer: 'koa'}) instanceof NodeKoaBabel).to.be.true;
     });
 
     it('should have an instance of NodeKoaTypescript', () => {
-      expect(NodeFactory.build({transpilerServer: 'typescript', webFramework: 'koa'}) instanceof NodeKoaTypescript).to.be.true;
+      expect(NodeFactory.build({transpilerServer: 'typescript', webFrameworkServer: 'koa'}) instanceof NodeKoaTypescript).to.be.true;
     });
   });
 

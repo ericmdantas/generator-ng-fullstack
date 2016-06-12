@@ -22,17 +22,19 @@ exports.NodeFactory = class NodeFactory {
   }
 
   static build(generator) {
-    if (generator.webFramework === NodeFactory.tokensWebFramework().KOA) {
-      switch(generator.transpilerServer) {
-        case NodeFactory.tokensCompiler().NODE: return new NodeKoaStandard(generator);
-        case NodeFactory.tokensCompiler().BABEL: return new NodeKoaBabel(generator);
-        case NodeFactory.tokensCompiler().TYPESCRIPT: return new NodeKoaTypescript(generator);
-      }
-    } else {
+    if (generator.webFrameworkServer === NodeFactory.tokensWebFramework().EXPRESS) {
       switch(generator.transpilerServer) {
         case NodeFactory.tokensCompiler().NODE: return new NodeExpressStandard(generator);
         case NodeFactory.tokensCompiler().BABEL: return new NodeExpressBabel(generator);
         case NodeFactory.tokensCompiler().TYPESCRIPT: return new NodeExpressTypescript(generator);
+      }
+    }
+
+    if (generator.webFrameworkServer === NodeFactory.tokensWebFramework().KOA) {
+      switch(generator.transpilerServer) {
+        case NodeFactory.tokensCompiler().NODE: return new NodeKoaStandard(generator);
+        case NodeFactory.tokensCompiler().BABEL: return new NodeKoaBabel(generator); 
+        case NodeFactory.tokensCompiler().TYPESCRIPT: return new NodeKoaTypescript(generator);
       }
     }
   }

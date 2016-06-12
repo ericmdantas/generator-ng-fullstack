@@ -124,6 +124,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'node',
+              webFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1'
             })
@@ -183,6 +184,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'node',
+              webFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1'
             })
@@ -253,6 +255,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'node',
+              webFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1',
               secure: true
@@ -317,6 +320,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'node',
+              webFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1',
               secure: true
@@ -379,6 +383,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'node',
+              webFrameworkServer: 'express',
               stack: "server",
               client: 'ng1',
               secure: true
@@ -437,6 +442,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'babel',
+              webFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1'
             })
@@ -494,6 +500,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'babel',
+              webFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1'
             })
@@ -564,6 +571,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'babel',
+              webFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1'
             })
@@ -627,6 +635,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'babel',
+              webFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1'
             })
@@ -689,6 +698,7 @@ describe('ng-fullstack:app', () => {
               server: "node",
               stack: "server",
               transpilerServer: 'babel',
+              webFrameworkServer: 'express',
               client: 'ng1'
             })
             .withOptions({ 'skip-install': true })
@@ -746,6 +756,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'typescript',
+              webFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1'
             })
@@ -805,6 +816,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'typescript',
+              webFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1'
             })
@@ -877,6 +889,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'typescript',
+              webFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1'
             })
@@ -943,6 +956,7 @@ describe('ng-fullstack:app', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'typescript',
+              webFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1'
             })
@@ -1007,6 +1021,7 @@ describe('ng-fullstack:app', () => {
               server: "node",
               stack: "server",
               transpilerServer: 'typescript',
+              webFrameworkServer: 'express',
               client: 'ng1'
             })
             .on('end', done);
@@ -1436,6 +1451,7 @@ describe('ng-fullstack:app', () => {
                 githubUsername: "b",
                 server: "node",
                 transpilerServer: 'node',
+                webFrameworkServer: 'express',
                 stack: 'server',
                 client: 'ng1'
               })
