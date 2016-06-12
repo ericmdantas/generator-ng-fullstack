@@ -1439,9 +1439,11 @@ describe('ng-fullstack:app', () => {
 
           'tests/server/todo/daos/todo-dao_test.js',
           'tests/server/_helpers/db.js',
-          'tests/server/_helpers/db.json'];
+          'tests/server/_helpers/db.json'
+        ];
 
-          before((done) => {
+      describe('express', () => {
+        before((done) => {
             helpers
               .run(path.join(__dirname, '../../app'))
               .inDir(path.join(os.tmpdir(), './temp-test'))
@@ -1458,14 +1460,43 @@ describe('ng-fullstack:app', () => {
               .on('end', done);
         });
 
-      it('should only copy server side files', () => {
+        it('should only copy server side files', () => {
           assert.file(_serverFiles);
           assert.file(_taskFilesServer);
           assert.noFile('client/dev/index.html');
           assert.noFile('tests/client');
           assert.noFile('.alivrc');
           assert.noFile('server/commons/static/index.js');
-      });
+        });
+      })
+
+      describe('koa', () => {
+        before((done) => {
+            helpers
+              .run(path.join(__dirname, '../../app'))
+              .inDir(path.join(os.tmpdir(), './temp-test'))
+              .withOptions({ 'skip-install': true })
+              .withPrompts({
+                appName: "a",
+                githubUsername: "b",
+                server: "node",
+                transpilerServer: 'node',
+                webFrameworkServer: 'koa',
+                stack: 'server',
+                client: 'ng1'
+              })
+              .on('end', done);
+        });
+
+        it('should only copy server side files', () => {
+          assert.file(_serverFiles);
+          assert.file(_taskFilesServer);
+          assert.noFile('client/dev/index.html');
+          assert.noFile('tests/client');
+          assert.noFile('.alivrc');
+          assert.noFile('server/commons/static/index.js');
+        });
+      })
     });
 
     describe('client', () => {
