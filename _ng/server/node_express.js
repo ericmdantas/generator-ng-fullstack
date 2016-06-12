@@ -13,7 +13,7 @@ const basePath = (generator) => {
   }
 }
 
-class NodeStandard {
+class NodeExpressStandard {
   constructor(generator) {
     this.wrapper = generator;
   }
@@ -88,7 +88,7 @@ class NodeStandard {
   }
 }
 
-class NodeBabel {
+class NodeExpressBabel {
   constructor(generator) {
     this.wrapper = generator;
   }
@@ -163,7 +163,7 @@ class NodeBabel {
   }
 }
 
-class NodeTypescript {
+class NodeExpressTypescript {
   constructor(generator) {
     this.wrapper = generator;
   }
@@ -240,6 +240,6 @@ class NodeTypescript {
   }
 }
 
-exports.NodeBabel = NodeBabel;
-exports.NodeTypescript = NodeTypescript;
-exports.NodeStandard = NodeStandard;
+exports.NodeExpressBabel = NodeExpressBabel;
+exports.NodeExpressTypescript = NodeExpressTypescript;
+exports.NodeExpressStandard = NodeExpressStandard;

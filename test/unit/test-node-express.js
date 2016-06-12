@@ -1,27 +1,27 @@
 import {expect} from 'chai';
 import sinon from 'sinon';
 import knownPaths from '../../_ng/utils/known_paths';
-import {NodeStandard, NodeBabel, NodeTypescript} from '../../_ng/server/node';
+import {NodeExpressStandard, NodeExpressBabel, NodeExpressTypescript} from '../../_ng/server/node_express';
 import {NodeFactory} from '../../_ng/server/node_factory';
 
 describe('node', () => {
   describe('factory', () => {
     it('should have the right values for the tokens()', () => {
-      expect(NodeFactory.tokens().NODE).to.equal('node');
-      expect(NodeFactory.tokens().NODE_BABEL).to.equal('babel');
-      expect(NodeFactory.tokens().NODE_TYPESCRIPT).to.equal('typescript');
+      expect(NodeFactory.tokensCompiler().NODE).to.equal('node');
+      expect(NodeFactory.tokensCompiler().NODE_BABEL).to.equal('babel');
+      expect(NodeFactory.tokensCompiler().NODE_TYPESCRIPT).to.equal('typescript');
     });
 
-    it('should have an instance of NodeStandard', () => {
-      expect(NodeFactory.build({transpilerServer: 'node'}) instanceof NodeStandard).to.be.true;
+    it('should have an instance of NodeExpressStandard', () => {
+      expect(NodeFactory.build({transpilerServer: 'node'}) instanceof NodeExpressStandard).to.be.true;
     });
 
-    it('should have an instance of NodeBabel', () => {
-      expect(NodeFactory.build({transpilerServer: 'babel'}) instanceof NodeBabel).to.be.true;
+    it('should have an instance of NodeExpressBabel', () => {
+      expect(NodeFactory.build({transpilerServer: 'babel'}) instanceof NodeExpressBabel).to.be.true;
     });
 
-    it('should have an instance of NodeTypescript', () => {
-      expect(NodeFactory.build({transpilerServer: 'typescript'}) instanceof NodeTypescript).to.be.true;
+    it('should have an instance of NodeExpressTypescript', () => {
+      expect(NodeFactory.build({transpilerServer: 'typescript'}) instanceof NodeExpressTypescript).to.be.true;
     });
   });
 
@@ -30,7 +30,7 @@ describe('node', () => {
       it('should have the wrapper as the object passed by param', () => {
         let _newGenerator = {a: true};
 
-        let _n = new NodeStandard(_newGenerator);
+        let _n = new NodeExpressStandard(_newGenerator);
 
         expect(_n.wrapper).to.equal(_newGenerator);
       })
@@ -45,7 +45,7 @@ describe('node', () => {
           directory: sinon.spy()
         }
 
-        let _n = new NodeStandard(_newGenerator);
+        let _n = new NodeExpressStandard(_newGenerator);
 
         _n.copyFiles();
 
@@ -73,7 +73,7 @@ describe('node', () => {
           template: sinon.spy()
         }
 
-        let _n = new NodeStandard(_newGenerator);
+        let _n = new NodeExpressStandard(_newGenerator);
 
         _n.copyForMainGenerator();
 
@@ -99,7 +99,7 @@ describe('node', () => {
           template: sinon.spy()
         }
 
-        let _n = new NodeStandard(_newGenerator);
+        let _n = new NodeExpressStandard(_newGenerator);
 
         _n.copyForMainGenerator();
 
@@ -123,7 +123,7 @@ describe('node', () => {
       it('should have the wrapper as the object passed by param', () => {
         let _newGenerator = {a: true};
 
-        let _n = new NodeBabel(_newGenerator);
+        let _n = new NodeExpressBabel(_newGenerator);
 
         expect(_n.wrapper).to.equal(_newGenerator);
       })
@@ -137,7 +137,7 @@ describe('node', () => {
           template: sinon.spy()
         }
 
-        let _n = new NodeBabel(_newGenerator);
+        let _n = new NodeExpressBabel(_newGenerator);
 
         _n.copyFiles();
 
@@ -165,7 +165,7 @@ describe('node', () => {
           template: sinon.spy()
         }
 
-        let _n = new NodeBabel(_newGenerator);
+        let _n = new NodeExpressBabel(_newGenerator);
 
         _n.copyForMainGenerator();
 
@@ -191,7 +191,7 @@ describe('node', () => {
           template: sinon.spy()
         }
 
-        let _n = new NodeBabel(_newGenerator);
+        let _n = new NodeExpressBabel(_newGenerator);
 
         _n.copyForMainGenerator();
 
@@ -215,7 +215,7 @@ describe('node', () => {
       it('should have the wrapper as the object passed by param', () => {
         let _newGenerator = {a: true};
 
-        let _n = new NodeTypescript(_newGenerator);
+        let _n = new NodeExpressTypescript(_newGenerator);
 
         expect(_n.wrapper).to.equal(_newGenerator);
       })
@@ -229,7 +229,7 @@ describe('node', () => {
           template: sinon.spy()
         }
 
-        let _n = new NodeTypescript(_newGenerator);
+        let _n = new NodeExpressTypescript(_newGenerator);
 
         _n.copyFiles();
 
@@ -257,7 +257,7 @@ describe('node', () => {
           template: sinon.spy()
         }
 
-        let _n = new NodeTypescript(_newGenerator);
+        let _n = new NodeExpressTypescript(_newGenerator);
 
         _n.copyForMainGenerator();
 
@@ -290,7 +290,7 @@ describe('node', () => {
           template: sinon.spy()
         }
 
-        let _n = new NodeTypescript(_newGenerator);
+        let _n = new NodeExpressTypescript(_newGenerator);
 
         _n.copyForMainGenerator();
 
