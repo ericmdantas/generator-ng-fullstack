@@ -7,12 +7,11 @@ todoSchema.static('getAll', ():Promise<any> => {
     return new Promise((resolve:Function, reject:Function) => {
         let _query = {};
 
-        Todo
-          .find(_query)
-          .exec((err, todos) => {
+        Todo.find(_query)
+            .exec((err, todos) => {
               err ? reject(err)
                   : resolve(todos);
-          });
+            });
     });
 });
 
@@ -37,12 +36,11 @@ todoSchema.static('deleteTodo', (id:string):Promise<any> => {
             return reject(new TypeError('Id is not a valid string.'));
         }
 
-        Todo
-          .findByIdAndRemove(id)
-          .exec((err, deleted) => {
+        Todo.findByIdAndRemove(id)
+            .exec((err, deleted) => {
               err ? reject(err)
                   : resolve();
-          });
+            });
     });
 });
 

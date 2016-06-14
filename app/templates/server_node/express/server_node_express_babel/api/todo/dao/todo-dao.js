@@ -7,19 +7,19 @@ todoSchema.statics.getAll = () => {
   return new Promise((resolve, reject) => {
     var _query = {};
 
-    Todo
-    .find(_query)
-    .exec((err, todos) => {
-      err ? reject(err)
-      : resolve(todos);
-    });
+    Todo.find(_query)
+        .exec((err, todos) => {
+          err ? reject(err)
+              : resolve(todos);
+        });
   });
 }
 
 todoSchema.statics.createTodo = (todo) => {
   return new Promise((resolve, reject) => {
-    if (!_.isObject(todo))
-    return reject(new TypeError('Todo is not a valid object.'));
+    if (!_.isObject(todo)) {
+      return reject(new TypeError('Todo is not a valid object.'));
+    }
 
     var _todo = new Todo(todo);
 
@@ -32,15 +32,15 @@ todoSchema.statics.createTodo = (todo) => {
 
 todoSchema.statics.deleteTodo = (id) => {
   return new Promise((resolve, reject) => {
-    if (!_.isString(id))
-    return reject(new TypeError('Id is not a valid string.'));
+    if (!_.isString(id)) {
+      return reject(new TypeError('Id is not a valid string.'));
+    }
 
-    Todo
-    .findByIdAndRemove(id)
-    .exec((err, deleted) => {
-      err ? reject(err)
-      : resolve();
-    });
+    Todo.findByIdAndRemove(id)
+        .exec((err, deleted) => {
+          err ? reject(err)
+              : resolve();
+        });
   });
 }
 
