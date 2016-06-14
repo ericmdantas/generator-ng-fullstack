@@ -126,14 +126,14 @@ exports.MainGenerator = class MainGenerator {
           {
             type: "list",
             name: "stack",
-            message: "What stack do you want? Full, client or server?",
+            message: "What stack do you want?",
             choices: ["fullstack", "client", "server"],
             default: 0
           },
           {
             type: "list",
             name: "repoHost",
-            message: "Which Git repository hosting service are you using? GitHub, BitBucket, GitLab?",
+            message: "Which Git repository hosting service are you using?",
             choices: ["github", "bitbucket", "gitlab"],
             default: 0
           },
