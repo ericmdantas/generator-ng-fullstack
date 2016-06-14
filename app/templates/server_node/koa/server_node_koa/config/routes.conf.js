@@ -1,10 +1,8 @@
 "use strict";
 
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const contentLength = require('express-content-length-validator');
-const helmet = require('helmet');
-const express = require('express');
+const koa = require('koa');
+const serve = require('koa-static');
+const bodyParser = require('koa-bodyparser');
 
 module.exports = class RouteConfig {
     static init(application) {
@@ -12,11 +10,8 @@ module.exports = class RouteConfig {
         let _nodeModules = '/node_modules/';
         let _clientFiles = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/dev/';
 
-        application.use(express.static(_root + _nodeModules));
-        application.use(express.static(_root + _clientFiles));
-        application.use(bodyParser.json());
-        application.use(morgan('dev'));
-        application.use(contentLength.validateMax({max: 999}));
-        application.use(helmet());
+        application.use(serve(_root + _nodeModules));
+        application.use(serve(_root + _clientFiles));
+        application.use(bodyParser);
     }
 }

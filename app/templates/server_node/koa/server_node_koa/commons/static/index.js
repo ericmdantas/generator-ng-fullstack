@@ -1,14 +1,10 @@
 "use strict";
 
-const fs = require('fs');
+const send = require('koa-send');
 
 module.exports = class StaticDispatcher {
-    static sendIndex(req, res) {
+    static sendIndex(ctx) {
       var _root = process.cwd();
-
-      res.type('.html');
-
-      fs.createReadStream(_root + '/client/dev/index.html')
-        .pipe(res);
+      send(ctx, _root + '/client/dev/index.html');
     }
 }

@@ -9,13 +9,12 @@ todoSchema.statics.getAll = () => {
     return new Promise((resolve, reject) => {
         let _query = {};
 
-        Todo
-          .find(_query)
-          .exec((err, todos) => {
+        Todo.find(_query)
+            .exec((err, todos) => {
               err ? reject(err)
                   : resolve(todos);
-          });
-      });
+            });
+    });
 }
 
 todoSchema.statics.createTodo = (todo) => {
@@ -37,12 +36,11 @@ todoSchema.statics.deleteTodo = (id) => {
         if (!_.isString(id))
             return reject(new TypeError('Id is not a valid string.'));
 
-        Todo
-          .findByIdAndRemove(id)
-          .exec((err, deleted) => {
+        Todo.findByIdAndRemove(id)
+            .exec((err, deleted) => {
               err ? reject(err)
                   : resolve();
-          });
+            });
     });
 }
 

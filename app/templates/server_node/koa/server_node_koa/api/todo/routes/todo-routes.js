@@ -4,13 +4,13 @@ const TodoController = require('../controller/todo-controller');
 
 module.exports = class TodoRoutes {
     static init(router) {
+      let _todoController = new TodoController();
+
       router
-        .route('/api/todos')
-        .get(TodoController.getAll)
+        .get('/api/todos', _todoController.getAll)
         .post(TodoController.createTodo);
 
       router
-        .route('/api/todos/:id')
-        .delete(TodoController.deleteTodo);
+        .delete('/api/todos/:id', _todoController.deleteTodo);
     }
 }
