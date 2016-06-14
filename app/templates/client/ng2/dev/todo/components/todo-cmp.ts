@@ -1,6 +1,5 @@
 import {
   Component,
-  Inject,
   OnInit
 } from '@angular/core';
 
@@ -31,7 +30,7 @@ export class TodoCmp implements OnInit {
   todos: Todo[] = [];
   todoForm: ControlGroup;
 
-  constructor(@Inject(FormBuilder) fb:FormBuilder, @Inject(TodoService) private _todoService: TodoService) {
+  constructor(fb:FormBuilder, private _todoService: TodoService) {
     this.todoForm = fb.group({
       "todoMessage": ["", Validators.required]
     });

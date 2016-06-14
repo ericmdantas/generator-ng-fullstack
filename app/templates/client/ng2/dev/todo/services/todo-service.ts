@@ -1,5 +1,6 @@
 import {
-  Inject
+  Inject,
+  Injectable
 } from '@angular/core';
 
 import {
@@ -13,6 +14,7 @@ import {
 
 import 'rxjs/add/operator/map';
 
+@Injectable()
 export class TodoService {
   static ENDPOINT: string = '/api/todos/:id';
 
