@@ -48,8 +48,8 @@ describe('angular', () => {
 
         _ng1.copyClient();
 
-        let _firstCall = ['tasks/client_ng1', 'tasks/client'];
-        let _secondCall = ['tasks/client_ng1/watch.js', 'tasks/client/watch.js', {secure: false}];
+        let _firstCall = ['tasks/client/ng1', 'tasks/client'];
+        let _secondCall = ['tasks/client/ng1/watch.js', 'tasks/client/watch.js', {secure: false}];
 
         expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
@@ -71,8 +71,8 @@ describe('angular', () => {
 
         _ng1.copyClient();
 
-        let _firstCall = ['tasks/client_ng1', 'tasks/client'];
-        let _secondCall = ['tasks/client_ng1/watch.js', 'tasks/client/watch.js', {secure: true}];
+        let _firstCall = ['tasks/client/ng1', 'tasks/client'];
+        let _secondCall = ['tasks/client/ng1/watch.js', 'tasks/client/watch.js', {secure: true}];
 
         expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
@@ -241,14 +241,14 @@ describe('ng2', () => {
 
       _ng2.copyClient();
 
-      let _firstCall = ['tasks/client_ng2', 'tasks/client'];
+      let _firstCall = ['tasks/client/ng2', 'tasks/client'];
       let _secondCall = ['tests/client_ng2', 'tests/client'];
-      let _thirdCall = ['client_ng2', 'client'];
+      let _thirdCall = ['client/ng2', 'client'];
       let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
       let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
       let _sixthCall = ['_typings_ng2.json', 'typings.json'];
       let _seventhCall = ['_tsconfig.json', 'tsconfig.json'];
-      let _eightCall = ['tasks/client_ng2/watch.js', 'tasks/client/watch.js', {secure: false}];
+      let _eightCall = ['tasks/client/ng2/watch.js', 'tasks/client/watch.js', {secure: false}];
       let _ninethCall = ['_ng2_systemjs_config_serving_node_modules.js', 'client/dev/config.js'];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
@@ -280,14 +280,14 @@ describe('ng2', () => {
 
       _ng2.copyClient();
 
-      let _firstCall = ['tasks/client_ng2', 'tasks/client'];
+      let _firstCall = ['tasks/client/ng2', 'tasks/client'];
       let _secondCall = ['tests/client_ng2', 'tests/client'];
-      let _thirdCall = ['client_ng2', 'client'];
+      let _thirdCall = ['client/ng2', 'client'];
       let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
       let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
       let _sixthCall = ['_typings_ng2.json', 'typings.json'];
       let _seventhCall = ['_tsconfig.json', 'tsconfig.json'];
-      let _eightCall = ['tasks/client_ng2/watch.js', 'tasks/client/watch.js', {secure: true}];
+      let _eightCall = ['tasks/client/ng2/watch.js', 'tasks/client/watch.js', {secure: true}];
       let _ninethCall = ['_ng2_systemjs_config_serving_node_modules.js', 'client/dev/config.js'];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
@@ -320,14 +320,14 @@ describe('ng2', () => {
 
       _ng2.copyClient();
 
-      let _firstCall = ['tasks/client_ng2', 'tasks/client'];
+      let _firstCall = ['tasks/client/ng2', 'tasks/client'];
       let _secondCall = ['tests/client_ng2', 'tests/client'];
-      let _thirdCall = ['client_ng2', 'client'];
+      let _thirdCall = ['client/ng2', 'client'];
       let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
       let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
       let _sixthCall = ['_typings_ng2.json', 'typings.json'];
       let _seventhCall = ['_tsconfig.json', 'tsconfig.json'];
-      let _eightCall = ['tasks/client_ng2/watch.js', 'tasks/client/watch.js', {secure: true}];
+      let _eightCall = ['tasks/client/ng2/watch.js', 'tasks/client/watch.js', {secure: true}];
       let _ninethCall = ['_ng2_systemjs_config_serving_from_root.js', 'client/dev/config.js'];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
@@ -361,14 +361,14 @@ describe('ng2', () => {
 
       _ng2.copyClient();
 
-      let _firstCall = ['tasks/client_ng2', 'tasks/client'];
+      let _firstCall = ['tasks/client/ng2', 'tasks/client'];
       let _secondCall = ['tests/client_ng2', 'tests/client'];
-      let _thirdCall = ['client_ng2', 'client'];
+      let _thirdCall = ['client/ng2', 'client'];
       let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
       let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
       let _sixthCall = ['_typings_ng2.json', 'typings.json'];
       let _seventhCall = ['_tsconfig.json', 'tsconfig.json'];
-      let _eightCall = ['tasks/client_ng2/watch.js', 'tasks/client/watch.js', {secure: true}];
+      let _eightCall = ['tasks/client/ng2/watch.js', 'tasks/client/watch.js', {secure: true}];
       let _ninethCall = ['_ng2_systemjs_config_serving_node_modules.js', 'client/dev/config.js'];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;

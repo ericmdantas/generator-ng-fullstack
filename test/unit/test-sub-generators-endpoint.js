@@ -10,9 +10,16 @@ describe('EndpointSubGenerator', () => {
       let _gen = {
         a: true,
         transpilerServer: 'node',
+        webFrameworkServer: 'express',
         server: 'node',
         config: {
-          get(){return 'node'}
+          get(token) {
+            switch (token) {
+              case "server": return "node";
+              case "transpilerServer": return "node";
+              case "webFrameworkServer": return "express";
+            }
+          }
         }
       };
       let _esg = new EndpointSubGenerator(_gen);
@@ -26,8 +33,15 @@ describe('EndpointSubGenerator', () => {
       let _gen = {
         argument: () => {},
         transpilerServer: 'node',
+        webFrameworkServer: 'express',
         config: {
-          get(){return 'node'}
+          get(token) {
+            switch (token) {
+              case "server": return "node";
+              case "transpilerServer": return "node";
+              case "webFrameworkServer": return "express";
+            }
+          }
         }
       };
 
@@ -47,9 +61,16 @@ describe('EndpointSubGenerator', () => {
         name: 'a',
         options: {},
         transpilerServer: 'node',
+        webFrameworkServer: 'express',
         template: () => {},
         config: {
-          get() {return 'node'}
+          get(token) {
+            switch (token) {
+              case "server": return "node";
+              case "transpilerServer": return "node";
+              case "webFrameworkServer": return "express";
+            }
+          }
         }
       };
 
@@ -63,9 +84,16 @@ describe('EndpointSubGenerator', () => {
         name: 'a',
         options: {feature: 'c'},
         transpilerServer: 'node',
+        webFrameworkServer: 'express',
         template: () => {},
         config: {
-          get() {return 'node'}
+          get(token) {
+            switch (token) {
+              case "server": return "node";
+              case "transpilerServer": return "node";
+              case "webFrameworkServer": return "express";
+            }
+          }
         }
       };
 
