@@ -91,7 +91,7 @@
   "author": "<%= username %>",
   "license": "MIT",
   "bugs": {
-    "url": "https://<%= repoHostUrl %>/<%= userNamespace %>/<%= app %>/issues"
+    "url": "https://<%= repoHostUrl %>/<%= userNameSpace %>/<%= app %>/issues"
   },
   "homepage": "https://<%= repoHostUrl %>/<%= userNameSpace %>/<%= app %>",
   "engines": {

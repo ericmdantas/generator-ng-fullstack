@@ -36,7 +36,7 @@ exports.MainGenerator = class MainGenerator {
 
       this.wrapper.template('_README.md', 'README.md', {
         app: _app.app,
-        username: _user.username
+        userNameSpace: _user.userNameSpace
       });
 
       this.wrapper.template('_package.json', 'package.json', {

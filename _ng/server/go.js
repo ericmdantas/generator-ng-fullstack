@@ -29,6 +29,7 @@ class GoServer {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       userNameSpace: this.wrapper.userNameSpace,
+      repoHostUrl: this.wrapper.repoHostUrl,
       appName: this.wrapper.appName,
       feature: _featureWithoutTrailingSlash
     });
@@ -37,6 +38,7 @@ class GoServer {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       userNameSpace: this.wrapper.userNameSpace,
+      repoHostUrl: this.wrapper.repoHostUrl,
       appName: this.wrapper.appName,
       feature: _featureWithoutTrailingSlash
     });
@@ -45,6 +47,7 @@ class GoServer {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       userNameSpace: this.wrapper.userNameSpace,
+      repoHostUrl: this.wrapper.repoHostUrl,
       appName: this.wrapper.appName,
       feature: _featureWithoutTrailingSlash
     });
@@ -53,6 +56,7 @@ class GoServer {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       userNameSpace: this.wrapper.userNameSpace,
+      repoHostUrl: this.wrapper.repoHostUrl,
       appName: this.wrapper.appName,
       feature: _featureWithoutTrailingSlash
     });
@@ -60,33 +64,37 @@ class GoServer {
     this.wrapper.template('go/endpoint.dao_test.go', `${gen.daoTest}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      feature: _featureWithoutTrailingSlash,
       userNameSpace: this.wrapper.userNameSpace,
-      appName: this.wrapper.appName
+      repoHostUrl: this.wrapper.repoHostUrl,
+      appName: this.wrapper.appName,
+      feature: _featureWithoutTrailingSlash
     });
 
     this.wrapper.template('go/endpoint.model_test.go', `${gen.modelTest}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      feature: _featureWithoutTrailingSlash,
       userNameSpace: this.wrapper.userNameSpace,
-      appName: this.wrapper.appName
+      repoHostUrl: this.wrapper.repoHostUrl,
+      appName: this.wrapper.appName,
+      feature: _featureWithoutTrailingSlash
     });
 
     this.wrapper.template('go/endpoint.controller_test.go', `${gen.controllerTest}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      feature: _featureWithoutTrailingSlash,
       userNameSpace: this.wrapper.userNameSpace,
-      appName: this.wrapper.appName
+      repoHostUrl: this.wrapper.repoHostUrl,
+      appName: this.wrapper.appName,
+      feature: _featureWithoutTrailingSlash
     });
 
     this.wrapper.template('go/endpoint.route_test.go', `${gen.routeTest}.go`, {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      feature: _featureWithoutTrailingSlash,
       userNameSpace: this.wrapper.userNameSpace,
-      appName: this.wrapper.appName
+      repoHostUrl: this.wrapper.repoHostUrl,
+      appName: this.wrapper.appName,
+      feature: _featureWithoutTrailingSlash
     });
   }
 
@@ -97,6 +105,7 @@ class GoServer {
       this.wrapper.template('server_go/main_http2.go', 'server/main.go', {
         appName: this.wrapper.appName,
         userNameSpace: this.wrapper.userNameSpace,
+        repoHostUrl: this.wrapper.repoHostUrl,
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
@@ -104,6 +113,7 @@ class GoServer {
       this.wrapper.template('server_go/main.go', 'server/main.go', {
         appName: this.wrapper.appName,
         userNameSpace: this.wrapper.userNameSpace,
+        repoHostUrl: this.wrapper.repoHostUrl,
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
@@ -136,6 +146,7 @@ class GoServer {
     yoUtils.directory(this.wrapper, _paths, {
       appName: this.wrapper.appName,
       userNameSpace: this.wrapper.userNameSpace,
+      repoHostUrl: this.wrapper.repoHostUrl,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
   }

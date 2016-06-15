@@ -125,7 +125,11 @@ describe('ng-fullstack:app', () => {
               server: "node",
               transpilerServer: 'node',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -184,7 +188,11 @@ describe('ng-fullstack:app', () => {
               server: "node",
               transpilerServer: 'node',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -255,7 +263,11 @@ describe('ng-fullstack:app', () => {
               transpilerServer: 'node',
               stack: 'fullstack',
               client: 'ng1',
-              secure: true
+              secure: true,
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -319,7 +331,11 @@ describe('ng-fullstack:app', () => {
               transpilerServer: 'node',
               stack: 'fullstack',
               client: 'ng1',
-              secure: true
+              secure: true,
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -381,7 +397,11 @@ describe('ng-fullstack:app', () => {
               transpilerServer: 'node',
               stack: "server",
               client: 'ng1',
-              secure: true
+              secure: true,
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -438,7 +458,11 @@ describe('ng-fullstack:app', () => {
               server: "node",
               transpilerServer: 'babel',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -495,7 +519,11 @@ describe('ng-fullstack:app', () => {
               server: "node",
               transpilerServer: 'babel',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -565,7 +593,11 @@ describe('ng-fullstack:app', () => {
               server: "node",
               transpilerServer: 'babel',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -628,7 +660,11 @@ describe('ng-fullstack:app', () => {
               server: "node",
               transpilerServer: 'babel',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -689,7 +725,11 @@ describe('ng-fullstack:app', () => {
               server: "node",
               stack: "server",
               transpilerServer: 'babel',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -747,7 +787,11 @@ describe('ng-fullstack:app', () => {
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -806,7 +850,11 @@ describe('ng-fullstack:app', () => {
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -878,7 +926,11 @@ describe('ng-fullstack:app', () => {
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -944,7 +996,11 @@ describe('ng-fullstack:app', () => {
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .on('end', done);
         });
@@ -1007,7 +1063,11 @@ describe('ng-fullstack:app', () => {
               server: "node",
               stack: "server",
               transpilerServer: 'typescript',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .on('end', done);
         });
@@ -1065,7 +1125,11 @@ describe('ng-fullstack:app', () => {
               username: "b",
               server: "go",
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -1124,7 +1188,11 @@ describe('ng-fullstack:app', () => {
               username: "b",
               server: "go",
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -1195,7 +1263,11 @@ describe('ng-fullstack:app', () => {
               username: "b",
               server: "go",
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -1251,7 +1323,11 @@ describe('ng-fullstack:app', () => {
               username: "b",
               server: "go",
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -1308,7 +1384,11 @@ describe('ng-fullstack:app', () => {
               username: "b",
               server: "go",
               stack: 'server',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -1374,7 +1454,11 @@ describe('ng-fullstack:app', () => {
               username: "b",
               server: "go",
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -1437,7 +1521,11 @@ describe('ng-fullstack:app', () => {
                 server: "node",
                 transpilerServer: 'node',
                 stack: 'server',
-                client: 'ng1'
+                client: 'ng1',
+                userEmail: "c",
+                repoHost: "github",
+                repoHostUrl: "github.com",
+                userNameSpace: "d"
               })
               .on('end', done);
         });
@@ -1533,7 +1621,11 @@ describe('ng-fullstack:app', () => {
               username: "b",
               server: "go",
               stack: 'client',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .on('end', done)
             .withOptions({ 'skip-install': true })
@@ -1613,7 +1705,11 @@ describe('ng-fullstack:app', () => {
               username: "b",
               server: "go",
               stack: 'client',
-              client: 'ng2'
+              client: 'ng2',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done)
