@@ -121,11 +121,15 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'node',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -180,11 +184,15 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               secure: false,
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'node',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -250,12 +258,16 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'node',
               stack: 'fullstack',
               client: 'ng1',
-              secure: true
+              secure: true,
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -314,12 +326,16 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               differentStaticServer: true,
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'node',
               stack: 'fullstack',
               client: 'ng1',
-              secure: true
+              secure: true,
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -376,12 +392,16 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               differentStaticServer: true,
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'node',
               stack: "server",
               client: 'ng1',
-              secure: true
+              secure: true,
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -434,11 +454,15 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'babel',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -491,11 +515,15 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               secure: false,
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'babel',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -561,11 +589,15 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               secure: true,
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'babel',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -624,11 +656,15 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               secure: true,
               differentStaticServer: true,
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'babel',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -685,11 +721,15 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               secure: true,
               differentStaticServer: true,
-              githubUsername: "b",
+              username: "b",
               server: "node",
               stack: "server",
               transpilerServer: 'babel',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -743,11 +783,15 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -802,11 +846,15 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               secure: false,
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -874,11 +922,15 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               secure: true,
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -940,11 +992,15 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               differentStaticServer: true,
               secure: true,
-              githubUsername: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .on('end', done);
         });
@@ -1003,11 +1059,15 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               differentStaticServer: true,
               secure: true,
-              githubUsername: "b",
+              username: "b",
               server: "node",
               stack: "server",
               transpilerServer: 'typescript',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .on('end', done);
         });
@@ -1062,10 +1122,14 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              githubUsername: "b",
+              username: "b",
               server: "go",
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -1121,10 +1185,14 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               secure: false,
-              githubUsername: "b",
+              username: "b",
               server: "go",
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -1192,10 +1260,14 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              githubUsername: "b",
+              username: "b",
               server: "go",
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -1248,10 +1320,14 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               secure: false,
               differentStaticServer: true,
-              githubUsername: "b",
+              username: "b",
               server: "go",
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -1305,10 +1381,14 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               secure: false,
               differentStaticServer: true,
-              githubUsername: "b",
+              username: "b",
               server: "go",
               stack: 'server',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -1371,10 +1451,14 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               secure: true,
               differentStaticServer: true,
-              githubUsername: "b",
+              username: "b",
               server: "go",
               stack: 'fullstack',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done);
@@ -1433,11 +1517,15 @@ describe('ng-fullstack:app', () => {
               .withOptions({ 'skip-install': true })
               .withPrompts({
                 appName: "a",
-                githubUsername: "b",
+                username: "b",
                 server: "node",
                 transpilerServer: 'node',
                 stack: 'server',
-                client: 'ng1'
+                client: 'ng1',
+                userEmail: "c",
+                repoHost: "github",
+                repoHostUrl: "github.com",
+                userNameSpace: "d"
               })
               .on('end', done);
         });
@@ -1530,10 +1618,14 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              githubUsername: "b",
+              username: "b",
               server: "go",
               stack: 'client',
-              client: 'ng1'
+              client: 'ng1',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .on('end', done)
             .withOptions({ 'skip-install': true })
@@ -1610,10 +1702,14 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              githubUsername: "b",
+              username: "b",
               server: "go",
               stack: 'client',
-              client: 'ng2'
+              client: 'ng2',
+              userEmail: "c",
+              repoHost: "github",
+              repoHostUrl: "github.com",
+              userNameSpace: "d"
             })
             .withOptions({ 'skip-install': true })
             .on('end', done)
