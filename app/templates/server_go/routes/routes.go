@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"<%= repohosturl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/routes"
+	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/routes"
 	<% if (!differentStaticServer) {%>
-	"<%= repohosturl %>/<%= userNameSpace %>/<%= appName %>/server/common/static"
+	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/common/static"
 	<% } %>
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"

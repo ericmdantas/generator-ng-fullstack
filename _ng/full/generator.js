@@ -19,11 +19,11 @@ exports.MainGenerator = class MainGenerator {
   writing() {
       let _app = {app: this.wrapper.appName};
       let _user = {
-        username: this.wrapper.userName,
-        useremail: this.wrapper.userEmail,
-        usernamespace: this.wrapper.userNameSpace
+        username: this.wrapper.username,
+        userEmail: this.wrapper.userEmail,
+        userNameSpace: this.wrapper.userNameSpace
       };
-      let _repoHostUrl = {repohosturl: this.wrapper.repoHostUrl};
+      let _repoHostUrl = {repoHostUrl: this.wrapper.repoHostUrl};
       let _server = this.wrapper.server;
       let _transpilerServer = this.wrapper.transpilerServer;
       let _client = this.wrapper.client;
@@ -42,8 +42,8 @@ exports.MainGenerator = class MainGenerator {
       this.wrapper.template('_package.json', 'package.json', {
         app: _app.app,
         username: _user.username,
-        repohosturl: _repoHostUrl.repohosturl,
-        usernamespace: _user.usernamespace,
+        repoHostUrl: _repoHostUrl.repoHostUrl,
+        userNameSpace: _user.userNameSpace,
         usesTypescript: _usesTypescript,
         client: _client,
         clientOnly: _clientOnly
@@ -82,9 +82,9 @@ exports.MainGenerator = class MainGenerator {
           this.wrapper.template('_bower.json', 'bower.json', {
             app: _app.app,
             username: _user.username,
-            useremail: _user.useremail,
-            repohosturl: _repoHostUrl.repohosturl,
-            usernamespace: _user.usernamespace
+            userEmail: _user.userEmail,
+            repoHostUrl: _repoHostUrl.repoHostUrl,
+            userNameSpace: _user.userNameSpace
           });
         }
 
@@ -114,13 +114,13 @@ exports.MainGenerator = class MainGenerator {
             default: 'ng-fullstack'
           },
           {
-            name: 'userName',
+            name: 'username',
             message: 'What is your username?',
             default: 'user.name'
           },
           {
             name: 'userEmail',
-            message: 'What is your email-id?',
+            message: 'What is your email?',
             default: 'user.email@example.com'
           },
           {
@@ -157,23 +157,23 @@ exports.MainGenerator = class MainGenerator {
 
       this.wrapper.prompt(prompts, (props) => {
         this.wrapper.appName = props.appName;
-        this.wrapper.userName = props.userName;
+        this.wrapper.username = props.username;
         this.wrapper.userEmail = props.userEmail;
         this.wrapper.stack = props.stack;
 
         if (props.repoHost === "github") {
           this.wrapper.repoHostUrl = "github.com";
-          this.wrapper.userNameSpace = props.userName;
+          this.wrapper.userNameSpace = props.username;
         } else if (props.repoHost === "bitbucket") {
           this.wrapper.repoHostUrl = "bitbucket.org";
-          this.wrapper.userNameSpace = props.userName;
+          this.wrapper.userNameSpace = props.username;
         } else {
           this.wrapper.repoHostUrl = props.repoHostUrl;
           this.wrapper.userNameSpace = props.userNameSpace;
         }
 
         this.wrapper.config.set('appName', this.wrapper.appName);
-        this.wrapper.config.set('userName', this.wrapper.userName);
+        this.wrapper.config.set('username', this.wrapper.username);
         this.wrapper.config.set('userEmail', this.wrapper.userEmail);
         this.wrapper.config.set('stack', this.wrapper.stack);
         this.wrapper.config.set('repoHostUrl', this.wrapper.repoHostUrl);

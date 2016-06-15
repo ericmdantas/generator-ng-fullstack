@@ -1,7 +1,7 @@
 package tododao
 
 import (
-	todo "<%= repohosturl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/model"
+	todo "<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/model"
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"

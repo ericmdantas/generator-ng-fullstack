@@ -1,7 +1,7 @@
 package todoroutes
 
 import (
-	"<%= repohosturl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/controller"
+	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/controller"
 	"github.com/labstack/echo"
 )
 

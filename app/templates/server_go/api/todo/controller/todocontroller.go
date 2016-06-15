@@ -1,8 +1,8 @@
 package todocontroller
 
 import (
-	"<%= repohosturl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/dao"
-	todo "<%= repohosturl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/model"
+	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/dao"
+	todo "<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/model"
 	"github.com/labstack/echo"
 	"net/http"
 )

@@ -121,7 +121,7 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'node',
               stack: 'fullstack',
@@ -180,7 +180,7 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               secure: false,
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'node',
               stack: 'fullstack',
@@ -250,7 +250,7 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'node',
               stack: 'fullstack',
@@ -314,7 +314,7 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               differentStaticServer: true,
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'node',
               stack: 'fullstack',
@@ -376,7 +376,7 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               differentStaticServer: true,
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'node',
               stack: "server",
@@ -434,7 +434,7 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'babel',
               stack: 'fullstack',
@@ -491,7 +491,7 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               secure: false,
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'babel',
               stack: 'fullstack',
@@ -561,7 +561,7 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               secure: true,
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'babel',
               stack: 'fullstack',
@@ -624,7 +624,7 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               secure: true,
               differentStaticServer: true,
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'babel',
               stack: 'fullstack',
@@ -685,7 +685,7 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               secure: true,
               differentStaticServer: true,
-              userName: "b",
+              username: "b",
               server: "node",
               stack: "server",
               transpilerServer: 'babel',
@@ -743,7 +743,7 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
@@ -802,7 +802,7 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               secure: false,
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
@@ -874,7 +874,7 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               secure: true,
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
@@ -940,7 +940,7 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               differentStaticServer: true,
               secure: true,
-              userName: "b",
+              username: "b",
               server: "node",
               transpilerServer: 'typescript',
               stack: 'fullstack',
@@ -1003,7 +1003,7 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               differentStaticServer: true,
               secure: true,
-              userName: "b",
+              username: "b",
               server: "node",
               stack: "server",
               transpilerServer: 'typescript',
@@ -1062,7 +1062,7 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              userName: "b",
+              username: "b",
               server: "go",
               stack: 'fullstack',
               client: 'ng1'
@@ -1121,7 +1121,7 @@ describe('ng-fullstack:app', () => {
             .withPrompts({
               appName: "a",
               secure: false,
-              userName: "b",
+              username: "b",
               server: "go",
               stack: 'fullstack',
               client: 'ng1'
@@ -1192,7 +1192,7 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              userName: "b",
+              username: "b",
               server: "go",
               stack: 'fullstack',
               client: 'ng1'
@@ -1248,7 +1248,7 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               secure: false,
               differentStaticServer: true,
-              userName: "b",
+              username: "b",
               server: "go",
               stack: 'fullstack',
               client: 'ng1'
@@ -1305,7 +1305,7 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               secure: false,
               differentStaticServer: true,
-              userName: "b",
+              username: "b",
               server: "go",
               stack: 'server',
               client: 'ng1'
@@ -1371,7 +1371,7 @@ describe('ng-fullstack:app', () => {
               appName: "a",
               secure: true,
               differentStaticServer: true,
-              userName: "b",
+              username: "b",
               server: "go",
               stack: 'fullstack',
               client: 'ng1'
@@ -1433,7 +1433,7 @@ describe('ng-fullstack:app', () => {
               .withOptions({ 'skip-install': true })
               .withPrompts({
                 appName: "a",
-                userName: "b",
+                username: "b",
                 server: "node",
                 transpilerServer: 'node',
                 stack: 'server',
@@ -1530,7 +1530,7 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              userName: "b",
+              username: "b",
               server: "go",
               stack: 'client',
               client: 'ng1'
@@ -1610,7 +1610,7 @@ describe('ng-fullstack:app', () => {
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withPrompts({
               appName: "a",
-              userName: "b",
+              username: "b",
               server: "go",
               stack: 'client',
               client: 'ng2'

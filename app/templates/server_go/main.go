@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"<%= repohosturl %>/<%= userNameSpace %>/<%= appName %>/server/routes"
+	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/routes"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/engine/fasthttp"
 )
