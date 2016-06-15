@@ -10,10 +10,9 @@ module.exports = class Routes {
    static init(app) {
      TodoRoutes.init(router);
      <% if (!differentStaticServer) { %>
-     router
-       .get('*', StaticDispatcher.sendIndex);
+     router.get('*', StaticDispatcher.sendIndex);
      <% } %>
 
-     app.use('/', router);
+     application.use(router.routes());
    }
 }

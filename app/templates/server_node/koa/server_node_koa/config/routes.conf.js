@@ -11,7 +11,7 @@ module.exports = class RouteConfig {
     let _clientFiles = (process.env.NODE_ENV === 'production') ? '/client/dist/' : '/client/dev/';
 
     application.use(function *() {
-      yield serve(_root + _nodeModules)
+      yield serve(_root + _nodeModules);
     });
 
     application.use(function *() {
