@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3333;
 
 const os = require('os');
 const https = require('https');
-const koa = require('koa');
+const Koa = require('koa');
 const fs = require('fs');
 const RoutesConfig = require('./config/routes.conf');
 const DBConfig = require('./config/db.conf');
