@@ -1,17 +1,9 @@
-import TodoRoutes from '../api/todo/routes/todo-routes';
-<% if (!differentStaticServer) { %>
-import StaticDispatcher from '../commons/static/index';
-<% } %>
+"use strict";
 
-export default class Routes {
+import TodoRoutes from '../api/todo/routes/todo-routes';
+
+module.exports = class Routes {
    static init(app, router) {
      TodoRoutes.init(router);
-     <% if (!differentStaticServer) { %>
-     router
-       .route('*')
-       .get(StaticDispatcher.sendIndex);
-     <% } %>
-
-     app.use('/', router);
    }
 }

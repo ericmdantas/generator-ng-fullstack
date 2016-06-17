@@ -1,3 +1,5 @@
+"use strict";
+
 import mongoose from 'mongoose';
 import dbConst from '../constants/db.json';
 

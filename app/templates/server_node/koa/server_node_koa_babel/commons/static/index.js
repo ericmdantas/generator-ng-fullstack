@@ -1,12 +1,10 @@
-import fs from 'fs';
+"use strict";
+
+import send from 'koa-send';
 
 export default class StaticDispatcher {
-    static sendIndex(req, res) {
+    static sendIndex() {
       var _root = process.cwd();
-
-      res.type('.html');
-
-      fs.createReadStream(_root + '/client/dev/index.html')
-        .pipe(res);
+      send(this, _root + '/client/dev/index.html');
     }
 }
