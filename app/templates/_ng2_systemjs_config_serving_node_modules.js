@@ -21,6 +21,9 @@ System.config({
       '@angular/http': {
         main: 'index'
       },
+      '@angular/forms': {
+        main: 'index'
+      },
       '@angular/platform-browser-dynamic': {
         main: 'index'
       },
