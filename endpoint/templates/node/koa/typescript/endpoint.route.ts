@@ -1,17 +1,11 @@
-"use strict";
+import * as <%= name %>Controller from '../controller/<%= name %>-controller';
 
-import * as express from 'express';
-import {<%= name %>Controller} from '../controller/<%= name %>-controller';
+export default class <%= name %>Routes {
+  static init(router) {
+    let <%= name %> new <%= name %>Controller();
 
-export class <%= name %>Routes {
-  static init(router:express.Router) {
-    router
-      .route('/api/<%= nameLowerCase %>')
-      .get(<%= name %>Controller.getAll)
-      .post(<%= name %>Controller.createNew);
-
-    router
-      .route('/api/<%= nameLowerCase %>/:id')
-      .delete(<%= name %>Controller.removeById);
+    router.get('/api/<%= nameLowerCase %>', <%= name %>.getAll);
+    router.post('/api/<%= nameLowerCase %>', <%= name %>.createNew);
+    router.del('/api/<%= nameLowerCase %>/:id', <%= name %>.removeById);
   }
 }
