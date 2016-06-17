@@ -18,6 +18,9 @@ System.config({
       '@angular/core': {
         main: 'index'
       },
+      '@angular/forms': {
+        main: 'index'
+      },
       '@angular/http': {
         main: 'index'
       },
