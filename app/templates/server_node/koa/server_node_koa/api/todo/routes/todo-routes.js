@@ -6,8 +6,8 @@ module.exports = class TodoRoutes {
     static init(router) {
       let _todoController = new TodoController();
 
-      router.get('/api/todos', _todoController.getAll)
+      router.get('/api/todos', _todoController.getAll);
       router.post('/api/todos', _todoController.createTodo);
-      router.delete('/api/todos/:id', _todoController.deleteTodo);
+      router.del('/api/todos/:id', _todoController.deleteTodo);
     }
 }
