@@ -12,7 +12,5 @@ module.exports = class Routes {
      <% if (!differentStaticServer) { %>
      router.get('*', StaticDispatcher.sendIndex);
      <% } %>
-
-     application.use(router.routes());
    }
 }

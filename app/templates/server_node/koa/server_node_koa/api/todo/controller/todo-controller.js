@@ -3,36 +3,36 @@
 const TodoDAO = require('../dao/todo-dao');
 
 module.exports = class TodoController {
-  *getAll(ctx) {
+  *getAll() {
       try {
         let _todos = yield TodoDAO.getAll();
-        ctx.status = 200;
-        ctx.body = _todos;
+        this.status = 200;
+        this.body = _todos;
       } catch(e) {
-        ctx.status = 400;
+        this.status = 400;
       }
   }
 
-  *createTodo(ctx) {
+  *createTodo() {
       let _todo = req.body;
 
       try {
         let _newTodo = yield TodoDAO.createTodo(_todo);
-        ctx.body = _newTodo;
-        ctx.status = 201;
+        this.body = _newTodo;
+        this.status = 201;
       } catch(e) {
-        ctx.status = 400;
+        this.status = 400;
       }
   }
 
-  *deleteTodo(ctx) {
+  *deleteTodo() {
     let _id = req.params.id;
 
     try {
       yield TodoDAO.deleteTodo(_id);
-      ctx.status = 200;
+      this.status = 200;
     } catch(e) {
-      ctx.status = 400;
+      this.status = 400;
     }
   }
 }
