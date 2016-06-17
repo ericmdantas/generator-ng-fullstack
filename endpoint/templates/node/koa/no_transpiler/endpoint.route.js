@@ -2,15 +2,12 @@
 
 const <%= name %>Controller = require('../controller/<%= name %>-controller');
 
-module.exports = class <%= name %>Routes {
+export default class <%= name %>Routes {
   static init(router) {
-    router
-      .route('/api/<%= nameLowerCase %>')
-      .get(<%= name %>Controller.getAll)
-      .post(<%= name %>Controller.createNew);
+    let <%= name %> new <%= name %>Controller();
 
-    router
-      .route('/api/<%= nameLowerCase %>/:id')
-      .delete(<%= name %>Controller.removeById);
+    router.get('/api/<%= nameLowerCase %>', <%= name %>.getAll);
+    router.post('/api/<%= nameLowerCase %>', <%= name %>.createNew);
+    router.del('/api/<%= nameLowerCase %>/:id', <%= name %>.removeById);
   }
 }

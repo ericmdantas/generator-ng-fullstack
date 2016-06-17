@@ -3,28 +3,35 @@
 const <%= name %> = require('../dao/<%= name %>-dao');
 
 module.exports = class <%= name %>Controller {
-  static getAll(req, res) {
-    <%= name %>DAO
-      .getAll()
-      .then(<%= nameLowerCase %> => res.status(200).json(<%= nameLowerCase %>s))
-      .catch(error => res.status(400).json(error));
+  *getAll() {
+    try {
+      let <%= nameLowerCase %> = yield <%= name %>DAO.getAll();
+      this.body = <%= nameLowerCase %>;
+      this.status = 200;
+    } catch(e) {
+      this.status = 400;
+    }
   }
 
-  static createNew(req, res) {
-    let _<%= nameLowerCase %> = req.body;
+  *createNew() {
+    let _<%= nameLowerCase %> = this.body;
 
-    <%= name %>DAO
-      .createNew(_<%= nameLowerCase %>)
-      .then(<%= nameLowerCase %> => res.status(201).json(<%= nameLowerCase %>))
-      .catch(error => res.status(400).json(error));
+    try {
+      this.body = yield <%= name %>DAO.createNew(_<%= nameLowerCase %>);
+      this.status = 201;
+    } catch(e) {
+      this.status = 400;
+    }
   }
 
-  static removeById(req, res) {
-    let _id = req.params.id;
+  *removeById() {
+    let _id = this.params.id;
 
-    <%= name %>DAO
-      .removeById(_id)
-      .then(() => res.status(200).end())
-      .catch(error => res.status(400).json(error));
+    try {
+      yield <%= name %>DAO.removeById(_id);
+      this.status = 200;
+    } catch(e) {
+      this.status = 400;
+    }
   }
 }
