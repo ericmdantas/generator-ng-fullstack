@@ -1,10 +1,10 @@
 "use strict";
 
 import * as mongoose from 'mongoose';
-var dbConst = require('../constants/db.json');
+import * as dbConst from '../constants/db.json';
 
-export class DBConfig {
-    static init():void {
+export default class DBConfig {
+    static init() {
       const URL = (process.env.NODE_ENV === 'production') ? process.env.MONGOHQ_URL
                                                           : dbConst.localhost;
 

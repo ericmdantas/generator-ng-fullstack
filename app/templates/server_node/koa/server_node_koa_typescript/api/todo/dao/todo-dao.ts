@@ -1,10 +1,12 @@
+"use strict";
+
 import * as mongoose from 'mongoose';
 import * as Promise from 'bluebird';
+import * as todoSchema from '../model/todo-model';
 import * as _ from 'lodash';
-import todoSchema from '../model/todo-model';
 
-todoSchema.static('getAll', ():Promise<any> => {
-    return new Promise((resolve:Function, reject:Function) => {
+todoSchema.statics.getAll = () => {
+    return new Promise((resolve, reject) => {
         let _query = {};
 
         Todo.find(_query)
@@ -13,25 +15,25 @@ todoSchema.static('getAll', ():Promise<any> => {
                   : resolve(todos);
             });
     });
-});
+}
 
-todoSchema.static('createTodo', (todo:Object):Promise<any> => {
-    return new Promise((resolve:Function, reject:Function) => {
+todoSchema.statics.createTodo = (todo) => {
+    return new Promise((resolve, reject) => {
       if (!_.isObject(todo)) {
-        return reject(new TypeError('Todo is not a valid object.'));
+          return reject(new TypeError('Todo is not a valid object.'));
       }
 
-      var _todo = new Todo(todo);
+      let _todo = new Todo(todo);
 
       _todo.save((err, saved) => {
         err ? reject(err)
             : resolve(saved);
       });
     });
-});
+}
 
-todoSchema.static('deleteTodo', (id:string):Promise<any> => {
-    return new Promise((resolve:Function, reject:Function) => {
+todoSchema.statics.deleteTodo = (id) => {
+    return new Promise((resolve, reject) => {
         if (!_.isString(id)) {
             return reject(new TypeError('Id is not a valid string.'));
         }
@@ -42,8 +44,8 @@ todoSchema.static('deleteTodo', (id:string):Promise<any> => {
                   : resolve();
             });
     });
-});
+}
 
-let Todo = mongoose.model('Todo', todoSchema);
+const Todo  = mongoose.model('Todo', todoSchema);
 
 export default Todo;

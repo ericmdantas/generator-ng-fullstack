@@ -1,8 +1,10 @@
+"use strict";
+
 import * as mongoose from 'mongoose';
 
-var schema = new mongoose.Schema({
+const _todoSchema = {
     todoMessage: {type: String, required: true, trim: true},
     createdAt: {type: Date, default: Date.now}
-});
+}
 
-export default schema;
+module.exports = mongoose.Schema(_todoSchema);
