@@ -14,7 +14,7 @@ module.exports = class TodoController {
   }
 
   *createTodo() {
-      let _todo = req.body;
+      let _todo = this.request.body;
 
       try {
         let _newTodo = yield TodoDAO.createTodo(_todo);
@@ -26,7 +26,7 @@ module.exports = class TodoController {
   }
 
   *deleteTodo() {
-    let _id = req.params.id;
+    let _id = this.params.id;
 
     try {
       yield TodoDAO.deleteTodo(_id);

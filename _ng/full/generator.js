@@ -36,7 +36,8 @@ exports.MainGenerator = class MainGenerator {
         username: _username.username,
         usesTypescript: _usesTypescript,
         client: _client,
-        clientOnly: _clientOnly
+        clientOnly: _clientOnly,
+        webFrameworkServer: this.wrapper.webFrameworkServer
       });
 
       this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);

@@ -24,12 +24,16 @@
   "dependencies": {
     <% if (!clientOnly) { %>"lodash": "^4.6.1",
     "bluebird": "^3.3.4",
+    <% if (webFrameworkServer === "express") { %>
     "body-parser": "^1.5.0",
     "express": "~4.13.4",
     "express-content-length-validator": "1.0.0",
+    "morgan": "^1.5.2",
+    "helmet": "^0.7.1",
+    <% } %>
     "mongoose": "^4.4.7",
     "nodemon": "^1.9.2",
-    "morgan": "^1.5.2", <% } %> <% if (client === "ng2") { %>
+    <% } %> <% if (client === "ng2") { %>
     "@angular/common": "^2.0.0-rc.2",
     "@angular/compiler": "^2.0.0-rc.2",
     "@angular/core": "^2.0.0-rc.2",
@@ -43,8 +47,12 @@
     "systemjs": "^0.19.24",
     "typescript": "^1.8.9",
     "zone.js": "^0.6.12", <% } %>
-    "newrelic": "^1.18.2",
-    "helmet": "^0.7.1"
+    <% if (webFrameworkServer === "koa") { %>
+    "koa": "^1.2.0",
+    "koa-bodyparser": "^2.2.0",
+    "koa-router": "^5.4.0",
+    "koa-static": "^2.0.0", <% } %>
+    "newrelic": "^1.18.2"
   },
   "devDependencies": {
     "karma-ng-html2js-preprocessor": "^0.1.2",
