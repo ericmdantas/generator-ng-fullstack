@@ -1,3 +1,5 @@
+/// <reference path="../typings/index.d.ts" />
+
 'use strict';
 
 if ('production' === process.env.NODE_ENV)
