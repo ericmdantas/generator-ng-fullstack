@@ -14,6 +14,7 @@ describe('NgFullstack:endpoint', () => {
           MockConfigFile.create({
             "generator-ng-fullstack": {
               "transpilerServer": "node",
+              "webFrameworkServer": "express",
               "server": "node"
             }
           }, this.async());
@@ -44,6 +45,7 @@ describe('NgFullstack:endpoint', () => {
           MockConfigFile.create({
             "generator-ng-fullstack": {
               "transpilerServer": "babel",
+              "webFrameworkServer": "express",
               "server": "node"
             }
           }, this.async());
@@ -74,6 +76,7 @@ describe('NgFullstack:endpoint', () => {
           MockConfigFile.create({
             "generator-ng-fullstack": {
               "transpilerServer": "typescript",
+              "webFrameworkServer": "express",
               "server": "node"
             }
           }, this.async());

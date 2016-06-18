@@ -2,7 +2,7 @@
 
 const chalk = require('chalk');
 const yosay = require('yosay');
-const NodeFactory = require('../server/node').NodeFactory;
+const NodeFactory = require('../server/node_factory').NodeFactory;
 const AngularFactory = require('../client/angular').AngularFactory;
 const ClientFactory = require('../client/client_factory').ClientFactory;
 const ServerFactory = require('../server/server_factory').ServerFactory;
@@ -46,7 +46,8 @@ exports.MainGenerator = class MainGenerator {
         userNameSpace: _user.userNameSpace,
         usesTypescript: _usesTypescript,
         client: _client,
-        clientOnly: _clientOnly
+        clientOnly: _clientOnly,
+        webFrameworkServer: this.wrapper.webFrameworkServer
       });
 
       this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
@@ -243,6 +244,28 @@ exports.MainGenerator = class MainGenerator {
     this.wrapper.config.save();
   }
 
+  promptWebFrameworkServer() {
+    const done = this.wrapper.async();
+
+    let _prompts = [{
+      type: "list",
+      name: "webFrameworkServer",
+      message: "What framework do you want to use in server side?",
+      choices: [NodeFactory.tokensWebFramework().EXPRESS, NodeFactory.tokensWebFramework().KOA],
+      default: 0,
+      when: () => this.wrapper.server === ServerFactory.tokens().NODE
+    }];
+
+    this.wrapper.prompt(_prompts, (props) => {
+      this.wrapper.webFrameworkServer = props.webFrameworkServer;
+      this.wrapper.config.set('webFrameworkServer', this.wrapper.webFrameworkServer);
+
+      done();
+    });
+
+    this.wrapper.config.save();
+  }
+
   promptTranspilerServer() {
     const done = this.wrapper.async();
 
@@ -250,7 +273,7 @@ exports.MainGenerator = class MainGenerator {
       type: "list",
       name: "transpilerServer",
       message: "What transpiler do you want to use in server side?",
-      choices: [NodeFactory.tokens().NODE, NodeFactory.tokens().NODE_BABEL, NodeFactory.tokens().NODE_TYPESCRIPT],
+      choices: [NodeFactory.tokensCompiler().NODE, NodeFactory.tokensCompiler().BABEL, NodeFactory.tokensCompiler().TYPESCRIPT],
       default: 0,
       when: () => this.wrapper.server === ServerFactory.tokens().NODE
     }];
