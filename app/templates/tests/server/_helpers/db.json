@@ -1,7 +1,7 @@
 {
   "db": {
     "test": {
-      "url": "mongodb://localhost/my-awesome-app_test"
+      "url": "mongodb://localhost/<%= appName %>_test"
     }
   }
 }

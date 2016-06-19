@@ -83,6 +83,7 @@ class NodeStandard {
     }
 
     yoUtils.directory(this.wrapper, _paths, {
+      appName: this.wrapper.appName,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
   }
@@ -158,6 +159,7 @@ class NodeBabel {
     }
 
     yoUtils.directory(this.wrapper, _paths, {
+      appName: this.wrapper.appName,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
   }
@@ -235,6 +237,7 @@ class NodeTypescript {
     }
 
     yoUtils.directory(this.wrapper, _paths, {
+      appName: this.wrapper.appName,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
   }

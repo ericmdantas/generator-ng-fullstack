@@ -1,9 +1,10 @@
 package dbconfig
 
 import (
-	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 var db DB = DB{}
@@ -24,7 +25,7 @@ func TestGetDbUrl(t *testing.T) {
 }
 
 func TestDBName(t *testing.T) {
-	assert.Equal(t, "my_awesome_app", db.Name())
+	assert.Equal(t, "<%= appName %>", db.Name())
 }
 
 func BenchmarkDoDial(b *testing.B) {
