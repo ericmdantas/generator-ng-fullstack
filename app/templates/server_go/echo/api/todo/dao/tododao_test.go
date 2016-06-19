@@ -10,7 +10,7 @@ import (
 )
 
 const testDBUrl string = "localhost"
-const testDBName string = "my_awesome_app"
+const testDBName string = "<%= appName %>"
 const collName string = "todos"
 
 var id bson.ObjectId = bson.NewObjectId()

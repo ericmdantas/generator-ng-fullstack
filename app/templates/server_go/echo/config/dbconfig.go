@@ -1,8 +1,9 @@
 package dbconfig
 
 import (
-	"gopkg.in/mgo.v2"
 	"os"
+
+	"gopkg.in/mgo.v2"
 )
 
 type DB struct {
@@ -14,7 +15,7 @@ func (db *DB) DoDial() (s *mgo.Session, err error) {
 }
 
 func (db *DB) Name() string {
-	return "my_awesome_app"
+	return "<%= appName %>"
 }
 
 func DBUrl() string {

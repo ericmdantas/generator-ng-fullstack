@@ -84,6 +84,7 @@ class NodeBaseStandard {
     }
 
     yoUtils.directory(this.wrapper, _paths, {
+      appName: this.wrapper.appName,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
   }
@@ -160,6 +161,7 @@ class NodeBaseBabel {
     }
 
     yoUtils.directory(this.wrapper, _paths, {
+      appName: this.wrapper.appName,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
   }
@@ -238,6 +240,7 @@ class NodeBaseTypescript {
     }
 
     yoUtils.directory(this.wrapper, _paths, {
+      appName: this.wrapper.appName,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
   }
