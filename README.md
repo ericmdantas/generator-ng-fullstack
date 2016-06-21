@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master)
 [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack)
 [![Dependency Status](https://img.shields.io/david/ericmdantas/generator-ng-fullstack.svg)](https://david-dm.org/ericmdantas/generator-ng-fullstack)
-[![Dev-Dependency Status](https://img.shields.io/david/dev/ricmdantas/generator-ng-fullstack.svg)](https://david-dm.org/ricmdantas/generator-ng-fullstack#info=devDependencies)
+[![Dev-Dependency Status](https://img.shields.io/david/dev/ericmdantas/generator-ng-fullstack.svg)](https://david-dm.org/ericmdantas/generator-ng-fullstack#info=devDependencies)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ericmdantas/generator-ng-fullstack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Generator ng-Fullstack is a project to allow you to rapidly get started with prototyping full-stack web applications, with the newest technologies available. Based of [Yeoman](http://yeoman.io/), this is the next generation of full-stack generators. We support the following technology options to allow you to customise your stack (Pick one from each column!).
