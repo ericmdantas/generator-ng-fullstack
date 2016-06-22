@@ -337,10 +337,10 @@ class NodeBaseTypescript {
 
     if(!this.wrapper.tests) {
       let _tests = [
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller.spec.ts', 'server/api/todo/controller/todo-controller.spec.ts'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao.spec.ts', 'server/api/todo/dao/todo-dao.spec.ts'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model.spec.ts', 'server/api/todo/model/todo-model.spec.ts'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/routes/todo-routes.spec.ts', 'server/api/todo/routes/todo-routes.spec.ts']
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model.spec.js', 'server/api/todo/model/todo-model.spec.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/routes/todo-routes.spec.js', 'server/api/todo/routes/todo-routes.spec.js']
       ];
 
       yoUtils.directory(this.wrapper, _tests, {
