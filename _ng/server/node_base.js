@@ -8,8 +8,7 @@ const basePath = (generator) => {
     route: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/routes/${generator.name}-route`,
     controller: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}-controller`,
     dao: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/dao/${generator.name}-dao`,
-    model: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model`,
-    test: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/dao/${generator.name}-dao_test`
+    model: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model`
   }
 }
 
@@ -41,12 +40,6 @@ class NodeBaseStandard {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
-
-    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.dao_test.js', `${gen.test}.js`, {
-      name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase(),
-      feature: this.wrapper.feature
-    });
   }
 
   copyForMainGenerator() {
@@ -54,7 +47,6 @@ class NodeBaseStandard {
 
     this.wrapper.template('index_node.js', 'index.js');
     this.wrapper.directory('tasks/server', 'tasks/server');
-    this.wrapper.directory('tests/server', 'tests/server');
 
     if (this.wrapper.secure) {
       this.wrapper.template('server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/server_https.js', 'server/server.js', {
@@ -118,12 +110,6 @@ class NodeBaseBabel {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
-
-    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.dao_test.js', `${gen.test}.js`, {
-      name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase(),
-      feature: this.wrapper.feature
-    });
   }
 
   copyForMainGenerator() {
@@ -131,7 +117,6 @@ class NodeBaseBabel {
 
     this.wrapper.template('index_babel.js', 'index.js');
     this.wrapper.directory('tasks/server', 'tasks/server');
-    this.wrapper.directory('tests/server', 'tests/server');
 
     if (this.wrapper.secure) {
       this.wrapper.template('server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/server_https.js', 'server/server.js', {
@@ -195,12 +180,6 @@ class NodeBaseTypescript {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
-
-    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.dao_test.js', `${gen.test}.js`, {
-      name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase(),
-      feature: this.wrapper.feature
-    });
   }
 
   copyForMainGenerator() {
@@ -210,7 +189,6 @@ class NodeBaseTypescript {
     this.wrapper.template('_tsconfig.json', 'tsconfig.json');
     this.wrapper.template('_typings_ng2_and_tsc_server.json', 'typings.json');
     this.wrapper.directory('tasks/server', 'tasks/server');
-    this.wrapper.directory('tests/server', 'tests/server');
 
     if (this.wrapper.secure) {
       this.wrapper.template('server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/server_https.ts', 'server/server.ts', {
