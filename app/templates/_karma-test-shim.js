@@ -11,7 +11,7 @@ function isJsFile(path) {
 }
 
 function isSpecFile(path) {
-  return path.slice(-8) == '_test.js';
+  return path.slice(-8) == '.spec.js';
 }
 
 function isTestFileBuilt(path) {
