@@ -68,7 +68,7 @@ describe('ng-fullstack -> client_only', () => {
 
       'tests/client/_helpers/invalid-inputs.js',
 
-      'tests/client/todo/services/todo-dao_test.js',
+      'tests/client/todo/services/todo-dao.spec.js',
       'tests/client/todo/models/todo-model_test.js',
       'tests/client/todo/controllers/todo-controller_test.js',
 
