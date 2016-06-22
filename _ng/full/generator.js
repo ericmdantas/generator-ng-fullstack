@@ -6,7 +6,6 @@ const NodeFactory = require('../server/node_factory').NodeFactory;
 const AngularFactory = require('../client/angular').AngularFactory;
 const ClientFactory = require('../client/client_factory').ClientFactory;
 const ServerFactory = require('../server/server_factory').ServerFactory;
-const TestFactory = require('../test/test_factory').TestFactory;
 
 exports.MainGenerator = class MainGenerator {
   constructor(gen) {
@@ -26,6 +25,7 @@ exports.MainGenerator = class MainGenerator {
       };
       let _repoHostUrl = {repoHostUrl: this.wrapper.repoHostUrl};
       let _server = this.wrapper.server;
+      let _test = this.wrapper.tests;
       let _transpilerServer = this.wrapper.transpilerServer;
       let _client = this.wrapper.client;
       let _copiesServer = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "server");
@@ -187,6 +187,28 @@ exports.MainGenerator = class MainGenerator {
       this.wrapper.config.save();
   }
 
+  promptTest() {
+    const done = this.wrapper.async();
+
+    let prompts = [
+      {
+        type: "confirm",
+        name: "tests",
+        message: "Do you want to keep test in separate directory?",
+        default: false
+      }
+    ];
+
+    this.wrapper.prompt(prompts, (props) => {
+      this.wrapper.tests = props.tests;
+      this.wrapper.config.set('tests', this.wrapper.tests);
+
+      done();
+    });
+
+    this.wrapper.config.save();
+  }
+
   promptServer() {
     const done = this.wrapper.async();
 
@@ -260,30 +282,6 @@ exports.MainGenerator = class MainGenerator {
     this.wrapper.prompt(_prompts, (props) => {
       this.wrapper.webFrameworkServer = props.webFrameworkServer;
       this.wrapper.config.set('webFrameworkServer', this.wrapper.webFrameworkServer);
-
-      done();
-    });
-
-    this.wrapper.config.save();
-  }
-
-  promptTest() {
-    const done = this.wrapper.async();
-
-    let prompts = [
-      {
-        type: "list",
-        name: "test",
-        message: "How do you want keep test?",
-        choices: [TestFactory.tokens().TOGETHER, TestFactory.tokens().SEPARATE],
-        default: 0,
-        when: () => this.wrapper.test === TestFactory.tokens().TOGETHER
-      }
-    ];
-
-    this.wrapper.prompt(prompts, (props) => {
-      this.wrapper.test = props.test;
-      this.wrapper.config.set('test', this.wrapper.test);
 
       done();
     });
