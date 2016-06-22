@@ -6,9 +6,17 @@ const yoUtils = require('../utils/yeoman-utils');
 const basePath = (generator) => {
   return {
     route: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/routes/${generator.name}-route`,
+    routeTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/routes/${generator.name}-route.spec`,
+    routeTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/routes/${generator.name}-route.spec`,
     controller: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}-controller`,
+    controllerTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}-controller.spec`,
+    controllerTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/controllers/${generator.name}-controller.spec`,
     dao: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/dao/${generator.name}-dao`,
-    model: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model`
+    daoTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/dao/${generator.name}-dao.spec`,
+    daoTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/daos/${generator.name}-dao.spec`,
+    model: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model`,
+    modelTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model.spec`,
+    modelTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/models/${generator.name}-model.spec`
   }
 }
 
@@ -20,6 +28,7 @@ class NodeBaseStandard {
 
   copyFiles() {
     let gen = basePath(this.wrapper);
+    let TESTS = this.wrapper.tests ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.route.js', `${gen.route}.js`, {
       name: this.wrapper.name,
@@ -40,6 +49,27 @@ class NodeBaseStandard {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
+
+    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.route.spec.js', `${gen[`routeTest${TESTS}`]}.js`, {
+      name: this.wrapper.name,
+      nameLowerCase: this.wrapper.name.toLowerCase()
+    });
+
+    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.controller.spec.js', `${gen[`controllerTest${TESTS}`]}.js`, {
+      name: this.wrapper.name,
+      nameLowerCase: this.wrapper.name.toLowerCase()
+    });
+
+    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.dao.spec.js', `${gen[`daoTest${TESTS}`]}.js`, {
+      name: this.wrapper.name,
+      nameLowerCase: this.wrapper.name.toLowerCase()
+    });
+
+    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.model.spec.js', `${gen[`modelTest${TESTS}`]}.js`, {
+      name: this.wrapper.name,
+      nameLowerCase: this.wrapper.name.toLowerCase()
+    });
+
   }
 
   copyForMainGenerator() {
@@ -47,6 +77,10 @@ class NodeBaseStandard {
 
     this.wrapper.template('index_node.js', 'index.js');
     this.wrapper.directory('tasks/server', 'tasks/server');
+
+    if(this.wrapper.tests) {
+      this.wrapper.directory('tests/server', 'tests/server');
+    }
 
     if (this.wrapper.secure) {
       this.wrapper.template('server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/server_https.js', 'server/server.js', {
@@ -69,7 +103,7 @@ class NodeBaseStandard {
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/routes/todo-routes.js', 'server/api/todo/routes/todo-routes.js']
-    ]
+    ];
 
     if (!this.wrapper.differentStaticServer) {
       _paths.push(['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/commons/static/index.js', 'server/commons/static/index.js']);
@@ -79,6 +113,21 @@ class NodeBaseStandard {
       appName: this.wrapper.appName,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
+
+    if(!this.wrapper.tests) {
+      let _tests = [
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/model/todo-model.spec.js', 'server/api/todo/model/todo-model.spec.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/routes/todo-routes.spec.js', 'server/api/todo/routes/todo-routes.spec.js']
+      ];
+
+      yoUtils.directory(this.wrapper, _tests, {
+        appName: this.wrapper.appName,
+        differentStaticServer: !!this.wrapper.differentStaticServer
+      });
+    }
+
   }
 }
 
@@ -90,6 +139,7 @@ class NodeBaseBabel {
 
   copyFiles() {
     let gen = basePath(this.wrapper);
+    let TESTS = this.wrapper.tests ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.route.js', `${gen.route}.js`, {
       name: this.wrapper.name,
@@ -110,6 +160,26 @@ class NodeBaseBabel {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
+
+    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.route.spec.js', `${gen[`routeTest${TESTS}`]}.js`, {
+      name: this.wrapper.name,
+      nameLowerCase: this.wrapper.name.toLowerCase()
+    });
+
+    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.controller.spec.js', `${gen[`controllerTest${TESTS}`]}.js`, {
+      name: this.wrapper.name,
+      nameLowerCase: this.wrapper.name.toLowerCase()
+    });
+
+    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.dao.spec.js', `${gen[`daoTest${TESTS}`]}.js`, {
+      name: this.wrapper.name,
+      nameLowerCase: this.wrapper.name.toLowerCase()
+    });
+
+    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.model.spec.js', `${gen[`modelTest${TESTS}`]}.js`, {
+      name: this.wrapper.name,
+      nameLowerCase: this.wrapper.name.toLowerCase()
+    });
   }
 
   copyForMainGenerator() {
@@ -117,6 +187,10 @@ class NodeBaseBabel {
 
     this.wrapper.template('index_babel.js', 'index.js');
     this.wrapper.directory('tasks/server', 'tasks/server');
+
+    if(this.wrapper.tests) {
+      this.wrapper.directory('tests/server', 'tests/server');
+    }
 
     if (this.wrapper.secure) {
       this.wrapper.template('server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/server_https.js', 'server/server.js', {
@@ -139,7 +213,7 @@ class NodeBaseBabel {
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/routes/todo-routes.js', 'server/api/todo/routes/todo-routes.js']
-    ]
+    ];
 
     if (!this.wrapper.differentStaticServer) {
       _paths.push(['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/commons/static/index.js', 'server/commons/static/index.js']);
@@ -149,6 +223,20 @@ class NodeBaseBabel {
       appName: this.wrapper.appName,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
+
+    if(!this.wrapper.tests) {
+      let _tests = [
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model.spec.js', 'server/api/todo/model/todo-model.spec.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/routes/todo-routes.spec.js', 'server/api/todo/routes/todo-routes.spec.js']
+      ];
+
+      yoUtils.directory(this.wrapper, _tests, {
+        appName: this.wrapper.appName,
+        differentStaticServer: !!this.wrapper.differentStaticServer
+      });
+    }
   }
 }
 
@@ -160,6 +248,7 @@ class NodeBaseTypescript {
 
   copyFiles() {
     let gen = basePath(this.wrapper);
+    let TESTS = this.wrapper.tests ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.route.ts', `${gen.route}.ts`, {
       name: this.wrapper.name,
@@ -180,6 +269,26 @@ class NodeBaseTypescript {
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
+
+    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.route.spec.ts', `${gen[`routeTest${TESTS}`]}.ts`, {
+      name: this.wrapper.name,
+      nameLowerCase: this.wrapper.name.toLowerCase()
+    });
+
+    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.controller.spec.ts', `${gen[`controllerTest${TESTS}`]}.ts`, {
+      name: this.wrapper.name,
+      nameLowerCase: this.wrapper.name.toLowerCase()
+    });
+
+    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.dao.spec.ts', `${gen[`daoTest${TESTS}`]}.ts`, {
+      name: this.wrapper.name,
+      nameLowerCase: this.wrapper.name.toLowerCase()
+    });
+
+    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.model.spec.ts', `${gen[`modelTest${TESTS}`]}.ts`, {
+      name: this.wrapper.name,
+      nameLowerCase: this.wrapper.name.toLowerCase()
+    });
   }
 
   copyForMainGenerator() {
@@ -189,6 +298,10 @@ class NodeBaseTypescript {
     this.wrapper.template('_tsconfig.json', 'tsconfig.json');
     this.wrapper.template('_typings_ng2_and_tsc_server.json', 'typings.json');
     this.wrapper.directory('tasks/server', 'tasks/server');
+
+    if(this.wrapper.tests) {
+      this.wrapper.directory('tests/server', 'tests/server');
+    }
 
     if (this.wrapper.secure) {
       this.wrapper.template('server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/server_https.ts', 'server/server.ts', {
@@ -211,7 +324,7 @@ class NodeBaseTypescript {
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao.ts', 'server/api/todo/dao/todo-dao.ts'],
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model.ts', 'server/api/todo/model/todo-model.ts'],
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/routes/todo-routes.ts', 'server/api/todo/routes/todo-routes.ts']
-    ]
+    ];
 
     if (!this.wrapper.differentStaticServer) {
       _paths.push(['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/commons/static/index.ts', 'server/commons/static/index.ts']);
@@ -221,6 +334,20 @@ class NodeBaseTypescript {
       appName: this.wrapper.appName,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
+
+    if(!this.wrapper.tests) {
+      let _tests = [
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller.spec.ts', 'server/api/todo/controller/todo-controller.spec.ts'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao.spec.ts', 'server/api/todo/dao/todo-dao.spec.ts'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model.spec.ts', 'server/api/todo/model/todo-model.spec.ts'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/routes/todo-routes.spec.ts', 'server/api/todo/routes/todo-routes.spec.ts']
+      ];
+
+      yoUtils.directory(this.wrapper, _tests, {
+        appName: this.wrapper.appName,
+        differentStaticServer: !!this.wrapper.differentStaticServer
+      });
+    }
   }
 }
 
