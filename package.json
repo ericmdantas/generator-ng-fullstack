@@ -1,6 +1,6 @@
 {
   "name": "generator-ng-fullstack",
-  "version": "1.8.9",
+  "version": "1.8.10",
   "description": "Client, server or fullstack - it's up to you. ng-fullstack gives you the best of the latest: Node, Go, http/2, Angular 1, Angular 2, Express, MongoDB, Gulp, Babel, Typescript and much more.",
   "license": "MIT",
   "main": "app/index.js",
@@ -46,7 +46,7 @@
   "dependencies": {
     "chalk": "^1.0.0",
     "lodash": "^4.13.1",
-    "yeoman-generator": "^0.19.0",
+    "yeoman-generator": "^0.19.2",
     "yosay": "^1.2.0"
   },
   "devDependencies": {
