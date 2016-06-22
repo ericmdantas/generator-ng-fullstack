@@ -6,6 +6,7 @@ const NodeFactory = require('../server/node_factory').NodeFactory;
 const AngularFactory = require('../client/angular').AngularFactory;
 const ClientFactory = require('../client/client_factory').ClientFactory;
 const ServerFactory = require('../server/server_factory').ServerFactory;
+const TestFactory = require('../test/test_factory').TestFactory;
 
 exports.MainGenerator = class MainGenerator {
   constructor(gen) {
@@ -259,6 +260,30 @@ exports.MainGenerator = class MainGenerator {
     this.wrapper.prompt(_prompts, (props) => {
       this.wrapper.webFrameworkServer = props.webFrameworkServer;
       this.wrapper.config.set('webFrameworkServer', this.wrapper.webFrameworkServer);
+
+      done();
+    });
+
+    this.wrapper.config.save();
+  }
+
+  promptTest() {
+    const done = this.wrapper.async();
+
+    let prompts = [
+      {
+        type: "list",
+        name: "test",
+        message: "How do you want keep test?",
+        choices: [TestFactory.tokens().TOGETHER, TestFactory.tokens().SEPARATE],
+        default: 0,
+        when: () => this.wrapper.test === TestFactory.tokens().TOGETHER
+      }
+    ];
+
+    this.wrapper.prompt(prompts, (props) => {
+      this.wrapper.test = props.test;
+      this.wrapper.config.set('test', this.wrapper.test);
 
       done();
     });
