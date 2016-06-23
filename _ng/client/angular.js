@@ -43,10 +43,10 @@ class Angular1 {
       ];
     } else {
       _pathTest = [
-        ['client/ng1/dev/helpers/invalid-inputs.js', 'client/helpers/invalid-inputs.js'],
-        ['client/ng1/todo/controllers/todo-controller.spec.js', 'client/todo/controllers/todo-controller.spec.js'],
-        ['client/ng1/todo/models/todo-model.spec.js', 'client/todo/models/todo-model.spec.js'],
-        ['client/ng1/todo/services/todo-dao.spec.js', 'client/todo/services/todo-dao.spec.js']
+        ['client/ng1/dev/helpers/invalid-inputs.js', 'client/dev/helpers/invalid-inputs.js'],
+        ['tests/client_ng1/todo/controllers/todo-controller.spec.js', 'client/dev/todo/controllers/todo-controller.spec.js'],
+        ['tests/client_ng1/todo/models/todo-model.spec.js', 'client/dev/todo/models/todo-model.spec.js'],
+        ['tests/client_ng1/todo/services/todo-dao.spec.js', 'client/dev/todo/services/todo-dao.spec.js']
       ]
     }
 
@@ -176,7 +176,7 @@ class Angular2 {
       this.generator.directory('tests/client_ng2', 'tests/client');
     } else {
       let _pathTest = [
-        ['tests/client_ng2/todo/components/todo-cmp.spec.ts', 'client/dev/todo/components/todo-cmp.spec.ts']
+        ['tests/client_ng2/todo/components/todo-cmp.spec.ts', 'client/dev/todo/components/todo-cmp.spec.ts'],
         ['tests/client_ng2/todo/services/todo-service.spec.ts', 'client/dev/todo/services/todo-service.spec.ts']
       ];
       yoUtils.directory(this.generator, _pathTest, this.generator);
