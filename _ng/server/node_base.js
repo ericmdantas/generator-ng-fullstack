@@ -31,43 +31,55 @@ class NodeBaseStandard {
     let TESTS = this.wrapper.tests ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.route.js', `${gen.route}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.controller.js', `${gen.controller}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.dao.js', `${gen.dao}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.model.js', `${gen.model}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.route.spec.js', `${gen[`routeTest${TESTS}`]}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase()
+      nameLowerCase: this.wrapper.name.toLowerCase(),
+      tests: this.wrapper.tests
     });
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.controller.spec.js', `${gen[`controllerTest${TESTS}`]}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase()
+      nameLowerCase: this.wrapper.name.toLowerCase(),
+      tests: this.wrapper.tests
     });
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.dao.spec.js', `${gen[`daoTest${TESTS}`]}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase()
+      nameLowerCase: this.wrapper.name.toLowerCase(),
+      tests: this.wrapper.tests
     });
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.model.spec.js', `${gen[`modelTest${TESTS}`]}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase()
+      nameLowerCase: this.wrapper.name.toLowerCase(),
+      tests: this.wrapper.tests
     });
 
   }
@@ -111,6 +123,7 @@ class NodeBaseStandard {
 
     yoUtils.directory(this.wrapper, _paths, {
       appName: this.wrapper.appName,
+      tests: this.wrapper.tests,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
 
@@ -124,6 +137,7 @@ class NodeBaseStandard {
 
       yoUtils.directory(this.wrapper, _tests, {
         appName: this.wrapper.appName,
+        tests: this.wrapper.tests,
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
@@ -142,43 +156,55 @@ class NodeBaseBabel {
     let TESTS = this.wrapper.tests ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.route.js', `${gen.route}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.controller.js', `${gen.controller}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.dao.js', `${gen.dao}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.model.js', `${gen.model}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.route.spec.js', `${gen[`routeTest${TESTS}`]}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase()
+      nameLowerCase: this.wrapper.name.toLowerCase(),
+      tests: this.wrapper.tests
     });
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.controller.spec.js', `${gen[`controllerTest${TESTS}`]}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase()
+      nameLowerCase: this.wrapper.name.toLowerCase(),
+      tests: this.wrapper.tests
     });
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.dao.spec.js', `${gen[`daoTest${TESTS}`]}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase()
+      nameLowerCase: this.wrapper.name.toLowerCase(),
+      tests: this.wrapper.tests
     });
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.model.spec.js', `${gen[`modelTest${TESTS}`]}.js`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase()
+      nameLowerCase: this.wrapper.name.toLowerCase(),
+      tests: this.wrapper.tests
     });
   }
 
@@ -221,6 +247,7 @@ class NodeBaseBabel {
 
     yoUtils.directory(this.wrapper, _paths, {
       appName: this.wrapper.appName,
+      tests: this.wrapper.tests,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
 
@@ -234,6 +261,7 @@ class NodeBaseBabel {
 
       yoUtils.directory(this.wrapper, _tests, {
         appName: this.wrapper.appName,
+        tests: this.wrapper.tests,
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
@@ -251,43 +279,55 @@ class NodeBaseTypescript {
     let TESTS = this.wrapper.tests ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.route.ts', `${gen.route}.ts`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.controller.ts', `${gen.controller}.ts`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.dao.ts', `${gen.dao}.ts`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.model.ts', `${gen.model}.ts`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.route.spec.ts', `${gen[`routeTest${TESTS}`]}.ts`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase()
+      nameLowerCase: this.wrapper.name.toLowerCase(),
+      tests: this.wrapper.tests
     });
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.controller.spec.ts', `${gen[`controllerTest${TESTS}`]}.ts`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase()
+      nameLowerCase: this.wrapper.name.toLowerCase(),
+      tests: this.wrapper.tests
     });
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.dao.spec.ts', `${gen[`daoTest${TESTS}`]}.ts`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase()
+      nameLowerCase: this.wrapper.name.toLowerCase(),
+      tests: this.wrapper.tests
     });
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.model.spec.ts', `${gen[`modelTest${TESTS}`]}.ts`, {
+      feature: this.wrapper.feature,
       name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase()
+      nameLowerCase: this.wrapper.name.toLowerCase(),
+      tests: this.wrapper.tests
     });
   }
 
@@ -332,6 +372,7 @@ class NodeBaseTypescript {
 
     yoUtils.directory(this.wrapper, _paths, {
       appName: this.wrapper.appName,
+      tests: this.wrapper.tests,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
 
@@ -345,6 +386,7 @@ class NodeBaseTypescript {
 
       yoUtils.directory(this.wrapper, _tests, {
         appName: this.wrapper.appName,
+        tests: this.wrapper.tests,
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
