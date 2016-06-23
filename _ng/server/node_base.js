@@ -214,7 +214,7 @@ class NodeBaseBabel {
     this.wrapper.template('index_babel.js', 'index.js');
     this.wrapper.directory('tasks/server', 'tasks/server');
 
-    if(this.wrapper.tests) {
+    if(this.wrapper.testsSeparated) {
       this.wrapper.directory('tests/server', 'tests/server');
     }
 
