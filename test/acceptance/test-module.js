@@ -12,7 +12,8 @@ describe('NgFullstack:factory', () => {
         .inTmpDir(function(dir) {
           MockConfigFile.create({
             "generator-ng-fullstack": {
-              "client": "ng1"
+              "client": "ng1",
+              "testsSeparated": false
             }
           }, this.async());
         })
@@ -46,7 +47,8 @@ describe('NgFullstack:factory', () => {
         .inTmpDir(function(dir) {
           MockConfigFile.create({
             "generator-ng-fullstack": {
-              "client": "ng2"
+              "client": "ng2",
+              "testsSeparated": false
             }
           }, this.async());
         })
