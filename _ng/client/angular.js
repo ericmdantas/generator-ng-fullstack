@@ -30,8 +30,8 @@ class Angular1 {
       ['client/ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
     ];
 
-    this.generator.directory('tasks/client_ng1', 'tasks/client');
-    this.generator.template('tasks/client_ng1/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
+    this.generator.directory('tasks/client/ng1', 'tasks/client');
+    this.generator.template('tasks/client/ng1/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
 
     yoUtils.directory(this.generator, _pathSrc, this.generator);
   }
