@@ -142,7 +142,7 @@ class Angular2 {
   constructor(gen) {
     this.generator = gen;
     this.testsSeparated = gen.testsSeparated;
-    this.testsPath = this.testsSeparated ? knownPaths.PATH_CLIENT_FEATURES_TEST : knownPaths.PATH_CLIENT_FEATURES_TEST;
+    this.testsPath = this.testsSeparated ? knownPaths.PATH_CLIENT_FEATURES_TEST : knownPaths.PATH_CLIENT_FEATURES;
   }
 
   copyClient() {
