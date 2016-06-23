@@ -12,7 +12,7 @@ describe('NgFullstack:directive', () => {
           MockConfigFile.create({
             "generator-ng-fullstack": {
               "client": "ng1",
-              "testsSeparated": false
+              "testsSeparated": true
             }
           }, this.async());
         })
@@ -41,7 +41,7 @@ describe('NgFullstack:directive', () => {
           MockConfigFile.create({
             "generator-ng-fullstack": {
               "client": "ng2",
-              "testsSeparated": false
+              "testsSeparated": true
             }
           }, this.async());
         })

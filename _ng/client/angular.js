@@ -72,7 +72,7 @@ class Angular1 {
     let _pathTemplate = pathTemplate || '';
 
     this.generator.template(_pathTemplate + 'ng1/directive.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/directives/${this.generator.name}.js`, {name: this.generator.name, appName: this.generator.appName});
-    this.generator.template('ng1/directive.spec.js', `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}.spec.js`, {name: this.generator.name, appName: this.generator.appName});
+    this.generator.template('ng1/directive.spec.js', `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}.spec.js`, {name: this.generator.name, appName: this.generator.appName, testsSeparated: this.generator.testsSeparated});
   }
 
   copyFactory(pathTemplate) {

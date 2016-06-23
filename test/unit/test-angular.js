@@ -94,12 +94,8 @@ describe('angular', () => {
       let _ng1 = new Angular1(_gen);
 
       _ng1.copyDirective();
-
       let _firstCall = ['ng1/directive.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
       let _secondCall = ['ng1/directive.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName, testsSeparated: _gen.testsSeparated}];
-      this.generator.template('ng1/directive.spec.js', `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}.spec.js`, {name: this.generator.name, appName: this.generator.appName});
-
-
 
       expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;

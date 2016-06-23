@@ -11,7 +11,7 @@ describe('NgFullstack:pipe', function () {
         MockConfigFile.create({
           "generator-ng-fullstack": {
             "client": "ng2",
-            "testsSeparated": false
+            "testsSeparated": true
           }
         }, this.async());
       })

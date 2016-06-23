@@ -28,6 +28,7 @@ class NodeBaseStandard {
 
   copyFiles() {
     let gen = basePath(this.wrapper);
+    console.log('testsSeparated', this.wrapper.testsSeparated);
     const TESTS = this.wrapper.testsSeparated ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.route.js', `${gen.route}.js`, {

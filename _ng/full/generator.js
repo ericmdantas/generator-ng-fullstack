@@ -25,7 +25,6 @@ exports.MainGenerator = class MainGenerator {
       };
       let _repoHostUrl = {repoHostUrl: this.wrapper.repoHostUrl};
       let _server = this.wrapper.server;
-      let _testsSeparated = this.wrapper.testsSeparated;
       let _transpilerServer = this.wrapper.transpilerServer;
       let _client = this.wrapper.client;
       let _copiesServer = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "server");

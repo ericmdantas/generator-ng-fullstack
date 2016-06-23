@@ -16,7 +16,7 @@ describe('NgFullstack:endpoint', () => {
               "transpilerServer": "node",
               "webFrameworkServer": "express",
               "server": "node",
-              "testsSeparated": false
+              "testsSeparated": true
             }
           }, this.async());
         })
@@ -48,7 +48,7 @@ describe('NgFullstack:endpoint', () => {
               "transpilerServer": "babel",
               "webFrameworkServer": "express",
               "server": "node",
-              "testsSeparated": false
+              "testsSeparated": true
             }
           }, this.async());
         })
@@ -80,7 +80,7 @@ describe('NgFullstack:endpoint', () => {
               "transpilerServer": "typescript",
               "webFrameworkServer": "express",
               "server": "node",
-              "testsSeparated": false
+              "testsSeparated": true
             }
           }, this.async());
         })
