@@ -84,6 +84,7 @@ describe('angular', () => {
         name: 'a',
         appName: 'b',
         options: {feature: 'c'},
+        testsSeparated: true,
         config: {
           get(){return 'ng1'}
         },
@@ -95,7 +96,7 @@ describe('angular', () => {
       _ng1.copyDirective();
 
       let _firstCall = ['ng1/directive.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
-      let _secondCall = ['ng1/directive.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName}];
+      let _secondCall = ['ng1/directive.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName, testsSeparated: _gen.testsSeparated}];
 
       expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
@@ -107,6 +108,7 @@ describe('angular', () => {
       let _gen = {
         name: 'a',
         appName: 'a',
+        testsSeparated: true,
         options: {feature: 'c'},
         template: sinon.spy()
       };
@@ -116,7 +118,7 @@ describe('angular', () => {
       _ng1.copyFactory();
 
       let _firstCall = ['ng1/factory.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.js', {name: utils.capitalizeFirst(_gen.name), appName: _ng1.generator.appName}];
-      let _secondCall = ['ng1/factory.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.spec.js', {name: utils.capitalizeFirst(_gen.name), appName: _ng1.generator.appName}];
+      let _secondCall = ['ng1/factory.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.spec.js', {name: utils.capitalizeFirst(_gen.name), appName: _ng1.generator.appName, testsSeparated: _ng1.generator.testsSeparated}];
 
       expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
@@ -128,6 +130,7 @@ describe('angular', () => {
       let _gen = {
         name: 'a',
         appName: 'b',
+        testsSeparated: true,
         options: {feature: 'c'},
         template: sinon.spy()
       };
@@ -135,7 +138,7 @@ describe('angular', () => {
       let _ng1 = new Angular1(_gen);
 
       let _firstCall = ['ng1/service.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}]
-      let _secondCall = ['ng1/service.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName}]
+      let _secondCall = ['ng1/service.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName, testsSeparated: _gen.testsSeparated}]
 
       _ng1.copyService();
 
@@ -149,6 +152,7 @@ describe('angular', () => {
       let _gen = {
         name: 'a',
         appName: 'b',
+        testsSeparated: true,
         options: {feature: 'c'},
         template: sinon.spy()
       };
@@ -156,7 +160,7 @@ describe('angular', () => {
       let _ng1 = new Angular1(_gen);
 
       let _firstCall = ['ng1/model.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}]
-      let _secondCall = ['ng1/model.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName}]
+      let _secondCall = ['ng1/model.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName, testsSeparated: _gen.testsSeparated}]
 
       _ng1.copyModel();
 
@@ -206,6 +210,7 @@ describe('angular', () => {
       let _gen = {
         name: 'a',
         appName: 'b',
+        testsSeparated: true,
         options: {feature: 'c'},
         template: sinon.spy()
       };
@@ -213,7 +218,7 @@ describe('angular', () => {
       let _ng1 = new Angular1(_gen);
 
       let _firstCall = ['controller_client.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
-      let _secondCall = ['controller_client.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/controllers/' + _gen.name + '.spec.js', {name: _gen.name, nameLowerCase: _gen.name.toLowerCase(), appName: _gen.appName}];
+      let _secondCall = ['controller_client.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/controllers/' + _gen.name + '.spec.js', {name: _gen.name, nameLowerCase: _gen.name.toLowerCase(), appName: _gen.appName, testsSeparated: _gen.testsSeparated}];
 
       _ng1.copyController();
 
@@ -229,6 +234,7 @@ describe('ng2', () => {
       let _gen = {
         name: 'a',
         secure: false,
+        testsSeparated: true,
         options: {feature: 'c'},
         config: {
           get(){return 'ng2'}
@@ -268,6 +274,7 @@ describe('ng2', () => {
       let _gen = {
         name: 'a',
         secure: true,
+        testsSeparated: true,
         options: {feature: 'c'},
         config: {
           get(){return 'ng2'}
@@ -308,6 +315,7 @@ describe('ng2', () => {
         name: 'a',
         secure: true,
         stack: "client",
+        testsSeparated: true,
         options: {feature: 'c'},
         config: {
           get(){return 'ng2'}
@@ -347,6 +355,7 @@ describe('ng2', () => {
       let _gen = {
         name: 'a',
         secure: true,
+        testsSeparated: true,
         stack: "fullstack",
         differentStaticServer: false,
         options: {feature: 'c'},
@@ -389,6 +398,7 @@ describe('ng2', () => {
     it('should call the methods with the right params', () => {
       let _gen = {
         name: 'a',
+        testsSeparated: true,
         options: {feature: 'c'},
         config: {
           get(){return 'ng2'}
@@ -401,7 +411,7 @@ describe('ng2', () => {
       _ng2.copyDirective();
 
       let _firstCall = ['ng2/directive.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.ts', {name: _gen.name}];
-      let _secondCall = ['ng2/directive.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.ts', {name: _gen.name}];
+      let _secondCall = ['ng2/directive.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.ts', {name: _gen.name, testsSeparated: _gen.testsSeparated}];
 
       expect(_ng2.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng2.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
@@ -412,6 +422,7 @@ describe('ng2', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
         name: 'a',
+        testsSeparated: true,
         options: {feature: 'c'},
         template: sinon.spy()
       };
@@ -421,7 +432,7 @@ describe('ng2', () => {
       _ng2.copyFactory();
 
       let _firstCall = ['ng2/factory.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.ts', {name: utils.capitalizeFirst(_gen.name)}];
-      let _secondCall = ['ng2/factory.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.spec.ts', {name: utils.capitalizeFirst(_gen.name)}];
+      let _secondCall = ['ng2/factory.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.spec.ts', {name: utils.capitalizeFirst(_gen.name), testsSeparated: _gen.testsSeparated}];
 
       expect(_ng2.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng2.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
@@ -432,6 +443,7 @@ describe('ng2', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
         name: 'a',
+        testsSeparated: true,
         options: {feature: 'c'},
         template: sinon.spy()
       };
@@ -439,7 +451,7 @@ describe('ng2', () => {
       let _ng2 = new Angular2(_gen);
 
       let _firstCall = ['ng2/service.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.ts', {name: _gen.name}]
-      let _secondCall = ['ng2/service.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.ts', {name: _gen.name}]
+      let _secondCall = ['ng2/service.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.ts', {name: _gen.name, testsSeparated: _gen.testsSeparated}]
 
       _ng2.copyService();
 
@@ -452,6 +464,7 @@ describe('ng2', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
         name: 'a',
+        testsSeparated: true,
         options: {feature: 'c'},
         template: sinon.spy()
       };
@@ -459,7 +472,7 @@ describe('ng2', () => {
       let _ng2 = new Angular2(_gen);
 
       let _firstCall = ['ng2/model.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.ts', {name: _gen.name}]
-      let _secondCall = ['ng2/model.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '.spec.ts', {name: _gen.name}]
+      let _secondCall = ['ng2/model.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '.spec.ts', {name: _gen.name, testsSeparated: _gen.testsSeparated}]
 
       _ng2.copyModel();
 
@@ -508,6 +521,7 @@ describe('ng2', () => {
     it('should have the initializing called with the right stuff', () => {
       let _gen = {
         name: 'a',
+        testsSeparated: true,
         options: {feature: 'c'},
         template: sinon.spy()
       };
@@ -517,7 +531,7 @@ describe('ng2', () => {
       let _firstCall = ['component.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.ts', {nameCapitalized: utils.capitalizeFirst(_gen.name), name: _gen.name, feature: _gen.options.feature}]
       let _secondCall = ['component.html', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {name: _gen.name}]
       let _thirdCall = ['component.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css']
-      let _fourthCall = ['component.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '.spec.ts', {name: utils.capitalizeFirst(_gen.name), nameLowerCase: _gen.name.toLowerCase()}]
+      let _fourthCall = ['component.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '.spec.ts', {name: utils.capitalizeFirst(_gen.name), nameLowerCase: _gen.name.toLowerCase(), testsSeparated: _gen.testsSeparated}]
 
       _ng2.copyComponent();
 
