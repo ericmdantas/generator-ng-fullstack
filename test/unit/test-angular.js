@@ -5,10 +5,6 @@ import * as sinon from 'sinon';
 import {AngularFactory, Angular1, Angular2} from '../../_ng/client/angular';
 
 describe('angular', () => {
-  beforeEach(() => {
-
-  });
-
   describe('factory', () => {
     it('should have the right values for the token', () => {
       expect(AngularFactory.tokens().NG1).to.equal('ng1');
@@ -48,8 +44,17 @@ describe('angular', () => {
 
         _ng1.copyClient();
 
-        let _firstCall = ['tasks/client/ng1', 'tasks/client'];
-        let _secondCall = ['tasks/client/ng1/watch.js', 'tasks/client/watch.js', {secure: false}];
+        let _firstCall = [
+          'tasks/client/ng1',
+          'tasks/client'
+        ];
+
+        let _secondCall = [
+          'tasks/client/ng1/watch.js',
+          'tasks/client/watch.js', {
+            secure: false
+          }
+        ];
 
         expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
@@ -71,8 +76,17 @@ describe('angular', () => {
 
         _ng1.copyClient();
 
-        let _firstCall = ['tasks/client/ng1', 'tasks/client'];
-        let _secondCall = ['tasks/client/ng1/watch.js', 'tasks/client/watch.js', {secure: true}];
+        let _firstCall = [
+          'tasks/client/ng1',
+          'tasks/client'
+        ];
+
+        let _secondCall = [
+          'tasks/client/ng1/watch.js',
+          'tasks/client/watch.js', {
+            secure: true
+          }
+        ];
 
         expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
@@ -94,8 +108,22 @@ describe('angular', () => {
       let _ng1 = new Angular1(_gen);
 
       _ng1.copyDirective();
-      let _firstCall = ['ng1/directive.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
-      let _secondCall = ['ng1/directive.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName, testsSeparated: _gen.testsSeparated}];
+      let _firstCall = [
+        'ng1/directive.js',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {
+          name: _gen.name,
+          appName: _gen.appName
+        }
+      ];
+
+      let _secondCall = [
+        'ng1/directive.spec.js',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {
+          name: _gen.name,
+          appName: _gen.appName,
+          testsSeparated: _gen.testsSeparated
+        }
+      ];
 
       expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
@@ -116,8 +144,21 @@ describe('angular', () => {
 
       _ng1.copyFactory();
 
-      let _firstCall = ['ng1/factory.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.js', {name: utils.capitalizeFirst(_gen.name), appName: _gen.appName}];
-      let _secondCall = ['ng1/factory.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.spec.js', {name: utils.capitalizeFirst(_gen.name), appName: _gen.appName, testsSeparated: _gen.testsSeparated}];
+      let _firstCall = [
+        'ng1/factory.js',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.js', {
+          name: utils.capitalizeFirst(_gen.name),
+          appName: _gen.appName
+        }
+      ];
+
+      let _secondCall = [
+        'ng1/factory.spec.js',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.spec.js', {
+          name: utils.capitalizeFirst(_gen.name),
+          appName: _gen.appName
+        }
+      ];
 
       expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
@@ -136,8 +177,21 @@ describe('angular', () => {
 
       let _ng1 = new Angular1(_gen);
 
-      let _firstCall = ['ng1/service.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
-      let _secondCall = ['ng1/service.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName, testsSeparated: _gen.testsSeparated}];
+      let _firstCall = [
+        'ng1/service.js',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {
+          name: _gen.name,
+          appName: _gen.appName
+        }
+      ];
+
+      let _secondCall = [
+        'ng1/service.spec.js',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {
+          name: _gen.name,
+          appName: _gen.appName
+        }
+      ];
 
       _ng1.copyService();
 
@@ -158,8 +212,21 @@ describe('angular', () => {
 
       let _ng1 = new Angular1(_gen);
 
-      let _firstCall = ['ng1/model.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
-      let _secondCall = ['ng1/model.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName, testsSeparated: _gen.testsSeparated}];
+      let _firstCall = [
+        'ng1/model.js',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.js', {
+          name: _gen.name,
+          appName: _gen.appName
+        }
+      ];
+
+      let _secondCall = [
+        'ng1/model.spec.js',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '.spec.js', {
+          name: _gen.name,
+          appName: _gen.appName
+        }
+      ];
 
       _ng1.copyModel();
 
@@ -178,7 +245,12 @@ describe('angular', () => {
 
       let _ng1 = new Angular1(_gen);
 
-      let _firstCall = ['view.html', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {name: _gen.name}];
+      let _firstCall = [
+        'view.html',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {
+          name: _gen.name
+        }
+      ];
 
       _ng1.copyTemplate();
 
@@ -196,7 +268,10 @@ describe('angular', () => {
 
       let _ng1 = new Angular1(_gen);
 
-      let _firstCall = ['style.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'];
+      let _firstCall = [
+        'style.css',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
+      ];
 
       _ng1.copyStyle();
 
@@ -216,8 +291,22 @@ describe('angular', () => {
 
       let _ng1 = new Angular1(_gen);
 
-      let _firstCall = ['controller_client.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
-      let _secondCall = ['controller_client.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/controllers/' + _gen.name + '.spec.js', {name: _gen.name, nameLowerCase: _gen.name.toLowerCase(), appName: _gen.appName, testsSeparated: _gen.testsSeparated}];
+      let _firstCall = [
+        'controller_client.js',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '.js', {
+          name: _gen.name,
+          appName: _gen.appName
+        }
+      ];
+
+      let _secondCall = [
+        'controller_client.spec.js',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/controllers/' + _gen.name + '.spec.js', {
+          name: _gen.name,
+          nameLowerCase: _gen.name.toLowerCase(),
+          appName: _gen.appName
+        }
+      ];
 
       _ng1.copyController();
 
@@ -246,15 +335,52 @@ describe('ng2', () => {
 
       _ng2.copyClient();
 
-      let _firstCall = ['tasks/client/ng2', 'tasks/client'];
-      let _secondCall = ['tests/client_ng2', 'tests/client'];
-      let _thirdCall = ['client/ng2', 'client'];
-      let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
-      let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
-      let _sixthCall = ['_typings_ng2.json', 'typings.json'];
-      let _seventhCall = ['_tsconfig.json', 'tsconfig.json'];
-      let _eightCall = ['tasks/client/ng2/watch.js', 'tasks/client/watch.js', {secure: false}];
-      let _ninethCall = ['_ng2_systemjs_config_serving_node_modules.js', 'client/dev/config.js'];
+      let _firstCall = [
+        'tasks/client/ng2',
+        'tasks/client'
+      ];
+
+      let _secondCall = [
+        'tests/client_ng2',
+        'tests/client'
+      ];
+
+      let _thirdCall = [
+        'client/ng2',
+        'client'
+      ];
+
+      let _fourthCall = [
+        '_karma.conf_ng2.js',
+        'karma.conf.js'
+      ];
+
+      let _fifthCall = [
+        '_karma-test-shim.js',
+        'karma-test-shim.js'
+      ];
+
+      let _sixthCall = [
+        '_typings_ng2.json',
+        'typings.json'
+      ];
+
+      let _seventhCall = [
+        '_tsconfig.json',
+        'tsconfig.json'
+      ];
+
+      let _eightCall = [
+        'tasks/client/ng2/watch.js',
+        'tasks/client/watch.js', {
+          secure: false
+        }
+      ];
+
+      let _ninethCall = [
+        '_ng2_systemjs_config_serving_node_modules.js',
+        'client/dev/config.js'
+      ];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
@@ -286,15 +412,52 @@ describe('ng2', () => {
 
       _ng2.copyClient();
 
-      let _firstCall = ['tasks/client/ng2', 'tasks/client'];
-      let _secondCall = ['tests/client_ng2', 'tests/client'];
-      let _thirdCall = ['client/ng2', 'client'];
-      let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
-      let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
-      let _sixthCall = ['_typings_ng2.json', 'typings.json'];
-      let _seventhCall = ['_tsconfig.json', 'tsconfig.json'];
-      let _eightCall = ['tasks/client/ng2/watch.js', 'tasks/client/watch.js', {secure: true}];
-      let _ninethCall = ['_ng2_systemjs_config_serving_node_modules.js', 'client/dev/config.js'];
+      let _firstCall = [
+        'tasks/client/ng2',
+        'tasks/client'
+      ];
+
+      let _secondCall = [
+        'tests/client_ng2',
+        'tests/client'
+      ];
+
+      let _thirdCall = [
+        'client/ng2',
+        'client'
+      ];
+
+      let _fourthCall = [
+        '_karma.conf_ng2.js',
+        'karma.conf.js'
+      ];
+
+      let _fifthCall = [
+        '_karma-test-shim.js',
+        'karma-test-shim.js'
+      ];
+
+      let _sixthCall = [
+        '_typings_ng2.json',
+        'typings.json'
+      ];
+
+      let _seventhCall = [
+        '_tsconfig.json',
+        'tsconfig.json'
+      ];
+
+      let _eightCall = [
+        'tasks/client/ng2/watch.js',
+        'tasks/client/watch.js', {
+          secure: true
+        }
+      ];
+
+      let _ninethCall = [
+        '_ng2_systemjs_config_serving_node_modules.js',
+        'client/dev/config.js'
+      ];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
@@ -327,15 +490,52 @@ describe('ng2', () => {
 
       _ng2.copyClient();
 
-      let _firstCall = ['tasks/client/ng2', 'tasks/client'];
-      let _secondCall = ['tests/client_ng2', 'tests/client'];
-      let _thirdCall = ['client/ng2', 'client'];
-      let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
-      let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
-      let _sixthCall = ['_typings_ng2.json', 'typings.json'];
-      let _seventhCall = ['_tsconfig.json', 'tsconfig.json'];
-      let _eightCall = ['tasks/client/ng2/watch.js', 'tasks/client/watch.js', {secure: true}];
-      let _ninethCall = ['_ng2_systemjs_config_serving_from_root.js', 'client/dev/config.js'];
+      let _firstCall = [
+        'tasks/client/ng2',
+        'tasks/client'
+      ];
+
+      let _secondCall = [
+        'tests/client_ng2',
+        'tests/client'
+      ];
+
+      let _thirdCall = [
+        'client/ng2',
+        'client'
+      ];
+
+      let _fourthCall = [
+        '_karma.conf_ng2.js',
+        'karma.conf.js'
+      ];
+
+      let _fifthCall = [
+        '_karma-test-shim.js',
+        'karma-test-shim.js'
+      ];
+
+      let _sixthCall = [
+        '_typings_ng2.json',
+        'typings.json'
+      ];
+
+      let _seventhCall = [
+        '_tsconfig.json',
+        'tsconfig.json'
+      ];
+
+      let _eightCall = [
+        'tasks/client/ng2/watch.js',
+        'tasks/client/watch.js', {
+          secure: true
+        }
+      ];
+
+      let _ninethCall = [
+        '_ng2_systemjs_config_serving_from_root.js',
+        'client/dev/config.js'
+      ];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
@@ -369,15 +569,52 @@ describe('ng2', () => {
 
       _ng2.copyClient();
 
-      let _firstCall = ['tasks/client/ng2', 'tasks/client'];
-      let _secondCall = ['tests/client_ng2', 'tests/client'];
-      let _thirdCall = ['client/ng2', 'client'];
-      let _fourthCall = ['_karma.conf_ng2.js', 'karma.conf.js'];
-      let _fifthCall = ['_karma-test-shim.js', 'karma-test-shim.js'];
-      let _sixthCall = ['_typings_ng2.json', 'typings.json'];
-      let _seventhCall = ['_tsconfig.json', 'tsconfig.json'];
-      let _eightCall = ['tasks/client/ng2/watch.js', 'tasks/client/watch.js', {secure: true}];
-      let _ninethCall = ['_ng2_systemjs_config_serving_node_modules.js', 'client/dev/config.js'];
+      let _firstCall = [
+        'tasks/client/ng2',
+        'tasks/client'
+      ];
+
+      let _secondCall = [
+        'tests/client_ng2',
+        'tests/client'
+      ];
+
+      let _thirdCall = [
+        'client/ng2',
+        'client'
+      ];
+
+      let _fourthCall = [
+        '_karma.conf_ng2.js',
+        'karma.conf.js'
+      ];
+
+      let _fifthCall = [
+        '_karma-test-shim.js',
+        'karma-test-shim.js'
+      ];
+
+      let _sixthCall = [
+        '_typings_ng2.json',
+        'typings.json'
+      ];
+
+      let _seventhCall = [
+        '_tsconfig.json',
+        'tsconfig.json'
+      ];
+
+      let _eightCall = [
+        'tasks/client/ng2/watch.js',
+        'tasks/client/watch.js', {
+          secure: true
+        }
+      ];
+
+      let _ninethCall = [
+        '_ng2_systemjs_config_serving_node_modules.js',
+        'client/dev/config.js'
+      ];
 
       expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
@@ -409,8 +646,18 @@ describe('ng2', () => {
 
       _ng2.copyDirective();
 
-      let _firstCall = ['ng2/directive.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.ts', {name: _gen.name}];
-      let _secondCall = ['ng2/directive.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.ts', {name: _gen.name, testsSeparated: _gen.testsSeparated}];
+      let _firstCall = [
+        'ng2/directive.ts',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.ts', {
+          name: _gen.name
+        }
+      ];
+
+      let _secondCall = [
+        'ng2/directive.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.ts', {
+          name: _gen.name
+        }
+      ];
 
       expect(_ng2.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng2.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
@@ -430,8 +677,19 @@ describe('ng2', () => {
 
       _ng2.copyFactory();
 
-      let _firstCall = ['ng2/factory.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.ts', {name: utils.capitalizeFirst(_gen.name)}];
-      let _secondCall = ['ng2/factory.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.spec.ts', {name: utils.capitalizeFirst(_gen.name), testsSeparated: _gen.testsSeparated}];
+      let _firstCall = [
+        'ng2/factory.ts',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.ts', {
+          name: utils.capitalizeFirst(_gen.name)
+        }
+      ];
+
+      let _secondCall = [
+        'ng2/factory.spec.ts',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.spec.ts', {
+          name: utils.capitalizeFirst(_gen.name)
+        }
+      ];
 
       expect(_ng2.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       expect(_ng2.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
@@ -449,8 +707,19 @@ describe('ng2', () => {
 
       let _ng2 = new Angular2(_gen);
 
-      let _firstCall = ['ng2/service.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.ts', {name: _gen.name}]
-      let _secondCall = ['ng2/service.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.ts', {name: _gen.name, testsSeparated: _gen.testsSeparated}]
+      let _firstCall = [
+        'ng2/service.ts',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.ts', {
+          name: _gen.name
+        }
+      ];
+
+      let _secondCall = [
+        'ng2/service.spec.ts',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.ts', {
+          name: _gen.name
+        }
+      ];
 
       _ng2.copyService();
 
@@ -470,8 +739,19 @@ describe('ng2', () => {
 
       let _ng2 = new Angular2(_gen);
 
-      let _firstCall = ['ng2/model.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.ts', {name: _gen.name}]
-      let _secondCall = ['ng2/model.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '.spec.ts', {name: _gen.name, testsSeparated: _gen.testsSeparated}]
+      let _firstCall = [
+        'ng2/model.ts',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.ts', {
+          name: _gen.name
+        }
+      ];
+
+      let _secondCall = [
+        'ng2/model.spec.ts',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '.spec.ts', {
+          name: _gen.name
+        }
+      ];
 
       _ng2.copyModel();
 
@@ -490,7 +770,12 @@ describe('ng2', () => {
 
       let _ng2 = new Angular2(_gen);
 
-      let _firstCall = ['view.html', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {name: _gen.name}];
+      let _firstCall = [
+        'view.html',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {
+          name: _gen.name
+        }
+      ];
 
       _ng2.copyTemplate();
 
@@ -508,7 +793,10 @@ describe('ng2', () => {
 
       let _ng2 = new Angular2(_gen);
 
-      let _firstCall = ['style.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'];
+      let _firstCall = [
+        'style.css',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
+      ];
 
       _ng2.copyStyle();
 
@@ -527,10 +815,34 @@ describe('ng2', () => {
 
       let _ng2 = new Angular2(_gen);
 
-      let _firstCall = ['component.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.ts', {nameCapitalized: utils.capitalizeFirst(_gen.name), name: _gen.name, feature: _gen.options.feature}];
-      let _secondCall = ['component.html', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {name: _gen.name}];
-      let _thirdCall = ['component.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'];
-      let _fourthCall = ['component.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '.spec.ts', {name: utils.capitalizeFirst(_gen.name), nameLowerCase: _gen.name.toLowerCase(), testsSeparated: _gen.testsSeparated}];
+      let _firstCall = [
+        'component.ts',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.ts', {
+          nameCapitalized: utils.capitalizeFirst(_gen.name),
+          name: _gen.name,
+          feature: _gen.options.feature
+        }
+      ];
+
+      let _secondCall = [
+        'component.html',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {
+          name: _gen.name
+        }
+      ];
+
+      let _thirdCall = [
+        'component.css',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
+      ];
+
+      let _fourthCall = [
+        'component.spec.ts',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '.spec.ts', {
+          name: utils.capitalizeFirst(_gen.name),
+          nameLowerCase: _gen.name.toLowerCase()
+        }
+      ];
 
       _ng2.copyComponent();
 
