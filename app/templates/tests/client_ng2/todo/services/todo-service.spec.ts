@@ -6,7 +6,13 @@ import {
   describe
 } from '@angular/core/testing';
 
-import {TodoService} from '../../../../client/dev/todo/services/todo-service';
+
+<% if (testsSeparated) { %>
+  import {TodoService} from '../../../../client/dev/todo/services/todo-service';
+<% } else { %>
+  import {TodoService} from './todo-service';
+<% } %>
+
 
 describe('todo_service', () => {
   describe('creation', () => {

@@ -21,8 +21,13 @@ import {
   Observable
 } from 'rxjs/Observable';
 
-import {TodoCmp} from '../../../../client/dev/todo/components/todo-cmp';
-import {TodoService} from '../../../../client/dev/todo/services/todo-service';
+<% if (testsSeparated) { %>
+  import {TodoCmp} from '../../../../client/dev/todo/components/todo-cmp';
+  import {TodoService} from '../../../../client/dev/todo/services/todo-service';
+<% } else { %>
+  import {TodoCmp} from './todo-cmp';
+  import {TodoService} from '../services/todo-service';
+<% } %>
 
 class MockTodoService extends TodoService {
   getAll():Observable<any> {
