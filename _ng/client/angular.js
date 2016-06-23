@@ -7,7 +7,7 @@ const yoUtils = require('../utils/yeoman-utils');
 class Angular1 {
   constructor(gen) {
     this.generator = gen;
-    this.testsSeparated = gen.testsSeparated;
+    this.testsSeparated = gen && gen.testsSeparated ? gen.testsSeparated : true ;
     this.testsPath = this.testsSeparated ? knownPaths.PATH_CLIENT_FEATURES_TEST : knownPaths.PATH_CLIENT_FEATURES;
   }
 
@@ -55,10 +55,6 @@ class Angular1 {
 
     yoUtils.directory(this.generator, _pathSrc, this.generator);
     yoUtils.directory(this.generator, _pathTest, this.generator);
-
-
-
-
   }
 
   copyController(pathTemplate) {
@@ -141,7 +137,7 @@ class Angular1 {
 class Angular2 {
   constructor(gen) {
     this.generator = gen;
-    this.testsSeparated = gen.testsSeparated;
+    this.testsSeparated = gen && gen.testsSeparated ? gen.testsSeparated : true ;
     this.testsPath = this.testsSeparated ? knownPaths.PATH_CLIENT_FEATURES_TEST : knownPaths.PATH_CLIENT_FEATURES;
   }
 

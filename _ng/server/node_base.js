@@ -18,7 +18,7 @@ const basePath = (generator) => {
     modelTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model.spec`,
     modelTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/models/${generator.name}-model.spec`
   }
-}
+};
 
 class NodeBaseStandard {
   constructor(generator, webFramework) {
@@ -28,8 +28,8 @@ class NodeBaseStandard {
 
   copyFiles() {
     let gen = basePath(this.wrapper);
-    console.log('testsSeparated', this.wrapper.testsSeparated);
-    const TESTS = this.wrapper.testsSeparated ? 'Separate' : 'Together';
+    const testsSeparated = this.wrapper.testsSeparated !== undefined ? this.wrapper.testsSeparated : true;
+    const TESTS = testsSeparated ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.route.js', `${gen.route}.js`, {
       feature: this.wrapper.feature,
@@ -154,7 +154,8 @@ class NodeBaseBabel {
 
   copyFiles() {
     let gen = basePath(this.wrapper);
-    const TESTS = this.wrapper.testsSeparated ? 'Separate' : 'Together';
+    const testsSeparated = this.wrapper.testsSeparated !== undefined ? this.wrapper.testsSeparated : true;
+    const TESTS = testsSeparated ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.route.js', `${gen.route}.js`, {
       feature: this.wrapper.feature,
@@ -277,7 +278,8 @@ class NodeBaseTypescript {
 
   copyFiles() {
     let gen = basePath(this.wrapper);
-    let TESTS = this.wrapper.testsSeparated ? 'Separate' : 'Together';
+    const testsSeparated = this.wrapper.testsSeparated !== undefined ? this.wrapper.testsSeparated : true;
+    const TESTS = testsSeparated ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.route.ts', `${gen.route}.ts`, {
       feature: this.wrapper.feature,

@@ -21,7 +21,7 @@ describe('NgFullstack:endpoint', () => {
           }, this.async());
         })
         .withArguments('endp')
-        .withPrompts({appName: "a", userNameSpace: "b", transpilerServer: "node", server: "node"})
+        .withPrompts({appName: "a", userNameSpace: "b", transpilerServer: "node", server: "node", testsSeparated: true})
         .withOptions({feature: 'todo2'})
         .on('end', done);
       });
@@ -53,7 +53,7 @@ describe('NgFullstack:endpoint', () => {
           }, this.async());
         })
         .withArguments('endp')
-        .withPrompts({appName: "a", userNameSpace: "b", transpilerServer: "babel", server: "node"})
+        .withPrompts({appName: "a", userNameSpace: "b", transpilerServer: "babel", server: "node", testsSeparated: true})
         .withOptions({feature: 'todo2'})
         .on('end', done);
       });
@@ -85,7 +85,7 @@ describe('NgFullstack:endpoint', () => {
           }, this.async());
         })
         .withArguments('endp')
-        .withPrompts({appName: "a", userNameSpace: "b", transpilerServer: "typescript", server: "node"})
+        .withPrompts({appName: "a", userNameSpace: "b", transpilerServer: "typescript", server: "node", testsSeparated: true})
         .withOptions({feature: 'todo2'})
         .on('end', done);
       });
@@ -115,7 +115,7 @@ describe('NgFullstack:endpoint', () => {
         }, this.async());
       })
       .withArguments('endp')
-      .withPrompts({appName: "a", userNameSpace: "b", server: "go"})
+      .withPrompts({appName: "a", userNameSpace: "b", server: "go", testsSeparated: true})
       .withOptions({feature: 'todo2'})
       .on('end', done);
     });
@@ -127,10 +127,10 @@ describe('NgFullstack:endpoint', () => {
         'server/api/todo2/model/endpmodel.go',
         'server/api/todo2/routes/endproute.go',
 
-        'server/api/todo2/controller/endpcontroller.spec.go',
-        'server/api/todo2/routes/endproute.spec.go',
-        'server/api/todo2/dao/endpdao.spec.go',
-        'server/api/todo2/model/endpmodel.spec.go'
+        'server/api/todo2/controller/endpcontroller_test.go',
+        'server/api/todo2/routes/endproute_test.go',
+        'server/api/todo2/dao/endpdao_test.go',
+        'server/api/todo2/model/endpmodel_test.go'
       ]);
     });
   })
