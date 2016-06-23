@@ -76,7 +76,7 @@ describe('ng-fullstack -> node', () => {
 
       // tests - e2e
 
-      'tests/e2e/todo.e2e..spec.js'
+      'tests/e2e/todo.e2e.spec.js'
     ];
 
     describe('express', () => {

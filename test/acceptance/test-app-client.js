@@ -74,7 +74,7 @@ describe('ng-fullstack -> client_only', () => {
 
       // tests - e2e
 
-      'tests/e2e/todo.e2e..spec.js'];
+      'tests/e2e/todo.e2e.spec.js'];
 
       before((done) => {
         helpers
@@ -154,7 +154,7 @@ describe('ng-fullstack -> client_only', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e..spec.js'];
+        'tests/e2e/todo.e2e.spec.js'];
 
         before((done) => {
           helpers
