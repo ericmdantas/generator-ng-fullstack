@@ -32,10 +32,33 @@ class Angular1 {
       ['client/ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
     ];
 
+    let _pathTest = [];
+
+    if(this.testsSeparated) {
+      _pathTest = [
+        ['tests/client_ng1/_helpers/invalid-inputs.js', 'tests/client/_helpers/invalid-inputs.js'],
+        ['tests/client_ng1/todo/controllers/todo-controller.spec.js', 'tests/client/todo/controllers/todo-controller.spec.js'],
+        ['tests/client_ng1/todo/models/todo-model.spec.js', 'tests/client/todo/models/todo-model.spec.js'],
+        ['tests/client_ng1/todo/services/todo-dao.spec.js', 'tests/client/todo/services/todo-dao.spec.js']
+      ];
+    } else {
+      _pathTest = [
+        ['client/ng1/dev/helpers/invalid-inputs.js', 'client/helpers/invalid-inputs.js'],
+        ['client/ng1/todo/controllers/todo-controller.spec.js', 'client/todo/controllers/todo-controller.spec.js'],
+        ['client/ng1/todo/models/todo-model.spec.js', 'client/todo/models/todo-model.spec.js'],
+        ['client/ng1/todo/services/todo-dao.spec.js', 'client/todo/services/todo-dao.spec.js']
+      ]
+    }
+
     this.generator.directory('tasks/client/ng1', 'tasks/client');
     this.generator.template('tasks/client/ng1/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
 
     yoUtils.directory(this.generator, _pathSrc, this.generator);
+    yoUtils.directory(this.generator, _pathTest, this.generator);
+
+
+
+
   }
 
   copyController(pathTemplate) {
@@ -142,12 +165,22 @@ class Angular2 {
   }
 
   copyClient() {
-    this.generator.directory('tasks/client_ng2', 'tasks/client');
-    this.generator.directory('client_ng2', 'client');
+    this.generator.directory('tasks/client/ng2', 'tasks/client');
+    this.generator.directory('client/ng2', 'client');
     this.generator.template('_karma.conf_ng2.js', 'karma.conf.js');
     this.generator.template('_karma-test-shim.js', 'karma-test-shim.js');
     this.generator.template('_typings_ng2.json', 'typings.json');
     this.generator.template('_tsconfig.json', 'tsconfig.json');
+
+    if(this.testsSeparated) {
+      this.generator.directory('tests/client_ng2', 'tests/client');
+    } else {
+      let _pathTest = [
+        ['tests/client_ng2/todo/components/todo-cmp.spec.ts', 'client/dev/todo/components/todo-cmp.spec.ts']
+        ['tests/client_ng2/todo/services/todo-service.spec.ts', 'client/dev/todo/services/todo-service.spec.ts']
+      ];
+      yoUtils.directory(this.generator, _pathTest, this.generator);
+    }
 
     if (this.generator.stack === "client")  {
       this.generator.template('_ng2_systemjs_config_serving_from_root.js', 'client/dev/config.js');
