@@ -8,15 +8,18 @@ const basePath = (generator) => {
     route: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/routes/${generator.name}-route`,
     routeTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/routes/${generator.name}-route.spec`,
     routeTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/routes/${generator.name}-route.spec`,
+
     controller: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}-controller`,
     controllerTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}-controller.spec`,
-    controllerTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/controllers/${generator.name}-controller.spec`,
+    controllerTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/controller/${generator.name}-controller.spec`,
+
     dao: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/dao/${generator.name}-dao`,
     daoTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/dao/${generator.name}-dao.spec`,
-    daoTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/daos/${generator.name}-dao.spec`,
+    daoTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/dao/${generator.name}-dao.spec`,
+
     model: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model`,
     modelTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model.spec`,
-    modelTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/models/${generator.name}-model.spec`
+    modelTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/model/${generator.name}-model.spec`
   }
 };
 
@@ -82,7 +85,6 @@ class NodeBaseStandard {
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
-
   }
 
   copyForMainGenerator() {
@@ -305,28 +307,28 @@ class NodeBaseTypescript {
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.route.spec.ts', `${gen[`routeTest${TESTS}`]}.ts`, {
+    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.route.spec.js', `${gen[`routeTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.controller.spec.ts', `${gen[`controllerTest${TESTS}`]}.ts`, {
+    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.controller.spec.js', `${gen[`controllerTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.dao.spec.ts', `${gen[`daoTest${TESTS}`]}.ts`, {
+    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.dao.spec.js', `${gen[`daoTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.model.spec.ts', `${gen[`modelTest${TESTS}`]}.ts`, {
+    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.model.spec.js', `${gen[`modelTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
