@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import {expect} from 'chai';
-<% if (tests) { %>
+<% if (testsSeparated) { %>
 import TodoDAO from `${process.cwd()}/server/api/todo/dao/todo-dao`;
 import { setupMongoose, createTodos } from '../../_helpers/db';
 <% } else { %>

@@ -1,9 +1,15 @@
 "use strict";
 
 const mongoose = require('mongoose');
-const <%= name %>DAO = require(process.cwd() + '/server/api/<%= feature %>dao/<%= name %>-dao');
 const expect = require('chai').expect;
-const setupMongoose = require('../../_helpers/db').setupMongoose;
+<% if (testsSeparated) { %>
+  const <%= name %>DAO = require(process.cwd() + '/server/api/<%= feature %>dao/<%= name %>-dao');
+  const setupMongoose = require('../../_helpers/db').setupMongoose;
+<% } else { %>
+  const <%= name %>DAO = require('./<%= name %>-dao');
+  const setupMongoose = require('../../../config/db.conf.test').setupMongoose;
+<% } %>
+
 
 describe('<%= name %>DAO', () => {
   before(() => {

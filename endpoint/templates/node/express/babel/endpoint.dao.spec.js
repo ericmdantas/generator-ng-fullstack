@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const expect = require('chai').expect;
-<% if (tests) { %>
+<% if (testsSeparated) { %>
 const <%= name %>DAO = require(process.cwd() + '/server/api/<%= feature %>dao/<%= name %>-dao');
 const setupMongoose = require('../../_helpers/db').setupMongoose;
 <% } else { %>

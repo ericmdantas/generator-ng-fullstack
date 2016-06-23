@@ -25,7 +25,7 @@ exports.MainGenerator = class MainGenerator {
       };
       let _repoHostUrl = {repoHostUrl: this.wrapper.repoHostUrl};
       let _server = this.wrapper.server;
-      let _test = this.wrapper.tests;
+      let _testsSeparated = this.wrapper.testsSeparated;
       let _transpilerServer = this.wrapper.transpilerServer;
       let _client = this.wrapper.client;
       let _copiesServer = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "server");
@@ -193,15 +193,15 @@ exports.MainGenerator = class MainGenerator {
     let prompts = [
       {
         type: "confirm",
-        name: "tests",
+        name: "testsSeparated",
         message: "Do you want to keep test in separate directory?",
-        default: false
+        default: true
       }
     ];
 
     this.wrapper.prompt(prompts, (props) => {
-      this.wrapper.tests = props.tests;
-      this.wrapper.config.set('tests', this.wrapper.tests);
+      this.wrapper.testsSeparated = props.testsSeparated;
+      this.wrapper.config.set('testsSeparated', this.wrapper.testsSeparated);
 
       done();
     });

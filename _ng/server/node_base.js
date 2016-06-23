@@ -28,7 +28,7 @@ class NodeBaseStandard {
 
   copyFiles() {
     let gen = basePath(this.wrapper);
-    let TESTS = this.wrapper.tests ? 'Separate' : 'Together';
+    const TESTS = this.wrapper.testsSeparated ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.route.js', `${gen.route}.js`, {
       feature: this.wrapper.feature,
@@ -58,28 +58,28 @@ class NodeBaseStandard {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      tests: this.wrapper.tests
+      testsSeparated: this.wrapper.testsSeparated
     });
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.controller.spec.js', `${gen[`controllerTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      tests: this.wrapper.tests
+      testsSeparated: this.wrapper.testsSeparated
     });
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.dao.spec.js', `${gen[`daoTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      tests: this.wrapper.tests
+      testsSeparated: this.wrapper.testsSeparated
     });
 
     this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.model.spec.js', `${gen[`modelTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      tests: this.wrapper.tests
+      testsSeparated: this.wrapper.testsSeparated
     });
 
   }
@@ -90,7 +90,7 @@ class NodeBaseStandard {
     this.wrapper.template('index_node.js', 'index.js');
     this.wrapper.directory('tasks/server', 'tasks/server');
 
-    if(this.wrapper.tests) {
+    if(this.wrapper.testsSeparated) {
       this.wrapper.directory('tests/server', 'tests/server');
     }
 
@@ -123,11 +123,11 @@ class NodeBaseStandard {
 
     yoUtils.directory(this.wrapper, _paths, {
       appName: this.wrapper.appName,
-      tests: this.wrapper.tests,
+      testsSeparated: this.wrapper.testsSeparated,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
 
-    if(!this.wrapper.tests) {
+    if(!this.wrapper.testsSeparated) {
       let _tests = [
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
@@ -137,7 +137,7 @@ class NodeBaseStandard {
 
       yoUtils.directory(this.wrapper, _tests, {
         appName: this.wrapper.appName,
-        tests: this.wrapper.tests,
+        testsSeparated: this.wrapper.testsSeparated,
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
@@ -153,7 +153,7 @@ class NodeBaseBabel {
 
   copyFiles() {
     let gen = basePath(this.wrapper);
-    let TESTS = this.wrapper.tests ? 'Separate' : 'Together';
+    const TESTS = this.wrapper.testsSeparated ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.route.js', `${gen.route}.js`, {
       feature: this.wrapper.feature,
@@ -183,28 +183,28 @@ class NodeBaseBabel {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      tests: this.wrapper.tests
+      testsSeparated: this.wrapper.testsSeparated
     });
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.controller.spec.js', `${gen[`controllerTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      tests: this.wrapper.tests
+      testsSeparated: this.wrapper.testsSeparated
     });
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.dao.spec.js', `${gen[`daoTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      tests: this.wrapper.tests
+      testsSeparated: this.wrapper.testsSeparated
     });
 
     this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.model.spec.js', `${gen[`modelTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      tests: this.wrapper.tests
+      testsSeparated: this.wrapper.testsSeparated
     });
   }
 
@@ -247,11 +247,11 @@ class NodeBaseBabel {
 
     yoUtils.directory(this.wrapper, _paths, {
       appName: this.wrapper.appName,
-      tests: this.wrapper.tests,
+      testsSeparated: this.wrapper.testsSeparated,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
 
-    if(!this.wrapper.tests) {
+    if(!this.wrapper.testsSeparated) {
       let _tests = [
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
@@ -261,7 +261,7 @@ class NodeBaseBabel {
 
       yoUtils.directory(this.wrapper, _tests, {
         appName: this.wrapper.appName,
-        tests: this.wrapper.tests,
+        testsSeparated: this.wrapper.testsSeparated,
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
@@ -276,7 +276,7 @@ class NodeBaseTypescript {
 
   copyFiles() {
     let gen = basePath(this.wrapper);
-    let TESTS = this.wrapper.tests ? 'Separate' : 'Together';
+    let TESTS = this.wrapper.testsSeparated ? 'Separate' : 'Together';
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.route.ts', `${gen.route}.ts`, {
       feature: this.wrapper.feature,
@@ -306,28 +306,28 @@ class NodeBaseTypescript {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      tests: this.wrapper.tests
+      testsSeparated: this.wrapper.testsSeparated
     });
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.controller.spec.ts', `${gen[`controllerTest${TESTS}`]}.ts`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      tests: this.wrapper.tests
+      testsSeparated: this.wrapper.testsSeparated
     });
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.dao.spec.ts', `${gen[`daoTest${TESTS}`]}.ts`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      tests: this.wrapper.tests
+      testsSeparated: this.wrapper.testsSeparated
     });
 
     this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.model.spec.ts', `${gen[`modelTest${TESTS}`]}.ts`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
-      tests: this.wrapper.tests
+      testsSeparated: this.wrapper.testsSeparated
     });
   }
 
@@ -339,7 +339,7 @@ class NodeBaseTypescript {
     this.wrapper.template('_typings_ng2_and_tsc_server.json', 'typings.json');
     this.wrapper.directory('tasks/server', 'tasks/server');
 
-    if(this.wrapper.tests) {
+    if(this.wrapper.testsSeparated) {
       this.wrapper.directory('tests/server', 'tests/server');
     }
 
@@ -372,11 +372,11 @@ class NodeBaseTypescript {
 
     yoUtils.directory(this.wrapper, _paths, {
       appName: this.wrapper.appName,
-      tests: this.wrapper.tests,
+      testsSeparated: this.wrapper.testsSeparated,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
 
-    if(!this.wrapper.tests) {
+    if(!this.wrapper.testsSeparated) {
       let _tests = [
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
@@ -386,7 +386,7 @@ class NodeBaseTypescript {
 
       yoUtils.directory(this.wrapper, _tests, {
         appName: this.wrapper.appName,
-        tests: this.wrapper.tests,
+        testsSeparated: this.wrapper.testsSeparated,
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }

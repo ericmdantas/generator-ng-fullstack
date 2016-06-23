@@ -1,7 +1,13 @@
-var mongoose = require('mongoose');
-var <%= name %>DAO = require(process.cwd() + '/server/api/<%= feature %>dao/<%= name %>-dao');
-var expect = require('chai').expect;
-var setupMongoose = require('../../_helpers/db').setupMongoose;
+const mongoose = require('mongoose');
+const expect = require('chai').expect;
+<% if (testsSeparated) { %>
+  const <%= name %>DAO = require(process.cwd() + '/server/api/<%= feature %>dao/<%= name %>-dao');
+  const setupMongoose = require('../../_helpers/db').setupMongoose;
+<% } else { %>
+  const <%= name %>DAO = require('./<%= name %>-dao');
+  const setupMongoose = require('../../../config/db.conf.test').setupMongoose;
+<% } %>
+
 
 describe('<%= name %>DAO', () => {
   before(() => {
