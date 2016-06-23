@@ -23,7 +23,7 @@ describe('NgFullstack:model', () => {
     it('creates files', () => {
       assert.file([
         'client/dev/myModel/models/cars.js',
-        'tests/client/myModel/models/cars_test.js'
+        'tests/client/myModel/models/cars.spec.js'
       ]);
     });
   })
@@ -47,7 +47,7 @@ describe('NgFullstack:model', () => {
     it('creates files', () => {
       assert.file([
         'client/dev/myModel/models/cars.ts',
-        'tests/client/myModel/models/cars_test.ts'
+        'tests/client/myModel/models/cars.spec.ts'
       ]);
     });
   })

@@ -97,7 +97,7 @@ describe('FilterSubGenerator', () => {
       _fsg.writing();
 
       let _firstCall = ['filter.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/filters/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}]
-      let _secondCall = ['filter_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/filters/' + _gen.name + '_test.js', {name: _gen.name, appName: _gen.appName}]
+      let _secondCall = ['filter.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/filters/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName}]
 
       expect(_fsg.wrapper.writing).to.have.been.called;
       expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;

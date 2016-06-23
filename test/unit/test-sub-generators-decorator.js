@@ -1,4 +1,4 @@
-import {expect} from 'chai';
+®import {expect} from 'chai';
 import sinon from 'sinon';
 import knownPaths from '../../_ng/utils/known_paths';
 

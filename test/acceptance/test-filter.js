@@ -22,7 +22,7 @@ describe('NgFullstack:service', () => {
   it('creates files', () => {
     assert.file([
       'client/dev/beautifiers/filters/something.js',
-      'tests/client/beautifiers/filters/something_test.js'
+      'tests/client/beautifiers/filters/something.spec.js'
     ]);
   });
 });

@@ -32,7 +32,7 @@ describe('NgFullstack:endpoint', () => {
           'server/api/todo2/model/endp-model.js',
           'server/api/todo2/routes/endp-route.js',
 
-          'tests/server/todo2/dao/endp-dao_test.js'
+          'tests/server/todo2/dao/endp-dao.spec.js'
         ]);
       })
     })
@@ -63,7 +63,7 @@ describe('NgFullstack:endpoint', () => {
           'server/api/todo2/model/endp-model.js',
           'server/api/todo2/routes/endp-route.js',
 
-          'tests/server/todo2/dao/endp-dao_test.js'
+          'tests/server/todo2/dao/endp-dao.spec.js'
         ]);
       })
     })
@@ -94,7 +94,7 @@ describe('NgFullstack:endpoint', () => {
           'server/api/todo2/model/endp-model.ts',
           'server/api/todo2/routes/endp-route.ts',
 
-          'tests/server/todo2/dao/endp-dao_test.js'
+          'tests/server/todo2/dao/endp-dao.spec.js'
         ]);
       })
     })
@@ -124,10 +124,10 @@ describe('NgFullstack:endpoint', () => {
         'server/api/todo2/model/endpmodel.go',
         'server/api/todo2/routes/endproute.go',
 
-        'server/api/todo2/controller/endpcontroller_test.go',
-        'server/api/todo2/routes/endproute_test.go',
-        'server/api/todo2/dao/endpdao_test.go',
-        'server/api/todo2/model/endpmodel_test.go'
+        'server/api/todo2/controller/endpcontroller.spec.go',
+        'server/api/todo2/routes/endproute.spec.go',
+        'server/api/todo2/dao/endpdao.spec.go',
+        'server/api/todo2/model/endpmodel.spec.go'
       ]);
     });
   })

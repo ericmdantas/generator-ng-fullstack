@@ -24,7 +24,7 @@ describe('NgFullstack:component', () => {
         'client/dev/yo/components/user.ts',
         'client/dev/yo/templates/user.html',
         'client/dev/yo/styles/user.css',
-        'tests/client/yo/components/user_test.ts'
+        'tests/client/yo/components/user.spec.ts'
       ]);
   });
 });

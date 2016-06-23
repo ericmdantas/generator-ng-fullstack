@@ -21,7 +21,7 @@ describe('ng-fullstack -> node', () => {
 
       'tasks/server/build.js',
       'tasks/server/test.js'
-    ]
+    ];
 
     let _commonFiles = [
       '.editorconfig',
@@ -70,13 +70,13 @@ describe('ng-fullstack -> node', () => {
 
       'tests/client/_helpers/invalid-inputs.js',
 
-      'tests/client/todo/controllers/todo-controller_test.js',
+      'tests/client/todo/controllers/todo-controller.spec.js',
       'tests/client/todo/services/todo-dao.spec.js',
-      'tests/client/todo/models/todo-model_test.js',
+      'tests/client/todo/models/todo-model.spec.js',
 
       // tests - e2e
 
-      'tests/e2e/todo.e2e._test.js'
+      'tests/e2e/todo.e2e..spec.js'
     ];
 
     describe('express', () => {
