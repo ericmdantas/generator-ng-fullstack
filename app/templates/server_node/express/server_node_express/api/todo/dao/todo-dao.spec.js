@@ -1,7 +1,13 @@
 import mongoose from 'mongoose';
-import TodoDAO from './todo-dao';
 import {expect} from 'chai';
-import {setupMongoose, createTodos} from '../../../config/db.conf.test';
+<% if (tests) { %>
+import TodoDAO from `${process.cwd()}/server/api/todo/dao/todo-dao`;
+import { setupMongoose, createTodos } from '../../_helpers/db';
+<% } else { %>
+import TodoDAO from './todo-dao';
+import { setupMongoose, createTodos } from '../../../config/db.conf.test';
+<% } %>
+
 
 describe('todo.dao', () => {
     before(() => {
