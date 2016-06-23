@@ -53,8 +53,8 @@ describe('ng-fullstack -> golang', () => {
 
       // tests - client
 
-      'tests/client/todo/services/todo-service_test.ts',
-      'tests/client/todo/components/todo-cmp_test.ts',
+      'tests/client/todo/services/todo-service.spec.ts',
+      'tests/client/todo/components/todo-cmp.spec.ts',
 
       // tests - e2e
 
