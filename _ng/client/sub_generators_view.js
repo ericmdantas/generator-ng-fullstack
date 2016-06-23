@@ -10,6 +10,7 @@ exports.ViewSubGenerator = class ViewSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
     this.wrapper.ngVersion = this.wrapper.config.get('client');
+    this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
   }
 
   initializing() {

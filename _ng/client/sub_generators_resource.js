@@ -12,6 +12,7 @@ exports.ResourceSubGenerator = class ResourceSubGenerator {
     this.wrapper = generator;
     this.wrapper.ngVersion = this.wrapper.config.get('client');
     this.wrapper.appName = this.wrapper.config.get('appName');
+    this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
   }
 
   initializing() {
