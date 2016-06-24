@@ -74,7 +74,7 @@ describe('ng-fullstack -> golang', () => {
     'server/api/todo/controller/todocontroller.go',
     'server/api/todo/dao/tododao.go',
     'server/api/todo/model/todomodel.go',
-    'server/api/todo/routes/todoroutes.go',
+    'server/api/todo/route/todoroute.go',
 
 
     // tests - server
@@ -88,7 +88,7 @@ describe('ng-fullstack -> golang', () => {
     'server/api/todo/controller/todocontroller_test.go',
     'server/api/todo/dao/tododao_test.go',
     'server/api/todo/model/todomodel_test.go',
-    'server/api/todo/routes/todoroutes_test.go',
+    'server/api/todo/route/todoroute_test.go',
 
     // tests - e2e
 
@@ -132,7 +132,7 @@ describe('ng-fullstack -> golang', () => {
     'server/api/todo/controller/todocontroller.go',
     'server/api/todo/dao/tododao.go',
     'server/api/todo/model/todomodel.go',
-    'server/api/todo/routes/todoroutes.go',
+    'server/api/todo/route/todoroute.go',
 
 
     // tests - server
@@ -146,7 +146,7 @@ describe('ng-fullstack -> golang', () => {
     'server/api/todo/controller/todocontroller_test.go',
     'server/api/todo/dao/tododao_test.go',
     'server/api/todo/model/todomodel_test.go',
-    'server/api/todo/routes/todoroutes_test.go',
+    'server/api/todo/route/todoroute_test.go',
 
     // tests - e2e
 
@@ -188,7 +188,7 @@ describe('ng-fullstack -> golang', () => {
       'server/api/todo/controller/todocontroller.go',
       'server/api/todo/dao/tododao.go',
       'server/api/todo/model/todomodel.go',
-      'server/api/todo/routes/todoroutes.go',
+      'server/api/todo/route/todoroute.go',
 
 
       // tests - server
@@ -202,7 +202,7 @@ describe('ng-fullstack -> golang', () => {
       'server/api/todo/controller/todocontroller_test.go',
       'server/api/todo/dao/tododao_test.go',
       'server/api/todo/model/todomodel_test.go',
-      'server/api/todo/routes/todoroutes_test.go',
+      'server/api/todo/route/todoroute_test.go',
 
       // tests - e2e
 
@@ -258,7 +258,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller.go',
         'server/api/todo/dao/tododao.go',
         'server/api/todo/model/todomodel.go',
-        'server/api/todo/routes/todoroutes.go',
+        'server/api/todo/route/todoroute.go',
 
 
         // tests - server
@@ -272,7 +272,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller_test.go',
         'server/api/todo/dao/tododao_test.go',
         'server/api/todo/model/todomodel_test.go',
-        'server/api/todo/routes/todoroutes_test.go',
+        'server/api/todo/route/todoroute_test.go',
 
         // tests - e2e
 
@@ -312,7 +312,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller.go',
         'server/api/todo/dao/tododao.go',
         'server/api/todo/model/todomodel.go',
-        'server/api/todo/routes/todoroutes.go',
+        'server/api/todo/route/todoroute.go',
 
 
         // tests - server
@@ -324,7 +324,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller_test.go',
         'server/api/todo/dao/tododao_test.go',
         'server/api/todo/model/todomodel_test.go',
-        'server/api/todo/routes/todoroutes_test.go',
+        'server/api/todo/route/todoroute_test.go',
 
         // tests - e2e
 
@@ -369,7 +369,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller.go',
         'server/api/todo/dao/tododao.go',
         'server/api/todo/model/todomodel.go',
-        'server/api/todo/routes/todoroutes.go',
+        'server/api/todo/route/todoroute.go',
 
 
         // tests - server
@@ -381,7 +381,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller_test.go',
         'server/api/todo/dao/tododao_test.go',
         'server/api/todo/model/todomodel_test.go',
-        'server/api/todo/routes/todoroutes_test.go',
+        'server/api/todo/route/todoroute_test.go',
 
         // tests - e2e
 
@@ -433,7 +433,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller.go',
         'server/api/todo/dao/tododao.go',
         'server/api/todo/model/todomodel.go',
-        'server/api/todo/routes/todoroutes.go',
+        'server/api/todo/route/todoroute.go',
 
 
         // tests - server
@@ -445,7 +445,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller_test.go',
         'server/api/todo/dao/tododao_test.go',
         'server/api/todo/model/todomodel_test.go',
-        'server/api/todo/routes/todoroutes_test.go',
+        'server/api/todo/route/todoroute_test.go',
 
         // tests - e2e
 
@@ -497,7 +497,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller.go',
         'server/api/todo/dao/tododao.go',
         'server/api/todo/model/todomodel.go',
-        'server/api/todo/routes/todoroutes.go',
+        'server/api/todo/route/todoroute.go',
 
 
         // tests - server
@@ -509,7 +509,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller_test.go',
         'server/api/todo/dao/tododao_test.go',
         'server/api/todo/model/todomodel_test.go',
-        'server/api/todo/routes/todoroutes_test.go',
+        'server/api/todo/route/todoroute_test.go',
 
         // tests - e2e
 
@@ -562,7 +562,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller.go',
         'server/api/todo/dao/tododao.go',
         'server/api/todo/model/todomodel.go',
-        'server/api/todo/routes/todoroutes.go',
+        'server/api/todo/route/todoroute.go',
 
 
         // tests - server
@@ -574,7 +574,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller_test.go',
         'server/api/todo/dao/tododao_test.go',
         'server/api/todo/model/todomodel_test.go',
-        'server/api/todo/routes/todoroutes_test.go',
+        'server/api/todo/route/todoroute_test.go',
 
         // tests - e2e
 
@@ -627,7 +627,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller.go',
         'server/api/todo/dao/tododao.go',
         'server/api/todo/model/todomodel.go',
-        'server/api/todo/routes/todoroutes.go',
+        'server/api/todo/route/todoroute.go',
 
 
         // tests - server
@@ -639,7 +639,7 @@ describe('ng-fullstack -> golang', () => {
         'server/api/todo/controller/todocontroller_test.go',
         'server/api/todo/dao/tododao_test.go',
         'server/api/todo/model/todomodel_test.go',
-        'server/api/todo/routes/todoroutes_test.go',
+        'server/api/todo/route/todoroute_test.go',
 
         // tests - e2e
 

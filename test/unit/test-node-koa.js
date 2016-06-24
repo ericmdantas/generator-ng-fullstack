@@ -52,7 +52,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `node/koa/no_transpiler/endpoint.route.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}-route.js`, {
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature
@@ -108,7 +108,7 @@ describe('node -> koa', () => {
 
         let _seventhCall = [
           `node/koa/no_transpiler/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/routes/${_newGenerator.name}-route.spec.js`, {
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -250,7 +250,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `node/koa/babel/endpoint.route.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}-route.js`, {
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature
@@ -306,7 +306,7 @@ describe('node -> koa', () => {
 
         let _seventhCall = [
           `node/koa/babel/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/routes/${_newGenerator.name}-route.spec.js`, {
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -448,7 +448,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `node/koa/typescript/endpoint.route.ts`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}-route.ts`, {
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route.ts`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature
@@ -504,7 +504,7 @@ describe('node -> koa', () => {
 
         let _seventhCall = [
           `node/koa/typescript/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/routes/${_newGenerator.name}-route.spec.js`, {
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,

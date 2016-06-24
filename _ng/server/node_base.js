@@ -5,9 +5,9 @@ const yoUtils = require('../utils/yeoman-utils');
 
 const basePath = (generator) => {
   return {
-    route: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/routes/${generator.name}-route`,
-    routeTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/routes/${generator.name}-route.spec`,
-    routeTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/routes/${generator.name}-route.spec`,
+    route: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/route/${generator.name}-route`,
+    routeTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/route/${generator.name}-route.spec`,
+    routeTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/route/${generator.name}-route.spec`,
 
     controller: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}-controller`,
     controllerTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}-controller.spec`,
@@ -117,7 +117,7 @@ class NodeBaseStandard {
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/controller/todo-controller.js', 'server/api/todo/controller/todo-controller.js'],
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
-      ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/routes/todo-routes.js', 'server/api/todo/routes/todo-routes.js']
+      ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/route/todo-route.js', 'server/api/todo/route/todo-route.js']
     ];
 
     if (!this.wrapper.differentStaticServer) {
@@ -135,7 +135,7 @@ class NodeBaseStandard {
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/model/todo-model.spec.js', 'server/api/todo/model/todo-model.spec.js'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/routes/todo-routes.spec.js', 'server/api/todo/routes/todo-routes.spec.js']
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/route/todo-route.spec.js', 'server/api/todo/route/todo-route.spec.js']
       ];
 
       yoUtils.directory(this.wrapper, _tests, {
@@ -242,7 +242,7 @@ class NodeBaseBabel {
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller.js', 'server/api/todo/controller/todo-controller.js'],
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
-      ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/routes/todo-routes.js', 'server/api/todo/routes/todo-routes.js']
+      ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/route/todo-route.js', 'server/api/todo/route/todo-route.js']
     ];
 
     if (!this.wrapper.differentStaticServer) {
@@ -260,7 +260,7 @@ class NodeBaseBabel {
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model.spec.js', 'server/api/todo/model/todo-model.spec.js'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/routes/todo-routes.spec.js', 'server/api/todo/routes/todo-routes.spec.js']
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/route/todo-route.spec.js', 'server/api/todo/route/todo-route.spec.js']
       ];
 
       yoUtils.directory(this.wrapper, _tests, {
@@ -368,7 +368,7 @@ class NodeBaseTypescript {
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller.ts', 'server/api/todo/controller/todo-controller.ts'],
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao.ts', 'server/api/todo/dao/todo-dao.ts'],
       ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model.ts', 'server/api/todo/model/todo-model.ts'],
-      ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/routes/todo-routes.ts', 'server/api/todo/routes/todo-routes.ts']
+      ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/route/todo-route.ts', 'server/api/todo/route/todo-route.ts']
     ];
 
     if (!this.wrapper.differentStaticServer) {
@@ -386,7 +386,7 @@ class NodeBaseTypescript {
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model.spec.js', 'server/api/todo/model/todo-model.spec.js'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/routes/todo-routes.spec.js', 'server/api/todo/routes/todo-routes.spec.js']
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/route/todo-route.spec.js', 'server/api/todo/route/todo-route.spec.js']
       ];
 
       yoUtils.directory(this.wrapper, _tests, {

@@ -1,4 +1,4 @@
-package todoroutes
+package todoroute
 
 import (
 	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/controller"
