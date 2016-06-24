@@ -42,7 +42,8 @@ describe('node -> koa', () => {
           feature: 'a',
           name: 'b',
           template: sinon.spy(),
-          directory: sinon.spy()
+          directory: sinon.spy(),
+          testsSeparated: true
         }
 
         let _n = new NodeKoaStandard(_newGenerator);
@@ -53,7 +54,8 @@ describe('node -> koa', () => {
           `node/koa/no_transpiler/endpoint.route.js`,
           `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}-route.js`, {
             name: _newGenerator.name,
-            nameLowerCase: _newGenerator.name.toLowerCase()
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature
           }
         ];
 
@@ -61,7 +63,8 @@ describe('node -> koa', () => {
           `node/koa/no_transpiler/endpoint.controller.js`,
           `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.js`, {
             name: _newGenerator.name,
-            nameLowerCase: _newGenerator.name.toLowerCase()
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature
           }
         ];
 
@@ -69,7 +72,8 @@ describe('node -> koa', () => {
           `node/koa/no_transpiler/endpoint.dao.js`,
           `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.js`, {
             name: _newGenerator.name,
-            nameLowerCase: _newGenerator.name.toLowerCase()
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature
           }
         ];
 
@@ -77,7 +81,8 @@ describe('node -> koa', () => {
           `node/koa/no_transpiler/endpoint.model.js`,
           `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.js`, {
             name: _newGenerator.name,
-            nameLowerCase: _newGenerator.name.toLowerCase()
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature
           }
         ];
 
@@ -86,7 +91,38 @@ describe('node -> koa', () => {
           `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
-            feature: _newGenerator.feature
+            feature: _newGenerator.feature,
+            testsSeparated: _newGenerator.testsSeparated
+          }
+        ];
+
+        let _sixthCall = [
+          `node/koa/no_transpiler/endpoint.model.spec.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+            name: _newGenerator.name,
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature,
+            testsSeparated: _newGenerator.testsSeparated
+          }
+        ];
+
+        let _seventhCall = [
+          `node/koa/no_transpiler/endpoint.route.spec.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/routes/${_newGenerator.name}-route.spec.js`, {
+            name: _newGenerator.name,
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature,
+            testsSeparated: _newGenerator.testsSeparated
+          }
+        ];
+
+        let _eighthCall = [
+          `node/koa/no_transpiler/endpoint.controller.spec.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+            name: _newGenerator.name,
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature,
+            testsSeparated: _newGenerator.testsSeparated
           }
         ];
 
@@ -96,6 +132,9 @@ describe('node -> koa', () => {
         expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
         expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
         expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
       });
     });
 
@@ -105,7 +144,8 @@ describe('node -> koa', () => {
           feature: 'a',
           name: 'b',
           directory: sinon.spy(),
-          template: sinon.spy()
+          template: sinon.spy(),
+          testsSeparated: true
         }
 
         let _n = new NodeKoaStandard(_newGenerator);
@@ -146,7 +186,8 @@ describe('node -> koa', () => {
           name: 'b',
           secure: true,
           directory: sinon.spy(),
-          template: sinon.spy()
+          template: sinon.spy(),
+          testsSeparated: true
         }
 
         let _n = new NodeKoaStandard(_newGenerator);
@@ -199,7 +240,8 @@ describe('node -> koa', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
-          template: sinon.spy()
+          template: sinon.spy(),
+          testsSeparated: true
         }
 
         let _n = new NodeKoaBabel(_newGenerator);
@@ -210,7 +252,8 @@ describe('node -> koa', () => {
           `node/koa/babel/endpoint.route.js`,
           `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}-route.js`, {
             name: _newGenerator.name,
-            nameLowerCase: _newGenerator.name.toLowerCase()
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature
           }
         ];
 
@@ -218,7 +261,8 @@ describe('node -> koa', () => {
           `node/koa/babel/endpoint.controller.js`,
           `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.js`, {
             name: _newGenerator.name,
-            nameLowerCase: _newGenerator.name.toLowerCase()
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature
           }
         ];
 
@@ -226,7 +270,8 @@ describe('node -> koa', () => {
           `node/koa/babel/endpoint.dao.js`,
           `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.js`, {
             name: _newGenerator.name,
-            nameLowerCase: _newGenerator.name.toLowerCase()
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature
           }
         ];
 
@@ -234,7 +279,8 @@ describe('node -> koa', () => {
           `node/koa/babel/endpoint.model.js`,
           `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.js`, {
             name: _newGenerator.name,
-            nameLowerCase: _newGenerator.name.toLowerCase()
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature
           }
         ];
 
@@ -243,7 +289,38 @@ describe('node -> koa', () => {
           `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
-            feature: _newGenerator.feature
+            feature: _newGenerator.feature,
+            testsSeparated: _newGenerator.testsSeparated
+          }
+        ];
+
+        let _sixthCall = [
+          `node/koa/babel/endpoint.model.spec.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+            name: _newGenerator.name,
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature,
+            testsSeparated: _newGenerator.testsSeparated
+          }
+        ];
+
+        let _seventhCall = [
+          `node/koa/babel/endpoint.route.spec.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/routes/${_newGenerator.name}-route.spec.js`, {
+            name: _newGenerator.name,
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature,
+            testsSeparated: _newGenerator.testsSeparated
+          }
+        ];
+
+        let _eighthCall = [
+          `node/koa/babel/endpoint.controller.spec.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+            name: _newGenerator.name,
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature,
+            testsSeparated: _newGenerator.testsSeparated
           }
         ];
 
@@ -253,6 +330,9 @@ describe('node -> koa', () => {
         expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
         expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
         expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
+        expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
       });
     });
 
@@ -262,7 +342,8 @@ describe('node -> koa', () => {
           feature: 'a',
           name: 'b',
           directory: sinon.spy(),
-          template: sinon.spy()
+          template: sinon.spy(),
+          testsSeparated: true
         }
 
         let _n = new NodeKoaBabel(_newGenerator);
@@ -303,7 +384,8 @@ describe('node -> koa', () => {
           secure: true,
           name: 'b',
           directory: sinon.spy(),
-          template: sinon.spy()
+          template: sinon.spy(),
+          testsSeparated: true
         }
 
         let _n = new NodeKoaBabel(_newGenerator);
@@ -356,7 +438,8 @@ describe('node -> koa', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
-          template: sinon.spy()
+          template: sinon.spy(),
+          testsSeparated: true
         }
 
         let _n = new NodeKoaTypescript(_newGenerator);
@@ -367,7 +450,8 @@ describe('node -> koa', () => {
           `node/koa/typescript/endpoint.route.ts`,
           `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}-route.ts`, {
             name: _newGenerator.name,
-            nameLowerCase: _newGenerator.name.toLowerCase()
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature
           }
         ];
 
@@ -375,7 +459,8 @@ describe('node -> koa', () => {
           `node/koa/typescript/endpoint.controller.ts`,
           `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.ts`, {
             name: _newGenerator.name,
-            nameLowerCase: _newGenerator.name.toLowerCase()
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature
           }
         ];
 
@@ -383,7 +468,8 @@ describe('node -> koa', () => {
           `node/koa/typescript/endpoint.dao.ts`,
           `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.ts`, {
             name: _newGenerator.name,
-            nameLowerCase: _newGenerator.name.toLowerCase()
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature
           }
         ];
 
@@ -391,7 +477,8 @@ describe('node -> koa', () => {
           `node/koa/typescript/endpoint.model.ts`,
           `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.ts`, {
             name: _newGenerator.name,
-            nameLowerCase: _newGenerator.name.toLowerCase()
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature
           }
         ];
 
@@ -400,7 +487,38 @@ describe('node -> koa', () => {
           `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
-            feature: _newGenerator.feature
+            feature: _newGenerator.feature,
+            testsSeparated: _newGenerator.testsSeparated
+          }
+        ];
+
+        let _sixthCall = [
+          `node/koa/typescript/endpoint.modal.spec.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+            name: _newGenerator.name,
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature,
+            testsSeparated: _newGenerator.testsSeparated
+          }
+        ];
+
+        let _seventhCall = [
+          `node/koa/typescript/endpoint.route.spec.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/routes/${_newGenerator.name}-route.spec.js`, {
+            name: _newGenerator.name,
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature,
+            testsSeparated: _newGenerator.testsSeparated
+          }
+        ];
+
+        let _eighthCall = [
+          `node/koa/typescript/endpoint.controller.spec.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+            name: _newGenerator.name,
+            nameLowerCase: _newGenerator.name.toLowerCase(),
+            feature: _newGenerator.feature,
+            testsSeparated: _newGenerator.testsSeparated
           }
         ];
 
@@ -419,7 +537,8 @@ describe('node -> koa', () => {
           feature: 'a',
           name: 'b',
           directory: sinon.spy(),
-          template: sinon.spy()
+          template: sinon.spy(),
+          testsSeparated: true
         }
 
         let _n = new NodeKoaTypescript(_newGenerator);
@@ -473,7 +592,8 @@ describe('node -> koa', () => {
           name: 'b',
           secure: true,
           directory: sinon.spy(),
-          template: sinon.spy()
+          template: sinon.spy(),
+          testsSeparated: true
         }
 
         let _n = new NodeKoaTypescript(_newGenerator);
