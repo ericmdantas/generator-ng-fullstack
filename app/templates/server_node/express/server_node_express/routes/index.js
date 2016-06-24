@@ -1,6 +1,6 @@
 "use strict";
 
-const TodoRoutes = require('./todo-route');
+const TodoRoutes = require('../api/todo/route/todo-route');
 <% if (!differentStaticServer) {%>
 const StaticDispatcher = require('../commons/static/index');
 <% } %>
