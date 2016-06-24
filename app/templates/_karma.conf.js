@@ -28,8 +28,11 @@ module.exports = (config) => {
 
         'client/dev/bower_components/angular-mocks/angular-mocks.js',
 
-        'tests/client/**/*_test.js',
-
+        <% if (testsSeparated) { %>
+        'tests/client/**/*.spec.js',
+        <% } else { %>
+        'client/dev/**/*.spec.js',
+        <% } %>
         'client/dev/partials/includes/*.html' // for templateUrl testing
       ],
 

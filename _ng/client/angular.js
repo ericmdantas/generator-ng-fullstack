@@ -144,7 +144,7 @@ class Angular2 {
   copyClient() {
     this.generator.directory('tasks/client/ng2', 'tasks/client');
     this.generator.directory('client/ng2', 'client');
-    this.generator.template('_karma.conf_ng2.js', 'karma.conf.js');
+    this.generator.template('_karma.conf_ng2.js', 'karma.conf.js', {testsSeparated: this.testsSeparated});
     this.generator.template('_karma-test-shim.js', 'karma-test-shim.js');
     this.generator.template('_typings_ng2.json', 'typings.json');
     this.generator.template('_tsconfig.json', 'tsconfig.json');
