@@ -61,6 +61,7 @@ describe('sub_generators', () => {
           let _gen = {
             name: 'a',
             appName: 'b',
+            testsSeparated: true,
             options: {feature: 'c'},
             config: {
               get(){return 'ng1'}
@@ -72,8 +73,22 @@ describe('sub_generators', () => {
 
           _dsg.writing();
 
-          let _firstCall = ['ng1/directive.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
-          let _secondCall = ['ng1/directive.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName}];
+          let _firstCall = [
+            'ng1/directive.js',
+            knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {
+              name: _gen.name,
+              appName: _gen.appName
+            }
+          ];
+
+          let _secondCall = [
+            'ng1/directive.spec.js',
+            knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {
+              name: _gen.name,
+              appName: _gen.appName,
+              testsSeparated: _gen.testsSeparated
+            }
+          ];
 
           expect(_dsg.wrapper.writing).to.have.been.called;
           expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
@@ -94,7 +109,7 @@ describe('sub_generators', () => {
 
           let _dsg = new DirectiveSubGenerator(_gen);
 
-          expect(() => _dsg.writing()).to.throw(Error, /Do it like this: --feature something-here/);          
+          expect(() => _dsg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
         });
 
         it('should have the writing called with the right stuff', () => {
@@ -111,8 +126,19 @@ describe('sub_generators', () => {
 
           _dsg.writing();
 
-          let _firstCall = ['ng2/directive.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.ts', {name: _gen.name}];
-          let _secondCall = ['ng2/directive.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.ts', {name: _gen.name}];
+          let _firstCall = [
+            'ng2/directive.ts',
+            knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.ts', {
+              name: _gen.name
+            }
+          ];
+
+          let _secondCall = [
+            'ng2/directive.spec.ts',
+            knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.ts', {
+              name: _gen.name
+            }
+          ];
 
           expect(_dsg.wrapper.writing).to.have.been.called;
           expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
