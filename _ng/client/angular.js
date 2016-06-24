@@ -7,7 +7,7 @@ const yoUtils = require('../utils/yeoman-utils');
 class Angular1 {
   constructor(gen) {
     this.generator = gen;
-    this.testsSeparated = gen && gen.testsSeparated ? gen.testsSeparated : true ;
+    this.testsSeparated = gen && gen.testsSeparated !== undefined && typeof(gen.testsSeparated) === "boolean" ? gen.testsSeparated : true;
     this.testsPath = this.testsSeparated ? knownPaths.PATH_CLIENT_FEATURES_TEST : knownPaths.PATH_CLIENT_FEATURES;
   }
 
@@ -137,7 +137,7 @@ class Angular1 {
 class Angular2 {
   constructor(gen) {
     this.generator = gen;
-    this.testsSeparated = gen && gen.testsSeparated ? gen.testsSeparated : true ;
+    this.testsSeparated = gen && gen.testsSeparated !== undefined && typeof(gen.testsSeparated) === "boolean" ? gen.testsSeparated : true;
     this.testsPath = this.testsSeparated ? knownPaths.PATH_CLIENT_FEATURES_TEST : knownPaths.PATH_CLIENT_FEATURES;
   }
 
@@ -194,7 +194,6 @@ class Angular2 {
 
   copyService(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
-
     this.generator.template(_pathTemplate + 'ng2/service.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/services/${this.generator.name}.ts`, {name: this.generator.name});
     this.generator.template(_pathTemplate + 'ng2/service.spec.ts', `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}.spec.ts`, {name: this.generator.name});
   }

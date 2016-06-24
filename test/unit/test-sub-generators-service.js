@@ -90,7 +90,7 @@ describe('ServiceSubGenerator', () => {
         expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
 
-      it('should have the writing called with the right stuff and test in source directory', () => {
+      it('should have the writing called with the right stuff - testsSeparated', () => {
         let _gen = {
           name: 'a',
           appName: 'b',
@@ -98,7 +98,12 @@ describe('ServiceSubGenerator', () => {
           testsSeparated: false,
           template: sinon.spy(),
           config: {
-            get(){return 'ng1'}
+            get(token) {
+              switch (token) {
+                case "testsSeparated": return false;
+                default: return 'ng1';
+              }
+            }
           }
         };
 
@@ -115,9 +120,7 @@ describe('ServiceSubGenerator', () => {
           'ng1/service.spec.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {
             name: _gen.name,
-            appName: _gen.appName,
-            feature: _gen.options.feature,
-            testsSeparated: _gen.testsSeparated
+            appName: _gen.appName
           }];
 
         _ssg.writing();
@@ -175,14 +178,19 @@ describe('ServiceSubGenerator', () => {
         expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
 
-      it('should have the writing called with the right stuff and test in source directory', () => {
+      it('should have the writing called with the right stuff - testsSeparated', () => {
         let _gen = {
           name: 'a',
           options: {feature: 'c'},
           testsSeparated: false,
           template: sinon.spy(),
           config: {
-            get(){return 'ng2'}
+            get(token) {
+              switch (token) {
+                case "testsSeparated": return false;
+                default: return 'ng2';
+              }
+            }
           }
         };
 
@@ -197,9 +205,7 @@ describe('ServiceSubGenerator', () => {
         let _secondCall = [
           'ng2/service.spec.ts',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.spec.ts', {
-            name: _gen.name,
-            feature: _gen.options.feature,
-            testsSeparated: _gen.testsSeparated
+            name: _gen.name
           }];
 
         _ssg.writing();
