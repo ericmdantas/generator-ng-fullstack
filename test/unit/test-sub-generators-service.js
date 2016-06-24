@@ -60,6 +60,7 @@ describe('ServiceSubGenerator', () => {
           name: 'a',
           appName: 'b',
           options: {feature: 'c'},
+          testsSeparated: false,
           template: sinon.spy(),
           config: {
             get(){return 'ng1'}
@@ -68,8 +69,56 @@ describe('ServiceSubGenerator', () => {
 
         let _ssg = new ServiceSubGenerator(_gen);
 
-        let _firstCall = ['ng1/service.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}]
-        let _secondCall = ['ng1/service.spec.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {name: _gen.name, appName: _gen.appName}]
+        let _firstCall = [
+          'ng1/service.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {
+            name: _gen.name,
+            appName: _gen.appName
+          }];
+
+        let _secondCall = [
+          'ng1/service.spec.js',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {
+            name: _gen.name,
+            appName: _gen.appName
+          }];
+
+        _ssg.writing();
+
+        expect(_ssg.wrapper.writing).to.have.been.called;
+        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+      });
+
+      it('should have the writing called with the right stuff and test in source directory', () => {
+        let _gen = {
+          name: 'a',
+          appName: 'b',
+          options: {feature: 'c'},
+          testsSeparated: false,
+          template: sinon.spy(),
+          config: {
+            get(){return 'ng1'}
+          }
+        };
+
+        let _ssg = new ServiceSubGenerator(_gen);
+
+        let _firstCall = [
+          'ng1/service.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {
+            name: _gen.name,
+            appName: _gen.appName
+          }];
+
+        let _secondCall = [
+          'ng1/service.spec.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {
+            name: _gen.name,
+            appName: _gen.appName,
+            feature: _gen.options.feature,
+            testsSeparated: _gen.testsSeparated
+          }];
 
         _ssg.writing();
 
@@ -107,8 +156,51 @@ describe('ServiceSubGenerator', () => {
 
         let _ssg = new ServiceSubGenerator(_gen);
 
-        let _firstCall = ['ng2/service.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.ts', {name: _gen.name}]
-        let _secondCall = ['ng2/service.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.ts', {name: _gen.name}]
+        let _firstCall = [
+          'ng2/service.ts',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.ts', {
+            name: _gen.name
+          }];
+
+        let _secondCall = [
+          'ng2/service.spec.ts',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.ts', {
+            name: _gen.name
+          }];
+
+        _ssg.writing();
+
+        expect(_ssg.wrapper.writing).to.have.been.called;
+        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+      });
+
+      it('should have the writing called with the right stuff and test in source directory', () => {
+        let _gen = {
+          name: 'a',
+          options: {feature: 'c'},
+          testsSeparated: false,
+          template: sinon.spy(),
+          config: {
+            get(){return 'ng2'}
+          }
+        };
+
+        let _ssg = new ServiceSubGenerator(_gen);
+
+        let _firstCall = [
+          'ng2/service.ts',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.ts', {
+            name: _gen.name
+          }];
+
+        let _secondCall = [
+          'ng2/service.spec.ts',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.spec.ts', {
+            name: _gen.name,
+            feature: _gen.options.feature,
+            testsSeparated: _gen.testsSeparated
+          }];
 
         _ssg.writing();
 
