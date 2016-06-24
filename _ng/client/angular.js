@@ -36,14 +36,12 @@ class Angular1 {
 
     if(this.testsSeparated) {
       _pathTest = [
-        ['tests/client_ng1/_helpers/invalid-inputs.js', 'tests/client/_helpers/invalid-inputs.js'],
         ['tests/client_ng1/todo/controllers/todo-controller.spec.js', 'tests/client/todo/controllers/todo-controller.spec.js'],
         ['tests/client_ng1/todo/models/todo-model.spec.js', 'tests/client/todo/models/todo-model.spec.js'],
         ['tests/client_ng1/todo/services/todo-dao.spec.js', 'tests/client/todo/services/todo-dao.spec.js']
       ];
     } else {
       _pathTest = [
-        ['client/ng1/dev/helpers/invalid-inputs.js', 'client/dev/helpers/invalid-inputs.js'],
         ['tests/client_ng1/todo/controllers/todo-controller.spec.js', 'client/dev/todo/controllers/todo-controller.spec.js'],
         ['tests/client_ng1/todo/models/todo-model.spec.js', 'client/dev/todo/models/todo-model.spec.js'],
         ['tests/client_ng1/todo/services/todo-dao.spec.js', 'client/dev/todo/services/todo-dao.spec.js']

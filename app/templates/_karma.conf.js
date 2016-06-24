@@ -13,20 +13,19 @@ module.exports = (config) => {
 
 
     // list of files / patterns to load in the browser
-    files:
-      [
+    files: [
         'client/dev/bower_components/jquery/dist/jquery.min.js',
         'client/dev/bower_components/angular/angular.min.js',
         'client/dev/bower_components/angular-resource/angular-resource.min.js',
         'client/dev/bower_components/angular-route/angular-route.min.js',
         'client/dev/bower_components/angular-messages/angular-messages.min.js',
 
+        'client/dev/bower_components/angular-mocks/angular-mocks.js',
+
         'client/dev/app.js',
         'client/dev/app.config.js',
         'client/dev/app.route.js',
         'client/dev/!(bower_components)/**/*.js',
-
-        'client/dev/bower_components/angular-mocks/angular-mocks.js',
 
         <% if (testsSeparated) { %>
         'tests/client/**/*.spec.js',
@@ -34,7 +33,7 @@ module.exports = (config) => {
         'client/dev/**/*.spec.js',
         <% } %>
         'client/dev/partials/includes/*.html' // for templateUrl testing
-      ],
+    ],
 
     // list of files to exclude
     exclude: [],
@@ -47,20 +46,17 @@ module.exports = (config) => {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors:
-    {
-      'client/dev/js/**/*.js': ['coverage'],
-      'client/dev/partials/includes/*.html': ['ng-html2js']
+    preprocessors: {
+      'client/dev/**/*.js': ['coverage'],
+      'client/dev/**/*.html': ['ng-html2js']
     },
 
-    ngHtml2JsPreprocessor:
-    {
+    ngHtml2JsPreprocessor: {
       stripPrefix: 'client/dev/',
       moduleName: 'my.includes'
     },
 
-    coverageReporter:
-    {
+    coverageReporter: {
       type : 'lcov',
       dir : 'unit_coverage/'
     },

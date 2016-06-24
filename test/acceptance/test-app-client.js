@@ -66,8 +66,6 @@ describe('ng-fullstack -> client_only', () => {
 
       // tests - client
 
-      'tests/client/_helpers/invalid-inputs.js',
-
       'tests/client/todo/services/todo-dao.spec.js',
       'tests/client/todo/models/todo-model.spec.js',
       'tests/client/todo/controllers/todo-controller.spec.js',
@@ -160,8 +158,6 @@ describe('ng-fullstack -> client_only', () => {
       'client/dev/todo/templates/todo.html',
 
       // tests - client
-
-      'client/dev/helpers/invalid-inputs.js',
 
       'client/dev/todo/services/todo-dao.spec.js',
       'client/dev/todo/models/todo-model.spec.js',

@@ -68,8 +68,6 @@ describe('ng-fullstack -> node', () => {
 
       // tests - client
 
-      'tests/client/_helpers/invalid-inputs.js',
-
       'tests/client/todo/controllers/todo-controller.spec.js',
       'tests/client/todo/services/todo-dao.spec.js',
       'tests/client/todo/models/todo-model.spec.js',
