@@ -6,9 +6,9 @@ import (
 )
 
 func Init(e *echo.Echo) {
-	e.Get("/api/<%= nameLowerCase %>", <%= nameLowerCase %>controller.GetAll)
-	e.Get("/api/<%= nameLowerCase %>/:id", <%= nameLowerCase %>controller.GetById)
-	e.Post("/api/<%= nameLowerCase %>", <%= nameLowerCase %>controller.New)
-	e.Put("/api/<%= nameLowerCase %>/:id", <%= nameLowerCase %>controller.Update)
-	e.Delete("/api/<%= nameLowerCase %>/:id", <%= nameLowerCase %>controller.Remove)
+	e.GET("/api/<%= nameLowerCase %>", <%= nameLowerCase %>controller.GetAll)
+	e.GET("/api/<%= nameLowerCase %>/:id", <%= nameLowerCase %>controller.GetById)
+	e.POST("/api/<%= nameLowerCase %>", <%= nameLowerCase %>controller.New)
+	e.POST("/api/<%= nameLowerCase %>/:id", <%= nameLowerCase %>controller.Update)
+	e.DELETE("/api/<%= nameLowerCase %>/:id", <%= nameLowerCase %>controller.Remove)
 }
