@@ -9,6 +9,8 @@
     "start": "node index",
     "watch": "gulp",
     <% if (usesTypescript) { %>
+    "preinstall": "typings install",
+    "postinstall": "tsc",
     "dev": "tsc && concurrently \"nodemon ./index --watch server\" \"gulp\"",
     <% } else { %>
     "dev": "concurrently \"nodemon ./index --watch server\" \"gulp\"",
