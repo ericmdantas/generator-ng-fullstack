@@ -18,6 +18,7 @@ exports.EndpointSubGenerator = class EndpointSubGenerator {
     this.wrapper.server = this.wrapper.config.get('server');
     this.wrapper.transpilerServer = this.wrapper.config.get('transpilerServer');
     this.wrapper.webFrameworkServer = this.wrapper.config.get('webFrameworkServer');
+    this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
   }
 
   initializing() {

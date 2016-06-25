@@ -25,6 +25,7 @@ exports.MainGenerator = class MainGenerator {
       };
       let _repoHostUrl = {repoHostUrl: this.wrapper.repoHostUrl};
       let _server = this.wrapper.server;
+      let _testsSeparated = this.wrapper.testsSeparated;
       let _transpilerServer = this.wrapper.transpilerServer;
       let _client = this.wrapper.client;
       let _copiesServer = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "server");
@@ -51,7 +52,10 @@ exports.MainGenerator = class MainGenerator {
       });
 
       this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
-      this.wrapper.template('_karma.conf.js', 'karma.conf.js', _app);
+      this.wrapper.template('_karma.conf.js', 'karma.conf.js', {
+        app: _app.app,
+        testsSeparated: _testsSeparated
+      });
       this.wrapper.template('_protractor.conf.js', 'protractor.conf.js', _app);
       this.wrapper.template('_newrelic.js', 'newrelic.js', _app);
       this.wrapper.template('_procfile.txt', 'procfile.txt', _app);
@@ -154,7 +158,7 @@ exports.MainGenerator = class MainGenerator {
             },
             default: "namespace"
           }
-        ]
+        ];
 
       this.wrapper.prompt(prompts, (props) => {
         this.wrapper.appName = props.appName;
@@ -184,6 +188,28 @@ exports.MainGenerator = class MainGenerator {
       });
 
       this.wrapper.config.save();
+  }
+
+  promptTests() {
+    const done = this.wrapper.async();
+
+    let prompts = [
+      {
+        type: "confirm",
+        name: "testsSeparated",
+        message: "Do you want to keep test in a separated directory?",
+        default: true
+      }
+    ];
+
+    this.wrapper.prompt(prompts, (props) => {
+      this.wrapper.testsSeparated = props.testsSeparated;
+      this.wrapper.config.set('testsSeparated', this.wrapper.testsSeparated);
+
+      done();
+    });
+
+    this.wrapper.config.save();
   }
 
   promptServer() {
@@ -343,4 +369,4 @@ exports.MainGenerator = class MainGenerator {
       done();
     });
   }
-}
+};

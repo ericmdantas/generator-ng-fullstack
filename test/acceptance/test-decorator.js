@@ -10,7 +10,8 @@ describe('NgFullstack:decorator', () => {
       .inTmpDir(function(dir) {
         MockConfigFile.create({
           "generator-ng-fullstack": {
-            "client": "ng1"
+            "client": "ng1",
+            "testsSeparated": true
           }
         }, this.async());
       })

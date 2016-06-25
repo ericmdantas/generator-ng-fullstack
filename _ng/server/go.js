@@ -5,14 +5,14 @@ const yoUtils = require('../utils/yeoman-utils');
 
 const basePath = (generator) => {
   return {
-    route: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/routes/${generator.name}route`,
+    route: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/route/${generator.name}route`,
     controller: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}controller`,
     dao: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/dao/${generator.name}dao`,
     model: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}model`,
     daoTest: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/dao/${generator.name}dao_test`,
     modelTest: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}model_test`,
     controllerTest: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}controller_test`,
-    routeTest: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/routes/${generator.name}route_test`
+    routeTest: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/route/${generator.name}route_test`
   }
 }
 
@@ -125,8 +125,8 @@ class GoServer {
       ['server_go/echo/config/dbconfig.go', 'server/config/dbconfig.go'],
       ['server_go/echo/config/dbconfig_test.go', 'server/config/dbconfig_test.go'],
 
-      ['server_go/echo/api/todo/routes/todoroutes.go', 'server/api/todo/routes/todoroutes.go'],
-      ['server_go/echo/api/todo/routes/todoroutes_test.go', 'server/api/todo/routes/todoroutes_test.go'],
+      ['server_go/echo/api/todo/route/todoroute.go', 'server/api/todo/route/todoroute.go'],
+      ['server_go/echo/api/todo/route/todoroute_test.go', 'server/api/todo/route/todoroute_test.go'],
 
       ['server_go/echo/api/todo/model/todomodel.go', 'server/api/todo/model/todomodel.go'],
       ['server_go/echo/api/todo/model/todomodel_test.go', 'server/api/todo/model/todomodel_test.go'],
