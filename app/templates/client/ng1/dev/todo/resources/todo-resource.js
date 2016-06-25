@@ -12,5 +12,4 @@
         return $resource(_url, _params, _methods);
       }
     ]);
-
 }(window.angular));
