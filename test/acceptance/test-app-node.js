@@ -60,7 +60,7 @@ describe('ng-fullstack -> node', () => {
       'client/dev/app.config.js',
 
       'client/dev/todo/services/todo-dao.js',
-      'client/dev/todo/services/todo-resource.js',
+      'client/dev/todo/resources/todo-resource.js',
       'client/dev/todo/models/todo-model.js',
       'client/dev/todo/controllers/todo-controller.js',
 

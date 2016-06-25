@@ -22,7 +22,7 @@ class Angular1 {
       ['client/ng1/dev/todo/controllers/todo-controller.js', 'client/dev/todo/controllers/todo-controller.js'],
       ['client/ng1/dev/todo/models/todo-model.js', 'client/dev/todo/models/todo-model.js'],
       ['client/ng1/dev/todo/services/todo-dao.js', 'client/dev/todo/services/todo-dao.js'],
-      ['client/ng1/dev/todo/services/todo-resource.js', 'client/dev/todo/services/todo-resource.js'],
+      ['client/ng1/dev/todo/resources/todo-resource.js', 'client/dev/todo/resources/todo-resource.js'],
       ['client/ng1/dev/todo/styles/events.css', 'client/dev/todo/styles/events.css'],
       ['client/ng1/dev/todo/styles/fonts.css', 'client/dev/todo/styles/fonts.css'],
       ['client/ng1/dev/todo/styles/frameworks_overrides.css', 'client/dev/todo/styles/frameworks_overrides.css'],
@@ -118,7 +118,7 @@ class Angular1 {
   copyResource(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'resource.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/resource/${this.generator.name}.js`, {name: this.generator.name, appName: this.generator.appName});
+    this.generator.template(_pathTemplate + 'resource.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/resources/${this.generator.name}.js`, {name: this.generator.name, appName: this.generator.appName});
   }
 
   copyModule() {
