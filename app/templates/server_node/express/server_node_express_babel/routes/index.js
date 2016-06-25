@@ -1,4 +1,4 @@
-import TodoRoutes from '../api/todo/routes/todo-routes';
+import TodoRoutes from '../api/todo/route/todo-route';
 <% if (!differentStaticServer) { %>
 import StaticDispatcher from '../commons/static/index';
 <% } %>

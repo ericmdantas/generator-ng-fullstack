@@ -1,6 +1,6 @@
 "use strict";
 
-import TodoRoutes from '../api/todo/routes/todo-routes';
+import TodoRoutes from '../api/todo/route/todo-route';
 
 module.exports = class Routes {
    static init(app, router) {

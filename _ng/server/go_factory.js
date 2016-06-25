@@ -1,3 +1,5 @@
+"use strict";
+
 const GoServer = require('./go').GoServer;
 
 class GoFactory {

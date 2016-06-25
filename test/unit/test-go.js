@@ -31,7 +31,7 @@ describe('go', () => {
         _n.copyFiles();
 
         let _firstCall = [`go/echo/endpoint.route.go`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}route.go`, {
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}route.go`, {
           name: _newGenerator.name,
           nameLowerCase: _newGenerator.name.toLowerCase(),
           userNameSpace: _newGenerator.userNameSpace,
@@ -71,7 +71,7 @@ describe('go', () => {
         }];
 
         let _fifthCall = [`go/echo/endpoint.route_test.go`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/routes/${_newGenerator.name}route_test.go`, {
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}route_test.go`, {
           name: _newGenerator.name,
           nameLowerCase: _newGenerator.name.toLowerCase(),
           userNameSpace: _newGenerator.userNameSpace,
@@ -193,16 +193,16 @@ describe('go', () => {
             differentStaticServer: !!_newGenerator.differentStaticServer
           }];
 
-        let _eighthCall = [`server_go/echo/api/todo/routes/todoroutes.go`,
-          `${knownPaths.PATH_SERVER_FEATURES}todo/routes/todoroutes.go`, {
+        let _eighthCall = [`server_go/echo/api/todo/route/todoroute.go`,
+          `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute.go`, {
             userNameSpace: _newGenerator.userNameSpace,
             appName: _newGenerator.appName,
             repoHostUrl: _newGenerator.repoHostUrl,
             differentStaticServer: !!_newGenerator.differentStaticServer
           }];
 
-        let _ninethCall = [`server_go/echo/api/todo/routes/todoroutes_test.go`,
-          `${knownPaths.PATH_SERVER_FEATURES}todo/routes/todoroutes_test.go`, {
+        let _ninethCall = [`server_go/echo/api/todo/route/todoroute_test.go`,
+          `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute_test.go`, {
             userNameSpace: _newGenerator.userNameSpace,
             appName: _newGenerator.appName,
             repoHostUrl: _newGenerator.repoHostUrl,
@@ -347,16 +347,16 @@ describe('go', () => {
             differentStaticServer: !!_newGenerator.differentStaticServer
           }];
 
-        let _eighthCall = [`server_go/echo/api/todo/routes/todoroutes.go`,
-          `${knownPaths.PATH_SERVER_FEATURES}todo/routes/todoroutes.go`, {
+        let _eighthCall = [`server_go/echo/api/todo/route/todoroute.go`,
+          `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute.go`, {
             userNameSpace: _newGenerator.userNameSpace,
             appName: _newGenerator.appName,
             repoHostUrl: _newGenerator.repoHostUrl,
             differentStaticServer: !!_newGenerator.differentStaticServer
           }];
 
-        let _ninethCall = [`server_go/echo/api/todo/routes/todoroutes_test.go`,
-          `${knownPaths.PATH_SERVER_FEATURES}todo/routes/todoroutes_test.go`, {
+        let _ninethCall = [`server_go/echo/api/todo/route/todoroute_test.go`,
+          `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute_test.go`, {
             userNameSpace: _newGenerator.userNameSpace,
             appName: _newGenerator.appName,
             repoHostUrl: _newGenerator.repoHostUrl,
@@ -502,16 +502,16 @@ describe('go', () => {
             differentStaticServer: !!_newGenerator.differentStaticServer
           }];
 
-        let _eighthCall = [`server_go/echo/api/todo/routes/todoroutes.go`,
-          `${knownPaths.PATH_SERVER_FEATURES}todo/routes/todoroutes.go`, {
+        let _eighthCall = [`server_go/echo/api/todo/route/todoroute.go`,
+          `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute.go`, {
             userNameSpace: _newGenerator.userNameSpace,
             appName: _newGenerator.appName,
             repoHostUrl: _newGenerator.repoHostUrl,
             differentStaticServer: !!_newGenerator.differentStaticServer
           }];
 
-        let _ninethCall = [`server_go/echo/api/todo/routes/todoroutes_test.go`,
-          `${knownPaths.PATH_SERVER_FEATURES}todo/routes/todoroutes_test.go`, {
+        let _ninethCall = [`server_go/echo/api/todo/route/todoroute_test.go`,
+          `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute_test.go`, {
             userNameSpace: _newGenerator.userNameSpace,
             appName: _newGenerator.appName,
             repoHostUrl: _newGenerator.repoHostUrl,
@@ -641,16 +641,16 @@ describe('go', () => {
             differentStaticServer: !!_newGenerator.differentStaticServer
           }];
 
-        let _eighthCall = [`server_go/echo/api/todo/routes/todoroutes.go`,
-          `${knownPaths.PATH_SERVER_FEATURES}todo/routes/todoroutes.go`, {
+        let _eighthCall = [`server_go/echo/api/todo/route/todoroute.go`,
+          `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute.go`, {
             userNameSpace: _newGenerator.userNameSpace,
             appName: _newGenerator.appName,
             repoHostUrl: _newGenerator.repoHostUrl,
             differentStaticServer: !!_newGenerator.differentStaticServer
           }];
 
-        let _ninethCall = [`server_go/echo/api/todo/routes/todoroutes_test.go`,
-          `${knownPaths.PATH_SERVER_FEATURES}todo/routes/todoroutes_test.go`, {
+        let _ninethCall = [`server_go/echo/api/todo/route/todoroute_test.go`,
+          `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute_test.go`, {
             userNameSpace: _newGenerator.userNameSpace,
             appName: _newGenerator.appName,
             repoHostUrl: _newGenerator.repoHostUrl,
@@ -778,16 +778,16 @@ describe('go', () => {
             differentStaticServer: !!_newGenerator.differentStaticServer
           }];
 
-        let _eighthCall = [`server_go/echo/api/todo/routes/todoroutes.go`,
-          `${knownPaths.PATH_SERVER_FEATURES}todo/routes/todoroutes.go`, {
+        let _eighthCall = [`server_go/echo/api/todo/route/todoroute.go`,
+          `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute.go`, {
             userNameSpace: _newGenerator.userNameSpace,
             appName: _newGenerator.appName,
             repoHostUrl: _newGenerator.repoHostUrl,
             differentStaticServer: !!_newGenerator.differentStaticServer
           }];
 
-        let _ninethCall = [`server_go/echo/api/todo/routes/todoroutes_test.go`,
-          `${knownPaths.PATH_SERVER_FEATURES}todo/routes/todoroutes_test.go`, {
+        let _ninethCall = [`server_go/echo/api/todo/route/todoroute_test.go`,
+          `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute_test.go`, {
             userNameSpace: _newGenerator.userNameSpace,
             appName: _newGenerator.appName,
             repoHostUrl: _newGenerator.repoHostUrl,

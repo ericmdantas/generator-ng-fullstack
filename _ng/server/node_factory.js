@@ -1,3 +1,5 @@
+"use strict";
+
 const NodeExpressStandard = require('./node_express').NodeExpressStandard;
 const NodeExpressBabel = require('./node_express').NodeExpressBabel;
 const NodeExpressTypescript = require('./node_express').NodeExpressTypescript;
@@ -6,7 +8,7 @@ const NodeKoaStandard = require('./node_koa').NodeKoaStandard;
 const NodeKoaBabel = require('./node_koa').NodeKoaBabel;
 const NodeKoaTypescript = require('./node_koa').NodeKoaTypescript;
 
-exports.NodeFactory = class NodeFactory {
+class NodeFactory {
   static tokensCompiler() {
     return {
       NODE: "node",
@@ -40,3 +42,5 @@ exports.NodeFactory = class NodeFactory {
     }
   }
 }
+
+exports.NodeFactory = NodeFactory;
