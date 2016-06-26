@@ -42,7 +42,7 @@
     "typescript": "^1.8.9",
     "zone.js": "^0.6.12", <% } %>
     "newrelic": "^1.18.2",
-    "helmet": "^0.7.1"
+    "helmet": "^2.1.1"
   },
   "devDependencies": {
     "karma-ng-html2js-preprocessor": "^0.1.2",
