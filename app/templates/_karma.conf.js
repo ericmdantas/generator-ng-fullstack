@@ -27,6 +27,7 @@ module.exports = (config) => {
         'client/dev/app.route.js',
         'client/dev/!(bower_components)/**/*.js',
 
+<<<<<<< HEAD
         <% if (testsSeparated) { %>
         'tests/client/**/*.spec.js',
         <% } else { %>
@@ -34,6 +35,14 @@ module.exports = (config) => {
         <% } %>
         'client/dev/partials/includes/*.html' // for templateUrl testing
     ],
+=======
+        'client/dev/bower_components/angular-mocks/angular-mocks.js',
+
+        'tests/client/**/*_test.js',
+
+        'client/dev/**/*.html' // for templateUrl testing
+      ],
+>>>>>>> master
 
     // list of files to exclude
     exclude: [],
@@ -46,7 +55,12 @@ module.exports = (config) => {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+<<<<<<< HEAD
     preprocessors: {
+=======
+    preprocessors:
+    {
+>>>>>>> master
       'client/dev/**/*.js': ['coverage'],
       'client/dev/**/*.html': ['ng-html2js']
     },
