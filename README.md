@@ -8,6 +8,7 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ericmdantas/generator-ng-fullstack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Generated project:
+
 [![Dependency Status](https://img.shields.io/david/Abdizriel/ng-fullstack-dependencies.svg)](https://david-dm.org/Abdizriel/ng-fullstack-dependencies)
 [![Dev-Dependency Status](https://img.shields.io/david/dev/Abdizriel/ng-fullstack-dependencies.svg)](https://david-dm.org/Abdizriel/ng-fullstack-dependencies#info=devDependencies)
 [![Known Vulnerabilities](https://snyk.io/package/npm/ng-fullstack-dependencies/badge.svg)](https://snyk.io/package/npm/ng-fullstack-dependencies)
