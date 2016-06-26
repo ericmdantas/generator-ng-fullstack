@@ -1,0 +1,3 @@
+[submodule "ng-fullstack-dependencies"]
+	path = ng-fullstack-dependencies
+	url = https://github.com/Abdizriel/ng-fullstack-dependencies
