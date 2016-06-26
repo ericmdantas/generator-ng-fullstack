@@ -13,6 +13,16 @@ func GetAll(c echo.Context) error {
 	return c.JSON(http.StatusOK, ts)
 }
 
+func GetById(c echo.Context) error {
+	t := new(todo.Todo)
+
+	id := c.Param("id")
+
+	nt, _ := tododao.GetById(id)
+
+	return c.JSON(http.StatusOK, nt)
+}
+
 func NewTodo(c echo.Context) error {
 	t := new(todo.Todo)
 

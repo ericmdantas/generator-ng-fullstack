@@ -3,6 +3,7 @@
 describe('todo.dao', function() {
   var _rootScope, _scope, _httpBackend, _TodoDAO, _Todo;
   var URL_GET_ALL = '/api/todos';
+  var URL_GET_BY_ID = '/api/todos/1';
   var URL_CREATE_TODO = '/api/todos';
   var URL_DELETE_TODO = '/api/todos/';
 
@@ -53,8 +54,8 @@ describe('todo.dao', function() {
         _httpBackend.expectGET(URL_GET_ALL).respond(200, _response);
 
         var _onSuccess = function(todos) {
-          expect(window.angular.equals(_response.an, todos.an));
-          expect(window.angular.equals(_response.of, todos.of));
+          expect(_response.an).toEqual(todos.an);
+          expect(_response.of).toEqual(todos.of);
         };
 
         var _onError = function() {
@@ -63,6 +64,80 @@ describe('todo.dao', function() {
 
         _TodoDAO
           .getAll()
+          .then(_onSuccess)
+          .catch(_onError);
+
+        _httpBackend.flush();
+      });
+    });
+  });
+
+  describe('getById', function() {
+    describe('error', function() {
+      it('should return with an error, id not informed', function() {
+        var _id = null;
+
+        var _onSuccess = function() {
+          expect(true).toBeFalsy();
+        };
+
+        var _onError = function(error) {
+          expect(error).toBeDefined();
+          expect(error instanceof TypeError).toBeTruthy();
+          expect(error.message).toEqual('Invalid id for search.');
+        };
+
+        _TodoDAO
+        .getById(_id)
+        .then(_onSuccess)
+        .catch(_onError);
+
+        _rootScope.$digest();
+      });
+
+      it('should try to get todos from the server, but the server return an error', function() {
+        var _response = {
+          someError: ':('
+        };
+
+        _httpBackend.expectGET(URL_GET_BY_ID).respond(400, _response);
+
+        var _onSuccess = function() {
+          expect(true).toBeFalsy(); // should not come here
+        };
+
+        var _onError = function(error) {
+          expect(error).toBeDefined();
+          expect(error.data.someError).toEqual(_response.someError);
+        };
+
+        _TodoDAO
+          .getById(1)
+          .then(_onSuccess)
+          .catch(_onError);
+
+        _httpBackend.flush();
+      });
+    });
+
+    describe('success', function() {
+      it('should try get todos from the server, server returns OK', function() {
+        var _response = {
+          info: 'abc'
+        }
+
+        _httpBackend.expectGET(URL_GET_BY_ID).respond(200, _response);
+
+        var _onSuccess = function(todo) {
+          expect(_response.info).toEqual(todo.info);
+        };
+
+        var _onError = function() {
+          expect(true).toBeFalsy(); // should not come here
+        };
+
+        _TodoDAO
+          .getById(1)
           .then(_onSuccess)
           .catch(_onError);
 

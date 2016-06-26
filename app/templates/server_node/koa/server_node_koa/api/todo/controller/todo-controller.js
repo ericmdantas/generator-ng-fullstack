@@ -13,6 +13,16 @@ module.exports = class TodoController {
       }
   }
 
+  *getById() {
+      try {
+        let _todo = yield TodoDAO.getById(this.param.id);
+        this.status = 200;
+        this.body = _todo;
+      } catch(e) {
+        this.status = 400;
+      }
+  }
+
   *createTodo() {
       let _todo = this.request.body;
 

@@ -9,23 +9,28 @@
       function($q, Todo, TodoResource) {
         var TodoDAO = function() {};
 
+        TodoDAO.prototype.getById = function(id) {
+          if (!ng.isString(id)) {
+            return $q.reject(new TypeError('Invalid id for search.'));
+          }
+
+          return TodoResource
+            .get({id: id})
+            .$promise
+            .then(function(todo) {
+              return new Todo(todo);
+            });
+        };
+
         TodoDAO.prototype.getAll = function() {
-          var _onSuccess = function(todos) {
-            // do something with the response from the server, like extending a model or something
-
-            return todos; // this will be returned as a resolved promise
-          };
-
-          var _onError = function(error) {
-            // do something with the error, like making it more readable or something
-            return $q.reject(error); // this will be returned as a rejected promise
-          };
-
           return TodoResource
             .query()
             .$promise
-            .then(_onSuccess)
-            .catch(_onError);
+            .then(function(todos) {
+              return todos.map(function(todo) {
+                return new Todo(todo);
+              });
+            });
         };
 
         TodoDAO.prototype.createTodo = function(todo) {
@@ -33,19 +38,12 @@
             return $q.reject(new TypeError('Invalid todo to be created.'));
           }
 
-          var _onSuccess = function(todo) {
-            return new Todo(todo);
-          };
-
-          var _onError = function(error) {
-            return $q.reject(error);
-          };
-
           return TodoResource
             .save(todo)
             .$promise
-            .then(_onSuccess)
-            .catch(_onError);
+            .then(function() {
+              return new Todo(todo);
+            });
         };
 
         TodoDAO.prototype.deleteTodo = function(id) {
@@ -53,25 +51,10 @@
             return $q.reject(new TypeError('Invalid id for deletion.'));
           }
 
-          var _onSuccess = function() {
-            return;
-          };
-
-          var _onError = function(error) {
-            return $q.reject(error);
-          };
-
-          return TodoResource
-            .delete({
-              id: id
-            })
-            .$promise
-            .then(_onSuccess)
-            .catch(_onError);
+          return TodoResource.delete({id: id}).$promise;
         };
 
         return new TodoDAO();
       }
     ]);
-
 }(window.angular));

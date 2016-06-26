@@ -33,6 +33,29 @@ func All() (todo.Todos, error) {
 	return ts, err
 }
 
+func GetById(string id) (todo.Todos, error) {
+	db := dbconfig.DB{}
+	t := todo.Todo{}
+
+	s, err := db.DoDial()
+
+	if err != nil {
+		return t, errors.New("There was an error trying to connect with the DB.")
+	}
+
+	defer s.Close()
+
+	c := s.DB(db.Name()).C(col)
+
+	err = c.Find(bson.M{}).FindId(id).One(&t)
+
+	if err != nil {
+		return t, errors.New("There was an error trying to find the todos.")
+	}
+
+	return t, err
+}
+
 func NewTodo(t todo.Todo) (todo.Todo, error) {
 	db := dbconfig.DB{}
 	t.Id = bson.NewObjectId()
