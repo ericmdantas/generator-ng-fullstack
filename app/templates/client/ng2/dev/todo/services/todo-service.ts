@@ -28,6 +28,12 @@ export class TodoService {
                .map((r) => r.json());
   }
 
+  getById(id: number|string):Observable<any> {
+    return this._http
+               .get(TodoService.ENDPOINT.replace(':id', id))
+               .map((r) => r.json());
+  }
+
   add(message:string):Observable<any> {
     let _messageStringified = JSON.stringify({todoMessage: message});
 
