@@ -7,6 +7,12 @@
 [![Dev-Dependency Status](https://img.shields.io/david/dev/ericmdantas/generator-ng-fullstack.svg)](https://david-dm.org/ericmdantas/generator-ng-fullstack#info=devDependencies)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ericmdantas/generator-ng-fullstack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+Generated project:
+
+[![Dependency Status](https://img.shields.io/david/Abdizriel/ng-fullstack-dependencies.svg)](https://david-dm.org/Abdizriel/ng-fullstack-dependencies)
+[![Dev-Dependency Status](https://img.shields.io/david/dev/Abdizriel/ng-fullstack-dependencies.svg)](https://david-dm.org/Abdizriel/ng-fullstack-dependencies#info=devDependencies)
+[![Known Vulnerabilities](https://snyk.io/package/npm/ng-fullstack-dependencies/badge.svg)](https://snyk.io/package/npm/ng-fullstack-dependencies)
+
 Generator ng-Fullstack is a project to allow you to rapidly get started with prototyping full-stack web applications, with the newest technologies available. Based of [Yeoman](http://yeoman.io/), this is the next generation of full-stack generators. We support the following technology options to allow you to customise your stack (Pick one from each column!).
 
 | Client        | Server        | Node (Compiler) |
