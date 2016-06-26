@@ -17,6 +17,20 @@ todoSchema.statics.getAll = () => {
     });
 }
 
+todoSchema.statics.getById = (id) => {
+    return new Promise((resolve, reject) => {
+        if (!id) {
+          return reject(new TypeError('Id is not defined.'));
+        }
+
+        Todo.findById(id)
+            .exec((err, todo) => {
+              err ? reject(err)
+                  : resolve(todo);
+            });
+    });
+}
+
 todoSchema.statics.createTodo = (todo) => {
     return new Promise((resolve, reject) => {
       if (!_.isObject(todo)) {

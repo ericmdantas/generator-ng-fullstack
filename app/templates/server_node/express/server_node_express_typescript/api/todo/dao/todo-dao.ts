@@ -15,6 +15,20 @@ todoSchema.static('getAll', ():Promise<any> => {
     });
 });
 
+todoSchema.static('getById', (id: string):Promise<any> => {
+    return new Promise((resolve:Function, reject:Function) => {
+        if (!id) {
+          return reject(new TypeError('Todo is not a valid object.'));
+        }
+
+        Todo.findById(id)
+            .exec((err, todos) => {
+              err ? reject(err)
+                  : resolve(todo);
+            });
+    });
+});
+
 todoSchema.static('createTodo', (todo:Object):Promise<any> => {
     return new Promise((resolve:Function, reject:Function) => {
       if (!_.isObject(todo)) {
