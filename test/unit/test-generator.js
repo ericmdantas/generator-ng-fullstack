@@ -35,9 +35,13 @@ describe('generator', () => {
     it('should have the right calls - server node typescript', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         server: 'node',
         transpilerServer: 'typescript',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         template(){},
         directory(){},
         read: () => '{"a": true}',
@@ -55,9 +59,13 @@ describe('generator', () => {
     it('should have the right calls - server node babel', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         server: 'node',
         transpilerServer: 'babel',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         template(){},
         directory(){},
         read: () => '{"a": true}',
@@ -75,9 +83,13 @@ describe('generator', () => {
     it('should have the right calls - server node standard', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         server: 'node',
         transpilerServer: 'node',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         template(){},
         read: () => '{"a": true}',
         directory(){},
@@ -95,9 +107,13 @@ describe('generator', () => {
     it('should have the right calls - server go', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         server: 'go',
         transpilerServer: undefined,
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         template: () => {},
         directory: () => {},
         read: () => '{"a": true}',
@@ -115,11 +131,15 @@ describe('generator', () => {
     it('should have the right calls - stack fullstack', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         stack: 'fullstack',
         client: 'ng2',
         server: 'go',
         transpilerServer: undefined,
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         template: () => {},
         read: () => '{"a": true}',
         write(){},
@@ -137,10 +157,14 @@ describe('generator', () => {
     it('should have the right calls - stack server', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         stack: 'server',
         server: 'go',
         transpilerServer: undefined,
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         template: () => {},
         directory: () => {},
         read: () => '{"a": true}',
@@ -158,11 +182,15 @@ describe('generator', () => {
     it('should have the right calls - stack client', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         stack: 'client',
         client: 'ng1',
         server: 'go',
         transpilerServer: undefined,
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         template: () => {},
         directory: () => {},
         read: () => '{"a": true}',
@@ -236,10 +264,14 @@ describe('generator', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         server: 'node',
         transpilerServer: 'typescript',
         stack: 'fullstack',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         async: () => {},
         read(){},
         prompt: () => {},
@@ -261,11 +293,15 @@ describe('generator', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         server: 'node',
         stack: 'fullstack',
         client: 'ng2',
         transpilerServer: 'typescript',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         async: () => {},
         prompt: () => {},
         config: {
@@ -286,10 +322,14 @@ describe('generator', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         server: 'node',
         client: 'ng2',
         transpilerServer: 'typescript',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         async: () => {},
         prompt: () => {},
         config: {
@@ -310,10 +350,14 @@ describe('generator', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         server: 'node',
         client: 'ng2',
         transpilerServer: 'typescript',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         async: () => {},
         prompt: () => {},
         config: {
@@ -334,10 +378,14 @@ describe('generator', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         server: 'node',
         client: 'ng2',
         transpilerServer: 'typescript',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         async: () => {},
         prompt: () => {},
         config: {
@@ -358,10 +406,14 @@ describe('generator', () => {
     it('should have the right calls', () => {
       let _gen = {
         appName: 'a',
-        githubUsername: 'b',
+        username: 'b',
         server: 'node',
         client: 'ng2',
         transpilerServer: 'typescript',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
         async: () => {},
         prompt: () => {},
         config: {

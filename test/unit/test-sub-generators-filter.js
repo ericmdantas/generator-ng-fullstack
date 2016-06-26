@@ -96,8 +96,59 @@ describe('FilterSubGenerator', () => {
 
       _fsg.writing();
 
-      let _firstCall = ['filter.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/filters/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}]
-      let _secondCall = ['filter_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/filters/' + _gen.name + '_test.js', {name: _gen.name, appName: _gen.appName}]
+      let _firstCall = [
+        'filter.js',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/filters/' + _gen.name + '.js', {
+          name: _gen.name,
+          appName: _gen.appName
+        }];
+
+      let _secondCall = [
+        'filter.spec.js',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/filters/' + _gen.name + '.spec.js', {
+          name: _gen.name,
+          appName: _gen.appName
+        }];
+
+      expect(_fsg.wrapper.writing).to.have.been.called;
+      expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_fsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+    });
+
+    it('should have the writing called with the right stuff - testsSeparated', () => {
+      let _gen = {
+        name: 'a',
+        appName: 'b',
+        testsSeparated: false,
+        config: {
+          get(token) {
+            switch (token) {
+              case "testsSeparated": return false;
+              default: return 'ng1';
+            }
+          }
+        },
+        options: {feature: 'c'},
+        template: sinon.spy()
+      };
+
+      let _fsg = new FilterSubGenerator(_gen);
+
+      _fsg.writing();
+
+      let _firstCall = [
+        'filter.js',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/filters/' + _gen.name + '.js', {
+          name: _gen.name,
+          appName: _gen.appName
+        }];
+
+      let _secondCall = [
+        'filter.spec.js',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/filters/' + _gen.name + '.spec.js', {
+          name: _gen.name,
+          appName: _gen.appName
+        }];
 
       expect(_fsg.wrapper.writing).to.have.been.called;
       expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;

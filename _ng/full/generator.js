@@ -2,7 +2,7 @@
 
 const chalk = require('chalk');
 const yosay = require('yosay');
-const NodeFactory = require('../server/node').NodeFactory;
+const NodeFactory = require('../server/node_factory').NodeFactory;
 const AngularFactory = require('../client/angular').AngularFactory;
 const ClientFactory = require('../client/client_factory').ClientFactory;
 const ServerFactory = require('../server/server_factory').ServerFactory;
@@ -18,9 +18,14 @@ exports.MainGenerator = class MainGenerator {
 
   writing() {
       let _app = {app: this.wrapper.appName};
-      let _username = {username: this.wrapper.githubUsername};
-      let _appAndUsername = {app: _app.app, username: _username.username};
+      let _user = {
+        username: this.wrapper.username,
+        userEmail: this.wrapper.userEmail,
+        userNameSpace: this.wrapper.userNameSpace
+      };
+      let _repoHostUrl = {repoHostUrl: this.wrapper.repoHostUrl};
       let _server = this.wrapper.server;
+      let _testsSeparated = this.wrapper.testsSeparated;
       let _transpilerServer = this.wrapper.transpilerServer;
       let _client = this.wrapper.client;
       let _copiesServer = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "server");
@@ -30,17 +35,27 @@ exports.MainGenerator = class MainGenerator {
       let _secure = this.wrapper.secure;
       let _usesTypescript = (_transpilerServer === "typescript") || (_client === "ng2");
 
-      this.wrapper.template('_README.md', 'README.md', _appAndUsername);
+      this.wrapper.template('_README.md', 'README.md', {
+        app: _app.app,
+        userNameSpace: _user.userNameSpace
+      });
+
       this.wrapper.template('_package.json', 'package.json', {
         app: _app.app,
-        username: _username.username,
+        username: _user.username,
+        repoHostUrl: _repoHostUrl.repoHostUrl,
+        userNameSpace: _user.userNameSpace,
         usesTypescript: _usesTypescript,
         client: _client,
-        clientOnly: _clientOnly
+        clientOnly: _clientOnly,
+        webFrameworkServer: this.wrapper.webFrameworkServer
       });
 
       this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
-      this.wrapper.template('_karma.conf.js', 'karma.conf.js', _app);
+      this.wrapper.template('_karma.conf.js', 'karma.conf.js', {
+        app: _app.app,
+        testsSeparated: _testsSeparated
+      });
       this.wrapper.template('_protractor.conf.js', 'protractor.conf.js', _app);
       this.wrapper.template('_newrelic.js', 'newrelic.js', _app);
       this.wrapper.template('_procfile.txt', 'procfile.txt', _app);
@@ -69,7 +84,13 @@ exports.MainGenerator = class MainGenerator {
 
       if (_copiesClient) {
         if (_client !== AngularFactory.tokens().NG2) {
-          this.wrapper.template('_bower.json', 'bower.json', _appAndUsername);
+          this.wrapper.template('_bower.json', 'bower.json', {
+            app: _app.app,
+            username: _user.username,
+            userEmail: _user.userEmail,
+            repoHostUrl: _repoHostUrl.repoHostUrl,
+            userNameSpace: _user.userNameSpace
+          });
         }
 
         ClientFactory.create('angular', _client, this.wrapper).copyClient();
@@ -95,35 +116,100 @@ exports.MainGenerator = class MainGenerator {
           {
             name: 'appName',
             message: 'What is the name of your app?',
-            default: 'some-name-here'
+            default: 'ng-fullstack'
           },
           {
-            name: 'githubUsername',
-            message: 'What is your username on Github?',
-            default: 'some-username-here'
+            name: 'username',
+            message: 'What is your username?',
+            default: 'user.name'
+          },
+          {
+            name: 'userEmail',
+            message: 'What is your email?',
+            default: 'user.email@example.com'
           },
           {
             type: "list",
             name: "stack",
-            message: "What stack do you want? Full, client or server?",
+            message: "What stack do you want?",
             choices: ["fullstack", "client", "server"],
             default: 0
+          },
+          {
+            type: "list",
+            name: "repoHost",
+            message: "Which Git repository hosting service are you using?",
+            choices: ["github", "bitbucket", "gitlab"],
+            default: 0
+          },
+          {
+            name: 'repoHostUrl',
+            message: 'What is your GitLab URL?',
+            when: (answersHash) => {
+              return answersHash.repoHost === "gitlab";
+            },
+            default: "gitlab.com"
+          },
+          {
+            name: 'userNameSpace',
+            message: 'What is your GitLab NameSpace?',
+            when: (answersHash) => {
+              return answersHash.repoHost === "gitlab";
+            },
+            default: "namespace"
           }
-        ]
+        ];
 
       this.wrapper.prompt(prompts, (props) => {
         this.wrapper.appName = props.appName;
-        this.wrapper.githubUsername = props.githubUsername;
+        this.wrapper.username = props.username;
+        this.wrapper.userEmail = props.userEmail;
         this.wrapper.stack = props.stack;
 
-        this.wrapper.config.set('username', this.wrapper.githubUsername);
+        if (props.repoHost === "github") {
+          this.wrapper.repoHostUrl = "github.com";
+          this.wrapper.userNameSpace = props.username;
+        } else if (props.repoHost === "bitbucket") {
+          this.wrapper.repoHostUrl = "bitbucket.org";
+          this.wrapper.userNameSpace = props.username;
+        } else {
+          this.wrapper.repoHostUrl = props.repoHostUrl;
+          this.wrapper.userNameSpace = props.userNameSpace;
+        }
+
         this.wrapper.config.set('appName', this.wrapper.appName);
+        this.wrapper.config.set('username', this.wrapper.username);
+        this.wrapper.config.set('userEmail', this.wrapper.userEmail);
         this.wrapper.config.set('stack', this.wrapper.stack);
+        this.wrapper.config.set('repoHostUrl', this.wrapper.repoHostUrl);
+        this.wrapper.config.set('userNameSpace', this.wrapper.userNameSpace);
 
         done();
       });
 
       this.wrapper.config.save();
+  }
+
+  promptTests() {
+    const done = this.wrapper.async();
+
+    let prompts = [
+      {
+        type: "confirm",
+        name: "testsSeparated",
+        message: "Do you want to keep test in a separated directory?",
+        default: true
+      }
+    ];
+
+    this.wrapper.prompt(prompts, (props) => {
+      this.wrapper.testsSeparated = props.testsSeparated;
+      this.wrapper.config.set('testsSeparated', this.wrapper.testsSeparated);
+
+      done();
+    });
+
+    this.wrapper.config.save();
   }
 
   promptServer() {
@@ -184,6 +270,28 @@ exports.MainGenerator = class MainGenerator {
     this.wrapper.config.save();
   }
 
+  promptWebFrameworkServer() {
+    const done = this.wrapper.async();
+
+    let _prompts = [{
+      type: "list",
+      name: "webFrameworkServer",
+      message: "What framework do you want to use in server side?",
+      choices: [NodeFactory.tokensWebFramework().EXPRESS, NodeFactory.tokensWebFramework().KOA],
+      default: 0,
+      when: () => this.wrapper.server === ServerFactory.tokens().NODE
+    }];
+
+    this.wrapper.prompt(_prompts, (props) => {
+      this.wrapper.webFrameworkServer = props.webFrameworkServer;
+      this.wrapper.config.set('webFrameworkServer', this.wrapper.webFrameworkServer);
+
+      done();
+    });
+
+    this.wrapper.config.save();
+  }
+
   promptTranspilerServer() {
     const done = this.wrapper.async();
 
@@ -191,7 +299,7 @@ exports.MainGenerator = class MainGenerator {
       type: "list",
       name: "transpilerServer",
       message: "What transpiler do you want to use in server side?",
-      choices: [NodeFactory.tokens().NODE, NodeFactory.tokens().NODE_BABEL, NodeFactory.tokens().NODE_TYPESCRIPT],
+      choices: [NodeFactory.tokensCompiler().NODE, NodeFactory.tokensCompiler().BABEL, NodeFactory.tokensCompiler().TYPESCRIPT],
       default: 0,
       when: () => this.wrapper.server === ServerFactory.tokens().NODE
     }];
@@ -261,4 +369,4 @@ exports.MainGenerator = class MainGenerator {
       done();
     });
   }
-}
+};

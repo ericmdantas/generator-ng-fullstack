@@ -32,12 +32,20 @@ module.exports = class NgFullstack extends Base {
       this.generator.promptUser();
     }
 
+    promptTests() {
+      this.generator.promptTests();
+    }
+
     promptServer() {
       this.generator.promptServer();
     }
 
     promptClient() {
       this.generator.promptClient();
+    }
+
+    promptWebFrameworkServer() {
+      this.generator.promptWebFrameworkServer();
     }
 
     promptUserTranspilerServer() {
@@ -55,4 +63,4 @@ module.exports = class NgFullstack extends Base {
     promptCordova() {
       this.generator.promptCordova();
     }
-}
+};

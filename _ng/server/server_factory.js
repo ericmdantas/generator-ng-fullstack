@@ -1,7 +1,7 @@
 "use strict";
 
-const NodeFactory = require('./node').NodeFactory;
-const GoFactory = require('./go').GoFactory;
+const NodeFactory = require('./node_factory').NodeFactory;
+const GoFactory = require('./go_factory').GoFactory;
 
 exports.ServerFactory = class ServerFactory {
   static tokens() {
