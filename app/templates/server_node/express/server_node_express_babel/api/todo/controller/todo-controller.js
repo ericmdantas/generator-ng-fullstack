@@ -8,6 +8,13 @@ export default class TodoController {
       .catch(error => res.status(400).json(error));
   }
 
+  static getById(req, res) {
+      TodoDAO
+        .getById(req.params.id)
+        .then(todo => res.status(200).json(todo))
+        .catch(error => res.status(400).json(error));
+  }
+
   static createTodo(req, res) {
     let _todo = req.body;
 

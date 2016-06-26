@@ -9,6 +9,13 @@ export class TodoController {
         .catch(error => res.status(400).json(error));
   }
 
+  static getById(req: express.Request, res: express.Response):void {
+      TodoDAO
+        ['getById'](req.params.id)
+        .then(todo => res.status(200).json(todo))
+        .catch(error => res.status(400).json(error));
+  }
+
   static createTodo(req: express.Request, res: express.Response):void {
       let _todo = req.body;
 
