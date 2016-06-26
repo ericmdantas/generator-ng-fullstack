@@ -33,7 +33,7 @@ func All() (todo.Todos, error) {
 	return ts, err
 }
 
-func GetById(string id) (todo.Todos, error) {
+func GetById(string id) (todo.Todo, error) {
 	db := dbconfig.DB{}
 	t := todo.Todo{}
 

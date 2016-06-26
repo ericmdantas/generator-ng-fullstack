@@ -14,8 +14,6 @@ func GetAll(c echo.Context) error {
 }
 
 func GetById(c echo.Context) error {
-	t := new(todo.Todo)
-
 	id := c.Param("id")
 
 	nt, _ := tododao.GetById(id)
