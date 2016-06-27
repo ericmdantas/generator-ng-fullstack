@@ -22,7 +22,7 @@ todoSchema.static('getById', (id: string):Promise<any> => {
         }
 
         Todo.findById(id)
-            .exec((err, todos) => {
+            .exec((err, todo) => {
               err ? reject(err)
                   : resolve(todo);
             });
