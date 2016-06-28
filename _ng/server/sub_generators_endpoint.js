@@ -38,4 +38,26 @@ exports.EndpointSubGenerator = class EndpointSubGenerator {
         case ServerFactory.tokens().NODE: NodeFactory.build(this.wrapper).copyFiles(); break;
     }
   }
-}
+
+  end() {
+    const routesFile = 'server/routes/index.js';
+    const newRoute = `${knownPaths.PATH_SERVER_FEATURES + this.wrapper.feature}/route/${this.wrapper.name}-route`;
+    const reqPath = this.wrapper.relativeRequire(newRoute, routesFile);
+    const routeImportConfig = {
+      file: routesFile,
+      needle: '// Import routes below',
+      splicable: [
+        `import ${this.wrapper.name}Routes from '${reqPath}';`
+      ]
+    };
+    const routeInitConfig = {
+      file: routesFile,
+      needle: '// Init routes below',
+      splicable: [
+        `${this.wrapper.name}Routes.init(router);`
+      ]
+    };
+    this.wrapper.rewriteFile(routeImportConfig);
+    this.wrapper.rewriteFile(routeInitConfig);
+  }
+};
