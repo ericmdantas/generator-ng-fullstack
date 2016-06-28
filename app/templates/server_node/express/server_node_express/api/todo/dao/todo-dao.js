@@ -1,9 +1,10 @@
 "use strict";
 
-const mongoose = require('mongoose');
+let mongoose = require('mongoose');
 const Promise = require('bluebird');
 const todoSchema = require('../model/todo-model');
 const _ = require('lodash');
+mongoose.Promise = Promise;
 
 todoSchema.statics.getAll = () => {
     return new Promise((resolve, reject) => {
@@ -15,7 +16,7 @@ todoSchema.statics.getAll = () => {
                   : resolve(todos);
             });
     });
-}
+};
 
 todoSchema.statics.getById = (id) => {
     return new Promise((resolve, reject) => {
