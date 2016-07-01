@@ -60,7 +60,11 @@ For full guidance on setting up the dependencies and generating your first app, 
 
 # Sub generators
 
-Ready to scale? Take a look at the sub generator [session in the wiki] (https://github.com/ericmdantas/generator-ng-fullstack/wiki/Sub-Generators)!
+Ready to scale? Take a look at the sub generator [session in the wiki](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Sub-Generators)!
+
+# FAQ
+
+You can find the FAQ in the wiki, [here](https://github.com/ericmdantas/generator-ng-fullstack/wiki/FAQ).
 
 # Troubleshooting
 
