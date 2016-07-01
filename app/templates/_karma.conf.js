@@ -32,7 +32,7 @@ module.exports = (config) => {
         <% } else { %>
         'client/dev/**/*.spec.js',
         <% } %>
-        'client/dev/partials/includes/*.html' // for templateUrl testing
+        'client/dev/**/*.html' // for templateUrl testing
     ],
 
     // list of files to exclude

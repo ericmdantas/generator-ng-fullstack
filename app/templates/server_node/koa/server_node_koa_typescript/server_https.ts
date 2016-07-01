@@ -7,6 +7,7 @@ if ('production' === process.env.NODE_ENV)
 
 const PORT = process.env.PORT || 3333;
 
+import * as fs from 'fs';
 import * as os from 'os';
 import * as https from 'https';
 import * as Koa from 'koa';

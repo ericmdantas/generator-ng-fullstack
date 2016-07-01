@@ -4,6 +4,7 @@ import * as mongoose from 'mongoose';
 import * as Promise from 'bluebird';
 import * as todoSchema from '../model/todo-model';
 import * as _ from 'lodash';
+mongoose.Promise = Promise;
 
 todoSchema.statics.getAll = () => {
     return new Promise((resolve, reject) => {

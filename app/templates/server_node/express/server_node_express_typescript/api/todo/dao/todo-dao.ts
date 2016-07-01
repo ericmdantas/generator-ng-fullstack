@@ -2,6 +2,7 @@ import * as mongoose from 'mongoose';
 import * as Promise from 'bluebird';
 import * as _ from 'lodash';
 import todoSchema from '../model/todo-model';
+mongoose.Promise = Promise;
 
 todoSchema.static('getAll', ():Promise<any> => {
     return new Promise((resolve:Function, reject:Function) => {
@@ -22,7 +23,7 @@ todoSchema.static('getById', (id: string):Promise<any> => {
         }
 
         Todo.findById(id)
-            .exec((err, todos) => {
+            .exec((err, todo) => {
               err ? reject(err)
                   : resolve(todo);
             });

@@ -132,6 +132,8 @@ class NodeBaseStandard {
 
     if(!this.wrapper.testsSeparated) {
       let _tests = [
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.js', 'server/config/db.conf.test.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/model/todo-model.spec.js', 'server/api/todo/model/todo-model.spec.js'],
@@ -257,6 +259,8 @@ class NodeBaseBabel {
 
     if(!this.wrapper.testsSeparated) {
       let _tests = [
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.js', 'server/config/db.conf.test.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model.spec.js', 'server/api/todo/model/todo-model.spec.js'],
@@ -383,6 +387,8 @@ class NodeBaseTypescript {
 
     if(!this.wrapper.testsSeparated) {
       let _tests = [
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.ts', 'server/config/db.conf.test.ts'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model.spec.js', 'server/api/todo/model/todo-model.spec.js'],
