@@ -5,13 +5,10 @@ import {
   expect,
   describe,
   inject,
-  injectAsync,
+  async,
+  TestComponentBuilder,
   beforeEachProviders
 } from '@angular/core/testing';
-
-import {
-  TestComponentBuilder
-} from '@angular/compiler/testing';
 
 import {
   provide
@@ -53,7 +50,7 @@ describe('todo_component', () => {
   beforeEachProviders(() => [provide(TodoService, {useClass: MockTodoService})]);
 
   describe('creation', () => {
-    it('should create the component correctly', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+    it('should create the component correctly', async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TodoCmp).then((fixture) => {
         fixture.detectChanges();
 
@@ -61,9 +58,9 @@ describe('todo_component', () => {
 
         expect(compiled).toBeDefined();
       });
-    }));
+    })));
 
-    it('should inicialize the cmp correctly', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+    it('should inicialize the cmp correctly', async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TodoCmp).then((fixture) => {
         let instance = fixture.debugElement.componentInstance;
 
@@ -73,9 +70,9 @@ describe('todo_component', () => {
 
         expect(instance._getAll).toHaveBeenCalled();
       });
-    }));
+    })));
 
-    it('should call add correctly', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+    it('should call add correctly', async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TodoCmp).then((fixture) => {
         fixture.detectChanges();
 
@@ -85,9 +82,9 @@ describe('todo_component', () => {
 
         instance.add(_todoMsg);
       });
-    }));
+    })));
 
-    it('should call remove correctly', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+    it('should call remove correctly', async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
       return tcb.createAsync(TodoCmp).then((fixture) => {
         fixture.detectChanges();
 
@@ -97,6 +94,6 @@ describe('todo_component', () => {
 
         instance.remove(_id);
       });
-    }));
+    })));
   });
 });
