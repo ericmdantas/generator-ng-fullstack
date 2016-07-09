@@ -32,7 +32,7 @@
   "dependencies": {
     <% if (!clientOnly) { %>"lodash": "^4.6.1",
     "bluebird": "^3.3.4",
-    <% if (webFrameworkServer === "express") { %>
+    <% if (nodeWebFrameworkServer === "express") { %>
     "body-parser": "^1.5.0",
     "express": "~4.14.0",
     "express-content-length-validator": "1.0.0",
@@ -55,7 +55,7 @@
     "systemjs": "^0.19.24",
     "typescript": "^1.8.9",
     "zone.js": "^0.6.12", <% } %>
-    <% if (webFrameworkServer === "koa") { %>
+    <% if (nodeWebFrameworkServer === "koa") { %>
     "koa": "^1.2.0",
     "koa-bodyparser": "^2.2.0",
     "koa-router": "^5.4.0",

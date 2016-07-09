@@ -3,6 +3,7 @@
 const chalk = require('chalk');
 const yosay = require('yosay');
 const NodeFactory = require('../server/node_factory').NodeFactory;
+const GoFactory = require('../server/node_factory').GoFactory;
 const AngularFactory = require('../client/angular').AngularFactory;
 const ClientFactory = require('../client/client_factory').ClientFactory;
 const ServerFactory = require('../server/server_factory').ServerFactory;
@@ -48,7 +49,7 @@ exports.MainGenerator = class MainGenerator {
         usesTypescript: _usesTypescript,
         client: _client,
         clientOnly: _clientOnly,
-        webFrameworkServer: this.wrapper.webFrameworkServer,
+        nodeWebFrameworkServer: this.wrapper.nodeWebFrameworkServer,
         testsSeparated: _testsSeparated
       });
 
@@ -271,12 +272,12 @@ exports.MainGenerator = class MainGenerator {
     this.wrapper.config.save();
   }
 
-  promptWebFrameworkServer() {
+  promptNodeWebFrameworkServer() {
     const done = this.wrapper.async();
 
     let _prompts = [{
       type: "list",
-      name: "webFrameworkServer",
+      name: "nodeWebFrameworkServer",
       message: "What framework do you want to use in server side?",
       choices: [NodeFactory.tokensWebFramework().EXPRESS, NodeFactory.tokensWebFramework().KOA],
       default: 0,
@@ -284,14 +285,37 @@ exports.MainGenerator = class MainGenerator {
     }];
 
     this.wrapper.prompt(_prompts, (props) => {
-      this.wrapper.webFrameworkServer = props.webFrameworkServer;
-      this.wrapper.config.set('webFrameworkServer', this.wrapper.webFrameworkServer);
+      this.wrapper.nodeWebFrameworkServer = props.nodeWebFrameworkServer;
+      this.wrapper.config.set('nodeWebFrameworkServer', this.wrapper.nodeWebFrameworkServer);
 
       done();
     });
 
     this.wrapper.config.save();
   }
+
+  promptGoWebFrameworkServer() {
+    const done = this.wrapper.async();
+
+    let _prompts = [{
+      type: "list",
+      name: "goWebFrameworkServer",
+      message: "What framework do you want to use in server side?",
+      choices: [GoFactory.tokensWebFramework().ECHO, GoFactory.tokensWebFramework().GIN],
+      default: 0,
+      when: () => this.wrapper.server === ServerFactory.tokens().GO
+    }];
+
+    this.wrapper.prompt(_prompts, (props) => {
+      this.wrapper.goWebFrameworkServer = props.goWebFrameworkServer;
+      this.wrapper.config.set('goWebFrameworkServer', this.wrapper.goWebFrameworkServer);
+
+      done();
+    });
+
+    this.wrapper.config.save();
+  }
+
 
   promptTranspilerServer() {
     const done = this.wrapper.async();

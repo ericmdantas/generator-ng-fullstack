@@ -13,15 +13,15 @@ describe('node -> express', () => {
     });
 
     it('should have an instance of NodeExpressStandard', () => {
-      expect(NodeFactory.build({transpilerServer: 'node', webFrameworkServer: 'express'}) instanceof NodeExpressStandard).to.be.true;
+      expect(NodeFactory.build({transpilerServer: 'node', nodeWebFrameworkServer: 'express'}) instanceof NodeExpressStandard).to.be.true;
     });
 
     it('should have an instance of NodeExpressBabel', () => {
-      expect(NodeFactory.build({transpilerServer: 'babel', webFrameworkServer: 'express'}) instanceof NodeExpressBabel).to.be.true;
+      expect(NodeFactory.build({transpilerServer: 'babel', nodeWebFrameworkServer: 'express'}) instanceof NodeExpressBabel).to.be.true;
     });
 
     it('should have an instance of NodeExpressTypescript', () => {
-      expect(NodeFactory.build({transpilerServer: 'typescript', webFrameworkServer: 'express'}) instanceof NodeExpressTypescript).to.be.true;
+      expect(NodeFactory.build({transpilerServer: 'typescript', nodeWebFrameworkServer: 'express'}) instanceof NodeExpressTypescript).to.be.true;
     });
   });
 

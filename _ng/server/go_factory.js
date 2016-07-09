@@ -12,7 +12,7 @@ exports.GoFactory = class GoFactory {
   }
 
   static build(generator) {
-    switch(generator.webFrameworkServer) {
+    switch(generator.goWebFrameworkServer) {
       case GoFactory.tokensWebFramework().ECHO: return new GoEcho(generator);
       case GoFactory.tokensWebFramework().GIN: return new GoGin(generator); 
     }

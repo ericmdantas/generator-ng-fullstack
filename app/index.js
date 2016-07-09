@@ -1,8 +1,6 @@
 "use strict";
 
 const Base = require('yeoman-generator').Base;
-const chalk = require('chalk');
-const yosay = require('yosay');
 const MainGenerator = require('../_ng/full/generator').MainGenerator;
 
 module.exports = class NgFullstack extends Base {
@@ -44,8 +42,12 @@ module.exports = class NgFullstack extends Base {
       this.generator.promptClient();
     }
 
-    promptWebFrameworkServer() {
-      this.generator.promptWebFrameworkServer();
+    promptNodeWebFrameworkServer() {
+      this.generator.promptNodeWebFrameworkServer();
+    }
+
+    promptGoWebFrameworkServer() {
+      this.generator.promptGoWebFrameworkServer();
     }
 
     promptUserTranspilerServer() {

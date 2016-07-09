@@ -25,7 +25,7 @@ exports.NodeFactory = class NodeFactory {
   }
 
   static build(generator) {
-    if (generator.webFrameworkServer === NodeFactory.tokensWebFramework().EXPRESS) {
+    if (generator.nodeWebFrameworkServer === NodeFactory.tokensWebFramework().EXPRESS) {
       switch(generator.transpilerServer) {
         case NodeFactory.tokensCompiler().NODE: return new NodeExpressStandard(generator);
         case NodeFactory.tokensCompiler().BABEL: return new NodeExpressBabel(generator);
@@ -33,7 +33,7 @@ exports.NodeFactory = class NodeFactory {
       }
     }
 
-    if (generator.webFrameworkServer === NodeFactory.tokensWebFramework().KOA) {
+    if (generator.nodeWebFrameworkServer === NodeFactory.tokensWebFramework().KOA) {
       switch(generator.transpilerServer) {
         case NodeFactory.tokensCompiler().NODE: return new NodeKoaStandard(generator);
         case NodeFactory.tokensCompiler().BABEL: return new NodeKoaBabel(generator);

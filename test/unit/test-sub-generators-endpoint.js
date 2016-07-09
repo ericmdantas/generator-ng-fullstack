@@ -10,7 +10,7 @@ describe('EndpointSubGenerator', () => {
       let _gen = {
         a: true,
         transpilerServer: 'node',
-        webFrameworkServer: 'express',
+        nodeWebFrameworkServer: 'express',
         server: 'node',
         testsSeparated: true,
         config: {
@@ -18,7 +18,7 @@ describe('EndpointSubGenerator', () => {
             switch (token) {
               case "server": return "node";
               case "transpilerServer": return "node";
-              case "webFrameworkServer": return "express";
+              case "nodeWebFrameworkServer": return "express";
               case "testsSeparated": return true;
             }
           }
@@ -35,14 +35,14 @@ describe('EndpointSubGenerator', () => {
       let _gen = {
         argument: () => {},
         transpilerServer: 'node',
-        webFrameworkServer: 'express',
+        nodeWebFrameworkServer: 'express',
         testsSeparated: true,
         config: {
           get(token) {
             switch (token) {
               case "server": return "node";
               case "transpilerServer": return "node";
-              case "webFrameworkServer": return "express";
+              case "nodeWebFrameworkServer": return "express";
               case "testsSeparated": return true;
             }
           }
@@ -65,7 +65,7 @@ describe('EndpointSubGenerator', () => {
         name: 'a',
         options: {},
         transpilerServer: 'node',
-        webFrameworkServer: 'express',
+        nodeWebFrameworkServer: 'express',
         testsSeparated: true,
         template: () => {},
         config: {
@@ -73,7 +73,7 @@ describe('EndpointSubGenerator', () => {
             switch (token) {
               case "server": return "node";
               case "transpilerServer": return "node";
-              case "webFrameworkServer": return "express";
+              case "nodeWebFrameworkServer": return "express";
               case "testsSeparated": return true;
             }
           }
@@ -90,7 +90,7 @@ describe('EndpointSubGenerator', () => {
         name: 'a',
         options: {feature: 'c'},
         transpilerServer: 'node',
-        webFrameworkServer: 'express',
+        nodeWebFrameworkServer: 'express',
         testsSeparated: true,
         template: () => {},
         config: {
@@ -98,7 +98,7 @@ describe('EndpointSubGenerator', () => {
             switch (token) {
               case "server": return "node";
               case "transpilerServer": return "node";
-              case "webFrameworkServer": return "express";
+              case "nodeWebFrameworkServer": return "express";
               case "testsSeparated": return true;
             }
           }
@@ -117,7 +117,7 @@ describe('EndpointSubGenerator', () => {
         name: 'a',
         options: {feature: 'c'},
         transpilerServer: 'node',
-        webFrameworkServer: 'express',
+        nodeWebFrameworkServer: 'express',
         testsSeparated: false,
         template: () => {},
         config: {
@@ -125,7 +125,7 @@ describe('EndpointSubGenerator', () => {
             switch (token) {
               case "server": return "node";
               case "transpilerServer": return "node";
-              case "webFrameworkServer": return "express";
+              case "nodeWebFrameworkServer": return "express";
               case "testsSeparated": return false;
             }
           }

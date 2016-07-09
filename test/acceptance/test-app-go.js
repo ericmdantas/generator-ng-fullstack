@@ -102,7 +102,7 @@ describe('ng-fullstack -> golang', () => {
       .withPrompts({
         appName: "a",
         githubUsername: "b",
-        webFrameworkServer: "echo",
+        goWebFrameworkServer: "echo",
         server: "go",
         stack: 'fullstack',
         client: 'ng2'
@@ -161,7 +161,7 @@ describe('ng-fullstack -> golang', () => {
       .withPrompts({
         appName: "a",
         githubUsername: "b",
-        webFrameworkServer: "echo",
+        goWebFrameworkServer: "echo",
         server: "go",
         stack: 'fullstack',
         client: 'ng1'
@@ -219,7 +219,7 @@ describe('ng-fullstack -> golang', () => {
           appName: "a",
           secure: false,
           githubUsername: "b",
-          webFrameworkServer: "echo",
+          goWebFrameworkServer: "echo",
           server: "go",
           stack: 'fullstack',
           client: 'ng1'
@@ -289,7 +289,7 @@ describe('ng-fullstack -> golang', () => {
           .withPrompts({
             appName: "a",
             githubUsername: "b",
-            webFrameworkServer: "echo",
+            goWebFrameworkServer: "echo",
             server: "go",
             stack: 'fullstack',
             client: 'ng1'
@@ -343,7 +343,7 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             secure: false,
             differentStaticServer: true,
-            webFrameworkServer: "echo",
+            goWebFrameworkServer: "echo",
             githubUsername: "b",
             server: "go",
             stack: 'fullstack',
@@ -401,7 +401,7 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             secure: false,
             differentStaticServer: true,
-            webFrameworkServer: "echo",
+            goWebFrameworkServer: "echo",
             githubUsername: "b",
             server: "go",
             stack: 'server',
@@ -465,7 +465,7 @@ describe('ng-fullstack -> golang', () => {
           .withPrompts({
             appName: "a",
             secure: true,
-            webFrameworkServer: "echo",
+            goWebFrameworkServer: "echo",
             differentStaticServer: true,
             githubUsername: "b",
             server: "go",
@@ -531,7 +531,7 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             secure: true,
             differentStaticServer: true,
-            webFrameworkServer: "echo",
+            goWebFrameworkServer: "echo",
             githubUsername: "b",
             server: "go",
             stack: 'fullstack',
@@ -597,7 +597,7 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             secure: true,
             differentStaticServer: true,
-            webFrameworkServer: "echo",
+            goWebFrameworkServer: "echo",
             githubUsername: "b",
             server: "go",
             stack: 'fullstack',
@@ -663,7 +663,7 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             secure: true,
             differentStaticServer: true,
-            webFrameworkServer: "echo",
+            goWebFrameworkServer: "echo",
             githubUsername: "b",
             server: "go",
             stack: 'fullstack',
@@ -781,7 +781,7 @@ describe('ng-fullstack -> golang', () => {
       .withPrompts({
         appName: "a",
         githubUsername: "b",
-        webFrameworkServer: "gin",
+        goWebFrameworkServer: "gin",
         server: "go",
         stack: 'fullstack',
         client: 'ng2'
@@ -840,7 +840,7 @@ describe('ng-fullstack -> golang', () => {
       .withPrompts({
         appName: "a",
         githubUsername: "b",
-        webFrameworkServer: "gin",
+        goWebFrameworkServer: "gin",
         server: "go",
         stack: 'fullstack',
         client: 'ng1'
@@ -898,7 +898,7 @@ describe('ng-fullstack -> golang', () => {
           appName: "a",
           secure: false,
           githubUsername: "b",
-          webFrameworkServer: "gin",
+          goWebFrameworkServer: "gin",
           server: "go",
           stack: 'fullstack',
           client: 'ng1'
@@ -968,7 +968,7 @@ describe('ng-fullstack -> golang', () => {
           .withPrompts({
             appName: "a",
             githubUsername: "b",
-            webFrameworkServer: "gin",
+            goWebFrameworkServer: "gin",
             server: "go",
             stack: 'fullstack',
             client: 'ng1'
@@ -1022,7 +1022,7 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             secure: false,
             differentStaticServer: true,
-            webFrameworkServer: "gin",
+            goWebFrameworkServer: "gin",
             githubUsername: "b",
             server: "go",
             stack: 'fullstack',
@@ -1080,7 +1080,7 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             secure: false,
             differentStaticServer: true,
-            webFrameworkServer: "gin",
+            goWebFrameworkServer: "gin",
             githubUsername: "b",
             server: "go",
             stack: 'server',
@@ -1144,7 +1144,7 @@ describe('ng-fullstack -> golang', () => {
           .withPrompts({
             appName: "a",
             secure: true,
-            webFrameworkServer: "gin",
+            goWebFrameworkServer: "gin",
             differentStaticServer: true,
             githubUsername: "b",
             server: "go",
@@ -1210,7 +1210,7 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             secure: true,
             differentStaticServer: true,
-            webFrameworkServer: "gin",
+            goWebFrameworkServer: "gin",
             githubUsername: "b",
             server: "go",
             stack: 'fullstack',
@@ -1276,7 +1276,7 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             secure: true,
             differentStaticServer: true,
-            webFrameworkServer: "gin",
+            goWebFrameworkServer: "gin",
             githubUsername: "b",
             server: "go",
             stack: 'fullstack',
@@ -1342,7 +1342,7 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             secure: true,
             differentStaticServer: true,
-            webFrameworkServer: "gin",
+            goWebFrameworkServer: "gin",
             githubUsername: "b",
             server: "go",
             stack: 'fullstack',

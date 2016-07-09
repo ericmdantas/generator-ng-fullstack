@@ -22,7 +22,7 @@ describe('go', () => {
         appName: 'c',
         userNameSpace: 'd',
         repoHostUrl: 'github.com',
-        webFrameworkServer: 'gin',
+        goWebFrameworkServer: 'gin',
         template: sinon.spy()
       }
 
@@ -129,7 +129,7 @@ describe('go', () => {
         name: 'b',
         appName: 'c',
         userNameSpace: 'd',
-        webFrameworkServer: 'gin',
+        goWebFrameworkServer: 'gin',
         repoHostUrl: 'github.com',
         template: sinon.spy()
       }
@@ -284,7 +284,7 @@ describe('go', () => {
         appName: 'c',
         userNameSpace: 'd',
         repoHostUrl: 'github.com',
-        webFrameworkServer: 'gin',
+        goWebFrameworkServer: 'gin',
         template: sinon.spy(),
         secure: true
       }
@@ -439,7 +439,7 @@ describe('go', () => {
         appName: 'c',
         userNameSpace: 'd',
         repoHostUrl: 'github.com',
-        webFrameworkServer: 'gin',
+        goWebFrameworkServer: 'gin',
         template: sinon.spy(),
         secure: true
       }
@@ -594,7 +594,7 @@ describe('go', () => {
         appName: 'c',
         differentStaticServer: true,
         userNameSpace: 'd',
-        webFrameworkServer: 'gin',
+        goWebFrameworkServer: 'gin',
         repoHostUrl: 'github.com',
         template: sinon.spy(),
         secure: true
@@ -732,7 +732,7 @@ describe('go', () => {
         stack: "server",
         differentStaticServer: false,
         userNameSpace: 'd',
-        webFrameworkServer: 'gin',
+        goWebFrameworkServer: 'gin',
         repoHostUrl: 'github.com',
         template: sinon.spy(),
         secure: true
