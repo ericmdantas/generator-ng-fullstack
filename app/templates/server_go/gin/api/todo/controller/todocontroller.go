@@ -3,17 +3,17 @@ package todocontroller
 import (
 	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/dao"
 	todo "<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/model"
-	"github.com/labstack/echo"
+	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
-func GetAll(c echo.Context) error {
+func GetAll(c *gin.Context) error {
 	ts, _ := tododao.All()
 
 	return c.JSON(http.StatusOK, ts)
 }
 
-func GetById(c echo.Context) error {
+func GetById(c *gin.Context) error {
 	id := c.Param("id")
 
 	nt, _ := tododao.GetById(id)
@@ -21,7 +21,7 @@ func GetById(c echo.Context) error {
 	return c.JSON(http.StatusOK, nt)
 }
 
-func NewTodo(c echo.Context) error {
+func NewTodo(c *gin.Context) error {
 	t := new(todo.Todo)
 
 	c.Bind(t)
@@ -31,7 +31,7 @@ func NewTodo(c echo.Context) error {
 	return c.JSON(http.StatusOK, nt)
 }
 
-func RemoveTodo(c echo.Context) error {
+func RemoveTodo(c *gin.Context) error {
 	id := c.Param("id")
 
 	tododao.DeleteTodo(id)
