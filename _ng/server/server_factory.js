@@ -8,8 +8,8 @@ exports.ServerFactory = class ServerFactory {
     return {
       NODE: 'node',
       GO: 'go'
-    }
-  };
+    };
+  }
 
   static create(token, gen) {
     switch(token) {
@@ -17,4 +17,4 @@ exports.ServerFactory = class ServerFactory {
       case ServerFactory.tokens().GO: return GoFactory.build(gen);
     }
   }
-}
+};

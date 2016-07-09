@@ -1,8 +1,6 @@
 "use strict";
 
-const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
-const utils = require('../utils/utils');
 const ServerFactory = require('./server_factory').ServerFactory;
 const NodeFactory = require('./node_factory').NodeFactory;
 const GoFactory = require('./go_factory').GoFactory;
@@ -38,4 +36,4 @@ exports.EndpointSubGenerator = class EndpointSubGenerator {
         case ServerFactory.tokens().NODE: NodeFactory.build(this.wrapper).copyFiles(); break;
     }
   }
-}
+};

@@ -20,7 +20,7 @@ const basePath = (generator) => {
     model: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model`,
     modelTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model.spec`,
     modelTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/model/${generator.name}-model.spec`
-  }
+  };
 };
 
 class NodeBaseStandard {

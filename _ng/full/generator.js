@@ -230,7 +230,7 @@ exports.MainGenerator = class MainGenerator {
         },
         default: 0
       }
-    ]
+    ];
 
     this.wrapper.prompt(prompts, (props) => {
       this.wrapper.server = props.server;
@@ -259,7 +259,7 @@ exports.MainGenerator = class MainGenerator {
         },
         default: 0
       }
-    ]
+    ];
 
     this.wrapper.prompt(prompts, (props) => {
       this.wrapper.client = props.client;

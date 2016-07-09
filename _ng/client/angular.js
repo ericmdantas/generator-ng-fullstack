@@ -45,7 +45,7 @@ class Angular1 {
         ['tests/client_ng1/todo/controllers/todo-controller.spec.js', 'client/dev/todo/controllers/todo-controller.spec.js'],
         ['tests/client_ng1/todo/models/todo-model.spec.js', 'client/dev/todo/models/todo-model.spec.js'],
         ['tests/client_ng1/todo/services/todo-dao.spec.js', 'client/dev/todo/services/todo-dao.spec.js']
-      ]
+      ];
     }
 
     this.generator.directory('tasks/client/ng1', 'tasks/client');

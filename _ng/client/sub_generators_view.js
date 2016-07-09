@@ -1,8 +1,6 @@
 'use strict';
 
-const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
-const utils = require('../utils/utils');
 const AngularFactory = require('./angular').AngularFactory;
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 

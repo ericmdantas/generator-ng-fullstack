@@ -1,8 +1,6 @@
 'use strict';
 
-const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
-const utils = require('../utils/utils');
 const AngularFactory = require('./angular').AngularFactory;
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 const ModuleDoesntImplementError = require('../utils/errors').ModuleDoesntImplementError;
@@ -26,7 +24,6 @@ exports.PipeSubGenerator = class PipeSubGenerator {
   writing() {
     let _feature = optionsParser.getFeature(this.wrapper.options);
     let _ngVersion = this.wrapper.ngVersion;
-    let name = this.wrapper.name;
 
     if (!_feature.length) {
       throw new FeatureMissingError();

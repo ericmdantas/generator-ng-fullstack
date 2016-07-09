@@ -8,20 +8,20 @@ const NodeKoaStandard = require('./node_koa').NodeKoaStandard;
 const NodeKoaBabel = require('./node_koa').NodeKoaBabel;
 const NodeKoaTypescript = require('./node_koa').NodeKoaTypescript;
 
-class NodeFactory {
+exports.NodeFactory = class NodeFactory {
   static tokensCompiler() {
     return {
       NODE: "node",
       BABEL: "babel",
       TYPESCRIPT: "typescript"
-    }
+    };
   }
 
   static tokensWebFramework() {
     return {
       EXPRESS: "express",
       KOA: "koa"
-    }
+    };
   }
 
   static build(generator) {
@@ -41,6 +41,4 @@ class NodeFactory {
       }
     }
   }
-}
-
-exports.NodeFactory = NodeFactory;
+};

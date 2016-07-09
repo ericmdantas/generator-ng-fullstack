@@ -13,10 +13,10 @@ exports.FeatureMissingError = class FeatureMissingError extends ExtendableError 
   constructor() {
     super('Feature is needed. Do it like this: --feature something-here');
   }
-}
+};
 
 exports.ModuleDoesntImplementError = class ModuleDoesntImplementError extends ExtendableError {
   constructor(module, subGenerator) {
     super(`${module} doesn't implement ${subGenerator}.`);
   }
-}
+};
