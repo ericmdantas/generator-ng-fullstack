@@ -119,7 +119,8 @@ describe('NgFullstack:endpoint', () => {
       .inTmpDir(function() {
         MockConfigFile.create({
           "generator-ng-fullstack": {
-            "server": "go"
+            "server": "go",
+            "webFrameworkServer": "echo"
           }
         }, this.async());
       })
