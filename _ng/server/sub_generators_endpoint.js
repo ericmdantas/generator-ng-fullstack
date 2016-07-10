@@ -15,7 +15,13 @@ exports.EndpointSubGenerator = class EndpointSubGenerator {
     this.wrapper.appName = this.wrapper.config.get('appName');
     this.wrapper.server = this.wrapper.config.get('server');
     this.wrapper.transpilerServer = this.wrapper.config.get('transpilerServer');
-    this.wrapper.nodeWebFrameworkServer = this.wrapper.config.get('nodeWebFrameworkServer');
+
+    if (this.wrapper.server === ServerFactory.tokens().NODE) {
+      this.wrapper.nodeWebFrameworkServer = this.wrapper.config.get('nodeWebFrameworkServer');
+    } else {
+      this.wrapper.goWebFrameworkServer = this.wrapper.config.get('goWebFrameworkServer');
+    }
+
     this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
   }
 

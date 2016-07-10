@@ -4,10 +4,6 @@ import sinon from 'sinon';
 import {MainGenerator} from '../../_ng/full/generator';
 
 describe('generator', () => {
-  before(() => {
-
-  })
-
   describe('creation', () => {
     it('should have the object passed in constructor as the generator', () => {
       let _newGenerator = {"a": true};
@@ -109,7 +105,7 @@ describe('generator', () => {
         appName: 'a',
         username: 'b',
         server: 'go',
-        nodeWebFrameworkServer: 'echo',
+        goWebFrameworkServer: 'echo',
         transpilerServer: undefined,
         userEmail: "c",
         repoHost: "github",
@@ -136,7 +132,7 @@ describe('generator', () => {
         stack: 'fullstack',
         client: 'ng2',
         server: 'go',
-        nodeWebFrameworkServer: 'echo',
+        goWebFrameworkServer: 'echo',
         transpilerServer: undefined,
         userEmail: "c",
         repoHost: "github",
@@ -162,7 +158,7 @@ describe('generator', () => {
         username: 'b',
         stack: 'server',
         server: 'go',
-        nodeWebFrameworkServer: 'echo',
+        goWebFrameworkServer: 'echo',
         transpilerServer: undefined,
         userEmail: "c",
         repoHost: "github",
@@ -189,7 +185,7 @@ describe('generator', () => {
         stack: 'client',
         client: 'ng1',
         server: 'go',
-        nodeWebFrameworkServer: 'echo',
+        goWebFrameworkServer: 'echo',
         transpilerServer: undefined,
         userEmail: "c",
         repoHost: "github",

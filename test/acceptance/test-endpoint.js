@@ -4,7 +4,7 @@ import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
 import {MockConfigFile} from '../helpers/mocks';
 
-describe('NgFullstack:endpoint', () => {
+describe('ngFullstack -> endpoint', () => {
   describe('node', () => {
     describe('standard', () => {
       before(function (done) {
@@ -21,7 +21,13 @@ describe('NgFullstack:endpoint', () => {
           }, this.async());
         })
         .withArguments('endp')
-        .withPrompts({appName: "a", userNameSpace: "b", transpilerServer: "node", server: "node", testsSeparated: true})
+        .withPrompts({
+          appName: "a", 
+          userNameSpace: "b", 
+          transpilerServer: "node", 
+          server: "node", 
+          testsSeparated: true
+        })
         .withOptions({feature: 'todo2'})
         .on('end', done);
       });
@@ -56,7 +62,13 @@ describe('NgFullstack:endpoint', () => {
           }, this.async());
         })
         .withArguments('endp')
-        .withPrompts({appName: "a", userNameSpace: "b", transpilerServer: "babel", server: "node", testsSeparated: true})
+        .withPrompts({
+          appName: "a", 
+          userNameSpace: "b", 
+          transpilerServer: "babel", 
+          server: "node", 
+          testsSeparated: true
+        })
         .withOptions({feature: 'todo2'})
         .on('end', done);
       });
@@ -91,7 +103,13 @@ describe('NgFullstack:endpoint', () => {
           }, this.async());
         })
         .withArguments('endp')
-        .withPrompts({appName: "a", userNameSpace: "b", transpilerServer: "typescript", server: "node", testsSeparated: true})
+        .withPrompts({
+          appName: "a", 
+          userNameSpace: "b", 
+          transpilerServer: "typescript", 
+          server: "node", 
+          testsSeparated: true
+        })
         .withOptions({feature: 'todo2'})
         .on('end', done);
       });
@@ -120,12 +138,18 @@ describe('NgFullstack:endpoint', () => {
         MockConfigFile.create({
           "generator-ng-fullstack": {
             "server": "go",
-            "nodeWebFrameworkServer": "echo"
+            "goWebFrameworkServer": "echo"
           }
         }, this.async());
       })
       .withArguments('endp')
-      .withPrompts({appName: "a", userNameSpace: "b", server: "go", testsSeparated: true})
+      .withPrompts({
+        appName: "a", 
+        userNameSpace: "b", 
+        server: "go", 
+        goWebFrameworkServer: "echo", 
+        testsSeparated: true
+      })
       .withOptions({feature: 'todo2'})
       .on('end', done);
     });

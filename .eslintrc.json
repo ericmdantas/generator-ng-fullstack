@@ -1,5 +1,6 @@
 {
     "env": {
+        "node": true,
         "browser": false,
         "commonjs": true,
         "es6": true
@@ -10,5 +11,8 @@
         "linebreak-style": 0,
         "quotes": 0,
         "semi": 2
+    },
+    "globals": {
+        "process": true
     }
 }
