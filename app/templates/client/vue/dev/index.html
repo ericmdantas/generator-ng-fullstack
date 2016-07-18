@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <base href="/" >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="shortcut icon" type="image/ico" href="favicon.png" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./styles/todo.css" />
+
+    <title>ng2do</title>
+  </head>
+  <body id="app">
+
+    <todo-cmp></todo-cmp>
+
+    <% if (stack !== "client") { %>
+    <script src="./vue/dist/vue.min.js?rev=@@hash"></script>
+    <script src="./vue-router/dist/vue-router.min.js?rev=@@hash"></script>
+    <script src="./vue-resource/dist/vue-resource.min.js?rev=@@hash"></script>
+    <% } else { %>
+    <script src="node_modules/vue/dist/vue.min.js?rev=@@hash"></script>
+    <script src="node_modules/vue-router/dist/vue-router.min.js?rev=@@hash"></script>
+    <script src="node_modules/vue-resource/dist/vue-resource.min.js?rev=@@hash"></script>
+    <% } %>
+  </body>
+</html>
