@@ -9,6 +9,8 @@
     "start": "node index",
     "watch": "gulp",
     <% if (usesTypescript) { %>
+    "preinstall": "typings install",
+    "postinstall": "tsc",
     "dev": "tsc && concurrently \"npm start\" \"gulp\"",
     <% } else { %>
     "dev": "concurrently \"npm start\" \"gulp\"",
