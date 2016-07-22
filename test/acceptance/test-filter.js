@@ -3,7 +3,7 @@ import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
 import {MockConfigFile} from '../helpers/mocks';
 
-describe('NgFullstack:service - testsSeparated is true', () => {
+describe('NgFullstack:filter - testsSeparated is true', () => {
   before(function (done) {
     helpers
       .run(path.join(__dirname, '../../filter'))

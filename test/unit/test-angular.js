@@ -1354,7 +1354,7 @@ describe('angular', () => {
         let _ng2 = new Angular2(_gen);
 
         let _firstCall = [
-          'component.ts',
+          'ng2/component.ts',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.ts', {
             nameCapitalized: utils.capitalizeFirst(_gen.name),
             name: _gen.name,
@@ -1363,19 +1363,19 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'component.html',
+          'ng2/component.html',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {
             name: _gen.name
           }
         ];
 
         let _thirdCall = [
-          'component.css',
+          'ng2/component.css',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
         ];
 
         let _fourthCall = [
-          'component.spec.ts',
+          'ng2/component.spec.ts',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.spec.ts', {
             name: utils.capitalizeFirst(_gen.name),
             nameLowerCase: _gen.name.toLowerCase()
@@ -1401,7 +1401,7 @@ describe('angular', () => {
         let _ng2 = new Angular2(_gen);
 
         let _firstCall = [
-          'component.ts',
+          'ng2/component.ts',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.ts', {
             nameCapitalized: utils.capitalizeFirst(_gen.name),
             name: _gen.name,
@@ -1410,19 +1410,19 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'component.html',
+          'ng2/component.html',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {
             name: _gen.name
           }
         ];
 
         let _thirdCall = [
-          'component.css',
+          'ng2/component.css',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
         ];
 
         let _fourthCall = [
-          'component.spec.ts',
+          'ng2/component.spec.ts',
           knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '.spec.ts', {
             name: utils.capitalizeFirst(_gen.name),
             nameLowerCase: _gen.name.toLowerCase()

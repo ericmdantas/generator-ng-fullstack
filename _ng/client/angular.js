@@ -58,67 +58,135 @@ class Angular1 {
   copyController(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'controller_client.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/controllers/${this.generator.name}.js`, {name: this.generator.name, appName: this.generator.appName});
-    this.generator.template(_pathTemplate + 'controller_client.spec.js', `${this.testsPath + this.generator.options.feature}/controllers/${this.generator.name}.spec.js`, {name: this.generator.name, nameLowerCase: this.generator.name.toLowerCase(), appName: this.generator.appName});
+    this.generator.template(_pathTemplate + 'controller_client.js', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/controllers/${this.generator.name}.js`, {
+        name: this.generator.name, 
+        appName: this.generator.appName
+    });
+
+    this.generator.template(_pathTemplate + 'controller_client.spec.js', 
+      `${this.testsPath + this.generator.options.feature}/controllers/${this.generator.name}.spec.js`, {
+        name: this.generator.name, 
+        nameLowerCase: this.generator.name.toLowerCase(), 
+        appName: this.generator.appName
+    });
   }
 
   copyDirective(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'ng1/directive.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/directives/${this.generator.name}.js`, {name: this.generator.name, appName: this.generator.appName});
-    this.generator.template('ng1/directive.spec.js', `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}.spec.js`, {name: this.generator.name, appName: this.generator.appName, testsSeparated: this.generator.testsSeparated});
+    this.generator.template(_pathTemplate + 'ng1/directive.js', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/directives/${this.generator.name}.js`, {
+        name: this.generator.name, 
+        appName: this.generator.appName
+    });
+
+    this.generator.template('ng1/directive.spec.js', 
+      `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}.spec.js`, {
+        name: this.generator.name, 
+        appName: this.generator.appName, 
+        testsSeparated: this.generator.testsSeparated
+    });
   }
 
   copyFactory(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'ng1/factory.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/factory/${this.generator.name}.js`, {name: utils.capitalizeFirst(this.generator.name), appName: this.generator.appName});
-    this.generator.template(_pathTemplate + 'ng1/factory.spec.js', `${this.testsPath + this.generator.options.feature}/factory/${this.generator.name}.spec.js`, {name: utils.capitalizeFirst(this.generator.name), appName: this.generator.appName});
+    this.generator.template(_pathTemplate + 'ng1/factory.js', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/factory/${this.generator.name}.js`, {
+        name: utils.capitalizeFirst(this.generator.name), 
+        appName: this.generator.appName
+    });
+
+    this.generator.template(_pathTemplate + 'ng1/factory.spec.js', 
+      `${this.testsPath + this.generator.options.feature}/factory/${this.generator.name}.spec.js`, {
+        name: utils.capitalizeFirst(this.generator.name), 
+        appName: this.generator.appName
+    });
   }
 
   copyService(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'ng1/service.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/services/${this.generator.name}.js`, {name: this.generator.name, appName: this.generator.appName});
-    this.generator.template(_pathTemplate + 'ng1/service.spec.js', `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}.spec.js`, {name: this.generator.name, appName: this.generator.appName});
+    this.generator.template(_pathTemplate + 'ng1/service.js', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/services/${this.generator.name}.js`, {
+        name: this.generator.name, 
+        appName: this.generator.appName
+    });
+
+    this.generator.template(_pathTemplate + 'ng1/service.spec.js', 
+      `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}.spec.js`, {
+        name: this.generator.name, 
+        appName: this.generator.appName
+    });
   }
 
   copyModel(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'ng1/model.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/models/${this.generator.name}.js`, {name: this.generator.name, appName: this.generator.appName});
-    this.generator.template(_pathTemplate + 'ng1/model.spec.js', `${this.testsPath + this.generator.options.feature}/models/${this.generator.name}.spec.js`, {name: this.generator.name, appName: this.generator.appName});
+    this.generator.template(_pathTemplate + 'ng1/model.js', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/models/${this.generator.name}.js`, {
+        name: this.generator.name, 
+        appName: this.generator.appName
+    });
+
+    this.generator.template(_pathTemplate + 'ng1/model.spec.js', 
+      `${this.testsPath + this.generator.options.feature}/models/${this.generator.name}.spec.js`, {
+        name: this.generator.name, 
+        appName: this.generator.appName
+    });
   }
 
   copyDecorator(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'decorator.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/decorator/${this.generator.name}.js`, {appName: this.generator.appName});
+    this.generator.template(_pathTemplate + 'decorator.js', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/decorator/${this.generator.name}.js`, {
+        appName: this.generator.appName
+    });
   }
 
   copyFilter(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'filter.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/filters/${this.generator.name}.js`, {name: this.generator.name, appName: this.generator.appName});
-    this.generator.template(_pathTemplate + 'filter.spec.js', `${this.testsPath + this.generator.options.feature}/filters/${this.generator.name}.spec.js`, {name: this.generator.name, appName: this.generator.appName});
+    this.generator.template(_pathTemplate + 'ng1/filter.js', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/filters/${this.generator.name}.js`, {
+        name: this.generator.name, 
+        appName: this.generator.appName
+    });
+
+    this.generator.template(_pathTemplate + 'ng1/filter.spec.js', 
+      `${this.testsPath + this.generator.options.feature}/filters/${this.generator.name}.spec.js`, {
+        name: this.generator.name, 
+        appName: this.generator.appName
+    });
   }
 
   copyTemplate(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'view.html', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/templates/${this.generator.name}.html`, {name: this.generator.name});
+    this.generator.template(_pathTemplate + 'view.html', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/templates/${this.generator.name}.html`, {
+        name: this.generator.name
+    });
   }
 
   copyStyle(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'style.css', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`);
+    this.generator.template(_pathTemplate + 'style.css', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
+    );
   }
 
   copyResource(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'resource.js', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/resources/${this.generator.name}.js`, {name: this.generator.name, appName: this.generator.appName});
+    this.generator.template(_pathTemplate + 'resource.js', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/resources/${this.generator.name}.js`, {
+        name: this.generator.name, 
+        appName: this.generator.appName
+    });
   }
 
   copyModule() {
@@ -169,57 +237,115 @@ class Angular2 {
   copyComponent(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'component.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.ts`, {nameCapitalized: utils.capitalizeFirst(this.generator.name), name: this.generator.name, feature: this.generator.options.feature});
-    this.generator.template(_pathTemplate + 'component.html', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/templates/${this.generator.name}.html`, {name: this.generator.name});
-    this.generator.template(_pathTemplate + 'component.css', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`);
-    this.generator.template(_pathTemplate + 'component.spec.ts', `${this.testsPath + this.generator.options.feature}/components/${this.generator.name}.spec.ts`, {name: utils.capitalizeFirst(this.generator.name), nameLowerCase: this.generator.name.toLowerCase()});
+    this.generator.template(_pathTemplate + 'ng2/component.ts', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.ts`, {
+        nameCapitalized: utils.capitalizeFirst(this.generator.name), 
+        name: this.generator.name, 
+        feature: this.generator.options.feature
+    });
+
+    this.generator.template(_pathTemplate + 'ng2/component.html', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/templates/${this.generator.name}.html`, {
+        name: this.generator.name
+    });
+    
+    this.generator.template(_pathTemplate + 'ng2/component.css', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
+    );
+
+    this.generator.template(_pathTemplate + 'ng2/component.spec.ts', 
+      `${this.testsPath + this.generator.options.feature}/components/${this.generator.name}.spec.ts`, {
+        name: utils.capitalizeFirst(this.generator.name), 
+        nameLowerCase: this.generator.name.toLowerCase()
+    });
   }
 
   copyDirective(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'ng2/directive.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/directives/${this.generator.name}.ts`, {name: this.generator.name});
-    this.generator.template(_pathTemplate + 'ng2/directive.spec.ts', `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}.spec.ts`, {name: this.generator.name});
+    this.generator.template(_pathTemplate + 'ng2/directive.ts', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/directives/${this.generator.name}.ts`, {
+        name: this.generator.name
+    });
+
+    this.generator.template(_pathTemplate + 'ng2/directive.spec.ts', 
+      `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}.spec.ts`, {
+        name: this.generator.name
+    });
   }
 
 
   copyFactory(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'ng2/factory.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/factory/${this.generator.name}.ts`, {name: utils.capitalizeFirst(this.generator.name)});
-    this.generator.template(_pathTemplate + 'ng2/factory.spec.ts', `${this.testsPath + this.generator.options.feature}/factory/${this.generator.name}.spec.ts`, {name: utils.capitalizeFirst(this.generator.name)});
+    this.generator.template(_pathTemplate + 'ng2/factory.ts', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/factory/${this.generator.name}.ts`, {
+        name: utils.capitalizeFirst(this.generator.name)
+    });
+
+    this.generator.template(_pathTemplate + 'ng2/factory.spec.ts', 
+      `${this.testsPath + this.generator.options.feature}/factory/${this.generator.name}.spec.ts`, {
+        name: utils.capitalizeFirst(this.generator.name)
+    });
   }
 
   copyService(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
-    this.generator.template(_pathTemplate + 'ng2/service.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/services/${this.generator.name}.ts`, {name: this.generator.name});
-    this.generator.template(_pathTemplate + 'ng2/service.spec.ts', `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}.spec.ts`, {name: this.generator.name});
+
+    this.generator.template(_pathTemplate + 'ng2/service.ts', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/services/${this.generator.name}.ts`, {
+        name: this.generator.name
+    });
+
+    this.generator.template(_pathTemplate + 'ng2/service.spec.ts', 
+      `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}.spec.ts`, {
+        name: this.generator.name
+    });
   }
 
   copyModel(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'ng2/model.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/models/${this.generator.name}.ts`, {name: this.generator.name});
-    this.generator.template(_pathTemplate + 'ng2/model.spec.ts', `${this.testsPath + this.generator.options.feature}/models/${this.generator.name}.spec.ts`, {name: this.generator.name});
+    this.generator.template(_pathTemplate + 'ng2/model.ts', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/models/${this.generator.name}.ts`, {
+        name: this.generator.name
+    });
+
+    this.generator.template(_pathTemplate + 'ng2/model.spec.ts', 
+      `${this.testsPath + this.generator.options.feature}/models/${this.generator.name}.spec.ts`, {
+        name: this.generator.name
+    });
   }
 
   copyPipe(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'pipe.ts', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/pipes/${this.generator.name}.ts`, {name: this.generator.name});
-    this.generator.template(_pathTemplate + 'pipe.spec.js', `${this.testsPath + this.generator.options.feature}/pipes/${this.generator.name}.spec.js`, {name: this.generator.name});
+    this.generator.template(_pathTemplate + 'pipe.ts', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/pipes/${this.generator.name}.ts`, {
+        name: this.generator.name
+    });
+
+    this.generator.template(_pathTemplate + 'pipe.spec.js', 
+      `${this.testsPath + this.generator.options.feature}/pipes/${this.generator.name}.spec.js`, {
+        name: this.generator.name
+    });
   }
 
   copyTemplate(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'view.html', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/templates/${this.generator.name}.html`, {name: this.generator.name});
+    this.generator.template(_pathTemplate + 'view.html', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/templates/${this.generator.name}.html`, {
+        name: this.generator.name
+    });
   }
 
   copyStyle(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'style.css', `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`);
+    this.generator.template(_pathTemplate + 'style.css', 
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
+    );
   }
 
   copyModule() {
