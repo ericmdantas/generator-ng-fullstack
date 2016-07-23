@@ -112,7 +112,7 @@ exports.MainGenerator = class MainGenerator {
       this.wrapper.installDependencies({
         skipInstall: this.wrapper.options['skip-install'],
         npm: true,
-        bower: this.wrapper.client !== AngularFactory.tokens().NG2
+        bower: this.wrapper.client === AngularFactory.tokens().NG1
       });
   }
 
