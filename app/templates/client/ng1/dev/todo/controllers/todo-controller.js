@@ -8,19 +8,9 @@
       'TodoDAO',
       function($log, Todo, TodoDAO) {
         var self = this;
-
+        
         self.todo = new Todo();
         self.todos = [];
-
-        self.createTodo = function(todo) {
-          TodoDAO
-            .createTodo(todo)
-            .then(function(newTodo) {
-              self.todos.push(newTodo);
-              self.todo = new Todo();
-            })
-            .catch($log.error);
-        };
 
         function _getAll() {
           return TodoDAO
@@ -30,8 +20,18 @@
               return self.todos;
             })
             .catch($log.error);
-        }
-
+        };
+        
+        self.createTodo = function(todo) {
+          TodoDAO
+            .createTodo(todo)
+            .then(function(newTodo) {
+              self.todos.push(newTodo);
+              self.todo = new Todo();
+            })
+            .catch($log.error);
+        };
+        
         self.deleteTodo = function(id) {
           TodoDAO
             .deleteTodo(id)
@@ -42,8 +42,6 @@
         };
 
         _getAll();
-
-        return self;
       }
     ]);
 }(window.angular));

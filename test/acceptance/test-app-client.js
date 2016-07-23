@@ -45,14 +45,7 @@ describe('ng-fullstack -> client_only', () => {
       'client/dev/favicon.png',
       'client/dev/index.html',
 
-      'client/dev/todo/styles/events.css',
-      'client/dev/todo/styles/fonts.css',
-      'client/dev/todo/styles/frameworks_overrides.css',
-      'client/dev/todo/styles/media_queries.css',
-      'client/dev/todo/styles/position.css',
-      'client/dev/todo/styles/styles.css',
-
-      'client/dev/common/images/todo-bkg.png',
+      'client/dev/todo/styles/todo.css',
 
       'client/dev/app.js',
       'client/dev/app.route.js',
@@ -138,15 +131,8 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/favicon.png',
         'client/dev/index.html',
 
-        'client/dev/todo/styles/events.css',
-        'client/dev/todo/styles/fonts.css',
-        'client/dev/todo/styles/frameworks_overrides.css',
-        'client/dev/todo/styles/media_queries.css',
-        'client/dev/todo/styles/position.css',
-        'client/dev/todo/styles/styles.css',
-
-        'client/dev/common/images/todo-bkg.png',
-
+        'client/dev/todo/styles/todo.css',
+        
         'client/dev/app.js',
         'client/dev/app.route.js',
         'client/dev/app.config.js',

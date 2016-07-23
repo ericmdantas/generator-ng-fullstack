@@ -18,17 +18,11 @@ class Angular1 {
       ['client/ng1/dev/app.js', 'client/dev/app.js'],
       ['client/ng1/dev/app.route.js', 'client/dev/app.route.js'],
       ['client/ng1/dev/app.config.js', 'client/dev/app.config.js'],
-      ['client/ng1/dev/common/images/todo-bkg.png', 'client/dev/common/images/todo-bkg.png'],
       ['client/ng1/dev/todo/controllers/todo-controller.js', 'client/dev/todo/controllers/todo-controller.js'],
       ['client/ng1/dev/todo/models/todo-model.js', 'client/dev/todo/models/todo-model.js'],
       ['client/ng1/dev/todo/services/todo-dao.js', 'client/dev/todo/services/todo-dao.js'],
       ['client/ng1/dev/todo/resources/todo-resource.js', 'client/dev/todo/resources/todo-resource.js'],
-      ['client/ng1/dev/todo/styles/events.css', 'client/dev/todo/styles/events.css'],
-      ['client/ng1/dev/todo/styles/fonts.css', 'client/dev/todo/styles/fonts.css'],
-      ['client/ng1/dev/todo/styles/frameworks_overrides.css', 'client/dev/todo/styles/frameworks_overrides.css'],
-      ['client/ng1/dev/todo/styles/media_queries.css', 'client/dev/todo/styles/media_queries.css'],
-      ['client/ng1/dev/todo/styles/position.css', 'client/dev/todo/styles/position.css'],
-      ['client/ng1/dev/todo/styles/styles.css', 'client/dev/todo/styles/styles.css'],
+      ['client/ng1/dev/todo/styles/todo.css', 'client/dev/todo/styles/todo.css'],
       ['client/ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
     ];
 
