@@ -21,8 +21,8 @@ class Vue2 {
       this.generator.directory('tests/client_vue2', 'tests/client');
     } else {
       let _pathTest = [
-        ['tests/client_vue2/todo/components/todo-cmp.spec.js', 'client/dev/todo/components/todo-cmp.spec.js'],
-        ['tests/client_vue2/todo/services/todo-service.spec.js', 'client/dev/todo/services/todo-service.spec.js']
+        ['tests/client_vue2/todo/components/todo-cmp_test.js', 'client/dev/todo/components/todo-cmp_test.js'],
+        ['tests/client_vue2/todo/services/todo-service_test.js', 'client/dev/todo/services/todo-service_test.js']
       ];
       yoUtils.directory(this.generator, _pathTest, this.generator);
     }
@@ -44,8 +44,8 @@ class Vue2 {
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
     );
 
-    this.generator.template(_pathTemplate + 'vue2/component.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/components/${this.generator.name}.spec.js`, {
+    this.generator.template(_pathTemplate + 'vue2/component_test.js', 
+      `${this.testsPath + this.generator.options.feature}/components/${this.generator.name}_test.js`, {
         name: utils.capitalizeFirst(this.generator.name), 
         nameLowerCase: this.generator.name.toLowerCase()
     });
@@ -59,8 +59,8 @@ class Vue2 {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'vue2/directive.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}.spec.js`, {
+    this.generator.template(_pathTemplate + 'vue2/directive_test.js', 
+      `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
   }
@@ -74,8 +74,8 @@ class Vue2 {
         name: utils.capitalizeFirst(this.generator.name)
     });
 
-    this.generator.template(_pathTemplate + 'vue2/factory.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/factory/${this.generator.name}.spec.js`, {
+    this.generator.template(_pathTemplate + 'vue2/factory_test.js', 
+      `${this.testsPath + this.generator.options.feature}/factory/${this.generator.name}_test.js`, {
         name: utils.capitalizeFirst(this.generator.name)
     });
   }
@@ -88,8 +88,8 @@ class Vue2 {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'vue2/service.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}.spec.js`, {
+    this.generator.template(_pathTemplate + 'vue2/service_test.js', 
+      `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
   }
@@ -102,8 +102,8 @@ class Vue2 {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'vue2/model.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/models/${this.generator.name}.spec.js`, {
+    this.generator.template(_pathTemplate + 'vue2/model_test.js', 
+      `${this.testsPath + this.generator.options.feature}/models/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
   }
@@ -116,8 +116,8 @@ class Vue2 {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'vue2/filter.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/filters/${this.generator.name}.spec.js`, {
+    this.generator.template(_pathTemplate + 'vue2/filter_test.js', 
+      `${this.testsPath + this.generator.options.feature}/filters/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
   }
