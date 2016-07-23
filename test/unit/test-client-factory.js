@@ -6,6 +6,7 @@ import {AngularFactory} from '../../_ng/client/angular';
 describe('client_factory', () => {
   it('should have the right values for the tokens()', () => {
     expect(ClientFactory.tokens().ANGULAR).to.equal('angular');
+    expect(ClientFactory.tokens().VUE).to.equal('vue');
   })
 
   it('should return the right client - angular', () => {
