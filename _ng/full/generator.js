@@ -85,7 +85,7 @@ exports.MainGenerator = class MainGenerator {
       }
 
       if (_copiesClient) {
-        if (_client !== AngularFactory.tokens().NG2) {
+        if (_client === AngularFactory.tokens().NG1) {
           this.wrapper.template('_bower.json', 'bower.json', {
             app: _app.app,
             username: _user.username,
@@ -95,7 +95,11 @@ exports.MainGenerator = class MainGenerator {
           });
         }
 
-        ClientFactory.create('angular', _client, this.wrapper).copyClient();
+        if (/^ng/.test(_client)) {
+          ClientFactory.create('angular', _client, this.wrapper).copyClient();
+        } else {
+          ClientFactory.create('vue', _client, this.wrapper).copyClient();
+        }
       }
 
       if (_copiesServer) {

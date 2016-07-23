@@ -15,7 +15,6 @@ class Vue2 {
     this.generator.directory('tasks/client/vue2', 'tasks/client');
     this.generator.directory('client/vue2', 'client');
     this.generator.template('_karma.conf_vue2.js', 'karma.conf.js', {testsSeparated: this.testsSeparated});
-    this.generator.template('_karma-test-shim.js', 'karma-test-shim.js');
 
     if(this.testsSeparated) {
       this.generator.directory('tests/client_vue2', 'tests/client');
