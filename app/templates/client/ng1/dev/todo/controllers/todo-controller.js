@@ -11,13 +11,13 @@
         
         self.todo = new Todo();
         self.todos = [];
+        self.title = "ng1 2do";
 
         function _getAll() {
           return TodoDAO
             .getAll()
             .then(function(todos) {
-              self.todos = todos;
-              return self.todos;
+              return self.todos = todos;
             })
             .catch($log.error);
         };
