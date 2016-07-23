@@ -137,5 +137,54 @@ describe('ModuleSubGenerator', () => {
         expect(_fsg.copyDirective).to.have.been.called;
       });
     });
+
+    describe('vue2', () => {
+      it('should throw FeatureMissingError', () => {
+        let _gen = {
+          name: 'a',
+          options: {},
+          config: {
+            get() {return 'vue2'}
+          },
+          template: sinon.spy()
+        };
+
+        let _fsg = new ModuleSubGenerator(_gen);
+
+        expect(() => _fsg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
+      });
+
+      it('should have the writing called with the right stuff', () => {
+        let _gen = {
+          name: 'a',
+          options: {feature: 'c'},
+          config: {
+            get() {return 'vue2'}
+          },
+          template: sinon.spy()
+        };
+
+        sinon.mock(_gen.template);
+
+        let _fsg = new ModuleSubGenerator(_gen);
+
+        sinon.mock(_fsg.copyComponent);
+        sinon.mock(_fsg.copyModel);
+        sinon.mock(_fsg.copyFactory);
+        sinon.mock(_fsg.copyStyle);
+        sinon.mock(_fsg.copyService);
+        sinon.mock(_fsg.copyDirective);
+
+        _fsg.writing();
+
+        expect(_fsg.copyComponent).to.have.been.called;
+        expect(_fsg.copyModel).to.have.been.called;
+        expect(_fsg.copyFactory).to.have.been.called;
+        expect(_fsg.copyStyle).to.have.been.called;
+        expect(_fsg.copyService).to.have.been.called;
+        expect(_fsg.copyDirective).to.have.been.called;
+      });
+    });
+
   });
 });

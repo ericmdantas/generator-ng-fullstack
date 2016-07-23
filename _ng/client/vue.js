@@ -132,11 +132,11 @@ class Vue2 {
 
   copyModule() {
       this.copyComponent('../../component/templates/');
+      this.copyDirective('../../directive/templates/');
       this.copyFactory('../../factory/templates/');
       this.copyService('../../service/templates/');
       this.copyModel('../../model/templates/');
       this.copyStyle('../../style/templates/');
-      this.copyTemplate('../../view/templates/');
   }
 }
 
