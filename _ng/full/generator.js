@@ -205,7 +205,8 @@ exports.MainGenerator = class MainGenerator {
         type: "confirm",
         name: "testsSeparated",
         message: "Do you want to keep test in a separated directory?",
-        default: true
+        default: true,
+        when: () => this.wrapper.server !== ServerFactory.tokens().GO
       }
     ];
 
@@ -256,7 +257,7 @@ exports.MainGenerator = class MainGenerator {
         type: "list",
         name: "client",
         message: "What do you want in client side?",
-        choices: [AngularFactory.tokens().NG1, AngularFactory.tokens().NG2, VueFactory.tokens().VUE],
+        choices: [AngularFactory.tokens().NG1, AngularFactory.tokens().NG2, VueFactory.tokens().VUE2],
         when: () => {
           let _isClient = this.wrapper.stack === "client";
           let _isFullstack = this.wrapper.stack === "fullstack";
