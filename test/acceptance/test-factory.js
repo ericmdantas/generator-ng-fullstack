@@ -5,7 +5,7 @@ import {MockConfigFile} from '../helpers/mocks';
 
 describe('subgenerator -> factory', () => {
   describe('ng1', () => {
-    describe('ng1 - testsSeparated is true', () => {
+    describe('testsSeparated is true', () => {
       before((done) => {
         helpers
           .run(path.join(__dirname, '../../factory'))
@@ -30,7 +30,7 @@ describe('subgenerator -> factory', () => {
       });
     });
 
-    describe('ng1 - testsSeparated is false', () => {
+    describe('testsSeparated is false', () => {
       before((done) => {
         helpers
           .run(path.join(__dirname, '../../factory'))
@@ -57,7 +57,7 @@ describe('subgenerator -> factory', () => {
   })
 
   describe('ng2', () => {
-    describe('ng2 - testsSeparated is true', () => {
+    describe('testsSeparated is true', () => {
       before((done) => {
         helpers
           .run(path.join(__dirname, '../../factory'))
@@ -82,7 +82,7 @@ describe('subgenerator -> factory', () => {
       });
     });
 
-    describe('ng2 - testsSeparated is false', () => {
+    describe('testsSeparated is false', () => {
       before((done) => {
         helpers
           .run(path.join(__dirname, '../../factory'))
@@ -107,4 +107,56 @@ describe('subgenerator -> factory', () => {
       });
     });
   })  
+
+  describe('vue2', () => {
+    describe('testsSeparated is true', () => {
+      before((done) => {
+        helpers
+          .run(path.join(__dirname, '../../factory'))
+          .inTmpDir(function(dir) {
+            MockConfigFile.create({
+              "generator-ng-fullstack": {
+                "client": "vue2",
+                "testsSeparated": true
+              }
+            }, this.async());
+          })
+          .withArguments('cars')
+          .withOptions({ 'skip-install': true, feature: 'myModel'})
+          .on('end', done);
+      });
+
+      it('creates files', () => {
+        assert.file([
+          'client/dev/myModel/factory/cars.js',
+          'tests/client/myModel/factory/cars_test.js'
+        ]);
+      });
+    });
+
+    describe('testsSeparated is false', () => {
+      before((done) => {
+        helpers
+          .run(path.join(__dirname, '../../factory'))
+          .inTmpDir(function(dir) {
+            MockConfigFile.create({
+              "generator-ng-fullstack": {
+                "client": "vue2",
+                "testsSeparated": false
+              }
+            }, this.async());
+          })
+          .withArguments('cars')
+          .withOptions({ 'skip-install': true, feature: 'myModel'})
+          .on('end', done);
+      });
+
+      it('creates files', () => {
+        assert.file([
+          'client/dev/myModel/factory/cars.js',
+          'client/dev/myModel/factory/cars_test.js'
+        ]);
+      });
+    });
+  }) 
 });
