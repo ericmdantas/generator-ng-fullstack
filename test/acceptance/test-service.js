@@ -63,7 +63,7 @@ describe('subgenerator -> service', () => {
   })
   
   describe('ng2', () => {
-    describe('ng2 - testsSeparated is true', () => {
+    describe('testsSeparated is true', () => {
       before((done) => {
         helpers.run(path.join(__dirname, '../../service'))
         .inTmpDir(function(dir) {
@@ -91,7 +91,7 @@ describe('subgenerator -> service', () => {
       });
     });
 
-    describe('ng2 - testsSeparated is false', () => {
+    describe('testsSeparated is false', () => {
       before((done) => {
         helpers.run(path.join(__dirname, '../../service'))
         .inTmpDir(function(dir) {
@@ -119,4 +119,63 @@ describe('subgenerator -> service', () => {
       });
     });
   })
+
+  describe('ng2', () => {
+    describe('testsSeparated is true', () => {
+      before((done) => {
+        helpers.run(path.join(__dirname, '../../service'))
+        .inTmpDir(function(dir) {
+          MockConfigFile.create({
+            "generator-ng-fullstack": {
+              "client": "vue2",
+              "testsSeparated": true
+            }
+          }, this.async());
+        })
+        .withArguments('post')
+        .withOptions({ 'skip-install': true, feature: 'http'})
+        .on('end', done);
+      });
+
+      after((done) => {
+        MockConfigFile.delete(done);
+      });
+
+      it('creates files', () => {
+        assert.file([
+          'client/dev/http/services/post.js',
+          'tests/client/http/services/post_test.js'
+        ]);
+      });
+    });
+
+    describe('testsSeparated is false', () => {
+      before((done) => {
+        helpers.run(path.join(__dirname, '../../service'))
+        .inTmpDir(function(dir) {
+          MockConfigFile.create({
+            "generator-ng-fullstack": {
+              "client": "vue2",
+              "testsSeparated": false
+            }
+          }, this.async());
+        })
+        .withArguments('post')
+        .withOptions({ 'skip-install': true, feature: 'http'})
+        .on('end', done);
+      });
+
+      after((done) => {
+        MockConfigFile.delete(done);
+      });
+
+      it('creates files', () => {
+        assert.file([
+          'client/dev/http/services/post.js',
+          'client/dev/http/services/post_test.js'
+        ]);
+      });
+    });
+  })
+
 });
