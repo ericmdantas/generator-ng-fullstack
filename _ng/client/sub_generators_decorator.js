@@ -9,7 +9,7 @@ exports.DecoratorSubGenerator = class DecoratorSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
     this.wrapper.appName = this.wrapper.config.get('appName');
-    this.wrapper.ngVersion = this.wrapper.config.get('client');
+    this.wrapper.client = this.wrapper.config.get('client');
     this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
   }
 
@@ -23,14 +23,14 @@ exports.DecoratorSubGenerator = class DecoratorSubGenerator {
 
   writing() {
     let _feature = optionsParser.getFeature(this.wrapper.options);
-    let _ngVersion = this.wrapper.ngVersion;
+    let _client = this.wrapper.client;
 
     if (!_feature.length) {
       throw new FeatureMissingError();
     }
 
-    if (_ngVersion !== AngularFactory.tokens().NG1) {
-      throw new ModuleDoesntImplementError(_ngVersion, 'decorator');
+    if (_client !== AngularFactory.tokens().NG1) {
+      throw new ModuleDoesntImplementError(_client, 'decorator');
     }
 
     AngularFactory.build(AngularFactory.tokens().NG1, this.wrapper).copyDecorator();

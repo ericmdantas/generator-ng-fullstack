@@ -7,7 +7,7 @@ const AngularFactory = require('./angular').AngularFactory;
 exports.ModuleSubGenerator = class ModuleSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
-    this.wrapper.ngVersion = this.wrapper.config.get('client');
+    this.wrapper.client = this.wrapper.config.get('client');
     this.wrapper.appName = this.wrapper.config.get('appName');
     this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
   }
@@ -27,6 +27,6 @@ exports.ModuleSubGenerator = class ModuleSubGenerator {
       throw new FeatureMissingError();
     }
 
-    AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyModule();
+    AngularFactory.build(this.wrapper.client, this.wrapper).copyModule();
   }
 };

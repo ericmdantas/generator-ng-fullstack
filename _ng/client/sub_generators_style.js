@@ -7,7 +7,7 @@ const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 exports.StyleSubGenerator = class StyleSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
-    this.wrapper.ngVersion = this.wrapper.config.get('client');
+    this.wrapper.client = this.wrapper.config.get('client');
   }
 
   initializing() {
@@ -25,6 +25,6 @@ exports.StyleSubGenerator = class StyleSubGenerator {
       throw new FeatureMissingError();
     }
 
-    AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyStyle();
+    AngularFactory.build(this.wrapper.client, this.wrapper).copyStyle();
   }
 };

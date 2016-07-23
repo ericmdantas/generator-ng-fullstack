@@ -7,7 +7,7 @@ const AngularFactory = require('./angular').AngularFactory;
 exports.DirectiveSubGenerator = class DirectiveSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
-    this.wrapper.ngVersion = this.wrapper.config.get('client');
+    this.wrapper.client = this.wrapper.config.get('client');
     this.wrapper.appName = this.wrapper.config.get('appName');
     this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
   }
@@ -27,6 +27,6 @@ exports.DirectiveSubGenerator = class DirectiveSubGenerator {
       throw new FeatureMissingError();
     }
 
-    AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyDirective();
+    AngularFactory.build(this.wrapper.client, this.wrapper).copyDirective();
   }
 };
