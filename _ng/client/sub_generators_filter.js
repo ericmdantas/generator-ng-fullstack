@@ -1,9 +1,10 @@
 'use strict';
 
 const optionsParser = require('../utils/options_parser');
-const AngularFactory = require('./angular').AngularFactory;
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 const ModuleDoesntImplementError = require('../utils/errors').ModuleDoesntImplementError;
+const AngularFactory = require('./angular').AngularFactory;
+const VueFactory = require('./vue').VueFactory;
 
 exports.FilterSubGenerator = class FilterSubGenerator {
   constructor(generator) {
@@ -29,10 +30,14 @@ exports.FilterSubGenerator = class FilterSubGenerator {
       throw new FeatureMissingError();
     }
 
-    if (_client !== AngularFactory.tokens().NG1) {
-      throw new ModuleDoesntImplementError(_client, 'filter');
+    if (_client === AngularFactory.tokens().NG1) {
+      return AngularFactory.build(_client, this.wrapper).copyFilter();
     }
 
-    AngularFactory.build(AngularFactory.tokens().NG1, this.wrapper).copyFilter();
+    if (_client === VueFactory.tokens().VUE2) {
+      return VueFactory.build(_client, this.wrapper).copyFilter();
+    }
+
+    throw new ModuleDoesntImplementError(_client, 'filter');
   }
 };
