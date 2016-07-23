@@ -5,6 +5,7 @@ const yosay = require('yosay');
 const NodeFactory = require('../server/node_factory').NodeFactory;
 const GoFactory = require('../server/go_factory').GoFactory;
 const AngularFactory = require('../client/angular').AngularFactory;
+const VueFactory = require('../client/vue').VueFactory;
 const ClientFactory = require('../client/client_factory').ClientFactory;
 const ServerFactory = require('../server/server_factory').ServerFactory;
 
@@ -255,7 +256,7 @@ exports.MainGenerator = class MainGenerator {
         type: "list",
         name: "client",
         message: "What do you want in client side?",
-        choices: [AngularFactory.tokens().NG1, AngularFactory.tokens().NG2],
+        choices: [AngularFactory.tokens().NG1, AngularFactory.tokens().NG2, VueFactory.tokens().VUE],
         when: () => {
           let _isClient = this.wrapper.stack === "client";
           let _isFullstack = this.wrapper.stack === "fullstack";
@@ -319,7 +320,6 @@ exports.MainGenerator = class MainGenerator {
 
     this.wrapper.config.save();
   }
-
 
   promptTranspilerServer() {
     const done = this.wrapper.async();
