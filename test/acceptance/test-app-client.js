@@ -325,8 +325,8 @@ describe('ng-fullstack -> client_only', () => {
 
         // tests - client
 
-        'client/dev/todo/services/todo-service.spec.ts',
-        'client/dev/todo/components/todo-cmp.spec.ts',
+        'tests/client/todo/services/todo-service.spec.ts',
+        'tests/client/todo/components/todo-cmp.spec.ts',
 
         // tests - e2e
 
@@ -367,7 +367,6 @@ describe('ng-fullstack -> client_only', () => {
 
         'tasks/client/build_html.js',
         'tasks/client/build_image.js',
-        'tasks/client/build_ts.js',
         'tasks/client/build_js.js',
         'tasks/client/build.js',
         'tasks/client/del.js',
@@ -386,7 +385,6 @@ describe('ng-fullstack -> client_only', () => {
         '.alivrc',
 
         'package.json',
-        'karma-test-shim.js',
         'gulpfile.babel.js',
         'karma.conf.js',
         'protractor.conf.js',
@@ -405,9 +403,9 @@ describe('ng-fullstack -> client_only', () => {
 
         // tests - client
 
-        'tests/client/todo/models/todo-model_test.js',
-        'tests/client/todo/services/todo-service_test.js',
-        'test/client/todo/components/todo-cmp_test.js',
+        'client/dev/todo/models/todo-model_test.js',
+        'client/dev/todo/services/todo-service_test.js',
+        'client/dev/todo/components/todo-cmp_test.js',
 
         // tests - e2e
 
@@ -445,7 +443,6 @@ describe('ng-fullstack -> client_only', () => {
 
         'tasks/client/build_html.js',
         'tasks/client/build_image.js',
-        'tasks/client/build_ts.js',
         'tasks/client/build_js.js',
         'tasks/client/build.js',
         'tasks/client/del.js',
@@ -464,7 +461,6 @@ describe('ng-fullstack -> client_only', () => {
         '.alivrc',
 
         'package.json',
-        'karma-test-shim.js',
         'gulpfile.babel.js',
         'karma.conf.js',
         'protractor.conf.js',
@@ -483,9 +479,9 @@ describe('ng-fullstack -> client_only', () => {
 
         // tests - client
 
-        'client/dev/todo/services/todo-service_spec.js',
-        'client/dev/todo/models/todo-model_spec.js',
-        'client/dev/todo/components/todo-cmp_spec.js',
+        'tests/client/todo/services/todo-service_test.js',
+        'tests/client/todo/models/todo-model_test.js',
+        'tests/client/todo/components/todo-cmp_test.js',
 
         // tests - e2e
 

@@ -21,8 +21,10 @@ class Vue2 {
     } else {
       let _pathTest = [
         ['tests/client_vue2/todo/components/todo-cmp_test.js', 'client/dev/todo/components/todo-cmp_test.js'],
+        ['tests/client_vue2/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
         ['tests/client_vue2/todo/services/todo-service_test.js', 'client/dev/todo/services/todo-service_test.js']
       ];
+
       yoUtils.directory(this.generator, _pathTest, this.generator);
     }
 
