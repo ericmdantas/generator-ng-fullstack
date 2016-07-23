@@ -55,4 +55,57 @@ describe('subgenerator -> filter', () => {
       });
     })
   })
+
+  describe('vue2', () => {
+    describe('testsSeparated is true', () => {
+      before(function (done) {
+        helpers
+          .run(path.join(__dirname, '../../filter'))
+          .inTmpDir(function(dir) {
+            MockConfigFile.create({
+              "generator-ng-fullstack": {
+                "client": "vue2",
+                "testsSeparated": true
+              }
+            }, this.async());
+          })
+          .withArguments('something')
+          .withOptions({ 'skip-install': true, feature: 'beautifiers'})
+          .on('end', done);
+      });
+
+      it('creates files', () => {
+        assert.file([
+          'client/dev/beautifiers/filters/something.js',
+          'tests/client/beautifiers/filters/something_test.js'
+        ]);
+      });
+    })
+
+    describe('testsSeparated is false', () => {
+      before(function (done) {
+        helpers
+          .run(path.join(__dirname, '../../filter'))
+          .inTmpDir(function(dir) {
+            MockConfigFile.create({
+              "generator-ng-fullstack": {
+                "client": "vue2",
+                "testsSeparated": false
+              }
+            }, this.async());
+          })
+          .withArguments('something')
+          .withOptions({ 'skip-install': true, feature: 'beautifiers'})
+          .on('end', done);
+      });
+
+      it('creates files', () => {
+        assert.file([
+          'client/dev/beautifiers/filters/something.js',
+          'client/dev/beautifiers/filters/something_test.js'
+        ]);
+      });
+    })
+  })
+
 });
