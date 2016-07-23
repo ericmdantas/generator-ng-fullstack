@@ -28,9 +28,9 @@ module.exports = (config) => {
         'client/dev/!(bower_components)/**/*.js',
 
         <% if (testsSeparated) { %>
-        'tests/client/**/*.spec.js',
+        'tests/client/**/*_test.js',
         <% } else { %>
-        'client/dev/**/*.spec.js',
+        'client/dev/**/*_test.js',
         <% } %>
         'client/dev/**/*.html' // for templateUrl testing
     ],

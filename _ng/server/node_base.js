@@ -6,20 +6,20 @@ const yoUtils = require('../utils/yeoman-utils');
 const basePath = (generator) => {
   return {
     route: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/route/${generator.name}-route`,
-    routeTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/route/${generator.name}-route.spec`,
-    routeTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/route/${generator.name}-route.spec`,
+    routeTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/route/${generator.name}-route_test`,
+    routeTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/route/${generator.name}-route_test`,
 
     controller: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}-controller`,
-    controllerTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}-controller.spec`,
-    controllerTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/controller/${generator.name}-controller.spec`,
+    controllerTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/controller/${generator.name}-controller_test`,
+    controllerTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/controller/${generator.name}-controller_test`,
 
     dao: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/dao/${generator.name}-dao`,
-    daoTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/dao/${generator.name}-dao.spec`,
-    daoTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/dao/${generator.name}-dao.spec`,
+    daoTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/dao/${generator.name}-dao_test`,
+    daoTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/dao/${generator.name}-dao_test`,
 
     model: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model`,
-    modelTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model.spec`,
-    modelTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/model/${generator.name}-model.spec`
+    modelTestTogether: `${knownPaths.PATH_SERVER_FEATURES + generator.feature}/model/${generator.name}-model_test`,
+    modelTestSeparate: `${knownPaths.PATH_SERVER_FEATURES_TEST + generator.feature}/model/${generator.name}-model_test`
   };
 };
 
@@ -58,28 +58,28 @@ class NodeBaseStandard {
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.route.spec.js', `${gen[`routeTest${TESTS}`]}.js`, {
+    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.route_test.js', `${gen[`routeTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.controller.spec.js', `${gen[`controllerTest${TESTS}`]}.js`, {
+    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.controller_test.js', `${gen[`controllerTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.dao.spec.js', `${gen[`daoTest${TESTS}`]}.js`, {
+    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.dao_test.js', `${gen[`daoTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.model.spec.js', `${gen[`modelTest${TESTS}`]}.js`, {
+    this.wrapper.template('node/' + this.webFramework + '/no_transpiler/endpoint.model_test.js', `${gen[`modelTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
@@ -134,10 +134,10 @@ class NodeBaseStandard {
       let _tests = [
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.js', 'server/config/db.conf.test.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/model/todo-model.spec.js', 'server/api/todo/model/todo-model.spec.js'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/route/todo-route.spec.js', 'server/api/todo/route/todo-route.spec.js']
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/route/todo-route_test.js', 'server/api/todo/route/todo-route_test.js']
       ];
 
       yoUtils.directory(this.wrapper, _tests, {
@@ -185,28 +185,28 @@ class NodeBaseBabel {
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.route.spec.js', `${gen[`routeTest${TESTS}`]}.js`, {
+    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.route_test.js', `${gen[`routeTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.controller.spec.js', `${gen[`controllerTest${TESTS}`]}.js`, {
+    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.controller_test.js', `${gen[`controllerTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.dao.spec.js', `${gen[`daoTest${TESTS}`]}.js`, {
+    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.dao_test.js', `${gen[`daoTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.model.spec.js', `${gen[`modelTest${TESTS}`]}.js`, {
+    this.wrapper.template('node/' + this.webFramework + '/babel/endpoint.model_test.js', `${gen[`modelTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
@@ -261,10 +261,10 @@ class NodeBaseBabel {
       let _tests = [
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.js', 'server/config/db.conf.test.js'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model.spec.js', 'server/api/todo/model/todo-model.spec.js'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/route/todo-route.spec.js', 'server/api/todo/route/todo-route.spec.js']
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/route/todo-route_test.js', 'server/api/todo/route/todo-route_test.js']
       ];
 
       yoUtils.directory(this.wrapper, _tests, {
@@ -311,28 +311,28 @@ class NodeBaseTypescript {
       nameLowerCase: this.wrapper.name.toLowerCase()
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.route.spec.js', `${gen[`routeTest${TESTS}`]}.js`, {
+    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.route_test.js', `${gen[`routeTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.controller.spec.js', `${gen[`controllerTest${TESTS}`]}.js`, {
+    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.controller_test.js', `${gen[`controllerTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.dao.spec.js', `${gen[`daoTest${TESTS}`]}.js`, {
+    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.dao_test.js', `${gen[`daoTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
       testsSeparated: this.wrapper.testsSeparated
     });
 
-    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.model.spec.js', `${gen[`modelTest${TESTS}`]}.js`, {
+    this.wrapper.template('node/' + this.webFramework + '/typescript/endpoint.model_test.js', `${gen[`modelTest${TESTS}`]}.js`, {
       feature: this.wrapper.feature,
       name: this.wrapper.name,
       nameLowerCase: this.wrapper.name.toLowerCase(),
@@ -389,10 +389,10 @@ class NodeBaseTypescript {
       let _tests = [
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.ts', 'server/config/db.conf.test.ts'],
         ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller.spec.js', 'server/api/todo/controller/todo-controller.spec.js'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao.spec.js', 'server/api/todo/dao/todo-dao.spec.js'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model.spec.js', 'server/api/todo/model/todo-model.spec.js'],
-        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/route/todo-route.spec.js', 'server/api/todo/route/todo-route.spec.js']
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
+        ['server_node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/route/todo-route_test.js', 'server/api/todo/route/todo-route_test.js']
       ];
 
       yoUtils.directory(this.wrapper, _tests, {

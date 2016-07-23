@@ -30,15 +30,15 @@ class Angular1 {
 
     if(this.testsSeparated) {
       _pathTest = [
-        ['tests/client_ng1/todo/controllers/todo-controller.spec.js', 'tests/client/todo/controllers/todo-controller.spec.js'],
-        ['tests/client_ng1/todo/models/todo-model.spec.js', 'tests/client/todo/models/todo-model.spec.js'],
-        ['tests/client_ng1/todo/services/todo-dao.spec.js', 'tests/client/todo/services/todo-dao.spec.js']
+        ['tests/client_ng1/todo/controllers/todo-controller_test.js', 'tests/client/todo/controllers/todo-controller_test.js'],
+        ['tests/client_ng1/todo/models/todo-model_test.js', 'tests/client/todo/models/todo-model_test.js'],
+        ['tests/client_ng1/todo/services/todo-dao_test.js', 'tests/client/todo/services/todo-dao_test.js']
       ];
     } else {
       _pathTest = [
-        ['tests/client_ng1/todo/controllers/todo-controller.spec.js', 'client/dev/todo/controllers/todo-controller.spec.js'],
-        ['tests/client_ng1/todo/models/todo-model.spec.js', 'client/dev/todo/models/todo-model.spec.js'],
-        ['tests/client_ng1/todo/services/todo-dao.spec.js', 'client/dev/todo/services/todo-dao.spec.js']
+        ['tests/client_ng1/todo/controllers/todo-controller_test.js', 'client/dev/todo/controllers/todo-controller_test.js'],
+        ['tests/client_ng1/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
+        ['tests/client_ng1/todo/services/todo-dao_test.js', 'client/dev/todo/services/todo-dao_test.js']
       ];
     }
 
@@ -58,8 +58,8 @@ class Angular1 {
         appName: this.generator.appName
     });
 
-    this.generator.template(_pathTemplate + 'controller_client.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/controllers/${this.generator.name}.spec.js`, {
+    this.generator.template(_pathTemplate + 'controller_client_test.js', 
+      `${this.testsPath + this.generator.options.feature}/controllers/${this.generator.name}_test.js`, {
         name: this.generator.name, 
         nameLowerCase: this.generator.name.toLowerCase(), 
         appName: this.generator.appName
@@ -75,8 +75,8 @@ class Angular1 {
         appName: this.generator.appName
     });
 
-    this.generator.template('ng1/directive.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}.spec.js`, {
+    this.generator.template('ng1/directive_test.js', 
+      `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}_test.js`, {
         name: this.generator.name, 
         appName: this.generator.appName, 
         testsSeparated: this.generator.testsSeparated
@@ -92,8 +92,8 @@ class Angular1 {
         appName: this.generator.appName
     });
 
-    this.generator.template(_pathTemplate + 'ng1/factory.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/factory/${this.generator.name}.spec.js`, {
+    this.generator.template(_pathTemplate + 'ng1/factory_test.js', 
+      `${this.testsPath + this.generator.options.feature}/factory/${this.generator.name}_test.js`, {
         name: utils.capitalizeFirst(this.generator.name), 
         appName: this.generator.appName
     });
@@ -108,8 +108,8 @@ class Angular1 {
         appName: this.generator.appName
     });
 
-    this.generator.template(_pathTemplate + 'ng1/service.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}.spec.js`, {
+    this.generator.template(_pathTemplate + 'ng1/service_test.js', 
+      `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}_test.js`, {
         name: this.generator.name, 
         appName: this.generator.appName
     });
@@ -124,8 +124,8 @@ class Angular1 {
         appName: this.generator.appName
     });
 
-    this.generator.template(_pathTemplate + 'ng1/model.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/models/${this.generator.name}.spec.js`, {
+    this.generator.template(_pathTemplate + 'ng1/model_test.js', 
+      `${this.testsPath + this.generator.options.feature}/models/${this.generator.name}_test.js`, {
         name: this.generator.name, 
         appName: this.generator.appName
     });
@@ -149,8 +149,8 @@ class Angular1 {
         appName: this.generator.appName
     });
 
-    this.generator.template(_pathTemplate + 'ng1/filter.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/filters/${this.generator.name}.spec.js`, {
+    this.generator.template(_pathTemplate + 'ng1/filter_test.js', 
+      `${this.testsPath + this.generator.options.feature}/filters/${this.generator.name}_test.js`, {
         name: this.generator.name, 
         appName: this.generator.appName
     });
@@ -213,8 +213,8 @@ class Angular2 {
       this.generator.directory('tests/client_ng2', 'tests/client');
     } else {
       let _pathTest = [
-        ['tests/client_ng2/todo/components/todo-cmp.spec.ts', 'client/dev/todo/components/todo-cmp.spec.ts'],
-        ['tests/client_ng2/todo/services/todo-service.spec.ts', 'client/dev/todo/services/todo-service.spec.ts']
+        ['tests/client_ng2/todo/components/todo-cmp_test.ts', 'client/dev/todo/components/todo-cmp_test.ts'],
+        ['tests/client_ng2/todo/services/todo-service_test.ts', 'client/dev/todo/services/todo-service_test.ts']
       ];
       yoUtils.directory(this.generator, _pathTest, this.generator);
     }
@@ -247,8 +247,8 @@ class Angular2 {
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
     );
 
-    this.generator.template(_pathTemplate + 'ng2/component.spec.ts', 
-      `${this.testsPath + this.generator.options.feature}/components/${this.generator.name}.spec.ts`, {
+    this.generator.template(_pathTemplate + 'ng2/component_test.ts', 
+      `${this.testsPath + this.generator.options.feature}/components/${this.generator.name}_test.ts`, {
         name: utils.capitalizeFirst(this.generator.name), 
         nameLowerCase: this.generator.name.toLowerCase()
     });
@@ -262,8 +262,8 @@ class Angular2 {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'ng2/directive.spec.ts', 
-      `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}.spec.ts`, {
+    this.generator.template(_pathTemplate + 'ng2/directive_test.ts', 
+      `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}_test.ts`, {
         name: this.generator.name
     });
   }
@@ -277,8 +277,8 @@ class Angular2 {
         name: utils.capitalizeFirst(this.generator.name)
     });
 
-    this.generator.template(_pathTemplate + 'ng2/factory.spec.ts', 
-      `${this.testsPath + this.generator.options.feature}/factory/${this.generator.name}.spec.ts`, {
+    this.generator.template(_pathTemplate + 'ng2/factory_test.ts', 
+      `${this.testsPath + this.generator.options.feature}/factory/${this.generator.name}_test.ts`, {
         name: utils.capitalizeFirst(this.generator.name)
     });
   }
@@ -291,8 +291,8 @@ class Angular2 {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'ng2/service.spec.ts', 
-      `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}.spec.ts`, {
+    this.generator.template(_pathTemplate + 'ng2/service_test.ts', 
+      `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}_test.ts`, {
         name: this.generator.name
     });
   }
@@ -305,8 +305,8 @@ class Angular2 {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'ng2/model.spec.ts', 
-      `${this.testsPath + this.generator.options.feature}/models/${this.generator.name}.spec.ts`, {
+    this.generator.template(_pathTemplate + 'ng2/model_test.ts', 
+      `${this.testsPath + this.generator.options.feature}/models/${this.generator.name}_test.ts`, {
         name: this.generator.name
     });
   }
@@ -319,8 +319,8 @@ class Angular2 {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'pipe.spec.js', 
-      `${this.testsPath + this.generator.options.feature}/pipes/${this.generator.name}.spec.js`, {
+    this.generator.template(_pathTemplate + 'pipe_test.js', 
+      `${this.testsPath + this.generator.options.feature}/pipes/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
   }

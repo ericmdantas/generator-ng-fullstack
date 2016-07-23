@@ -29,7 +29,7 @@ describe('subgenerator -> directive', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/common/directives/something.js',
-          'tests/client/common/directives/something.spec.js'
+          'tests/client/common/directives/something_test.js'
         ]);
       });
     });
@@ -58,7 +58,7 @@ describe('subgenerator -> directive', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/common/directives/something.js',
-          'client/dev/common/directives/something.spec.js'
+          'client/dev/common/directives/something_test.js'
         ]);
       });
     });
@@ -89,7 +89,7 @@ describe('subgenerator -> directive', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/common/directives/something.ts',
-          'tests/client/common/directives/something.spec.ts'
+          'tests/client/common/directives/something_test.ts'
         ]);
       });
     });
@@ -118,7 +118,7 @@ describe('subgenerator -> directive', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/common/directives/something.ts',
-          'client/dev/common/directives/something.spec.ts'
+          'client/dev/common/directives/something_test.ts'
         ]);
       });
     });

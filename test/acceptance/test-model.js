@@ -25,7 +25,7 @@ describe('subgenerator -> model', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/myModel/models/cars.js',
-          'tests/client/myModel/models/cars.spec.js'
+          'tests/client/myModel/models/cars_test.js'
         ]);
       });
     });
@@ -50,7 +50,7 @@ describe('subgenerator -> model', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/myModel/models/cars.js',
-          'client/dev/myModel/models/cars.spec.js'
+          'client/dev/myModel/models/cars_test.js'
         ]);
       });
     });
@@ -77,7 +77,7 @@ describe('subgenerator -> model', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/myModel/models/cars.ts',
-          'tests/client/myModel/models/cars.spec.ts'
+          'tests/client/myModel/models/cars_test.ts'
         ]);
       });
     });
@@ -102,7 +102,7 @@ describe('subgenerator -> model', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/myModel/models/cars.ts',
-          'client/dev/myModel/models/cars.spec.ts'
+          'client/dev/myModel/models/cars_test.ts'
         ]);
       });
     });

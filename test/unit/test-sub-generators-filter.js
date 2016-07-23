@@ -105,8 +105,8 @@ describe('FilterSubGenerator', () => {
           }];
 
         let _secondCall = [
-          'ng1/filter.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/filters/' + _gen.name + '.spec.js', {
+          'ng1/filter_test.js',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/filters/' + _gen.name + '_test.js', {
             name: _gen.name,
             appName: _gen.appName
           }];
@@ -145,8 +145,8 @@ describe('FilterSubGenerator', () => {
           }];
 
         let _secondCall = [
-          'ng1/filter.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/filters/' + _gen.name + '.spec.js', {
+          'ng1/filter_test.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/filters/' + _gen.name + '_test.js', {
             name: _gen.name,
             appName: _gen.appName
           }];

@@ -60,13 +60,13 @@ describe('ng-fullstack -> client_only', () => {
 
       // tests - client
 
-      'tests/client/todo/services/todo-dao.spec.js',
-      'tests/client/todo/models/todo-model.spec.js',
-      'tests/client/todo/controllers/todo-controller.spec.js',
+      'tests/client/todo/services/todo-dao_test.js',
+      'tests/client/todo/models/todo-model_test.js',
+      'tests/client/todo/controllers/todo-controller_test.js',
 
       // tests - e2e
 
-      'tests/e2e/todo.e2e.spec.js'];
+      'tests/e2e/todo.e2e_test.js'];
 
       before((done) => {
         helpers
@@ -146,13 +146,13 @@ describe('ng-fullstack -> client_only', () => {
 
         // tests - client
 
-        'tests/client/todo/services/todo-dao.spec.js',
-        'tests/client/todo/models/todo-model.spec.js',
-        'tests/client/todo/controllers/todo-controller.spec.js',
+        'tests/client/todo/services/todo-dao_test.js',
+        'tests/client/todo/models/todo-model_test.js',
+        'tests/client/todo/controllers/todo-controller_test.js',
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -229,12 +229,12 @@ describe('ng-fullstack -> client_only', () => {
 
         // tests - client
 
-        'client/dev/todo/services/todo-service.spec.ts',
-        'client/dev/todo/components/todo-cmp.spec.ts',
+        'client/dev/todo/services/todo-service_test.ts',
+        'client/dev/todo/components/todo-cmp_test.ts',
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -311,12 +311,12 @@ describe('ng-fullstack -> client_only', () => {
 
         // tests - client
 
-        'tests/client/todo/services/todo-service.spec.ts',
-        'tests/client/todo/components/todo-cmp.spec.ts',
+        'tests/client/todo/services/todo-service_test.ts',
+        'tests/client/todo/components/todo-cmp_test.ts',
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -395,7 +395,7 @@ describe('ng-fullstack -> client_only', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -471,7 +471,7 @@ describe('ng-fullstack -> client_only', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers

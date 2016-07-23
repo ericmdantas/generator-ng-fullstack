@@ -32,10 +32,10 @@ describe('subgenerator -> module', () => {
           'client/dev/myModel/templates/cars.html',
           'client/dev/myModel/styles/cars.css',
 
-          'tests/client/myModel/controllers/cars.spec.js',
-          'tests/client/myModel/models/cars.spec.js',
-          'tests/client/myModel/services/cars.spec.js',
-          'tests/client/myModel/factory/cars.spec.js'
+          'tests/client/myModel/controllers/cars_test.js',
+          'tests/client/myModel/models/cars_test.js',
+          'tests/client/myModel/services/cars_test.js',
+          'tests/client/myModel/factory/cars_test.js'
         ]);
       });
     });
@@ -66,10 +66,10 @@ describe('subgenerator -> module', () => {
           'client/dev/myModel/templates/cars.html',
           'client/dev/myModel/styles/cars.css',
 
-          'client/dev/myModel/controllers/cars.spec.js',
-          'client/dev/myModel/models/cars.spec.js',
-          'client/dev/myModel/services/cars.spec.js',
-          'client/dev/myModel/factory/cars.spec.js'
+          'client/dev/myModel/controllers/cars_test.js',
+          'client/dev/myModel/models/cars_test.js',
+          'client/dev/myModel/services/cars_test.js',
+          'client/dev/myModel/factory/cars_test.js'
         ]);
       });
     });
@@ -102,10 +102,10 @@ describe('subgenerator -> module', () => {
           'client/dev/myModel/templates/cars.html',
           'client/dev/myModel/styles/cars.css',
 
-          'tests/client/myModel/components/cars.spec.ts',
-          'tests/client/myModel/models/cars.spec.ts',
-          'tests/client/myModel/services/cars.spec.ts',
-          'tests/client/myModel/factory/cars.spec.ts'
+          'tests/client/myModel/components/cars_test.ts',
+          'tests/client/myModel/models/cars_test.ts',
+          'tests/client/myModel/services/cars_test.ts',
+          'tests/client/myModel/factory/cars_test.ts'
         ]);
       });
     });
@@ -136,10 +136,10 @@ describe('subgenerator -> module', () => {
           'client/dev/myModel/templates/cars.html',
           'client/dev/myModel/styles/cars.css',
 
-          'client/dev/myModel/components/cars.spec.ts',
-          'client/dev/myModel/models/cars.spec.ts',
-          'client/dev/myModel/services/cars.spec.ts',
-          'client/dev/myModel/factory/cars.spec.ts'
+          'client/dev/myModel/components/cars_test.ts',
+          'client/dev/myModel/models/cars_test.ts',
+          'client/dev/myModel/services/cars_test.ts',
+          'client/dev/myModel/factory/cars_test.ts'
         ]);
       });
     });

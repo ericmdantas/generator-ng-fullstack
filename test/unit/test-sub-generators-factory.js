@@ -80,8 +80,8 @@ describe('FactorySubGenerator', () => {
           }];
 
         let _secondCall = [
-          'ng1/factory.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.spec.js', {
+          'ng1/factory_test.js',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '_test.js', {
             name: utils.capitalizeFirst(_gen.name),
             appName: _gen.appName
           }];
@@ -120,8 +120,8 @@ describe('FactorySubGenerator', () => {
           }];
 
         let _secondCall = [
-          'ng1/factory.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.spec.js', {
+          'ng1/factory_test.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '_test.js', {
             name: utils.capitalizeFirst(_gen.name),
             appName: _gen.appName
           }];
@@ -179,8 +179,8 @@ describe('FactorySubGenerator', () => {
           }];
 
         let _secondCall = [
-          'ng2/factory.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.spec.ts', {
+          'ng2/factory_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '_test.ts', {
             name: utils.capitalizeFirst(_gen.name)
           }];
 

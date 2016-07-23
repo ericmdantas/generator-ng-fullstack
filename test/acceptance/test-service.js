@@ -28,7 +28,7 @@ describe('subgenerator -> service', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/http/services/post.js',
-          'tests/client/http/services/post.spec.js'
+          'tests/client/http/services/post_test.js'
         ]);
       });
     });
@@ -56,7 +56,7 @@ describe('subgenerator -> service', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/http/services/post.js',
-          'client/dev/http/services/post.spec.js'
+          'client/dev/http/services/post_test.js'
         ]);
       });
     });
@@ -86,7 +86,7 @@ describe('subgenerator -> service', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/http/services/post.ts',
-          'tests/client/http/services/post.spec.ts'
+          'tests/client/http/services/post_test.ts'
         ]);
       });
     });
@@ -114,7 +114,7 @@ describe('subgenerator -> service', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/http/services/post.ts',
-          'client/dev/http/services/post.spec.ts'
+          'client/dev/http/services/post_test.ts'
         ]);
       });
     });

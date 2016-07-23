@@ -25,7 +25,7 @@ describe('subgenerator -> filter', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/beautifiers/filters/something.js',
-          'tests/client/beautifiers/filters/something.spec.js'
+          'tests/client/beautifiers/filters/something_test.js'
         ]);
       });
     })
@@ -50,7 +50,7 @@ describe('subgenerator -> filter', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/beautifiers/filters/something.js',
-          'client/dev/beautifiers/filters/something.spec.js'
+          'client/dev/beautifiers/filters/something_test.js'
         ]);
       });
     })

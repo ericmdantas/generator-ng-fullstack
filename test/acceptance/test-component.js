@@ -27,7 +27,7 @@ describe('subgenerator -> component', () => {
             'client/dev/yo/components/user.ts',
             'client/dev/yo/templates/user.html',
             'client/dev/yo/styles/user.css',
-            'tests/client/yo/components/user.spec.ts'
+            'tests/client/yo/components/user_test.ts'
           ]);
       });
     });
@@ -54,7 +54,7 @@ describe('subgenerator -> component', () => {
             'client/dev/yo/components/user.ts',
             'client/dev/yo/templates/user.html',
             'client/dev/yo/styles/user.css',
-            'client/dev/yo/components/user.spec.ts'
+            'client/dev/yo/components/user_test.ts'
           ]);
       });
     });

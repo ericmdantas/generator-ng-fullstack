@@ -81,8 +81,8 @@ describe('DirectiveSubGenerator', () => {
         ];
 
         let _secondCall = [
-          'ng1/directive.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {
+          'ng1/directive_test.js',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '_test.js', {
             name: _gen.name,
             appName: _gen.appName,
             testsSeparated: _gen.testsSeparated
@@ -124,8 +124,8 @@ describe('DirectiveSubGenerator', () => {
         ];
 
         let _secondCall = [
-          'ng1/directive.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {
+          'ng1/directive_test.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '_test.js', {
             name: _gen.name,
             appName: _gen.appName,
             testsSeparated: _gen.testsSeparated
@@ -176,8 +176,8 @@ describe('DirectiveSubGenerator', () => {
         ];
 
         let _secondCall = [
-          'ng2/directive.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.ts', {
+          'ng2/directive_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '_test.ts', {
             name: _gen.name
           }
         ];
@@ -215,8 +215,8 @@ describe('DirectiveSubGenerator', () => {
         ];
 
         let _secondCall = [
-          'ng2/directive.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.spec.ts', {
+          'ng2/directive_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '_test.ts', {
             name: _gen.name
           }
         ];

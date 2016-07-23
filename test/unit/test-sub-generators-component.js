@@ -117,8 +117,8 @@ describe('ComponentSubGenerator', () => {
         ];
 
         let _fourthCall = [
-          'ng2/component.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '.spec.ts', {
+          'ng2/component_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '_test.ts', {
             name: utils.capitalizeFirst(_gen.name),
             nameLowerCase: _gen.name.toLowerCase()
           }];
@@ -171,8 +171,8 @@ describe('ComponentSubGenerator', () => {
         ];
 
         let _fourthCall = [
-          'ng2/component.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.spec.ts', {
+          'ng2/component_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '_test.ts', {
             name: utils.capitalizeFirst(_gen.name),
             nameLowerCase: _gen.name.toLowerCase()
           }];

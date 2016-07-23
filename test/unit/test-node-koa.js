@@ -87,8 +87,8 @@ describe('node -> koa', () => {
         ];
 
         let _fifthCall = [
-          `node/koa/no_transpiler/endpoint.dao.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
+          `node/koa/no_transpiler/endpoint.dao_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -97,8 +97,8 @@ describe('node -> koa', () => {
         ];
 
         let _sixthCall = [
-          `node/koa/no_transpiler/endpoint.model.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+          `node/koa/no_transpiler/endpoint.model_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -107,8 +107,8 @@ describe('node -> koa', () => {
         ];
 
         let _seventhCall = [
-          `node/koa/no_transpiler/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
+          `node/koa/no_transpiler/endpoint.route_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -117,8 +117,8 @@ describe('node -> koa', () => {
         ];
 
         let _eighthCall = [
-          `node/koa/no_transpiler/endpoint.controller.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+          `node/koa/no_transpiler/endpoint.controller_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -187,8 +187,8 @@ describe('node -> koa', () => {
         ];
 
         let _fifthCall = [
-          `node/koa/no_transpiler/endpoint.dao.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
+          `node/koa/no_transpiler/endpoint.dao_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -197,8 +197,8 @@ describe('node -> koa', () => {
         ];
 
         let _sixthCall = [
-          `node/koa/no_transpiler/endpoint.model.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+          `node/koa/no_transpiler/endpoint.model_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -207,8 +207,8 @@ describe('node -> koa', () => {
         ];
 
         let _seventhCall = [
-          `node/koa/no_transpiler/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
+          `node/koa/no_transpiler/endpoint.route_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -217,8 +217,8 @@ describe('node -> koa', () => {
         ];
 
         let _eighthCall = [
-          `node/koa/no_transpiler/endpoint.controller.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+          `node/koa/no_transpiler/endpoint.controller_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -309,23 +309,23 @@ describe('node -> koa', () => {
         ];
 
         let _fourthCall = [
-          'server_node/koa/server_node_koa/api/todo/controller/todo-controller.spec.js',
-          'server/api/todo/controller/todo-controller.spec.js'
+          'server_node/koa/server_node_koa/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/koa/server_node_koa/api/todo/dao/todo-dao.spec.js',
-          'server/api/todo/dao/todo-dao.spec.js'
+          'server_node/koa/server_node_koa/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/koa/server_node_koa/api/todo/model/todo-model.spec.js',
-          'server/api/todo/model/todo-model.spec.js'
+          'server_node/koa/server_node_koa/api/todo/model/todo-model_test.js',
+          'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/koa/server_node_koa/api/todo/route/todo-route.spec.js',
-          'server/api/todo/route/todo-route.spec.js'
+          'server_node/koa/server_node_koa/api/todo/route/todo-route_test.js',
+          'server/api/todo/route/todo-route_test.js'
         ];
 
         expect(_n.wrapper.template).to.have.been.called;
@@ -412,23 +412,23 @@ describe('node -> koa', () => {
         ];
 
         let _fourthCall = [
-          'server_node/koa/server_node_koa/api/todo/controller/todo-controller.spec.js',
-          'server/api/todo/controller/todo-controller.spec.js'
+          'server_node/koa/server_node_koa/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/koa/server_node_koa/api/todo/dao/todo-dao.spec.js',
-          'server/api/todo/dao/todo-dao.spec.js'
+          'server_node/koa/server_node_koa/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/koa/server_node_koa/api/todo/model/todo-model.spec.js',
-          'server/api/todo/model/todo-model.spec.js'
+          'server_node/koa/server_node_koa/api/todo/model/todo-model_test.js',
+          'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/koa/server_node_koa/api/todo/route/todo-route.spec.js',
-          'server/api/todo/route/todo-route.spec.js'
+          'server_node/koa/server_node_koa/api/todo/route/todo-route_test.js',
+          'server/api/todo/route/todo-route_test.js'
         ];
 
         expect(_n.wrapper.template).to.have.been.called;
@@ -505,8 +505,8 @@ describe('node -> koa', () => {
         ];
 
         let _fifthCall = [
-          `node/koa/babel/endpoint.dao.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
+          `node/koa/babel/endpoint.dao_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -515,8 +515,8 @@ describe('node -> koa', () => {
         ];
 
         let _sixthCall = [
-          `node/koa/babel/endpoint.model.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+          `node/koa/babel/endpoint.model_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -525,8 +525,8 @@ describe('node -> koa', () => {
         ];
 
         let _seventhCall = [
-          `node/koa/babel/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
+          `node/koa/babel/endpoint.route_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -535,8 +535,8 @@ describe('node -> koa', () => {
         ];
 
         let _eighthCall = [
-          `node/koa/babel/endpoint.controller.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+          `node/koa/babel/endpoint.controller_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -604,8 +604,8 @@ describe('node -> koa', () => {
         ];
 
         let _fifthCall = [
-          `node/koa/babel/endpoint.dao.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
+          `node/koa/babel/endpoint.dao_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -614,8 +614,8 @@ describe('node -> koa', () => {
         ];
 
         let _sixthCall = [
-          `node/koa/babel/endpoint.model.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+          `node/koa/babel/endpoint.model_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -624,8 +624,8 @@ describe('node -> koa', () => {
         ];
 
         let _seventhCall = [
-          `node/koa/babel/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
+          `node/koa/babel/endpoint.route_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -634,8 +634,8 @@ describe('node -> koa', () => {
         ];
 
         let _eighthCall = [
-          `node/koa/babel/endpoint.controller.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+          `node/koa/babel/endpoint.controller_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -726,23 +726,23 @@ describe('node -> koa', () => {
         ];
 
         let _fourthCall = [
-          'server_node/koa/server_node_koa_babel/api/todo/controller/todo-controller.spec.js',
-          'server/api/todo/controller/todo-controller.spec.js'
+          'server_node/koa/server_node_koa_babel/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/koa/server_node_koa_babel/api/todo/dao/todo-dao.spec.js',
-          'server/api/todo/dao/todo-dao.spec.js'
+          'server_node/koa/server_node_koa_babel/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/koa/server_node_koa_babel/api/todo/model/todo-model.spec.js',
-          'server/api/todo/model/todo-model.spec.js'
+          'server_node/koa/server_node_koa_babel/api/todo/model/todo-model_test.js',
+          'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/koa/server_node_koa_babel/api/todo/route/todo-route.spec.js',
-          'server/api/todo/route/todo-route.spec.js'
+          'server_node/koa/server_node_koa_babel/api/todo/route/todo-route_test.js',
+          'server/api/todo/route/todo-route_test.js'
         ];
 
         expect(_n.wrapper.template).to.have.been.called;
@@ -828,23 +828,23 @@ describe('node -> koa', () => {
         ];
 
         let _fourthCall = [
-          'server_node/koa/server_node_koa_babel/api/todo/controller/todo-controller.spec.js',
-          'server/api/todo/controller/todo-controller.spec.js'
+          'server_node/koa/server_node_koa_babel/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/koa/server_node_koa_babel/api/todo/dao/todo-dao.spec.js',
-          'server/api/todo/dao/todo-dao.spec.js'
+          'server_node/koa/server_node_koa_babel/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/koa/server_node_koa_babel/api/todo/model/todo-model.spec.js',
-          'server/api/todo/model/todo-model.spec.js'
+          'server_node/koa/server_node_koa_babel/api/todo/model/todo-model_test.js',
+          'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/koa/server_node_koa_babel/api/todo/route/todo-route.spec.js',
-          'server/api/todo/route/todo-route.spec.js'
+          'server_node/koa/server_node_koa_babel/api/todo/route/todo-route_test.js',
+          'server/api/todo/route/todo-route_test.js'
         ];
 
         expect(_n.wrapper.template).to.have.been.called;
@@ -921,8 +921,8 @@ describe('node -> koa', () => {
         ];
 
         let _fifthCall = [
-          `node/koa/typescript/endpoint.dao.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
+          `node/koa/typescript/endpoint.dao_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -931,8 +931,8 @@ describe('node -> koa', () => {
         ];
 
         let _sixthCall = [
-          `node/koa/typescript/endpoint.modal.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+          `node/koa/typescript/endpoint.modal_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -941,8 +941,8 @@ describe('node -> koa', () => {
         ];
 
         let _seventhCall = [
-          `node/koa/typescript/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
+          `node/koa/typescript/endpoint.route_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -951,8 +951,8 @@ describe('node -> koa', () => {
         ];
 
         let _eighthCall = [
-          `node/koa/typescript/endpoint.controller.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+          `node/koa/typescript/endpoint.controller_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -1017,8 +1017,8 @@ describe('node -> koa', () => {
         ];
 
         let _fifthCall = [
-          `node/koa/typescript/endpoint.dao.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
+          `node/koa/typescript/endpoint.dao_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -1027,8 +1027,8 @@ describe('node -> koa', () => {
         ];
 
         let _sixthCall = [
-          `node/koa/typescript/endpoint.modal.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+          `node/koa/typescript/endpoint.modal_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -1037,8 +1037,8 @@ describe('node -> koa', () => {
         ];
 
         let _seventhCall = [
-          `node/koa/typescript/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
+          `node/koa/typescript/endpoint.route_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -1047,8 +1047,8 @@ describe('node -> koa', () => {
         ];
 
         let _eighthCall = [
-          `node/koa/typescript/endpoint.controller.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+          `node/koa/typescript/endpoint.controller_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -1159,23 +1159,23 @@ describe('node -> koa', () => {
         ];
 
         let _fifthCall = [
-          'server_node/koa/server_node_koa_typescript/api/todo/controller/todo-controller.spec.js',
-          'server/api/todo/controller/todo-controller.spec.js'
+          'server_node/koa/server_node_koa_typescript/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/koa/server_node_koa_typescript/api/todo/dao/todo-dao.spec.js',
-          'server/api/todo/dao/todo-dao.spec.js'
+          'server_node/koa/server_node_koa_typescript/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _seventhCall = [
-          'server_node/koa/server_node_koa_typescript/api/todo/model/todo-model.spec.js',
-          'server/api/todo/model/todo-model.spec.js'
+          'server_node/koa/server_node_koa_typescript/api/todo/model/todo-model_test.js',
+          'server/api/todo/model/todo-model_test.js'
         ];
 
         let _eighthCall =  [
-          'server_node/koa/server_node_koa_typescript/api/todo/route/todo-route.spec.js',
-          'server/api/todo/route/todo-route.spec.js'
+          'server_node/koa/server_node_koa_typescript/api/todo/route/todo-route_test.js',
+          'server/api/todo/route/todo-route_test.js'
         ];
 
         expect(_n.wrapper.template).to.have.been.called;
@@ -1287,23 +1287,23 @@ describe('node -> koa', () => {
         ];
 
         let _fifthCall = [
-          'server_node/koa/server_node_koa_typescript/api/todo/controller/todo-controller.spec.js',
-          'server/api/todo/controller/todo-controller.spec.js'
+          'server_node/koa/server_node_koa_typescript/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/koa/server_node_koa_typescript/api/todo/dao/todo-dao.spec.js',
-          'server/api/todo/dao/todo-dao.spec.js'
+          'server_node/koa/server_node_koa_typescript/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _seventhCall = [
-          'server_node/koa/server_node_koa_typescript/api/todo/model/todo-model.spec.js',
-          'server/api/todo/model/todo-model.spec.js'
+          'server_node/koa/server_node_koa_typescript/api/todo/model/todo-model_test.js',
+          'server/api/todo/model/todo-model_test.js'
         ];
 
         let _eighthCall =  [
-          'server_node/koa/server_node_koa_typescript/api/todo/route/todo-route.spec.js',
-          'server/api/todo/route/todo-route.spec.js'
+          'server_node/koa/server_node_koa_typescript/api/todo/route/todo-route_test.js',
+          'server/api/todo/route/todo-route_test.js'
         ];
 
         expect(_n.wrapper.template).to.have.been.called;

@@ -77,8 +77,8 @@ describe('ServiceSubGenerator', () => {
           }];
 
         let _secondCall = [
-          'ng1/service.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {
+          'ng1/service_test.js',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '_test.js', {
             name: _gen.name,
             appName: _gen.appName
           }];
@@ -117,8 +117,8 @@ describe('ServiceSubGenerator', () => {
           }];
 
         let _secondCall = [
-          'ng1/service.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {
+          'ng1/service_test.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '_test.js', {
             name: _gen.name,
             appName: _gen.appName
           }];
@@ -166,8 +166,8 @@ describe('ServiceSubGenerator', () => {
           }];
 
         let _secondCall = [
-          'ng2/service.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.ts', {
+          'ng2/service_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '_test.ts', {
             name: _gen.name
           }];
 
@@ -203,8 +203,8 @@ describe('ServiceSubGenerator', () => {
           }];
 
         let _secondCall = [
-          'ng2/service.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.spec.ts', {
+          'ng2/service_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '_test.ts', {
             name: _gen.name
           }];
 

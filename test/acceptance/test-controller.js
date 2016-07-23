@@ -25,7 +25,7 @@ describe('subgenerator -> controller', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/user/controllers/hue.js',
-          'tests/client/user/controllers/hue.spec.js'
+          'tests/client/user/controllers/hue_test.js'
         ]);
       });
     });
@@ -50,7 +50,7 @@ describe('subgenerator -> controller', () => {
       it('creates files', () => {
         assert.file([
           'client/dev/user/controllers/hue.js',
-          'client/dev/user/controllers/hue.spec.js'
+          'client/dev/user/controllers/hue_test.js'
         ]);
       });
     });

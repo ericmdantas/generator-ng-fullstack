@@ -25,7 +25,7 @@ describe('subgenerator -> pipe', function () {
       it('creates files', function() {
         assert.file([
           'client/dev/something-useful/pipes/something.ts',
-          'tests/client/something-useful/pipes/something.spec.js'
+          'tests/client/something-useful/pipes/something_test.js'
         ]);
       });
     });
@@ -50,7 +50,7 @@ describe('subgenerator -> pipe', function () {
       it('creates files', function() {
         assert.file([
           'client/dev/something-useful/pipes/something.ts',
-          'client/dev/something-useful/pipes/something.spec.js'
+          'client/dev/something-useful/pipes/something_test.js'
         ]);
       });
     })
