@@ -55,6 +55,10 @@
     "systemjs": "^0.19.24",
     "typescript": "^1.8.9",
     "zone.js": "^0.6.12", <% } %>
+    <% if (client === "vue2") { %>
+    "vue": "^1.0.26",
+    "vue-resource": "^0.9.3",
+    "vue-router": "^0.7.13", <% } %>
     <% if (nodeWebFrameworkServer === "koa") { %>
     "koa": "^1.2.0",
     "koa-bodyparser": "^2.2.0",
