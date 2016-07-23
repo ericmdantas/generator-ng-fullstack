@@ -123,4 +123,65 @@ describe('subgenerator -> directive', () => {
       });
     });
   })  
+
+  describe('vue2', () => {
+    describe('testsSeparated is true', () => {
+      before(function (done) {
+        helpers
+          .run(path.join(__dirname, '../../directive'))
+          .inTmpDir(function(dir) {
+            MockConfigFile.create({
+              "generator-ng-fullstack": {
+                "client": "vue2",
+                "testsSeparated": true
+              }
+            }, this.async());
+          })
+          .withArguments('something')
+          .withOptions({ 'skip-install': true, feature: 'common'})
+          .on('end', done);
+      });
+
+      after((done) => {
+        MockConfigFile.delete(done);
+      });
+
+      it('creates files', () => {
+        assert.file([
+          'client/dev/common/directives/something.js',
+          'tests/client/common/directives/something_test.js'
+        ]);
+      });
+    });
+
+    describe('testsSeparated is false', () => {
+      before(function (done) {
+        helpers
+          .run(path.join(__dirname, '../../directive'))
+          .inTmpDir(function(dir) {
+            MockConfigFile.create({
+              "generator-ng-fullstack": {
+                "client": "vue2",
+                "testsSeparated": false
+              }
+            }, this.async());
+          })
+          .withArguments('something')
+          .withOptions({ 'skip-install': true, feature: 'common'})
+          .on('end', done);
+      });
+
+      after((done) => {
+        MockConfigFile.delete(done);
+      });
+
+      it('creates files', () => {
+        assert.file([
+          'client/dev/common/directives/something.js',
+          'client/dev/common/directives/something_test.js'
+        ]);
+      });
+    });
+  })  
+
 });
