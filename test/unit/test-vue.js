@@ -105,17 +105,14 @@ describe('vue', () => {
         let _firstCall = [
           'vue2/directive.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {
-            name: _gen.name,
-            appName: _gen.appName
+            name: _gen.name
           }
         ];
 
         let _secondCall = [
           'vue2/directive.spec.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {
-            name: _gen.name,
-            appName: _gen.appName,
-            testsSeparated: _gen.testsSeparated
+            name: _gen.name
           }
         ];
 
@@ -141,17 +138,14 @@ describe('vue', () => {
         let _firstCall = [
           'vue2/directive.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {
-            name: _gen.name,
-            appName: _gen.appName
+            name: _gen.name
           }
         ];
 
         let _secondCall = [
           'vue2/directive.spec.js',
           knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {
-            name: _gen.name,
-            appName: _gen.appName,
-            testsSeparated: _gen.testsSeparated
+            name: _gen.name
           }
         ];
 
@@ -177,16 +171,14 @@ describe('vue', () => {
         let _firstCall = [
           'vue2/factory.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.js', {
-            name: utils.capitalizeFirst(_gen.name),
-            appName: _gen.appName
+            name: utils.capitalizeFirst(_gen.name)
           }
         ];
 
         let _secondCall = [
           'vue2/factory.spec.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.spec.js', {
-            name: utils.capitalizeFirst(_gen.name),
-            appName: _gen.appName
+            name: utils.capitalizeFirst(_gen.name)
           }
         ];
 
@@ -210,16 +202,14 @@ describe('vue', () => {
         let _firstCall = [
           'vue2/factory.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.js', {
-            name: utils.capitalizeFirst(_gen.name),
-            appName: _gen.appName
+            name: utils.capitalizeFirst(_gen.name)
           }
         ];
 
         let _secondCall = [
           'vue2/factory.spec.js',
           knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.spec.js', {
-            name: utils.capitalizeFirst(_gen.name),
-            appName: _gen.appName
+            name: utils.capitalizeFirst(_gen.name)
           }
         ];
 
@@ -243,16 +233,14 @@ describe('vue', () => {
         let _firstCall = [
           'vue2/service.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {
-            name: _gen.name,
-            appName: _gen.appName
+            name: _gen.name
           }
         ];
 
         let _secondCall = [
           'vue2/service.spec.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {
-            name: _gen.name,
-            appName: _gen.appName
+            name: _gen.name
           }
         ];
 
@@ -276,16 +264,14 @@ describe('vue', () => {
         let _firstCall = [
           'vue2/service.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {
-            name: _gen.name,
-            appName: _gen.appName
+            name: _gen.name
           }
         ];
 
         let _secondCall = [
           'vue2/service.spec.js',
           knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {
-            name: _gen.name,
-            appName: _gen.appName
+            name: _gen.name
           }
         ];
 
@@ -311,16 +297,14 @@ describe('vue', () => {
         let _firstCall = [
           'vue2/model.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.js', {
-            name: _gen.name,
-            appName: _gen.appName
+            name: _gen.name
           }
         ];
 
         let _secondCall = [
           'vue2/model.spec.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.spec.js', {
-            name: _gen.name,
-            appName: _gen.appName
+            name: _gen.name
           }
         ];
 
@@ -344,16 +328,14 @@ describe('vue', () => {
         let _firstCall = [
           'vue2/model.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.js', {
-            name: _gen.name,
-            appName: _gen.appName
+            name: _gen.name
           }
         ];
 
         let _secondCall = [
           'vue2/model.spec.js',
           knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '.spec.js', {
-            name: _gen.name,
-            appName: _gen.appName
+            name: _gen.name          
           }
         ];
 
