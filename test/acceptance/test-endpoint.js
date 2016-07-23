@@ -4,7 +4,7 @@ import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
 import {MockConfigFile} from '../helpers/mocks';
 
-describe('ngFullstack -> endpoint', () => {
+describe('subgenerator -> endpoint', () => {
   describe('node', () => {
     describe('standard', () => {
       before(function (done) {
