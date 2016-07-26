@@ -54,12 +54,12 @@ describe('ng-fullstack -> golang', () => {
 
       // tests - client
 
-      'tests/client/todo/services/todo-service.spec.ts',
-      'tests/client/todo/components/todo-cmp.spec.ts',
+      'tests/client/todo/services/todo-service_test.ts',
+      'tests/client/todo/components/todo-cmp_test.ts',
 
       // tests - e2e
 
-      'tests/e2e/todo.e2e.spec.js'];
+      'tests/e2e/todo.e2e_test.js'];
 
     let _goFiles = [
     // server stuff
@@ -93,7 +93,7 @@ describe('ng-fullstack -> golang', () => {
 
     // tests - e2e
 
-    'tests/e2e/todo.e2e.spec.js'];
+    'tests/e2e/todo.e2e_test.js'];
 
     before((done) => {
       helpers
@@ -152,7 +152,7 @@ describe('ng-fullstack -> golang', () => {
 
     // tests - e2e
 
-    'tests/e2e/todo.e2e.spec.js'];
+    'tests/e2e/todo.e2e_test.js'];
 
     before((done) => {
       helpers
@@ -209,7 +209,7 @@ describe('ng-fullstack -> golang', () => {
 
       // tests - e2e
 
-      'tests/e2e/todo.e2e.spec.js'];
+      'tests/e2e/todo.e2e_test.js'];
 
       before((done) => {
         helpers
@@ -280,7 +280,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -333,7 +333,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -391,7 +391,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -456,7 +456,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -521,7 +521,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -587,7 +587,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -653,7 +653,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -733,12 +733,12 @@ describe('ng-fullstack -> golang', () => {
 
       // tests - client
 
-      'tests/client/todo/services/todo-service.spec.ts',
-      'tests/client/todo/components/todo-cmp.spec.ts',
+      'tests/client/todo/services/todo-service_test.ts',
+      'tests/client/todo/components/todo-cmp_test.ts',
 
       // tests - e2e
 
-      'tests/e2e/todo.e2e.spec.js'];
+      'tests/e2e/todo.e2e_test.js'];
 
     let _goFiles = [
     // server stuff
@@ -772,7 +772,7 @@ describe('ng-fullstack -> golang', () => {
 
     // tests - e2e
 
-    'tests/e2e/todo.e2e.spec.js'];
+    'tests/e2e/todo.e2e_test.js'];
 
     before((done) => {
       helpers
@@ -831,7 +831,7 @@ describe('ng-fullstack -> golang', () => {
 
     // tests - e2e
 
-    'tests/e2e/todo.e2e.spec.js'];
+    'tests/e2e/todo.e2e_test.js'];
 
     before((done) => {
       helpers
@@ -888,7 +888,7 @@ describe('ng-fullstack -> golang', () => {
 
       // tests - e2e
 
-      'tests/e2e/todo.e2e.spec.js'];
+      'tests/e2e/todo.e2e_test.js'];
 
       before((done) => {
         helpers
@@ -959,7 +959,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -1012,7 +1012,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -1070,7 +1070,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -1135,7 +1135,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -1200,7 +1200,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -1266,7 +1266,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers
@@ -1332,7 +1332,7 @@ describe('ng-fullstack -> golang', () => {
 
         // tests - e2e
 
-        'tests/e2e/todo.e2e.spec.js'];
+        'tests/e2e/todo.e2e_test.js'];
 
         before((done) => {
           helpers

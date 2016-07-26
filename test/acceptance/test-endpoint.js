@@ -4,7 +4,7 @@ import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
 import {MockConfigFile} from '../helpers/mocks';
 
-describe('ngFullstack -> endpoint', () => {
+describe('subgenerator -> endpoint', () => {
   describe('node', () => {
     describe('standard', () => {
       before(function (done) {
@@ -39,10 +39,10 @@ describe('ngFullstack -> endpoint', () => {
           'server/api/todo2/model/endp-model.js',
           'server/api/todo2/route/endp-route.js',
 
-          'tests/server/todo2/model/endp-model.spec.js',
-          'tests/server/todo2/route/endp-route.spec.js',
-          'tests/server/todo2/dao/endp-dao.spec.js',
-          'tests/server/todo2/controller/endp-controller.spec.js'
+          'tests/server/todo2/model/endp-model_test.js',
+          'tests/server/todo2/route/endp-route_test.js',
+          'tests/server/todo2/dao/endp-dao_test.js',
+          'tests/server/todo2/controller/endp-controller_test.js'
         ]);
       })
     })
@@ -80,10 +80,10 @@ describe('ngFullstack -> endpoint', () => {
           'server/api/todo2/model/endp-model.js',
           'server/api/todo2/route/endp-route.js',
 
-          'tests/server/todo2/model/endp-model.spec.js',
-          'tests/server/todo2/route/endp-route.spec.js',
-          'tests/server/todo2/dao/endp-dao.spec.js',
-          'tests/server/todo2/controller/endp-controller.spec.js'
+          'tests/server/todo2/model/endp-model_test.js',
+          'tests/server/todo2/route/endp-route_test.js',
+          'tests/server/todo2/dao/endp-dao_test.js',
+          'tests/server/todo2/controller/endp-controller_test.js'
         ]);
       })
     })
@@ -121,10 +121,10 @@ describe('ngFullstack -> endpoint', () => {
           'server/api/todo2/model/endp-model.ts',
           'server/api/todo2/route/endp-route.ts',
 
-          'tests/server/todo2/model/endp-model.spec.js',
-          'tests/server/todo2/route/endp-route.spec.js',
-          'tests/server/todo2/dao/endp-dao.spec.js',
-          'tests/server/todo2/controller/endp-controller.spec.js'
+          'tests/server/todo2/model/endp-model_test.js',
+          'tests/server/todo2/route/endp-route_test.js',
+          'tests/server/todo2/dao/endp-dao_test.js',
+          'tests/server/todo2/controller/endp-controller_test.js'
         ]);
       })
     })

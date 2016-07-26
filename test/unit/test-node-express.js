@@ -87,8 +87,8 @@ describe('node -> express', () => {
         ];
 
         let _fifthCall = [
-          `node/express/no_transpiler/endpoint.dao.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
+          `node/express/no_transpiler/endpoint.dao_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -97,8 +97,8 @@ describe('node -> express', () => {
         ];
 
         let _sixthCall = [
-          `node/express/no_transpiler/endpoint.controller.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+          `node/express/no_transpiler/endpoint.controller_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -107,8 +107,8 @@ describe('node -> express', () => {
         ];
 
         let _seventhCall = [
-          `node/express/no_transpiler/endpoint.model.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+          `node/express/no_transpiler/endpoint.model_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -117,8 +117,8 @@ describe('node -> express', () => {
         ];
 
         let _eighthCall = [
-          `node/express/no_transpiler/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
+          `node/express/no_transpiler/endpoint.route_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -187,8 +187,8 @@ describe('node -> express', () => {
         ];
 
         let _fifthCall = [
-          `node/express/no_transpiler/endpoint.dao.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
+          `node/express/no_transpiler/endpoint.dao_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -197,8 +197,8 @@ describe('node -> express', () => {
         ];
 
         let _sixthCall = [
-          `node/express/no_transpiler/endpoint.controller.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+          `node/express/no_transpiler/endpoint.controller_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -207,8 +207,8 @@ describe('node -> express', () => {
         ];
 
         let _seventhCall = [
-          `node/express/no_transpiler/endpoint.model.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+          `node/express/no_transpiler/endpoint.model_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -217,8 +217,8 @@ describe('node -> express', () => {
         ];
 
         let _eighthCall = [
-          `node/express/no_transpiler/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
+          `node/express/no_transpiler/endpoint.route_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -309,23 +309,23 @@ describe('node -> express', () => {
         ];
 
         let _fourthCall = [
-          'server_node/express/server_node_express/api/todo/controller/todo-controller.spec.js',
-          'server/api/todo/controller/todo-controller.spec.js'
+          'server_node/express/server_node_express/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/express/server_node_express/api/todo/dao/todo-dao.spec.js',
-          'server/api/todo/dao/todo-dao.spec.js'
+          'server_node/express/server_node_express/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/express/server_node_express/api/todo/model/todo-model.spec.js',
-          'server/api/todo/model/todo-model.spec.js'
+          'server_node/express/server_node_express/api/todo/model/todo-model_test.js',
+          'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/express/server_node_express/api/todo/route/todo-route.spec.js',
-          'server/api/todo/route/todo-route.spec.js'
+          'server_node/express/server_node_express/api/todo/route/todo-route_test.js',
+          'server/api/todo/route/todo-route_test.js'
         ];
 
         expect(_n.wrapper.template).to.have.been.called;
@@ -411,23 +411,23 @@ describe('node -> express', () => {
         ];
 
         let _fourthCall = [
-          'server_node/express/server_node_express/api/todo/controller/todo-controller.spec.js',
-          'server/api/todo/controller/todo-controller.spec.js'
+          'server_node/express/server_node_express/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/express/server_node_express/api/todo/dao/todo-dao.spec.js',
-          'server/api/todo/dao/todo-dao.spec.js'
+          'server_node/express/server_node_express/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/express/server_node_express/api/todo/model/todo-model.spec.js',
-          'server/api/todo/model/todo-model.spec.js'
+          'server_node/express/server_node_express/api/todo/model/todo-model_test.js',
+          'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/express/server_node_express/api/todo/route/todo-route.spec.js',
-          'server/api/todo/route/todo-route.spec.js'
+          'server_node/express/server_node_express/api/todo/route/todo-route_test.js',
+          'server/api/todo/route/todo-route_test.js'
         ];
 
         expect(_n.wrapper.template).to.have.been.called;
@@ -504,8 +504,8 @@ describe('node -> express', () => {
         ];
 
         let _fifthCall = [
-          `node/express/babel/endpoint.dao.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
+          `node/express/babel/endpoint.dao_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -514,8 +514,8 @@ describe('node -> express', () => {
         ];
 
         let _sixthCall = [
-          `node/express/babel/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
+          `node/express/babel/endpoint.route_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -524,8 +524,8 @@ describe('node -> express', () => {
         ];
 
         let _seventhCall = [
-          `node/express/babel/endpoint.model.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+          `node/express/babel/endpoint.model_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -534,8 +534,8 @@ describe('node -> express', () => {
         ];
 
         let _eighthCall = [
-          `node/express/babel/endpoint.controller.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+          `node/express/babel/endpoint.controller_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -603,8 +603,8 @@ describe('node -> express', () => {
         ];
 
         let _fifthCall = [
-          `node/express/babel/endpoint.dao.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
+          `node/express/babel/endpoint.dao_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -613,8 +613,8 @@ describe('node -> express', () => {
         ];
 
         let _sixthCall = [
-          `node/express/babel/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
+          `node/express/babel/endpoint.route_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -623,8 +623,8 @@ describe('node -> express', () => {
         ];
 
         let _seventhCall = [
-          `node/express/babel/endpoint.model.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+          `node/express/babel/endpoint.model_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -633,8 +633,8 @@ describe('node -> express', () => {
         ];
 
         let _eighthCall = [
-          `node/express/babel/endpoint.controller.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+          `node/express/babel/endpoint.controller_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -725,23 +725,23 @@ describe('node -> express', () => {
         ];
 
         let _fourthCall = [
-          'server_node/express/server_node_express_babel/api/todo/controller/todo-controller.spec.js',
-          'server/api/todo/controller/todo-controller.spec.js'
+          'server_node/express/server_node_express_babel/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/express/server_node_express_babel/api/todo/dao/todo-dao.spec.js',
-          'server/api/todo/dao/todo-dao.spec.js'
+          'server_node/express/server_node_express_babel/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/express/server_node_express_babel/api/todo/model/todo-model.spec.js',
-          'server/api/todo/model/todo-model.spec.js'
+          'server_node/express/server_node_express_babel/api/todo/model/todo-model_test.js',
+          'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/express/server_node_express_babel/api/todo/route/todo-route.spec.js',
-          'server/api/todo/route/todo-route.spec.js'
+          'server_node/express/server_node_express_babel/api/todo/route/todo-route_test.js',
+          'server/api/todo/route/todo-route_test.js'
         ];
 
         expect(_n.wrapper.template).to.have.been.called;
@@ -827,23 +827,23 @@ describe('node -> express', () => {
         ];
 
         let _fourthCall = [
-          'server_node/express/server_node_express_babel/api/todo/controller/todo-controller.spec.js',
-          'server/api/todo/controller/todo-controller.spec.js'
+          'server_node/express/server_node_express_babel/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/express/server_node_express_babel/api/todo/dao/todo-dao.spec.js',
-          'server/api/todo/dao/todo-dao.spec.js'
+          'server_node/express/server_node_express_babel/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/express/server_node_express_babel/api/todo/model/todo-model.spec.js',
-          'server/api/todo/model/todo-model.spec.js'
+          'server_node/express/server_node_express_babel/api/todo/model/todo-model_test.js',
+          'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/express/server_node_express_babel/api/todo/route/todo-route.spec.js',
-          'server/api/todo/route/todo-route.spec.js'
+          'server_node/express/server_node_express_babel/api/todo/route/todo-route_test.js',
+          'server/api/todo/route/todo-route_test.js'
         ];
 
         expect(_n.wrapper.template).to.have.been.called;
@@ -920,8 +920,8 @@ describe('node -> express', () => {
         ];
 
         let _fifthCall = [
-          `node/express/typescript/endpoint.dao.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
+          `node/express/typescript/endpoint.dao_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -930,8 +930,8 @@ describe('node -> express', () => {
         ];
 
         let _sixthCall = [
-          `node/express/typescript/endpoint.model.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+          `node/express/typescript/endpoint.model_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/model/${_newGenerator.name}-model_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -940,8 +940,8 @@ describe('node -> express', () => {
         ];
 
         let _seventhCall = [
-          `node/express/typescript/endpoint.controller.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+          `node/express/typescript/endpoint.controller_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/controller/${_newGenerator.name}-controller_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -950,8 +950,8 @@ describe('node -> express', () => {
         ];
 
         let _eighthCall = [
-          `node/express/typescript/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
+          `node/express/typescript/endpoint.route_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES_TEST + _newGenerator.feature}/route/${_newGenerator.name}-route_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -1019,8 +1019,8 @@ describe('node -> express', () => {
         ];
 
         let _fifthCall = [
-          `node/express/typescript/endpoint.dao.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao.spec.js`, {
+          `node/express/typescript/endpoint.dao_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/dao/${_newGenerator.name}-dao_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -1029,8 +1029,8 @@ describe('node -> express', () => {
         ];
 
         let _sixthCall = [
-          `node/express/typescript/endpoint.model.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model.spec.js`, {
+          `node/express/typescript/endpoint.model_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/model/${_newGenerator.name}-model_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -1039,8 +1039,8 @@ describe('node -> express', () => {
         ];
 
         let _seventhCall = [
-          `node/express/typescript/endpoint.controller.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller.spec.js`, {
+          `node/express/typescript/endpoint.controller_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/controller/${_newGenerator.name}-controller_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -1049,8 +1049,8 @@ describe('node -> express', () => {
         ];
 
         let _eighthCall = [
-          `node/express/typescript/endpoint.route.spec.js`,
-          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route.spec.js`, {
+          `node/express/typescript/endpoint.route_test.js`,
+          `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}-route_test.js`, {
             name: _newGenerator.name,
             nameLowerCase: _newGenerator.name.toLowerCase(),
             feature: _newGenerator.feature,
@@ -1164,23 +1164,23 @@ describe('node -> express', () => {
         ];
 
         let _fifthCall = [
-          'server_node/express/server_node_express_typescript/api/todo/controller/todo-controller.spec.js',
-          'server/api/todo/controller/todo-controller.spec.js'
+          'server_node/express/server_node_express_typescript/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/express/server_node_express_typescript/api/todo/dao/todo-dao.spec.js',
-          'server/api/todo/dao/todo-dao.spec.js'
+          'server_node/express/server_node_express_typescript/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _seventhCall = [
-          'server_node/express/server_node_express_typescript/api/todo/model/todo-model.spec.js',
-          'server/api/todo/model/todo-model.spec.js'
+          'server_node/express/server_node_express_typescript/api/todo/model/todo-model_test.js',
+          'server/api/todo/model/todo-model_test.js'
         ];
 
         let _eighthCall =  [
-          'server_node/express/server_node_express_typescript/api/todo/route/todo-route.spec.js',
-          'server/api/todo/route/todo-route.spec.js'
+          'server_node/express/server_node_express_typescript/api/todo/route/todo-route_test.js',
+          'server/api/todo/route/todo-route_test.js'
         ];
 
         expect(_n.wrapper.template).to.have.been.called;
@@ -1292,23 +1292,23 @@ describe('node -> express', () => {
         ];
 
         let _fifthCall = [
-          'server_node/express/server_node_express_typescript/api/todo/controller/todo-controller.spec.js',
-          'server/api/todo/controller/todo-controller.spec.js'
+          'server_node/express/server_node_express_typescript/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/express/server_node_express_typescript/api/todo/dao/todo-dao.spec.js',
-          'server/api/todo/dao/todo-dao.spec.js'
+          'server_node/express/server_node_express_typescript/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _seventhCall = [
-          'server_node/express/server_node_express_typescript/api/todo/model/todo-model.spec.js',
-          'server/api/todo/model/todo-model.spec.js'
+          'server_node/express/server_node_express_typescript/api/todo/model/todo-model_test.js',
+          'server/api/todo/model/todo-model_test.js'
         ];
 
         let _eighthCall =  [
-          'server_node/express/server_node_express_typescript/api/todo/route/todo-route.spec.js',
-          'server/api/todo/route/todo-route.spec.js'
+          'server_node/express/server_node_express_typescript/api/todo/route/todo-route_test.js',
+          'server/api/todo/route/todo-route_test.js'
         ];
 
         expect(_n.wrapper.template).to.have.been.called;

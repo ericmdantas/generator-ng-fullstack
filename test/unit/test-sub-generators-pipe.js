@@ -102,8 +102,8 @@ describe('PipeSubGenerator', () => {
         }];
 
       let _secondCall = [
-        'pipe.spec.js',
-        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/pipes/' + _gen.name + '.spec.js', {
+        'pipe_test.js',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/pipes/' + _gen.name + '_test.js', {
           name: _gen.name
         }];
 
@@ -139,8 +139,8 @@ describe('PipeSubGenerator', () => {
         }];
 
       let _secondCall = [
-        'pipe.spec.js',
-        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/pipes/' + _gen.name + '.spec.js', {
+        'pipe_test.js',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/pipes/' + _gen.name + '_test.js', {
           name: _gen.name
         }];
 

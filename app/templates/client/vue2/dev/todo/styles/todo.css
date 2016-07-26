@@ -1,0 +1,75 @@
+.todo-container {
+  font-family: "Roboto";
+  position: relative;
+  max-width: 900px;
+  margin: 30px auto 0;
+  padding: 20px 10px 10px 10px;
+  box-shadow: 0 -1px 0 #e5e5e5,
+              0 0 2px rgba(0,0,0,.12),
+              0 2px 4px rgba(0,0,0,.24);
+}
+
+.todo-container .todo-title {
+  padding: 5px;
+  background-color: #fff;
+  position: absolute;
+  font-size: 30px;
+  top: -45px;
+  left: 0;
+  color: steelblue;
+}
+
+.todo-container .todo-form {
+  margin-top: 20px;
+}
+
+.todo-container input {
+  border: none;
+  border-bottom: 2px solid #ddd;
+  font-size: 17px;
+  padding: 5px 3px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.todo-container input:focus {
+  outline: 0;
+}
+
+.todo-container button {
+  border-radius: 100%;
+  padding: 10px 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: steelblue;
+  cursor: pointer;
+  border: 2px solid #ddd;
+  font-size: 15px;
+  transition: all .2s;
+}
+
+.todo-container button:focus,
+.todo-container button:active {
+  outline: none;
+}
+
+.todo-container button:disabled {
+  opacity: .7;
+  color: steelblue;
+  background-color: #fff;
+  cursor: not-allowed;
+}
+
+.todo-container .todo-error {
+  border-bottom-color: #E22323;
+}
+
+.todo-container .todo-item {
+  padding: 3px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.todo-container .todo-item:hover {
+  background-color: #f1f2f3;
+}

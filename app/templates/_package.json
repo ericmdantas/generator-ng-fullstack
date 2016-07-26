@@ -19,13 +19,13 @@
     "build-dist": "gulp client.build:dist",
     "test-client": "gulp client.unit_test",
     <% if(testsSeparated) { %>
-    "test-server": "mocha tests/server/**/*.spec.js --recursive --check-leaks --reporter min --compilers js:babel-register",
-    "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/server/**/*.spec.js --compilers js:babel-register",
-    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/server/**/*.spec.js --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test-server": "mocha tests/server/**/*_test.js --recursive --check-leaks --reporter min --compilers js:babel-register",
+    "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/server/**/*_test.js --compilers js:babel-register",
+    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/server/**/*_test.js --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
     <% } else { %>
-    "test-server": "mocha server/**/*.spec.js --recursive --check-leaks --reporter min --compilers js:babel-register",
-    "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- server/**/*.spec.js --compilers js:babel-register",
-    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- server/**/*.spec.js --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test-server": "mocha server/**/*_test.js --recursive --check-leaks --reporter min --compilers js:babel-register",
+    "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- server/**/*_test.js --compilers js:babel-register",
+    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- server/**/*_test.js --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
     <% } %>
     <% } %>
   },
@@ -55,6 +55,10 @@
     "systemjs": "^0.19.24",
     "typescript": "^1.8.9",
     "zone.js": "^0.6.12", <% } %>
+    <% if (client === "vue2") { %>
+    "vue": "^1.0.26",
+    "vue-resource": "^0.9.3",
+    "vue-router": "^0.7.13", <% } %>
     <% if (nodeWebFrameworkServer === "koa") { %>
     "koa": "^1.2.0",
     "koa-bodyparser": "^2.2.0",

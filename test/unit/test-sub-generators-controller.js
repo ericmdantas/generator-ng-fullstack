@@ -104,8 +104,8 @@ describe('ControllerSubGenerator', () => {
         }];
 
       let _secondCall = [
-        'controller_client.spec.js',
-        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/controllers/' + _gen.name + '.spec.js', {
+        'controller_client_test.js',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/controllers/' + _gen.name + '_test.js', {
           name: _gen.name,
           nameLowerCase: _gen.name.toLowerCase(),
           appName: _gen.appName
@@ -147,8 +147,8 @@ describe('ControllerSubGenerator', () => {
         }];
 
       let _secondCall = [
-        'controller_client.spec.js',
-        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '.spec.js', {
+        'controller_client_test.js',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '_test.js', {
           name: _gen.name,
           nameLowerCase: _gen.name.toLowerCase(),
           appName: _gen.appName

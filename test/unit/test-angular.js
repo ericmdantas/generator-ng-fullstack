@@ -116,8 +116,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng1/directive.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {
+          'ng1/directive_test.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '_test.js', {
             name: _gen.name,
             appName: _gen.appName,
             testsSeparated: _gen.testsSeparated
@@ -152,8 +152,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng1/directive.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.js', {
+          'ng1/directive_test.js',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '_test.js', {
             name: _gen.name,
             appName: _gen.appName,
             testsSeparated: _gen.testsSeparated
@@ -188,8 +188,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng1/factory.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.spec.js', {
+          'ng1/factory_test.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '_test.js', {
             name: utils.capitalizeFirst(_gen.name),
             appName: _gen.appName
           }
@@ -221,8 +221,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng1/factory.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.spec.js', {
+          'ng1/factory_test.js',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '_test.js', {
             name: utils.capitalizeFirst(_gen.name),
             appName: _gen.appName
           }
@@ -254,8 +254,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng1/service.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {
+          'ng1/service_test.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '_test.js', {
             name: _gen.name,
             appName: _gen.appName
           }
@@ -287,8 +287,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng1/service.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.js', {
+          'ng1/service_test.js',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '_test.js', {
             name: _gen.name,
             appName: _gen.appName
           }
@@ -322,8 +322,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng1/model.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.spec.js', {
+          'ng1/model_test.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '_test.js', {
             name: _gen.name,
             appName: _gen.appName
           }
@@ -355,8 +355,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng1/model.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '.spec.js', {
+          'ng1/model_test.js',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '_test.js', {
             name: _gen.name,
             appName: _gen.appName
           }
@@ -434,8 +434,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'controller_client.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '.spec.js', {
+          'controller_client_test.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '_test.js', {
             name: _gen.name,
             nameLowerCase: _gen.name.toLowerCase(),
             appName: _gen.appName
@@ -468,8 +468,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'controller_client.spec.js',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/controllers/' + _gen.name + '.spec.js', {
+          'controller_client_test.js',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/controllers/' + _gen.name + '_test.js', {
             name: _gen.name,
             nameLowerCase: _gen.name.toLowerCase(),
             appName: _gen.appName
@@ -587,13 +587,13 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'tests/client_ng2/todo/components/todo-cmp.spec.ts',
-          'client/dev/todo/components/todo-cmp.spec.ts'
+          'tests/client_ng2/todo/components/todo-cmp_test.ts',
+          'client/dev/todo/components/todo-cmp_test.ts'
         ];
 
         let _thirdCall = [
-          'tests/client_ng2/todo/components/todo-cmp.spec.ts',
-          'client/dev/todo/components/todo-cmp.spec.ts'
+          'tests/client_ng2/todo/components/todo-cmp_test.ts',
+          'client/dev/todo/components/todo-cmp_test.ts'
         ];
 
         let _fourthCall = [
@@ -746,13 +746,13 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'tests/client_ng2/todo/components/todo-cmp.spec.ts',
-          'client/dev/todo/components/todo-cmp.spec.ts'
+          'tests/client_ng2/todo/components/todo-cmp_test.ts',
+          'client/dev/todo/components/todo-cmp_test.ts'
         ];
 
         let _thirdCall = [
-          'tests/client_ng2/todo/components/todo-cmp.spec.ts',
-          'client/dev/todo/components/todo-cmp.spec.ts'
+          'tests/client_ng2/todo/components/todo-cmp_test.ts',
+          'client/dev/todo/components/todo-cmp_test.ts'
         ];
 
         let _fourthCall = [
@@ -907,13 +907,13 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'tests/client_ng2/todo/components/todo-cmp.spec.ts',
-          'client/dev/todo/components/todo-cmp.spec.ts'
+          'tests/client_ng2/todo/components/todo-cmp_test.ts',
+          'client/dev/todo/components/todo-cmp_test.ts'
         ];
 
         let _thirdCall = [
-          'tests/client_ng2/todo/components/todo-cmp.spec.ts',
-          'client/dev/todo/components/todo-cmp.spec.ts'
+          'tests/client_ng2/todo/components/todo-cmp_test.ts',
+          'client/dev/todo/components/todo-cmp_test.ts'
         ];
 
         let _fourthCall = [
@@ -1070,7 +1070,7 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng2/directive.spec.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.spec.ts', {
+          'ng2/directive_test.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '_test.ts', {
             name: _gen.name
           }
         ];
@@ -1102,7 +1102,7 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng2/directive.spec.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '.spec.ts', {
+          'ng2/directive_test.ts', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '_test.ts', {
             name: _gen.name
           }
         ];
@@ -1133,8 +1133,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng2/factory.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '.spec.ts', {
+          'ng2/factory_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/factory/' + _gen.name + '_test.ts', {
             name: utils.capitalizeFirst(_gen.name)
           }
         ];
@@ -1163,8 +1163,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng2/factory.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '.spec.ts', {
+          'ng2/factory_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/factory/' + _gen.name + '_test.ts', {
             name: utils.capitalizeFirst(_gen.name)
           }
         ];
@@ -1193,8 +1193,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng2/service.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.spec.ts', {
+          'ng2/service_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '_test.ts', {
             name: _gen.name
           }
         ];
@@ -1223,8 +1223,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng2/service.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '.spec.ts', {
+          'ng2/service_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/services/' + _gen.name + '_test.ts', {
             name: _gen.name
           }
         ];
@@ -1255,8 +1255,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng2/model.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '.spec.ts', {
+          'ng2/model_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/models/' + _gen.name + '_test.ts', {
             name: _gen.name
           }
         ];
@@ -1285,8 +1285,8 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'ng2/model.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '.spec.ts', {
+          'ng2/model_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '_test.ts', {
             name: _gen.name
           }
         ];
@@ -1354,7 +1354,7 @@ describe('angular', () => {
         let _ng2 = new Angular2(_gen);
 
         let _firstCall = [
-          'component.ts',
+          'ng2/component.ts',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.ts', {
             nameCapitalized: utils.capitalizeFirst(_gen.name),
             name: _gen.name,
@@ -1363,20 +1363,20 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'component.html',
+          'ng2/component.html',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {
             name: _gen.name
           }
         ];
 
         let _thirdCall = [
-          'component.css',
+          'ng2/component.css',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
         ];
 
         let _fourthCall = [
-          'component.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.spec.ts', {
+          'ng2/component_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '_test.ts', {
             name: utils.capitalizeFirst(_gen.name),
             nameLowerCase: _gen.name.toLowerCase()
           }
@@ -1401,7 +1401,7 @@ describe('angular', () => {
         let _ng2 = new Angular2(_gen);
 
         let _firstCall = [
-          'component.ts',
+          'ng2/component.ts',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.ts', {
             nameCapitalized: utils.capitalizeFirst(_gen.name),
             name: _gen.name,
@@ -1410,20 +1410,20 @@ describe('angular', () => {
         ];
 
         let _secondCall = [
-          'component.html',
+          'ng2/component.html',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {
             name: _gen.name
           }
         ];
 
         let _thirdCall = [
-          'component.css',
+          'ng2/component.css',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
         ];
 
         let _fourthCall = [
-          'component.spec.ts',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '.spec.ts', {
+          'ng2/component_test.ts',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '_test.ts', {
             name: utils.capitalizeFirst(_gen.name),
             nameLowerCase: _gen.name.toLowerCase()
           }
