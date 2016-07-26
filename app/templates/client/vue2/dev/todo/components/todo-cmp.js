@@ -2,28 +2,30 @@
   Vue.component('todo-cmp', {
     data() {
       return {
-        todoService: new TodoService(),
         title: "vue2do",
         todos: [],
         todoForm: {
-          todoMessage: ""
+          todo: {
+            todoMessage: ""
+          }
         }
       }
     },
     template: `
       <div class="todo-container">
         <form class="todo-form"
-              @submit.prevent="add(todoForm.todoMessage)">
+              @submit.prevent="add(todoForm.todo)">
 
           <h1 class="todo-title">{{title}}</h1>
 
           <input type="text"
-                [class.todo-error]="!todoForm.todoMessage"
-                placeholder="What do you have todo?"
-                autofocus />
+                 v-model="todoForm.todo.todoMessage"
+                 [class.todo-error]="!todoForm.todo.todoMessage"
+                 placeholder="What do you have todo?"
+                 autofocus />
 
           <button type="submit"
-                  :disabled="!todoForm.todoMessage">+</button>
+                  :disabled="!todoForm.todo.todoMessage.length">+</button>
         </form>
 
         <div class="todo-list">
@@ -40,23 +42,26 @@
     },
     methods: {
       getAll() {
-        this.todoService
-            .getAll()
+        this.$http.get('/api/todos')
+            .then((todos) => {
+               return todos.json();
+            })
             .then((todos) => {
               this.todos = todos;
             });
       },
       add(message) {
-        this.todoService
-            .add(message)
+        this.$http.post('/api/todos', message)
+            .then((todo) => {
+              return todo.json();
+            })
             .then((todo) => {
               this.todos.push(todo);
-              this.todoForm.todoMessage = "";
+              this.todoForm.todo.todoMessage = "";
             });
       },
       remove(id) {
-        this.todoService
-            .remove(id)
+        this.$http.delete('/api/todos/' + id)
             .then(() => {
               this.todos.forEach((todo, index) => {
                 if (todo._id === id) {
