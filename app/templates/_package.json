@@ -18,9 +18,9 @@
     "build-dev": "node index && gulp client.watch",
     "build-dist": "gulp client.build:dist",
     "test-client": "gulp client.unit_test",
-    "test-server": "mocha ./tests/server/**/*.js --recursive --check-leaks --reporter min --compilers js:babel-register",
-    "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/server/**/*.js --compilers js:babel-register",
-    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- tests/server/**/*.js --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"<% } %>
+    "test-server": "mocha './tests/server/**/*.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
+    "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*.js' --compilers js:babel-register",
+    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"<% } %>
   },
   "dependencies": {
     <% if (!clientOnly) { %>"lodash": "^4.6.1",
