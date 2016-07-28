@@ -107,7 +107,8 @@
     "istanbul": "^0.4.4",
     "concurrently": "^2.0.0"
   },
-  <% if (client === "aurelia1") {"jspm": { %>
+  <% if (client === "aurelia1") { %>
+  "jspm": { 
     "configFile": "jspm.config.js",
     "dependencies": {
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-rc.1.0.1",
@@ -118,7 +119,8 @@
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "core-js": "npm:core-js@^1.1.4"
     }
-  <% }, %>
+  },
+  <% } %>
   "repository": {
     "type": "git",
     "url": "https://<%= repoHostUrl %>/<%= userNameSpace %>/<%= app %>.git"
