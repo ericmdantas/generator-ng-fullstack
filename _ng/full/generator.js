@@ -97,9 +97,15 @@ exports.MainGenerator = class MainGenerator {
         }
 
         if (/^ng/.test(_client)) {
-          ClientFactory.create('angular', _client, this.wrapper).copyClient();
-        } else {
-          ClientFactory.create('vue', _client, this.wrapper).copyClient();
+          ClientFactory.create(ClientFactory.tokens().ANGULAR, _client, this.wrapper).copyClient();
+        } 
+        
+        if (/^vue/.test(_client)) {
+          ClientFactory.create(ClientFactory.tokens().VUE, _client, this.wrapper).copyClient();
+        }
+
+        if (/^aurelia/.test(_client)) {
+          ClientFactory.create(ClientFactory.tokens().AURELIA, _client, this.wrapper).copyClient();
         }
       }
 
