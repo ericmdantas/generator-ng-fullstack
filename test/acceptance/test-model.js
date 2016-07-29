@@ -134,7 +134,7 @@ describe('subgenerator -> model', () => {
       });
     });
 
-    describe('ng2 - testsSeparated is false', () => {
+    describe('testsSeparated is false', () => {
       before((done) => {
         helpers
           .run(path.join(__dirname, '../../model'))
@@ -142,6 +142,58 @@ describe('subgenerator -> model', () => {
             MockConfigFile.create({
               "generator-ng-fullstack": {
                 "client": "vue2",
+                "testsSeparated": false
+              }
+            }, this.async());
+          })
+          .withArguments('cars')
+          .withOptions({ 'skip-install': true, feature: 'myModel'})
+          .on('end', done);
+      });
+
+      it('creates files', () => {
+        assert.file([
+          'client/dev/myModel/models/cars.js',
+          'client/dev/myModel/models/cars_test.js'
+        ]);
+      });
+    });
+  })
+
+  describe('aurelia1', () => {
+    describe('testsSeparated is true', () => {
+      before((done) => {
+        helpers
+          .run(path.join(__dirname, '../../model'))
+          .inTmpDir(function(dir) {
+            MockConfigFile.create({
+              "generator-ng-fullstack": {
+                "client": "aurelia1",
+                "testsSeparated": true
+              }
+            }, this.async());
+          })
+          .withArguments('cars')
+          .withOptions({ 'skip-install': true, feature: 'myModel'})
+          .on('end', done);
+      });
+
+      it('creates files', () => {
+        assert.file([
+          'client/dev/myModel/models/cars.js',
+          'tests/client/myModel/models/cars_test.js'
+        ]);
+      });
+    });
+
+    describe('testsSeparated is false', () => {
+      before((done) => {
+        helpers
+          .run(path.join(__dirname, '../../model'))
+          .inTmpDir(function(dir) {
+            MockConfigFile.create({
+              "generator-ng-fullstack": {
+                "client": "aurelia1",
                 "testsSeparated": false
               }
             }, this.async());
