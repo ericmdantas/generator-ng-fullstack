@@ -10,6 +10,7 @@ System.config({
     ]
   },
   paths: {
+    "*": "client/dev/*",
     "github:*": "github/*",
     "npm:*": "npm/*"
   },
