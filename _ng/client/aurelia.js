@@ -28,6 +28,12 @@ class Aurelia1 {
       yoUtils.directory(this.generator, _pathTest, this.generator);
     }
 
+    if (this.generator.stack === "client")  {
+      this.generator.template('_aurelia_jspm_config_serving_from_root.js', 'jspm.config.js');
+    } else {
+      this.generator.template('_aurelia_jspm_config_serving_from_jspm_packages.js', 'jspm.config.js');
+    }
+
     this.generator.template('tasks/client/aurelia1/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
   }
 
@@ -42,7 +48,9 @@ class Aurelia1 {
     });
 
     this.generator.template(_pathTemplate + 'aurelia1/component.html', 
-      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.html`
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.html`, {
+        name: this.generator.name
+      }
     );
 
     this.generator.template(_pathTemplate + 'aurelia1/component.css', 
