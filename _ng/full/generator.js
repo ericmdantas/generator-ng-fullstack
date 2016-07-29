@@ -5,6 +5,7 @@ const yosay = require('yosay');
 const NodeFactory = require('../server/node_factory').NodeFactory;
 const GoFactory = require('../server/go_factory').GoFactory;
 const AngularFactory = require('../client/angular').AngularFactory;
+const AureliaFactory = require('../client/aurelia').AureliaFactory;
 const VueFactory = require('../client/vue').VueFactory;
 const ClientFactory = require('../client/client_factory').ClientFactory;
 const ServerFactory = require('../server/server_factory').ServerFactory;
@@ -234,7 +235,10 @@ exports.MainGenerator = class MainGenerator {
         type: "list",
         name: "server",
         message: "What do you want in server side?",
-        choices: [ServerFactory.tokens().NODE, ServerFactory.tokens().GO],
+        choices: [
+          ServerFactory.tokens().NODE, 
+          ServerFactory.tokens().GO
+        ],
         when: () => {
           let _isServer = this.wrapper.stack === "server";
           let _isFullstack = this.wrapper.stack === "fullstack";
@@ -263,7 +267,12 @@ exports.MainGenerator = class MainGenerator {
         type: "list",
         name: "client",
         message: "What do you want in client side?",
-        choices: [AngularFactory.tokens().NG1, AngularFactory.tokens().NG2, VueFactory.tokens().VUE2],
+        choices: [
+          AngularFactory.tokens().NG1, 
+          AngularFactory.tokens().NG2, 
+          AureliaFactory.tokens().AURELIA1, 
+          VueFactory.tokens().VUE2
+        ],
         when: () => {
           let _isClient = this.wrapper.stack === "client";
           let _isFullstack = this.wrapper.stack === "fullstack";
@@ -291,7 +300,10 @@ exports.MainGenerator = class MainGenerator {
       type: "list",
       name: "nodeWebFrameworkServer",
       message: "What framework do you want to use in server side?",
-      choices: [NodeFactory.tokensWebFramework().EXPRESS, NodeFactory.tokensWebFramework().KOA],
+      choices: [
+        NodeFactory.tokensWebFramework().EXPRESS, 
+        NodeFactory.tokensWebFramework().KOA
+      ],
       default: 0,
       when: () => this.wrapper.server === ServerFactory.tokens().NODE
     }];
@@ -313,7 +325,10 @@ exports.MainGenerator = class MainGenerator {
       type: "list",
       name: "goWebFrameworkServer",
       message: "What framework do you want to use in server side?",
-      choices: [GoFactory.tokensWebFramework().ECHO, GoFactory.tokensWebFramework().GIN],
+      choices: [
+        GoFactory.tokensWebFramework().ECHO, 
+        GoFactory.tokensWebFramework().GIN
+      ],
       default: 0,
       when: () => this.wrapper.server === ServerFactory.tokens().GO
     }];
@@ -335,7 +350,11 @@ exports.MainGenerator = class MainGenerator {
       type: "list",
       name: "transpilerServer",
       message: "What transpiler do you want to use in server side?",
-      choices: [NodeFactory.tokensCompiler().NODE, NodeFactory.tokensCompiler().BABEL, NodeFactory.tokensCompiler().TYPESCRIPT],
+      choices: [
+        NodeFactory.tokensCompiler().NODE, 
+        NodeFactory.tokensCompiler().BABEL, 
+        NodeFactory.tokensCompiler().TYPESCRIPT
+      ],
       default: 0,
       when: () => this.wrapper.server === ServerFactory.tokens().NODE
     }];
