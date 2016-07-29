@@ -3,6 +3,7 @@
 const optionsParser = require('../utils/options_parser');
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 const AngularFactory = require('./angular').AngularFactory;
+const AureliaFactory = require('./aurelia').AureliaFactory;
 const VueFactory = require('./vue').VueFactory;
 
 exports.ModelSubGenerator = class ModelSubGenerator {
@@ -35,6 +36,10 @@ exports.ModelSubGenerator = class ModelSubGenerator {
 
     if (_client === VueFactory.tokens().VUE2) {
       return VueFactory.build(this.wrapper.client, this.wrapper).copyModel();
+    }
+
+    if (_client === AureliaFactory.tokens().AURELIA1) {
+      return AureliaFactory.build(_client, this.wrapper).copyModel();
     }
   }
 };

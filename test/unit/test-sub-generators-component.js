@@ -430,7 +430,7 @@ describe('ComponentSubGenerator', () => {
 
         let _firstCall = [
           'aurelia1/component.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.ts', {
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.js', {
             nameCapitalized: utils.capitalizeFirst(_gen.name),
             name: _gen.name,
             feature: _gen.options.feature
@@ -448,8 +448,8 @@ describe('ComponentSubGenerator', () => {
         ];
 
         let _fourthCall = [
-          'aurelia1/component_test.ts',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '_test.ts', {
+          'aurelia1/component_test.js',
+          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '_test.js', {
             name: utils.capitalizeFirst(_gen.name),
             nameLowerCase: _gen.name.toLowerCase()
           }];
@@ -491,7 +491,7 @@ describe('ComponentSubGenerator', () => {
           }];
 
         let _secondCall = [
-          'aurelia/1component.html',
+          'aurelia1/component.html',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.html', {
             name: _gen.name
           }];
@@ -502,8 +502,8 @@ describe('ComponentSubGenerator', () => {
         ];
 
         let _fourthCall = [
-          'aurelia1/component_test.ts',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '_test.ts', {
+          'aurelia1/component_test.js',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '_test.js', {
             name: utils.capitalizeFirst(_gen.name),
             nameLowerCase: _gen.name.toLowerCase()
           }];

@@ -330,7 +330,7 @@ describe('ServiceSubGenerator', () => {
         let _ssg = new ServiceSubGenerator(_gen);
 
         let _firstCall = [
-          'aurelia/service.js',
+          'aurelia1/service.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/services/' + _gen.name + '.js', {
             name: _gen.name
           }];

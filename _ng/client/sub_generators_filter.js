@@ -4,6 +4,7 @@ const optionsParser = require('../utils/options_parser');
 const FeatureMissingError = require('../utils/errors').FeatureMissingError;
 const ModuleDoesntImplementError = require('../utils/errors').ModuleDoesntImplementError;
 const AngularFactory = require('./angular').AngularFactory;
+const AureliaFactory = require('./aurelia').AureliaFactory;
 const VueFactory = require('./vue').VueFactory;
 
 exports.FilterSubGenerator = class FilterSubGenerator {
@@ -36,6 +37,10 @@ exports.FilterSubGenerator = class FilterSubGenerator {
 
     if (_client === VueFactory.tokens().VUE2) {
       return VueFactory.build(_client, this.wrapper).copyFilter();
+    }
+
+    if (_client === AureliaFactory.tokens().AURELIA1) {
+      return AureliaFactory.build(_client, this.wrapper).copyFilter();
     }
 
     throw new ModuleDoesntImplementError(_client, 'filter');
