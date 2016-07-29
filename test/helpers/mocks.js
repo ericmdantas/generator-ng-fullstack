@@ -10,4 +10,4 @@ exports.MockConfigFile = class MockConfigFile {
   static delete(done) {
     fs.unlink('.yo-rc.json', done);
   }
-}
+};

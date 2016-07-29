@@ -113,5 +113,4 @@ describe('subgenerator -> component', () => {
       });
     });
   })
-
 })
