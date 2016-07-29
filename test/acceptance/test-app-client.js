@@ -498,6 +498,167 @@ describe('ng-fullstack -> client_only', () => {
           assert.noFile('.bower.json');
       });
     });
+  });
 
+  describe('aurelia1', () => {
+    describe('testsSeparated is false', () => {
+      let _taskFilesClient = [
+        'tasks/index.js',
+
+        'tasks/client/build_html.js',
+        'tasks/client/build_image.js',
+        'tasks/client/build_js.js',
+        'tasks/client/build.js',
+        'tasks/client/del.js',
+        'tasks/client/test.js',
+        'tasks/client/const.js',
+        'tasks/client/watch.js'
+      ];
+
+      let _clientFiles = [
+        '.editorconfig',
+        '.jshintrc',
+        '.travis.yml',
+        '.gitignore',
+        '.editorconfig',
+        '.jshintrc',
+        '.alivrc',
+
+        'package.json',
+        'gulpfile.babel.js',
+        'karma.conf.js',
+        'protractor.conf.js',
+        'newrelic.js',
+        'procfile.txt',
+
+        'jspm.config.js',
+
+        // client stuff
+
+        'client/dev/index.html',
+
+        'client/dev/app.js',
+        'client/dev/app.html',
+
+        'client/dev/todo/styles/todo.css',
+        'client/dev/todo/components/todo.js',
+        'client/dev/todo/components/todo.html',
+        'client/dev/todo/services/todo-service.js',
+
+        // tests - client
+
+        'client/dev/todo/models/todo-model_test.js',
+        'client/dev/todo/services/todo-service_test.js',
+        'client/dev/todo/components/todo-cmp_test.js',
+
+        // tests - e2e
+
+        'tests/e2e/todo.e2e_test.js'];
+
+        before((done) => {
+          helpers
+          .run(path.join(__dirname, '../../app'))
+          .inDir(path.join(os.tmpdir(), './temp-test'))
+          .withPrompts({
+            appName: "a",
+            githubUsername: "b",
+            server: "go",
+            stack: 'client',
+            client: 'aurelia1',
+            testsSeparated: false
+          })
+          .withOptions({ 'skip-install': true })
+          .on('end', done)
+        });
+
+        it('should only copy client side files', () => {
+          assert.file(_clientFiles);
+          assert.file(_taskFilesClient);
+          assert.noFile('server/server.js');
+          assert.noFile('tasks/server/index.js');
+          assert.noFile('tests/server');
+          assert.noFile('.bower.json');
+      });
+    })
+
+    describe('testsSeparated is true', () => {
+      let _taskFilesClient = [
+        'tasks/index.js',
+
+        'tasks/client/build_html.js',
+        'tasks/client/build_image.js',
+        'tasks/client/build_js.js',
+        'tasks/client/build.js',
+        'tasks/client/del.js',
+        'tasks/client/test.js',
+        'tasks/client/const.js',
+        'tasks/client/watch.js'
+      ]
+
+      let _clientFiles = [
+        '.editorconfig',
+        '.jshintrc',
+        '.travis.yml',
+        '.gitignore',
+        '.editorconfig',
+        '.jshintrc',
+        '.alivrc',
+
+        'package.json',
+        'gulpfile.babel.js',
+        'karma.conf.js',
+        'protractor.conf.js',
+        'newrelic.js',
+        'procfile.txt',
+
+        'jspm.config.js',
+
+        // client stuff
+
+        'client/dev/index.html',
+
+        'client/dev/app.js',
+        'client/dev/app.html',
+
+        'client/dev/todo/styles/todo.css',
+        'client/dev/todo/components/todo.js',
+        'client/dev/todo/components/todo.html',
+        'client/dev/todo/services/todo-service.js',
+
+        // tests - client
+
+        'tests/client/todo/services/todo-service_test.js',
+        'tests/client/todo/models/todo-model_test.js',
+        'tests/client/todo/components/todo-cmp_test.js',
+
+        // tests - e2e
+
+        'tests/e2e/todo.e2e_test.js'];
+
+        before((done) => {
+          helpers
+          .run(path.join(__dirname, '../../app'))
+          .inDir(path.join(os.tmpdir(), './temp-test'))
+          .withPrompts({
+            appName: "a",
+            githubUsername: "b",
+            server: "go",
+            stack: 'client',
+            client: 'aurelia1',
+            testsSeparated: true
+          })
+          .withOptions({ 'skip-install': true })
+          .on('end', done)
+        });
+
+        it('should only copy client side files', () => {
+          assert.file(_clientFiles);
+          assert.file(_taskFilesClient);
+          assert.noFile('server/server.js');
+          assert.noFile('tasks/server/index.js');
+          assert.noFile('tests/server');
+          assert.noFile('.bower.json');
+      });
+    });
   });
 });
