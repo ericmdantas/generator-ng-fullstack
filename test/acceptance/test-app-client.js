@@ -132,7 +132,7 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/index.html',
 
         'client/dev/todo/styles/todo.css',
-        
+
         'client/dev/app.js',
         'client/dev/app.route.js',
         'client/dev/app.config.js',
@@ -178,7 +178,7 @@ describe('ng-fullstack -> client_only', () => {
         });
       });
     });
-  
+
   describe('ng2', () => {
     describe('testsSeparated is false', () => {
       let _taskFilesClient = [
@@ -218,12 +218,14 @@ describe('ng-fullstack -> client_only', () => {
         // client stuff
 
         'client/dev/index.html',
+        'client/dev/app.ts',
         'client/dev/config.js',
 
         'client/dev/index.ts',
 
         'client/dev/todo/styles/todo.css',
         'client/dev/todo/components/todo-cmp.ts',
+        'client/dev/todo/components/todo-route.ts',
         'client/dev/todo/templates/todo.html',
         'client/dev/todo/services/todo-service.ts',
 
@@ -300,12 +302,14 @@ describe('ng-fullstack -> client_only', () => {
         // client stuff
 
         'client/dev/index.html',
+        'client/dev/app.ts',
         'client/dev/config.js',
 
         'client/dev/index.ts',
 
         'client/dev/todo/styles/todo.css',
         'client/dev/todo/components/todo-cmp.ts',
+        'client/dev/todo/components/todo-route.ts',
         'client/dev/todo/templates/todo.html',
         'client/dev/todo/services/todo-service.ts',
 

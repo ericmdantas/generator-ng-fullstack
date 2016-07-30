@@ -11,7 +11,7 @@
   </head>
   <body>
 
-    <todo-cmp></todo-cmp>
+    <app></app>
 
     <% if (stack !== "client") { %>
     <script src="./systemjs/dist/system.js?rev=@@hash"></script>
@@ -21,7 +21,7 @@
     <% } else { %>
     <script src="node_modules/systemjs/dist/system.js?rev=@@hash"></script>
     <script src="node_modules/reflect-metadata/Reflect.js?rev=@@hash"></script>
-    <script src="node_modules/zone.js/dist/zone.js?rev=@@hash"></script>    
+    <script src="node_modules/zone.js/dist/zone.js?rev=@@hash"></script>
     <script src="./config.js"></script>
     <% } %>
 
