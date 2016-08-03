@@ -99,8 +99,8 @@ exports.MainGenerator = class MainGenerator {
 
         if (/^ng/.test(_client)) {
           ClientFactory.create(ClientFactory.tokens().ANGULAR, _client, this.wrapper).copyClient();
-        } 
-        
+        }
+
         if (/^vue/.test(_client)) {
           ClientFactory.create(ClientFactory.tokens().VUE, _client, this.wrapper).copyClient();
         }
@@ -130,7 +130,7 @@ exports.MainGenerator = class MainGenerator {
           {
             name: 'appName',
             message: 'What is the name of your app?',
-            default: 'ng-fullstack'
+            default: 'ng-fullstack-app'
           },
           {
             name: 'username',
@@ -145,7 +145,7 @@ exports.MainGenerator = class MainGenerator {
           {
             type: "list",
             name: "stack",
-            message: "What stack do you want?",
+            message: "Which stack do you want?",
             choices: ["fullstack", "client", "server"],
             default: 0
           },
@@ -211,7 +211,7 @@ exports.MainGenerator = class MainGenerator {
       {
         type: "confirm",
         name: "testsSeparated",
-        message: "Do you want to keep test in a separated directory?",
+        message: "Do you want to keep tests in a different folder?",
         default: true,
         when: () => this.wrapper.server !== ServerFactory.tokens().GO
       }
@@ -234,9 +234,9 @@ exports.MainGenerator = class MainGenerator {
       {
         type: "list",
         name: "server",
-        message: "What do you want in server side?",
+        message: "What language do you want in the server side?",
         choices: [
-          ServerFactory.tokens().NODE, 
+          ServerFactory.tokens().NODE,
           ServerFactory.tokens().GO
         ],
         when: () => {
@@ -266,11 +266,11 @@ exports.MainGenerator = class MainGenerator {
       {
         type: "list",
         name: "client",
-        message: "What do you want in client side?",
+        message: "Which framework do you want to use in the client side?",
         choices: [
-          AngularFactory.tokens().NG1, 
-          AngularFactory.tokens().NG2, 
-          AureliaFactory.tokens().AURELIA1, 
+          AngularFactory.tokens().NG1,
+          AngularFactory.tokens().NG2,
+          AureliaFactory.tokens().AURELIA1,
           VueFactory.tokens().VUE2
         ],
         when: () => {
@@ -299,9 +299,9 @@ exports.MainGenerator = class MainGenerator {
     let _prompts = [{
       type: "list",
       name: "nodeWebFrameworkServer",
-      message: "What framework do you want to use in server side?",
+      message: "Which framework do you want to use in server side?",
       choices: [
-        NodeFactory.tokensWebFramework().EXPRESS, 
+        NodeFactory.tokensWebFramework().EXPRESS,
         NodeFactory.tokensWebFramework().KOA
       ],
       default: 0,
@@ -324,9 +324,9 @@ exports.MainGenerator = class MainGenerator {
     let _prompts = [{
       type: "list",
       name: "goWebFrameworkServer",
-      message: "What framework do you want to use in server side?",
+      message: "Which framework do you want to use in server side?",
       choices: [
-        GoFactory.tokensWebFramework().ECHO, 
+        GoFactory.tokensWebFramework().ECHO,
         GoFactory.tokensWebFramework().GIN
       ],
       default: 0,
@@ -349,10 +349,10 @@ exports.MainGenerator = class MainGenerator {
     let _prompts = [{
       type: "list",
       name: "transpilerServer",
-      message: "What transpiler do you want to use in server side?",
+      message: "Which transpiler do you want to use in server side?",
       choices: [
-        NodeFactory.tokensCompiler().NODE, 
-        NodeFactory.tokensCompiler().BABEL, 
+        NodeFactory.tokensCompiler().NODE,
+        NodeFactory.tokensCompiler().BABEL,
         NodeFactory.tokensCompiler().TYPESCRIPT
       ],
       default: 0,
@@ -375,7 +375,7 @@ exports.MainGenerator = class MainGenerator {
     let _prompts = [{
       type: 'confirm',
       name: 'secure',
-      message: 'Do you want a secure app (http/2)?',
+      message: 'Do you want a secure app (https || http/2)?',
       default: true
     }];
 
@@ -393,7 +393,7 @@ exports.MainGenerator = class MainGenerator {
     let _prompts = [{
       type: 'confirm',
       name: 'differentStaticServer',
-      message: 'Do you want to use a different static server? Such as nginx, apache, IIS?',
+      message: 'Do you want to use a different static server? Such as NGINX, Apache, IIS?',
       default: false,
       when: () => this.wrapper.stack === "fullstack"
     }];
