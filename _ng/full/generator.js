@@ -375,7 +375,7 @@ exports.MainGenerator = class MainGenerator {
     let _prompts = [{
       type: 'confirm',
       name: 'secure',
-      message: 'Do you want a secure app (https || http/2)?',
+      message: 'Is it going to be a secure app (HTTPS || HTTP/2)?',
       default: true
     }];
 
@@ -393,7 +393,7 @@ exports.MainGenerator = class MainGenerator {
     let _prompts = [{
       type: 'confirm',
       name: 'differentStaticServer',
-      message: 'Do you want to use a different static server? Such as NGINX, Apache, IIS?',
+      message: 'Do you want to use a different static server? Such as NGINX, Apache, IIS, etc?',
       default: false,
       when: () => this.wrapper.stack === "fullstack"
     }];
