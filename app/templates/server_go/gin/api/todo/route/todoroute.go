@@ -7,7 +7,7 @@ import (
 
 func Init(r *echo.Echo) {
 	r.GET("/api/todos", todocontroller.GetAll)
-	r.GET("/api/todos/:id", todocontroller.GetAll)
+	r.GET("/api/todos/:id", todocontroller.GetById)
 	r.POST("/api/todos", todocontroller.NewTodo)
 	r.DELETE("/api/todos/:id", todocontroller.RemoveTodo)
 }
