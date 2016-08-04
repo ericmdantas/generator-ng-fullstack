@@ -47,10 +47,10 @@ func GetById(id string) (todo.Todo, error) {
 
 	c := s.DB(db.Name()).C(col)
 
-	err = c.Find(bson.M{}).FindId(id).One(&t)
+	err = c.Find(bson.M{}).FindId(bson.ObjectIdHex(id)).One(&t)
 
 	if err != nil {
-		return t, errors.New("There was an error trying to find the todos.")
+		return t, errors.New("There was an error trying to find the todo.")
 	}
 
 	return t, err
