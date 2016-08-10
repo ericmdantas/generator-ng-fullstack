@@ -1,18 +1,11 @@
 /// <reference path="../../../../typings/index.d.ts" />
 
 import {
-  it,
-  expect,
-  describe,
-  inject,
-  async,
+  addProviders,
   TestComponentBuilder,
-  beforeEachProviders
+  async,
+  inject
 } from '@angular/core/testing';
-
-import {
-  provide
-} from '@angular/core';
 
 import {
   Observable
@@ -42,7 +35,12 @@ class MockTodoService extends TodoService {
 }
 
 describe('todo_component', () => {
-  beforeEachProviders(() => [provide(TodoService, {useClass: MockTodoService})]);
+  beforeEach(() => addProviders([
+    {
+      provide: TodoService,
+      useClass: MockTodoService
+    }
+  ]));
 
   describe('creation', () => {
     it('should create the component correctly', async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
