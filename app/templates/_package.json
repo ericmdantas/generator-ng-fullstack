@@ -3,15 +3,16 @@
   "version": "0.0.1",
   "main": "src/<%= app %>.js",
   "scripts": {
-    <% if (clientOnly) { %>"start": "gulp",
-    "dev": "gulp",
+    <% if (usesTypescript) { %> "preinstall": "typings install",
+    "postinstall": "tsc",
+    <% } %>
+    <% if (clientOnly) { %>"start": "aliv",
+    "dev": "aliv",
     "test": "gulp client.unit_test",
     "build-dist": "gulp client.build:dist"<%} else {%>
     "start": "node index",
     "watch": "gulp",
     <% if (usesTypescript) { %>
-    "preinstall": "typings install",
-    "postinstall": "tsc",
     "dev": "tsc && concurrently \"nodemon ./index --watch server\" \"gulp\"",
     <% } else { %>
     "dev": "concurrently \"nodemon ./index --watch server\" \"gulp\"",
@@ -19,7 +20,7 @@
     "build-dev": "gulp client.build:dev",
     "build-dist": "gulp client.build:dist",
     "test-client": "gulp client.unit_test",
-    <% if(testsSeparated) { %>
+    <% if (testsSeparated) { %>
     "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
     "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register",
     "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
@@ -41,16 +42,15 @@
     "helmet": "^2.1.1",
     <% } %>
     "nodemon": "^1.9.2",
-    "mongoose": "^4.4.7",
-    <% } %> <% if (client === "ng2") { %>
-    "@angular/common": "^2.0.0-rc.4",
-    "@angular/compiler": "^2.0.0-rc.4",
-    "@angular/core": "^2.0.0-rc.4",
-    "@angular/router": "^3.0.0-beta.2",
-    "@angular/http": "^2.0.0-rc.4",
-    "@angular/platform-browser": "^2.0.0-rc.4",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.4",
-    "@angular/forms": "^0.2.0",
+    "mongoose": "^4.4.7",<% } %> <% if (client === "ng2") { %>
+    "@angular/common": "^2.0.0-rc.5",
+    "@angular/compiler": "^2.0.0-rc.5",
+    "@angular/core": "^2.0.0-rc.5",
+    "@angular/router": "^3.0.0-rc.1",
+    "@angular/http": "^2.0.0-rc.5",
+    "@angular/platform-browser": "^2.0.0-rc.5",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.5",
+    "@angular/forms": "^0.3.0",
     "reflect-metadata": "^0.1.3",
     "rxjs": "5.0.0-beta.6",
     "systemjs": "^0.19.24",
@@ -68,6 +68,7 @@
     "newrelic": "^1.18.2"
   },
   "devDependencies": {
+    "aliv": "^1.1.5",
     "karma-ng-html2js-preprocessor": "^0.1.2",
     "del": "^2.2.1",
   	"gulp": "^3.9.0",
