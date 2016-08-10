@@ -146,9 +146,9 @@ describe('ng-fullstack -> client_only', () => {
 
         // tests - client
 
-        'tests/client/todo/services/todo-dao_test.js',
-        'tests/client/todo/models/todo-model_test.js',
-        'tests/client/todo/controllers/todo-controller_test.js',
+        'client/dev/todo/services/todo-dao_test.js',
+        'client/dev/todo/models/todo-model_test.js',
+        'client/dev/todo/controllers/todo-controller_test.js',
 
         // tests - e2e
 
@@ -163,7 +163,8 @@ describe('ng-fullstack -> client_only', () => {
             githubUsername: "b",
             server: "go",
             stack: 'client',
-            client: 'ng1'
+            client: 'ng1',
+            testsSeparated: false
           })
           .on('end', done)
           .withOptions({ 'skip-install': true })
