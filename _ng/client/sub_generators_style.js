@@ -10,6 +10,7 @@ exports.StyleSubGenerator = class StyleSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
     this.wrapper.client = this.wrapper.config.get('client');
+    this.wrapper.stylePreprocessor = this.wrapper.config.get('stylePreprocessor');
   }
 
   initializing() {

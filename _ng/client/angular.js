@@ -3,7 +3,8 @@
 const utils = require('../utils/utils');
 const knownPaths = require('../utils/known_paths');
 const yoUtils = require('../utils/yeoman-utils');
-const copyStylePreprocessor = require('./style').copyStylePreprocessor;
+const copyStyleForSubGenerator = require('./style').copyStyleForSubGenerator;
+const copyStyleForMainGenerator = require('./style').copyStyleForMainGenerator;
 
 class Angular1 {
   constructor(gen) {
@@ -23,7 +24,6 @@ class Angular1 {
       ['client/ng1/dev/todo/models/todo-model.js', 'client/dev/todo/models/todo-model.js'],
       ['client/ng1/dev/todo/services/todo-dao.js', 'client/dev/todo/services/todo-dao.js'],
       ['client/ng1/dev/todo/resources/todo-resource.js', 'client/dev/todo/resources/todo-resource.js'],
-      ['client/ng1/dev/todo/styles/todo.css', 'client/dev/todo/styles/todo.css'],
       ['client/ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
     ];
 
@@ -48,6 +48,8 @@ class Angular1 {
 
     yoUtils.directory(this.generator, _pathSrc, this.generator);
     yoUtils.directory(this.generator, _pathTest, this.generator);
+
+    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
 
   copyController(pathTemplate) {
@@ -167,7 +169,7 @@ class Angular1 {
   }
 
   copyStyle(pathTemplate) {
-    copyStylePreprocessor(this.generator, pathTemplate);
+    copyStyleForSubGenerator(this.generator, pathTemplate);
   }
 
   copyResource(pathTemplate) {
@@ -223,6 +225,8 @@ class Angular2 {
     }
 
     this.generator.template('tasks/client/ng2/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
+
+    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
 
   copyComponent(pathTemplate) {
@@ -332,7 +336,7 @@ class Angular2 {
   }
 
   copyStyle(pathTemplate) {
-    copyStylePreprocessor(this.generator, pathTemplate);
+    copyStyleForSubGenerator(this.generator, pathTemplate);
   }
 
   copyModule() {

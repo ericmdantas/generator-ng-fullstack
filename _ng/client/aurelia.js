@@ -3,7 +3,8 @@
 const utils = require('../utils/utils');
 const knownPaths = require('../utils/known_paths');
 const yoUtils = require('../utils/yeoman-utils');
-const copyStylePreprocessor = require('./style').copyStylePreprocessor;
+const copyStyleForSubGenerator = require('./style').copyStyleForSubGenerator;
+const copyStyleForMainGenerator = require('./style').copyStyleForMainGenerator;
 
 class Aurelia1 {
   constructor(gen) {
@@ -36,6 +37,8 @@ class Aurelia1 {
     }
 
     this.generator.template('tasks/client/aurelia1/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
+
+    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
 
   copyComponent(pathTemplate) {
@@ -137,7 +140,7 @@ class Aurelia1 {
   }
 
   copyStyle(pathTemplate) {
-    copyStylePreprocessor(this.generator, pathTemplate);
+    copyStyleForSubGenerator(this.generator, pathTemplate);
   }
 
   copyModule() {

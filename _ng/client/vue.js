@@ -3,7 +3,8 @@
 const utils = require('../utils/utils');
 const knownPaths = require('../utils/known_paths');
 const yoUtils = require('../utils/yeoman-utils');
-const copyStylePreprocessor = require('./style').copyStylePreprocessor;
+const copyStyleForSubGenerator = require('./style').copyStyleForSubGenerator;
+const copyStyleForMainGenerator = require('./style').copyStyleForMainGenerator;
 
 class Vue2 {
   constructor(gen) {
@@ -30,6 +31,8 @@ class Vue2 {
     }
 
     this.generator.template('tasks/client/vue2/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
+    
+    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
 
   copyComponent(pathTemplate) {
@@ -125,7 +128,7 @@ class Vue2 {
   }
 
   copyStyle(pathTemplate) {
-    copyStylePreprocessor(this.generator, pathTemplate);
+    copyStyleForSubGenerator(this.generator, pathTemplate);
   }
 
   copyModule() {
