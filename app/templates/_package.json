@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "main": "src/<%= app %>.js",
   "scripts": {
-    <% if (clientOnly) { %>"start": "aliv",
+    <% if (clientOnly) { %>"start": "gulp",
+    "dev": "gulp",
     "test": "gulp client.unit_test",
     "build-dist": "gulp client.build:dist"<%} else {%>
     "start": "node index",
@@ -68,7 +69,6 @@
   },
   "devDependencies": {
     "karma-ng-html2js-preprocessor": "^0.1.2",
-    "aliv": "~1.1.5",
     "del": "^2.2.1",
   	"gulp": "^3.9.0",
   	"babel-register": "^6.7.2",
@@ -89,6 +89,12 @@
     "gulp-htmlmin": "^2.0.0",
     "gulp-imagemin": "^3.0.1",
     "gulp-util": "^3.0.3",
+    <% if (stylePreprocessor === "less") { %>
+    "gulp-less": "^3.1.0",
+    <% } %>
+    <% if (stylePreprocessor === "sass") { %>
+    "gulp-sass": "^2.3.2",
+    <% } %>
     "jasmine-core": "^2.1.3",
     "run-sequence": "^1.1.5",
     "karma": "^1.0.0",

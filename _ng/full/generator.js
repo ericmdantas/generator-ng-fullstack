@@ -37,6 +37,7 @@ exports.MainGenerator = class MainGenerator {
       let _serverOnly = this.wrapper.stack === "server";
       let _secure = this.wrapper.secure;
       let _usesTypescript = (_transpilerServer === "typescript") || (_client === "ng2");
+      let _stylePreprocessor = this.wrapper.stylePreprocessor;
 
       this.wrapper.template('_README.md', 'README.md', {
         app: _app.app,
@@ -52,7 +53,8 @@ exports.MainGenerator = class MainGenerator {
         client: _client,
         clientOnly: _clientOnly,
         nodeWebFrameworkServer: this.wrapper.nodeWebFrameworkServer,
-        testsSeparated: _testsSeparated
+        testsSeparated: _testsSeparated,
+        stylePreprocessor: _stylePreprocessor
       });
 
       this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
