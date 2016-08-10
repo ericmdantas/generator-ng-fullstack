@@ -293,6 +293,36 @@ exports.MainGenerator = class MainGenerator {
     this.wrapper.config.save();
   }
 
+  promptStylePreprocessor() {
+    const done = this.wrapper.async();
+
+    let prompts = [
+      {
+        type: "list",
+        name: "stylePreprocessor",
+        message: "Which CSS pre-processor do you want to use?",
+        choices: [
+          "none",
+          "less",
+          "sass"
+        ],
+        when: () => {
+          return this.wrapper.stack !== "server";
+        },
+        default: 0
+      }
+    ];
+
+    this.wrapper.prompt(prompts, (props) => {
+      this.wrapper.stylePreprocessor = props.stylePreprocessor;
+      this.wrapper.config.set('stylePreprocessor', this.wrapper.stylePreprocessor);
+
+      done();
+    });
+
+    this.wrapper.config.save();
+  }
+
   promptNodeWebFrameworkServer() {
     const done = this.wrapper.async();
 

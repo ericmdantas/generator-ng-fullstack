@@ -3,6 +3,7 @@
 const utils = require('../utils/utils');
 const knownPaths = require('../utils/known_paths');
 const yoUtils = require('../utils/yeoman-utils');
+const copyStylePreprocessor = require('./style').copyStylePreprocessor;
 
 class Aurelia1 {
   constructor(gen) {
@@ -40,26 +41,26 @@ class Aurelia1 {
   copyComponent(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'aurelia1/component.js', 
+    this.generator.template(_pathTemplate + 'aurelia1/component.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.js`, {
-        nameCapitalized: utils.capitalizeFirst(this.generator.name), 
-        name: this.generator.name, 
+        nameCapitalized: utils.capitalizeFirst(this.generator.name),
+        name: this.generator.name,
         feature: this.generator.options.feature
     });
 
-    this.generator.template(_pathTemplate + 'aurelia1/component.html', 
+    this.generator.template(_pathTemplate + 'aurelia1/component.html',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.html`, {
         name: this.generator.name
       }
     );
 
-    this.generator.template(_pathTemplate + 'aurelia1/component.css', 
+    this.generator.template(_pathTemplate + 'aurelia1/component.css',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
     );
 
-    this.generator.template(_pathTemplate + 'aurelia1/component_test.js', 
+    this.generator.template(_pathTemplate + 'aurelia1/component_test.js',
       `${this.testsPath + this.generator.options.feature}/components/${this.generator.name}_test.js`, {
-        name: utils.capitalizeFirst(this.generator.name), 
+        name: utils.capitalizeFirst(this.generator.name),
         nameLowerCase: this.generator.name.toLowerCase()
     });
   }
@@ -67,12 +68,12 @@ class Aurelia1 {
   copyDirective(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'aurelia1/directive.js', 
+    this.generator.template(_pathTemplate + 'aurelia1/directive.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/directives/${this.generator.name}.js`, {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'aurelia1/directive_test.js', 
+    this.generator.template(_pathTemplate + 'aurelia1/directive_test.js',
       `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
@@ -82,12 +83,12 @@ class Aurelia1 {
   copyFactory(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'aurelia1/factory.js', 
+    this.generator.template(_pathTemplate + 'aurelia1/factory.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/factory/${this.generator.name}.js`, {
         name: utils.capitalizeFirst(this.generator.name)
     });
 
-    this.generator.template(_pathTemplate + 'aurelia1/factory_test.js', 
+    this.generator.template(_pathTemplate + 'aurelia1/factory_test.js',
       `${this.testsPath + this.generator.options.feature}/factory/${this.generator.name}_test.js`, {
         name: utils.capitalizeFirst(this.generator.name)
     });
@@ -96,12 +97,12 @@ class Aurelia1 {
   copyService(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'aurelia1/service.js', 
+    this.generator.template(_pathTemplate + 'aurelia1/service.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/services/${this.generator.name}.js`, {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'aurelia1/service_test.js', 
+    this.generator.template(_pathTemplate + 'aurelia1/service_test.js',
       `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
@@ -110,12 +111,12 @@ class Aurelia1 {
   copyModel(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'aurelia1/model.js', 
+    this.generator.template(_pathTemplate + 'aurelia1/model.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/models/${this.generator.name}.js`, {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'aurelia1/model_test.js', 
+    this.generator.template(_pathTemplate + 'aurelia1/model_test.js',
       `${this.testsPath + this.generator.options.feature}/models/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
@@ -124,23 +125,19 @@ class Aurelia1 {
   copyFilter(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'aurelia1/filter.js', 
+    this.generator.template(_pathTemplate + 'aurelia1/filter.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/filters/${this.generator.name}.js`, {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'aurelia1/filter_test.js', 
+    this.generator.template(_pathTemplate + 'aurelia1/filter_test.js',
       `${this.testsPath + this.generator.options.feature}/filters/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
   }
 
   copyStyle(pathTemplate) {
-    let _pathTemplate = pathTemplate || '';
-
-    this.generator.template(_pathTemplate + 'style.css', 
-      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
-    );
+    copyStylePreprocessor(this.generator, pathTemplate);
   }
 
   copyModule() {
@@ -170,4 +167,3 @@ class AureliaFactory {
 
 exports.Aurelia1 = Aurelia1;
 exports.AureliaFactory = AureliaFactory;
-

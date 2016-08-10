@@ -77,7 +77,10 @@ describe('StyleSubGenerator', () => {
 
         _ssg.writing();
 
-        let _firstCall = ['style.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'];
+        let _firstCall = [
+          'style.css',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
+        ];
 
         expect(_ssg.wrapper.writing).to.have.been.called;
         expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
@@ -118,7 +121,10 @@ describe('StyleSubGenerator', () => {
 
         _ssg.writing();
 
-        let _firstCall = ['style.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'];
+        let _firstCall = [
+          'style.css',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
+        ];
 
         expect(_ssg.wrapper.writing).to.have.been.called;
         expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
@@ -159,7 +165,10 @@ describe('StyleSubGenerator', () => {
 
         _ssg.writing();
 
-        let _firstCall = ['style.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'];
+        let _firstCall = [
+          'style.css',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
+        ];
 
         expect(_ssg.wrapper.writing).to.have.been.called;
         expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
@@ -200,12 +209,14 @@ describe('StyleSubGenerator', () => {
 
         _ssg.writing();
 
-        let _firstCall = ['style.css', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'];
+        let _firstCall = [
+          'style.css',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
+        ];
 
         expect(_ssg.wrapper.writing).to.have.been.called;
         expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       });
     })
-
   });
 });

@@ -3,6 +3,7 @@
 const utils = require('../utils/utils');
 const knownPaths = require('../utils/known_paths');
 const yoUtils = require('../utils/yeoman-utils');
+const copyStylePreprocessor = require('./style').copyStylePreprocessor;
 
 class Vue2 {
   constructor(gen) {
@@ -34,20 +35,20 @@ class Vue2 {
   copyComponent(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'vue2/component.js', 
+    this.generator.template(_pathTemplate + 'vue2/component.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.js`, {
-        nameCapitalized: utils.capitalizeFirst(this.generator.name), 
-        name: this.generator.name, 
+        nameCapitalized: utils.capitalizeFirst(this.generator.name),
+        name: this.generator.name,
         feature: this.generator.options.feature
     });
 
-    this.generator.template(_pathTemplate + 'vue2/component.css', 
+    this.generator.template(_pathTemplate + 'vue2/component.css',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
     );
 
-    this.generator.template(_pathTemplate + 'vue2/component_test.js', 
+    this.generator.template(_pathTemplate + 'vue2/component_test.js',
       `${this.testsPath + this.generator.options.feature}/components/${this.generator.name}_test.js`, {
-        name: utils.capitalizeFirst(this.generator.name), 
+        name: utils.capitalizeFirst(this.generator.name),
         nameLowerCase: this.generator.name.toLowerCase()
     });
   }
@@ -55,12 +56,12 @@ class Vue2 {
   copyDirective(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'vue2/directive.js', 
+    this.generator.template(_pathTemplate + 'vue2/directive.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/directives/${this.generator.name}.js`, {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'vue2/directive_test.js', 
+    this.generator.template(_pathTemplate + 'vue2/directive_test.js',
       `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
@@ -70,12 +71,12 @@ class Vue2 {
   copyFactory(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'vue2/factory.js', 
+    this.generator.template(_pathTemplate + 'vue2/factory.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/factory/${this.generator.name}.js`, {
         name: utils.capitalizeFirst(this.generator.name)
     });
 
-    this.generator.template(_pathTemplate + 'vue2/factory_test.js', 
+    this.generator.template(_pathTemplate + 'vue2/factory_test.js',
       `${this.testsPath + this.generator.options.feature}/factory/${this.generator.name}_test.js`, {
         name: utils.capitalizeFirst(this.generator.name)
     });
@@ -84,12 +85,12 @@ class Vue2 {
   copyService(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'vue2/service.js', 
+    this.generator.template(_pathTemplate + 'vue2/service.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/services/${this.generator.name}.js`, {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'vue2/service_test.js', 
+    this.generator.template(_pathTemplate + 'vue2/service_test.js',
       `${this.testsPath + this.generator.options.feature}/services/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
@@ -98,12 +99,12 @@ class Vue2 {
   copyModel(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'vue2/model.js', 
+    this.generator.template(_pathTemplate + 'vue2/model.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/models/${this.generator.name}.js`, {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'vue2/model_test.js', 
+    this.generator.template(_pathTemplate + 'vue2/model_test.js',
       `${this.testsPath + this.generator.options.feature}/models/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
@@ -112,23 +113,19 @@ class Vue2 {
   copyFilter(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'vue2/filter.js', 
+    this.generator.template(_pathTemplate + 'vue2/filter.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/filters/${this.generator.name}.js`, {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'vue2/filter_test.js', 
+    this.generator.template(_pathTemplate + 'vue2/filter_test.js',
       `${this.testsPath + this.generator.options.feature}/filters/${this.generator.name}_test.js`, {
         name: this.generator.name
     });
   }
 
   copyStyle(pathTemplate) {
-    let _pathTemplate = pathTemplate || '';
-
-    this.generator.template(_pathTemplate + 'style.css', 
-      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
-    );
+    copyStylePreprocessor(this.generator, pathTemplate);
   }
 
   copyModule() {
