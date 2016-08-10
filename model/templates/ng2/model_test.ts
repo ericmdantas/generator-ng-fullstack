@@ -1,12 +1,11 @@
 import {
-  it,
-  expect,
-  describe,
-  beforeEachProviders
+  addProviders
 } from '@angular/core/testing';
 
 describe('myModel', () => {
-  beforeEachProviders([]);
+  beforeEach(() => {
+
+  });
 
   describe('creation', () => {
 

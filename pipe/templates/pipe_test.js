@@ -1,14 +1,13 @@
 'use strict';
 
 import {
-  it,
-  expect,
-  describe,
-  beforeEachProviders
+  addProviders
 } from '@angular/core/testing';
 
 describe('pipe_test', () => {
-  beforeEachProviders([]);
+  beforeEach(() => {
+    
+  });
 
   describe('do something', () => {
 

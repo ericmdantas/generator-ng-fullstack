@@ -1,12 +1,11 @@
 import {
-  it,
-  describe,
-  expect,
-  beforeEachProviders
+  addProviders
 } from '@angular/core/testing';
 
 describe('directive', () => {
-  beforeEachProviders([]);
+  beforeEach(() => {
+
+  });
 
   describe('creation', () => {
 
