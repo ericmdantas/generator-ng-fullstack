@@ -4,7 +4,7 @@ import {
 
 describe('myService', () => {
   beforeEach(() => {
-    
+
   });
 
   describe('creation', () => {

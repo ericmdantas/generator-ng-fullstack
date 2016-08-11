@@ -4,7 +4,7 @@ import {
 
 describe('myFactory', () => {
   beforeEach(() => {
-    
+
   });
 
   describe('creation', () => {
