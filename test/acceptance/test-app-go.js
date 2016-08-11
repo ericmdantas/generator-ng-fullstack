@@ -44,6 +44,7 @@ describe('ng-fullstack -> golang', () => {
 
       'client/dev/index.html',
       'client/dev/app.ts',
+      'client/dev/app.module.ts',
       'client/dev/config.js',
 
       'client/dev/index.ts',
@@ -728,6 +729,7 @@ describe('ng-fullstack -> golang', () => {
 
       'client/dev/index.ts',
       'client/dev/app.ts',
+      'client/dev/app.module.ts',
 
       'client/dev/todo/styles/todo.css',
       'client/dev/todo/components/todo-cmp.ts',

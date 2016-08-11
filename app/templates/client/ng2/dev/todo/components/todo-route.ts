@@ -1,13 +1,13 @@
 import {
-	RouterConfig,
-	provideRouter
+	Routes,
+	RouterModule
 } from '@angular/router';
 
 import {
 	TodoCmp
 } from '../components/todo-cmp';
 
-const routes:RouterConfig = [
+const todoRoutes:Routes = [
 	{
 		path: '',
 		component: TodoCmp,
@@ -15,6 +15,4 @@ const routes:RouterConfig = [
 	}
 ]
 
-export const TODO_ROUTES_PROVIDER = [
-	provideRouter(routes)
-];
+export const todoRouting = RouterModule.forRoot(todoRoutes);

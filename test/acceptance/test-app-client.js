@@ -220,6 +220,7 @@ describe('ng-fullstack -> client_only', () => {
 
         'client/dev/index.html',
         'client/dev/app.ts',
+        'client/dev/app.module.ts',
         'client/dev/config.js',
 
         'client/dev/index.ts',
@@ -304,6 +305,7 @@ describe('ng-fullstack -> client_only', () => {
 
         'client/dev/index.html',
         'client/dev/app.ts',
+        'client/dev/app.module.ts',
         'client/dev/config.js',
 
         'client/dev/index.ts',
