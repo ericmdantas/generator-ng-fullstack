@@ -1,11 +1,4 @@
-import {disableDeprecatedForms, provideForms} from '@angular/forms';
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {HTTP_PROVIDERS} from '@angular/http';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {AppModule} from './app.module'
 
-import {TodoCmp} from './todo/components/todo-cmp';
-
-bootstrap(TodoCmp, [
-  HTTP_PROVIDERS,
-  disableDeprecatedForms(),
-  provideForms()
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);

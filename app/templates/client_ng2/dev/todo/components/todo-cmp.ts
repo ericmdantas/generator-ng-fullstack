@@ -7,7 +7,6 @@ import {
 import {
   Validators,
   FormBuilder,
-  REACTIVE_FORM_DIRECTIVES,
   FormGroup,
   FormControl
 } from '@angular/forms';
@@ -18,25 +17,23 @@ import {
 
 type Todo = {
   todoMessage: string;
-  _id: string;
+  _id?: string;
 }
 
 @Component({
   selector: 'todo-cmp',
   templateUrl: 'todo/templates/todo.html',
-  styleUrls: ['todo/styles/todo.css'],
-  directives: [REACTIVE_FORM_DIRECTIVES],
-  providers: [TodoService]
+  styleUrls: ['todo/styles/todo.css']
 })
 export class TodoCmp implements OnInit {
   title: string = "ng2do";
   todos: Todo[] = [];
-  todoForm: FormGroup;
+  todoForm: Todo;
 
-  constructor(fb:FormBuilder, private _todoService: TodoService) {
-    this.todoForm = fb.group({
-      "todoMessage": ["", Validators.required]
-    });
+  constructor(private _todoService: TodoService) {
+    this.todoForm = {
+      "todoMessage": ""
+    };
   }
 
   ngOnInit() {
@@ -56,7 +53,7 @@ export class TodoCmp implements OnInit {
         .add(message)
         .subscribe((m) => {
           this.todos.push(m);
-          (<FormControl>this.todoForm.controls['todoMessage']).updateValue("");
+          this.todoForm.todoMessage = "";
         });
   }
 

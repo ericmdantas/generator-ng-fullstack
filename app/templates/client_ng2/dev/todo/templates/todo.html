@@ -1,18 +1,18 @@
 <div class="todo-container">
   <form class="todo-form"
-        [formGroup]="todoForm"
-        (submit)="add(todoForm.value.todoMessage)">
+        (submit)="add(todoForm.todoMessage)">
 
     <h1 class="todo-title">{{title}}</h1>
 
     <input type="text"
-           formControlName="todoMessage"
-           [class.todo-error]="!todoForm.valid"
+           name="todoMessage"
+           [(ngModel)]="todoForm.todoMessage"
+           [class.todo-error]="!todoForm.todoMessage.length"
            placeholder="What do you have todo?"
            autofocus />
 
     <button type="submit"
-            [disabled]="!todoForm.valid">+</button>
+            [disabled]="!todoForm.todoMessage.length">+</button>
   </form>
 
   <div class="todo-list">
