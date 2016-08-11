@@ -1,12 +1,9 @@
 import {
-  it,
-  expect,
-  describe,
-  beforeEachProviders
+  addProviders
 } from '@angular/core/testing';
 
 describe('myFactory', () => {
-  beforeEachProviders([]);
+  beforeEach(() => {})
 
   describe('creation', () => {
 
