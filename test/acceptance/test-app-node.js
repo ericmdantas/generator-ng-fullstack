@@ -99,6 +99,9 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -157,6 +160,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -230,6 +237,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -294,6 +305,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -361,6 +376,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -419,6 +438,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -477,6 +500,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -549,6 +576,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -613,6 +644,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -679,6 +714,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -739,6 +778,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -799,6 +842,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -873,6 +920,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -939,6 +990,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -1007,6 +1062,10 @@ describe('ng-fullstack -> node', () => {
           // tests - server
 
           'tests/server/todo/dao/todo-dao_test.js',
+          'tests/server/todo/controller/todo-controller_test.js',
+          'tests/server/todo/model/todo-model_test.js',
+          'tests/server/todo/route/todo-route_test.js',
+
           'tests/server/_helpers/db.js',
           'tests/server/_helpers/db.json'
         ];
@@ -1066,6 +1125,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1124,6 +1187,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1197,6 +1264,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1261,6 +1332,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1328,6 +1403,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1386,6 +1465,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1444,6 +1527,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1516,6 +1603,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1580,6 +1671,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1646,6 +1741,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1706,6 +1805,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1766,6 +1869,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1840,6 +1947,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1906,6 +2017,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -1974,6 +2089,10 @@ describe('ng-fullstack -> node', () => {
             // tests - server
 
             'tests/server/todo/dao/todo-dao_test.js',
+            'tests/server/todo/controller/todo-controller_test.js',
+            'tests/server/todo/model/todo-model_test.js',
+            'tests/server/todo/route/todo-route_test.js',
+
             'tests/server/_helpers/db.js',
             'tests/server/_helpers/db.json'
           ];
@@ -2040,6 +2159,10 @@ describe('ng-fullstack -> node', () => {
         // tests - server
 
         'tests/server/todo/dao/todo-dao_test.js',
+        'tests/server/todo/controller/todo-controller_test.js',
+        'tests/server/todo/model/todo-model_test.js',
+        'tests/server/todo/route/todo-route_test.js',
+
         'tests/server/_helpers/db.js',
         'tests/server/_helpers/db.json'
       ];
