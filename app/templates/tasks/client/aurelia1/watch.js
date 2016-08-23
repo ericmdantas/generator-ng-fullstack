@@ -23,8 +23,17 @@ gulp.task(tasks.CLIENT_WATCH, () => {
   _watchable.push(path.DEV + '**/*.js');
   _watchable.push(path.DEV + '**/*.css');
   _watchable.push(path.DEV + '**/*.html');
+  <% if (stylePreprocessor === "less") { %>
+  _watchable.push(path.DEV + '**/*.less');
+  <% } %>
+  <% if (stylePreprocessor === "sass") { %>
+  _watchable.push(path.DEV + '**/*.sass');
+  <% } %>
 
   return gulp.watch(_watchable, [
-    tasks.CLIENT_RELOAD
+    tasks.CLIENT_RELOAD,
+    <% if (!!stylePreprocessor) { %>
+    tasks.CLIENT_COMPILE_TO_CSS
+    <% } %>
   ]);
 });
