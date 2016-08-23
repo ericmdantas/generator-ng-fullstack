@@ -16,7 +16,9 @@ class Aurelia1 {
   copyClient() {
     this.generator.directory('tasks/client/aurelia1', 'tasks/client');
     this.generator.directory('client/aurelia1', 'client');
-    this.generator.template('_karma.conf_aurelia1.js', 'karma.conf.js', {testsSeparated: this.testsSeparated});
+    this.generator.template('_karma.conf_aurelia1.js', 'karma.conf.js', {
+      testsSeparated: this.testsSeparated
+    });
 
     if(this.testsSeparated) {
       this.generator.directory('tests/client_aurelia1', 'tests/client');
@@ -36,8 +38,19 @@ class Aurelia1 {
       this.generator.template('_aurelia_jspm_config_serving_from_jspm_packages.js', 'jspm.config.js');
     }
 
-    this.generator.template('tasks/client/aurelia1/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
+    this.generator.template('tasks/client/aurelia1/const.js', 'tasks/client/const.js', {
+      stylePreprocessor: this.generator.stylePreprocessor
+    });
 
+    this.generator.template('tasks/client/aurelia1/build_css.js', 'tasks/client/build_css.js', {
+      stylePreprocessor: this.generator.stylePreprocessor
+    });
+
+
+    this.generator.template('tasks/client/aurelia1/watch.js', 'tasks/client/watch.js', {
+      secure: !!this.generator.secure
+    });
+     
     copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
 

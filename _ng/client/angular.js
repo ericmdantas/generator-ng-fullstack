@@ -44,7 +44,18 @@ class Angular1 {
     }
 
     this.generator.directory('tasks/client/ng1', 'tasks/client');
-    this.generator.template('tasks/client/ng1/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
+
+    this.generator.template('tasks/client/ng1/const.js', 'tasks/client/const.js', {
+      stylePreprocessor: this.generator.stylePreprocessor
+    });
+
+    this.generator.template('tasks/client/ng1/build_css.js', 'tasks/client/build_css.js', {
+      stylePreprocessor: this.generator.stylePreprocessor
+    });
+
+    this.generator.template('tasks/client/ng1/watch.js', 'tasks/client/watch.js', {
+      secure: !!this.generator.secure
+    });
 
     yoUtils.directory(this.generator, _pathSrc, this.generator);
     yoUtils.directory(this.generator, _pathTest, this.generator);
@@ -224,7 +235,17 @@ class Angular2 {
       this.generator.template('_ng2_systemjs_config_serving_node_modules.js', 'client/dev/config.js');
     }
 
-    this.generator.template('tasks/client/ng2/watch.js', 'tasks/client/watch.js', {secure: !!this.generator.secure});
+    this.generator.template('tasks/client/ng2/const.js', 'tasks/client/const.js', {
+      stylePreprocessor: this.generator.stylePreprocessor
+    });
+
+    this.generator.template('tasks/client/ng2/build_css.js', 'tasks/client/build_css.js', {
+      stylePreprocessor: this.generator.stylePreprocessor
+    });
+
+    this.generator.template('tasks/client/ng2/watch.js', 'tasks/client/watch.js', {
+      secure: !!this.generator.secure
+    });
 
     copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
