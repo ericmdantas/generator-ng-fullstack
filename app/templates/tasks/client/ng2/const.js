@@ -24,5 +24,13 @@ export const tasks = {
 
   CLIENT_WATCH: 'client.watch',
 
-  CLIENT_BUILD_TS: 'client.build_ts'
+  CLIENT_BUILD_TS: 'client.build_ts',
+
+  <% if (stylePreprocessor === "sass") { %>
+  CLIENT_COMPILE_TO_CSS: 'client.compile_from_sass_to_css:dev'
+  <% } %>
+
+  <% if (stylePreprocessor === "less") { %>
+  CLIENT_COMPILE_TO_CSS: 'client.compile_from_less_to_css:dev'
+  <% } %>
 }

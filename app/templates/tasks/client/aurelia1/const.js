@@ -20,5 +20,13 @@ export const tasks = {
 
   CLIENT_RELOAD: 'client.reload',
 
-  CLIENT_BUILD_DIST: 'client.build:dist'
+  CLIENT_BUILD_DIST: 'client.build:dist',
+
+  <% if (stylePreprocessor === "sass") { %>
+  CLIENT_COMPILE_TO_CSS: 'client.compile_from_sass_to_css:dev'
+  <% } %>
+
+  <% if (stylePreprocessor === "less") { %>
+  CLIENT_COMPILE_TO_CSS: 'client.compile_from_less_to_css:dev'
+  <% } %>
 }
