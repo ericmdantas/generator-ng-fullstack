@@ -5,6 +5,6 @@
     "pathIndex": "client/dev",
     "only": "client/dev/**/*",
     "proxy": true,
-    "proxyWhen": "/api/path/to/proxy/*",
-    "proxyTarget": "http://proxy-to-my-target:8080"
+    "proxyWhen": "/api/**",
+    "proxyTarget": "http://my-api-server.com:8080"
 }
