@@ -542,7 +542,8 @@ describe('angular', () => {
         let _eightCall = [
           'tasks/client/ng2/watch.js',
           'tasks/client/watch.js', {
-            secure: false
+            secure: false,
+            stylePreprocessor: undefined
           }
         ];
 
@@ -624,7 +625,8 @@ describe('angular', () => {
         let _ninethCall = [
           'tasks/client/ng2/watch.js',
           'tasks/client/watch.js', {
-            secure: false
+            secure: false,
+            stylePreprocessor: undefined
           }
         ];
 
@@ -701,7 +703,8 @@ describe('angular', () => {
         let _eightCall = [
           'tasks/client/ng2/watch.js',
           'tasks/client/watch.js', {
-            secure: true
+            secure: true,
+            stylePreprocessor: undefined
           }
         ];
 
@@ -783,7 +786,8 @@ describe('angular', () => {
         let _ninethCall = [
           'tasks/client/ng2/watch.js',
           'tasks/client/watch.js', {
-            secure: true
+            secure: true,
+            stylePreprocessor: undefined
           }
         ];
 
@@ -861,7 +865,8 @@ describe('angular', () => {
         let _eightCall = [
           'tasks/client/ng2/watch.js',
           'tasks/client/watch.js', {
-            secure: true
+            secure: true,
+            stylePreprocessor: undefined
           }
         ];
 
@@ -944,7 +949,8 @@ describe('angular', () => {
         let _ninethCall = [
           'tasks/client/ng2/watch.js',
           'tasks/client/watch.js', {
-            secure: true
+            secure: true,
+            stylePreprocessor: undefined
           }
         ];
 
@@ -1023,7 +1029,8 @@ describe('angular', () => {
         let _eightCall = [
           'tasks/client/ng2/watch.js',
           'tasks/client/watch.js', {
-            secure: true
+            secure: true,
+            stylePreprocessor: undefined
           }
         ];
 

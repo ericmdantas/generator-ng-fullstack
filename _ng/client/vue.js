@@ -41,7 +41,8 @@ class Vue2 {
     });
 
     this.generator.template('tasks/client/vue2/watch.js', 'tasks/client/watch.js', {
-      secure: !!this.generator.secure
+      secure: !!this.generator.secure,
+      stylePreprocessor: this.generator.stylePreprocessor
     });
     
     copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');

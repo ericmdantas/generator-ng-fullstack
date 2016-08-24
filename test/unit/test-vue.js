@@ -79,7 +79,8 @@ describe('vue', () => {
         let _secondCall = [
           'tasks/client/vue2/watch.js',
           'tasks/client/watch.js', {
-            secure: true
+            secure: true,
+            stylePreprocessor: undefined
           }
         ];
 

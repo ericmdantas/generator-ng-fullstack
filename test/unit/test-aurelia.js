@@ -64,7 +64,8 @@ describe('aurelia', () => {
         let _fifthCall = [
           'tasks/client/aurelia1/watch.js',
           'tasks/client/watch.js', {
-            secure: false
+            secure: false,
+            stylePreprocessor: undefined
           }
         ];
 
@@ -128,7 +129,8 @@ describe('aurelia', () => {
         let _sixthCall = [
           'tasks/client/aurelia1/watch.js',
           'tasks/client/watch.js', {
-            secure: false
+            secure: false,
+            stylePreprocessor: undefined
           }
         ];
 
@@ -189,7 +191,8 @@ describe('aurelia', () => {
         let _fifthCall = [
           'tasks/client/aurelia1/watch.js',
           'tasks/client/watch.js', {
-            secure: true
+            secure: true,
+            stylePreprocessor: undefined
           }
         ];
 
@@ -254,7 +257,8 @@ describe('aurelia', () => {
         let _sixthCall = [
           'tasks/client/aurelia1/watch.js',
           'tasks/client/watch.js', {
-            secure: true
+            secure: true,
+            stylePreprocessor: undefined
           }
         ];
 
@@ -314,7 +318,8 @@ describe('aurelia', () => {
         let _fifthCall = [
           'tasks/client/aurelia1/watch.js',
           'tasks/client/watch.js', {
-            secure: true
+            secure: true,
+            stylePreprocessor: undefined
           }
         ];
 
@@ -379,7 +384,8 @@ describe('aurelia', () => {
         let _sixthCall = [
           'tasks/client/aurelia1/watch.js',
           'tasks/client/watch.js', {
-            secure: true
+            secure: true,
+            stylePreprocessor: undefined
           }
         ];
 
@@ -440,7 +446,8 @@ describe('aurelia', () => {
         let _fifthCall = [
           'tasks/client/aurelia1/watch.js',
           'tasks/client/watch.js', {
-            secure: true
+            secure: true,
+            stylePreprocessor: undefined
           }
         ];
 
