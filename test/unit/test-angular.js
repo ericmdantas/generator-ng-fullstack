@@ -27,143 +27,213 @@ describe('angular', () => {
   });
 
   describe('ng1', () => {
-    describe('copyDirective', () => {
-      it('should call the methods with the right params - secure is false', () => {
-        let _gen = {
-          name: 'a',
-          secure: false,
-          options: {feature: 'c'},
-          config: {
-            get(){return 'ng1'}
-          },
-          template: sinon.spy(),
-          directory: sinon.spy()
-        };
+    describe('copyClient', () => {
+        it('should call the methods with the right params - secure is false', () => {
+          let _gen = {
+            name: 'a',
+            secure: false,
+            options: {feature: 'c'},
+            config: {
+              get(){return 'ng1'}
+            },
+            template: sinon.spy(),
+            directory: sinon.spy()
+          };
 
-        let _ng1 = new Angular1(_gen);
+          let _ng1 = new Angular1(_gen);
 
-        _ng1.copyClient();
+          _ng1.copyClient();
 
-        let _firstCall = [
-          'tasks/client/ng1',
-          'tasks/client'
-        ];
+          let _firstCall = [
+            'tasks/client/ng1',
+            'tasks/client'
+          ];
 
-        let _secondCall = [
-          'tasks/client/ng1/watch.js',
-          'tasks/client/watch.js', {
-            secure: false
-          }
-        ];
+          let _secondCall = [
+            'tasks/client/ng1/watch.js',
+            'tasks/client/watch.js', {
+              secure: false
+            }
+          ];
 
-        expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+          expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+          expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        });
+
+        it('should call the methods with the right params - secure is true', () => {
+          let _gen = {
+            name: 'a',
+            secure: true,
+            options: {feature: 'c'},
+            config: {
+              get(){return 'ng1'}
+            },
+            template: sinon.spy(),
+            directory: sinon.spy()
+          };
+
+          let _ng1 = new Angular1(_gen);
+
+          _ng1.copyClient();
+
+          let _firstCall = [
+            'tasks/client/ng1',
+            'tasks/client'
+          ];
+
+          let _secondCall = [
+            'tasks/client/ng1/watch.js',
+            'tasks/client/watch.js', {
+              secure: true
+            }
+          ];
+
+          expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+          expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        });
+
+        it('should call the methods with the right params - secure is true - stylePreprocessor is less', () => {
+          let _gen = {
+            name: 'a',
+            secure: true,
+            options: {feature: 'c'},
+            stylePreprocessor: 'less',
+            config: {
+              get(){return 'ng1'}
+            },
+            template: sinon.spy(),
+            directory: sinon.spy()
+          };
+
+          let _ng1 = new Angular1(_gen);
+
+          _ng1.copyClient();
+
+          let _firstCall = [
+            'tasks/client/ng1',
+            'tasks/client'
+          ];
+
+          let _secondCall = [
+            'tasks/client/ng1/watch.js',
+            'tasks/client/watch.js', {
+              secure: true,
+              stylePreprocessor: 'less'
+            }
+          ];
+
+          expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+          expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        });
+
+        it('should call the methods with the right params - secure is true - stylePreprocessor is sass', () => {
+          let _gen = {
+            name: 'a',
+            secure: true,
+            options: {feature: 'c'},
+            stylePreprocessor: 'sass',
+            config: {
+              get(){return 'ng1'}
+            },
+            template: sinon.spy(),
+            directory: sinon.spy()
+          };
+
+          let _ng1 = new Angular1(_gen);
+
+          _ng1.copyClient();
+
+          let _firstCall = [
+            'tasks/client/ng1',
+            'tasks/client'
+          ];
+
+          let _secondCall = [
+            'tasks/client/ng1/watch.js',
+            'tasks/client/watch.js', {
+              secure: true,
+              stylePreprocessor: 'sass'
+            }
+          ];
+
+          expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+          expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        });
       });
 
-      it('should call the methods with the right params - secure is true', () => {
-        let _gen = {
-          name: 'a',
-          secure: true,
-          options: {feature: 'c'},
-          config: {
-            get(){return 'ng1'}
-          },
-          template: sinon.spy(),
-          directory: sinon.spy()
-        };
+      describe('copyDirective', () => {
+        it('should call the methods with the right params - testsSeparated is false', () => {
+          let _gen = {
+            name: 'a',
+            appName: 'b',
+            options: {feature: 'c'},
+            testsSeparated: false,
+            config: {
+              get(){return 'ng1'}
+            },
+            template: sinon.spy()
+          };
 
-        let _ng1 = new Angular1(_gen);
+          let _ng1 = new Angular1(_gen);
 
-        _ng1.copyClient();
+          _ng1.copyDirective();
+          let _firstCall = [
+            'ng1/directive.js',
+            knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {
+              name: _gen.name,
+              appName: _gen.appName
+            }
+          ];
 
-        let _firstCall = [
-          'tasks/client/ng1',
-          'tasks/client'
-        ];
+          let _secondCall = [
+            'ng1/directive_test.js',
+            knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '_test.js', {
+              name: _gen.name,
+              appName: _gen.appName,
+              testsSeparated: _gen.testsSeparated
+            }
+          ];
 
-        let _secondCall = [
-          'tasks/client/ng1/watch.js',
-          'tasks/client/watch.js', {
-            secure: true
-          }
-        ];
+          expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+          expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        });
 
-        expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_ng1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        it('should call the methods with the right params - testsSeparated is true', () => {
+          let _gen = {
+            name: 'a',
+            appName: 'b',
+            options: {feature: 'c'},
+            testsSeparated: true,
+            config: {
+              get(){return 'ng1'}
+            },
+            template: sinon.spy()
+          };
+
+          let _ng1 = new Angular1(_gen);
+
+          _ng1.copyDirective();
+          let _firstCall = [
+            'ng1/directive.js',
+            knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {
+              name: _gen.name,
+              appName: _gen.appName
+            }
+          ];
+
+          let _secondCall = [
+            'ng1/directive_test.js',
+            knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '_test.js', {
+              name: _gen.name,
+              appName: _gen.appName,
+              testsSeparated: _gen.testsSeparated
+            }
+          ];
+
+          expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+          expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        });
       });
-
-      it('should call the methods with the right params - testsSeparated is false', () => {
-        let _gen = {
-          name: 'a',
-          appName: 'b',
-          options: {feature: 'c'},
-          testsSeparated: false,
-          config: {
-            get(){return 'ng1'}
-          },
-          template: sinon.spy()
-        };
-
-        let _ng1 = new Angular1(_gen);
-
-        _ng1.copyDirective();
-        let _firstCall = [
-          'ng1/directive.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {
-            name: _gen.name,
-            appName: _gen.appName
-          }
-        ];
-
-        let _secondCall = [
-          'ng1/directive_test.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '_test.js', {
-            name: _gen.name,
-            appName: _gen.appName,
-            testsSeparated: _gen.testsSeparated
-          }
-        ];
-
-        expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-      });
-
-      it('should call the methods with the right params - testsSeparated is true', () => {
-        let _gen = {
-          name: 'a',
-          appName: 'b',
-          options: {feature: 'c'},
-          testsSeparated: true,
-          config: {
-            get(){return 'ng1'}
-          },
-          template: sinon.spy()
-        };
-
-        let _ng1 = new Angular1(_gen);
-
-        _ng1.copyDirective();
-        let _firstCall = [
-          'ng1/directive.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/directives/' + _gen.name + '.js', {
-            name: _gen.name,
-            appName: _gen.appName
-          }
-        ];
-
-        let _secondCall = [
-          'ng1/directive_test.js',
-          knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/directives/' + _gen.name + '_test.js', {
-            name: _gen.name,
-            appName: _gen.appName,
-            testsSeparated: _gen.testsSeparated
-          }
-        ];
-
-        expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-      });
-    });
 
     describe('copyFactory', () => {
       it('should call the methods with the right params - testsSeparated is false', () => {
@@ -1031,6 +1101,168 @@ describe('angular', () => {
           'tasks/client/watch.js', {
             secure: true,
             stylePreprocessor: undefined
+          }
+        ];
+
+        let _ninethCall = [
+          '_ng2_systemjs_config_serving_node_modules.js',
+          'client/dev/config.js'
+        ];
+
+        expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_ng2.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+
+        expect(_ng2.generator.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_ng2.generator.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
+
+        expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
+        expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
+        expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1], _eightCall[2])).to.be.true;
+        expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1])).to.be.true;
+      });
+
+      it('should call the methods with the right params - secure is true, stack is fullstack - same server for api and static and stylePreprocessor is less', () => {
+        let _gen = {
+          name: 'a',
+          secure: true,
+          testsSeparated: true,
+          stack: "fullstack",
+          differentStaticServer: false,
+          stylePreprocessor: 'less',
+          options: {feature: 'c'},
+          config: {
+            get(){return 'ng2'}
+          },
+          template: sinon.spy(),
+          directory: sinon.spy()
+        };
+
+        let _ng2 = new Angular2(_gen);
+
+        _ng2.copyClient();
+
+        let _firstCall = [
+          'tasks/client/ng2',
+          'tasks/client'
+        ];
+
+        let _secondCall = [
+          'tests/client_ng2',
+          'tests/client'
+        ];
+
+        let _thirdCall = [
+          'client/ng2',
+          'client'
+        ];
+
+        let _fourthCall = [
+          '_karma.conf_ng2.js',
+          'karma.conf.js'
+        ];
+
+        let _fifthCall = [
+          '_karma-test-shim.js',
+          'karma-test-shim.js'
+        ];
+
+        let _sixthCall = [
+          '_typings_ng2.json',
+          'typings.json'
+        ];
+
+        let _seventhCall = [
+          '_tsconfig.json',
+          'tsconfig.json'
+        ];
+
+        let _eightCall = [
+          'tasks/client/ng2/watch.js',
+          'tasks/client/watch.js', {
+            secure: true,
+            stylePreprocessor: 'less'
+          }
+        ];
+
+        let _ninethCall = [
+          '_ng2_systemjs_config_serving_node_modules.js',
+          'client/dev/config.js'
+        ];
+
+        expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_ng2.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+
+        expect(_ng2.generator.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_ng2.generator.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
+
+        expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
+        expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
+        expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1], _eightCall[2])).to.be.true;
+        expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1])).to.be.true;
+      });
+
+      it('should call the methods with the right params - secure is true, stack is fullstack - same server for api and static and stylePreprocessor is sass', () => {
+        let _gen = {
+          name: 'a',
+          secure: true,
+          testsSeparated: true,
+          stack: "fullstack",
+          differentStaticServer: false,
+          stylePreprocessor: 'sass',
+          options: {feature: 'c'},
+          config: {
+            get(){return 'ng2'}
+          },
+          template: sinon.spy(),
+          directory: sinon.spy()
+        };
+
+        let _ng2 = new Angular2(_gen);
+
+        _ng2.copyClient();
+
+        let _firstCall = [
+          'tasks/client/ng2',
+          'tasks/client'
+        ];
+
+        let _secondCall = [
+          'tests/client_ng2',
+          'tests/client'
+        ];
+
+        let _thirdCall = [
+          'client/ng2',
+          'client'
+        ];
+
+        let _fourthCall = [
+          '_karma.conf_ng2.js',
+          'karma.conf.js'
+        ];
+
+        let _fifthCall = [
+          '_karma-test-shim.js',
+          'karma-test-shim.js'
+        ];
+
+        let _sixthCall = [
+          '_typings_ng2.json',
+          'typings.json'
+        ];
+
+        let _seventhCall = [
+          '_tsconfig.json',
+          'tsconfig.json'
+        ];
+
+        let _eightCall = [
+          'tasks/client/ng2/watch.js',
+          'tasks/client/watch.js', {
+            secure: true,
+            stylePreprocessor: 'sass'
           }
         ];
 

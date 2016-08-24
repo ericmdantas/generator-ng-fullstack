@@ -465,6 +465,134 @@ describe('aurelia', () => {
         expect(_aurelia1.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
         expect(_aurelia1.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
       });
+
+      it('should call the methods with the right params - secure is true, stack is fullstack - same server for api and static - stylePreprocessor is less', () => {
+        let _gen = {
+          name: 'a',
+          secure: true,
+          testsSeparated: true,
+          stack: "fullstack",
+          differentStaticServer: false,
+          stylePreprocessor: 'less',
+          options: {feature: 'c'},
+          config: {
+            get(){return 'aurelia1'}
+          },
+          template: sinon.spy(),
+          directory: sinon.spy()
+        };
+
+        let _aurelia1 = new Aurelia1(_gen);
+
+        _aurelia1.copyClient();
+
+        let _firstCall = [
+          'tasks/client/aurelia1',
+          'tasks/client'
+        ];
+
+        let _secondCall = [
+          'tests/client_aurelia1',
+          'tests/client'
+        ];
+
+        let _thirdCall = [
+          'client/aurelia1',
+          'client'
+        ];
+
+        let _fourthCall = [
+          '_karma.conf_aurelia1.js',
+          'karma.conf.js'
+        ];
+        
+        let _fifthCall = [
+          'tasks/client/aurelia1/watch.js',
+          'tasks/client/watch.js', {
+            secure: true,
+            stylePreprocessor: 'less'
+          }
+        ];
+
+        let _sixthCall = [
+          '_aurelia_jspm_config_serving_from_jspm_packages.js',
+          'jspm.config.js'
+        ];
+
+        expect(_aurelia1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_aurelia1.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_aurelia1.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+
+        expect(_aurelia1.generator.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+
+        expect(_aurelia1.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+        expect(_aurelia1.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
+      });
+
+      it('should call the methods with the right params - secure is true, stack is fullstack - same server for api and static - stylePreprocessor is sass', () => {
+        let _gen = {
+          name: 'a',
+          secure: true,
+          testsSeparated: true,
+          stack: "fullstack",
+          differentStaticServer: false,
+          stylePreprocessor: 'sass',
+          options: {feature: 'c'},
+          config: {
+            get(){return 'aurelia1'}
+          },
+          template: sinon.spy(),
+          directory: sinon.spy()
+        };
+
+        let _aurelia1 = new Aurelia1(_gen);
+
+        _aurelia1.copyClient();
+
+        let _firstCall = [
+          'tasks/client/aurelia1',
+          'tasks/client'
+        ];
+
+        let _secondCall = [
+          'tests/client_aurelia1',
+          'tests/client'
+        ];
+
+        let _thirdCall = [
+          'client/aurelia1',
+          'client'
+        ];
+
+        let _fourthCall = [
+          '_karma.conf_aurelia1.js',
+          'karma.conf.js'
+        ];
+        
+        let _fifthCall = [
+          'tasks/client/aurelia1/watch.js',
+          'tasks/client/watch.js', {
+            secure: true,
+            stylePreprocessor: 'sass'
+          }
+        ];
+
+        let _sixthCall = [
+          '_aurelia_jspm_config_serving_from_jspm_packages.js',
+          'jspm.config.js'
+        ];
+
+        expect(_aurelia1.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_aurelia1.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_aurelia1.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+
+        expect(_aurelia1.generator.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+
+        expect(_aurelia1.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+        expect(_aurelia1.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
+      });
+
+
     });
 
     describe('copyDirective', () => {

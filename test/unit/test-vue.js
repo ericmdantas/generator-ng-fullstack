@@ -22,7 +22,7 @@ describe('vue', () => {
   });
 
   describe('vue2', () => {
-    describe('copyDirective', () => {
+    describe('copyClient', () => {
       it('should call the methods with the right params - secure is false', () => {
         let _gen = {
           name: 'a',
@@ -88,6 +88,76 @@ describe('vue', () => {
         expect(_vue2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       });
 
+      it('should call the methods with the right params - secure is true - stylePreprocessor is less', () => {
+        let _gen = {
+          name: 'a',
+          secure: true,
+          stylePreprocessor: 'less',
+          options: {feature: 'c'},
+          config: {
+            get(){return 'vue2'}
+          },
+          template: sinon.spy(),
+          directory: sinon.spy()
+        };
+
+        let _vue2 = new Vue2(_gen);
+
+        _vue2.copyClient();
+
+        let _firstCall = [
+          'tasks/client/vue2',
+          'tasks/client'
+        ];
+
+        let _secondCall = [
+          'tasks/client/vue2/watch.js',
+          'tasks/client/watch.js', {
+            secure: true,
+            stylePreprocessor: 'less'
+          }
+        ];
+
+        expect(_vue2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_vue2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+      });
+
+      it('should call the methods with the right params - secure is true - stylePreprocessor is sass', () => {
+        let _gen = {
+          name: 'a',
+          secure: true,
+          stylePreprocessor: 'sass',
+          options: {feature: 'c'},
+          config: {
+            get(){return 'vue2'}
+          },
+          template: sinon.spy(),
+          directory: sinon.spy()
+        };
+
+        let _vue2 = new Vue2(_gen);
+
+        _vue2.copyClient();
+
+        let _firstCall = [
+          'tasks/client/vue2',
+          'tasks/client'
+        ];
+
+        let _secondCall = [
+          'tasks/client/vue2/watch.js',
+          'tasks/client/watch.js', {
+            secure: true,
+            stylePreprocessor: 'sass'
+          }
+        ];
+
+        expect(_vue2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_vue2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+      });
+    });
+
+    describe('copyDirective', () => {
       it('should call the methods with the right params - testsSeparated is false', () => {
         let _gen = {
           name: 'a',
