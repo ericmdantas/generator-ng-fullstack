@@ -6,7 +6,7 @@ gulp.task(tasks.CLIENT_RELOAD, () => {
   return browserSync.reload();
 });
 
-gulp.task(tasks.CLIENT_WATCH, [<% if (!!stylePreprocessor) { %> tasks.CLIENT_COMPILE_TO_CSS <%
+gulp.task(tasks.CLIENT_WATCH, [<% if (!!stylePreprocessor) { %> tasks.CLIENT_COMPILE_TO_CSS <% } %>], () => {
   <% if (!!secure) { %>
   browserSync({
     proxy: "https://localhost:3333", 
