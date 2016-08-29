@@ -26,23 +26,23 @@ const SASS = [
 <% } %>
 
 <% if (!!stylePreprocessor) { %>
-  gulp.task(tasks.CLIENT_COMPILE_TO_CSS, () => {
-    <% if (stylePreprocessor === "less") { %>
-    return gulp.src(LESS)
-               .pipe(less())
-               .on('error', (err) => {
-                 console.log(err);
-               })
-               .pipe(gulp.dest(base.DEV));
-    <% } %>
-    <% if (stylePreprocessor === "sass") { %>
-    return gulp.src(SASS)
-               .pipe(sass())
-               .on('error', sass.logError)
-               .pipe(gulp.dest(base.DEV));
-      });
-    <% } %>
-  });
+gulp.task(tasks.CLIENT_COMPILE_TO_CSS, () => {
+  <% if (stylePreprocessor === "less") { %>
+  return gulp.src(LESS)
+             .pipe(less())
+             .on('error', (err) => {
+                console.log(err);
+             })
+             .pipe(gulp.dest(base.DEV));
+  <% } %>
+  <% if (stylePreprocessor === "sass") { %>
+  return gulp.src(SASS)
+             .pipe(sass())
+             .on('error', sass.logError)
+             .pipe(gulp.dest(base.DEV));
+    });
+  <% } %>
+});
 <% } %>
 
 gulp.task(tasks.CLIENT_BUILD_CSS_DIST, () => {
