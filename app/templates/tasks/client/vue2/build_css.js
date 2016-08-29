@@ -19,9 +19,9 @@ const LESS = [
 <% } %>
 <% if (stylePreprocessor === "sass") { %>
 const SASS = [
-  base.DEV + '**/*.sass',
-  '!' + base.DEV + 'bower_components/**/*.sass',
-  '!node_modules/**/*.sass',
+  base.DEV + '**/*.{sass,scss}',
+  '!' + base.DEV + 'bower_components/**/*.{sass,scss}',
+  '!node_modules/**/*.{sass,scss}',
 ];
 <% } %>
 

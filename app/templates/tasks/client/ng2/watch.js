@@ -28,7 +28,7 @@ gulp.task(tasks.CLIENT_WATCH, [tasks.CLIENT_BUILD_TS, <% if (!!stylePreprocessor
   _watchable.push(base.DEV + '**/*.less');
   <% } %>
   <% if (stylePreprocessor === "sass") { %>
-  _watchable.push(base.DEV + '**/*.sass');
+  _watchable.push(base.DEV + '**/*.{sass,scss}');
   <% } %>
 
   return gulp.watch(_watchable, [
