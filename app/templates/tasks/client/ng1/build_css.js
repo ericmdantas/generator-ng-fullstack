@@ -40,7 +40,6 @@ gulp.task(tasks.CLIENT_COMPILE_TO_CSS, () => {
              .pipe(sass())
              .on('error', sass.logError)
              .pipe(gulp.dest(base.DEV));
-    });
   <% } %>
 });
 <% } %>

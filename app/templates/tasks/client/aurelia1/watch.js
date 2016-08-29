@@ -6,7 +6,7 @@ gulp.task(tasks.CLIENT_RELOAD, () => {
   return browserSync.reload();
 });
 
-gulp.task(tasks.CLIENT_WATCH, () => {
+gulp.task(tasks.CLIENT_WATCH, [<% if (!!stylePreprocessor) { %> tasks.CLIENT_COMPILE_TO_CSS <% }%>], () => {
   <% if (!!secure) { %>
   browserSync({
     proxy: "https://localhost:3333", 
@@ -31,9 +31,9 @@ gulp.task(tasks.CLIENT_WATCH, () => {
   <% } %>
 
   return gulp.watch(_watchable, [
-    tasks.CLIENT_RELOAD,
     <% if (!!stylePreprocessor) { %>
-    tasks.CLIENT_COMPILE_TO_CSS
+    tasks.CLIENT_COMPILE_TO_CSS,
     <% } %>
+    tasks.CLIENT_RELOAD,
   ]);
 });
