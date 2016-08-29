@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
-import {path, tasks} from './const';
+import {base, tasks} from './const';
 
 gulp.task(tasks.CLIENT_BUILD_DIST, () => {
   runSequence(tasks.CLIENT_UNIT_TEST,

@@ -1,7 +1,7 @@
 import gulp from 'gulp';
-import {path, tasks} from './const';
+import {base, tasks} from './const';
 
 gulp.task(tasks.CLIENT_COPY, () => {
-  return gulp.src(path.DEV + '**/*')
-             .pipe(gulp.dest(path.DIST));
+  return gulp.src(base.DEV + '**/*')
+             .pipe(gulp.dest(base.DIST));
 });

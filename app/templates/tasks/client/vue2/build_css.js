@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import cssmin from 'gulp-clean-css';
-import {path, tasks} from './const';
+import {join} from 'path';
+import {base, tasks} from './const';
 <% if (stylePreprocessor === "less") { %>
 import less from 'gulp-less';
 <% } %>
@@ -8,34 +9,44 @@ import less from 'gulp-less';
   import sass from 'gulp-sass';
 <% } %>
 
-const CSS = path.DIST + '**/*.css';
+const CSS = base.DIST + '**/*.css';
 <% if (stylePreprocessor === "less") { %>
-const LESS = path.DEV + '**/*.less';
+const LESS = [
+  base.DEV + '**/*.less',
+  '!' + base.DEV + 'bower_components/**/*.less',
+  '!node_modules/**/*.less',
+];
 <% } %>
 <% if (stylePreprocessor === "sass") { %>
-const SASS = path.DEV + '**/*.sass';
+const SASS = [
+  base.DEV + '**/*.sass',
+  '!' + base.DEV + 'bower_components/**/*.sass',
+  '!node_modules/**/*.sass',
+];
 <% } %>
 
 <% if (!!stylePreprocessor) { %>
   gulp.task(tasks.CLIENT_COMPILE_TO_CSS, () => {
     <% if (stylePreprocessor === "less") { %>
     return gulp.src(LESS)
-               .pipe(less({
-                 paths: [ path.join(__dirname, 'less', 'includes') ]
-               }))
-               .pipe(gulp.dest('.'));
+               .pipe(less())
+               .on('error', (err) => {
+                 console.log(err);
+               })
+               .pipe(gulp.dest(base.DEV));
     <% } %>
     <% if (stylePreprocessor === "sass") { %>
     return gulp.src(SASS)
-               .pipe(sass().on('error', sass.logError))
-               .pipe(gulp.dest('.'));
+               .pipe(sass())
+               .on('error', sass.logError)
+               .pipe(gulp.dest(base.DEV));
       });
     <% } %>
   });
 <% } %>
 
 gulp.task(tasks.CLIENT_BUILD_CSS_DIST, () => {
-  return gulp.src(CSS, {base: path.DIST})
+  return gulp.src(CSS, {base: base.DIST})
              .pipe(cssmin())
-             .pipe(gulp.dest(path.DIST));
-})
+             .pipe(gulp.dest(base.DIST));
+});

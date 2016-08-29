@@ -1,4 +1,4 @@
-export const path = {
+export const base = {
   ROOT: './',
   DEV: './client/dev/',
   DIST: './client/dist/'

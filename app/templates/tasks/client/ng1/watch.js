@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import browserSync from 'browser-sync';
-import {path, tasks} from './const';
+import {base, tasks} from './const';
 
 gulp.task(tasks.CLIENT_RELOAD, () => {
   return browserSync.reload();
@@ -20,14 +20,14 @@ gulp.task(tasks.CLIENT_WATCH, () => {
   <% } %>
   let _watchable = [];
 
-  _watchable.push(path.DEV + '**/*.js');
-  _watchable.push(path.DEV + '**/*.css');
-  _watchable.push(path.DEV + '**/*.html');
+  _watchable.push(base.DEV + '**/*.js');
+  _watchable.push(base.DEV + '**/*.css');
+  _watchable.push(base.DEV + '**/*.html');
   <% if (stylePreprocessor === "less") { %>
-  _watchable.push(path.DEV + '**/*.less');
+  _watchable.push(base.DEV + '**/*.less');
   <% } %>
   <% if (stylePreprocessor === "sass") { %>
-  _watchable.push(path.DEV + '**/*.sass');
+  _watchable.push(base.DEV + '**/*.sass');
   <% } %>
 
   return gulp.watch(_watchable, [
