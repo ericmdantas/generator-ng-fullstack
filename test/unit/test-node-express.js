@@ -254,7 +254,7 @@ describe('node -> express', () => {
 
         let _firstCall = [
           `index_node.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -295,7 +295,7 @@ describe('node -> express', () => {
 
         let _firstCall = [
           `index_node.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -355,7 +355,7 @@ describe('node -> express', () => {
 
         let _firstCall = [
           `index_node.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -397,7 +397,7 @@ describe('node -> express', () => {
 
         let _firstCall = [
           `index_node.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -670,7 +670,7 @@ describe('node -> express', () => {
 
         let _firstCall = [
           `index_babel.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -711,7 +711,7 @@ describe('node -> express', () => {
 
         let _firstCall = [
           `index_babel.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -771,7 +771,7 @@ describe('node -> express', () => {
 
         let _firstCall = [
           `index_babel.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -813,7 +813,7 @@ describe('node -> express', () => {
 
         let _firstCall = [
           `index_babel.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -1091,7 +1091,7 @@ describe('node -> express', () => {
 
         let _firstCall = [
           `index_tsc.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -1145,7 +1145,7 @@ describe('node -> express', () => {
 
         let _firstCall = [
           `index_tsc.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -1218,7 +1218,7 @@ describe('node -> express', () => {
 
         let _firstCall = [
           `index_tsc.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -1273,7 +1273,7 @@ describe('node -> express', () => {
 
         let _firstCall = [
           `index_tsc.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [

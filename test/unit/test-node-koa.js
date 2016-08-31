@@ -254,7 +254,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `index_node.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -295,7 +295,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `index_node.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -356,7 +356,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `index_node.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -398,7 +398,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `index_node.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -671,7 +671,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `index_babel.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -712,7 +712,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `index_babel.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -772,7 +772,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `index_babel.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -814,7 +814,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `index_babel.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -1086,7 +1086,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `index_tsc.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -1140,7 +1140,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `index_tsc.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -1213,7 +1213,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `index_tsc.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [
@@ -1268,7 +1268,7 @@ describe('node -> koa', () => {
 
         let _firstCall = [
           `index_tsc.js`,
-          'index.js'
+          'server/index.js'
         ];
 
         let _secondCall = [

@@ -75,7 +75,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'index.js', // babel's entry point
+          'server/index.js', // babel's entry point
 
           'server/server.js',
 
@@ -135,7 +135,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'index.js', // babel's entry point
+          'server/index.js', // babel's entry point
 
           'server/server.js',
 
@@ -203,7 +203,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'index.js', // babel's entry point
+          'server/index.js', // babel's entry point
 
           'server/server.js',
 
@@ -273,7 +273,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'index.js', // babel's entry point
+          'server/index.js', // babel's entry point
 
           'server/server.js',
 
@@ -342,7 +342,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'index.js', // babel's entry point
+          'server/index.js', // babel's entry point
 
           'server/server.js',
 
@@ -410,7 +410,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'index.js', // babel's entry point
+          'server/index.js', // babel's entry point
 
           'server/server.js',
 
@@ -471,7 +471,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'index.js', // babel's entry point
+          'server/index.js', // babel's entry point
 
           'server/server.js',
 
@@ -539,7 +539,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'index.js', // babel's entry point
+          'server/index.js', // babel's entry point
 
           'server/server.js',
 
@@ -608,7 +608,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'index.js', // babel's entry point
+          'server/index.js', // babel's entry point
 
           'server/server.js',
 
@@ -677,7 +677,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'index.js', // babel's entry point
+          'server/index.js', // babel's entry point
 
           'server/server.js',
 
@@ -746,7 +746,7 @@ describe('ng-fullstack -> node', () => {
 
           'typings.json', // typings
 
-          'index.js', // typescript's entry point
+          'server/index.js', // typescript's entry point
 
           'server/server.ts',
 
@@ -809,7 +809,7 @@ describe('ng-fullstack -> node', () => {
 
           'typings.json', // typings
 
-          'index.js', // typescript's entry point
+          'server/index.js', // typescript's entry point
 
           'server/server.ts',
 
@@ -879,7 +879,7 @@ describe('ng-fullstack -> node', () => {
 
           'typings.json', // typings
 
-          'index.js', // typescript's entry point
+          'server/index.js', // typescript's entry point
 
           'server/cert/ca.crt',
           'server/cert/ca.csr',
@@ -950,7 +950,7 @@ describe('ng-fullstack -> node', () => {
 
           'typings.json', // typings
 
-          'index.js', // typescript's entry point
+          'server/index.js', // typescript's entry point
 
           'server/cert/ca.crt',
           'server/cert/ca.csr',
@@ -1021,7 +1021,7 @@ describe('ng-fullstack -> node', () => {
 
           'typings.json', // typings
 
-          'index.js', // typescript's entry point
+          'server/index.js', // typescript's entry point
 
           'server/cert/ca.crt',
           'server/cert/ca.csr',
@@ -1089,7 +1089,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'index.js', // babel's entry point
+            'server/index.js', // babel's entry point
 
             'server/server.js',
 
@@ -1150,7 +1150,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'index.js', // babel's entry point
+            'server/index.js', // babel's entry point
 
             'server/server.js',
 
@@ -1218,7 +1218,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'index.js', // babel's entry point
+            'server/index.js', // babel's entry point
 
             'server/server.js',
 
@@ -1288,7 +1288,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'index.js', // babel's entry point
+            'server/index.js', // babel's entry point
 
             'server/server.js',
 
@@ -1357,7 +1357,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'index.js', // babel's entry point
+            'server/index.js', // babel's entry point
 
             'server/server.js',
 
@@ -1425,7 +1425,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'index.js', // babel's entry point
+            'server/index.js', // babel's entry point
 
             'server/server.js',
 
@@ -1486,7 +1486,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'index.js', // babel's entry point
+            'server/index.js', // babel's entry point
 
             'server/server.js',
 
@@ -1554,7 +1554,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'index.js', // babel's entry point
+            'server/index.js', // babel's entry point
 
             'server/server.js',
 
@@ -1623,7 +1623,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'index.js', // babel's entry point
+            'server/index.js', // babel's entry point
 
             'server/server.js',
 
@@ -1692,7 +1692,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'index.js', // babel's entry point
+            'server/index.js', // babel's entry point
 
             'server/server.js',
 
@@ -1761,7 +1761,7 @@ describe('ng-fullstack -> node', () => {
 
             'typings.json', // typings
 
-            'index.js', // typescript's entry point
+            'server/index.js', // typescript's entry point
 
             'server/server.ts',
 
@@ -1824,7 +1824,7 @@ describe('ng-fullstack -> node', () => {
 
             'typings.json', // typings
 
-            'index.js', // typescript's entry point
+            'server/index.js', // typescript's entry point
 
             'server/server.ts',
 
@@ -1894,7 +1894,7 @@ describe('ng-fullstack -> node', () => {
 
             'typings.json', // typings
 
-            'index.js', // typescript's entry point
+            'server/index.js', // typescript's entry point
 
             'server/cert/ca.crt',
             'server/cert/ca.csr',
@@ -1965,7 +1965,7 @@ describe('ng-fullstack -> node', () => {
 
             'typings.json', // typings
 
-            'index.js', // typescript's entry point
+            'server/index.js', // typescript's entry point
 
             'server/cert/ca.crt',
             'server/cert/ca.csr',
@@ -2036,7 +2036,7 @@ describe('ng-fullstack -> node', () => {
 
             'typings.json', // typings
 
-            'index.js', // typescript's entry point
+            'server/index.js', // typescript's entry point
 
             'server/cert/ca.crt',
             'server/cert/ca.csr',
@@ -2112,7 +2112,7 @@ describe('ng-fullstack -> node', () => {
       let _serverFiles = [
         // server stuff
 
-        'index.js', // babel's entry point
+        'server/index.js', // babel's entry point
 
         'server/server.js',
 

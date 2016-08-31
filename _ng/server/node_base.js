@@ -90,7 +90,7 @@ class NodeBaseStandard {
   copyForMainGenerator() {
     this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
 
-    this.wrapper.template('index_node.js', 'index.js');
+    this.wrapper.template('index_node.js', 'server/index.js');
     this.wrapper.directory('tasks/server', 'tasks/server');
 
     if(this.wrapper.testsSeparated) {
@@ -217,7 +217,7 @@ class NodeBaseBabel {
   copyForMainGenerator() {
     this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
 
-    this.wrapper.template('index_babel.js', 'index.js');
+    this.wrapper.template('index_babel.js', 'server/index.js');
     this.wrapper.directory('tasks/server', 'tasks/server');
 
     if(this.wrapper.testsSeparated) {
@@ -343,7 +343,7 @@ class NodeBaseTypescript {
   copyForMainGenerator() {
     this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
 
-    this.wrapper.template('index_tsc.js', 'index.js');
+    this.wrapper.template('index_tsc.js', 'server/index.js');
     this.wrapper.template('_tsconfig.json', 'tsconfig.json');
     this.wrapper.template('_typings_ng2_and_tsc_server.json', 'typings.json');
     this.wrapper.directory('tasks/server', 'tasks/server');
