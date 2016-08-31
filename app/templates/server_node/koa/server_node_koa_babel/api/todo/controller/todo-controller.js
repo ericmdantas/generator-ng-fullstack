@@ -3,9 +3,9 @@
 import TodoDAO from '../dao/todo-dao';
 
 export default class TodoController {
-  *getAll() {
+  async getAll() {
       try {
-        let _todos = yield TodoDAO.getAll();
+        let _todos = await TodoDAO.getAll();
         this.status = 200;
         this.body = _todos;
       } catch(e) {
@@ -13,9 +13,9 @@ export default class TodoController {
       }
   }
 
-  *getById() {
+  async getById() {
       try {
-        let _todo = yield TodoDAO.getById(this.param.id);
+        let _todo = await TodoDAO.getById(this.param.id);
         this.status = 200;
         this.body = _todo;
       } catch(e) {
@@ -23,11 +23,11 @@ export default class TodoController {
       }
   }
 
-  *createTodo() {
+  async createTodo() {
       let _todo = this.request.body;
 
       try {
-        let _newTodo = yield TodoDAO.createTodo(_todo);
+        let _newTodo = await TodoDAO.createTodo(_todo);
         this.body = _newTodo;
         this.status = 201;
       } catch(e) {
@@ -35,11 +35,11 @@ export default class TodoController {
       }
   }
 
-  *deleteTodo() {
+  async deleteTodo() {
     let _id = this.params.id;
 
     try {
-      yield TodoDAO.deleteTodo(_id);
+      await TodoDAO.deleteTodo(_id);
       this.status = 200;
     } catch(e) {
       this.status = 400;

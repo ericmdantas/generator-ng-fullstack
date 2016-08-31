@@ -1,9 +1,9 @@
 import <%= name %>DAO from '../dao/<%= name %>-dao';
 
 export default class <%= name %>Controller {
-  *getAll() {
+  async getAll() {
     try {
-      let <%= nameLowerCase %> = yield <%= name %>DAO.getAll();
+      let <%= nameLowerCase %> = await <%= name %>DAO.getAll();
       this.body = <%= nameLowerCase %>;
       this.status = 200;
     } catch(e) {
@@ -11,22 +11,22 @@ export default class <%= name %>Controller {
     }
   }
 
-  *createNew() {
+  async createNew() {
     let _<%= nameLowerCase %> = this.body;
 
     try {
-      this.body = yield <%= name %>DAO.createNew(_<%= nameLowerCase %>);
+      this.body = await <%= name %>DAO.createNew(_<%= nameLowerCase %>);
       this.status = 201;
     } catch(e) {
       this.status = 400;
     }
   }
 
-  *removeById() {
+  async removeById() {
     let _id = this.params.id;
 
     try {
-      yield <%= name %>DAO.removeById(_id);
+      await <%= name %>DAO.removeById(_id);
       this.status = 200;
     } catch(e) {
       this.status = 400;
