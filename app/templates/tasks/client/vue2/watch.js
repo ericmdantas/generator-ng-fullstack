@@ -1,23 +1,19 @@
 import gulp from 'gulp';
-import browserSync from 'browser-sync';
+import Server from 'aliv';
 import {base, tasks} from './const';
 
-gulp.task(tasks.CLIENT_RELOAD, () => {
-  return browserSync.reload();
+let aliv = new Server({
+  watch: false,
+  root: process.cwd()
 });
 
-gulp.task(tasks.CLIENT_WATCH, [<% if (!!stylePreprocessor) { %> tasks.CLIENT_COMPILE_TO_CSS <% } %>], () => {
-  <% if (!!secure) { %>
-  browserSync({
-    proxy: "https://localhost:3333", 
-    reloadDelay: 1000
-  });
-  <%} else {%>
-  browserSync({
-    proxy: "http://localhost:3333", 
-    reloadDelay: 1000
-  });
-  <% } %>
+gulp.task(tasks.CLIENT_RELOAD, () => {
+  return aliv.reload();
+});
+
+gulp.task(tasks.CLIENT_WATCH, [<% if (!!stylePreprocessor) { %> tasks.CLIENT_COMPILE_TO_CSS <% }%>], () => {
+  aliv.start();
+
   let _watchable = [];
 
   _watchable.push(base.DEV + '**/*.js');
