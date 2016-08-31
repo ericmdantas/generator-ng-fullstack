@@ -3,8 +3,18 @@
     "port": 3000,
     "secure": <%= secure %>,
     "pathIndex": "client/dev",
-    "only": "client/dev/**/*",
+    "only": [
+        "client/dev/**/*"
+    ],
     "proxy": true,
-    "proxyWhen": "/api/**",
-    "proxyTarget": "http://my-api-server.com:8080"
+    "proxyWhen": "/api/*",
+    "static": [
+        "node_modules",
+        "jspm_packages"
+    ],
+    <% if (!secure) { %>
+    "proxyTarget": "http://localhost:3333"
+    <% } else { %>
+    "proxyTarget": "https://localhost:3333"
+    <% } %> 
 }
