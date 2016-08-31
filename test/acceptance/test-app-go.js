@@ -29,6 +29,7 @@ describe('ng-fullstack -> golang', () => {
       '.editorconfig',
       '.jshintrc',
 
+      '.alivrc',
       'package.json',
       'karma-test-shim.js',
       'gulpfile.babel.js',
@@ -118,7 +119,6 @@ describe('ng-fullstack -> golang', () => {
       assert.file(_goFiles);
       assert.file(_clientFiles);
       assert.file(_taskFilesClient);
-      assert.noFile('.alivrc');
     });
   });
 
@@ -175,7 +175,6 @@ describe('ng-fullstack -> golang', () => {
 
     it('creates default files - Go', () =>  {
       assert.file(_goFiles);
-      assert.noFile('.alivrc');
     });
   })
 
@@ -233,7 +232,6 @@ describe('ng-fullstack -> golang', () => {
 
       it('creates default files - Go', () =>  {
         assert.file(_goFiles);
-        assert.noFile('.alivrc');
         assert.noFile('server/cert/ca.crt');
         assert.noFile('server/cert/ca.csr');
         assert.noFile('server/cert/ca.key');
@@ -303,7 +301,6 @@ describe('ng-fullstack -> golang', () => {
 
         it('creates default files - Go', () =>  {
           assert.file(_goFiles);
-          assert.noFile('.alivrc');
         });
       });
 
@@ -359,7 +356,6 @@ describe('ng-fullstack -> golang', () => {
         it('creates default files - Go - without the files responsible for the static stuff', () =>  {
           assert.file(_goFiles);
 
-          assert.noFile('.alivrc');
           assert.noFile('server/common/static/static.go');
           assert.noFile('server/common/static/static_test.go');
         });
@@ -482,7 +478,6 @@ describe('ng-fullstack -> golang', () => {
         it('creates default files - Go - without the files responsible for the static stuff', () =>  {
           assert.file(_goFiles);
 
-          assert.noFile('.alivrc');
           assert.noFile('server/common/static/static.go');
           assert.noFile('server/common/static/static_test.go');
         });
@@ -548,7 +543,6 @@ describe('ng-fullstack -> golang', () => {
         it('creates default files - Go - without the files responsible for the static stuff', () =>  {
           assert.file(_goFiles);
 
-          assert.noFile('.alivrc');
           assert.noFile('server/common/static/static.go');
           assert.noFile('server/common/static/static_test.go');
         });
@@ -614,7 +608,6 @@ describe('ng-fullstack -> golang', () => {
         it('creates default files - Go - without the files responsible for the static stuff', () =>  {
           assert.file(_goFiles);
 
-          assert.noFile('.alivrc');
           assert.noFile('server/common/static/static.go');
           assert.noFile('server/common/static/static_test.go');
         });
@@ -680,7 +673,6 @@ describe('ng-fullstack -> golang', () => {
         it('creates default files - Go - without the files responsible for the static stuff', () =>  {
           assert.file(_goFiles);
 
-          assert.noFile('.alivrc');
           assert.noFile('server/common/static/static.go');
           assert.noFile('server/common/static/static_test.go');
         });
@@ -800,7 +792,6 @@ describe('ng-fullstack -> golang', () => {
       assert.file(_goFiles);
       assert.file(_clientFiles);
       assert.file(_taskFilesClient);
-      assert.noFile('.alivrc');
     });
   });
 
@@ -857,7 +848,6 @@ describe('ng-fullstack -> golang', () => {
 
     it('creates default files - Go', () =>  {
       assert.file(_goFiles);
-      assert.noFile('.alivrc');
     });
   })
 
@@ -915,7 +905,6 @@ describe('ng-fullstack -> golang', () => {
 
       it('creates default files - Go', () =>  {
         assert.file(_goFiles);
-        assert.noFile('.alivrc');
         assert.noFile('server/cert/ca.crt');
         assert.noFile('server/cert/ca.csr');
         assert.noFile('server/cert/ca.key');
@@ -985,7 +974,6 @@ describe('ng-fullstack -> golang', () => {
 
         it('creates default files - Go', () =>  {
           assert.file(_goFiles);
-          assert.noFile('.alivrc');
         });
       });
 
@@ -1041,7 +1029,6 @@ describe('ng-fullstack -> golang', () => {
         it('creates default files - Go - without the files responsible for the static stuff', () =>  {
           assert.file(_goFiles);
 
-          assert.noFile('.alivrc');
           assert.noFile('server/common/static/static.go');
           assert.noFile('server/common/static/static_test.go');
         });
@@ -1164,7 +1151,6 @@ describe('ng-fullstack -> golang', () => {
         it('creates default files - Go - without the files responsible for the static stuff', () =>  {
           assert.file(_goFiles);
 
-          assert.noFile('.alivrc');
           assert.noFile('server/common/static/static.go');
           assert.noFile('server/common/static/static_test.go');
         });
@@ -1230,7 +1216,6 @@ describe('ng-fullstack -> golang', () => {
         it('creates default files - Go - without the files responsible for the static stuff', () =>  {
           assert.file(_goFiles);
 
-          assert.noFile('.alivrc');
           assert.noFile('server/common/static/static.go');
           assert.noFile('server/common/static/static_test.go');
         });
@@ -1296,7 +1281,6 @@ describe('ng-fullstack -> golang', () => {
         it('creates default files - Go - without the files responsible for the static stuff', () =>  {
           assert.file(_goFiles);
 
-          assert.noFile('.alivrc');
           assert.noFile('server/common/static/static.go');
           assert.noFile('server/common/static/static_test.go');
         });
@@ -1362,7 +1346,6 @@ describe('ng-fullstack -> golang', () => {
         it('creates default files - Go - without the files responsible for the static stuff', () =>  {
           assert.file(_goFiles);
 
-          assert.noFile('.alivrc');
           assert.noFile('server/common/static/static.go');
           assert.noFile('server/common/static/static_test.go');
         });

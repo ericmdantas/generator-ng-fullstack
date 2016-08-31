@@ -128,7 +128,6 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
-          assert.noFile('.alivrc');
         });
       });
 
@@ -191,7 +190,6 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
-          assert.noFile('.alivrc');
           assert.noFile('server/cert/ca.crt');
           assert.noFile('server/cert/ca.csr');
           assert.noFile('server/cert/ca.key');
@@ -268,7 +266,6 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
-          assert.noFile('.alivrc');
         });
       });
 
@@ -337,7 +334,6 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
-          assert.noFile('.alivrc');
           assert.noFile('server/commons/static/index.js');
         });
       });
@@ -405,8 +401,8 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
-          assert.noFile('.alivrc');
           assert.noFile('server/commons/static/index.js');
+          assert.noFile('.alivrc');
         });
       });
 
@@ -468,7 +464,6 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
-          assert.noFile('.alivrc');
         });
       });
 
@@ -531,7 +526,6 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
-          assert.noFile('.alivrc');
           assert.noFile('server/cert/ca.crt');
           assert.noFile('server/cert/ca.csr');
           assert.noFile('server/cert/ca.key');
@@ -607,7 +601,6 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
-          assert.noFile('.alivrc');
         });
       });
 
@@ -676,7 +669,6 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
-          assert.noFile('.alivrc');
           assert.noFile('server/commons/static/index.js');
         });
       });
@@ -808,7 +800,6 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () =>  {
           assert.file(_tscFiles);
-          assert.noFile('.alivrc');
         });
       });
 
@@ -873,7 +864,6 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () =>  {
           assert.file(_tscFiles);
-          assert.noFile('.alivrc');
           assert.noFile('server/cert/ca.crt');
           assert.noFile('server/cert/ca.csr');
           assert.noFile('server/cert/ca.key');
@@ -951,7 +941,6 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () =>  {
           assert.file(_tscFiles);
-          assert.noFile('.alivrc');
         });
       });
 
@@ -1022,7 +1011,6 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () =>  {
           assert.file(_tscFiles);
-          assert.noFile('.alivrc');
           assert.noFile('server/commons/static/index.ts');
         });
       });
@@ -1155,7 +1143,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () => {
             assert.file(_nodeFiles);
-            assert.noFile('.alivrc');
           });
         });
 
@@ -1218,7 +1205,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () => {
             assert.file(_nodeFiles);
-            assert.noFile('.alivrc');
             assert.noFile('server/cert/ca.crt');
             assert.noFile('server/cert/ca.csr');
             assert.noFile('server/cert/ca.key');
@@ -1295,7 +1281,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () => {
             assert.file(_nodeFiles);
-            assert.noFile('.alivrc');
           });
         });
 
@@ -1364,7 +1349,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () => {
             assert.file(_nodeFiles);
-            assert.noFile('.alivrc');
             assert.noFile('server/commons/static/index.js');
           });
         });
@@ -1495,7 +1479,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () => {
             assert.file(_nodeFiles);
-            assert.noFile('.alivrc');
           });
         });
 
@@ -1558,7 +1541,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () => {
             assert.file(_nodeFiles);
-            assert.noFile('.alivrc');
             assert.noFile('server/cert/ca.crt');
             assert.noFile('server/cert/ca.csr');
             assert.noFile('server/cert/ca.key');
@@ -1634,7 +1616,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () => {
             assert.file(_nodeFiles);
-            assert.noFile('.alivrc');
           });
         });
 
@@ -1703,7 +1684,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () => {
             assert.file(_nodeFiles);
-            assert.noFile('.alivrc');
             assert.noFile('server/commons/static/index.js');
           });
         });
@@ -1835,7 +1815,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () =>  {
             assert.file(_tscFiles);
-            assert.noFile('.alivrc');
           });
         });
 
@@ -1900,7 +1879,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () =>  {
             assert.file(_tscFiles);
-            assert.noFile('.alivrc');
             assert.noFile('server/cert/ca.crt');
             assert.noFile('server/cert/ca.csr');
             assert.noFile('server/cert/ca.key');
@@ -1978,7 +1956,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () =>  {
             assert.file(_tscFiles);
-            assert.noFile('.alivrc');
           });
         });
 
@@ -2049,7 +2026,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () =>  {
             assert.file(_tscFiles);
-            assert.noFile('.alivrc');
             assert.noFile('server/commons/static/index.ts');
           });
         });
@@ -2118,7 +2094,6 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () =>  {
             assert.file(_tscFiles);
-            assert.noFile('.alivrc');
             assert.noFile('server/commons/static/index.ts');
           });
         });
