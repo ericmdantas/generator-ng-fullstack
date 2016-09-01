@@ -5,11 +5,9 @@
 
 You can choose between a `client app`, a `server app` or a `fullstack app`.
 
+### Website
 
-| Branch | Status | Coverage | Version |
-|:------:|:------:|:--------:|:-------:|
-| `master` | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master) | [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack) |  
-| `dev`    | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=v1.9)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=v1.9) | --- |
+Check the stack and try it online [https://ng-fullstack.surge.sh](https://ng-fullstack.surge.sh).
 
 
 ### Getting Started
@@ -27,14 +25,22 @@ and answer the on-screen questions. When it's done, you should have [this](https
 Check the [getting started](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started) session in the wiki for more info.
 
 
+### Development 
+
+| Branch | Status | Coverage | Version |
+|:------:|:------:|:--------:|:-------:|
+| `master` | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master) | [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack) |  
+| `dev`    | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=v1.9)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=v1.9) | --- |
+
+
 ### Wiki
 
-In the wiki you'll find, [the sub-generators](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Sub-Generators), [FAQ](https://github.com/ericmdantas/generator-ng-fullstack/wiki/FAQ), [Troubleshooting](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Troubleshooting), [walkthroughs](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Todo-Walkthrough), [tips for deployment](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Deploying-to-Heroku) and [much more](https://github.com/ericmdantas/generator-ng-fullstack/wiki).
+In the wiki you'll find: [the sub-generators](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Sub-Generators), [FAQ](https://github.com/ericmdantas/generator-ng-fullstack/wiki/FAQ), [Troubleshooting](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Troubleshooting), [walkthroughs](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Todo-Walkthrough), [tips for deployment](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Deploying-to-Heroku) and [much more](https://github.com/ericmdantas/generator-ng-fullstack/wiki).
 
 
 ### Chat
 
-Do you have a doubt, want to talk about something important or just want to chat? Join us on the [gitter chat](https://gitter.im/ericmdantas/generator-ng-fullstack) :smile:.
+Do you have a doubt, want to talk about something cool or just want to chat? Join us on the [gitter chat](https://gitter.im/ericmdantas/generator-ng-fullstack) :smile:.
 
 
 ### Contributing
