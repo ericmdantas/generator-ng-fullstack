@@ -33,3 +33,7 @@ exports.copyStyleForSubGenerator = function(gen, path) {
                `${knownPaths.PATH_CLIENT_FEATURES + gen.options.feature}/styles/${gen.name}${_ext}`
   );
 };
+
+exports.normalizeStylePreprocessor = function(stylePreprocessor) {
+  return (!!stylePreprocessor && stylePreprocessor !== "none") ? stylePreprocessor : undefined;
+};
