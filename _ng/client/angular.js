@@ -3,8 +3,11 @@
 const utils = require('../utils/utils');
 const knownPaths = require('../utils/known_paths');
 const yoUtils = require('../utils/yeoman-utils');
-const copyStyleForSubGenerator = require('./style').copyStyleForSubGenerator;
-const copyStyleForMainGenerator = require('./style').copyStyleForMainGenerator;
+const {
+  copyStyleForSubGenerator, 
+  copyStyleForMainGenerator,
+  normalizeStylePreprocessor
+} = require('./style');
 
 class Angular1 {
   constructor(gen) {
@@ -46,16 +49,16 @@ class Angular1 {
     this.generator.directory('tasks/client/ng1', 'tasks/client');
 
     this.generator.template('tasks/client/ng1/const.js', 'tasks/client/const.js', {
-      stylePreprocessor: this.generator.stylePreprocessor
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
     });
 
     this.generator.template('tasks/client/ng1/build_css.js', 'tasks/client/build_css.js', {
-      stylePreprocessor: this.generator.stylePreprocessor
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
     });
 
     this.generator.template('tasks/client/ng1/watch.js', 'tasks/client/watch.js', {
       secure: !!this.generator.secure,
-      stylePreprocessor: this.generator.stylePreprocessor
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
     });
 
     yoUtils.directory(this.generator, _pathSrc, this.generator);
@@ -237,16 +240,16 @@ class Angular2 {
     }
 
     this.generator.template('tasks/client/ng2/const.js', 'tasks/client/const.js', {
-      stylePreprocessor: this.generator.stylePreprocessor
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
     });
 
     this.generator.template('tasks/client/ng2/build_css.js', 'tasks/client/build_css.js', {
-      stylePreprocessor: this.generator.stylePreprocessor
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
     });
 
     this.generator.template('tasks/client/ng2/watch.js', 'tasks/client/watch.js', {
       secure: !!this.generator.secure,
-      stylePreprocessor: this.generator.stylePreprocessor
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
     });
 
     copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
