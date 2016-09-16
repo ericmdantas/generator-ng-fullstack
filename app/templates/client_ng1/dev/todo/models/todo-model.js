@@ -4,13 +4,8 @@
   ng.module('<%= appName %>')
     .factory('Todo', [function() {
       var Todo = function(todo) {
-        var self = this;
-
-        self.todoMessage = null;
-
-        ng.extend(self, todo);
-
-        return self;
+        this.todoMessage = null;
+        ng.extend(this, todo);
       };
 
       var MIN_ACCEPTED_LENGTH = 5;
