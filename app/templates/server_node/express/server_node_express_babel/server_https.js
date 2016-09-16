@@ -1,4 +1,4 @@
-if ('production' === process.env.NODE_ENV)
+if (process.env.NODE_ENV === 'production')
     require('newrelic');
 
 const PORT = process.env.PORT || 3333;

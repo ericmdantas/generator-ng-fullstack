@@ -2,7 +2,7 @@
 
 'use strict';
 
-if ('production' === process.env.NODE_ENV)
+if (process.env.NODE_ENV === 'production')
     require('newrelic');
 
 var PORT = process.env.PORT || 3333;
