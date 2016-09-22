@@ -14,5 +14,5 @@ func Init(e *echo.Echo) {
 	<% if (!differentStaticServer) {%>
 	static.Init(e)
 	<% } %>
-	todoroutes.Init(e)
+	todoroute.Init(e)
 }

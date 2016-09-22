@@ -12,5 +12,5 @@ func Init(r *gin.RouterGroup) {
 	<% if (!differentStaticServer) {%>
 	static.Init(r)
 	<% } %>
-	todoroutes.Init(r)
+	todoroute.Init(r)
 }
