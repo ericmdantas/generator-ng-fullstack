@@ -1,9 +1,7 @@
 ![logo](https://github.com/georgeedwards/generator-ng-fullstack/raw/master/logo.png)
 
 
-`ng-fullstack` is a project to allow you to rapidly get started with prototyping web applications, with the newest technologies available. 
-
-You can choose between a `client app`, a `server app` or a `fullstack app`.
+`ng-fullstack` is a project to allow you to rapidly get started with prototyping web applications with the newest technologies available. It allows you to choose between a `client app`, a `server app` or a `fullstack app`. All of them simple to extend and powerful to use. 
 
 ### Website
 
@@ -20,7 +18,10 @@ then to create a new app:
 
     $ yo ng-fullstack
 
-and answer the on-screen questions. When it's done, you should have [this](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started#result) structure. The default starter project is our [Todo App](https://github.com/ericmdantas/generator-ng-fullstack/wiki/ToDo-Walkthrough). 
+A few questions will be shown, make sure you answer them and, there you go! Now you have the [boilerplate app working](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started#result). 
+
+Since some parts of the stack might be new to you, the boilerplate app is a simple TodoApp using the best approaches, separations of concerns and responsabilities - so you can see how it all works together as well as study the chosen stack. 
+For more info, checkout the [Todo App](https://github.com/ericmdantas/generator-ng-fullstack/wiki/ToDo-Walkthrough) in the wiki.
 
 Check the [getting started](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started) session in the wiki for more info.
 
@@ -55,7 +56,12 @@ When doing a Pull Request, make sure you target the `dev` or `next` branch, `mas
 Here are some links to help you understand some of the parts of the stack:
 
 - [Angular 2](https://angular.io/docs/ts/latest/tutorial/)
+- [Aurelia](https://github.com/aurelia/framework)
+- [Vue](https://github.com/vuejs/vue)
 - [TypeScript](http://www.typescriptlang.org/Tutorial)
+- [Babel](https://github.com/babel/babel)
+- [Webpack](https://webpack.github.io/)
+- [Gulp](https://github.com/gulpjs/gulp)
 - [Go](https://tour.golang.org/welcome/1)
 - [MongoDB](https://university.mongodb.com/)
 - [HTTP/2](https://daniel.haxx.se/http2/)
