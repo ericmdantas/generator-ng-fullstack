@@ -14,8 +14,7 @@
             return $q.reject(new TypeError('Invalid id for search.'));
           }
 
-          return TodoResource
-            .get({id: id})
+          return TodoResource.get({id: id})
             .$promise
             .then(function(todo) {
               return new Todo(todo);
@@ -23,8 +22,7 @@
         };
 
         TodoDAO.prototype.getAll = function() {
-          return TodoResource
-            .query()
+          return TodoResource.query()
             .$promise
             .then(function(todos) {
               return todos.map(function(todo) {
@@ -38,11 +36,10 @@
             return $q.reject(new TypeError('Invalid todo to be created.'));
           }
 
-          return TodoResource
-            .save(todo)
+          return TodoResource.save(todo)
             .$promise
-            .then(function() {
-              return new Todo(todo);
+            .then(function(t) {
+              return new Todo(t);
             });
         };
 
