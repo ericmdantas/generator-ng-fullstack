@@ -17,6 +17,7 @@
     <div ng-repeat="t in todoCtrl.todos track by $index"
          class="todo-item"
          ng-click="todoCtrl.deleteTodo(t._id);">
+         
       <p ng-bind="t.todoMessage"></p>
     </div>
   </div>

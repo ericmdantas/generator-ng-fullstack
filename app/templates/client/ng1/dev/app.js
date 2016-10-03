@@ -3,7 +3,6 @@
 
   ng.module('<%= appName %>', [
       'ngResource',
-      'ngRoute',
-      'ngMessages'
+      'ngRoute'
     ]);
 }(window.angular));

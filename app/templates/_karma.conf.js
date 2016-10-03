@@ -18,7 +18,6 @@ module.exports = (config) => {
         'client/dev/bower_components/angular/angular.min.js',
         'client/dev/bower_components/angular-resource/angular-resource.min.js',
         'client/dev/bower_components/angular-route/angular-route.min.js',
-        'client/dev/bower_components/angular-messages/angular-messages.min.js',
 
         'client/dev/bower_components/angular-mocks/angular-mocks.js',
 
@@ -47,7 +46,7 @@ module.exports = (config) => {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'client/dev/**/*.js': ['coverage'],
+      'client/dev/!(bower_components)/**/*.js': ['coverage'],
       'client/dev/**/*.html': ['ng-html2js']
     },
 
