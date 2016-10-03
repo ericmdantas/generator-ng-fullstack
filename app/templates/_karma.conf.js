@@ -46,7 +46,7 @@ module.exports = (config) => {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors:
     {
-      'client/dev/**/*.js': ['coverage'],
+      'client/dev/!(bower_components)/**/*.js': ['coverage'],
       'client/dev/**/*.html': ['ng-html2js']
     },
 
