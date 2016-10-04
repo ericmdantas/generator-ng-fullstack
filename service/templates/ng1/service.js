@@ -5,15 +5,9 @@
     .service('<%= name %>', [
       '$q',
       function($q) {
-        var self = this;
-
-        self.doSomething = function() {
-          return $q.when({
-            yo: '!'
-          });
+        this.doSomething = function() {
+          return $q.when({yo: '!'});
         };
-
-        return self;
       }
     ]);
 }(window.angular));
