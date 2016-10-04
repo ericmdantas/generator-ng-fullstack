@@ -13,13 +13,13 @@ describe('ng-fullstack -> node', () => {
       'tasks/client/build_js.js',
       'tasks/client/build_css.js',
       'tasks/client/build_image.js',
-      'tasks/client/build.js',
+      'tasks/client/index.js',
       'tasks/client/del.js',
       'tasks/client/test.js',
       'tasks/client/watch.js',
       'tasks/client/const.js',
 
-      'tasks/server/build.js',
+      'tasks/server/index.js',
       'tasks/server/test.js'
     ];
 
@@ -2105,7 +2105,7 @@ describe('ng-fullstack -> node', () => {
       let _taskFilesServer = [
         'tasks/index.js',
 
-        'tasks/server/build.js',
+        'tasks/server/index.js',
         'tasks/server/test.js'
       ]
 
