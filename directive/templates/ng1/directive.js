@@ -17,8 +17,8 @@
         return {
           restrict: _restrict,
           replace: _replace,
-          link: _link,
-          scope: _scope
+		  scope: _scope,
+          link: _link          
         };
       }
     ]);
