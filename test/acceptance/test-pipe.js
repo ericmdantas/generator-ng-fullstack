@@ -1,7 +1,7 @@
 import path from 'path';
 import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
-import {MockConfigFile} from '../helpers/mocks';
+import {createYoRc} from '../_helpers/mocks';
 
 describe('subgenerator -> pipe', function () {
   describe('ng2', () => {
@@ -10,7 +10,7 @@ describe('subgenerator -> pipe', function () {
         helpers
           .run(path.join(__dirname, '../../pipe'))
           .inTmpDir(function(dir) {
-            MockConfigFile.create({
+            createYoRc({
               "generator-ng-fullstack": {
                 "client": "ng2",
                 "testsSeparated": true
@@ -35,7 +35,7 @@ describe('subgenerator -> pipe', function () {
         helpers
           .run(path.join(__dirname, '../../pipe'))
           .inTmpDir(function(dir) {
-            MockConfigFile.create({
+            createYoRc({
               "generator-ng-fullstack": {
                 "client": "ng2",
                 "testsSeparated": false

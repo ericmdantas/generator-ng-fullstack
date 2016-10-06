@@ -1,7 +1,7 @@
 import path from 'path';
 import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
-import {MockConfigFile} from '../helpers/mocks';
+import {createYoRc} from '../_helpers/mocks';
 
 describe('subgenerator -> component', () => {
   describe('ng2', () => {
@@ -10,7 +10,7 @@ describe('subgenerator -> component', () => {
         helpers
           .run(path.join(__dirname, '../../component'))
           .inTmpDir(function(dir) {
-            MockConfigFile.create({
+            createYoRc({
               "generator-ng-fullstack": {
                 "client": "ng2",
                 "testsSeparated": true
@@ -37,7 +37,7 @@ describe('subgenerator -> component', () => {
         helpers
           .run(path.join(__dirname, '../../component'))
           .inTmpDir(function(dir) {
-            MockConfigFile.create({
+            createYoRc({
               "generator-ng-fullstack": {
                 "client": "ng2",
                 "testsSeparated": false
@@ -66,7 +66,7 @@ describe('subgenerator -> component', () => {
         helpers
           .run(path.join(__dirname, '../../component'))
           .inTmpDir(function(dir) {
-            MockConfigFile.create({
+            createYoRc({
               "generator-ng-fullstack": {
                 "client": "vue2",
                 "testsSeparated": true
@@ -92,7 +92,7 @@ describe('subgenerator -> component', () => {
         helpers
           .run(path.join(__dirname, '../../component'))
           .inTmpDir(function(dir) {
-            MockConfigFile.create({
+            createYoRc({
               "generator-ng-fullstack": {
                 "client": "vue2",
                 "testsSeparated": false
@@ -120,7 +120,7 @@ describe('subgenerator -> component', () => {
         helpers
           .run(path.join(__dirname, '../../component'))
           .inTmpDir(function(dir) {
-            MockConfigFile.create({
+            createYoRc({
               "generator-ng-fullstack": {
                 "client": "aurelia1",
                 "testsSeparated": true
@@ -147,7 +147,7 @@ describe('subgenerator -> component', () => {
         helpers
           .run(path.join(__dirname, '../../component'))
           .inTmpDir(function(dir) {
-            MockConfigFile.create({
+            createYoRc({
               "generator-ng-fullstack": {
                 "client": "aurelia1",
                 "testsSeparated": false

@@ -1,7 +1,7 @@
 import path from 'path';
 import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
-import {MockConfigFile} from '../helpers/mocks';
+import {createYoRc} from '../_helpers/mocks';
 
 describe('subgenerator -> service', () => {
   describe('ng1', () => {
@@ -9,7 +9,7 @@ describe('subgenerator -> service', () => {
       before((done) => {
         helpers.run(path.join(__dirname, '../../service'))
         .inTmpDir(function(dir) {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "client": "ng1",
               "testsSeparated": true
@@ -19,10 +19,6 @@ describe('subgenerator -> service', () => {
         .withArguments('post')
         .withOptions({ 'skip-install': true, feature: 'http'})
         .on('end', done);
-      });
-
-      after((done) => {
-        MockConfigFile.delete(done);
       });
 
       it('creates files', () => {
@@ -37,7 +33,7 @@ describe('subgenerator -> service', () => {
       before((done) => {
         helpers.run(path.join(__dirname, '../../service'))
         .inTmpDir(function(dir) {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "client": "ng1",
               "testsSeparated": false
@@ -47,10 +43,6 @@ describe('subgenerator -> service', () => {
         .withArguments('post')
         .withOptions({ 'skip-install': true, feature: 'http'})
         .on('end', done);
-      });
-
-      after((done) => {
-        MockConfigFile.delete(done);
       });
 
       it('creates files', () => {
@@ -67,7 +59,7 @@ describe('subgenerator -> service', () => {
       before((done) => {
         helpers.run(path.join(__dirname, '../../service'))
         .inTmpDir(function(dir) {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "client": "ng2",
               "testsSeparated": true
@@ -77,10 +69,6 @@ describe('subgenerator -> service', () => {
         .withArguments('post')
         .withOptions({ 'skip-install': true, feature: 'http'})
         .on('end', done);
-      });
-
-      after((done) => {
-        MockConfigFile.delete(done);
       });
 
       it('creates files', () => {
@@ -95,7 +83,7 @@ describe('subgenerator -> service', () => {
       before((done) => {
         helpers.run(path.join(__dirname, '../../service'))
         .inTmpDir(function(dir) {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "client": "ng2",
               "testsSeparated": false
@@ -105,10 +93,6 @@ describe('subgenerator -> service', () => {
         .withArguments('post')
         .withOptions({ 'skip-install': true, feature: 'http'})
         .on('end', done);
-      });
-
-      after((done) => {
-        MockConfigFile.delete(done);
       });
 
       it('creates files', () => {
@@ -125,7 +109,7 @@ describe('subgenerator -> service', () => {
       before((done) => {
         helpers.run(path.join(__dirname, '../../service'))
         .inTmpDir(function(dir) {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "client": "vue2",
               "testsSeparated": true
@@ -135,10 +119,6 @@ describe('subgenerator -> service', () => {
         .withArguments('post')
         .withOptions({ 'skip-install': true, feature: 'http'})
         .on('end', done);
-      });
-
-      after((done) => {
-        MockConfigFile.delete(done);
       });
 
       it('creates files', () => {
@@ -153,7 +133,7 @@ describe('subgenerator -> service', () => {
       before((done) => {
         helpers.run(path.join(__dirname, '../../service'))
         .inTmpDir(function(dir) {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "client": "vue2",
               "testsSeparated": false
@@ -163,10 +143,6 @@ describe('subgenerator -> service', () => {
         .withArguments('post')
         .withOptions({ 'skip-install': true, feature: 'http'})
         .on('end', done);
-      });
-
-      after((done) => {
-        MockConfigFile.delete(done);
       });
 
       it('creates files', () => {
@@ -183,7 +159,7 @@ describe('subgenerator -> service', () => {
       before((done) => {
         helpers.run(path.join(__dirname, '../../service'))
         .inTmpDir(function(dir) {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "client": "aurelia1",
               "testsSeparated": true
@@ -193,10 +169,6 @@ describe('subgenerator -> service', () => {
         .withArguments('post')
         .withOptions({ 'skip-install': true, feature: 'http'})
         .on('end', done);
-      });
-
-      after((done) => {
-        MockConfigFile.delete(done);
       });
 
       it('creates files', () => {
@@ -211,7 +183,7 @@ describe('subgenerator -> service', () => {
       before((done) => {
         helpers.run(path.join(__dirname, '../../service'))
         .inTmpDir(function(dir) {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "client": "aurelia1",
               "testsSeparated": false
@@ -222,11 +194,7 @@ describe('subgenerator -> service', () => {
         .withOptions({ 'skip-install': true, feature: 'http'})
         .on('end', done);
       });
-
-      after((done) => {
-        MockConfigFile.delete(done);
-      });
-
+      
       it('creates files', () => {
         assert.file([
           'client/dev/http/services/post.js',
