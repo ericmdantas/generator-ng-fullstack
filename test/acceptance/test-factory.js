@@ -1,7 +1,7 @@
 import path from 'path';
 import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
-import {MockConfigFile} from '../helpers/mocks';
+import {createYoRc} from '../_helpers/mocks';
 
 describe('NgFullstack:factory', () => {
   describe('ng1', () => {
@@ -9,7 +9,7 @@ describe('NgFullstack:factory', () => {
       helpers
         .run(path.join(__dirname, '../../factory'))
         .inTmpDir(function(dir) {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "client": "ng1"
             }
@@ -33,7 +33,7 @@ describe('NgFullstack:factory', () => {
       helpers
         .run(path.join(__dirname, '../../factory'))
         .inTmpDir(function(dir) {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "client": "ng2"
             }

@@ -1,7 +1,7 @@
 import path from 'path';
 import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
-import {MockConfigFile} from '../helpers/mocks';
+import {createYoRc} from '../_helpers/mocks';
 
 describe('NgFullstack:directive', () => {
   describe('ng1', () => {
@@ -9,7 +9,7 @@ describe('NgFullstack:directive', () => {
       helpers
         .run(path.join(__dirname, '../../directive'))
         .inTmpDir(function(dir) {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "client": "ng1"
             }
@@ -18,10 +18,6 @@ describe('NgFullstack:directive', () => {
         .withArguments('something')
         .withOptions({ 'skip-install': true, feature: 'common'})
         .on('end', done);
-    });
-
-    after((done) => {
-      MockConfigFile.delete(done);
     });
 
     it('creates files', () => {
@@ -37,7 +33,7 @@ describe('NgFullstack:directive', () => {
       helpers
         .run(path.join(__dirname, '../../directive'))
         .inTmpDir(function(dir) {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "client": "ng2"
             }
@@ -46,10 +42,6 @@ describe('NgFullstack:directive', () => {
         .withArguments('something')
         .withOptions({ 'skip-install': true, feature: 'common'})
         .on('end', done);
-    });
-
-    after((done) => {
-      MockConfigFile.delete(done);
     });
 
     it('creates files', () => {

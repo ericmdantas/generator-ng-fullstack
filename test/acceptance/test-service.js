@@ -1,14 +1,14 @@
 import path from 'path';
 import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
-import {MockConfigFile} from '../helpers/mocks';
+import {createYoRc} from '../_helpers/mocks';
 
 describe('NgFullstack:service', () => {
   describe('ng1', () => {
     before((done) => {
       helpers.run(path.join(__dirname, '../../service'))
       .inTmpDir(function(dir) {
-        MockConfigFile.create({
+        createYoRc({
           "generator-ng-fullstack": {
             "client": "ng1"
           }
@@ -17,10 +17,6 @@ describe('NgFullstack:service', () => {
       .withArguments('post')
       .withOptions({ 'skip-install': true, feature: 'http'})
       .on('end', done);
-    });
-
-    after((done) => {
-      MockConfigFile.delete(done);
     });
 
     it('creates files', () => {
@@ -35,7 +31,7 @@ describe('NgFullstack:service', () => {
     before((done) => {
       helpers.run(path.join(__dirname, '../../service'))
       .inTmpDir(function(dir) {
-        MockConfigFile.create({
+        createYoRc({
           "generator-ng-fullstack": {
             "client": "ng2"
           }
@@ -44,10 +40,6 @@ describe('NgFullstack:service', () => {
       .withArguments('post')
       .withOptions({ 'skip-install': true, feature: 'http'})
       .on('end', done);
-    });
-
-    after((done) => {
-      MockConfigFile.delete(done);
     });
 
     it('creates files', () => {

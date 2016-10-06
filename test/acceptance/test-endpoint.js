@@ -2,7 +2,7 @@ import path from 'path';
 import os from 'os';
 import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
-import {MockConfigFile} from '../helpers/mocks';
+import {createYoRc} from '../_helpers/mocks';
 
 describe('NgFullstack:endpoint', () => {
   describe('node', () => {
@@ -11,7 +11,7 @@ describe('NgFullstack:endpoint', () => {
         helpers
         .run(path.join(__dirname, '../../endpoint'))
         .inTmpDir(function() {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "transpilerServer": "node",
               "server": "node"
@@ -41,7 +41,7 @@ describe('NgFullstack:endpoint', () => {
         helpers
         .run(path.join(__dirname, '../../endpoint'))
         .inTmpDir(function() {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "transpilerServer": "babel",
               "server": "node"
@@ -71,7 +71,7 @@ describe('NgFullstack:endpoint', () => {
         helpers
         .run(path.join(__dirname, '../../endpoint'))
         .inTmpDir(function() {
-          MockConfigFile.create({
+          createYoRc({
             "generator-ng-fullstack": {
               "transpilerServer": "typescript",
               "server": "node"
@@ -102,7 +102,7 @@ describe('NgFullstack:endpoint', () => {
       helpers
       .run(path.join(__dirname, '../../endpoint'))
       .inTmpDir(function() {
-        MockConfigFile.create({
+        createYoRc({
           "generator-ng-fullstack": {
             "server": "go"
           }
