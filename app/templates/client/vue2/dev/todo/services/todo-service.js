@@ -1,15 +1,17 @@
-function TodoService() {  
+class TodoService {
+  constructor() {
+    
+  }  
 
-}
+  getAll() {
+    return Promise.resolve([]);
+  }
 
-TodoService.prototype.getAll = function() {
-  return Promise.resolve([]);
-}
+  add(todo) {
+    return Promise.resolve(todo);
+  }
 
-TodoService.prototype.add = function(todo) {
-  return Promise.resolve(todo);
-}
-
-TodoService.prototype.remove = function(id) {
-  return Promise.resolve(id);
+  remove(id) {
+    return Promise.resolve(id);
+  } 
 }
