@@ -10,12 +10,13 @@
 
     <title>vue2do</title>
   </head>
-  <body id="app">
-
-    <todo-cmp></todo-cmp>
+  <body>
+    <main id="app">
+      <todo-cmp></todo-cmp>
+    </main>
 
     <% if (stack !== "client") { %>
-    <script src="./vue/dist/vue.min.js?rev=@@hash"></script>
+    <script src="./vue/dist/vue.js?rev=@@hash"></script>
     <script src="./vue-router/dist/vue-router.min.js?rev=@@hash"></script>
     <script src="./vue-resource/dist/vue-resource.min.js?rev=@@hash"></script>
 
@@ -23,7 +24,7 @@
     <script src="./todo/components/todo-cmp.js"></script>
     <script src="./index.js"></script>
     <% } else { %>
-    <script src="node_modules/vue/dist/vue.min.js?rev=@@hash"></script>
+    <script src="node_modules/vue/dist/vue.js?rev=@@hash"></script>
     <script src="node_modules/vue-router/dist/vue-router.min.js?rev=@@hash"></script>
     <script src="node_modules/vue-resource/dist/vue-resource.min.js?rev=@@hash"></script>
 

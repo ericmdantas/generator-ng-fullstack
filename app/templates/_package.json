@@ -57,7 +57,7 @@
     "typescript": "^2.0.2",
     "zone.js": "^0.6.23", <% } %>
     <% if (client === "vue2") { %>
-    "vue": "^1.0.26",
+    "vue": "^2.0.1",
     "vue-resource": "^0.9.3",
     "vue-router": "^0.7.13", <% } %>
     <% if (nodeWebFrameworkServer === "koa") { %>
