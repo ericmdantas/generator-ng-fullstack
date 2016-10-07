@@ -2,7 +2,7 @@
 
 describe('<%= name %>', function() {
     var _scope;
-    var CONTROLLER_NAME = '<%= name %> as <%= nameLowerCase %>Ctrl';
+    var CONTROLLER_NAME = '<%= name %> as ctrl';
 
     beforeEach(module('<%= appName %>'));
 
@@ -13,6 +13,12 @@ describe('<%= name %>', function() {
     describe('init', function() {
       it('should create the controller correctly', inject(function($controller) {
           $controller(CONTROLLER_NAME, {$scope: _scope});
+      }));      
+    });
+    
+    describe('onLoad', function() {
+      it('should load correctly', inject(function($controller) {
+          // ...
       }));
     });
 });
