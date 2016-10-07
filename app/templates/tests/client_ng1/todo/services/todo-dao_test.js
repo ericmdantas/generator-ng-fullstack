@@ -108,7 +108,7 @@ describe('todo.dao', function() {
 
         var _onError = function(error) {
           expect(error).toBeDefined();
-          expect(error.someError).toEqual(_response.someError);
+          expect(error.data.someError).toEqual(_response.someError);
         };
 
         _TodoDAO
