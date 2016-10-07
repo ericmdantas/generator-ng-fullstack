@@ -17,8 +17,8 @@ describe('<%= name %>', function() {
     });
     
     describe('onLoad', function() {
-      it('should load correctly', function() {
+      it('should load correctly', inject(function($controller) {
         // ... 
-      });
+      }));
     });
 });
