@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import uglify from 'gulp-uglify';
+import babel from 'gulp-babel';
 import {base, tasks} from './const';
 
 const JS = [
@@ -9,6 +9,11 @@ const JS = [
 
 gulp.task(tasks.CLIENT_BUILD_JS_DIST, () => {
   return gulp.src(JS, {base: base.DIST})
-             .pipe(uglify())
+             .pipe(babel({
+               presets: [
+                 "es2015",
+                 "babili"
+               ]
+             }))
              .pipe(gulp.dest(base.DIST));
 });
