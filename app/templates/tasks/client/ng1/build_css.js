@@ -9,7 +9,10 @@ import less from 'gulp-less';
   import sass from 'gulp-sass';
 <% } %>
 
-const CSS = base.DIST + '**/*.css';
+const CSS = [
+  base.DIST + '**/*.css',
+  '!' + base.DIST + 'bower_components/**/*.css',
+];
 <% if (stylePreprocessor === "less") { %>
 const LESS = [
   base.DEV + '**/*.less',
