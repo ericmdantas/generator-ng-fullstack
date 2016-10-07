@@ -2,7 +2,10 @@ import gulp from 'gulp';
 import cssmin from 'gulp-clean-css';
 import {path, tasks} from './const';
 
-const CSS = path.DIST + '**/*.css';
+const CSS = [
+  path.DIST + '**/*.css',
+  '!' + path.DIST + 'bower_components/**/*.css'
+];
 
 gulp.task(tasks.CLIENT_BUILD_CSS_DIST, () => {
   return gulp.src(CSS, {base: path.DIST})
