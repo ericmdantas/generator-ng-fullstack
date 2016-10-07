@@ -10,19 +10,9 @@
         this.todo = new Todo();
         this.todos = [];
         this.title = "ng1 2do";
-
-        function _getAll() {
-          return TodoDAO
-            .getAll()
-            .then((todos) => {
-              return this.todos = todos;
-            })
-            .catch($log.error);
-        };
         
         this.createTodo = function(todo) {
-          TodoDAO
-            .createTodo(todo)
+          TodoDAO.createTodo(todo)
             .then((newTodo) => {
               this.todos.push(newTodo);
               this.todo = new Todo();
@@ -31,15 +21,23 @@
         };
         
         this.deleteTodo = function(id) {
-          TodoDAO
-            .deleteTodo(id)
+          TodoDAO.deleteTodo(id)
             .then(() => {
-              return _getAll();
+              return TodoDAO.getAll()
+                .then((todos) => {
+                  return this.todos = todos;
+                });
             })
             .catch($log.error);
         };
 
-        _getAll();
+        ;(() => {
+			  return TodoDAO.getAll()
+					.then((todos) => {
+					  return this.todos = todos;
+					})
+					.catch($log.error);
+		})();
       }
     ]);
 }(window.angular));

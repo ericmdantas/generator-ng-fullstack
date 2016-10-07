@@ -75,7 +75,7 @@ describe('todo.dao', function() {
   describe('getById', function() {
     describe('error', function() {
       it('should return with an error, id not informed', function() {
-        var _id = null;
+        var _id = undefined;
 
         var _onSuccess = function() {
           expect(true).toBeFalsy();
@@ -108,7 +108,7 @@ describe('todo.dao', function() {
 
         var _onError = function(error) {
           expect(error).toBeDefined();
-          expect(error.data.someError).toEqual(_response.someError);
+          expect(error.someError).toEqual(_response.someError);
         };
 
         _TodoDAO

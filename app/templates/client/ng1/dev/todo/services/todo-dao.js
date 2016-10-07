@@ -13,13 +13,13 @@
           }
 
           getById(id) {
-            if (!ng.isString(id)) {
+            if (ng.isUndefined(id)) {
               return $q.reject(new TypeError('Invalid id for search.'));
             }
 
             return TodoResource.get({id: id})
               .$promise
-              .then(function(todo) {
+              .then((todo) => {
                 return new Todo(todo);
               });
           }
@@ -27,8 +27,8 @@
           getAll() {
             return TodoResource.query()
               .$promise
-              .then(function(todos) {
-                return todos.map(function(todo) {
+              .then((todos) => {
+                return todos.map((todo) => {
                   return new Todo(todo);
                 });
               });
@@ -41,7 +41,7 @@
 
             return TodoResource.save(todo)
               .$promise
-              .then(function(t) {
+              .then((t) => {
                 return new Todo(t);
               });
           }
