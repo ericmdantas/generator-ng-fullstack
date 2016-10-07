@@ -17,7 +17,7 @@
         return {
           restrict: _restrict,
           replace: _replace,
-		  scope: _scope,
+		      scope: _scope,
           link: _link          
         };
       }

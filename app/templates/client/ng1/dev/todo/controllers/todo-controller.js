@@ -7,35 +7,33 @@
       'Todo',
       'TodoDAO',
       function($log, Todo, TodoDAO) {
-        var self = this;
-        
-        self.todo = new Todo();
-        self.todos = [];
-        self.title = "ng1 2do";
+        this.todo = new Todo();
+        this.todos = [];
+        this.title = "ng1 2do";
 
         function _getAll() {
           return TodoDAO
             .getAll()
-            .then(function(todos) {
-              return self.todos = todos;
+            .then((todos) => {
+              return this.todos = todos;
             })
             .catch($log.error);
         };
         
-        self.createTodo = function(todo) {
+        this.createTodo = function(todo) {
           TodoDAO
             .createTodo(todo)
-            .then(function(newTodo) {
-              self.todos.push(newTodo);
-              self.todo = new Todo();
+            .then((newTodo) => {
+              this.todos.push(newTodo);
+              this.todo = new Todo();
             })
             .catch($log.error);
         };
         
-        self.deleteTodo = function(id) {
+        this.deleteTodo = function(id) {
           TodoDAO
             .deleteTodo(id)
-            .then(function() {
+            .then(() => {
               return _getAll();
             })
             .catch($log.error);

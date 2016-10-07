@@ -6,9 +6,11 @@
       '$resource',
       function($resource) {
         var _url = '/api/<%= name %>/:id';
+        
         var _params = {
           id: '@id'
         };
+        
         var _method = {
           update: {
             method: 'PUT',
