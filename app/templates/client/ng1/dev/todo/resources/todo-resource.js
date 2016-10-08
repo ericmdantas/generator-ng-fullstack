@@ -5,9 +5,9 @@
     .factory('TodoResource', [
       '$resource',
       function($resource) {
-        var _url = '/api/todos/:id';
-        var _params = {};
-        var _methods = {};
+        const _url = '/api/todos/:id';
+        const _params = {};
+        const _methods = {};
 
         return $resource(_url, _params, _methods);
       }

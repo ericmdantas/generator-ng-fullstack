@@ -3,7 +3,7 @@
 
   ng.module('<%= appName %>')
     .factory('Todo', [function() {
-      var MIN_ACCEPTED_LENGTH = 5;
+      const MIN_ACCEPTED_LENGTH = 5;
       
       class Todo {
         constructor(t) {

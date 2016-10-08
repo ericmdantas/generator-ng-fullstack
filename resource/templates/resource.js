@@ -5,13 +5,13 @@
     .factory('<%= name %>', [
       '$resource',
       function($resource) {
-        var _url = '/api/<%= name %>/:id';
+        const _url = '/api/<%= name %>/:id';
         
-        var _params = {
+        const _params = {
           id: '@id'
         };
         
-        var _method = {
+        const _method = {
           update: {
             method: 'PUT',
             isArray: false
