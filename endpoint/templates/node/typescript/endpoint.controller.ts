@@ -7,7 +7,7 @@ export class <%= name %>Controller {
   static getAll(req:express.Request, res:express.Response) {
     <%= name %>DAO
       ['getAll']()
-      .then(<%= nameLowerCase %> => res.status(200).json(<%= nameLowerCase %>s))
+      .then(<%= nameLowerCase %> => res.status(200).json(<%= nameLowerCase %>))
       .catch(error => res.status(400).json(error));
   }
 
@@ -20,7 +20,7 @@ export class <%= name %>Controller {
       .catch(error => res.status(400).json(error));
   }
 
-  static remove(req:express.Request, res:express.Response) {
+  static removeById(req:express.Request, res:express.Response) {
     let _id = req.params.id;
 
     <%= name %>DAO
