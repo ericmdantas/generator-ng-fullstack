@@ -5,8 +5,8 @@ const <%= name %> = require('../dao/<%= name %>-dao');
 module.exports = class <%= name %>Controller {
   *getAll() {
     try {
-      let <%= nameLowerCase %> = yield <%= name %>DAO.getAll();
-      this.body = <%= nameLowerCase %>;
+      let <%= nameLowerCase %>s = yield <%= name %>DAO.getAll();
+      this.body = <%= nameLowerCase %>s;
       this.status = 200;
     } catch(e) {
       this.status = 400;

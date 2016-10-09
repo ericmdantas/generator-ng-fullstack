@@ -6,7 +6,7 @@ module.exports = class <%= name %>Controller {
   static getAll(req, res) {
     <%= name %>DAO
       .getAll()
-      .then(<%= nameLowerCase %> => res.status(200).json(<%= nameLowerCase %>s))
+      .then(<%= nameLowerCase %>s => res.status(200).json(<%= nameLowerCase %>s))
       .catch(error => res.status(400).json(error));
   }
 

@@ -31,7 +31,7 @@ import * as _ from 'lodash';
     });
 }
 
-<%= nameLowerCase %>chema.statics.removeById = (id) => {
+<%= nameLowerCase %>Schema.statics.removeById = (id) => {
 
   return new Promise((resolve, reject) => {
     if (!_.isString(id)) {

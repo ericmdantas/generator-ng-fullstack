@@ -3,8 +3,8 @@ import <%= name %>DAO from '../dao/<%= name %>-dao';
 export default class <%= name %>Controller {
   async getAll() {
     try {
-      let <%= nameLowerCase %> = await <%= name %>DAO.getAll();
-      this.body = <%= nameLowerCase %>;
+      let <%= nameLowerCase %>s = await <%= name %>DAO.getAll();
+      this.body = <%= nameLowerCase %>s;
       this.status = 200;
     } catch(e) {
       this.status = 400;
