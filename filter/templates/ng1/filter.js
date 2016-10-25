@@ -3,12 +3,14 @@
 
   ng.module('<%= appName %>')
     .filter('<%= name %>', [
-      function(input) {
-        if (!input) {
-          return '';
-        }
+      function() {          
+        return function (input) {
+          if (!input) {
+            return '';
+          }
 
-        return input;
-      }
+          return input;
+        }      
+      }      
     ]);
 }(window.angular));
