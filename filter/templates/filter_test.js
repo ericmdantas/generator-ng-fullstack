@@ -12,12 +12,12 @@ describe('<%= name %>', function() {
   describe('doSomething', function() {
     it('should return an empty string', function() {
       var _input = null;
-      expect(_<%= name %> (_input)).toEqual('');
+      expect(_<%= name %>(_input)).toEqual('');
     });
 
     it('should return the input', function() {
       var _input = 'a';
-      expect(_<%= name %> (_input)).toEqual(_input);
+      expect(_<%= name %>(_input)).toEqual(_input);
     });
   });
 });
