@@ -39,6 +39,7 @@
     "express": "~4.14.0",
     "express-content-length-validator": "1.0.0",
     "morgan": "^1.5.2",
+    "compression": "^1.6.2",
     "helmet": "^2.1.1",
     <% } %>
     "nodemon": "^1.9.2",

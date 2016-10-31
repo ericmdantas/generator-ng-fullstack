@@ -17,4 +17,4 @@ module.exports = class RouteConfig {
     application.use(serve(_root + _jspmPackages));
     application.use(serve(_root + _clientFiles));
   }
-}
+} 
