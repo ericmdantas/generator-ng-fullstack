@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/routes"
 	"github.com/labstack/echo"
-	"github.com/labstack/echo/engine/fasthttp"
 )
 
 const port string = ":3333"
@@ -16,5 +15,5 @@ func main() {
 
 	routes.Init(e)
 
-	e.Run(fasthttp.New(port))
+	e.Start(port)
 }
