@@ -159,19 +159,19 @@ exports.MainGenerator = class MainGenerator {
             default: 0
           },
           {
-            name: 'repoHostUrl',
-            message: 'What is your GitLab URL?',
             when: (answersHash) => {
               return answersHash.repoHost === "gitlab";
             },
+            name: 'repoHostUrl',
+            message: 'What is your GitLab URL/GitLab Server IP/GitLab Server FQDN?',
             default: "gitlab.com"
           },
           {
-            name: 'userNameSpace',
-            message: 'What is your GitLab NameSpace?',
             when: (answersHash) => {
               return answersHash.repoHost === "gitlab";
             },
+            name: 'userNameSpace',
+            message: 'What is your GitLab NameSpace?',
             default: "namespace"
           }
         ];
