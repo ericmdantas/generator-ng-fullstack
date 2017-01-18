@@ -1,20 +1,20 @@
 import {
   Directive,
   OnInit
-} from '@angular/core';
+} from "@angular/core";
 
 @Directive({
-  selector: '[directive]',
+  selector: "[directive]",
   host: {
-    '(click)': 'clickHandler()'
+    "(click)": "clickHandler()"
   }
 })
 export class MyDirective implements OnInit {
   onInit() {
-    console.log('directive init');
+    console.log("directive init");
   }
 
   clickHandler() {
-    console.log('directive clicked');
+    console.log("directive clicked");
   }
 }

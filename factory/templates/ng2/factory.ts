@@ -1,9 +1,9 @@
 interface ISomething {
-  doSomething():void;
+  doSomething(): void;
 }
 
 export class MyFactory implements ISomething {
-  doSomething():void {
+  doSomething(): void {
 
   }
 }

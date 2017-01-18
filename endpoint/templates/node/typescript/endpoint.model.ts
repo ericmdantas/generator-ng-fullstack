@@ -1,6 +1,6 @@
 "use strict";
 
-import * as mongoose from 'mongoose';
+import * as mongoose from "mongoose";
 
 var _<%= nameLowerCase %>Schema = new mongoose.Schema({
   somethingSomething: {type: String, required: true, trim: true},

@@ -1,9 +1,9 @@
 interface IService {
-  doStuff():number;
+  doStuff(): number;
 }
 
 export class MyService implements IService {
-  doStuff():number {
+  doStuff(): number {
     return 1;
   }
 }

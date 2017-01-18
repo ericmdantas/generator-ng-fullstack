@@ -1,10 +1,10 @@
-import * as mongoose from 'mongoose';
-import * as Promise from 'bluebird';
-import * as _ from 'lodash';
-import todoSchema from '../model/todo-model';
+import * as mongoose from "mongoose";
+import * as Promise from "bluebird";
+import * as _ from "lodash";
+import todoSchema from "../model/todo-model";
 
-todoSchema.static('getAll', ():Promise<any> => {
-    return new Promise((resolve:Function, reject:Function) => {
+todoSchema.static("getAll", (): Promise<any> => {
+    return new Promise((resolve: Function, reject: Function) => {
         let _query = {};
 
         Todo
@@ -16,13 +16,13 @@ todoSchema.static('getAll', ():Promise<any> => {
     });
 });
 
-todoSchema.static('createTodo', (todo:Object):Promise<any> => {
-    return new Promise((resolve:Function, reject:Function) => {
+todoSchema.static("createTodo", (todo: Object): Promise<any> => {
+    return new Promise((resolve: Function, reject: Function) => {
       if (!_.isObject(todo)) {
-        return reject(new TypeError('Todo is not a valid object.'));
+        return reject(new TypeError("Todo is not a valid object."));
       }
 
-      var _todo = new Todo(todo);
+      let _todo = new Todo(todo);
 
       _todo.save((err, saved) => {
         err ? reject(err)
@@ -31,10 +31,10 @@ todoSchema.static('createTodo', (todo:Object):Promise<any> => {
     });
 });
 
-todoSchema.static('deleteTodo', (id:string):Promise<any> => {
-    return new Promise((resolve:Function, reject:Function) => {
+todoSchema.static("deleteTodo", (id: string): Promise<any> => {
+    return new Promise((resolve: Function, reject: Function) => {
         if (!_.isString(id)) {
-            return reject(new TypeError('Id is not a valid string.'));
+            return reject(new TypeError("Id is not a valid string."));
         }
 
         Todo
@@ -46,6 +46,6 @@ todoSchema.static('deleteTodo', (id:string):Promise<any> => {
     });
 });
 
-let Todo = mongoose.model('Todo', todoSchema);
+let Todo = mongoose.model("Todo", todoSchema);
 
 export default Todo;

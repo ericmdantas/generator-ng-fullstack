@@ -1,9 +1,9 @@
 interface IModel {
-  doStuff():number;
+  doStuff(): number;
 }
 
 export class MyModel implements IModel {
-  doStuff():number {
+  doStuff(): number {
     return 1;
   }
 }
