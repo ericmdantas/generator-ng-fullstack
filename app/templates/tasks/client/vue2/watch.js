@@ -1,6 +1,6 @@
-import gulp from 'gulp';
-import Server from 'aliv';
-import {base, tasks} from './const';
+import gulp from "gulp";
+import Server from "aliv";
+import {base, tasks} from "./const";
 
 let aliv = new Server({
   watch: false,
@@ -16,14 +16,14 @@ gulp.task(tasks.CLIENT_WATCH, [<% if (!!stylePreprocessor) { %> tasks.CLIENT_COM
 
   let _watchable = [];
 
-  _watchable.push(base.DEV + '**/*.js');
-  _watchable.push(base.DEV + '**/*.css');
-  _watchable.push(base.DEV + '**/*.html');
+  _watchable.push(base.DEV + "**/*.js");
+  _watchable.push(base.DEV + "**/*.css");
+  _watchable.push(base.DEV + "**/*.html");
   <% if (stylePreprocessor === "less") { %>
-  _watchable.push(base.DEV + '**/*.less');
+  _watchable.push(base.DEV + "**/*.less");
   <% } %>
   <% if (stylePreprocessor === "sass") { %>
-  _watchable.push(base.DEV + '**/*.{sass,scss}');
+  _watchable.push(base.DEV + "**/*.{sass,scss}");
   <% } %>
 
   return gulp.watch(_watchable, [

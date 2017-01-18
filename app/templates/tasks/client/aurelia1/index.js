@@ -1,6 +1,6 @@
-import gulp from 'gulp';
-import runSequence from 'run-sequence';
-import {base, tasks} from './const';
+import gulp from "gulp";
+import runSequence from "run-sequence";
+import {base, tasks} from "./const";
 
 gulp.task(tasks.CLIENT_BUILD_DIST, () => {
   return new Promise((resolve, reject) => {

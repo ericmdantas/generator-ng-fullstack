@@ -3,14 +3,14 @@
 import {
   TestBed,
   async
-} from '@angular/core/testing';
+} from "@angular/core/testing";
 
 import {
   Observable
-} from 'rxjs/Observable';
+} from "rxjs/Observable";
 
-import {TodoCmp} from '../../../../client/dev/todo/components/todo-cmp';
-import {TodoService} from '../../../../client/dev/todo/services/todo-service';
+import {TodoCmp} from "../../../../client/dev/todo/components/todo-cmp";
+import {TodoService} from "../../../../client/dev/todo/services/todo-service";
 
 class MockTodoService extends TodoService {
   getAll():Observable<any> {
@@ -32,9 +32,9 @@ class MockTodoService extends TodoService {
   }
 }
 
-describe('todo_component', () => {
-  describe('creation', () => {
-    it('should create the component correctly', async(() => {
+describe("todo_component", () => {
+  describe("creation", () => {
+    it("should create the component correctly", async(() => {
       let fixture = TestBed.createComponent(TodoCmp);	  
 	  fixture.detectChanges();
 
@@ -43,31 +43,31 @@ describe('todo_component', () => {
 	  expect(compiled).toBeDefined();
     }));
 
-    it('should inicialize the cmp correctly', async(() => {
+    it("should inicialize the cmp correctly", async(() => {
       let fixture = TestBed.createComponent(TodoCmp);      
 	  let instance = fixture.debugElement.componentInstance;
 	  
-	  spyOn(instance, '_getAll').and.callFake(() => {});
+	  spyOn(instance, "_getAll").and.callFake(() => {});
 	  fixture.detectChanges();
 	  expect(instance._getAll).toHaveBeenCalled();
     }));
 
-    it('should call add correctly', async(() => {
+    it("should call add correctly", async(() => {
       let fixture = TestBed.createComponent(TodoCmp);
 	  fixture.detectChanges();
 
 	  let instance = fixture.debugElement.componentInstance;
 
-	  let _todoMsg = 'yo';
+	  let _todoMsg = "yo";
 	  instance.add(_todoMsg);
     }));
 
-    it('should call remove correctly', async(() => {
+    it("should call remove correctly", async(() => {
       let fixture = TestBed.createComponent(TodoCmp);
 	  fixture.detectChanges();
 	  
 	  let instance = fixture.debugElement.componentInstance;
-	  let _id = 'abc123';
+	  let _id = "abc123";
 
 	  instance.remove(_id);
     }));
