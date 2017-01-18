@@ -1,6 +1,6 @@
 "use strict";
 
-const TodoDAO = require('../dao/todo-dao');
+const TodoDAO = require("../dao/todo-dao");
 
 module.exports = class TodoController {
   *getAll() {

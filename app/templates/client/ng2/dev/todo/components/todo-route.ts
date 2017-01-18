@@ -1,17 +1,17 @@
 import {
 	Routes,
 	RouterModule
-} from '@angular/router';
+} from "@angular/router";
 
 import {
 	TodoCmp
-} from '../components/todo-cmp';
+} from "../components/todo-cmp";
 
 const todoRoutes:Routes = [
 	{
-		path: '',
+		path: "",
 		component: TodoCmp,
-		pathMatch: 'full'
+		pathMatch: "full"
 	}
 ]
 

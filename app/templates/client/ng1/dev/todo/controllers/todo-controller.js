@@ -1,11 +1,11 @@
 ;(function(ng) {
-  'use strict';
+  "use strict";
 
-  ng.module('<%= appName %>')
-    .controller('TodoController', [
-      '$log',
-      'Todo',
-      'TodoDAO',
+  ng.module("<%= appName %>")
+    .controller("TodoController", [
+      "$log",
+      "Todo",
+      "TodoDAO",
       function($log, Todo, TodoDAO) {
         this.todo = new Todo();
         this.todos = [];

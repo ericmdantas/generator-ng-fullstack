@@ -1,6 +1,6 @@
 "use strict";
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const _todoSchema = {
     todoMessage: {type: String, required: true, trim: true},

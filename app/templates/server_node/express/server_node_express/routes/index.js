@@ -1,8 +1,8 @@
 "use strict";
 
-const TodoRoutes = require('../api/todo/route/todo-route');
+const TodoRoutes = require("../api/todo/route/todo-route");
 <% if (!differentStaticServer) {%>
-const StaticDispatcher = require('../commons/static/index');
+const StaticDispatcher = require("../commons/static/index");
 <% } %>
 
 module.exports = class Routes {
@@ -10,10 +10,10 @@ module.exports = class Routes {
      TodoRoutes.init(router);
      <% if (!differentStaticServer) { %>
      router
-       .route('*')
+       .route("*")
        .get(StaticDispatcher.sendIndex);
      <% } %>
 
-     app.use('/', router);
+     app.use("/", router);
    }
 }

@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
-import Promise from 'bluebird';
-import todoSchema from '../model/todo-model';
-import _ from 'lodash';
+import mongoose from "mongoose";
+import Promise from "bluebird";
+import todoSchema from "../model/todo-model";
+import _ from "lodash";
 
 todoSchema.statics.getAll = () => {
   return new Promise((resolve, reject) => {
@@ -18,7 +18,7 @@ todoSchema.statics.getAll = () => {
 todoSchema.statics.getById = (id) => {
     return new Promise((resolve, reject) => {
         if (!id) {
-          return reject(new TypeError('Id is not defined.'));
+          return reject(new TypeError("Id is not defined."));
         }
 
         Todo.findById(id)
@@ -32,7 +32,7 @@ todoSchema.statics.getById = (id) => {
 todoSchema.statics.createTodo = (todo) => {
   return new Promise((resolve, reject) => {
     if (!_.isObject(todo)) {
-      return reject(new TypeError('Todo is not a valid object.'));
+      return reject(new TypeError("Todo is not a valid object."));
     }
 
     var _todo = new Todo(todo);
@@ -47,7 +47,7 @@ todoSchema.statics.createTodo = (todo) => {
 todoSchema.statics.deleteTodo = (id) => {
   return new Promise((resolve, reject) => {
     if (!_.isString(id)) {
-      return reject(new TypeError('Id is not a valid string.'));
+      return reject(new TypeError("Id is not a valid string."));
     }
 
     Todo.findByIdAndRemove(id)
@@ -58,6 +58,6 @@ todoSchema.statics.deleteTodo = (id) => {
   });
 }
 
-var Todo = mongoose.model('Todo', todoSchema);
+var Todo = mongoose.model("Todo", todoSchema);
 
 export default Todo;

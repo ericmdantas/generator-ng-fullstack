@@ -1,11 +1,11 @@
 ;(function(ng) {
-  'use strict';
+  "use strict";
 
-  ng.module('<%= appName %>')
-    .factory('TodoDAO', [
-      '$q',
-      'Todo',
-      'TodoResource',
+  ng.module("<%= appName %>")
+    .factory("TodoDAO", [
+      "$q",
+      "Todo",
+      "TodoResource",
       function($q, Todo, TodoResource) {
         class TodoDAO {
           constructor() {
@@ -14,7 +14,7 @@
 
           getById(id) {
             if (ng.isUndefined(id)) {
-              return $q.reject(new TypeError('Invalid id for search.'));
+              return $q.reject(new TypeError("Invalid id for search."));
             }
 
             return TodoResource.get({id: id})
@@ -36,7 +36,7 @@
 
           createTodo(todo) {
             if (!ng.isObject(todo) || !(todo instanceof Todo) || !todo.isValid()) {
-              return $q.reject(new TypeError('Invalid todo to be created.'));
+              return $q.reject(new TypeError("Invalid todo to be created."));
             }
 
             return TodoResource.save(todo)
@@ -48,7 +48,7 @@
 
           deleteTodo(id) {
             if (!ng.isString(id)) {
-              return $q.reject(new TypeError('Invalid id for deletion.'));
+              return $q.reject(new TypeError("Invalid id for deletion."));
             }
 
             return TodoResource.delete({id: id}).$promise;

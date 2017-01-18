@@ -1,17 +1,17 @@
 import {
   Component,
   OnInit
-} from '@angular/core';
+} from "@angular/core";
 
 import {
   Validators,
   FormGroup,
   FormControl
-} from '@angular/forms';
+} from "@angular/forms";
 
 import {
   TodoService
-} from '../services/todo-service';
+} from "../services/todo-service";
 
 type Todo = {
   todoMessage: string;
@@ -19,9 +19,9 @@ type Todo = {
 }
 
 @Component({
-  selector: 'todo-cmp',
-  templateUrl: 'todo/templates/todo.html',
-  styleUrls: ['todo/styles/todo.css']
+  selector: "todo-cmp",
+  templateUrl: "todo/templates/todo.html",
+  styleUrls: ["todo/styles/todo.css"]
 })
 export class TodoCmp implements OnInit {
   title: string = "ng2do";

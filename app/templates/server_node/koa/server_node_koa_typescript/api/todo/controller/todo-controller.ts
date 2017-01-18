@@ -1,6 +1,6 @@
 "use strict";
 
-import * as TodoDAO from '../dao/todo-dao';
+import * as TodoDAO from "../dao/todo-dao";
 
 export default class TodoController {
   *getAll() {

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const _todoSchema = {
   todoMessage: {type: String, required: true, trim: true},

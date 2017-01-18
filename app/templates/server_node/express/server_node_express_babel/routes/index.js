@@ -1,6 +1,6 @@
-import TodoRoutes from '../api/todo/route/todo-route';
+import TodoRoutes from "../api/todo/route/todo-route";
 <% if (!differentStaticServer) { %>
-import StaticDispatcher from '../commons/static/index';
+import StaticDispatcher from "../commons/static/index";
 <% } %>
 
 export default class Routes {
@@ -8,10 +8,10 @@ export default class Routes {
      TodoRoutes.init(router);
      <% if (!differentStaticServer) { %>
      router
-       .route('*')
+       .route("*")
        .get(StaticDispatcher.sendIndex);
      <% } %>
 
-     app.use('/', router);
+     app.use("/", router);
    }
 }

@@ -1,18 +1,18 @@
 ;(function(ng) {
-  'use strict';
+  "use strict";
 
-  ng.module('<%= appName %>')
+  ng.module("<%= appName %>")
     .config([
-      '$routeProvider',
+      "$routeProvider",
       function($routeProvider) {
         $routeProvider
-          .when('/', {
-            templateUrl: 'todo/templates/todo.html',
-            controller: 'TodoController',
-            controllerAs: 'todoCtrl'
+          .when("/", {
+            templateUrl: "todo/templates/todo.html",
+            controller: "TodoController",
+            controllerAs: "todoCtrl"
           })
           .otherwise({
-            redirectTo: '/'
+            redirectTo: "/"
           });
       }
     ]);

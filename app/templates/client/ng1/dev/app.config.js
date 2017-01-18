@@ -1,9 +1,9 @@
 ;(function(ng) {
-  'use strict';
+  "use strict";
 
-  ng.module('<%= appName %>')
+  ng.module("<%= appName %>")
     .config([
-      '$locationProvider',
+      "$locationProvider",
       function($locationProvider) {
         <% if (!cordova) { %>
         $locationProvider.html5Mode(true);

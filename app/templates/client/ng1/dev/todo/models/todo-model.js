@@ -1,8 +1,8 @@
 ;(function(ng) {
-  'use strict';
+  "use strict";
 
-  ng.module('<%= appName %>')
-    .factory('Todo', [function() {
+  ng.module("<%= appName %>")
+    .factory("Todo", [function() {
       const MIN_ACCEPTED_LENGTH = 5;
       
       class Todo {

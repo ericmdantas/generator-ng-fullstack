@@ -1,8 +1,8 @@
 ;(function(ng) {
-  'use strict';
+  "use strict";
 
-  ng.module('<%= appName %>', [
-      'ngResource',
-      'ngRoute'
+  ng.module("<%= appName %>", [
+      "ngResource",
+      "ngRoute"
     ]);
 }(window.angular));

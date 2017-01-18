@@ -1,4 +1,4 @@
-import TodoDAO from '../dao/todo-dao';
+import TodoDAO from "../dao/todo-dao";
 
 export default class TodoController {
   static getAll(req, res) {

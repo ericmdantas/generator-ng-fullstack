@@ -1,6 +1,6 @@
 "use strict";
 
-import * as mongoose from 'mongoose';
+import * as mongoose from "mongoose";
 
 const _todoSchema = {
     todoMessage: {type: String, required: true, trim: true},

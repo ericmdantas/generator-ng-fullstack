@@ -1,22 +1,22 @@
 import {
   Inject,
   Injectable
-} from '@angular/core';
+} from "@angular/core";
 
 import {
   Observable
-} from 'rxjs/Observable';
+} from "rxjs/Observable";
 
 import {
   Http,
   Headers
-} from '@angular/http';
+} from "@angular/http";
 
-import 'rxjs/add/operator/map';
+import "rxjs/add/operator/map";
 
 @Injectable()
 export class TodoService {
-  static ENDPOINT: string = '/api/todos/:id';
+  static ENDPOINT: string = "/api/todos/:id";
 
   constructor(@Inject(Http) private _http: Http) {
 
@@ -24,7 +24,7 @@ export class TodoService {
 
   getAll():Observable<any> {
     return this._http
-               .get(TodoService.ENDPOINT.replace(/:id/, ''))
+               .get(TodoService.ENDPOINT.replace(/:id/, ""))
                .map((r) => r.json());
   }
 
@@ -39,10 +39,10 @@ export class TodoService {
 
     let headers = new Headers();
 
-    headers.append('Content-Type', 'application/json');
+    headers.append("Content-Type", "application/json");
 
     return this._http
-               .post(TodoService.ENDPOINT.replace(/:id/, ''), _messageStringified, {headers})
+               .post(TodoService.ENDPOINT.replace(/:id/, ""), _messageStringified, {headers})
                .map((r) => r.json());
   }
 

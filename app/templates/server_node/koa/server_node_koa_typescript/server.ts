@@ -1,19 +1,19 @@
 /// <reference path="../typings/index.d.ts" />
 
-'use strict';
+"use strict";
 
-if (process.env.NODE_ENV === 'production')
-    require('newrelic');
+if (process.env.NODE_ENV === "production")
+    require("newrelic");
 
 const PORT = process.env.PORT || 3333;
 
-import * as os from 'os';
-import * as http from 'http';
-import * as Koa from 'koa';
-import * as routerCb from 'koa-router';
-import * as RoutesConfig from './config/routes.conf';
-import * as DBConfig from './config/db.conf';
-import * as Routes from './routes/index';
+import * as os from "os";
+import * as http from "http";
+import * as Koa from "koa";
+import * as routerCb from "koa-router";
+import * as RoutesConfig from "./config/routes.conf";
+import * as DBConfig from "./config/db.conf";
+import * as Routes from "./routes/index";
 
 const router = routerCb();
 

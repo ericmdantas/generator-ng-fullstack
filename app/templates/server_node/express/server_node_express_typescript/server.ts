@@ -1,18 +1,18 @@
 /// <reference path="../typings/index.d.ts" />
 
-'use strict';
+"use strict";
 
-if (process.env.NODE_ENV === 'production')
-    require('newrelic');
+if (process.env.NODE_ENV === "production")
+    require("newrelic");
 
 var PORT = process.env.PORT || 3333;
 
-import * as express from 'express';
-import * as os from 'os';
-import * as http from 'http';
-import {RoutesConfig} from './config/routes.conf';
-import {DBConfig} from './config/db.conf';
-import {Routes} from './routes/index';
+import * as express from "express";
+import * as os from "os";
+import * as http from "http";
+import {RoutesConfig} from "./config/routes.conf";
+import {DBConfig} from "./config/db.conf";
+import {Routes} from "./routes/index";
 
 const app = express();
 

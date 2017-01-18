@@ -1,17 +1,17 @@
-'use strict';
+"use strict";
 
-if (process.env.NODE_ENV === 'production')
-    require('newrelic');
+if (process.env.NODE_ENV === "production")
+    require("newrelic");
 
 const PORT = process.env.PORT || 3333;
 
-const os = require('os');
-const https = require('https');
-const express = require('express');
-const fs = require('fs');
-const RoutesConfig = require('./config/routes.conf');
-const DBConfig = require('./config/db.conf');
-const Routes = require('./routes/index');
+const os = require("os");
+const https = require("https");
+const express = require("express");
+const fs = require("fs");
+const RoutesConfig = require("./config/routes.conf");
+const DBConfig = require("./config/db.conf");
+const Routes = require("./routes/index");
 
 const app = express();
 
@@ -20,8 +20,8 @@ DBConfig.init();
 Routes.init(app, express.Router());
 
 const opts = {
-  key: fs.readFileSync(__dirname + '/cert/server.key'),
-  cert: fs.readFileSync(__dirname + '/cert/server.crt')
+  key: fs.readFileSync(__dirname + "/cert/server.key"),
+  cert: fs.readFileSync(__dirname + "/cert/server.crt")
 }
 
 https.createServer(opts, app)

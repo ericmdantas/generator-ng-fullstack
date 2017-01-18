@@ -3,7 +3,7 @@ import {
 } from "@angular/core";
 
 @Component({
-	selector: 'app',
+	selector: "app",
 	template: `
 		<router-outlet></router-outlet>
 	`

@@ -1,9 +1,9 @@
 "use strict";
 
-let mongoose = require('mongoose');
-const Promise = require('bluebird');
-const todoSchema = require('../model/todo-model');
-const _ = require('lodash');
+let mongoose = require("mongoose");
+const Promise = require("bluebird");
+const todoSchema = require("../model/todo-model");
+const _ = require("lodash");
 
 todoSchema.statics.getAll = () => {
     return new Promise((resolve, reject) => {
@@ -20,7 +20,7 @@ todoSchema.statics.getAll = () => {
 todoSchema.statics.getById = (id) => {
     return new Promise((resolve, reject) => {
         if (!id) {
-          return reject(new TypeError('Id is not defined.'));
+          return reject(new TypeError("Id is not defined."));
         }
 
         Todo.findById(id)
@@ -34,7 +34,7 @@ todoSchema.statics.getById = (id) => {
 todoSchema.statics.createTodo = (todo) => {
     return new Promise((resolve, reject) => {
       if (!_.isObject(todo)) {
-          return reject(new TypeError('Todo is not a valid object.'));
+          return reject(new TypeError("Todo is not a valid object."));
       }
 
       let _todo = new Todo(todo);
@@ -49,7 +49,7 @@ todoSchema.statics.createTodo = (todo) => {
 todoSchema.statics.deleteTodo = (id) => {
     return new Promise((resolve, reject) => {
         if (!_.isString(id)) {
-            return reject(new TypeError('Id is not a valid string.'));
+            return reject(new TypeError("Id is not a valid string."));
         }
 
         Todo.findByIdAndRemove(id)
@@ -60,6 +60,6 @@ todoSchema.statics.deleteTodo = (id) => {
     });
 }
 
-const Todo  = mongoose.model('Todo', todoSchema);
+const Todo  = mongoose.model("Todo", todoSchema);
 
 module.exports = Todo;

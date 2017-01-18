@@ -1,5 +1,5 @@
 ;(function() {
-  Vue.component('todo-cmp', {
+  Vue.component("todo-cmp", {
     data() {
       return {
         title: "vue2do",
@@ -42,7 +42,7 @@
     },
     methods: {
       getAll() {
-        this.$http.get('/api/todos')
+        this.$http.get("/api/todos")
             .then((todos) => {
                return todos.json();
             })
@@ -51,7 +51,7 @@
             });
       },
       add(message) {
-        this.$http.post('/api/todos', message)
+        this.$http.post("/api/todos", message)
             .then((todo) => {
               return todo.json();
             })
@@ -61,7 +61,7 @@
             });
       },
       remove(id) {
-        this.$http.delete('/api/todos/' + id)
+        this.$http.delete("/api/todos/" + id)
             .then(() => {
               this.todos.forEach((todo, index) => {
                 if (todo._id === id) {

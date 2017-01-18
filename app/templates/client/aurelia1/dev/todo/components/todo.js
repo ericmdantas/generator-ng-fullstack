@@ -1,6 +1,6 @@
-import {TodoService} from '../services/todo-service';
-import {Todo} from '../models/todo';
-import {inject} from 'aurelia-framework';
+import {TodoService} from "../services/todo-service";
+import {Todo} from "../models/todo";
+import {inject} from "aurelia-framework";
 
 @inject(Todo, TodoService)
 export class TodoCmp {

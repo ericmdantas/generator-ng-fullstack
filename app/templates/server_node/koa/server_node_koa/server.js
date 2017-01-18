@@ -1,17 +1,17 @@
-'use strict';
+"use strict";
 
-if (process.env.NODE_ENV === 'production')
-    require('newrelic');
+if (process.env.NODE_ENV === "production")
+    require("newrelic");
 
 const PORT = process.env.PORT || 3333;
 
-const os = require('os');
-const http = require('http');
-const Koa = require('koa');
-const router = require('koa-router')();
-const RoutesConfig = require('./config/routes.conf');
-const DBConfig = require('./config/db.conf');
-const Routes = require('./routes/index');
+const os = require("os");
+const http = require("http");
+const Koa = require("koa");
+const router = require("koa-router")();
+const RoutesConfig = require("./config/routes.conf");
+const DBConfig = require("./config/db.conf");
+const Routes = require("./routes/index");
 
 const app = new Koa();
 
