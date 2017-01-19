@@ -4,13 +4,11 @@ import {Server as Karma} from "karma";
 import {tasks} from "./const";
 
 gulp.task(tasks.CLIENT_UNIT_TEST, (done) => {
-  let _karma = new Karma({
+  return new Karma({
     configFile: process.cwd() + "/karma.conf.js",
     browsers: ["Chrome"],
     singleRun: true
-  }, done);
-
-  _karma.start();
+  }, done).start();
 });
 
 gulp.task(tasks.CLIENT_COVERAGE, [tasks.CLIENT_UNIT_TEST], () => {
