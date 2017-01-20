@@ -258,7 +258,7 @@ describe('node -> koa', () => {
         ];
 
         let _secondCall = [
-          `server_node/koa/server_node_koa/server.js`,
+          `server/node/koa/server_node_koa/server.js`,
           `server/server.js`
         ];
 
@@ -299,7 +299,7 @@ describe('node -> koa', () => {
         ];
 
         let _secondCall = [
-          `server_node/koa/server_node_koa/server.js`,
+          `server/node/koa/server_node_koa/server.js`,
           `server/server.js`
         ];
 
@@ -309,22 +309,22 @@ describe('node -> koa', () => {
         ];
 
         let _fourthCall = [
-          'server_node/koa/server_node_koa/api/todo/controller/todo-controller_test.js',
+          'server/node/koa/server_node_koa/api/todo/controller/todo-controller_test.js',
           'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/koa/server_node_koa/api/todo/dao/todo-dao_test.js',
+          'server/node/koa/server_node_koa/api/todo/dao/todo-dao_test.js',
           'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/koa/server_node_koa/api/todo/model/todo-model_test.js',
+          'server/node/koa/server_node_koa/api/todo/model/todo-model_test.js',
           'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/koa/server_node_koa/api/todo/route/todo-route_test.js',
+          'server/node/koa/server_node_koa/api/todo/route/todo-route_test.js',
           'server/api/todo/route/todo-route_test.js'
         ];
 
@@ -360,7 +360,7 @@ describe('node -> koa', () => {
         ];
 
         let _secondCall = [
-          `server_node/koa/server_node_koa/server_https.js`,
+          `server/node/koa/server_node_koa/server_https.js`,
           `server/server.js`
         ];
 
@@ -402,7 +402,7 @@ describe('node -> koa', () => {
         ];
 
         let _secondCall = [
-          `server_node/koa/server_node_koa/server_https.js`,
+          `server/node/koa/server_node_koa/server_https.js`,
           `server/server.js`
         ];
 
@@ -412,22 +412,22 @@ describe('node -> koa', () => {
         ];
 
         let _fourthCall = [
-          'server_node/koa/server_node_koa/api/todo/controller/todo-controller_test.js',
+          'server/node/koa/server_node_koa/api/todo/controller/todo-controller_test.js',
           'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/koa/server_node_koa/api/todo/dao/todo-dao_test.js',
+          'server/node/koa/server_node_koa/api/todo/dao/todo-dao_test.js',
           'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/koa/server_node_koa/api/todo/model/todo-model_test.js',
+          'server/node/koa/server_node_koa/api/todo/model/todo-model_test.js',
           'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/koa/server_node_koa/api/todo/route/todo-route_test.js',
+          'server/node/koa/server_node_koa/api/todo/route/todo-route_test.js',
           'server/api/todo/route/todo-route_test.js'
         ];
 
@@ -675,7 +675,7 @@ describe('node -> koa', () => {
         ];
 
         let _secondCall = [
-          `server_node/koa/server_node_koa_babel/server.js`,
+          `server/node/koa/server_node_koa_babel/server.js`,
           `server/server.js`
         ];
 
@@ -716,7 +716,7 @@ describe('node -> koa', () => {
         ];
 
         let _secondCall = [
-          `server_node/koa/server_node_koa_babel/server.js`,
+          `server/node/koa/server_node_koa_babel/server.js`,
           `server/server.js`
         ];
 
@@ -726,22 +726,22 @@ describe('node -> koa', () => {
         ];
 
         let _fourthCall = [
-          'server_node/koa/server_node_koa_babel/api/todo/controller/todo-controller_test.js',
+          'server/node/koa/server_node_koa_babel/api/todo/controller/todo-controller_test.js',
           'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/koa/server_node_koa_babel/api/todo/dao/todo-dao_test.js',
+          'server/node/koa/server_node_koa_babel/api/todo/dao/todo-dao_test.js',
           'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/koa/server_node_koa_babel/api/todo/model/todo-model_test.js',
+          'server/node/koa/server_node_koa_babel/api/todo/model/todo-model_test.js',
           'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/koa/server_node_koa_babel/api/todo/route/todo-route_test.js',
+          'server/node/koa/server_node_koa_babel/api/todo/route/todo-route_test.js',
           'server/api/todo/route/todo-route_test.js'
         ];
 
@@ -776,7 +776,7 @@ describe('node -> koa', () => {
         ];
 
         let _secondCall = [
-          `server_node/koa/server_node_koa_babel/server_https.js`,
+          `server/node/koa/server_node_koa_babel/server_https.js`,
           `server/server.js`
         ];
 
@@ -818,7 +818,7 @@ describe('node -> koa', () => {
         ];
 
         let _secondCall = [
-          `server_node/koa/server_node_koa_babel/server_https.js`,
+          `server/node/koa/server_node_koa_babel/server_https.js`,
           `server/server.js`
         ];
 
@@ -828,22 +828,22 @@ describe('node -> koa', () => {
         ];
 
         let _fourthCall = [
-          'server_node/koa/server_node_koa_babel/api/todo/controller/todo-controller_test.js',
+          'server/node/koa/server_node_koa_babel/api/todo/controller/todo-controller_test.js',
           'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/koa/server_node_koa_babel/api/todo/dao/todo-dao_test.js',
+          'server/node/koa/server_node_koa_babel/api/todo/dao/todo-dao_test.js',
           'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/koa/server_node_koa_babel/api/todo/model/todo-model_test.js',
+          'server/node/koa/server_node_koa_babel/api/todo/model/todo-model_test.js',
           'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/koa/server_node_koa_babel/api/todo/route/todo-route_test.js',
+          'server/node/koa/server_node_koa_babel/api/todo/route/todo-route_test.js',
           'server/api/todo/route/todo-route_test.js'
         ];
 
@@ -1080,7 +1080,7 @@ describe('node -> koa', () => {
         _n.copyForMainGenerator();
 
         let _templateCall = [
-          `server_node/koa/server_node_koa_typescript/server.ts`,
+          `server/node/koa/server_node_koa_typescript/server.ts`,
           'server/server.ts'
         ];
 
@@ -1134,7 +1134,7 @@ describe('node -> koa', () => {
         _n.copyForMainGenerator();
 
         let _templateCall = [
-          `server_node/koa/server_node_koa_typescript/server.ts`,
+          `server/node/koa/server_node_koa_typescript/server.ts`,
           'server/server.ts'
         ];
 
@@ -1159,22 +1159,22 @@ describe('node -> koa', () => {
         ];
 
         let _fifthCall = [
-          'server_node/koa/server_node_koa_typescript/api/todo/controller/todo-controller_test.js',
+          'server/node/koa/server_node_koa_typescript/api/todo/controller/todo-controller_test.js',
           'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/koa/server_node_koa_typescript/api/todo/dao/todo-dao_test.js',
+          'server/node/koa/server_node_koa_typescript/api/todo/dao/todo-dao_test.js',
           'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _seventhCall = [
-          'server_node/koa/server_node_koa_typescript/api/todo/model/todo-model_test.js',
+          'server/node/koa/server_node_koa_typescript/api/todo/model/todo-model_test.js',
           'server/api/todo/model/todo-model_test.js'
         ];
 
         let _eighthCall =  [
-          'server_node/koa/server_node_koa_typescript/api/todo/route/todo-route_test.js',
+          'server/node/koa/server_node_koa_typescript/api/todo/route/todo-route_test.js',
           'server/api/todo/route/todo-route_test.js'
         ];
 
@@ -1207,7 +1207,7 @@ describe('node -> koa', () => {
         _n.copyForMainGenerator();
 
         let _templateCall = [
-          `server_node/koa/server_node_koa_typescript/server_https.ts`,
+          `server/node/koa/server_node_koa_typescript/server_https.ts`,
           'server/server.ts'
         ];
 
@@ -1262,7 +1262,7 @@ describe('node -> koa', () => {
         _n.copyForMainGenerator();
 
         let _templateCall = [
-          `server_node/koa/server_node_koa_typescript/server_https.ts`,
+          `server/node/koa/server_node_koa_typescript/server_https.ts`,
           'server/server.ts'
         ];
 
@@ -1287,22 +1287,22 @@ describe('node -> koa', () => {
         ];
 
         let _fifthCall = [
-          'server_node/koa/server_node_koa_typescript/api/todo/controller/todo-controller_test.js',
+          'server/node/koa/server_node_koa_typescript/api/todo/controller/todo-controller_test.js',
           'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/koa/server_node_koa_typescript/api/todo/dao/todo-dao_test.js',
+          'server/node/koa/server_node_koa_typescript/api/todo/dao/todo-dao_test.js',
           'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _seventhCall = [
-          'server_node/koa/server_node_koa_typescript/api/todo/model/todo-model_test.js',
+          'server/node/koa/server_node_koa_typescript/api/todo/model/todo-model_test.js',
           'server/api/todo/model/todo-model_test.js'
         ];
 
         let _eighthCall =  [
-          'server_node/koa/server_node_koa_typescript/api/todo/route/todo-route_test.js',
+          'server/node/koa/server_node_koa_typescript/api/todo/route/todo-route_test.js',
           'server/api/todo/route/todo-route_test.js'
         ];
 

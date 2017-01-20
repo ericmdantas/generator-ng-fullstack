@@ -258,7 +258,7 @@ describe('node -> express', () => {
         ];
 
         let _secondCall = [
-          `server_node/express/server_node_express/server.js`,
+          `server/node/express/server_node_express/server.js`,
           `server/server.js`
         ];
 
@@ -299,7 +299,7 @@ describe('node -> express', () => {
         ];
 
         let _secondCall = [
-          `server_node/express/server_node_express/server.js`,
+          `server/node/express/server_node_express/server.js`,
           `server/server.js`
         ];
 
@@ -309,22 +309,22 @@ describe('node -> express', () => {
         ];
 
         let _fourthCall = [
-          'server_node/express/server_node_express/api/todo/controller/todo-controller_test.js',
+          'server/node/express/server_node_express/api/todo/controller/todo-controller_test.js',
           'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/express/server_node_express/api/todo/dao/todo-dao_test.js',
+          'server/node/express/server_node_express/api/todo/dao/todo-dao_test.js',
           'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/express/server_node_express/api/todo/model/todo-model_test.js',
+          'server/node/express/server_node_express/api/todo/model/todo-model_test.js',
           'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/express/server_node_express/api/todo/route/todo-route_test.js',
+          'server/node/express/server_node_express/api/todo/route/todo-route_test.js',
           'server/api/todo/route/todo-route_test.js'
         ];
 
@@ -359,7 +359,7 @@ describe('node -> express', () => {
         ];
 
         let _secondCall = [
-          `server_node/express/server_node_express/server_https.js`,
+          `server/node/express/server_node_express/server_https.js`,
           `server/server.js`
         ];
 
@@ -401,7 +401,7 @@ describe('node -> express', () => {
         ];
 
         let _secondCall = [
-          `server_node/express/server_node_express/server_https.js`,
+          `server/node/express/server_node_express/server_https.js`,
           `server/server.js`
         ];
 
@@ -411,22 +411,22 @@ describe('node -> express', () => {
         ];
 
         let _fourthCall = [
-          'server_node/express/server_node_express/api/todo/controller/todo-controller_test.js',
+          'server/node/express/server_node_express/api/todo/controller/todo-controller_test.js',
           'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/express/server_node_express/api/todo/dao/todo-dao_test.js',
+          'server/node/express/server_node_express/api/todo/dao/todo-dao_test.js',
           'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/express/server_node_express/api/todo/model/todo-model_test.js',
+          'server/node/express/server_node_express/api/todo/model/todo-model_test.js',
           'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/express/server_node_express/api/todo/route/todo-route_test.js',
+          'server/node/express/server_node_express/api/todo/route/todo-route_test.js',
           'server/api/todo/route/todo-route_test.js'
         ];
 
@@ -674,7 +674,7 @@ describe('node -> express', () => {
         ];
 
         let _secondCall = [
-          `server_node/express/server_node_express_babel/server.js`,
+          `server/node/express/server_node_express_babel/server.js`,
           `server/server.js`
         ];
 
@@ -715,7 +715,7 @@ describe('node -> express', () => {
         ];
 
         let _secondCall = [
-          `server_node/express/server_node_express_babel/server.js`,
+          `server/node/express/server_node_express_babel/server.js`,
           `server/server.js`
         ];
 
@@ -725,22 +725,22 @@ describe('node -> express', () => {
         ];
 
         let _fourthCall = [
-          'server_node/express/server_node_express_babel/api/todo/controller/todo-controller_test.js',
+          'server/node/express/server_node_express_babel/api/todo/controller/todo-controller_test.js',
           'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/express/server_node_express_babel/api/todo/dao/todo-dao_test.js',
+          'server/node/express/server_node_express_babel/api/todo/dao/todo-dao_test.js',
           'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/express/server_node_express_babel/api/todo/model/todo-model_test.js',
+          'server/node/express/server_node_express_babel/api/todo/model/todo-model_test.js',
           'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/express/server_node_express_babel/api/todo/route/todo-route_test.js',
+          'server/node/express/server_node_express_babel/api/todo/route/todo-route_test.js',
           'server/api/todo/route/todo-route_test.js'
         ];
 
@@ -775,7 +775,7 @@ describe('node -> express', () => {
         ];
 
         let _secondCall = [
-          `server_node/express/server_node_express_babel/server_https.js`,
+          `server/node/express/server_node_express_babel/server_https.js`,
           `server/server.js`
         ];
 
@@ -817,7 +817,7 @@ describe('node -> express', () => {
         ];
 
         let _secondCall = [
-          `server_node/express/server_node_express_babel/server_https.js`,
+          `server/node/express/server_node_express_babel/server_https.js`,
           `server/server.js`
         ];
 
@@ -827,22 +827,22 @@ describe('node -> express', () => {
         ];
 
         let _fourthCall = [
-          'server_node/express/server_node_express_babel/api/todo/controller/todo-controller_test.js',
+          'server/node/express/server_node_express_babel/api/todo/controller/todo-controller_test.js',
           'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _fifthCall = [
-          'server_node/express/server_node_express_babel/api/todo/dao/todo-dao_test.js',
+          'server/node/express/server_node_express_babel/api/todo/dao/todo-dao_test.js',
           'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/express/server_node_express_babel/api/todo/model/todo-model_test.js',
+          'server/node/express/server_node_express_babel/api/todo/model/todo-model_test.js',
           'server/api/todo/model/todo-model_test.js'
         ];
 
         let _seventhCall =  [
-          'server_node/express/server_node_express_babel/api/todo/route/todo-route_test.js',
+          'server/node/express/server_node_express_babel/api/todo/route/todo-route_test.js',
           'server/api/todo/route/todo-route_test.js'
         ];
 
@@ -1085,7 +1085,7 @@ describe('node -> express', () => {
         _n.copyForMainGenerator();
 
         let _templateCall = [
-          `server_node/express/server_node_express_typescript/server.ts`,
+          `server/node/express/server_node_express_typescript/server.ts`,
           'server/server.ts'
         ];
 
@@ -1139,7 +1139,7 @@ describe('node -> express', () => {
         _n.copyForMainGenerator();
 
         let _templateCall = [
-          `server_node/express/server_node_express_typescript/server.ts`,
+          `server/node/express/server_node_express_typescript/server.ts`,
           'server/server.ts'
         ];
 
@@ -1164,22 +1164,22 @@ describe('node -> express', () => {
         ];
 
         let _fifthCall = [
-          'server_node/express/server_node_express_typescript/api/todo/controller/todo-controller_test.js',
+          'server/node/express/server_node_express_typescript/api/todo/controller/todo-controller_test.js',
           'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/express/server_node_express_typescript/api/todo/dao/todo-dao_test.js',
+          'server/node/express/server_node_express_typescript/api/todo/dao/todo-dao_test.js',
           'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _seventhCall = [
-          'server_node/express/server_node_express_typescript/api/todo/model/todo-model_test.js',
+          'server/node/express/server_node_express_typescript/api/todo/model/todo-model_test.js',
           'server/api/todo/model/todo-model_test.js'
         ];
 
         let _eighthCall =  [
-          'server_node/express/server_node_express_typescript/api/todo/route/todo-route_test.js',
+          'server/node/express/server_node_express_typescript/api/todo/route/todo-route_test.js',
           'server/api/todo/route/todo-route_test.js'
         ];
 
@@ -1212,7 +1212,7 @@ describe('node -> express', () => {
         _n.copyForMainGenerator();
 
         let _templateCall = [
-          `server_node/express/server_node_express_typescript/server_https.ts`,
+          `server/node/express/server_node_express_typescript/server_https.ts`,
           'server/server.ts'
         ];
 
@@ -1267,7 +1267,7 @@ describe('node -> express', () => {
         _n.copyForMainGenerator();
 
         let _templateCall = [
-          `server_node/express/server_node_express_typescript/server_https.ts`,
+          `server/node/express/server_node_express_typescript/server_https.ts`,
           'server/server.ts'
         ];
 
@@ -1292,22 +1292,22 @@ describe('node -> express', () => {
         ];
 
         let _fifthCall = [
-          'server_node/express/server_node_express_typescript/api/todo/controller/todo-controller_test.js',
+          'server/node/express/server_node_express_typescript/api/todo/controller/todo-controller_test.js',
           'server/api/todo/controller/todo-controller_test.js'
         ];
 
         let _sixthCall = [
-          'server_node/express/server_node_express_typescript/api/todo/dao/todo-dao_test.js',
+          'server/node/express/server_node_express_typescript/api/todo/dao/todo-dao_test.js',
           'server/api/todo/dao/todo-dao_test.js'
         ];
 
         let _seventhCall = [
-          'server_node/express/server_node_express_typescript/api/todo/model/todo-model_test.js',
+          'server/node/express/server_node_express_typescript/api/todo/model/todo-model_test.js',
           'server/api/todo/model/todo-model_test.js'
         ];
 
         let _eighthCall =  [
-          'server_node/express/server_node_express_typescript/api/todo/route/todo-route_test.js',
+          'server/node/express/server_node_express_typescript/api/todo/route/todo-route_test.js',
           'server/api/todo/route/todo-route_test.js'
         ];
 

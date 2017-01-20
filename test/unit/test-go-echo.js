@@ -138,7 +138,7 @@ describe('go', () => {
 
       _n.copyForMainGenerator();
 
-      let _firstCall = [`server_go/echo/main.go`,
+      let _firstCall = [`server/go/echo/main.go`,
         `server/main.go`, {
           appName: _newGenerator.appName,
           repoHostUrl: _newGenerator.repoHostUrl,
@@ -146,7 +146,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _secondCall = [`server_go/echo/routes/routes.go`,
+      let _secondCall = [`server/go/echo/routes/routes.go`,
         `server/routes/routes.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -154,7 +154,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _thirdCall = [`server_go/echo/routes/routes_test.go`,
+      let _thirdCall = [`server/go/echo/routes/routes_test.go`,
         `server/routes/routes_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -162,7 +162,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fourthCall = [`server_go/echo/config/dbconfig.go`,
+      let _fourthCall = [`server/go/echo/config/dbconfig.go`,
         `server/config/dbconfig.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -170,7 +170,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fifthCall = [`server_go/echo/config/dbconfig_test.go`,
+      let _fifthCall = [`server/go/echo/config/dbconfig_test.go`,
         `server/config/dbconfig_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -178,7 +178,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _sixthCall = [`server_go/echo/common/static/static.go`,
+      let _sixthCall = [`server/go/echo/common/static/static.go`,
         `server/common/static/static.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -186,7 +186,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _seventhCall = [`server_go/echo/common/static/static_test.go`,
+      let _seventhCall = [`server/go/echo/common/static/static_test.go`,
         `server/common/static/static_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -194,7 +194,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _eighthCall = [`server_go/echo/api/todo/route/todoroute.go`,
+      let _eighthCall = [`server/go/echo/api/todo/route/todoroute.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -202,7 +202,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _ninethCall = [`server_go/echo/api/todo/route/todoroute_test.go`,
+      let _ninethCall = [`server/go/echo/api/todo/route/todoroute_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -210,7 +210,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _tenthCall = [`server_go/echo/api/todo/model/todomodel.go`,
+      let _tenthCall = [`server/go/echo/api/todo/model/todomodel.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/model/todomodel.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -218,7 +218,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _eleventhCall = [`server_go/echo/api/todo/model/todomodel_test.go`,
+      let _eleventhCall = [`server/go/echo/api/todo/model/todomodel_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/model/todomodel_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -226,7 +226,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _twelfthCall = [`server_go/echo/api/todo/dao/tododao.go`,
+      let _twelfthCall = [`server/go/echo/api/todo/dao/tododao.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/dao/tododao.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -234,7 +234,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _thirteenthCall = [`server_go/echo/api/todo/dao/tododao_test.go`,
+      let _thirteenthCall = [`server/go/echo/api/todo/dao/tododao_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/dao/tododao_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -242,7 +242,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fourteenthCall = [`server_go/echo/api/todo/controller/todocontroller.go`,
+      let _fourteenthCall = [`server/go/echo/api/todo/controller/todocontroller.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/controller/todocontroller.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -250,7 +250,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fifteenfhCall = [`server_go/echo/api/todo/controller/todocontroller_test.go`,
+      let _fifteenfhCall = [`server/go/echo/api/todo/controller/todocontroller_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/controller/todocontroller_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -293,7 +293,7 @@ describe('go', () => {
 
       _n.copyForMainGenerator();
 
-      let _firstCall = [`server_go/echo/main_http2.go`,
+      let _firstCall = [`server/go/echo/main_http2.go`,
         `server/main.go`, {
           appName: _newGenerator.appName,
           repoHostUrl: _newGenerator.repoHostUrl,
@@ -301,7 +301,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _secondCall = [`server_go/echo/routes/routes.go`,
+      let _secondCall = [`server/go/echo/routes/routes.go`,
         `server/routes/routes.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -309,7 +309,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _thirdCall = [`server_go/echo/routes/routes_test.go`,
+      let _thirdCall = [`server/go/echo/routes/routes_test.go`,
         `server/routes/routes_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -317,7 +317,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fourthCall = [`server_go/echo/config/dbconfig.go`,
+      let _fourthCall = [`server/go/echo/config/dbconfig.go`,
         `server/config/dbconfig.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -325,7 +325,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fifthCall = [`server_go/echo/config/dbconfig_test.go`,
+      let _fifthCall = [`server/go/echo/config/dbconfig_test.go`,
         `server/config/dbconfig_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -333,7 +333,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _sixthCall = [`server_go/echo/common/static/static.go`,
+      let _sixthCall = [`server/go/echo/common/static/static.go`,
         `server/common/static/static.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -341,7 +341,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _seventhCall = [`server_go/echo/common/static/static_test.go`,
+      let _seventhCall = [`server/go/echo/common/static/static_test.go`,
         `server/common/static/static_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -349,7 +349,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _eighthCall = [`server_go/echo/api/todo/route/todoroute.go`,
+      let _eighthCall = [`server/go/echo/api/todo/route/todoroute.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -357,7 +357,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _ninethCall = [`server_go/echo/api/todo/route/todoroute_test.go`,
+      let _ninethCall = [`server/go/echo/api/todo/route/todoroute_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -365,7 +365,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _tenthCall = [`server_go/echo/api/todo/model/todomodel.go`,
+      let _tenthCall = [`server/go/echo/api/todo/model/todomodel.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/model/todomodel.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -373,7 +373,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _eleventhCall = [`server_go/echo/api/todo/model/todomodel_test.go`,
+      let _eleventhCall = [`server/go/echo/api/todo/model/todomodel_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/model/todomodel_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -381,7 +381,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _twelfthCall = [`server_go/echo/api/todo/dao/tododao.go`,
+      let _twelfthCall = [`server/go/echo/api/todo/dao/tododao.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/dao/tododao.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -389,7 +389,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _thirteenthCall = [`server_go/echo/api/todo/dao/tododao_test.go`,
+      let _thirteenthCall = [`server/go/echo/api/todo/dao/tododao_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/dao/tododao_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -397,7 +397,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fourteenthCall = [`server_go/echo/api/todo/controller/todocontroller.go`,
+      let _fourteenthCall = [`server/go/echo/api/todo/controller/todocontroller.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/controller/todocontroller.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -405,7 +405,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fifteenfhCall = [`server_go/echo/api/todo/controller/todocontroller_test.go`,
+      let _fifteenfhCall = [`server/go/echo/api/todo/controller/todocontroller_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/controller/todocontroller_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -448,7 +448,7 @@ describe('go', () => {
 
       _n.copyForMainGenerator();
 
-      let _firstCall = [`server_go/echo/main_http2.go`,
+      let _firstCall = [`server/go/echo/main_http2.go`,
         `server/main.go`, {
           appName: _newGenerator.appName,
           repoHostUrl: _newGenerator.repoHostUrl,
@@ -456,7 +456,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _secondCall = [`server_go/echo/routes/routes.go`,
+      let _secondCall = [`server/go/echo/routes/routes.go`,
         `server/routes/routes.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -464,7 +464,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _thirdCall = [`server_go/echo/routes/routes_test.go`,
+      let _thirdCall = [`server/go/echo/routes/routes_test.go`,
         `server/routes/routes_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -472,7 +472,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fourthCall = [`server_go/echo/config/dbconfig.go`,
+      let _fourthCall = [`server/go/echo/config/dbconfig.go`,
         `server/config/dbconfig.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -480,7 +480,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fifthCall = [`server_go/echo/config/dbconfig_test.go`,
+      let _fifthCall = [`server/go/echo/config/dbconfig_test.go`,
         `server/config/dbconfig_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -488,7 +488,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _sixthCall = [`server_go/echo/common/static/static.go`,
+      let _sixthCall = [`server/go/echo/common/static/static.go`,
         `server/common/static/static.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -496,7 +496,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _seventhCall = [`server_go/echo/common/static/static_test.go`,
+      let _seventhCall = [`server/go/echo/common/static/static_test.go`,
         `server/common/static/static_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -504,7 +504,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _eighthCall = [`server_go/echo/api/todo/route/todoroute.go`,
+      let _eighthCall = [`server/go/echo/api/todo/route/todoroute.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -512,7 +512,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _ninethCall = [`server_go/echo/api/todo/route/todoroute_test.go`,
+      let _ninethCall = [`server/go/echo/api/todo/route/todoroute_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -520,7 +520,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _tenthCall = [`server_go/echo/api/todo/model/todomodel.go`,
+      let _tenthCall = [`server/go/echo/api/todo/model/todomodel.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/model/todomodel.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -528,7 +528,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _eleventhCall = [`server_go/echo/api/todo/model/todomodel_test.go`,
+      let _eleventhCall = [`server/go/echo/api/todo/model/todomodel_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/model/todomodel_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -536,7 +536,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _twelfthCall = [`server_go/echo/api/todo/dao/tododao.go`,
+      let _twelfthCall = [`server/go/echo/api/todo/dao/tododao.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/dao/tododao.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -544,7 +544,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _thirteenthCall = [`server_go/echo/api/todo/dao/tododao_test.go`,
+      let _thirteenthCall = [`server/go/echo/api/todo/dao/tododao_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/dao/tododao_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -552,7 +552,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fourteenthCall = [`server_go/echo/api/todo/controller/todocontroller.go`,
+      let _fourteenthCall = [`server/go/echo/api/todo/controller/todocontroller.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/controller/todocontroller.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -560,7 +560,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fifteenfhCall = [`server_go/echo/api/todo/controller/todocontroller_test.go`,
+      let _fifteenfhCall = [`server/go/echo/api/todo/controller/todocontroller_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/controller/todocontroller_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -604,7 +604,7 @@ describe('go', () => {
 
       _n.copyForMainGenerator();
 
-      let _firstCall = [`server_go/echo/main_http2.go`,
+      let _firstCall = [`server/go/echo/main_http2.go`,
         `server/main.go`, {
           appName: _newGenerator.appName,
           repoHostUrl: _newGenerator.repoHostUrl,
@@ -612,7 +612,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _secondCall = [`server_go/echo/routes/routes.go`,
+      let _secondCall = [`server/go/echo/routes/routes.go`,
         `server/routes/routes.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -620,7 +620,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _thirdCall = [`server_go/echo/routes/routes_test.go`,
+      let _thirdCall = [`server/go/echo/routes/routes_test.go`,
         `server/routes/routes_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -628,7 +628,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fourthCall = [`server_go/echo/config/dbconfig.go`,
+      let _fourthCall = [`server/go/echo/config/dbconfig.go`,
         `server/config/dbconfig.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -636,7 +636,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fifthCall = [`server_go/echo/config/dbconfig_test.go`,
+      let _fifthCall = [`server/go/echo/config/dbconfig_test.go`,
         `server/config/dbconfig_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -644,7 +644,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _eighthCall = [`server_go/echo/api/todo/route/todoroute.go`,
+      let _eighthCall = [`server/go/echo/api/todo/route/todoroute.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -652,7 +652,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _ninethCall = [`server_go/echo/api/todo/route/todoroute_test.go`,
+      let _ninethCall = [`server/go/echo/api/todo/route/todoroute_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -660,7 +660,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _tenthCall = [`server_go/echo/api/todo/model/todomodel.go`,
+      let _tenthCall = [`server/go/echo/api/todo/model/todomodel.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/model/todomodel.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -668,7 +668,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _eleventhCall = [`server_go/echo/api/todo/model/todomodel_test.go`,
+      let _eleventhCall = [`server/go/echo/api/todo/model/todomodel_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/model/todomodel_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -676,7 +676,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _twelfthCall = [`server_go/echo/api/todo/dao/tododao.go`,
+      let _twelfthCall = [`server/go/echo/api/todo/dao/tododao.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/dao/tododao.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -684,7 +684,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _thirteenthCall = [`server_go/echo/api/todo/dao/tododao_test.go`,
+      let _thirteenthCall = [`server/go/echo/api/todo/dao/tododao_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/dao/tododao_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -692,7 +692,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fourteenthCall = [`server_go/echo/api/todo/controller/todocontroller.go`,
+      let _fourteenthCall = [`server/go/echo/api/todo/controller/todocontroller.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/controller/todocontroller.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -700,7 +700,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fifteenfhCall = [`server_go/echo/api/todo/controller/todocontroller_test.go`,
+      let _fifteenfhCall = [`server/go/echo/api/todo/controller/todocontroller_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/controller/todocontroller_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -742,7 +742,7 @@ describe('go', () => {
 
       _n.copyForMainGenerator();
 
-      let _firstCall = [`server_go/echo/main_http2.go`,
+      let _firstCall = [`server/go/echo/main_http2.go`,
         `server/main.go`, {
           appName: _newGenerator.appName,
           repoHostUrl: _newGenerator.repoHostUrl,
@@ -750,7 +750,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _secondCall = [`server_go/echo/routes/routes.go`,
+      let _secondCall = [`server/go/echo/routes/routes.go`,
         `server/routes/routes.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -758,7 +758,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _thirdCall = [`server_go/echo/routes/routes_test.go`,
+      let _thirdCall = [`server/go/echo/routes/routes_test.go`,
         `server/routes/routes_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -766,7 +766,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fourthCall = [`server_go/echo/config/dbconfig.go`,
+      let _fourthCall = [`server/go/echo/config/dbconfig.go`,
         `server/config/dbconfig.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -774,7 +774,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fifthCall = [`server_go/echo/config/dbconfig_test.go`,
+      let _fifthCall = [`server/go/echo/config/dbconfig_test.go`,
         `server/config/dbconfig_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -782,7 +782,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _eighthCall = [`server_go/echo/api/todo/route/todoroute.go`,
+      let _eighthCall = [`server/go/echo/api/todo/route/todoroute.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -790,7 +790,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _ninethCall = [`server_go/echo/api/todo/route/todoroute_test.go`,
+      let _ninethCall = [`server/go/echo/api/todo/route/todoroute_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/route/todoroute_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -798,7 +798,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _tenthCall = [`server_go/echo/api/todo/model/todomodel.go`,
+      let _tenthCall = [`server/go/echo/api/todo/model/todomodel.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/model/todomodel.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -806,7 +806,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _eleventhCall = [`server_go/echo/api/todo/model/todomodel_test.go`,
+      let _eleventhCall = [`server/go/echo/api/todo/model/todomodel_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/model/todomodel_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -814,7 +814,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _twelfthCall = [`server_go/echo/api/todo/dao/tododao.go`,
+      let _twelfthCall = [`server/go/echo/api/todo/dao/tododao.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/dao/tododao.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -822,7 +822,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _thirteenthCall = [`server_go/echo/api/todo/dao/tododao_test.go`,
+      let _thirteenthCall = [`server/go/echo/api/todo/dao/tododao_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/dao/tododao_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -830,7 +830,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fourteenthCall = [`server_go/echo/api/todo/controller/todocontroller.go`,
+      let _fourteenthCall = [`server/go/echo/api/todo/controller/todocontroller.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/controller/todocontroller.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
@@ -838,7 +838,7 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      let _fifteenfhCall = [`server_go/echo/api/todo/controller/todocontroller_test.go`,
+      let _fifteenfhCall = [`server/go/echo/api/todo/controller/todocontroller_test.go`,
         `${knownPaths.PATH_SERVER_FEATURES}todo/controller/todocontroller_test.go`, {
           userNameSpace: _newGenerator.userNameSpace,
           appName: _newGenerator.appName,
