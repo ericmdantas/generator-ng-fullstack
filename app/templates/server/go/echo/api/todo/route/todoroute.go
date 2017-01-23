@@ -2,7 +2,7 @@ package todoroute
 
 import (
 	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/controller"
-	"github.com/labstack/echo"
+	"gopkg.in/labstack/echo.v2"
 )
 
 func Init(e *echo.Echo) {

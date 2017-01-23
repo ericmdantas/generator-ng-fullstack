@@ -6,8 +6,8 @@ import (
 	<% if (!differentStaticServer) {%>
 	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/common/static"
 	<% } %>
-	"github.com/labstack/echo"
-	"github.com/labstack/echo/middleware"
+	"gopkg.in/labstack/echo.v2"
+	"gopkg.in/labstack/echo.v2/middleware"
 )
 
 func Init(e *echo.Echo) {
