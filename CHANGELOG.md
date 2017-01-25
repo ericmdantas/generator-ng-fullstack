@@ -1,6 +1,31 @@
 ## [1.9](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.9.0)
 
-Stuff for 1.9. Coming soon.
+### New Stuff
+
+#### Server
+
+- Added Koa web framework for Node servers
+- Added Gin web framework for Go servers
+- Added Nodemon as a module to restart the Node server when the files change
+
+
+#### Client
+
+- Added Less and Sass support for the client side
+- Added Aurelia as a client framework
+- Added Vue as a client framework
+- Added compilation/uglify step with Babili
+
+
+#### Fullstack
+
+- Added an option to choose a different git server, other than github
+- Added option to work with tests and source code side by side
+
+
+### Breaking change
+
+- When in dev, always use `npm run dev` to start both server and client
 
 ## [1.8](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.8.0)
 
