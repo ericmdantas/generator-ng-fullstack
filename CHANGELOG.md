@@ -2,19 +2,19 @@
 
 ### New Stuff
 
-#### Server
-
-- Added Koa web framework for Node servers
-- Added Gin web framework for Go servers
-- Added Nodemon as a module to restart the Node server when the files change
-
-
 #### Client
 
 - Added Less and Sass support for the client side
 - Added Aurelia as a client framework
 - Added Vue as a client framework
 - Added compilation/uglify step with Babili
+
+
+#### Server
+
+- Added Koa web framework for Node servers
+- Added Gin web framework for Go servers
+- Added Nodemon as a module to restart the Node server when the files change
 
 
 #### Fullstack
