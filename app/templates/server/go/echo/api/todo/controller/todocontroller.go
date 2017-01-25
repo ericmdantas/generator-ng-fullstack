@@ -3,7 +3,7 @@ package todocontroller
 import (
 	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/dao"
 	todo "<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/model"
-	"gopkg.in/labstack/echo.v2"
+	"gopkg.in/labstack/echo.v3"
 	"net/http"
 )
 

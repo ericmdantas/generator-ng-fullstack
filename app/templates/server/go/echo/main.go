@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/routes"
-	"gopkg.in/labstack/echo.v2"
+	"gopkg.in/labstack/echo.v3"
 )
 
 const port string = ":3333"

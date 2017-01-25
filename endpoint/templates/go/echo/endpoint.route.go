@@ -2,7 +2,7 @@ package <%= nameLowerCase %>routes
 
 import (
 	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/<%= feature %>/controller"
-	"gopkg.in/labstack/echo.v2"
+	"gopkg.in/labstack/echo.v3"
 )
 
 func Init(e *echo.Echo) {

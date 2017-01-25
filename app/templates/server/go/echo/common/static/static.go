@@ -3,8 +3,8 @@ package static
 import (
 	"os"
 
-	"gopkg.in/labstack/echo.v2"
-	"gopkg.in/labstack/echo.v2/middleware"
+	"gopkg.in/labstack/echo.v3"
+	"gopkg.in/labstack/echo.v3/middleware"
 )
 
 func Init(e *echo.Echo) {
