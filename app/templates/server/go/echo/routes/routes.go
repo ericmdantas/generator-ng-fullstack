@@ -14,7 +14,7 @@ func Init(e *echo.Echo) {
 	e.Pre(middleware.RemoveTrailingSlash())
 	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
 		Level: gzip.BestCompression,
-	})	
+	}))	
 	<% if (!differentStaticServer) {%>
 	static.Init(e)
 	<% } %>
