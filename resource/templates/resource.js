@@ -6,11 +6,11 @@
       '$resource',
       function($resource) {
         const _url = '/api/<%= name %>/:id';
-        
+
         const _params = {
           id: '@id'
         };
-        
+
         const _method = {
           update: {
             method: 'PUT',
@@ -20,7 +20,7 @@
             method: 'POST',
             isArray: false
           },
-          get: {
+          getAll: {
             method: 'GET',
             isArray: true
           },
