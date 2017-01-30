@@ -4,7 +4,7 @@ const utils = require('../utils/utils');
 const knownPaths = require('../utils/known_paths');
 const yoUtils = require('../utils/yeoman-utils');
 const {
-  copyStyleForSubGenerator, 
+  copyStyleForSubGenerator,
   copyStyleForMainGenerator,
   normalizeStylePreprocessor
 } = require('./style');
@@ -70,13 +70,13 @@ class Angular1 {
   copyController(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'controller_client.js',
+    this.generator.template(_pathTemplate + 'ng1/controller_client.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/controllers/${this.generator.name}.js`, {
         name: this.generator.name,
         appName: this.generator.appName
     });
 
-    this.generator.template(_pathTemplate + 'controller_client_test.js',
+    this.generator.template(_pathTemplate + 'ng1/controller_client_test.js',
       `${this.testsPath + this.generator.options.feature}/controllers/${this.generator.name}_test.js`, {
         name: this.generator.name,
         nameLowerCase: this.generator.name.toLowerCase(),
@@ -152,7 +152,7 @@ class Angular1 {
   copyDecorator(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'decorator.js',
+    this.generator.template(_pathTemplate + 'ng1/decorator.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/decorator/${this.generator.name}.js`, {
         appName: this.generator.appName
     });
@@ -190,7 +190,7 @@ class Angular1 {
   copyResource(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'resource.js',
+    this.generator.template(_pathTemplate + 'ng1/resource.js',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/resources/${this.generator.name}.js`, {
         name: this.generator.name,
         appName: this.generator.appName
@@ -341,12 +341,12 @@ class Angular2 {
   copyPipe(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
-    this.generator.template(_pathTemplate + 'pipe.ts',
+    this.generator.template(_pathTemplate + 'ng2/pipe.ts',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/pipes/${this.generator.name}.ts`, {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'pipe_test.js',
+    this.generator.template(_pathTemplate + 'ng2/pipe_test.js',
       `${this.testsPath + this.generator.options.feature}/pipes/${this.generator.name}_test.js`, {
         name: this.generator.name
     });

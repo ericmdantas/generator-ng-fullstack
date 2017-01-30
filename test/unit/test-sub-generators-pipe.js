@@ -96,13 +96,13 @@ describe('PipeSubGenerator', () => {
       _fsg.writing();
 
       let _firstCall = [
-        'pipe.ts',
+        'ng2/pipe.ts',
         knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/pipes/' + _gen.name + '.ts', {
           name: _gen.name
         }];
 
       let _secondCall = [
-        'pipe_test.js',
+        'ng2/pipe_test.js',
         knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/pipes/' + _gen.name + '_test.js', {
           name: _gen.name
         }];
@@ -133,13 +133,13 @@ describe('PipeSubGenerator', () => {
       _fsg.writing();
 
       let _firstCall = [
-        'pipe.ts',
+        'ng2/pipe.ts',
         knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/pipes/' + _gen.name + '.ts', {
           name: _gen.name
         }];
 
       let _secondCall = [
-        'pipe_test.js',
+        'ng2/pipe_test.js',
         knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/pipes/' + _gen.name + '_test.js', {
           name: _gen.name
         }];

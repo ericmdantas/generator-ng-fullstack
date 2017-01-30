@@ -97,14 +97,14 @@ describe('ControllerSubGenerator', () => {
       let _csg = new ControllerSubGenerator(_gen);
 
       let _firstCall = [
-        'controller_client.js',
+        'ng1/controller_client.js',
         knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '.js', {
           name: _gen.name,
           appName: _gen.appName
         }];
 
       let _secondCall = [
-        'controller_client_test.js',
+        'ng1/controller_client_test.js',
         knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/controllers/' + _gen.name + '_test.js', {
           name: _gen.name,
           nameLowerCase: _gen.name.toLowerCase(),
@@ -140,14 +140,14 @@ describe('ControllerSubGenerator', () => {
       let _csg = new ControllerSubGenerator(_gen);
 
       let _firstCall = [
-        'controller_client.js',
+        'ng1/controller_client.js',
         knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '.js', {
           name: _gen.name,
           appName: _gen.appName
         }];
 
       let _secondCall = [
-        'controller_client_test.js',
+        'ng1/controller_client_test.js',
         knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/controllers/' + _gen.name + '_test.js', {
           name: _gen.name,
           nameLowerCase: _gen.name.toLowerCase(),

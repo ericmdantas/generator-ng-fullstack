@@ -96,7 +96,7 @@ describe('DecoratorSubGenerator', () => {
 
       _dsg.writing();
 
-      let _firstCall = ['decorator.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/decorator/' + _gen.name + '.js', {appName: _gen.appName}];
+      let _firstCall = ['ng1/decorator.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/decorator/' + _gen.name + '.js', {appName: _gen.appName}];
 
       expect(_dsg.wrapper.writing).to.have.been.called;
       expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
