@@ -1,6 +1,7 @@
 import {expect} from 'chai';
 import sinon from 'sinon';
 import knownPaths from '../../_ng/utils/known_paths';
+import utils from '../../_ng/utils/utils';
 
 import {PipeSubGenerator} from '../../_ng/client/sub_generators_pipe';
 
@@ -98,13 +99,15 @@ describe('PipeSubGenerator', () => {
       let _firstCall = [
         'ng2/pipe.ts',
         knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/pipes/' + _gen.name + '.ts', {
-          name: _gen.name
+          name: _gen.name,
+          nameCapitalized: utils.capitalizeFirst(_gen.name)
         }];
 
       let _secondCall = [
         'ng2/pipe_test.js',
         knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/pipes/' + _gen.name + '_test.js', {
-          name: _gen.name
+          name: _gen.name,
+          nameCapitalized: utils.capitalizeFirst(_gen.name)
         }];
 
       expect(_fsg.wrapper.writing).to.have.been.called;
@@ -135,13 +138,15 @@ describe('PipeSubGenerator', () => {
       let _firstCall = [
         'ng2/pipe.ts',
         knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/pipes/' + _gen.name + '.ts', {
-          name: _gen.name
+          name: _gen.name,
+          nameCapitalized: utils.capitalizeFirst(_gen.name)
         }];
 
       let _secondCall = [
         'ng2/pipe_test.js',
         knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/pipes/' + _gen.name + '_test.js', {
-          name: _gen.name
+          name: _gen.name,
+          nameCapitalized: utils.capitalizeFirst(_gen.name)
         }];
 
       expect(_fsg.wrapper.writing).to.have.been.called;

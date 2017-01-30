@@ -343,12 +343,14 @@ class Angular2 {
 
     this.generator.template(_pathTemplate + 'ng2/pipe.ts',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/pipes/${this.generator.name}.ts`, {
-        name: this.generator.name
+        name: this.generator.name,
+        nameCapitalized: utils.capitalizeFirst(this.generator.name)
     });
 
     this.generator.template(_pathTemplate + 'ng2/pipe_test.js',
       `${this.testsPath + this.generator.options.feature}/pipes/${this.generator.name}_test.js`, {
-        name: this.generator.name
+        name: this.generator.name,
+        nameCapitalized: utils.capitalizeFirst(this.generator.name)
     });
   }
 
