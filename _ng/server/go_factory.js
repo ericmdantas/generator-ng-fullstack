@@ -1,7 +1,7 @@
 "use strict";
 
-const GoEcho = require('./go_echo').GoEcho;
-const GoGin = require('./go_gin').GoGin;
+const {GoEcho} = require('./go_echo');
+const {GoGin} = require('./go_gin');
 
 exports.GoFactory = class GoFactory {
   static tokensWebFramework() {
@@ -14,7 +14,7 @@ exports.GoFactory = class GoFactory {
   static build(generator) {
     switch(generator.goWebFrameworkServer) {
       case GoFactory.tokensWebFramework().ECHO: return new GoEcho(generator);
-      case GoFactory.tokensWebFramework().GIN: return new GoGin(generator); 
+      case GoFactory.tokensWebFramework().GIN: return new GoGin(generator);
     }
   }
 };

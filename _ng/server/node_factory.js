@@ -1,12 +1,12 @@
 "use strict";
 
-const NodeExpressStandard = require('./node_express').NodeExpressStandard;
-const NodeExpressBabel = require('./node_express').NodeExpressBabel;
-const NodeExpressTypescript = require('./node_express').NodeExpressTypescript;
+const {NodeExpressStandard} = require('./node_express');
+const {NodeExpressBabel} = require('./node_express');
+const {NodeExpressTypescript} = require('./node_express');
 
-const NodeKoaStandard = require('./node_koa').NodeKoaStandard;
-const NodeKoaBabel = require('./node_koa').NodeKoaBabel;
-const NodeKoaTypescript = require('./node_koa').NodeKoaTypescript;
+const {NodeKoaStandard} = require('./node_koa');
+const {NodeKoaBabel} = require('./node_koa');
+const {NodeKoaTypescript} = require('./node_koa');
 
 exports.NodeFactory = class NodeFactory {
   static tokensCompiler() {

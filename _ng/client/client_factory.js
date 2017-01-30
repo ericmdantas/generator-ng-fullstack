@@ -1,8 +1,8 @@
 'use strict';
 
-const AngularFactory = require('./angular').AngularFactory;
-const VueFactory = require('./vue').VueFactory;
-const AureliaFactory = require('./aurelia').AureliaFactory;
+const {AngularFactory} = require('./angular');
+const {VueFactory} = require('./vue');
+const {AureliaFactory} = require('./aurelia');
 
 exports.ClientFactory = class ClientFactory {
   static tokens() {

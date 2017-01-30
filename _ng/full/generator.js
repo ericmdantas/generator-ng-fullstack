@@ -2,13 +2,13 @@
 
 const chalk = require('chalk');
 const yosay = require('yosay');
-const NodeFactory = require('../server/node_factory').NodeFactory;
-const GoFactory = require('../server/go_factory').GoFactory;
-const AngularFactory = require('../client/angular').AngularFactory;
-const AureliaFactory = require('../client/aurelia').AureliaFactory;
-const VueFactory = require('../client/vue').VueFactory;
-const ClientFactory = require('../client/client_factory').ClientFactory;
-const ServerFactory = require('../server/server_factory').ServerFactory;
+const {NodeFactory} = require('../server/node_factory');
+const {GoFactory} = require('../server/go_factory');
+const {AngularFactory} = require('../client/angular');
+const {AureliaFactory} = require('../client/aurelia');
+const {VueFactory} = require('../client/vue');
+const {ClientFactory} = require('../client/client_factory');
+const {ServerFactory} = require('../server/server_factory');
 
 exports.MainGenerator = class MainGenerator {
   constructor(gen) {

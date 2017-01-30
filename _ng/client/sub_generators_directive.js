@@ -1,10 +1,10 @@
 'use strict';
 
 const optionsParser = require('../utils/options_parser');
-const FeatureMissingError = require('../utils/errors').FeatureMissingError;
-const AngularFactory = require('./angular').AngularFactory;
-const AureliaFactory = require('./aurelia').AureliaFactory;
-const VueFactory = require('./vue').VueFactory;
+const {FeatureMissingError} = require('../utils/errors');
+const {AngularFactory} = require('./angular');
+const {AureliaFactory} = require('./aurelia');
+const {VueFactory} = require('./vue');
 
 exports.DirectiveSubGenerator = class DirectiveSubGenerator {
   constructor(generator) {
@@ -32,7 +32,7 @@ exports.DirectiveSubGenerator = class DirectiveSubGenerator {
 
     if ((_client === AngularFactory.tokens().NG1) || (_client === AngularFactory.tokens().NG2)) {
       return AngularFactory.build(this.wrapper.client, this.wrapper).copyDirective();
-    } 
+    }
 
     if (_client === VueFactory.tokens().VUE2) {
       return VueFactory.build(this.wrapper.client, this.wrapper).copyDirective();

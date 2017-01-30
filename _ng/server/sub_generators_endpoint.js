@@ -1,10 +1,10 @@
 "use strict";
 
 const optionsParser = require('../utils/options_parser');
-const ServerFactory = require('./server_factory').ServerFactory;
-const NodeFactory = require('./node_factory').NodeFactory;
-const GoFactory = require('./go_factory').GoFactory;
-const FeatureMissingError = require('../utils/errors').FeatureMissingError;
+const {ServerFactory} = require('./server_factory');
+const {NodeFactory} = require('./node_factory');
+const {GoFactory} = require('./go_factory');
+const {FeatureMissingError} = require('../utils/errors');
 
 exports.EndpointSubGenerator = class EndpointSubGenerator {
   constructor(generator) {

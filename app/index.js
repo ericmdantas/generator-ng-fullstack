@@ -1,7 +1,7 @@
 "use strict";
 
-const Base = require('yeoman-generator').Base;
-const MainGenerator = require('../_ng/full/generator').MainGenerator;
+const {Base} = require('yeoman-generator');
+const {MainGenerator} = require('../_ng/full/generator');
 
 module.exports = class NgFullstack extends Base {
     constructor(args, options, config) {

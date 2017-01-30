@@ -1,7 +1,7 @@
 'use strict';
 
-const Base = require('yeoman-generator').Base;
-const ModuleSubGenerator = require('../_ng/client/sub_generators_module').ModuleSubGenerator;
+const {Base} = require('yeoman-generator');
+const {ModuleSubGenerator} = require('../_ng/client/sub_generators_module');
 
 module.exports = class ModuleGenerator extends Base {
   constructor(args, options, config) {

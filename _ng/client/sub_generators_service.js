@@ -1,10 +1,10 @@
 'use strict';
 
 const optionsParser = require('../utils/options_parser');
-const FeatureMissingError = require('../utils/errors').FeatureMissingError;
-const AngularFactory = require('./angular').AngularFactory;
-const AureliaFactory = require('./aurelia').AureliaFactory;
-const VueFactory = require('./vue').VueFactory;
+const {FeatureMissingError} = require('../utils/errors');
+const {AngularFactory} = require('./angular');
+const {AureliaFactory} = require('./aurelia');
+const {VueFactory} = require('./vue');
 
 exports.ServiceSubGenerator = class ServiceSubGenerator {
   constructor(generator) {

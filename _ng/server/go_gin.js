@@ -1,6 +1,6 @@
 "use strict";
 
-const GoBase = require('./go_base').GoBase;
+const {GoBase} = require('./go_base');
 
 const SERVER_TOKEN = 'gin';
 

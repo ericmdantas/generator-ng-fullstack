@@ -1,9 +1,9 @@
 'use strict';
 
 const optionsParser = require('../utils/options_parser');
-const AngularFactory = require('./angular').AngularFactory;
-const FeatureMissingError = require('../utils/errors').FeatureMissingError;
-const ModuleDoesntImplementError = require('../utils/errors').ModuleDoesntImplementError;
+const {AngularFactory} = require('./angular');
+const {FeatureMissingError} = require('../utils/errors');
+const {ModuleDoesntImplementError} = require('../utils/errors');
 
 exports.PipeSubGenerator = class PipeSubGenerator {
   constructor(generator) {

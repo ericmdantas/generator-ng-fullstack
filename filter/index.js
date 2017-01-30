@@ -1,7 +1,7 @@
 'use strict';
 
-const Base = require('yeoman-generator').Base;
-const FilterSubGenerator = require('../_ng/client/sub_generators_filter').FilterSubGenerator;
+const {Base} = require('yeoman-generator');
+const {FilterSubGenerator} = require('../_ng/client/sub_generators_filter');
 
 module.exports = class FilterGenerator extends Base {
   constructor(args, options, config) {
