@@ -20,7 +20,7 @@
 
           <input type="text"
                  v-model="todoForm.todo.todoMessage"
-                 [class.todo-error]="!todoForm.todo.todoMessage"
+                 v-bind:class="{'todo-error': !todoForm.todo.todoMessage}"
                  placeholder="What do you have todo?"
                  autofocus />
 
@@ -29,7 +29,7 @@
         </form>
 
         <div class="todo-list">
-          <div v-for="todo in todos;"
+          <div v-for="todo in todos"
               class="todo-item"
               @click="remove(todo._id);">
             <p>{{todo.todoMessage}}</p>
