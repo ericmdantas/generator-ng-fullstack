@@ -67,6 +67,11 @@
     "koa-bodyparser": "^2.2.0",
     "koa-router": "^5.4.0",
     "koa-static": "^2.0.0", <% } %>
+  	"babel-register": "^6.7.2",
+    "babel-regenerator-runtime": "^6.5.0",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-es2016": "^6.0.11",
+    "babel-preset-stage-0": "^6.1.18",
     "newrelic": "^1.18.2"
   },
   "devDependencies": {
@@ -74,11 +79,6 @@
     "karma-ng-html2js-preprocessor": "^0.1.2",
     "del": "^2.2.1",
   	"gulp": "^3.9.0",
-  	"babel-register": "^6.7.2",
-    "babel-regenerator-runtime": "^6.5.0",
-    "babel-preset-es2015": "^6.1.18",
-    "babel-preset-es2016": "^6.0.11",
-    "babel-preset-stage-0": "^6.1.18",
     "protractor": "^3.1.0",
     "browser-sync": "^2.5.2",
     "require-dir": "^0.3.0",
