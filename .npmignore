@@ -1,8 +1,11 @@
 .idea
+node_modules
+coverage
+test
+
 .travis.yml
 .gitattributes
 .editorconfig
 .jshintrc
-node_modules
-coverage
-test
+
+yarn.lock
