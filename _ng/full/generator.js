@@ -54,7 +54,8 @@ exports.MainGenerator = class MainGenerator {
         clientOnly: _clientOnly,
         nodeWebFrameworkServer: this.wrapper.nodeWebFrameworkServer,
         testsSeparated: _testsSeparated,
-        stylePreprocessor: _stylePreprocessor
+        stylePreprocessor: _stylePreprocessor,
+        server: _server
       });
 
       this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
