@@ -3,76 +3,84 @@
   "version": "0.0.1",
   "main": "src/<%= app %>.js",
   "scripts": {
-    <% if (usesTypescript) { %> "preinstall": "typings install",
-    "postinstall": "tsc",
-    <% } %>
-    <% if (clientOnly) { %>"start": "aliv",
-    "dev": "aliv",
-    "test": "gulp client.unit_test",
-    "build-dist": "gulp client.build:dist"<%} else {%>
-    "start": "node server/index",
-    "watch": "gulp",
     <% if (usesTypescript) { %>
-    "dev": "tsc && concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
-    <% } else { %>
-    "dev": "concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
+      "preinstall": "typings install",
+      "postinstall": "tsc",
     <% } %>
-    "build-dev": "gulp client.build:dev",
-    "build-dist": "gulp client.build:dist",
-    "test-client": "gulp client.unit_test",
-    <% if (testsSeparated) { %>
-    "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
-    "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register",
-    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
-    <% } else { %>
-    "test-server": "mocha 'server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
-    "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register",
-    "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
-    <% } %>
+    <% if (clientOnly) { %>
+      "start": "aliv",
+      "dev": "aliv",
+      "test": "gulp client.unit_test",
+      "build-dist": "gulp client.build:dist"
+      <%} else {%>
+        "start": "node server/index",
+        "watch": "gulp",
+        <% if (usesTypescript) { %>
+          "dev": "tsc && concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
+          <% } else { %>
+            "dev": "concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
+          <% } %>
+
+        "build-dev": "gulp client.build:dev",
+        "build-dist": "gulp client.build:dist",
+        "test-client": "gulp client.unit_test",
+        <% if (testsSeparated) { %>
+          "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
+          "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register",
+          "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+        <% } else { %>
+          "test-server": "mocha 'server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
+          "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register",
+          "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+        <% } %>
     <% } %>
   },
   "dependencies": {
     <% if (!clientOnly) { %>"lodash": "^4.6.1",
-    "bluebird": "^3.3.4",
-    <% if (nodeWebFrameworkServer === "express") { %>
-    "body-parser": "^1.5.0",
-    "express": "~4.14.0",
-    "express-content-length-validator": "1.0.0",
-    "morgan": "^1.5.2",
-    "compression": "^1.6.2",
-    "helmet": "^2.1.1",
-    <% } %>
-    "nodemon": "^1.9.2",
-    "mongoose": "^4.4.7",<% } %> <% if (client === "ng2") { %>
-    "@angular/common": "^2.4.4",
-    "@angular/compiler": "^2.4.4",
-    "@angular/core": "^2.4.4",
-    "@angular/forms": "^2.4.4",
-    "@angular/http": "^2.4.4",
-    "@angular/platform-browser": "^2.4.4",
-    "@angular/platform-browser-dynamic": "^2.4.4",
-    "@angular/router": "^3.4.4",
-  	"zone.js": "^0.7.6",
-    "reflect-metadata": "^0.1.3",
-    "rxjs": "^5.0.0-beta.12",
-    "systemjs": "^0.19.24",
-    "typescript": "^2.1.5",
-    "zone.js": "^0.6.23", <% } %>
-    <% if (client === "vue2") { %>
-    "vue": "^2.1.10",
-    "vue-resource": "^1.0.3",
-    "vue-router": "^2.1.3", <% } %>
-    <% if (nodeWebFrameworkServer === "koa") { %>
-    "koa": "^1.2.4",
-    "koa-bodyparser": "^2.2.0",
-    "koa-router": "^5.4.0",
-    "koa-static": "^2.0.0", <% } %>
-  	"babel-register": "^6.7.2",
-    "babel-regenerator-runtime": "^6.5.0",
-    "babel-preset-es2015": "^6.1.18",
-    "babel-preset-es2016": "^6.0.11",
-    "babel-preset-stage-0": "^6.1.18",
-    "newrelic": "^1.18.2"
+      "bluebird": "^3.3.4",
+      <% if (nodeWebFrameworkServer === "express") { %>
+        "body-parser": "^1.5.0",
+        "express": "~4.14.0",
+        "express-content-length-validator": "1.0.0",
+        "morgan": "^1.5.2",
+        "compression": "^1.6.2",
+        "helmet": "^2.1.1",
+      <% } %>
+      "nodemon": "^1.9.2",
+      "mongoose": "^4.4.7",<% } %>
+      <% if (client === "ng2") { %>
+        "@angular/common": "^2.4.4",
+        "@angular/compiler": "^2.4.4",
+        "@angular/core": "^2.4.4",
+        "@angular/forms": "^2.4.4",
+        "@angular/http": "^2.4.4",
+        "@angular/platform-browser": "^2.4.4",
+        "@angular/platform-browser-dynamic": "^2.4.4",
+        "@angular/router": "^3.4.4",
+  	     "zone.js": "^0.7.6",
+         "reflect-metadata": "^0.1.3",
+         "rxjs": "^5.0.0-beta.12",
+         "systemjs": "^0.19.24",
+         "typescript": "^2.1.5",
+         "zone.js": "^0.6.23",
+       <% } %>
+       <% if (client === "vue2") { %>
+         "vue": "^2.1.10",
+         "vue-resource": "^1.0.3",
+         "vue-router": "^2.1.3",
+       <% } %>
+       <% if (nodeWebFrameworkServer === "koa") { %>
+         "koa": "^1.2.4",
+         "koa-bodyparser": "^2.2.0",
+         "koa-router": "^5.4.0",
+         "koa-static": "^2.0.0",
+       <% } %>
+  	   "babel-register": "^6.7.2",
+       "babel-regenerator-runtime": "^6.5.0",
+       "babel-preset-es2015": "^6.1.18",
+       "babel-preset-es2016": "^6.0.11",
+       "babel-preset-stage-0": "^6.1.18",
+       "newrelic": "^1.18.2"
   },
   "devDependencies": {
     "aliv": "^1.5.0",
@@ -95,10 +103,10 @@
     "gulp-imagemin": "^3.0.1",
     "gulp-util": "^3.0.3",
     <% if (stylePreprocessor === "less") { %>
-    "gulp-less": "^3.1.0",
+      "gulp-less": "^3.1.0",
     <% } %>
     <% if (stylePreprocessor === "sass") { %>
-    "gulp-sass": "^2.3.2",
+      "gulp-sass": "^2.3.2",
     <% } %>
     "jasmine-core": "^2.2.0",
     "run-sequence": "^1.1.5",
@@ -119,18 +127,18 @@
     "concurrently": "^2.0.0"
   },
   <% if (client === "aurelia1") { %>
-  "jspm": {
-    "configFile": "jspm.config.js",
-    "dependencies": {
-      "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0",
-      "aurelia-framework": "npm:aurelia-framework@^1.0.0"
+    "jspm": {
+      "configFile": "jspm.config.js",
+      "dependencies": {
+        "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0",
+        "aurelia-framework": "npm:aurelia-framework@^1.0.0"
+      },
+      "devDependencies": {
+        "babel": "npm:babel-core@^5.8.24",
+        "babel-runtime": "npm:babel-runtime@^5.8.24",
+        "core-js": "npm:core-js@^1.1.4"
+      }
     },
-    "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
-    }
-  },
   <% } %>
   "repository": {
     "type": "git",
