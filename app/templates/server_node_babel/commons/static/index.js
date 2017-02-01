@@ -2,11 +2,12 @@ import fs from 'fs';
 
 export default class StaticDispatcher {
     static sendIndex(req, res) {
-      var _root = process.cwd();
+      const _root = process.cwd();
+      const _env = process.env.NODE_ENV;
+      const _folder = _env === "production" ? "dist" : "dev";
 
-      res.type('.html');
+      res.type(".html");
 
-      fs.createReadStream(_root + '/client/dev/index.html')
-        .pipe(res);
+      fs.createReadStream(path.join(`${_root}/client/${_folder}/index.html`)).pipe(res);
     }
 }
