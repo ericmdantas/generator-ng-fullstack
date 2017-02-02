@@ -3,10 +3,6 @@
   "version": "0.0.1",
   "main": "src/<%= app %>.js",
   "scripts": {
-    <% if (usesTypescript) { %>
-      "preinstall": "typings install",
-      "postinstall": "tsc",
-    <% } %>
     <% if (clientOnly) { %>
       "start": "gulp",
       "dev": "gulp",
