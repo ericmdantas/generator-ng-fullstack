@@ -8,8 +8,9 @@
       "postinstall": "tsc",
     <% } %>
     <% if (clientOnly) { %>
-      "start": "aliv",
-      "dev": "aliv",
+      "start": "gulp",
+      "dev": "gulp",
+      "watch": "gulp",
       "test": "gulp client.unit_test",
       "build-dist": "gulp client.build:dist"
       <%} else {%>
