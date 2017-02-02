@@ -2,5 +2,5 @@
 coverage
 node_modules
 unit_coverage
-bower_components
+client/dev/bower_components
 typings
