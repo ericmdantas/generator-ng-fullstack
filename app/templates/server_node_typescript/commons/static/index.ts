@@ -2,6 +2,7 @@
 
 import * as express from "express";
 import * as fs from "fs";
+import * as path from "path";
 
 export class StaticDispatcher {
     static sendIndex(req: express.Request, res: express.Response): void {
