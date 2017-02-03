@@ -15,5 +15,9 @@ func main() {
 
 	routes.Init(e)
 
-	e.Start(port)
+	err := e.Start(port)
+
+	if err != nil {
+		panic(err)
+	}
 }

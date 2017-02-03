@@ -15,5 +15,9 @@ func main() {
 
 	routes.Init(e)
 
-	e.StartTLS(port, "server/cert/server.crt", "server/cert/server.key")
+	err := e.StartTLS(port, "server/cert/server.crt", "server/cert/server.key")
+
+	if err != nil {
+		panic(err)
+	}
 }
