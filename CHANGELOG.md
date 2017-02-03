@@ -26,6 +26,8 @@
 ### Breaking change
 
 - When in dev, always use `npm run dev` to start both server and client
+- When installing the deps, if you're using typescript, you'll have to run `typings install` manually; the `preinstall` and `postinstall` were removed
+
 
 ## [1.8](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.8.0)
 
