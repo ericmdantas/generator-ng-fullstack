@@ -98,7 +98,7 @@ class NodeBaseStandard {
     }
 
     if (this.wrapper.secure) {
-      this.wrapper.template('server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/server_https.js', 'server/server.js', {
+      this.wrapper.template('server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/server_http2.js', 'server/server.js', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
@@ -225,7 +225,7 @@ class NodeBaseBabel {
     }
 
     if (this.wrapper.secure) {
-      this.wrapper.template('server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/server_https.js', 'server/server.js', {
+      this.wrapper.template('server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/server_http2.js', 'server/server.js', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
@@ -353,7 +353,7 @@ class NodeBaseTypescript {
     }
 
     if (this.wrapper.secure) {
-      this.wrapper.template('server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/server_https.ts', 'server/server.ts', {
+      this.wrapper.template('server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/server_http2.ts', 'server/server.ts', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }

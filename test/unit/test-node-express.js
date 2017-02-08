@@ -359,7 +359,7 @@ describe('node -> express', () => {
         ];
 
         let _secondCall = [
-          `server/node/express/server_node_express/server_https.js`,
+          `server/node/express/server_node_express/server_http2.js`,
           `server/server.js`
         ];
 
@@ -401,7 +401,7 @@ describe('node -> express', () => {
         ];
 
         let _secondCall = [
-          `server/node/express/server_node_express/server_https.js`,
+          `server/node/express/server_node_express/server_http2.js`,
           `server/server.js`
         ];
 
@@ -775,7 +775,7 @@ describe('node -> express', () => {
         ];
 
         let _secondCall = [
-          `server/node/express/server_node_express_babel/server_https.js`,
+          `server/node/express/server_node_express_babel/server_http2.js`,
           `server/server.js`
         ];
 
@@ -817,7 +817,7 @@ describe('node -> express', () => {
         ];
 
         let _secondCall = [
-          `server/node/express/server_node_express_babel/server_https.js`,
+          `server/node/express/server_node_express_babel/server_http2.js`,
           `server/server.js`
         ];
 
@@ -1212,7 +1212,7 @@ describe('node -> express', () => {
         _n.copyForMainGenerator();
 
         let _templateCall = [
-          `server/node/express/server_node_express_typescript/server_https.ts`,
+          `server/node/express/server_node_express_typescript/server_http2.ts`,
           'server/server.ts'
         ];
 
@@ -1267,7 +1267,7 @@ describe('node -> express', () => {
         _n.copyForMainGenerator();
 
         let _templateCall = [
-          `server/node/express/server_node_express_typescript/server_https.ts`,
+          `server/node/express/server_node_express_typescript/server_http2.ts`,
           'server/server.ts'
         ];
 

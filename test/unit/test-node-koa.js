@@ -360,7 +360,7 @@ describe('node -> koa', () => {
         ];
 
         let _secondCall = [
-          `server/node/koa/server_node_koa/server_https.js`,
+          `server/node/koa/server_node_koa/server_http2.js`,
           `server/server.js`
         ];
 
@@ -402,7 +402,7 @@ describe('node -> koa', () => {
         ];
 
         let _secondCall = [
-          `server/node/koa/server_node_koa/server_https.js`,
+          `server/node/koa/server_node_koa/server_http2.js`,
           `server/server.js`
         ];
 
@@ -776,7 +776,7 @@ describe('node -> koa', () => {
         ];
 
         let _secondCall = [
-          `server/node/koa/server_node_koa_babel/server_https.js`,
+          `server/node/koa/server_node_koa_babel/server_http2.js`,
           `server/server.js`
         ];
 
@@ -818,7 +818,7 @@ describe('node -> koa', () => {
         ];
 
         let _secondCall = [
-          `server/node/koa/server_node_koa_babel/server_https.js`,
+          `server/node/koa/server_node_koa_babel/server_http2.js`,
           `server/server.js`
         ];
 
@@ -1207,7 +1207,7 @@ describe('node -> koa', () => {
         _n.copyForMainGenerator();
 
         let _templateCall = [
-          `server/node/koa/server_node_koa_typescript/server_https.ts`,
+          `server/node/koa/server_node_koa_typescript/server_http2.ts`,
           'server/server.ts'
         ];
 
@@ -1262,7 +1262,7 @@ describe('node -> koa', () => {
         _n.copyForMainGenerator();
 
         let _templateCall = [
-          `server/node/koa/server_node_koa_typescript/server_https.ts`,
+          `server/node/koa/server_node_koa_typescript/server_http2.ts`,
           'server/server.ts'
         ];
 
