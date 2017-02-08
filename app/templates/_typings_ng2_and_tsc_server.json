@@ -15,6 +15,7 @@
     "morgan": "registry:dt/morgan#1.2.2+20160104041339",
     "node": "registry:dt/node#4.0.0+20160311162451",
     "serve-static": "registry:dt/serve-static#0.0.0+20160104095738",
-    "compression": "registry:dt/compression#0.0.0+20160501162003"
+    "compression": "registry:dt/compression#0.0.0+20160501162003",
+    "spdy": "registry:dt/spdy#3.4.3+20161005184000"
   }
 }
