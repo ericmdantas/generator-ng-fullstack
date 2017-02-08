@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === "production")
 const PORT = process.env.PORT || 3333;
 
 const os = require("os");
-const https = require("https");
+const http2 = require("spdy");
 const express = require("express");
 const fs = require("fs");
 const RoutesConfig = require("./config/routes.conf");
@@ -24,7 +24,7 @@ const opts = {
   cert: fs.readFileSync(__dirname + "/cert/server.crt")
 }
 
-https.createServer(opts, app)
+http2.createServer(opts, app)
      .listen(PORT, () => {
        console.log(`up and running @: ${os.hostname()} on port: ${PORT}`);
        console.log(`enviroment: ${process.env.NODE_ENV}`);

@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3333;
 
 import * as fs from "fs";
 import * as os from "os";
-import * as https from "https";
+import * as http2 from "spdy";
 import * as Koa from "koa";
 import * as routerCb from "koa-router";
 import * as RoutesConfig from "./config/routes.conf";
@@ -29,7 +29,7 @@ const opts = {
   cert: fs.readFileSync(__dirname + "/cert/server.crt")
 }
 
-https.createServer(opts, app.callback())
+http2.createServer(opts, app.callback())
      .listen(PORT, () => {
        console.log(`up and running @: ${os.hostname()} on port: ${PORT}`);
        console.log(`enviroment: ${process.env.NODE_ENV}`);
