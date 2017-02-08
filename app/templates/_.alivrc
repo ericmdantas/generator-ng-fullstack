@@ -1,7 +1,7 @@
 {
     "quiet": true,
     "port": 3000,
-    "secure": <%= secure %>,
+    "http2": <%= secure %>,
     "pathIndex": "client/dev",
     "only": [
         "client/dev/**/*"
@@ -16,5 +16,5 @@
     "proxyTarget": "http://localhost:3333"
     <% } else { %>
     "proxyTarget": "https://localhost:3333"
-    <% } %> 
+    <% } %>
 }

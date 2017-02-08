@@ -51,6 +51,7 @@ exports.MainGenerator = class MainGenerator {
         userNameSpace: _user.userNameSpace,
         usesTypescript: _usesTypescript,
         client: _client,
+        secure: _secure,
         clientOnly: _clientOnly,
         nodeWebFrameworkServer: this.wrapper.nodeWebFrameworkServer,
         testsSeparated: _testsSeparated,

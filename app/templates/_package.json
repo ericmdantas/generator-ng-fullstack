@@ -72,6 +72,9 @@
          "koa-router": "^5.4.0",
          "koa-static": "^2.0.0",
        <% } %>
+       <% if (secure) { %>
+         "spdy": "^3.4.4",
+       <% } %>
   	   "babel-register": "^6.7.2",
        "babel-regenerator-runtime": "^6.5.0",
        "babel-preset-es2015": "^6.1.18",
@@ -80,7 +83,7 @@
        "newrelic": "^1.18.2"
   },
   "devDependencies": {
-    "aliv": "^1.5.0",
+    "aliv": "^1.6.0",
     "karma-ng-html2js-preprocessor": "^0.1.2",
     "del": "^2.2.1",
   	"gulp": "^3.9.0",
