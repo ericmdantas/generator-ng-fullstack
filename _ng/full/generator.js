@@ -67,14 +67,14 @@ exports.MainGenerator = class MainGenerator {
       this.wrapper.template('_protractor.conf.js', 'protractor.conf.js', _app);
       this.wrapper.template('_newrelic.js', 'newrelic.js', _app);
       this.wrapper.template('_procfile.txt', 'procfile.txt', _app);
-
       this.wrapper.template('_.bowerrc', '.bowerrc');
-      this.wrapper.template('_.travis.yml', '.travis.yml', {typescript: _usesTypescript});
+      this.wrapper.template('_.travis.yml', '.travis.yml', {
+        typescript: _usesTypescript
+      });
       this.wrapper.template('_.gitignore', '.gitignore');
       this.wrapper.template('_.editorconfig', '.editorconfig');
       this.wrapper.template('_.jshintrc','.jshintrc');
       this.wrapper.template('_.babelrc', '.babelrc');
-
       this.wrapper.template('tasks/index.js', 'tasks/index.js', {
         nodeServer: _server === ServerFactory.tokens().NODE && !_clientOnly,
         serverOnly: _serverOnly
