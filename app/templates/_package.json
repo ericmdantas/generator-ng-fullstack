@@ -14,9 +14,9 @@
         "watch": "gulp",
         <% if (usesTypescript) { %>
           "dev": "tsc && concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
-          <% } else { %>
+        <% } else { %>
             "dev": "concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
-          <% } %>
+        <% } %>
 
         "build-dev": "gulp client.build:dev",
         "build-dist": "gulp client.build:dist",
