@@ -409,7 +409,7 @@ exports.MainGenerator = class MainGenerator {
     let _prompts = [{
       type: 'confirm',
       name: 'secure',
-      message: 'Is it going to be a secure app (HTTPS || HTTP/2)?',
+      message: 'Is it going to be a secure app (HTTP/2)?',
       default: true
     }];
 
