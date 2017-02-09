@@ -143,7 +143,7 @@ exports.MainGenerator = class MainGenerator {
           },
           {
             name: 'userEmail',
-            message: 'What is your email?',
+            message: 'What is your email (used in your package.json)?',
             default: 'user.email@example.com'
           },
           {
