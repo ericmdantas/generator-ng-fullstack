@@ -217,7 +217,9 @@ exports.MainGenerator = class MainGenerator {
         name: "testsSeparated",
         message: "Do you want to keep tests in a different folder?",
         default: true,
-        when: () => this.wrapper.server !== ServerFactory.tokens().GO
+        when: () => {
+          return this.wrapper.server !== ServerFactory.tokens().GO
+        }
       }
     ];
 
@@ -339,7 +341,9 @@ exports.MainGenerator = class MainGenerator {
         NodeFactory.tokensWebFramework().KOA
       ],
       default: 0,
-      when: () => this.wrapper.server === ServerFactory.tokens().NODE
+      when: () => {
+        return this.wrapper.server === ServerFactory.tokens().NODE
+      }
     }];
 
     this.wrapper.prompt(_prompts, (props) => {
@@ -364,7 +368,9 @@ exports.MainGenerator = class MainGenerator {
         GoFactory.tokensWebFramework().GIN
       ],
       default: 0,
-      when: () => this.wrapper.server === ServerFactory.tokens().GO
+      when: () => {
+        return this.wrapper.server === ServerFactory.tokens().GO
+      }
     }];
 
     this.wrapper.prompt(_prompts, (props) => {
@@ -390,7 +396,9 @@ exports.MainGenerator = class MainGenerator {
         NodeFactory.tokensCompiler().TYPESCRIPT
       ],
       default: 0,
-      when: () => this.wrapper.server === ServerFactory.tokens().NODE
+      when: () => {
+        return this.wrapper.server === ServerFactory.tokens().NODE
+      }
     }];
 
     this.wrapper.prompt(_prompts, (props) => {
@@ -429,7 +437,9 @@ exports.MainGenerator = class MainGenerator {
       name: 'differentStaticServer',
       message: 'Do you want to use a different static server? Such as NGINX, Apache, IIS, etc?',
       default: false,
-      when: () => this.wrapper.stack === "fullstack"
+      when: () => {
+        return this.wrapper.stack === "fullstack"
+      }
     }];
 
     this.wrapper.prompt(_prompts, (props) => {
@@ -448,7 +458,9 @@ exports.MainGenerator = class MainGenerator {
       name: 'cordova',
       message: 'Are you using Cordova (for mobile development)?',
       default: false,
-      when: () => (this.wrapper.stack === "client") && (this.wrapper.client === "ng1")
+      when: () => {
+        return (this.wrapper.stack === "client") && (this.wrapper.client === "ng1")
+      }
     }];
 
     this.wrapper.prompt(_prompts, (props) => {
