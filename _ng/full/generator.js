@@ -218,7 +218,7 @@ exports.MainGenerator = class MainGenerator {
         message: "Do you want to keep tests in a different folder?",
         default: true,
         when: () => {
-          return this.wrapper.server !== ServerFactory.tokens().GO
+          return this.wrapper.server !== ServerFactory.tokens().GO;
         }
       }
     ];
@@ -342,7 +342,7 @@ exports.MainGenerator = class MainGenerator {
       ],
       default: 0,
       when: () => {
-        return this.wrapper.server === ServerFactory.tokens().NODE
+        return this.wrapper.server === ServerFactory.tokens().NODE;
       }
     }];
 
@@ -369,7 +369,7 @@ exports.MainGenerator = class MainGenerator {
       ],
       default: 0,
       when: () => {
-        return this.wrapper.server === ServerFactory.tokens().GO
+        return this.wrapper.server === ServerFactory.tokens().GO;
       }
     }];
 
@@ -397,7 +397,7 @@ exports.MainGenerator = class MainGenerator {
       ],
       default: 0,
       when: () => {
-        return this.wrapper.server === ServerFactory.tokens().NODE
+        return this.wrapper.server === ServerFactory.tokens().NODE;
       }
     }];
 
@@ -438,7 +438,7 @@ exports.MainGenerator = class MainGenerator {
       message: 'Do you want to use a different static server? Such as NGINX, Apache, IIS, etc?',
       default: false,
       when: () => {
-        return this.wrapper.stack === "fullstack"
+        return this.wrapper.stack === "fullstack";
       }
     }];
 
@@ -459,7 +459,7 @@ exports.MainGenerator = class MainGenerator {
       message: 'Are you using Cordova (for mobile development)?',
       default: false,
       when: () => {
-        return (this.wrapper.stack === "client") && (this.wrapper.client === "ng1")
+        return (this.wrapper.stack === "client") && (this.wrapper.client === "ng1");
       }
     }];
 
