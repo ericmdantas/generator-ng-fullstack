@@ -12,11 +12,21 @@ Check the stack and try it online [https://ng-fullstack.surge.sh](https://ng-ful
 
 If you already have Node/Go setup, all you have to do is run:
 
-    $ npm install -g generator-ng-fullstack
+```shell
+$ npm install -g generator-ng-fullstack
+```
 
-then to create a new app:
+Or, if you want to run the latest (in development) version:
 
-    $ yo ng-fullstack
+```shell
+$ npm install -g generator-ng-fullstack@next
+```
+
+Then, to create a new app, simpy run:
+
+```shell
+$ yo ng-fullstack
+```
 
 A few questions will be shown, make sure you answer them and, there you go! Now you have the [boilerplate app working](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started#result).
 
