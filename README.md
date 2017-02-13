@@ -42,11 +42,21 @@ and integrate with:
 
 If you already have Node/Go setup, all you have to do is run:
 
-    $ npm install -g generator-ng-fullstack
+```shell
+$ npm install -g generator-ng-fullstack
+```
 
-then to create a new app:
+Or, if you want to run the latest (in development) version:
 
-    $ yo ng-fullstack
+```shell
+$ npm install -g generator-ng-fullstack@next
+```
+
+Then, to create a new app, simply run:
+
+```shell
+$ yo ng-fullstack
+```
 
 and answer the on-screen questions. When it's done, you should have [this](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started#result) structure. The default starter project is our [Todo App](https://github.com/ericmdantas/generator-ng-fullstack/wiki/ToDo-Walkthrough).
 
