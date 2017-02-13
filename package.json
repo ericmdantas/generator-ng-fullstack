@@ -14,6 +14,7 @@
     "node": "stable"
   },
   "scripts": {
+    "preversion": "npm t",
     "test": "npm run lint && mocha test/ --recursive -R dot --check-leaks --require babel-core/register",
     "lint": "eslint _ng/**/*",
     "prepublish": "npm t",
