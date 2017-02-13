@@ -41,7 +41,7 @@ Check the [getting started](https://github.com/ericmdantas/generator-ng-fullstac
 | Branch | Status | Coverage | Version |
 |:------:|:------:|:--------:|:-------:|
 | `master` | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master) | [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack) |  
-| `dev`    | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=v1.9)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=v1.9) | --- |
+| `next`    | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=v1.9)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=v1.9) | --- |
 
 
 ### Wiki
