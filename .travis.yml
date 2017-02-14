@@ -8,4 +8,4 @@ before_install:
   - npm install -g istanbul mocha
 
 script:
-  - npm run coverage
+  - npm run test-ci

@@ -14,11 +14,11 @@
     "node": "stable"
   },
   "scripts": {
-    "preversion": "npm t",
-    "test": "npm run lint && mocha test/ --recursive -R dot --check-leaks --require babel-core/register",
     "lint": "eslint _ng/**/*",
-    "prepublish": "npm t",
-    "coverage": "npm run lint && babel-node ./node_modules/istanbul/lib/cli cover ./node_modules/.bin/_mocha test/  --report lcovonly -- --recursive -R min --check-leaks --require babel-core/register && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test": "npm run lint && mocha test/ --recursive -R dot --check-leaks --require babel-core/register",
+    "test-ci": "npm run lint && babel-node ./node_modules/istanbul/lib/cli cover ./node_modules/.bin/_mocha test/  --report lcovonly -- --recursive -R min --check-leaks --require babel-core/register && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "preversion": "npm t",
+    "prepublish": "npm t"
   },
   "keywords": [
     "yeoman-generator",
