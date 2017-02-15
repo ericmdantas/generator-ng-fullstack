@@ -34,15 +34,6 @@ For more info, checkout the [Todo App](https://github.com/ericmdantas/generator-
 
 Check the [getting started](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started) session in the wiki for more info.
 
-
-### Development
-
-| Branch | Status | Coverage | Version |
-|:------:|:------:|:--------:|:-------:|
-| `master` | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master) | [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack) |  
-| `next`    | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=v1.9)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=v1.9) | --- |
-
-
 ### Wiki
 
 In the wiki you'll find: [pro tips](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Pro-tips), [the sub-generators](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Sub-Generators), [FAQ](https://github.com/ericmdantas/generator-ng-fullstack/wiki/FAQ), [Troubleshooting](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Troubleshooting), [walkthroughs](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Todo-Walkthrough), [tips for deployment](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Deploying-to-Heroku) and [much more](https://github.com/ericmdantas/generator-ng-fullstack/wiki).
@@ -60,6 +51,14 @@ Pull requests, helping others solving issues, improving the Wiki, among other ta
 When doing a Pull Request, make sure you target the `dev` branch, `master` is supposed to be an *stable* branch - the changes are merged only at the end of a version.  
 
 As for tests, run simply run `npm t` - it'll run both unit and acceptance tests.
+
+
+### Development
+
+| Branch | Status | Coverage | Version |
+|:------:|:------:|:--------:|:-------:|
+| `master` | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master) | [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack) |  
+| `next`    | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=v1.9)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=v1.9) | --- |
 
 
 ### Resources
