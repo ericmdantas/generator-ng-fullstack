@@ -6,12 +6,12 @@
     "only": [
         "client/dev/**/*"
     ],
-    "proxy": true,
-    "proxyWhen": "/api/*",
     "static": [
         "node_modules",
         "jspm_packages"
     ],
+    "proxy": true,
+    "proxyWhen": "/api/*",
     <% if (!secure) { %>
     "proxyTarget": "http://localhost:3333"
     <% } else { %>
