@@ -5,7 +5,7 @@ import (
 	"gopkg.in/gin-gonic/gin.v1"
 )
 
-func Init(r *gin.RouterGroup) {
+func Init(r *gin.Engine) {
 	r.GET("/api/<%= nameLowerCase %>", <%= nameLowerCase %>controller.GetAll)
 	r.GET("/api/<%= nameLowerCase %>/:id", <%= nameLowerCase %>controller.GetById)
 	r.POST("/api/<%= nameLowerCase %>", <%= nameLowerCase %>controller.New)

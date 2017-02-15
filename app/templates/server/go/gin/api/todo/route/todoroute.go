@@ -5,7 +5,7 @@ import (
 	"gopkg.in/gin-gonic/gin.v1"
 )
 
-func Init(r *gin.RouterGroup) {
+func Init(r *gin.Engine) {
 	r.GET("/api/todos", todocontroller.GetAll)
 	r.GET("/api/todos/:id", todocontroller.GetById)
 	r.POST("/api/todos", todocontroller.NewTodo)

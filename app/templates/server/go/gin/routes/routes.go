@@ -8,7 +8,7 @@ import (
 	"gopkg.in/gin-gonic/gin.v1"
 )
 
-func Init(r *gin.RouterGroup) {
+func Init(r *gin.Engine) {
 	<% if (!differentStaticServer) {%>
 	static.Init(r)
 	<% } %>
