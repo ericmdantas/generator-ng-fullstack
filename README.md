@@ -7,11 +7,6 @@
 
 Check the stack and try it online [https://ng-fullstack.surge.sh](https://ng-fullstack.surge.sh).
 
-
-### Dependencies
-
-You'll need the latest version of `Node.js` and `npm`. You'll also need `yo` installed globally.
-
 ### Getting Started
 
 If you already have Node/Go setup, all you have to do is run:
