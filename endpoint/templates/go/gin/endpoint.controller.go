@@ -4,7 +4,7 @@ import (
 	_ "encoding/json"
 	_ "<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/<%= feature %>/dao"
 	_ <%= nameLowerCase %> "<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/<%= feature %>/model"
-	"github.com/gin-gonic/gin"
+	"gopkg.in/gin-gonic/gin.v1"
 	_ "io/ioutil"
 	_ "net/http"
 )

@@ -5,7 +5,7 @@ import (
 	<% if (!differentStaticServer) {%>
 	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/common/static"
 	<% } %>
-	"github.com/gin-gonic/gin"
+	"gopkg.in/gin-gonic/gin.v1"
 )
 
 func Init(r *gin.RouterGroup) {

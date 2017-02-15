@@ -3,7 +3,7 @@ package todocontroller
 import (
 	"<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/dao"
 	todo "<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/todo/model"
-	"github.com/gin-gonic/gin"
+	"gopkg.in/gin-gonic/gin.v1"
 	"net/http"
 )
 
