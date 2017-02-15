@@ -12,8 +12,8 @@
 
 #### Server
 
-- Added HTTP/2 implementation for Node.js servers (both Express and Koa)
 - Added Koa web framework for Node servers
+- Added HTTP/2 implementation for Node.js servers (both Express and Koa)
 - Added Gin web framework for Go servers
 - Added Nodemon as a module to restart the Node server when the files change
 
