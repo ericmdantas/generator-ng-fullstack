@@ -45,7 +45,7 @@ Check the [getting started](https://github.com/ericmdantas/generator-ng-fullstac
 
 ### Wiki
 
-In the wiki you'll find: [the sub-generators](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Sub-Generators), [FAQ](https://github.com/ericmdantas/generator-ng-fullstack/wiki/FAQ), [Troubleshooting](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Troubleshooting), [walkthroughs](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Todo-Walkthrough), [tips for deployment](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Deploying-to-Heroku) and [much more](https://github.com/ericmdantas/generator-ng-fullstack/wiki).
+In the wiki you'll find: [pro tips](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Pro-tips), [the sub-generators](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Sub-Generators), [FAQ](https://github.com/ericmdantas/generator-ng-fullstack/wiki/FAQ), [Troubleshooting](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Troubleshooting), [walkthroughs](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Todo-Walkthrough), [tips for deployment](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Deploying-to-Heroku) and [much more](https://github.com/ericmdantas/generator-ng-fullstack/wiki).
 
 
 ### Chat
