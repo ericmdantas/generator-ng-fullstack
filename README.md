@@ -21,7 +21,7 @@ Or, if you want to run the latest (in development) version:
 $ npm install -g generator-ng-fullstack@next
 ```
 
-Then, to create a new app, simpy run:
+Then, to create a new app, simply run:
 
 ```shell
 $ yo ng-fullstack
