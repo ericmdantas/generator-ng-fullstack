@@ -15,5 +15,5 @@ func main() {
 
 	routes.Init(r)
 
-	r.RunTLS(standard.WithTLS(port, "server/cert/server.crt", "server/cert/server.key"))
+	r.RunTLS(port, "server/cert/server.crt", "server/cert/server.key")
 }
