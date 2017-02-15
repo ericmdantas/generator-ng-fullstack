@@ -41,7 +41,7 @@ In the wiki you'll find: [pro tips](https://github.com/ericmdantas/generator-ng-
 
 ### Chat
 
-Do you have a doubt, want to talk about something cool or just want to chat? Join us on the [gitter chat](https://gitter.im/ericmdantas/generator-ng-fullstack) :smile:.
+Do you have a doubt, want to talk about something cool or just want to chat? Join us on the [gitter chat](https://gitter.im/ericmdantas/generator-ng-fullstack) :smile:
 
 
 ### Contributing
