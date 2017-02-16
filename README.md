@@ -3,10 +3,6 @@
 
 `ng-fullstack` is a yeoman generator that allows you to rapidly get started with prototyping web applications with the newest technologies available. It allows you to choose between a `client app`, a `server app` or a `fullstack app`. All of them simple to extend and powerful to use.
 
-### Website
-
-Check the stack and try it online [https://ng-fullstack.surge.sh](https://ng-fullstack.surge.sh).
-
 ### Getting Started
 
 If you already have Node/Go setup, all you have to do is run:
