@@ -100,6 +100,10 @@ exports.GoBase = class GoBase {
   }
 
   copyServer() {
+    this._copyTodoBoilerplate();
+  }
+
+  _copyTodoBoilerplate() {
     this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
 
     if (this.wrapper.secure) {
