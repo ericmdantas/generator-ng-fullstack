@@ -14,7 +14,7 @@ describe('go', () => {
     })
   })
 
-  describe('copyFiles', () => {
+  describe('copyEndpoint', () => {
     it('should call the right methods with the right params', () => {
       let _newGenerator = {
         feature: 'a',
@@ -28,7 +28,7 @@ describe('go', () => {
 
       let _n = new GoGin(_newGenerator);
 
-      _n.copyFiles();
+      _n.copyEndpoint();
 
       let _firstCall = [`go/gin/endpoint.route.go`,
         `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}route.go`, {

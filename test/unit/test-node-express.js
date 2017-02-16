@@ -36,7 +36,7 @@ describe('node -> express', () => {
       })
     });
 
-    describe('copyFiles', () => {
+    describe('copyEndpoint', () => {
       it('should call the right methods with the right params - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
@@ -48,7 +48,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/express/no_transpiler/endpoint.route.js`,
@@ -148,7 +148,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/express/no_transpiler/endpoint.route.js`,
@@ -454,7 +454,7 @@ describe('node -> express', () => {
       })
     });
 
-    describe('copyFiles', () => {
+    describe('copyEndpoint', () => {
       it('should call the right methods with the right params - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
@@ -465,7 +465,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/express/babel/endpoint.route.js`,
@@ -564,7 +564,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/express/babel/endpoint.route.js`,
@@ -870,7 +870,7 @@ describe('node -> express', () => {
       })
     });
 
-    describe('copyFiles', () => {
+    describe('copyEndpoint', () => {
       it('should call the right methods with the right params - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
@@ -881,7 +881,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/express/typescript/endpoint.route.ts`,
@@ -980,7 +980,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/express/typescript/endpoint.route.ts`,

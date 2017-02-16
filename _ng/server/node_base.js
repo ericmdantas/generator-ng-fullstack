@@ -29,7 +29,7 @@ class NodeBaseStandard {
     this.webFramework = webFramework;
   }
 
-  copyFiles() {
+  copyEndpoint() {
     let gen = basePath(this.wrapper);
     const testsSeparated = this.wrapper.testsSeparated !== undefined ? this.wrapper.testsSeparated : true;
     const TESTS = testsSeparated ? 'Separate' : 'Together';
@@ -156,7 +156,7 @@ class NodeBaseBabel {
     this.webFramework = webFramework;
   }
 
-  copyFiles() {
+  copyEndpoint() {
     let gen = basePath(this.wrapper);
     const testsSeparated = this.wrapper.testsSeparated !== undefined ? this.wrapper.testsSeparated : true;
     const TESTS = testsSeparated ? 'Separate' : 'Together';
@@ -282,7 +282,7 @@ class NodeBaseTypescript {
     this.webFramework = webFramework;
   }
 
-  copyFiles() {
+  copyEndpoint() {
     let gen = basePath(this.wrapper);
     const testsSeparated = this.wrapper.testsSeparated !== undefined ? this.wrapper.testsSeparated : true;
     const TESTS = testsSeparated ? 'Separate' : 'Together';

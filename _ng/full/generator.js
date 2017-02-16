@@ -44,6 +44,8 @@ exports.MainGenerator = class MainGenerator {
         userNameSpace: _user.userNameSpace
       });
 
+      this.wrapper.template('_protractor.conf.js', 'protractor.conf.js', this.wrapper.appName);
+
       this.wrapper.template('_package.json', 'package.json', {
         app: _app.app,
         username: _user.username,
@@ -60,11 +62,6 @@ exports.MainGenerator = class MainGenerator {
       });
 
       this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
-      this.wrapper.template('_karma.conf.js', 'karma.conf.js', {
-        app: _app.app,
-        testsSeparated: _testsSeparated
-      });
-      this.wrapper.template('_protractor.conf.js', 'protractor.conf.js', _app);
       this.wrapper.template('_newrelic.js', 'newrelic.js', _app);
       this.wrapper.template('_procfile.txt', 'procfile.txt', _app);
       this.wrapper.template('_.bowerrc', '.bowerrc');

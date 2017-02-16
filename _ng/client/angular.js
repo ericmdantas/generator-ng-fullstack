@@ -17,54 +17,9 @@ class Angular1 {
   }
 
   copyClient() {
-    let _pathSrc = [
-      ['client/ng1/dev/index.html', 'client/dev/index.html'],
-      ['client/ng1/dev/favicon.png', 'client/dev/favicon.png'],
-      ['client/ng1/dev/app.js', 'client/dev/app.js'],
-      ['client/ng1/dev/app.route.js', 'client/dev/app.route.js'],
-      ['client/ng1/dev/app.config.js', 'client/dev/app.config.js'],
-      ['client/ng1/dev/todo/controllers/todo-controller.js', 'client/dev/todo/controllers/todo-controller.js'],
-      ['client/ng1/dev/todo/models/todo-model.js', 'client/dev/todo/models/todo-model.js'],
-      ['client/ng1/dev/todo/services/todo-dao.js', 'client/dev/todo/services/todo-dao.js'],
-      ['client/ng1/dev/todo/resources/todo-resource.js', 'client/dev/todo/resources/todo-resource.js'],
-      ['client/ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
-    ];
-
-    let _pathTest = [];
-
-    if(this.testsSeparated) {
-      _pathTest = [
-        ['tests/client_ng1/todo/controllers/todo-controller_test.js', 'tests/client/todo/controllers/todo-controller_test.js'],
-        ['tests/client_ng1/todo/models/todo-model_test.js', 'tests/client/todo/models/todo-model_test.js'],
-        ['tests/client_ng1/todo/services/todo-dao_test.js', 'tests/client/todo/services/todo-dao_test.js']
-      ];
-    } else {
-      _pathTest = [
-        ['tests/client_ng1/todo/controllers/todo-controller_test.js', 'client/dev/todo/controllers/todo-controller_test.js'],
-        ['tests/client_ng1/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
-        ['tests/client_ng1/todo/services/todo-dao_test.js', 'client/dev/todo/services/todo-dao_test.js']
-      ];
-    }
-
-    this.generator.directory('tasks/client/ng1', 'tasks/client');
-
-    this.generator.template('tasks/client/ng1/const.js', 'tasks/client/const.js', {
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    this.generator.template('tasks/client/ng1/build_css.js', 'tasks/client/build_css.js', {
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    this.generator.template('tasks/client/ng1/watch.js', 'tasks/client/watch.js', {
-      secure: !!this.generator.secure,
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    yoUtils.directory(this.generator, _pathSrc, this.generator);
-    yoUtils.directory(this.generator, _pathTest, this.generator);
-
-    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
+      this._copyTodoBoilerplate();
+      this._copyTasks();
+      this._copyConfigTests();
   }
 
   copyController(pathTemplate) {
@@ -206,6 +161,67 @@ class Angular1 {
       this.copyStyle('../../style/templates/');
       this.copyTemplate('../../view/templates/');
   }
+
+  _copyTodoBoilerplate() {
+    let _pathSrc = [
+      ['client/ng1/dev/index.html', 'client/dev/index.html'],
+      ['client/ng1/dev/favicon.png', 'client/dev/favicon.png'],
+      ['client/ng1/dev/app.js', 'client/dev/app.js'],
+      ['client/ng1/dev/app.route.js', 'client/dev/app.route.js'],
+      ['client/ng1/dev/app.config.js', 'client/dev/app.config.js'],
+      ['client/ng1/dev/todo/controllers/todo-controller.js', 'client/dev/todo/controllers/todo-controller.js'],
+      ['client/ng1/dev/todo/models/todo-model.js', 'client/dev/todo/models/todo-model.js'],
+      ['client/ng1/dev/todo/services/todo-dao.js', 'client/dev/todo/services/todo-dao.js'],
+      ['client/ng1/dev/todo/resources/todo-resource.js', 'client/dev/todo/resources/todo-resource.js'],
+      ['client/ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
+    ];
+
+    let _pathTest = [];
+
+    if(this.testsSeparated) {
+      _pathTest = [
+        ['tests/client_ng1/todo/controllers/todo-controller_test.js', 'tests/client/todo/controllers/todo-controller_test.js'],
+        ['tests/client_ng1/todo/models/todo-model_test.js', 'tests/client/todo/models/todo-model_test.js'],
+        ['tests/client_ng1/todo/services/todo-dao_test.js', 'tests/client/todo/services/todo-dao_test.js']
+      ];
+    } else {
+      _pathTest = [
+        ['tests/client_ng1/todo/controllers/todo-controller_test.js', 'client/dev/todo/controllers/todo-controller_test.js'],
+        ['tests/client_ng1/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
+        ['tests/client_ng1/todo/services/todo-dao_test.js', 'client/dev/todo/services/todo-dao_test.js']
+      ];
+    }
+
+    yoUtils.directory(this.generator, _pathSrc, this.generator);
+    yoUtils.directory(this.generator, _pathTest, this.generator);
+
+    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
+  }
+
+  _copyTasks() {
+    this.generator.directory('tasks/client/ng1', 'tasks/client');
+
+    this.generator.template('tasks/client/ng1/const.js', 'tasks/client/const.js', {
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
+    });
+
+    this.generator.template('tasks/client/ng1/build_css.js', 'tasks/client/build_css.js', {
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
+    });
+
+    this.generator.template('tasks/client/ng1/watch.js', 'tasks/client/watch.js', {
+      secure: !!this.generator.secure,
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
+    });
+  }
+
+  _copyConfigTests() {
+    this.generator.template('_karma.conf.js', 'karma.conf.js', {
+      app: this.generator.appName,
+      testsSeparated: this.generator.testsSeparated
+    });
+  }
+
 }
 
 class Angular2 {
@@ -216,43 +232,10 @@ class Angular2 {
   }
 
   copyClient() {
-    this.generator.directory('tasks/client/ng2', 'tasks/client');
-    this.generator.directory('client/ng2', 'client');
-    this.generator.template('_karma.conf_ng2.js', 'karma.conf.js', {testsSeparated: this.testsSeparated});
-    this.generator.template('_karma-test-shim.js', 'karma-test-shim.js');
-    this.generator.template('_typings_ng2.json', 'typings.json');
-    this.generator.template('_tsconfig.json', 'tsconfig.json');
-
-    if(this.testsSeparated) {
-      this.generator.directory('tests/client_ng2', 'tests/client');
-    } else {
-      let _pathTest = [
-        ['tests/client_ng2/todo/components/todo-cmp_test.ts', 'client/dev/todo/components/todo-cmp_test.ts'],
-        ['tests/client_ng2/todo/services/todo-service_test.ts', 'client/dev/todo/services/todo-service_test.ts']
-      ];
-      yoUtils.directory(this.generator, _pathTest, this.generator);
-    }
-
-    if (this.generator.stack === "client")  {
-      this.generator.template('_ng2_systemjs_config_serving_from_root.js', 'client/dev/config.js');
-    } else {
-      this.generator.template('_ng2_systemjs_config_serving_node_modules.js', 'client/dev/config.js');
-    }
-
-    this.generator.template('tasks/client/ng2/const.js', 'tasks/client/const.js', {
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    this.generator.template('tasks/client/ng2/build_css.js', 'tasks/client/build_css.js', {
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    this.generator.template('tasks/client/ng2/watch.js', 'tasks/client/watch.js', {
-      secure: !!this.generator.secure,
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
+    this._copyTodoBoilerplate();
+    this._copyTsc();
+    this._copyTasks();
+    this._copyConfigTests();
   }
 
   copyComponent(pathTemplate) {
@@ -374,6 +357,55 @@ class Angular2 {
       this.copyModel('../../model/templates/');
       this.copyStyle('../../style/templates/');
       this.copyTemplate('../../view/templates/');
+  }
+
+  _copyTodoBoilerplate() {
+    this.generator.directory('client/ng2', 'client');
+
+    if(this.testsSeparated) {
+      this.generator.directory('tests/client_ng2', 'tests/client');
+    } else {
+      let _pathTest = [
+        ['tests/client_ng2/todo/components/todo-cmp_test.ts', 'client/dev/todo/components/todo-cmp_test.ts'],
+        ['tests/client_ng2/todo/services/todo-service_test.ts', 'client/dev/todo/services/todo-service_test.ts']
+      ];
+      yoUtils.directory(this.generator, _pathTest, this.generator);
+    }
+
+    if (this.generator.stack === "client")  {
+      this.generator.template('_ng2_systemjs_config_serving_from_root.js', 'client/dev/config.js');
+    } else {
+      this.generator.template('_ng2_systemjs_config_serving_node_modules.js', 'client/dev/config.js');
+    }
+
+    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
+  }
+
+  _copyTsc() {
+    this.generator.template('_typings_ng2.json', 'typings.json');
+    this.generator.template('_tsconfig.json', 'tsconfig.json');
+  }
+
+  _copyTasks() {
+    this.generator.directory('tasks/client/ng2', 'tasks/client');
+
+    this.generator.template('tasks/client/ng2/const.js', 'tasks/client/const.js', {
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
+    });
+
+    this.generator.template('tasks/client/ng2/build_css.js', 'tasks/client/build_css.js', {
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
+    });
+
+    this.generator.template('tasks/client/ng2/watch.js', 'tasks/client/watch.js', {
+      secure: !!this.generator.secure,
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
+    });
+  }
+
+  _copyConfigTests() {
+    this.generator.template('_karma.conf_ng2.js', 'karma.conf.js', {testsSeparated: this.testsSeparated});
+    this.generator.template('_karma-test-shim.js', 'karma-test-shim.js');
   }
 }
 

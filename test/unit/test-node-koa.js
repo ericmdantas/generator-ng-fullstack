@@ -36,7 +36,7 @@ describe('node -> koa', () => {
       })
     });
 
-    describe('copyFiles', () => {
+    describe('copyEndpoint', () => {
       it('should call the right methods with the right params - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
@@ -48,7 +48,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaStandard(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/koa/no_transpiler/endpoint.route.js`,
@@ -148,7 +148,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaStandard(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/koa/no_transpiler/endpoint.route.js`,
@@ -455,7 +455,7 @@ describe('node -> koa', () => {
       })
     });
 
-    describe('copyFiles', () => {
+    describe('copyEndpoint', () => {
       it('should call the right methods with the right params - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
@@ -466,7 +466,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaBabel(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/koa/babel/endpoint.route.js`,
@@ -565,7 +565,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaBabel(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/koa/babel/endpoint.route.js`,
@@ -871,7 +871,7 @@ describe('node -> koa', () => {
       })
     });
 
-    describe('copyFiles', () => {
+    describe('copyEndpoint', () => {
       it('should call the right methods with the right params - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
@@ -882,7 +882,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaTypescript(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/koa/typescript/endpoint.route.ts`,
@@ -978,7 +978,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaTypescript(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/koa/typescript/endpoint.route.ts`,

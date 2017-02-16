@@ -38,8 +38,8 @@ exports.EndpointSubGenerator = class EndpointSubGenerator {
         throw new FeatureMissingError();
 
     switch (this.wrapper.server) {
-        case ServerFactory.tokens().GO: GoFactory.build(this.wrapper).copyFiles(); break;
-        case ServerFactory.tokens().NODE: NodeFactory.build(this.wrapper).copyFiles(); break;
+        case ServerFactory.tokens().GO: GoFactory.build(this.wrapper).copyEndpoint(); break;
+        case ServerFactory.tokens().NODE: NodeFactory.build(this.wrapper).copyEndpoint(); break;
     }
   }
 };

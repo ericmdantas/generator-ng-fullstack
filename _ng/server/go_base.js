@@ -22,7 +22,7 @@ exports.GoBase = class GoBase {
     this.webFramework = webFramework;
   }
 
-  copyFiles() {
+  copyEndpoint() {
     let _featureWithoutTrailingSlash = this.wrapper.feature.replace('/', '');
     let gen = basePath(this.wrapper);
 
