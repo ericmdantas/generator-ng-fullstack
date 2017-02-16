@@ -1,0 +1,24 @@
+<div class="todo-container">
+  <form class="todo-form"
+        ng-submit="todoCtrl.createTodo(todoCtrl.todo)">
+
+    <h1 class="todo-title" ng-bind="todoCtrl.title"></h1>
+
+    <input type="text"
+           ng-model="todoCtrl.todo.todoMessage"
+           placeholder="What do you have todo?"
+           autofocus />
+
+    <button type="submit"
+            ng-disabled="!todoCtrl.todo.isValid()">+</button>
+  </form>
+
+  <div class="todo-list">
+    <div ng-repeat="t in todoCtrl.todos track by $index"
+         class="todo-item"
+         ng-click="todoCtrl.deleteTodo(t._id);">
+         
+      <p ng-bind="t.todoMessage"></p>
+    </div>
+  </div>
+</div>

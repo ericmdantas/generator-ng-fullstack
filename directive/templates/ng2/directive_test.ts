@@ -2,8 +2,10 @@ import {
   addProviders
 } from "@angular/core/testing";
 
-describe("directive", () => {
-  beforeEach(() => {});
+describe('directive', () => {
+  beforeEach(() => {
+
+  });
 
   describe("creation", () => {
 

@@ -1,17 +1,18 @@
 'use strict';
 
-const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
-const utils = require('../utils/utils');
-const AngularFactory = require('./angular').AngularFactory;
-const FeatureMissingError = require('../utils/errors').FeatureMissingError;
-const ModuleDoesntImplementError = require('../utils/errors').ModuleDoesntImplementError;
+const {AngularFactory} = require('./angular');
+const {VueFactory} = require('./vue');
+const {AureliaFactory} = require('./aurelia');
+const {FeatureMissingError} = require('../utils/errors');
+const {ModuleDoesntImplementError} = require('../utils/errors');
 
 exports.ComponentSubGenerator = class ComponentSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
-    this.wrapper.ngVersion = this.wrapper.config.get('client');
+    this.wrapper.client = this.wrapper.config.get('client');
     this.wrapper.appName = this.wrapper.config.get('appName');
+    this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
   }
 
   initializing() {
@@ -24,16 +25,24 @@ exports.ComponentSubGenerator = class ComponentSubGenerator {
 
   writing() {
     let _feature = optionsParser.getFeature(this.wrapper.options);
-    let _ngVersion = this.wrapper.ngVersion;
+    let _client = this.wrapper.client;
 
     if (!_feature.length) {
       throw new FeatureMissingError();
     }
 
-    if (_ngVersion !== AngularFactory.tokens().NG2) {
-      throw new ModuleDoesntImplementError(_ngVersion, 'component');
+    if (_client === AngularFactory.tokens().NG2) {
+      return AngularFactory.build(_client, this.wrapper).copyComponent();
     }
 
-    AngularFactory.build(AngularFactory.tokens().NG2, this.wrapper).copyComponent();
+    if (_client === VueFactory.tokens().VUE2) {
+      return VueFactory.build(_client, this.wrapper).copyComponent();
+    }
+
+    if (_client === AureliaFactory.tokens().AURELIA1) {
+      return AureliaFactory.build(_client, this.wrapper).copyComponent();
+    }
+
+    throw new ModuleDoesntImplementError(_client, 'component');
   }
 };

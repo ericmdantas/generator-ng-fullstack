@@ -1,7 +1,7 @@
 'use strict';
 
-const Base = require('yeoman-generator').Base;
-const DirectiveSubGenerator = require('../_ng/client/sub_generators_directive').DirectiveSubGenerator;
+const {Base} = require('yeoman-generator');
+const {DirectiveSubGenerator} = require('../_ng/client/sub_generators_directive');
 
 module.exports = class DirectiveGenerator extends Base {
   constructor(args, options, config) {

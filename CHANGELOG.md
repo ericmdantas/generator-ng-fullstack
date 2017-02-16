@@ -1,3 +1,40 @@
+## [1.9](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.9.0)
+
+### New Stuff
+
+#### Client
+
+- Added Less and Sass support for the client side
+- Added Aurelia as a client framework
+- Added Vue as a client framework
+- Added compilation/uglify step with Babili
+
+
+#### Server
+
+- Added Koa web framework for Node servers
+- Added HTTP/2 implementation for Node.js servers (both Express and Koa)
+- Added Gin web framework for Go servers
+- Added Nodemon as a module to restart the Node server when the files change
+
+
+#### Fullstack
+
+- Added an option to choose a different git server, other than github
+- Added option to work with tests and source code side by side
+
+
+### Breaking change
+
+- When in dev, always use `npm run dev` to start both server and client
+- When installing the deps, if you're using typescript, you'll have to run `typings install` manually; the `preinstall` and `postinstall` script hooks were removed
+- Golang's Echo was updated to `v3` - so, some stuff changed
+
+#### Internal
+
+- Did a lot of code refactoring
+- Changed the folders structure
+
 ## [1.8](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.8.0)
 
 Better separation of concerns:
@@ -6,14 +43,14 @@ Better separation of concerns:
 - Cordova friendly app - available for client only app with Angular 1;
 - Single command to run server and client (with watcher);
 - Do not serve files from the root.
- 
+
 ### Breaking change
 
 Since the files are not being served from the root anymore, getting dependencies for Angular 2 applications had to change. Both in components and in index.html. Before you had to come down all the way from the root.
 
-Before: `node_modules/angular2/somewhere...`; 
+Before: `node_modules/angular2/somewhere...`;
 
-After: `./angular2/somewhere...`. 
+After: `./angular2/somewhere...`.
 
 The same goes for the way components pick up `templateUrl` and `styleUrls`:
 

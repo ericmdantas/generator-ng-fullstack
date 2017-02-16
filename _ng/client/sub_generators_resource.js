@@ -1,16 +1,14 @@
 'use strict';
 
-const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
-const utils = require('../utils/utils');
-const AngularFactory = require('./angular').AngularFactory;
-const FeatureMissingError = require('../utils/errors').FeatureMissingError;
-const ModuleDoesntImplementError = require('../utils/errors').ModuleDoesntImplementError;
+const {AngularFactory} = require('./angular');
+const {FeatureMissingError} = require('../utils/errors');
+const {ModuleDoesntImplementError} = require('../utils/errors');
 
 exports.ResourceSubGenerator = class ResourceSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
-    this.wrapper.ngVersion = this.wrapper.config.get('client');
+    this.wrapper.client = this.wrapper.config.get('client');
     this.wrapper.appName = this.wrapper.config.get('appName');
   }
 
@@ -24,14 +22,14 @@ exports.ResourceSubGenerator = class ResourceSubGenerator {
 
   writing() {
     let _feature = optionsParser.getFeature(this.wrapper.options);
-    let _ngVersion = this.wrapper.ngVersion;
+    let _client = this.wrapper.client;
 
     if (!_feature.length) {
       throw new FeatureMissingError();
     }
 
-    if (_ngVersion !== AngularFactory.tokens().NG1) {
-      throw new ModuleDoesntImplementError(_ngVersion, 'resource');
+    if (_client !== AngularFactory.tokens().NG1) {
+      throw new ModuleDoesntImplementError(_client, 'resource');
     }
 
     AngularFactory.build(AngularFactory.tokens().NG1, this.wrapper).copyResource();

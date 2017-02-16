@@ -4,14 +4,16 @@
   ng.module('<%= appName %>')
     .factory('<%= name %>', [
       function() {
-        var <%= name %> = function() {
-          this.name = '';
-          this.birthDate = null;
-        };
+        class <%= name %> {
+          constructor() {
+            this.name = '';
+            this.birthDate = null;
+          }
 
-        <%= name %>.prototype.isValid = function() {
-          return !!this.name && !!this.birthDate;
-        };
+          isValid() {
+            return !!this.name && !!this.birthDate;
+          }
+        }
 
         return <%= name %>;
       }

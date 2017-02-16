@@ -41,7 +41,12 @@ module.exports = function(config) {
       {pattern: 'client/dev/**/*.ts', included: false, watched: false},
       {pattern: 'client/dev/**/*.js.map', included: false, watched: false},
 
-      {pattern: 'tests/client/**/*_test.js', included: false, watched: false}
+      <% if (testsSeparated) { %>
+      {pattern: 'tests/client/**/*_test.js', included: false, watched: false},
+      <% } else { %>
+      {pattern: 'client/dev/**/*_test.js', included: false, watched: false}
+      <% } %>
+
     ],
 
     // proxied base paths

@@ -1,0 +1,23 @@
+<div class="todo-container">
+  <form class="todo-form"
+        submit.delegate="add(todo)">
+
+    <h1 class="todo-title">{{title}}</h1>
+
+    <input type="text"
+           value.bind="todo.todoMessage"
+           placeholder="What do you have todo?"
+           autofocus />
+
+    <button type="submit"
+            disabled.bind="!todo.todoMessage.length">+</button>
+  </form>
+
+  <div class="todo-list">
+    <div repeat.for="t of todos;"
+         class="todo-item"
+         click.trigger="remove(t._id);">
+      <p>${t.todoMessage}</p>
+    </div>
+  </div>
+</div>

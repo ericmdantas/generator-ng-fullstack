@@ -1,6 +1,7 @@
 import {expect} from 'chai';
 import sinon from 'sinon';
 import knownPaths from '../../_ng/utils/known_paths';
+import utils from '../../_ng/utils/utils';
 
 import {PipeSubGenerator} from '../../_ng/client/sub_generators_pipe';
 
@@ -95,8 +96,58 @@ describe('PipeSubGenerator', () => {
 
       _fsg.writing();
 
-      let _firstCall = ['pipe.ts', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/pipes/' + _gen.name + '.ts', {name: _gen.name}]
-      let _secondCall = ['pipe_test.js', knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/pipes/' + _gen.name + '_test.js', {name: _gen.name}]
+      let _firstCall = [
+        'ng2/pipe.ts',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/pipes/' + _gen.name + '.ts', {
+          name: _gen.name,
+          nameCapitalized: utils.capitalizeFirst(_gen.name)
+        }];
+
+      let _secondCall = [
+        'ng2/pipe_test.js',
+        knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/pipes/' + _gen.name + '_test.js', {
+          name: _gen.name,
+          nameCapitalized: utils.capitalizeFirst(_gen.name)
+        }];
+
+      expect(_fsg.wrapper.writing).to.have.been.called;
+      expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_fsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+    });
+
+    it('should have the writing called with the right stuff - testsSeparated', () => {
+      let _gen = {
+        name: 'a',
+        options: {feature: 'c'},
+        testsSeparated: false,
+        template: sinon.spy(),
+        config: {
+          get(token) {
+            switch (token) {
+              case "testsSeparated": return false;
+              default: return 'ng2';
+            }
+          }
+        }
+      };
+
+      let _fsg = new PipeSubGenerator(_gen);
+
+      _fsg.writing();
+
+      let _firstCall = [
+        'ng2/pipe.ts',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/pipes/' + _gen.name + '.ts', {
+          name: _gen.name,
+          nameCapitalized: utils.capitalizeFirst(_gen.name)
+        }];
+
+      let _secondCall = [
+        'ng2/pipe_test.js',
+        knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/pipes/' + _gen.name + '_test.js', {
+          name: _gen.name,
+          nameCapitalized: utils.capitalizeFirst(_gen.name)
+        }];
 
       expect(_fsg.wrapper.writing).to.have.been.called;
       expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;

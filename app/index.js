@@ -1,9 +1,7 @@
 "use strict";
 
-const Base = require('yeoman-generator').Base;
-const chalk = require('chalk');
-const yosay = require('yosay');
-const MainGenerator = require('../_ng/full/generator').MainGenerator;
+const {Base} = require('yeoman-generator');
+const {MainGenerator} = require('../_ng/full/generator');
 
 module.exports = class NgFullstack extends Base {
     constructor(args, options, config) {
@@ -32,20 +30,36 @@ module.exports = class NgFullstack extends Base {
       this.generator.promptUser();
     }
 
+    promptClient() {
+      this.generator.promptClient();
+    }
+
+    promptStylePreprocessor() {
+      this.generator.promptStylePreprocessor();
+    }
+
     promptServer() {
       this.generator.promptServer();
     }
 
-    promptClient() {
-      this.generator.promptClient();
+    promptNodeWebFrameworkServer() {
+      this.generator.promptNodeWebFrameworkServer();
     }
 
     promptUserTranspilerServer() {
       this.generator.promptTranspilerServer();
     }
 
+    promptGoWebFrameworkServer() {
+      this.generator.promptGoWebFrameworkServer();
+    }
+
     promptSecure() {
       this.generator.promptSecure();
+    }
+
+    promptTests() {
+      this.generator.promptTests();
     }
 
     promptDifferentStaticServer() {
@@ -55,4 +69,4 @@ module.exports = class NgFullstack extends Base {
     promptCordova() {
       this.generator.promptCordova();
     }
-}
+};

@@ -1,0 +1,18 @@
+{
+    "env": {
+        "node": true,
+        "browser": false,
+        "commonjs": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "indent": 0,
+        "linebreak-style": 0,
+        "quotes": 0,
+        "semi": 2
+    },
+    "globals": {
+        "process": true
+    }
+}

@@ -1,15 +1,13 @@
 'use strict';
 
-const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
-const utils = require('../utils/utils');
-const AngularFactory = require('./angular').AngularFactory;
-const FeatureMissingError = require('../utils/errors').FeatureMissingError;
+const {AngularFactory} = require('./angular');
+const {FeatureMissingError} = require('../utils/errors');
 
 exports.ViewSubGenerator = class ViewSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
-    this.wrapper.ngVersion = this.wrapper.config.get('client');
+    this.wrapper.client = this.wrapper.config.get('client');
   }
 
   initializing() {
@@ -27,6 +25,6 @@ exports.ViewSubGenerator = class ViewSubGenerator {
       throw new FeatureMissingError();
     }
 
-    AngularFactory.build(this.wrapper.ngVersion, this.wrapper).copyTemplate();
+    AngularFactory.build(this.wrapper.client, this.wrapper).copyTemplate();
   }
 };

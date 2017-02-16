@@ -1,7 +1,7 @@
 'use strict';
 
-const Base = require('yeoman-generator').Base;
-const ViewSubGenerator = require('../_ng/client/sub_generators_view').ViewSubGenerator;
+const {Base} = require('yeoman-generator');
+const {ViewSubGenerator} = require('../_ng/client/sub_generators_view');
 
 module.exports = class ViewGenerator extends Base {
   constructor(args, options, config) {

@@ -1,42 +1,9 @@
 ![logo](https://github.com/georgeedwards/generator-ng-fullstack/raw/master/logo.png)
 
-[![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack)
-[![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master)
-[![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ericmdantas/generator-ng-fullstack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-Generator ng-Fullstack is a project to allow you to rapidly get started with prototyping full-stack web applications, with the newest technologies available. Based of [Yeoman](http://yeoman.io/), this is the next generation of full-stack generators. We support the following technology options to allow you to customise your stack (Pick one from each column!).
+`ng-fullstack` is a yeoman generator that allows you to rapidly get started with prototyping web applications with the newest technologies available. It allows you to choose between a `client app`, a `server app` or a `fullstack app`. All of them simple to extend and powerful to use.
 
-| Client        | Server        | Node (Compiler) |
-| :-------------: |:-------------:| :---------------:|
-| Angular 1.x for client (JS)      | node + express + mongoose + mongodb | no compiler  |
-| Angular 2.x for client (TS)      | go + echo + mgo + mongodb      |   Babel          |
-|  -- |    --  |    Typescript          |
-
-There are many other generators out there, but they are often out of date and don't reflect the newest technologies. We plan to keep this going strong and updated!
-
-You'll be working with the latest versions of:
-
-+ [Angular 1.x](https://github.com/angular/angular.js) / [Angular 2.x](https://github.com/angular/angular) - Both the classic and the new version of the framework that changed the way we create web applications;
-+ [Bootstrap](https://github.com/twbs/bootstrap) - A sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development;
-+ [Node](https://github.com/nodejs/node) / [Golang](https://github.com/golang/go) - Either use Node or Go, both are made to handle the most the web brings;
-+ [Babel](https://github.com/babel/babel) / [Typescript](https://github.com/Microsoft/TypeScript) - Use the bleeding edge of javascript today, either with typings or not.
-+ [Mongoose](https://github.com/Automattic/mongoose) / [mgo](https://github.com/go-mgo/mgo) - Since we're using MongoDB, we've got Mongoose to model your node.js application and, if you're using Go, we have mgo, which is the best MongoDB driver;
-+ [Express](https://github.com/expressjs/express) - Fast, unopinionated, minimalist web framework for node;
-+ [Bluebird](https://github.com/petkaantonov/bluebird) - Bluebird is a fully featured promise library with focus on innovative features and performance;
-+ [Lodash](https://github.com/lodash/lodash) - A modern JavaScript utility library delivering modularity, performance, & extras.
-+ [Gulp](https://github.com/gulpjs/gulp)- A streaming build system, by using node's streams file manipulation is all done in memory, and a file isn't written until you tell it to do so;
-
-and integrate with:
-
-+ [Heroku](https://www.heroku.com/) - Heroku is a platform as a service (PaaS) that enables developers to build and run applications entirely in the cloud, powered by SalesForce;
-+ [New Relic](http://newrelic.com/) - A popular and powerful web app analytics platform, providing everything you need to ship better software;
-+ [MongoHQ](https://www.compose.io/) - Production grade managed MongoDB instances to help you focus on the parts of your app that matter;
-+ [MongoLAB](https://www.mlab.com/) - Proudly powering over 250,000 MongoDB deployments on AWS, Azure, and Google;
-+ [Google Analytics](https://www.google.com/analytics/) - Detailed website analytics, understand traffic, sources, cohort analysis, geographic and technological profiles of users and much, much more - all for free! (Pro analytics also available)
-+ and loads more!
-
-# Getting Started
+### Getting Started
 
 If you already have Node/Go setup, all you have to do is run:
 
@@ -56,36 +23,58 @@ Then, to create a new app, simply run:
 $ yo ng-fullstack
 ```
 
-and answer the on-screen questions. When it's done, you should have [this](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started#result) structure. The default starter project is our [Todo App](https://github.com/ericmdantas/generator-ng-fullstack/wiki/ToDo-Walkthrough).
+A few questions will be shown, make sure you answer them and, there you go! Now you have the [boilerplate app working](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started#result).
 
-For full guidance on setting up the dependencies and generating your first app, see [Getting Started](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started).
+Since some parts of the stack might be new to you, the boilerplate app is a simple TodoApp using the best approaches, separations of concerns and responsabilities - so you can see how it all works together as well as study the chosen stack.
+For more info, checkout the [Todo App](https://github.com/ericmdantas/generator-ng-fullstack/wiki/ToDo-Walkthrough) in the wiki.
 
-# Sub generators
+Check the [getting started](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started) session in the wiki for more info.
 
-Ready to scale? Take a look at the sub generator [session in the wiki](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Sub-Generators)!
+### Wiki
 
-# FAQ
+In the wiki you'll find: [pro tips](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Pro-tips), [the sub-generators](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Sub-Generators), [FAQ](https://github.com/ericmdantas/generator-ng-fullstack/wiki/FAQ), [Troubleshooting](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Troubleshooting), [walkthroughs](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Todo-Walkthrough), [tips for deployment](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Deploying-to-Heroku) and [much more](https://github.com/ericmdantas/generator-ng-fullstack/wiki).
 
-You can find the FAQ in the wiki, [here](https://github.com/ericmdantas/generator-ng-fullstack/wiki/FAQ).
 
-# Troubleshooting
+### Chat
 
-We've got a wiki session specific for that, [take a look](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Troubleshooting).
+Do you have a doubt, want to talk about something cool or just want to chat? Join us on the [gitter chat](https://gitter.im/ericmdantas/generator-ng-fullstack) :smile:
 
-# Contributing
 
-Pull requests, helping others solving issues, improving wiki, etc; are all valid, and more than welcome, contributions - don't hesitate. When in doubt, feel free to ping me.
+### Contributing
 
-# Resources
+Pull requests, helping others solving issues, improving the Wiki, among other tasks, are all valid, and more than welcome, contributions - don't hesitate.
 
-Our Wiki should cover all you need to get familiar with our tools, but if you are unfamiliar with any pats of the technology stack, we have linked to some official resources which may get you pointed in the right direction.
+When doing a Pull Request, make sure you target the `dev` branch, `master` is supposed to be an *stable* branch - the changes are merged only at the end of a version.  
+
+As for tests, run simply run `npm t` - it'll run both unit and acceptance tests.
+
+
+### Development
+
+| Branch | Status | Coverage | Version |
+|:------:|:------:|:--------:|:-------:|
+| `master` | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master) | [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack) |  
+| `next`    | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=v1.9)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=v1.9) | --- |
+
+
+### Resources
+
+Here are some links to help you understand some of the parts of the stack:
 
 - [Angular 2](https://angular.io/docs/ts/latest/tutorial/)
+- [Aurelia](https://github.com/aurelia/framework)
+- [Vue](https://github.com/vuejs/vue)
 - [TypeScript](http://www.typescriptlang.org/Tutorial)
+- [Babel](https://github.com/babel/babel)
+- [Webpack](https://webpack.github.io/)
+- [Gulp](https://github.com/gulpjs/gulp)
 - [Go](https://tour.golang.org/welcome/1)
+- [Echo](https://github.com/labstack/echo)
+- [Gin](https://github.com/gin-gonic/gin)
 - [MongoDB](https://university.mongodb.com/)
 - [HTTP/2](https://daniel.haxx.se/http2/)
 
-#License
+
+### License
 
 MIT

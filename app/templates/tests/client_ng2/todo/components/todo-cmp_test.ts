@@ -35,34 +35,41 @@ class MockTodoService extends TodoService {
 describe("todo_component", () => {
   describe("creation", () => {
     it("should create the component correctly", async(() => {
-      let fixture = TestBed.createComponent(TodoCmp);
-          fixture.detectChanges();
-          let compiled = fixture.debugElement.nativeElement;
-          expect(compiled).toBeDefined();
+      let fixture = TestBed.createComponent(TodoCmp);	  
+	  fixture.detectChanges();
+
+	  let compiled = fixture.debugElement.nativeElement;
+
+	  expect(compiled).toBeDefined();
     }));
 
     it("should inicialize the cmp correctly", async(() => {
-      let fixture = TestBed.createComponent(TodoCmp);
-          let instance = fixture.debugElement.componentInstance;
-          spyOn(instance, "_getAll").and.callFake(() => {});
-          fixture.detectChanges();
-          expect(instance._getAll).toHaveBeenCalled();
+      let fixture = TestBed.createComponent(TodoCmp);      
+	  let instance = fixture.debugElement.componentInstance;
+	  
+	  spyOn(instance, "_getAll").and.callFake(() => {});
+	  fixture.detectChanges();
+	  expect(instance._getAll).toHaveBeenCalled();
     }));
 
     it("should call add correctly", async(() => {
       let fixture = TestBed.createComponent(TodoCmp);
-          fixture.detectChanges();
-          let instance = fixture.debugElement.componentInstance;
-          let _todoMsg = "yo";
-          instance.add(_todoMsg);
+	  fixture.detectChanges();
+
+	  let instance = fixture.debugElement.componentInstance;
+
+	  let _todoMsg = "yo";
+	  instance.add(_todoMsg);
     }));
 
     it("should call remove correctly", async(() => {
       let fixture = TestBed.createComponent(TodoCmp);
-          fixture.detectChanges();
-          let instance = fixture.debugElement.componentInstance;
-          let _id = "abc123";
-          instance.remove(_id);
+	  fixture.detectChanges();
+	  
+	  let instance = fixture.debugElement.componentInstance;
+	  let _id = "abc123";
+
+	  instance.remove(_id);
     }));
   });
 });

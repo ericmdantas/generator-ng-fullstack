@@ -1,17 +1,18 @@
 'use strict';
 
-const knownPaths = require('../utils/known_paths');
 const optionsParser = require('../utils/options_parser');
-const utils = require('../utils/utils');
-const AngularFactory = require('./angular').AngularFactory;
-const FeatureMissingError = require('../utils/errors').FeatureMissingError;
-const ModuleDoesntImplementError = require('../utils/errors').ModuleDoesntImplementError;
+const {FeatureMissingError} = require('../utils/errors');
+const {ModuleDoesntImplementError} = require('../utils/errors');
+const {AngularFactory} = require('./angular');
+const {AureliaFactory} = require('./aurelia');
+const {VueFactory} = require('./vue');
 
 exports.FilterSubGenerator = class FilterSubGenerator {
   constructor(generator) {
     this.wrapper = generator;
     this.wrapper.appName = this.wrapper.config.get('appName');
-    this.wrapper.ngVersion = this.wrapper.config.get('client');
+    this.wrapper.client = this.wrapper.config.get('client');
+    this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
   }
 
   initializing() {
@@ -24,16 +25,24 @@ exports.FilterSubGenerator = class FilterSubGenerator {
 
   writing() {
     let _feature = optionsParser.getFeature(this.wrapper.options);
-    let _ngVersion = this.wrapper.ngVersion;
+    let _client = this.wrapper.client;
 
     if (!_feature.length) {
       throw new FeatureMissingError();
     }
 
-    if (_ngVersion !== AngularFactory.tokens().NG1) {
-      throw new ModuleDoesntImplementError(_ngVersion, 'filter');
+    if (_client === AngularFactory.tokens().NG1) {
+      return AngularFactory.build(_client, this.wrapper).copyFilter();
     }
 
-    AngularFactory.build(AngularFactory.tokens().NG1, this.wrapper).copyFilter();
+    if (_client === VueFactory.tokens().VUE2) {
+      return VueFactory.build(_client, this.wrapper).copyFilter();
+    }
+
+    if (_client === AureliaFactory.tokens().AURELIA1) {
+      return AureliaFactory.build(_client, this.wrapper).copyFilter();
+    }
+
+    throw new ModuleDoesntImplementError(_client, 'filter');
   }
 };

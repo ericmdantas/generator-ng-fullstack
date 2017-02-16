@@ -3,7 +3,7 @@ import {assert} from 'yeoman-generator';
 import {test as helpers} from 'yeoman-generator';
 import {createYoRc} from '../_helpers/mocks';
 
-describe('NgFullstack:view', () => {
+describe('subgenerator -> view', () => {
   before(function (done) {
     helpers
       .run(path.join(__dirname, '../../view'))
