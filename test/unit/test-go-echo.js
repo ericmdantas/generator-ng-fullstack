@@ -122,7 +122,7 @@ describe('go', () => {
     });
   });
 
-  describe('copyForMainGenerator', () => {
+  describe('copyServer', () => {
     it('should call the right methods with the right params', () => {
       let _newGenerator = {
         feature: 'a',
@@ -136,7 +136,7 @@ describe('go', () => {
 
       let _n = new GoEcho(_newGenerator);
 
-      _n.copyForMainGenerator();
+      _n.copyServer();
 
       let _firstCall = [`server/go/echo/main.go`,
         `server/main.go`, {
@@ -291,7 +291,7 @@ describe('go', () => {
 
       let _n = new GoEcho(_newGenerator);
 
-      _n.copyForMainGenerator();
+      _n.copyServer();
 
       let _firstCall = [`server/go/echo/main_http2.go`,
         `server/main.go`, {
@@ -446,7 +446,7 @@ describe('go', () => {
 
       let _n = new GoEcho(_newGenerator);
 
-      _n.copyForMainGenerator();
+      _n.copyServer();
 
       let _firstCall = [`server/go/echo/main_http2.go`,
         `server/main.go`, {
@@ -602,7 +602,7 @@ describe('go', () => {
 
       let _n = new GoEcho(_newGenerator);
 
-      _n.copyForMainGenerator();
+      _n.copyServer();
 
       let _firstCall = [`server/go/echo/main_http2.go`,
         `server/main.go`, {
@@ -740,7 +740,7 @@ describe('go', () => {
 
       let _n = new GoEcho(_newGenerator);
 
-      _n.copyForMainGenerator();
+      _n.copyServer();
 
       let _firstCall = [`server/go/echo/main_http2.go`,
         `server/main.go`, {

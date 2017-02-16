@@ -69,4 +69,8 @@ module.exports = class NgFullstack extends Base {
     promptCordova() {
       this.generator.promptCordova();
     }
+
+    promptBoilerplate() {
+      this.generator.promptBoilerplate();
+    }
 };

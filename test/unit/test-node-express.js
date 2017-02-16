@@ -238,7 +238,7 @@ describe('node -> express', () => {
       });
     });
 
-    describe('copyForMainGenerator', () => {
+    describe('copyServer', () => {
       it('should call with the right params - not secure - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
@@ -250,7 +250,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_node.js`,
@@ -291,7 +291,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_node.js`,
@@ -351,7 +351,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_node.js`,
@@ -393,7 +393,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_node.js`,
@@ -654,7 +654,7 @@ describe('node -> express', () => {
       });
     });
 
-    describe('copyForMainGenerator', () => {
+    describe('copyServer', () => {
       it('should call with the right params - not secure - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
@@ -666,7 +666,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_babel.js`,
@@ -707,7 +707,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_babel.js`,
@@ -767,7 +767,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_babel.js`,
@@ -809,7 +809,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_babel.js`,
@@ -1070,7 +1070,7 @@ describe('node -> express', () => {
       });
     });
 
-    describe('copyForMainGenerator', () => {
+    describe('copyServer', () => {
       it('should call with the right params - not secure - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
@@ -1082,7 +1082,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _templateCall = [
           `server/node/express/server_node_express_typescript/server.ts`,
@@ -1136,7 +1136,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _templateCall = [
           `server/node/express/server_node_express_typescript/server.ts`,
@@ -1209,7 +1209,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _templateCall = [
           `server/node/express/server_node_express_typescript/server_http2.ts`,
@@ -1264,7 +1264,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _templateCall = [
           `server/node/express/server_node_express_typescript/server_http2.ts`,

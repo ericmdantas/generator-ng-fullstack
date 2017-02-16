@@ -117,7 +117,7 @@ exports.MainGenerator = class MainGenerator {
       }
 
       if (_copiesServer) {
-        ServerFactory.create(_server, this.wrapper).copyForMainGenerator();
+        ServerFactory.create(_server, this.wrapper).copyServer();
       }
   }
 
@@ -468,6 +468,24 @@ exports.MainGenerator = class MainGenerator {
     this.wrapper.prompt(_prompts, (props) => {
       this.wrapper.cordova = props.cordova;
       this.wrapper.config.set('cordova', this.wrapper.cordova);
+
+      done();
+    });
+  }
+
+  promptBoilerplate() {
+    const done = this.wrapper.async();
+
+    let _prompts = [{
+      type: 'confirm',
+      name: 'boilerplate',
+      message: 'Do you want the TODO boilerplate?',
+      default: true
+    }];
+
+    this.wrapper.prompt(_prompts, (props) => {
+      this.wrapper.boilerplate = props.boilerplate;
+      this.wrapper.config.set('boilerplate', this.wrapper.boilerplate);
 
       done();
     });

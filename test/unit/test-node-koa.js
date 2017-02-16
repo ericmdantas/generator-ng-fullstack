@@ -238,7 +238,7 @@ describe('node -> koa', () => {
       });
     });
 
-    describe('copyForMainGenerator', () => {
+    describe('copyServer', () => {
       it('should call with the right params - not secure - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
@@ -250,7 +250,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaStandard(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_node.js`,
@@ -291,7 +291,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaStandard(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_node.js`,
@@ -352,7 +352,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaStandard(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_node.js`,
@@ -394,7 +394,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaStandard(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_node.js`,
@@ -655,7 +655,7 @@ describe('node -> koa', () => {
       });
     });
 
-    describe('copyForMainGenerator', () => {
+    describe('copyServer', () => {
       it('should call with the right params - not secure - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
@@ -667,7 +667,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaBabel(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_babel.js`,
@@ -708,7 +708,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaBabel(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_babel.js`,
@@ -768,7 +768,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaBabel(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_babel.js`,
@@ -810,7 +810,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaBabel(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_babel.js`,
@@ -1065,7 +1065,7 @@ describe('node -> koa', () => {
       });
     });
 
-    describe('copyForMainGenerator', () => {
+    describe('copyServer', () => {
       it('should call with the right params - not secure - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
@@ -1077,7 +1077,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaTypescript(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _templateCall = [
           `server/node/koa/server_node_koa_typescript/server.ts`,
@@ -1131,7 +1131,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaTypescript(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _templateCall = [
           `server/node/koa/server_node_koa_typescript/server.ts`,
@@ -1204,7 +1204,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaTypescript(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _templateCall = [
           `server/node/koa/server_node_koa_typescript/server_http2.ts`,
@@ -1259,7 +1259,7 @@ describe('node -> koa', () => {
 
         let _n = new NodeKoaTypescript(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _templateCall = [
           `server/node/koa/server_node_koa_typescript/server_http2.ts`,

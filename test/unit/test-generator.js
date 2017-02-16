@@ -429,4 +429,60 @@ describe('generator', () => {
       expect(_g.wrapper.config.save).to.have.been.called;
     })
   });
+
+  describe('promptBoilerplate', () => {
+    it('should have the right calls - boilerplate is true', () => {
+      let _gen = {
+        appName: 'a',
+        username: 'b',
+        server: 'node',
+        client: 'ng2',
+        transpilerServer: 'typescript',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
+        boilerplate: true,
+        async: () => {},
+        prompt: () => {},
+        config: {
+          save: () => {}
+        }
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.promptBoilerplate();
+
+      expect(_g.wrapper.prompt).to.have.been.called;
+      expect(_g.wrapper.config.save).to.have.been.called;
+    })
+
+    it('should have the right calls - boilerplate is false', () => {
+      let _gen = {
+        appName: 'a',
+        username: 'b',
+        server: 'node',
+        client: 'ng2',
+        transpilerServer: 'typescript',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
+        boilerplate: false,
+        async: () => {},
+        prompt: () => {},
+        config: {
+          save: () => {}
+        }
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.promptBoilerplate();
+
+      expect(_g.wrapper.prompt).to.have.been.called;
+      expect(_g.wrapper.config.save).to.have.been.called;
+    })
+  });
 });

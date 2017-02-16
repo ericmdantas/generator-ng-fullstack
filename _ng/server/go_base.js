@@ -99,7 +99,7 @@ exports.GoBase = class GoBase {
     });
   }
 
-  copyForMainGenerator() {
+  copyServer() {
     this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
 
     if (this.wrapper.secure) {

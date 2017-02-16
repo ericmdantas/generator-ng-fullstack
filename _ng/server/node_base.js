@@ -87,7 +87,7 @@ class NodeBaseStandard {
     });
   }
 
-  copyForMainGenerator() {
+  copyServer() {
     this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
 
     this.wrapper.template('index_node.js', 'server/index.js');
@@ -214,7 +214,7 @@ class NodeBaseBabel {
     });
   }
 
-  copyForMainGenerator() {
+  copyServer() {
     this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
 
     this.wrapper.template('index_babel.js', 'server/index.js');
@@ -340,7 +340,7 @@ class NodeBaseTypescript {
     });
   }
 
-  copyForMainGenerator() {
+  copyServer() {
     this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
 
     this.wrapper.template('index_tsc.js', 'server/index.js');
