@@ -10,17 +10,34 @@
       "test": "gulp client.unit_test",
       "build-dist": "gulp client.build:dist"
     <%} else {%>
-      "start": "node server/index",
+
       "watch": "gulp",
-      <% if (usesTypescript) { %>
-        "dev": "tsc && concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
-      <% } else { %>
-        "dev": "concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
+
+      <% if (server === "node") { %>
+        
+        "start": "node server/index",
+
+        <% if (usesTypescript) { %>
+          "dev": "tsc && concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
+        <% } else { %>
+          "dev": "concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
+        <% } %>
+      <% } %>
+
+      <% if (server === "go") { %>
+        "start": "go run server/main.go",
+
+        <% if (usesTypescript) { %>
+          "dev": "tsc && concurrently \" npm start \" \"gulp\"",
+        <% } else { %>
+          "dev": "concurrently \"npm start\" \"gulp\"",
+        <% } %>
       <% } %>
 
       "build-dev": "gulp client.build:dev",
       "build-dist": "gulp client.build:dist",
       "test-client": "gulp client.unit_test",
+
       <% if (testsSeparated) { %>
         "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
         "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register",
@@ -30,6 +47,7 @@
         "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register",
         "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
       <% } %>
+
   <% } %>
   },
   "dependencies": {
