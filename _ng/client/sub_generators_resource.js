@@ -7,13 +7,13 @@ const {ModuleDoesntImplementError} = require('../utils/errors');
 
 exports.ResourceSubGenerator = class ResourceSubGenerator {
   constructor(generator) {
-    this.wrapper = generator;
-    this.wrapper.client = this.wrapper.config.get('client');
-    this.wrapper.appName = this.wrapper.config.get('appName');
+    this.generator = generator;
+    this.generator.client = this.generator.config.get('client');
+    this.generator.appName = this.generator.config.get('appName');
   }
 
   initializing() {
-    this.wrapper.argument('name', {
+    this.generator.argument('name', {
       required: true,
       type: String,
       desc: 'resource'
@@ -21,8 +21,8 @@ exports.ResourceSubGenerator = class ResourceSubGenerator {
   }
 
   writing() {
-    let _feature = optionsParser.getFeature(this.wrapper.options);
-    let _client = this.wrapper.client;
+    let _feature = optionsParser.getFeature(this.generator.options);
+    let _client = this.generator.client;
 
     if (!_feature.length) {
       throw new FeatureMissingError();
@@ -32,6 +32,6 @@ exports.ResourceSubGenerator = class ResourceSubGenerator {
       throw new ModuleDoesntImplementError(_client, 'resource');
     }
 
-    AngularFactory.build(AngularFactory.tokens().NG1, this.wrapper).copyResource();
+    AngularFactory.build(AngularFactory.tokens().NG1, this.generator).copyResource();
   }
 };

@@ -16,7 +16,7 @@ describe('DirectiveSubGenerator', () => {
 
       let _dsg = new DirectiveSubGenerator(_gen);
 
-      expect(_dsg.wrapper).to.equal(_gen);
+      expect(_dsg.generator).to.equal(_gen);
     });
   });
 
@@ -34,7 +34,7 @@ describe('DirectiveSubGenerator', () => {
 
       _dsg.initializing();
 
-      expect(_dsg.wrapper.argument).to.have.been.called;
+      expect(_dsg.generator.argument).to.have.been.called;
     });
   });
 
@@ -89,9 +89,9 @@ describe('DirectiveSubGenerator', () => {
           }
         ];
 
-        expect(_dsg.wrapper.writing).to.have.been.called;
-        expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_dsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_dsg.generator.writing).to.have.been.called;
+        expect(_dsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_dsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
 
       it('should have the writing called with the right stuff - testsSeparated', () => {
@@ -132,9 +132,9 @@ describe('DirectiveSubGenerator', () => {
           }
         ];
 
-        expect(_dsg.wrapper.writing).to.have.been.called;
-        expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_dsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_dsg.generator.writing).to.have.been.called;
+        expect(_dsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_dsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     });
 
@@ -182,9 +182,9 @@ describe('DirectiveSubGenerator', () => {
           }
         ];
 
-        expect(_dsg.wrapper.writing).to.have.been.called;
-        expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_dsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_dsg.generator.writing).to.have.been.called;
+        expect(_dsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_dsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
 
       it('should have the writing called with the right stuff - testsSeparated', () => {
@@ -221,9 +221,9 @@ describe('DirectiveSubGenerator', () => {
           }
         ];
 
-        expect(_dsg.wrapper.writing).to.have.been.called;
-        expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_dsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_dsg.generator.writing).to.have.been.called;
+        expect(_dsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_dsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     });
 
@@ -274,9 +274,9 @@ describe('DirectiveSubGenerator', () => {
           }
         ];
 
-        expect(_dsg.wrapper.writing).to.have.been.called;
-        expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_dsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_dsg.generator.writing).to.have.been.called;
+        expect(_dsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_dsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
 
       it('should have the writing called with the right stuff - testsSeparated', () => {
@@ -314,9 +314,9 @@ describe('DirectiveSubGenerator', () => {
           }
         ];
 
-        expect(_dsg.wrapper.writing).to.have.been.called;
-        expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_dsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_dsg.generator.writing).to.have.been.called;
+        expect(_dsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_dsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     });
 
@@ -367,9 +367,9 @@ describe('DirectiveSubGenerator', () => {
           }
         ];
 
-        expect(_dsg.wrapper.writing).to.have.been.called;
-        expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_dsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_dsg.generator.writing).to.have.been.called;
+        expect(_dsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_dsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
 
       it('should have the writing called with the right stuff - testsSeparated', () => {
@@ -407,9 +407,9 @@ describe('DirectiveSubGenerator', () => {
           }
         ];
 
-        expect(_dsg.wrapper.writing).to.have.been.called;
-        expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_dsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_dsg.generator.writing).to.have.been.called;
+        expect(_dsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_dsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     });
 

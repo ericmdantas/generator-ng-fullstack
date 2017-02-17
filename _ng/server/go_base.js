@@ -18,83 +18,83 @@ const basePath = (generator) => {
 
 exports.GoBase = class GoBase {
   constructor(generator, webFramework) {
-    this.wrapper = generator;
+    this.generator = generator;
     this.webFramework = webFramework;
   }
 
   copyEndpoint() {
-    let _featureWithoutTrailingSlash = this.wrapper.feature.replace('/', '');
-    let gen = basePath(this.wrapper);
+    let _featureWithoutTrailingSlash = this.generator.feature.replace('/', '');
+    let gen = basePath(this.generator);
 
-    this.wrapper.template('go/'+this.webFramework+'/endpoint.route.go', `${gen.route}.go`, {
-      name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase(),
-      userNameSpace: this.wrapper.userNameSpace,
-      repoHostUrl: this.wrapper.repoHostUrl,
-      appName: this.wrapper.appName,
+    this.generator.template('go/'+this.webFramework+'/endpoint.route.go', `${gen.route}.go`, {
+      name: this.generator.name,
+      nameLowerCase: this.generator.name.toLowerCase(),
+      userNameSpace: this.generator.userNameSpace,
+      repoHostUrl: this.generator.repoHostUrl,
+      appName: this.generator.appName,
       feature: _featureWithoutTrailingSlash
     });
 
-    this.wrapper.template('go/'+this.webFramework+'/endpoint.controller.go', `${gen.controller}.go`, {
-      name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase(),
-      userNameSpace: this.wrapper.userNameSpace,
-      repoHostUrl: this.wrapper.repoHostUrl,
-      appName: this.wrapper.appName,
+    this.generator.template('go/'+this.webFramework+'/endpoint.controller.go', `${gen.controller}.go`, {
+      name: this.generator.name,
+      nameLowerCase: this.generator.name.toLowerCase(),
+      userNameSpace: this.generator.userNameSpace,
+      repoHostUrl: this.generator.repoHostUrl,
+      appName: this.generator.appName,
       feature: _featureWithoutTrailingSlash
     });
 
-    this.wrapper.template('go/'+this.webFramework+'/endpoint.dao.go', `${gen.dao}.go`, {
-      name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase(),
-      userNameSpace: this.wrapper.userNameSpace,
-      repoHostUrl: this.wrapper.repoHostUrl,
-      appName: this.wrapper.appName,
+    this.generator.template('go/'+this.webFramework+'/endpoint.dao.go', `${gen.dao}.go`, {
+      name: this.generator.name,
+      nameLowerCase: this.generator.name.toLowerCase(),
+      userNameSpace: this.generator.userNameSpace,
+      repoHostUrl: this.generator.repoHostUrl,
+      appName: this.generator.appName,
       feature: _featureWithoutTrailingSlash
     });
 
-    this.wrapper.template('go/'+this.webFramework+'/endpoint.model.go', `${gen.model}.go`, {
-      name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase(),
-      userNameSpace: this.wrapper.userNameSpace,
-      repoHostUrl: this.wrapper.repoHostUrl,
-      appName: this.wrapper.appName,
+    this.generator.template('go/'+this.webFramework+'/endpoint.model.go', `${gen.model}.go`, {
+      name: this.generator.name,
+      nameLowerCase: this.generator.name.toLowerCase(),
+      userNameSpace: this.generator.userNameSpace,
+      repoHostUrl: this.generator.repoHostUrl,
+      appName: this.generator.appName,
       feature: _featureWithoutTrailingSlash
     });
 
-    this.wrapper.template('go/'+this.webFramework+'/endpoint.dao_test.go', `${gen.daoTest}.go`, {
-      name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase(),
-      userNameSpace: this.wrapper.userNameSpace,
-      repoHostUrl: this.wrapper.repoHostUrl,
-      appName: this.wrapper.appName,
+    this.generator.template('go/'+this.webFramework+'/endpoint.dao_test.go', `${gen.daoTest}.go`, {
+      name: this.generator.name,
+      nameLowerCase: this.generator.name.toLowerCase(),
+      userNameSpace: this.generator.userNameSpace,
+      repoHostUrl: this.generator.repoHostUrl,
+      appName: this.generator.appName,
       feature: _featureWithoutTrailingSlash
     });
 
-    this.wrapper.template('go/'+this.webFramework+'/endpoint.model_test.go', `${gen.modelTest}.go`, {
-      name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase(),
-      userNameSpace: this.wrapper.userNameSpace,
-      repoHostUrl: this.wrapper.repoHostUrl,
-      appName: this.wrapper.appName,
+    this.generator.template('go/'+this.webFramework+'/endpoint.model_test.go', `${gen.modelTest}.go`, {
+      name: this.generator.name,
+      nameLowerCase: this.generator.name.toLowerCase(),
+      userNameSpace: this.generator.userNameSpace,
+      repoHostUrl: this.generator.repoHostUrl,
+      appName: this.generator.appName,
       feature: _featureWithoutTrailingSlash
     });
 
-    this.wrapper.template('go/'+this.webFramework+'/endpoint.controller_test.go', `${gen.controllerTest}.go`, {
-      name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase(),
-      userNameSpace: this.wrapper.userNameSpace,
-      repoHostUrl: this.wrapper.repoHostUrl,
-      appName: this.wrapper.appName,
+    this.generator.template('go/'+this.webFramework+'/endpoint.controller_test.go', `${gen.controllerTest}.go`, {
+      name: this.generator.name,
+      nameLowerCase: this.generator.name.toLowerCase(),
+      userNameSpace: this.generator.userNameSpace,
+      repoHostUrl: this.generator.repoHostUrl,
+      appName: this.generator.appName,
       feature: _featureWithoutTrailingSlash
     });
 
-    this.wrapper.template('go/'+this.webFramework+'/endpoint.route_test.go', `${gen.routeTest}.go`, {
-      name: this.wrapper.name,
-      nameLowerCase: this.wrapper.name.toLowerCase(),
-      userNameSpace: this.wrapper.userNameSpace,
-      repoHostUrl: this.wrapper.repoHostUrl,
-      appName: this.wrapper.appName,
+    this.generator.template('go/'+this.webFramework+'/endpoint.route_test.go', `${gen.routeTest}.go`, {
+      name: this.generator.name,
+      nameLowerCase: this.generator.name.toLowerCase(),
+      userNameSpace: this.generator.userNameSpace,
+      repoHostUrl: this.generator.repoHostUrl,
+      appName: this.generator.appName,
       feature: _featureWithoutTrailingSlash
     });
   }
@@ -106,30 +106,30 @@ exports.GoBase = class GoBase {
   _copyTodoBoilerplate() {
     let _paths = [];
 
-    this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
+    this.generator.differentStaticServer = !!this.generator.differentStaticServer || (this.generator.stack === "server");
 
-    if (!this.wrapper.differentStaticServer) {
+    if (!this.generator.differentStaticServer) {
       _paths.push(['server/go/'+this.webFramework+'/common/static/static.go', 'server/common/static/static.go'],
                   ['server/go/'+this.webFramework+'/common/static/static_test.go', 'server/common/static/static_test.go']);
     }
 
-    if (this.wrapper.secure) {
-      this.wrapper.template('server/go/'+this.webFramework+'/main_http2.go', 'server/main.go', {
-        appName: this.wrapper.appName,
-        userNameSpace: this.wrapper.userNameSpace,
-        repoHostUrl: this.wrapper.repoHostUrl,
-        differentStaticServer: !!this.wrapper.differentStaticServer
+    if (this.generator.secure) {
+      this.generator.template('server/go/'+this.webFramework+'/main_http2.go', 'server/main.go', {
+        appName: this.generator.appName,
+        userNameSpace: this.generator.userNameSpace,
+        repoHostUrl: this.generator.repoHostUrl,
+        differentStaticServer: !!this.generator.differentStaticServer
       });
     } else {
-      this.wrapper.template('server/go/'+this.webFramework+'/main.go', 'server/main.go', {
-        appName: this.wrapper.appName,
-        userNameSpace: this.wrapper.userNameSpace,
-        repoHostUrl: this.wrapper.repoHostUrl,
-        differentStaticServer: !!this.wrapper.differentStaticServer
+      this.generator.template('server/go/'+this.webFramework+'/main.go', 'server/main.go', {
+        appName: this.generator.appName,
+        userNameSpace: this.generator.userNameSpace,
+        repoHostUrl: this.generator.repoHostUrl,
+        differentStaticServer: !!this.generator.differentStaticServer
       });
     }
 
-    if (this.wrapper.boilerplate) {
+    if (this.generator.boilerplate) {
       _paths.push(
         ['server/go/'+this.webFramework+'/routes/routes.go', 'server/routes/routes.go'],
         ['server/go/'+this.webFramework+'/routes/routes_test.go', 'server/routes/routes_test.go'],
@@ -159,11 +159,11 @@ exports.GoBase = class GoBase {
       );
     }
 
-    yoUtils.directory(this.wrapper, _paths, {
-      appName: this.wrapper.appName,
-      userNameSpace: this.wrapper.userNameSpace,
-      repoHostUrl: this.wrapper.repoHostUrl,
-      differentStaticServer: !!this.wrapper.differentStaticServer
+    yoUtils.directory(this.generator, _paths, {
+      appName: this.generator.appName,
+      userNameSpace: this.generator.userNameSpace,
+      repoHostUrl: this.generator.repoHostUrl,
+      differentStaticServer: !!this.generator.differentStaticServer
     });
   }
 };

@@ -7,14 +7,14 @@ const {ModuleDoesntImplementError} = require('../utils/errors');
 
 exports.PipeSubGenerator = class PipeSubGenerator {
   constructor(generator) {
-    this.wrapper = generator;
-    this.wrapper.client = this.wrapper.config.get('client');
-    this.wrapper.appName = this.wrapper.config.get('appName');
-    this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
+    this.generator = generator;
+    this.generator.client = this.generator.config.get('client');
+    this.generator.appName = this.generator.config.get('appName');
+    this.generator.testsSeparated = this.generator.config.get('testsSeparated');
   }
 
   initializing() {
-    this.wrapper.argument('name', {
+    this.generator.argument('name', {
       required: true,
       type: String,
       desc: 'pipe'
@@ -22,8 +22,8 @@ exports.PipeSubGenerator = class PipeSubGenerator {
   }
 
   writing() {
-    let _feature = optionsParser.getFeature(this.wrapper.options);
-    let _client = this.wrapper.client;
+    let _feature = optionsParser.getFeature(this.generator.options);
+    let _client = this.generator.client;
 
     if (!_feature.length) {
       throw new FeatureMissingError();
@@ -33,6 +33,6 @@ exports.PipeSubGenerator = class PipeSubGenerator {
       throw new ModuleDoesntImplementError(_client, 'pipe');
     }
 
-    AngularFactory.build(AngularFactory.tokens().NG2, this.wrapper).copyPipe();
+    AngularFactory.build(AngularFactory.tokens().NG2, this.generator).copyPipe();
   }
 };

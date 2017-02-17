@@ -17,7 +17,7 @@ describe('DecoratorSubGenerator', () => {
       };
       let _dsg = new DecoratorSubGenerator(_gen);
 
-      expect(_dsg.wrapper).to.equal(_gen);
+      expect(_dsg.generator).to.equal(_gen);
     });
   });
 
@@ -36,7 +36,7 @@ describe('DecoratorSubGenerator', () => {
 
       _dsg.initializing();
 
-      expect(_dsg.wrapper.argument).to.have.been.called;
+      expect(_dsg.generator.argument).to.have.been.called;
     });
   });
 
@@ -98,8 +98,8 @@ describe('DecoratorSubGenerator', () => {
 
       let _firstCall = ['ng1/decorator.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/decorator/' + _gen.name + '.js', {appName: _gen.appName}];
 
-      expect(_dsg.wrapper.writing).to.have.been.called;
-      expect(_dsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+      expect(_dsg.generator.writing).to.have.been.called;
+      expect(_dsg.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
     });
   });
 });

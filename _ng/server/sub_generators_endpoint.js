@@ -8,25 +8,25 @@ const {FeatureMissingError} = require('../utils/errors');
 
 exports.EndpointSubGenerator = class EndpointSubGenerator {
   constructor(generator) {
-    this.wrapper = generator;
-    this.wrapper.feature  = optionsParser.getFeature(this.wrapper.options);
-    this.wrapper.name = this.wrapper.name;
-    this.wrapper.userNameSpace = this.wrapper.config.get('userNameSpace');
-    this.wrapper.appName = this.wrapper.config.get('appName');
-    this.wrapper.server = this.wrapper.config.get('server');
-    this.wrapper.transpilerServer = this.wrapper.config.get('transpilerServer');
+    this.generator = generator;
+    this.generator.feature  = optionsParser.getFeature(this.generator.options);
+    this.generator.name = this.generator.name;
+    this.generator.userNameSpace = this.generator.config.get('userNameSpace');
+    this.generator.appName = this.generator.config.get('appName');
+    this.generator.server = this.generator.config.get('server');
+    this.generator.transpilerServer = this.generator.config.get('transpilerServer');
 
-    if (this.wrapper.server === ServerFactory.tokens().NODE) {
-      this.wrapper.nodeWebFrameworkServer = this.wrapper.config.get('nodeWebFrameworkServer');
+    if (this.generator.server === ServerFactory.tokens().NODE) {
+      this.generator.nodeWebFrameworkServer = this.generator.config.get('nodeWebFrameworkServer');
     } else {
-      this.wrapper.goWebFrameworkServer = this.wrapper.config.get('goWebFrameworkServer');
+      this.generator.goWebFrameworkServer = this.generator.config.get('goWebFrameworkServer');
     }
 
-    this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
+    this.generator.testsSeparated = this.generator.config.get('testsSeparated');
   }
 
   initializing() {
-    this.wrapper.argument('name', {
+    this.generator.argument('name', {
       required: true,
       type: String,
       desc: 'endpoint'
@@ -34,12 +34,12 @@ exports.EndpointSubGenerator = class EndpointSubGenerator {
   }
 
   writing() {
-    if (!this.wrapper.feature.length)
+    if (!this.generator.feature.length)
         throw new FeatureMissingError();
 
-    switch (this.wrapper.server) {
-        case ServerFactory.tokens().GO: GoFactory.build(this.wrapper).copyEndpoint(); break;
-        case ServerFactory.tokens().NODE: NodeFactory.build(this.wrapper).copyEndpoint(); break;
+    switch (this.generator.server) {
+        case ServerFactory.tokens().GO: GoFactory.build(this.generator).copyEndpoint(); break;
+        case ServerFactory.tokens().NODE: NodeFactory.build(this.generator).copyEndpoint(); break;
     }
   }
 };

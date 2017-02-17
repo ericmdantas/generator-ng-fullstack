@@ -16,7 +16,7 @@ describe('FactorySubGenerator', () => {
       };
       let _fsg = new FactorySubGenerator(_gen);
 
-      expect(_fsg.wrapper).to.equal(_gen);
+      expect(_fsg.generator).to.equal(_gen);
     });
   });
 
@@ -35,7 +35,7 @@ describe('FactorySubGenerator', () => {
 
       _fsg.initializing();
 
-      expect(_fsg.wrapper.argument).to.have.been.called;
+      expect(_fsg.generator.argument).to.have.been.called;
     });
   });
 
@@ -86,9 +86,9 @@ describe('FactorySubGenerator', () => {
             appName: _gen.appName
           }];
 
-        expect(_fsg.wrapper.writing).to.have.been.called;
-        expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_fsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_fsg.generator.writing).to.have.been.called;
+        expect(_fsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_fsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
 
       it('should have the writing called with the right stuff - testsSeparated', () => {
@@ -126,9 +126,9 @@ describe('FactorySubGenerator', () => {
             appName: _gen.appName
           }];
 
-        expect(_fsg.wrapper.writing).to.have.been.called;
-        expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_fsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_fsg.generator.writing).to.have.been.called;
+        expect(_fsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_fsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     });
 
@@ -184,9 +184,9 @@ describe('FactorySubGenerator', () => {
             name: utils.capitalizeFirst(_gen.name)
           }];
 
-        expect(_fsg.wrapper.writing).to.have.been.called;
-        expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_fsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_fsg.generator.writing).to.have.been.called;
+        expect(_fsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_fsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     });
 
@@ -242,9 +242,9 @@ describe('FactorySubGenerator', () => {
             name: utils.capitalizeFirst(_gen.name)
           }];
 
-        expect(_fsg.wrapper.writing).to.have.been.called;
-        expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_fsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_fsg.generator.writing).to.have.been.called;
+        expect(_fsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_fsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     });
 
@@ -300,9 +300,9 @@ describe('FactorySubGenerator', () => {
             name: utils.capitalizeFirst(_gen.name)
           }];
 
-        expect(_fsg.wrapper.writing).to.have.been.called;
-        expect(_fsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_fsg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_fsg.generator.writing).to.have.been.called;
+        expect(_fsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_fsg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     });
 
