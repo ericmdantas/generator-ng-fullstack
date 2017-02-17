@@ -163,39 +163,52 @@ class Angular1 {
   }
 
   _copyTodoBoilerplate() {
-    let _pathSrc = [
-      ['client/ng1/dev/index.html', 'client/dev/index.html'],
-      ['client/ng1/dev/favicon.png', 'client/dev/favicon.png'],
-      ['client/ng1/dev/app.js', 'client/dev/app.js'],
-      ['client/ng1/dev/app.route.js', 'client/dev/app.route.js'],
-      ['client/ng1/dev/app.config.js', 'client/dev/app.config.js'],
-      ['client/ng1/dev/todo/controllers/todo-controller.js', 'client/dev/todo/controllers/todo-controller.js'],
-      ['client/ng1/dev/todo/models/todo-model.js', 'client/dev/todo/models/todo-model.js'],
-      ['client/ng1/dev/todo/services/todo-dao.js', 'client/dev/todo/services/todo-dao.js'],
-      ['client/ng1/dev/todo/resources/todo-resource.js', 'client/dev/todo/resources/todo-resource.js'],
-      ['client/ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
-    ];
-
+    let _pathSrc = [];
     let _pathTest = [];
 
-    if(this.testsSeparated) {
-      _pathTest = [
-        ['tests/client_ng1/todo/controllers/todo-controller_test.js', 'tests/client/todo/controllers/todo-controller_test.js'],
-        ['tests/client_ng1/todo/models/todo-model_test.js', 'tests/client/todo/models/todo-model_test.js'],
-        ['tests/client_ng1/todo/services/todo-dao_test.js', 'tests/client/todo/services/todo-dao_test.js']
-      ];
+    if (this.generator.boilerplate) {
+      _pathSrc.push(
+        ['client/ng1/dev/index.html', 'client/dev/index.html'],
+        ['client/ng1/dev/favicon.png', 'client/dev/favicon.png'],
+        ['client/ng1/dev/app.js', 'client/dev/app.js'],
+        ['client/ng1/dev/app.route.js', 'client/dev/app.route.js'],
+        ['client/ng1/dev/app.config.js', 'client/dev/app.config.js'],
+        ['client/ng1/dev/todo/controllers/todo-controller.js', 'client/dev/todo/controllers/todo-controller.js'],
+        ['client/ng1/dev/todo/models/todo-model.js', 'client/dev/todo/models/todo-model.js'],
+        ['client/ng1/dev/todo/services/todo-dao.js', 'client/dev/todo/services/todo-dao.js'],
+        ['client/ng1/dev/todo/resources/todo-resource.js', 'client/dev/todo/resources/todo-resource.js'],
+        ['client/ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
+      );
+
+      if(this.testsSeparated) {
+        _pathTest = [
+          ['tests/client_ng1/todo/controllers/todo-controller_test.js', 'tests/client/todo/controllers/todo-controller_test.js'],
+          ['tests/client_ng1/todo/models/todo-model_test.js', 'tests/client/todo/models/todo-model_test.js'],
+          ['tests/client_ng1/todo/services/todo-dao_test.js', 'tests/client/todo/services/todo-dao_test.js']
+        ];
+      } else {
+        _pathTest = [
+          ['tests/client_ng1/todo/controllers/todo-controller_test.js', 'client/dev/todo/controllers/todo-controller_test.js'],
+          ['tests/client_ng1/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
+          ['tests/client_ng1/todo/services/todo-dao_test.js', 'client/dev/todo/services/todo-dao_test.js']
+        ];
+      }
+
+      yoUtils.directory(this.generator, _pathSrc, this.generator);
+      yoUtils.directory(this.generator, _pathTest, this.generator);
+
+      copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
     } else {
-      _pathTest = [
-        ['tests/client_ng1/todo/controllers/todo-controller_test.js', 'client/dev/todo/controllers/todo-controller_test.js'],
-        ['tests/client_ng1/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
-        ['tests/client_ng1/todo/services/todo-dao_test.js', 'client/dev/todo/services/todo-dao_test.js']
-      ];
+      _pathSrc.push(
+        ['client/ng1/dev/index.html', 'client/dev/index.html'],
+        ['client/ng1/dev/favicon.png', 'client/dev/favicon.png'],
+        ['client/ng1/dev/app.js', 'client/dev/app.js'],
+        ['client/ng1/dev/app.route.js', 'client/dev/app.route.js'],
+        ['client/ng1/dev/app.config.js', 'client/dev/app.config.js']
+      );
     }
 
     yoUtils.directory(this.generator, _pathSrc, this.generator);
-    yoUtils.directory(this.generator, _pathTest, this.generator);
-
-    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
 
   _copyTasks() {
@@ -360,16 +373,32 @@ class Angular2 {
   }
 
   _copyTodoBoilerplate() {
-    this.generator.directory('client/ng2', 'client');
+    let _pathSrc = [];
 
-    if(this.testsSeparated) {
-      this.generator.directory('tests/client_ng2', 'tests/client');
+    if (this.generator.boilerplate) {
+      this.generator.directory('client/ng2', 'client');
+
+      if(this.testsSeparated) {
+        this.generator.directory('tests/client_ng2', 'tests/client');
+      } else {
+        let _pathTest = [
+          ['tests/client_ng2/todo/components/todo-cmp_test.ts', 'client/dev/todo/components/todo-cmp_test.ts'],
+          ['tests/client_ng2/todo/services/todo-service_test.ts', 'client/dev/todo/services/todo-service_test.ts']
+        ];
+
+        yoUtils.directory(this.generator, _pathTest, this.generator);
+      }
+
+      copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
     } else {
-      let _pathTest = [
-        ['tests/client_ng2/todo/components/todo-cmp_test.ts', 'client/dev/todo/components/todo-cmp_test.ts'],
-        ['tests/client_ng2/todo/services/todo-service_test.ts', 'client/dev/todo/services/todo-service_test.ts']
-      ];
-      yoUtils.directory(this.generator, _pathTest, this.generator);
+      _pathSrc.push(
+        ['client/ng2/dev/index.ts', 'client/dev/index.ts'],
+        ['client/ng2/dev/app.ts', 'client/dev/app.ts'],
+        ['client/ng2/dev/app.module.ts', 'client/dev/app.module.ts'],
+        ['client/ng2/dev/index.html', 'client/dev/index.html']
+      );
+
+      yoUtils.directory(this.generator, _pathSrc, this.generator);
     }
 
     if (this.generator.stack === "client")  {
@@ -377,8 +406,6 @@ class Angular2 {
     } else {
       this.generator.template('_ng2_systemjs_config_serving_node_modules.js', 'client/dev/config.js');
     }
-
-    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
 
   _copyTsc() {

@@ -32,6 +32,7 @@ describe('angular', () => {
           let _gen = {
             name: 'a',
             secure: false,
+            boilerplate: true,
             options: {feature: 'c'},
             config: {
               get(){return 'ng1'}
@@ -64,6 +65,7 @@ describe('angular', () => {
           let _gen = {
             name: 'a',
             secure: true,
+            boilerplate: true,
             options: {feature: 'c'},
             config: {
               get(){return 'ng1'}
@@ -96,6 +98,7 @@ describe('angular', () => {
           let _gen = {
             name: 'a',
             secure: true,
+            boilerplate: true,
             options: {feature: 'c'},
             stylePreprocessor: 'less',
             config: {
@@ -130,6 +133,7 @@ describe('angular', () => {
           let _gen = {
             name: 'a',
             secure: true,
+            boilerplate: true,
             options: {feature: 'c'},
             stylePreprocessor: 'sass',
             config: {
@@ -166,6 +170,7 @@ describe('angular', () => {
           let _gen = {
             name: 'a',
             appName: 'b',
+            boilerplate: true,
             options: {feature: 'c'},
             testsSeparated: false,
             config: {
@@ -202,6 +207,7 @@ describe('angular', () => {
           let _gen = {
             name: 'a',
             appName: 'b',
+            boilerplate: true,
             options: {feature: 'c'},
             testsSeparated: true,
             config: {
@@ -561,6 +567,7 @@ describe('angular', () => {
         let _gen = {
           name: 'a',
           secure: false,
+          boilerplate: true,
           testsSeparated: true,
           options: {feature: 'c'},
           config: {
@@ -639,6 +646,7 @@ describe('angular', () => {
         let _gen = {
           name: 'a',
           secure: false,
+          boilerplate: true,
           testsSeparated: false,
           options: {feature: 'c'},
           config: {
@@ -723,6 +731,7 @@ describe('angular', () => {
           name: 'a',
           secure: true,
           testsSeparated: true,
+          boilerplate: true,
           options: {feature: 'c'},
           config: {
             get(){return 'ng2'}
@@ -800,6 +809,7 @@ describe('angular', () => {
         let _gen = {
           name: 'a',
           secure: true,
+          boilerplate: true,
           testsSeparated: false,
           options: {feature: 'c'},
           config: {
@@ -884,6 +894,7 @@ describe('angular', () => {
           name: 'a',
           secure: true,
           stack: "client",
+          boilerplate: true,
           testsSeparated: true,
           options: {feature: 'c'},
           config: {
@@ -964,6 +975,7 @@ describe('angular', () => {
           secure: true,
           stack: "client",
           testsSeparated: false,
+          boilerplate: true,
           options: {feature: 'c'},
           config: {
             get(){return 'ng2'}
@@ -1048,6 +1060,7 @@ describe('angular', () => {
           secure: true,
           testsSeparated: true,
           stack: "fullstack",
+          boilerplate: true,
           differentStaticServer: false,
           options: {feature: 'c'},
           config: {
@@ -1128,6 +1141,7 @@ describe('angular', () => {
           secure: true,
           testsSeparated: true,
           stack: "fullstack",
+          boilerplate: true,
           differentStaticServer: false,
           stylePreprocessor: 'less',
           options: {feature: 'c'},
@@ -1209,6 +1223,7 @@ describe('angular', () => {
           secure: true,
           testsSeparated: true,
           stack: "fullstack",
+          boilerplate: true,
           differentStaticServer: false,
           stylePreprocessor: 'sass',
           options: {feature: 'c'},
