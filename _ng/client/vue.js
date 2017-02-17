@@ -128,21 +128,32 @@ class Vue2 {
   }
 
   _copyTodoBoilerplate() {
-    this.generator.directory('client/vue2', 'client');
+    if (this.generator.boilerplate) {
+      this.generator.directory('client/vue2', 'client');
 
-    if(this.testsSeparated) {
-      this.generator.directory('tests/client_vue2', 'tests/client');
+      if(this.testsSeparated) {
+        this.generator.directory('tests/client_vue2', 'tests/client');
+      } else {
+        let _pathTest = [
+          ['tests/client_vue2/todo/components/todo-cmp_test.js', 'client/dev/todo/components/todo-cmp_test.js'],
+          ['tests/client_vue2/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
+          ['tests/client_vue2/todo/services/todo-service_test.js', 'client/dev/todo/services/todo-service_test.js']
+        ];
+
+        yoUtils.directory(this.generator, _pathTest, this.generator);
+      }
+
+      copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
     } else {
-      let _pathTest = [
-        ['tests/client_vue2/todo/components/todo-cmp_test.js', 'client/dev/todo/components/todo-cmp_test.js'],
-        ['tests/client_vue2/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
-        ['tests/client_vue2/todo/services/todo-service_test.js', 'client/dev/todo/services/todo-service_test.js']
-      ];
+      let _pathSrc = [];
 
-      yoUtils.directory(this.generator, _pathTest, this.generator);
+      _pathSrc.push(
+        ['client/vue2/dev/index.js', 'client/dev/index.js'],
+        ['client/vue2/dev/index.html', 'client/dev/index.html']
+      );
+
+      yoUtils.directory(this.generator, _pathSrc, this.generator);
     }
-
-    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
 
   _copyTasks() {
