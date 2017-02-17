@@ -48,7 +48,7 @@ class Angular1 {
         appName: this.generator.appName
     });
 
-    this.generator.template('ng1/directive_test.js',
+    this.generator.template(_pathTemplate + 'ng1/directive_test.js',
       `${this.testsPath + this.generator.options.feature}/directives/${this.generator.name}_test.js`, {
         name: this.generator.name,
         appName: this.generator.appName,
