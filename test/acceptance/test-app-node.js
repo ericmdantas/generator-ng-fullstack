@@ -47,7 +47,7 @@ describe('ng-fullstack -> node', () => {
       'client/dev/index.html',
 
       'client/dev/todo/styles/todo.css',
-      
+
       'client/dev/app.js',
       'client/dev/app.route.js',
       'client/dev/app.config.js',
@@ -66,6 +66,36 @@ describe('ng-fullstack -> node', () => {
       'tests/client/todo/models/todo-model_test.js',
 
       // tests - e2e
+
+      'tests/e2e/todo.e2e_test.js'
+    ];
+
+    let _commonFilesWithoutTodo = [
+      '.editorconfig',
+      '.jshintrc',
+      '.bowerrc',
+      '.travis.yml',
+      '.gitignore',
+      '.editorconfig',
+      '.jshintrc',
+      '.babelrc',
+
+      'bower.json',
+      'package.json',
+      'gulpfile.babel.js',
+      'karma.conf.js',
+      'protractor.conf.js',
+      'newrelic.js',
+      'procfile.txt',
+
+      // client stuff
+
+      'client/dev/favicon.png',
+      'client/dev/index.html',
+
+      'client/dev/app.js',
+      'client/dev/app.route.js',
+      'client/dev/app.config.js',
 
       'tests/e2e/todo.e2e_test.js'
     ];
@@ -119,6 +149,7 @@ describe('ng-fullstack -> node', () => {
             server: "node",
             transpilerServer: 'node',
             nodeWebFrameworkServer: 'express',
+            boilerplate: true,
             stack: 'fullstack',
             client: 'ng1'
           })
@@ -180,6 +211,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'node',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             stack: 'fullstack',
             client: 'ng1'
@@ -255,6 +287,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'node',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             stack: 'fullstack',
             client: 'ng1',
@@ -266,6 +299,62 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
+        });
+      });
+
+      describe('node - express - standard - boilerplate is false', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'server/index.js', // babel's entry point
+
+          'server/server.js',
+
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/routes.conf.js',
+
+          'server/commons/static/index.js',
+
+          'server/auth/local/index.js'
+        ];
+
+        _commonFilesWithoutTodo.forEach((common) => _nodeFiles.push(common));
+        _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+        before((done) => {
+          helpers
+          .run(path.join(__dirname, '../../app'))
+          .inDir(path.join(os.tmpdir(), './temp-test'))
+          .withPrompts({
+            appName: "a",
+            githubUsername: "b",
+            server: "node",
+            transpilerServer: 'node',
+            boilerplate: false,
+            nodeWebFrameworkServer: 'express',
+            stack: 'fullstack',
+            client: 'ng1',
+            secure: true
+          })
+          .withOptions({ 'skip-install': true })
+          .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+          assert.noFile('server/api/todo/controller/todo-controller.js')
         });
       });
 
@@ -323,6 +412,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'node',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             stack: 'fullstack',
             client: 'ng1',
@@ -390,6 +480,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'node',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             stack: "server",
             client: 'ng1',
@@ -454,6 +545,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'babel',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             stack: 'fullstack',
             client: 'ng1'
@@ -516,6 +608,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'babel',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             stack: 'fullstack',
             client: 'ng1'
@@ -591,6 +684,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'babel',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             stack: 'fullstack',
             client: 'ng1'
@@ -601,6 +695,60 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () => {
           assert.file(_nodeFiles);
+        });
+      });
+
+      describe('node - express - babel - boilerplate is false', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'server/index.js', // babel's entry point
+
+          'server/server.js',
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/routes.conf.js',
+
+          'server/commons/static/index.js',
+
+          'server/auth/local/index.js'];
+
+        _commonFilesWithoutTodo.forEach((common) => _nodeFiles.push(common));
+        _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+        before((done) => {
+          helpers
+          .run(path.join(__dirname, '../../app'))
+          .inDir(path.join(os.tmpdir(), './temp-test'))
+          .withPrompts({
+            appName: "a",
+            secure: true,
+            githubUsername: "b",
+            server: "node",
+            transpilerServer: 'babel',
+            boilerplate: false,
+            nodeWebFrameworkServer: 'express',
+            stack: 'fullstack',
+            client: 'ng1'
+          })
+          .withOptions({ 'skip-install': true })
+          .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+          assert.noFile('server/api/todo/controller/todo-controller.js');
         });
       });
 
@@ -659,6 +807,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'babel',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             stack: 'fullstack',
             client: 'ng1'
@@ -726,6 +875,7 @@ describe('ng-fullstack -> node', () => {
             server: "node",
             stack: "server",
             transpilerServer: 'babel',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             client: 'ng1'
           })
@@ -790,6 +940,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'typescript',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             stack: 'fullstack',
             client: 'ng1'
@@ -853,6 +1004,7 @@ describe('ng-fullstack -> node', () => {
             secure: false,
             githubUsername: "b",
             server: "node",
+            boilerplate: true,
             transpilerServer: 'typescript',
             nodeWebFrameworkServer: 'express',
             stack: 'fullstack',
@@ -930,6 +1082,7 @@ describe('ng-fullstack -> node', () => {
             secure: true,
             githubUsername: "b",
             server: "node",
+            boilerplate: true,
             transpilerServer: 'typescript',
             nodeWebFrameworkServer: 'express',
             stack: 'fullstack',
@@ -941,6 +1094,63 @@ describe('ng-fullstack -> node', () => {
 
         it('creates default files - node', () =>  {
           assert.file(_tscFiles);
+        });
+      });
+
+      describe('node - express - typescript - no boilerplate', () => {
+        let _tscFiles = [
+          // server stuff
+
+          'typings.json', // typings
+
+          'server/index.js', // typescript's entry point
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/server.ts',
+
+          'server/routes/index.ts',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.ts',
+          'server/config/routes.conf.ts',
+
+          'server/commons/static/index.ts',
+
+          'server/auth/local/index.ts'
+        ];
+
+        _commonFiles.forEach((common) => _tscFiles.push(common));
+        _taskFiles.forEach((t) => _tscFiles.push(t));
+
+        before((done) => {
+          helpers
+          .run(path.join(__dirname, '../../app'))
+          .inDir(path.join(os.tmpdir(), './temp-test'))
+          .withPrompts({
+            appName: "a",
+            secure: true,
+            githubUsername: "b",
+            server: "node",
+            boilerplate: true,
+            transpilerServer: 'typescript',
+            nodeWebFrameworkServer: 'express',
+            stack: 'fullstack',
+            client: 'ng1'
+          })
+          .withOptions({ 'skip-install': true })
+          .on('end', done);
+        });
+
+        it('creates default files - node', () =>  {
+          assert.file(_tscFiles);
+          assert.noFile('server/api/todo/controller/todo-controller.js');
         });
       });
 
@@ -1002,6 +1212,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'typescript',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             stack: 'fullstack',
             client: 'ng1'
@@ -1070,6 +1281,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             stack: "server",
+            boilerplate: true,
             transpilerServer: 'typescript',
             nodeWebFrameworkServer: 'express',
             client: 'ng1'
@@ -1133,6 +1345,7 @@ describe('ng-fullstack -> node', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'node',
+            boilerplate: true,
               nodeWebFrameworkServer: 'koa',
               stack: 'fullstack',
               client: 'ng1'
@@ -1195,6 +1408,7 @@ describe('ng-fullstack -> node', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'node',
+            boilerplate: true,
               nodeWebFrameworkServer: 'koa',
               stack: 'fullstack',
               client: 'ng1'
@@ -1270,6 +1484,7 @@ describe('ng-fullstack -> node', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'node',
+              boilerplate: true,
               nodeWebFrameworkServer: 'koa',
               stack: 'fullstack',
               client: 'ng1',
@@ -1281,6 +1496,62 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () => {
             assert.file(_nodeFiles);
+          });
+        });
+
+        describe('node - koa - standard - no boilerplate', () => {
+          let _nodeFiles = [
+            // server stuff
+
+            'server/index.js', // babel's entry point
+
+            'server/server.js',
+
+
+            'server/cert/ca.crt',
+            'server/cert/ca.csr',
+            'server/cert/ca.key',
+            'server/cert/server.crt',
+            'server/cert/server.csr',
+            'server/cert/server.key',
+
+            'server/routes/index.js',
+
+            'server/constants/db.json',
+
+            'server/config/db.conf.js',
+            'server/config/routes.conf.js',
+
+            'server/commons/static/index.js',
+
+            'server/auth/local/index.js'
+          ];
+
+          _commonFilesWithoutTodo.forEach((common) => _nodeFiles.push(common));
+          _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+          before((done) => {
+            helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'node',
+              boilerplate: false,
+              nodeWebFrameworkServer: 'koa',
+              stack: 'fullstack',
+              client: 'ng1',
+              secure: true
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+          });
+
+          it('creates default files - node', () => {
+            assert.file(_nodeFiles);
+            assert.noFile('server/api/todo/controller/todo-controller.js');
           });
         });
 
@@ -1337,6 +1608,7 @@ describe('ng-fullstack -> node', () => {
               differentStaticServer: true,
               githubUsername: "b",
               server: "node",
+              boilerplate: true,
               transpilerServer: 'node',
               nodeWebFrameworkServer: 'koa',
               stack: 'fullstack',
@@ -1405,6 +1677,7 @@ describe('ng-fullstack -> node', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'node',
+              boilerplate: true,
               nodeWebFrameworkServer: 'koa',
               stack: "server",
               client: 'ng1',
@@ -1469,6 +1742,7 @@ describe('ng-fullstack -> node', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'babel',
+              boilerplate: true,
               nodeWebFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1'
@@ -1531,6 +1805,7 @@ describe('ng-fullstack -> node', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'babel',
+              boilerplate: true,
               nodeWebFrameworkServer: 'koa',
               stack: 'fullstack',
               client: 'ng1'
@@ -1606,6 +1881,7 @@ describe('ng-fullstack -> node', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'babel',
+              boilerplate: true,
               nodeWebFrameworkServer: 'koa',
               stack: 'fullstack',
               client: 'ng1'
@@ -1616,6 +1892,61 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () => {
             assert.file(_nodeFiles);
+          });
+        });
+
+        describe('node - koa - babel - no boilerplate', () => {
+          let _nodeFiles = [
+            // server stuff
+
+            'server/index.js', // babel's entry point
+
+            'server/server.js',
+
+            'server/cert/ca.crt',
+            'server/cert/ca.csr',
+            'server/cert/ca.key',
+            'server/cert/server.crt',
+            'server/cert/server.csr',
+            'server/cert/server.key',
+
+            'server/routes/index.js',
+
+            'server/constants/db.json',
+
+            'server/config/db.conf.js',
+            'server/config/routes.conf.js',
+
+            'server/commons/static/index.js',
+
+            'server/auth/local/index.js'
+          ];
+
+          _commonFilesWithoutTodo.forEach((common) => _nodeFiles.push(common));
+          _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+          before((done) => {
+            helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              secure: true,
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'babel',
+              boilerplate: false,
+              nodeWebFrameworkServer: 'koa',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+          });
+
+          it('creates default files - node', () => {
+            assert.file(_nodeFiles);
+            assert.noFile('server/api/todo/controller/todo-controller.js');
           });
         });
 
@@ -1674,6 +2005,7 @@ describe('ng-fullstack -> node', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'babel',
+              boilerplate: true,
               nodeWebFrameworkServer: 'koa',
               stack: 'fullstack',
               client: 'ng1'
@@ -1740,6 +2072,7 @@ describe('ng-fullstack -> node', () => {
               githubUsername: "b",
               server: "node",
               stack: "server",
+              boilerplate: true,
               transpilerServer: 'babel',
               nodeWebFrameworkServer: 'koa',
               client: 'ng1'
@@ -1805,6 +2138,7 @@ describe('ng-fullstack -> node', () => {
               githubUsername: "b",
               server: "node",
               transpilerServer: 'typescript',
+              boilerplate: true,
               nodeWebFrameworkServer: 'express',
               stack: 'fullstack',
               client: 'ng1'
@@ -1868,6 +2202,7 @@ describe('ng-fullstack -> node', () => {
               secure: false,
               githubUsername: "b",
               server: "node",
+              boilerplate: true,
               transpilerServer: 'typescript',
               nodeWebFrameworkServer: 'koa',
               stack: 'fullstack',
@@ -1945,6 +2280,7 @@ describe('ng-fullstack -> node', () => {
               secure: true,
               githubUsername: "b",
               server: "node",
+              boilerplate: true,
               transpilerServer: 'typescript',
               nodeWebFrameworkServer: 'koa',
               stack: 'fullstack',
@@ -1956,6 +2292,63 @@ describe('ng-fullstack -> node', () => {
 
           it('creates default files - node', () =>  {
             assert.file(_tscFiles);
+          });
+        });
+
+        describe('node - koa - typescript - no boilerplate', () => {
+          let _tscFiles = [
+            // server stuff
+
+            'typings.json', // typings
+
+            'server/index.js', // typescript's entry point
+
+            'server/cert/ca.crt',
+            'server/cert/ca.csr',
+            'server/cert/ca.key',
+            'server/cert/server.crt',
+            'server/cert/server.csr',
+            'server/cert/server.key',
+
+            'server/server.ts',
+
+            'server/routes/index.ts',
+
+            'server/constants/db.json',
+
+            'server/config/db.conf.ts',
+            'server/config/routes.conf.ts',
+
+            'server/commons/static/index.ts',
+
+            'server/auth/local/index.ts'
+          ];
+
+          _commonFilesWithoutTodo.forEach((common) => _tscFiles.push(common));
+          _taskFiles.forEach((t) => _tscFiles.push(t));
+
+          before((done) => {
+            helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              secure: true,
+              githubUsername: "b",
+              server: "node",
+              boilerplate: false,
+              transpilerServer: 'typescript',
+              nodeWebFrameworkServer: 'koa',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+          });
+
+          it('creates default files - node', () =>  {
+            assert.file(_tscFiles);
+            assert.noFile('server/api/todo/controller/todo-controller.js');
           });
         });
 
@@ -2016,6 +2409,7 @@ describe('ng-fullstack -> node', () => {
               secure: true,
               githubUsername: "b",
               server: "node",
+              boilerplate: true,
               transpilerServer: 'typescript',
               nodeWebFrameworkServer: 'koa',
               stack: 'fullstack',
@@ -2085,6 +2479,7 @@ describe('ng-fullstack -> node', () => {
               githubUsername: "b",
               server: "node",
               stack: "server",
+              boilerplate: true,
               transpilerServer: 'typescript',
               nodeWebFrameworkServer: 'koa',
               client: 'ng1'
@@ -2153,6 +2548,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'node',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             stack: 'server',
             client: 'ng1'
@@ -2180,6 +2576,7 @@ describe('ng-fullstack -> node', () => {
             appName: "a",
             githubUsername: "b",
             server: "node",
+            boilerplate: true,
             transpilerServer: 'node',
             nodeWebFrameworkServer: 'express',
             repoHost: 'github',
@@ -2239,6 +2636,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'node',
+            boilerplate: true,
             nodeWebFrameworkServer: 'express',
             repoHost: 'bitbucket',
             stack: 'server',
@@ -2269,6 +2667,7 @@ describe('ng-fullstack -> node', () => {
             server: "node",
             transpilerServer: 'node',
             nodeWebFrameworkServer: 'koa',
+            boilerplate: true,
             stack: 'server',
             client: 'ng1'
           })
@@ -2297,6 +2696,7 @@ describe('ng-fullstack -> node', () => {
             server: "node",
             transpilerServer: 'node',
             nodeWebFrameworkServer: 'koa',
+            boilerplate: true,
             repoHost: "github",
             stack: 'server',
             client: 'ng1'
@@ -2326,6 +2726,7 @@ describe('ng-fullstack -> node', () => {
             server: "node",
             transpilerServer: 'node',
             nodeWebFrameworkServer: 'koa',
+            boilerplate: true,
             repoHost: "bitbucket",
             stack: 'server',
             client: 'ng1'
@@ -2354,6 +2755,7 @@ describe('ng-fullstack -> node', () => {
             githubUsername: "b",
             server: "node",
             transpilerServer: 'node',
+            boilerplate: true,
             nodeWebFrameworkServer: 'koa',
             repoHost: "gitlab",
             stack: 'server',

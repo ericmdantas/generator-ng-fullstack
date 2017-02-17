@@ -41,6 +41,7 @@ describe('node -> express', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           template: sinon.spy(),
           directory: sinon.spy(),
           testsSeparated: true
@@ -141,6 +142,7 @@ describe('node -> express', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           template: sinon.spy(),
           directory: sinon.spy(),
           testsSeparated: false
@@ -243,6 +245,7 @@ describe('node -> express', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: true
@@ -284,6 +287,7 @@ describe('node -> express', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: false
@@ -344,6 +348,7 @@ describe('node -> express', () => {
           feature: 'a',
           name: 'b',
           secure: true,
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: true
@@ -386,6 +391,7 @@ describe('node -> express', () => {
           feature: 'a',
           name: 'b',
           secure: true,
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: false
@@ -459,6 +465,7 @@ describe('node -> express', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           template: sinon.spy(),
           testsSeparated: true
         };
@@ -558,6 +565,7 @@ describe('node -> express', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           template: sinon.spy(),
           testsSeparated: false
         };
@@ -659,6 +667,7 @@ describe('node -> express', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: true
@@ -700,6 +709,7 @@ describe('node -> express', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: false
@@ -760,6 +770,7 @@ describe('node -> express', () => {
           feature: 'a',
           secure: true,
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: true
@@ -802,6 +813,7 @@ describe('node -> express', () => {
           feature: 'a',
           secure: true,
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: false
@@ -875,6 +887,7 @@ describe('node -> express', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           template: sinon.spy(),
           testsSeparated: true
         };
@@ -974,6 +987,7 @@ describe('node -> express', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           template: sinon.spy(),
           testsSeparated: false
         };
@@ -1075,6 +1089,7 @@ describe('node -> express', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: true
@@ -1129,6 +1144,7 @@ describe('node -> express', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: false
@@ -1202,6 +1218,7 @@ describe('node -> express', () => {
           feature: 'a',
           name: 'b',
           secure: true,
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: true
@@ -1257,6 +1274,7 @@ describe('node -> express', () => {
           feature: 'a',
           name: 'b',
           secure: true,
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: false

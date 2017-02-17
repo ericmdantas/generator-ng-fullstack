@@ -93,39 +93,68 @@ class NodeBaseStandard {
   }
 
   _copyTodoBoilerplate() {
+    let _paths = [];
+    let _tests = [];
+
     this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
 
     this.wrapper.template('index_node.js', 'server/index.js');
 
-    if(this.wrapper.testsSeparated) {
-      this.wrapper.directory('tests/server', 'tests/server');
+    if (!this.wrapper.differentStaticServer) {
+      _paths.push(['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/commons/static/index.js', 'server/commons/static/index.js']);
     }
 
     if (this.wrapper.secure) {
       this.wrapper.template('server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/server_http2.js', 'server/server.js', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
-    }
-    else {
+    } else {
       this.wrapper.template('server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/server.js', 'server/server.js', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
 
-    let _paths = [
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/routes/index.js', 'server/routes/index.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/constants/db.json', 'server/constants/db.json'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.js', 'server/config/db.conf.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/routes.conf.js', 'server/config/routes.conf.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/auth/local/index.js', 'server/auth/local/index.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/controller/todo-controller.js', 'server/api/todo/controller/todo-controller.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/route/todo-route.js', 'server/api/todo/route/todo-route.js']
-    ];
+    if (this.wrapper.boilerplate) {
+      if(this.wrapper.testsSeparated) {
+        this.wrapper.directory('tests/server', 'tests/server');
+      }
 
-    if (!this.wrapper.differentStaticServer) {
-      _paths.push(['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/commons/static/index.js', 'server/commons/static/index.js']);
+      _paths.push(
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/routes/index.js', 'server/routes/index.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/constants/db.json', 'server/constants/db.json'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.js', 'server/config/db.conf.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/routes.conf.js', 'server/config/routes.conf.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/auth/local/index.js', 'server/auth/local/index.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/controller/todo-controller.js', 'server/api/todo/controller/todo-controller.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/route/todo-route.js', 'server/api/todo/route/todo-route.js']
+      );
+
+      if(!this.wrapper.testsSeparated) {
+        _tests.push(
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.js', 'server/config/db.conf.test.js'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/route/todo-route_test.js', 'server/api/todo/route/todo-route_test.js']
+        );
+
+        yoUtils.directory(this.wrapper, _tests, {
+          appName: this.wrapper.appName,
+          testsSeparated: this.wrapper.testsSeparated,
+          differentStaticServer: !!this.wrapper.differentStaticServer
+        });
+      }
+    } else {
+      _paths.push(
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/routes/index.js', 'server/routes/index.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/constants/db.json', 'server/constants/db.json'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.js', 'server/config/db.conf.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/routes.conf.js', 'server/config/routes.conf.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/auth/local/index.js', 'server/auth/local/index.js']
+      );
     }
 
     yoUtils.directory(this.wrapper, _paths, {
@@ -133,24 +162,6 @@ class NodeBaseStandard {
       testsSeparated: this.wrapper.testsSeparated,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
-
-    if(!this.wrapper.testsSeparated) {
-      let _tests = [
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.js', 'server/config/db.conf.test.js'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/api/todo/route/todo-route_test.js', 'server/api/todo/route/todo-route_test.js']
-      ];
-
-      yoUtils.directory(this.wrapper, _tests, {
-        appName: this.wrapper.appName,
-        testsSeparated: this.wrapper.testsSeparated,
-        differentStaticServer: !!this.wrapper.differentStaticServer
-      });
-    }
-
   }
 
   _copyTasks() {
@@ -228,39 +239,68 @@ class NodeBaseBabel {
   }
 
   _copyTodoBoilerplate() {
+    let _paths = [];
+    let _tests = [];
+
     this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
 
     this.wrapper.template('index_babel.js', 'server/index.js');
-
-    if(this.wrapper.testsSeparated) {
-      this.wrapper.directory('tests/server', 'tests/server');
-    }
 
     if (this.wrapper.secure) {
       this.wrapper.template('server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/server_http2.js', 'server/server.js', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
-    }
-    else {
+    } else {
       this.wrapper.template('server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/server.js', 'server/server.js', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
 
-    let _paths = [
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/routes/index.js', 'server/routes/index.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/constants/db.json', 'server/constants/db.json'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/config/db.conf.js', 'server/config/db.conf.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/config/routes.conf.js', 'server/config/routes.conf.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/auth/local/index.js', 'server/auth/local/index.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller.js', 'server/api/todo/controller/todo-controller.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/route/todo-route.js', 'server/api/todo/route/todo-route.js']
-    ];
-
     if (!this.wrapper.differentStaticServer) {
       _paths.push(['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/commons/static/index.js', 'server/commons/static/index.js']);
+    }
+
+    if (this.wrapper.boilerplate) {
+      if(this.wrapper.testsSeparated) {
+        this.wrapper.directory('tests/server', 'tests/server');
+      }
+
+      _paths.push(
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/routes/index.js', 'server/routes/index.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/constants/db.json', 'server/constants/db.json'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/config/db.conf.js', 'server/config/db.conf.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/config/routes.conf.js', 'server/config/routes.conf.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/auth/local/index.js', 'server/auth/local/index.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller.js', 'server/api/todo/controller/todo-controller.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao.js', 'server/api/todo/dao/todo-dao.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model.js', 'server/api/todo/model/todo-model.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/route/todo-route.js', 'server/api/todo/route/todo-route.js']
+      );
+
+      if(!this.wrapper.testsSeparated) {
+        _tests.push(
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.js', 'server/config/db.conf.test.js'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/route/todo-route_test.js', 'server/api/todo/route/todo-route_test.js']
+        );
+
+        yoUtils.directory(this.wrapper, _tests, {
+          appName: this.wrapper.appName,
+          testsSeparated: this.wrapper.testsSeparated,
+          differentStaticServer: !!this.wrapper.differentStaticServer
+        });
+      }
+    } else {
+      _paths.push(
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/routes/index.js', 'server/routes/index.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/constants/db.json', 'server/constants/db.json'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/config/db.conf.js', 'server/config/db.conf.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/config/routes.conf.js', 'server/config/routes.conf.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/auth/local/index.js', 'server/auth/local/index.js']
+      );
     }
 
     yoUtils.directory(this.wrapper, _paths, {
@@ -268,23 +308,6 @@ class NodeBaseBabel {
       testsSeparated: this.wrapper.testsSeparated,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
-
-    if(!this.wrapper.testsSeparated) {
-      let _tests = [
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.js', 'server/config/db.conf.test.js'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/route/todo-route_test.js', 'server/api/todo/route/todo-route_test.js']
-      ];
-
-      yoUtils.directory(this.wrapper, _tests, {
-        appName: this.wrapper.appName,
-        testsSeparated: this.wrapper.testsSeparated,
-        differentStaticServer: !!this.wrapper.differentStaticServer
-      });
-    }
   }
 
   _copyTasks() {
@@ -362,41 +385,70 @@ class NodeBaseTypescript {
   }
 
   _copyTodoBoilerplate() {
+    let _paths = [];
+    let _tests = [];
+
     this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
 
     this.wrapper.template('index_tsc.js', 'server/index.js');
     this.wrapper.template('_tsconfig.json', 'tsconfig.json');
     this.wrapper.template('_typings_ng2_and_tsc_server.json', 'typings.json');
 
-    if(this.wrapper.testsSeparated) {
-      this.wrapper.directory('tests/server', 'tests/server');
-    }
-
     if (this.wrapper.secure) {
       this.wrapper.template('server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/server_http2.ts', 'server/server.ts', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
-    }
-    else {
+    } else {
       this.wrapper.template('server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/server.ts', 'server/server.ts', {
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
     }
 
-    let _paths = [
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/routes/index.ts', 'server/routes/index.ts'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/constants/db.json', 'server/constants/db.json'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/db.conf.ts', 'server/config/db.conf.ts'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/routes.conf.ts', 'server/config/routes.conf.ts'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/auth/local/index.ts', 'server/auth/local/index.ts'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller.ts', 'server/api/todo/controller/todo-controller.ts'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao.ts', 'server/api/todo/dao/todo-dao.ts'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model.ts', 'server/api/todo/model/todo-model.ts'],
-      ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/route/todo-route.ts', 'server/api/todo/route/todo-route.ts']
-    ];
-
     if (!this.wrapper.differentStaticServer) {
       _paths.push(['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/commons/static/index.ts', 'server/commons/static/index.ts']);
+    }
+
+    if (this.wrapper.boilerplate) {
+      if(this.wrapper.testsSeparated) {
+        this.wrapper.directory('tests/server', 'tests/server');
+      }
+
+      _paths.push(
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/routes/index.ts', 'server/routes/index.ts'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/constants/db.json', 'server/constants/db.json'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/db.conf.ts', 'server/config/db.conf.ts'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/routes.conf.ts', 'server/config/routes.conf.ts'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/auth/local/index.ts', 'server/auth/local/index.ts'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller.ts', 'server/api/todo/controller/todo-controller.ts'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao.ts', 'server/api/todo/dao/todo-dao.ts'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model.ts', 'server/api/todo/model/todo-model.ts'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/route/todo-route.ts', 'server/api/todo/route/todo-route.ts']
+      );
+
+      if(!this.wrapper.testsSeparated) {
+        _tests.push(
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.ts', 'server/config/db.conf.test.ts'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/route/todo-route_test.js', 'server/api/todo/route/todo-route_test.js']
+        );
+
+        yoUtils.directory(this.wrapper, _tests, {
+          appName: this.wrapper.appName,
+          testsSeparated: this.wrapper.testsSeparated,
+          differentStaticServer: !!this.wrapper.differentStaticServer
+        });
+      }
+    } else {
+      _paths.push(
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/routes/index.ts', 'server/routes/index.ts'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/constants/db.json', 'server/constants/db.json'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/db.conf.ts', 'server/config/db.conf.ts'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/routes.conf.ts', 'server/config/routes.conf.ts'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/auth/local/index.ts', 'server/auth/local/index.ts']
+      );
     }
 
     yoUtils.directory(this.wrapper, _paths, {
@@ -404,23 +456,6 @@ class NodeBaseTypescript {
       testsSeparated: this.wrapper.testsSeparated,
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
-
-    if(!this.wrapper.testsSeparated) {
-      let _tests = [
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.ts', 'server/config/db.conf.test.ts'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/route/todo-route_test.js', 'server/api/todo/route/todo-route_test.js']
-      ];
-
-      yoUtils.directory(this.wrapper, _tests, {
-        appName: this.wrapper.appName,
-        testsSeparated: this.wrapper.testsSeparated,
-        differentStaticServer: !!this.wrapper.differentStaticServer
-      });
-    }
   }
 
   _copyTasks() {
