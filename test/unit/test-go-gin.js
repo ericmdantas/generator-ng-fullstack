@@ -20,6 +20,7 @@ describe('go', () => {
         feature: 'a',
         name: 'b',
         appName: 'c',
+        boilerplate: true,
         userNameSpace: 'd',
         repoHostUrl: 'github.com',
         goWebFrameworkServer: 'gin',
@@ -129,6 +130,7 @@ describe('go', () => {
         name: 'b',
         appName: 'c',
         userNameSpace: 'd',
+        boilerplate: true,
         goWebFrameworkServer: 'gin',
         repoHostUrl: 'github.com',
         template: sinon.spy()
@@ -285,6 +287,7 @@ describe('go', () => {
         userNameSpace: 'd',
         repoHostUrl: 'github.com',
         goWebFrameworkServer: 'gin',
+        boilerplate: true,
         template: sinon.spy(),
         secure: true
       }
@@ -439,6 +442,7 @@ describe('go', () => {
         appName: 'c',
         userNameSpace: 'd',
         repoHostUrl: 'github.com',
+        boilerplate: true,
         goWebFrameworkServer: 'gin',
         template: sinon.spy(),
         secure: true
@@ -594,6 +598,7 @@ describe('go', () => {
         appName: 'c',
         differentStaticServer: true,
         userNameSpace: 'd',
+        boilerplate: true,
         goWebFrameworkServer: 'gin',
         repoHostUrl: 'github.com',
         template: sinon.spy(),
@@ -730,6 +735,7 @@ describe('go', () => {
         name: 'b',
         appName: 'c',
         stack: "server",
+        boilerplate: true,
         differentStaticServer: false,
         userNameSpace: 'd',
         goWebFrameworkServer: 'gin',

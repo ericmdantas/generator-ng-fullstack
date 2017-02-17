@@ -104,7 +104,14 @@ exports.GoBase = class GoBase {
   }
 
   _copyTodoBoilerplate() {
+    let _paths = [];
+
     this.wrapper.differentStaticServer = !!this.wrapper.differentStaticServer || (this.wrapper.stack === "server");
+
+    if (!this.wrapper.differentStaticServer) {
+      _paths.push(['server/go/'+this.webFramework+'/common/static/static.go', 'server/common/static/static.go'],
+                  ['server/go/'+this.webFramework+'/common/static/static_test.go', 'server/common/static/static_test.go']);
+    }
 
     if (this.wrapper.secure) {
       this.wrapper.template('server/go/'+this.webFramework+'/main_http2.go', 'server/main.go', {
@@ -113,8 +120,7 @@ exports.GoBase = class GoBase {
         repoHostUrl: this.wrapper.repoHostUrl,
         differentStaticServer: !!this.wrapper.differentStaticServer
       });
-    }
-    else {
+    } else {
       this.wrapper.template('server/go/'+this.webFramework+'/main.go', 'server/main.go', {
         appName: this.wrapper.appName,
         userNameSpace: this.wrapper.userNameSpace,
@@ -123,29 +129,34 @@ exports.GoBase = class GoBase {
       });
     }
 
-    let _paths = [
-      ['server/go/'+this.webFramework+'/routes/routes.go', 'server/routes/routes.go'],
-      ['server/go/'+this.webFramework+'/routes/routes_test.go', 'server/routes/routes_test.go'],
+    if (this.wrapper.boilerplate) {
+      _paths.push(
+        ['server/go/'+this.webFramework+'/routes/routes.go', 'server/routes/routes.go'],
+        ['server/go/'+this.webFramework+'/routes/routes_test.go', 'server/routes/routes_test.go'],
 
-      ['server/go/'+this.webFramework+'/config/dbconfig.go', 'server/config/dbconfig.go'],
-      ['server/go/'+this.webFramework+'/config/dbconfig_test.go', 'server/config/dbconfig_test.go'],
+        ['server/go/'+this.webFramework+'/config/dbconfig.go', 'server/config/dbconfig.go'],
+        ['server/go/'+this.webFramework+'/config/dbconfig_test.go', 'server/config/dbconfig_test.go'],
 
-      ['server/go/'+this.webFramework+'/api/todo/route/todoroute.go', 'server/api/todo/route/todoroute.go'],
-      ['server/go/'+this.webFramework+'/api/todo/route/todoroute_test.go', 'server/api/todo/route/todoroute_test.go'],
+        ['server/go/'+this.webFramework+'/api/todo/route/todoroute.go', 'server/api/todo/route/todoroute.go'],
+        ['server/go/'+this.webFramework+'/api/todo/route/todoroute_test.go', 'server/api/todo/route/todoroute_test.go'],
 
-      ['server/go/'+this.webFramework+'/api/todo/model/todomodel.go', 'server/api/todo/model/todomodel.go'],
-      ['server/go/'+this.webFramework+'/api/todo/model/todomodel_test.go', 'server/api/todo/model/todomodel_test.go'],
+        ['server/go/'+this.webFramework+'/api/todo/model/todomodel.go', 'server/api/todo/model/todomodel.go'],
+        ['server/go/'+this.webFramework+'/api/todo/model/todomodel_test.go', 'server/api/todo/model/todomodel_test.go'],
 
-      ['server/go/'+this.webFramework+'/api/todo/dao/tododao.go', 'server/api/todo/dao/tododao.go'],
-      ['server/go/'+this.webFramework+'/api/todo/dao/tododao_test.go', 'server/api/todo/dao/tododao_test.go'],
+        ['server/go/'+this.webFramework+'/api/todo/dao/tododao.go', 'server/api/todo/dao/tododao.go'],
+        ['server/go/'+this.webFramework+'/api/todo/dao/tododao_test.go', 'server/api/todo/dao/tododao_test.go'],
 
-      ['server/go/'+this.webFramework+'/api/todo/controller/todocontroller.go', 'server/api/todo/controller/todocontroller.go'],
-      ['server/go/'+this.webFramework+'/api/todo/controller/todocontroller_test.go', 'server/api/todo/controller/todocontroller_test.go'],
-    ];
+        ['server/go/'+this.webFramework+'/api/todo/controller/todocontroller.go', 'server/api/todo/controller/todocontroller.go'],
+        ['server/go/'+this.webFramework+'/api/todo/controller/todocontroller_test.go', 'server/api/todo/controller/todocontroller_test.go']
+      );
+    } else {
+      _paths.push(
+        ['server/go/'+this.webFramework+'/routes/routes.go', 'server/routes/routes.go'],
+        ['server/go/'+this.webFramework+'/routes/routes_test.go', 'server/routes/routes_test.go'],
 
-    if (!this.wrapper.differentStaticServer) {
-      _paths.push(['server/go/'+this.webFramework+'/common/static/static.go', 'server/common/static/static.go'],
-                  ['server/go/'+this.webFramework+'/common/static/static_test.go', 'server/common/static/static_test.go']);
+        ['server/go/'+this.webFramework+'/config/dbconfig.go', 'server/config/dbconfig.go'],
+        ['server/go/'+this.webFramework+'/config/dbconfig_test.go', 'server/config/dbconfig_test.go']
+      );
     }
 
     yoUtils.directory(this.wrapper, _paths, {

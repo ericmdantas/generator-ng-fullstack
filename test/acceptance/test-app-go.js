@@ -65,6 +65,38 @@ describe('ng-fullstack -> golang', () => {
 
       'tests/e2e/todo.e2e_test.js'];
 
+
+    let _clientFilesWithoutTodo = [
+      '.editorconfig',
+      '.jshintrc',
+      '.travis.yml',
+      '.gitignore',
+      '.editorconfig',
+      '.jshintrc',
+
+      '.alivrc',
+      'package.json',
+      'karma-test-shim.js',
+      'gulpfile.babel.js',
+      'karma.conf.js',
+      'protractor.conf.js',
+      'newrelic.js',
+      'procfile.txt',
+
+      'tsconfig.json',
+      'typings.json',
+
+      // client stuff
+
+      'client/dev/index.html',
+      'client/dev/app.ts',
+      'client/dev/app.module.ts',
+      'client/dev/config.js',
+
+      'client/dev/index.ts',
+
+      'tests/e2e/todo.e2e_test.js'];
+
     let _goFiles = [
     // server stuff
 
@@ -108,6 +140,7 @@ describe('ng-fullstack -> golang', () => {
         githubUsername: "b",
         goWebFrameworkServer: "echo",
         server: "go",
+        boilerplate: true,
         stack: 'fullstack',
         client: 'ng2'
       })
@@ -166,6 +199,7 @@ describe('ng-fullstack -> golang', () => {
         githubUsername: "b",
         goWebFrameworkServer: "echo",
         server: "go",
+        boilerplate: true,
         stack: 'fullstack',
         client: 'ng1'
       })
@@ -221,6 +255,7 @@ describe('ng-fullstack -> golang', () => {
           appName: "a",
           secure: false,
           githubUsername: "b",
+          boilerplate: true,
           goWebFrameworkServer: "echo",
           server: "go",
           stack: 'fullstack',
@@ -291,6 +326,58 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             githubUsername: "b",
             goWebFrameworkServer: "echo",
+            boilerplate: true,
+            server: "go",
+            stack: 'fullstack',
+            client: 'ng1'
+          })
+          .withOptions({ 'skip-install': true })
+          .on('end', done);
+        });
+
+        it('creates default files - Go', () =>  {
+          assert.file(_goFiles);
+        });
+      });
+
+    describe('golang - no boilerplate', () => {
+      let _goFiles = [
+        // server stuff
+
+        'server/main.go',
+
+        'server/cert/ca.crt',
+        'server/cert/ca.csr',
+        'server/cert/ca.key',
+        'server/cert/server.crt',
+        'server/cert/server.csr',
+        'server/cert/server.key',
+
+        'server/routes/routes.go',
+
+        'server/config/dbconfig.go',
+
+        'server/common/static/static.go',
+
+        // tests - server
+
+        'server/routes/routes_test.go',
+
+        'server/config/dbconfig_test.go',
+
+        'server/common/static/static_test.go',
+
+        'tests/e2e/todo.e2e_test.js'];
+
+        before((done) => {
+          helpers
+          .run(path.join(__dirname, '../../app'))
+          .inDir(path.join(os.tmpdir(), './temp-test'))
+          .withPrompts({
+            appName: "a",
+            githubUsername: "b",
+            goWebFrameworkServer: "echo",
+            boilerplate: false,
             server: "go",
             stack: 'fullstack',
             client: 'ng1'
@@ -345,6 +432,7 @@ describe('ng-fullstack -> golang', () => {
             differentStaticServer: true,
             goWebFrameworkServer: "echo",
             githubUsername: "b",
+            boilerplate: true,
             server: "go",
             stack: 'fullstack',
             client: 'ng1'
@@ -400,6 +488,7 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             secure: false,
             differentStaticServer: true,
+            boilerplate: true,
             goWebFrameworkServer: "echo",
             githubUsername: "b",
             server: "go",
@@ -467,6 +556,7 @@ describe('ng-fullstack -> golang', () => {
             goWebFrameworkServer: "echo",
             differentStaticServer: true,
             githubUsername: "b",
+            boilerplate: true,
             server: "go",
             stack: 'fullstack',
             client: 'ng1'
@@ -532,6 +622,7 @@ describe('ng-fullstack -> golang', () => {
             goWebFrameworkServer: "echo",
             githubUsername: "b",
             server: "go",
+            boilerplate: true,
             stack: 'fullstack',
             repoHost: "github",
             client: 'ng1'
@@ -596,6 +687,7 @@ describe('ng-fullstack -> golang', () => {
             differentStaticServer: true,
             goWebFrameworkServer: "echo",
             githubUsername: "b",
+            boilerplate: true,
             server: "go",
             stack: 'fullstack',
             repoHost: "bitbucket",
@@ -660,6 +752,7 @@ describe('ng-fullstack -> golang', () => {
             secure: true,
             differentStaticServer: true,
             goWebFrameworkServer: "echo",
+            boilerplate: true,
             githubUsername: "b",
             server: "go",
             stack: 'fullstack',
@@ -738,6 +831,37 @@ describe('ng-fullstack -> golang', () => {
 
       'tests/e2e/todo.e2e_test.js'];
 
+    let _clientFilesWithoutTodo = [
+      '.editorconfig',
+      '.jshintrc',
+      '.travis.yml',
+      '.gitignore',
+      '.editorconfig',
+      '.jshintrc',
+
+      'package.json',
+      'karma-test-shim.js',
+      'gulpfile.babel.js',
+      'karma.conf.js',
+      'protractor.conf.js',
+      'newrelic.js',
+      'procfile.txt',
+
+      'tsconfig.json',
+      'typings.json',
+
+      // client stuff
+
+      'client/dev/index.html',
+      'client/dev/config.js',
+
+      'client/dev/index.ts',
+      'client/dev/app.ts',
+      'client/dev/app.module.ts',
+
+
+      'tests/e2e/todo.e2e_test.js'];
+
     let _goFiles = [
     // server stuff
 
@@ -780,6 +904,7 @@ describe('ng-fullstack -> golang', () => {
         appName: "a",
         githubUsername: "b",
         goWebFrameworkServer: "gin",
+        boilerplate: true,
         server: "go",
         stack: 'fullstack',
         client: 'ng2'
@@ -838,6 +963,7 @@ describe('ng-fullstack -> golang', () => {
         appName: "a",
         githubUsername: "b",
         goWebFrameworkServer: "gin",
+        boilerplate: true,
         server: "go",
         stack: 'fullstack',
         client: 'ng1'
@@ -895,6 +1021,7 @@ describe('ng-fullstack -> golang', () => {
           secure: false,
           githubUsername: "b",
           goWebFrameworkServer: "gin",
+          boilerplate: true,
           server: "go",
           stack: 'fullstack',
           client: 'ng1'
@@ -964,6 +1091,58 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             githubUsername: "b",
             goWebFrameworkServer: "gin",
+            boilerplate: true,
+            server: "go",
+            stack: 'fullstack',
+            client: 'ng1'
+          })
+          .withOptions({ 'skip-install': true })
+          .on('end', done);
+        });
+
+        it('creates default files - Go', () =>  {
+          assert.file(_goFiles);
+        });
+      });
+
+    describe('golang - no boilerplate', () => {
+      let _goFiles = [
+        // server stuff
+
+        'server/main.go',
+
+        'server/cert/ca.crt',
+        'server/cert/ca.csr',
+        'server/cert/ca.key',
+        'server/cert/server.crt',
+        'server/cert/server.csr',
+        'server/cert/server.key',
+
+        'server/routes/routes.go',
+
+        'server/config/dbconfig.go',
+
+        'server/common/static/static.go',
+
+        'server/routes/routes_test.go',
+
+        'server/config/dbconfig_test.go',
+
+        'server/common/static/static_test.go',
+
+        // tests - e2e
+
+        'tests/e2e/todo.e2e_test.js'];
+
+        before((done) => {
+          helpers
+          .run(path.join(__dirname, '../../app'))
+          .inDir(path.join(os.tmpdir(), './temp-test'))
+          .withPrompts({
+            appName: "a",
+            githubUsername: "b",
+            goWebFrameworkServer: "gin",
+            boilerplate: false,
             server: "go",
             stack: 'fullstack',
             client: 'ng1'
@@ -1017,6 +1196,7 @@ describe('ng-fullstack -> golang', () => {
             secure: false,
             differentStaticServer: true,
             goWebFrameworkServer: "gin",
+            boilerplate: true,
             githubUsername: "b",
             server: "go",
             stack: 'fullstack',
@@ -1076,6 +1256,7 @@ describe('ng-fullstack -> golang', () => {
             goWebFrameworkServer: "gin",
             githubUsername: "b",
             server: "go",
+            boilerplate: true,
             stack: 'server',
             client: 'ng1'
           })
@@ -1139,6 +1320,7 @@ describe('ng-fullstack -> golang', () => {
             secure: true,
             goWebFrameworkServer: "gin",
             differentStaticServer: true,
+            boilerplate: true,
             githubUsername: "b",
             server: "go",
             stack: 'fullstack',
@@ -1202,6 +1384,7 @@ describe('ng-fullstack -> golang', () => {
             appName: "a",
             secure: true,
             differentStaticServer: true,
+            boilerplate: true,
             goWebFrameworkServer: "gin",
             githubUsername: "b",
             server: "go",
@@ -1270,6 +1453,7 @@ describe('ng-fullstack -> golang', () => {
             goWebFrameworkServer: "gin",
             githubUsername: "b",
             server: "go",
+            boilerplate: true,
             stack: 'fullstack',
             repoHost: "bitbucket",
             client: 'ng1'
@@ -1336,6 +1520,7 @@ describe('ng-fullstack -> golang', () => {
             githubUsername: "b",
             server: "go",
             stack: 'fullstack',
+            boilerplate: true,
             repoHost: "gitlab",
             client: 'ng1'
           })
