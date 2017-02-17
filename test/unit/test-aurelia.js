@@ -20,7 +20,7 @@ describe('aurelia', () => {
       expect(AureliaFactory.build('aurelia1') instanceof Aurelia1).to.be.true;
     });
   });
-  
+
   describe('aurelia1', () => {
     describe('copyClient', () => {
       it('should call the methods with the right params - secure is false - testsSeparated is true - stack is client', () => {
@@ -30,6 +30,7 @@ describe('aurelia', () => {
           testsSeparated: true,
           options: {feature: 'c'},
           stack: "client",
+          boilerplate: true,
           config: {
             get(){return 'aurelia1'}
           },
@@ -88,6 +89,7 @@ describe('aurelia', () => {
           name: 'a',
           secure: false,
           testsSeparated: false,
+          boilerplate: true,
           options: {feature: 'c'},
           stack: "client",
           config: {
@@ -155,6 +157,7 @@ describe('aurelia', () => {
           name: 'a',
           secure: true,
           testsSeparated: true,
+          boilerplate: true,
           options: {feature: 'c'},
           stack: "client",
           config: {
@@ -216,6 +219,7 @@ describe('aurelia', () => {
           name: 'a',
           secure: true,
           testsSeparated: false,
+          boilerplate: true,
           options: {feature: 'c'},
           stack: "client",
           config: {
@@ -282,6 +286,7 @@ describe('aurelia', () => {
           name: 'a',
           secure: true,
           stack: "client",
+          boilerplate: true,
           testsSeparated: true,
           options: {feature: 'c'},
           config: {
@@ -344,6 +349,7 @@ describe('aurelia', () => {
           secure: true,
           stack: "client",
           testsSeparated: false,
+          boilerplate: true,
           options: {feature: 'c'},
           config: {
             get(){return 'aurelia1'}
@@ -410,6 +416,7 @@ describe('aurelia', () => {
           secure: true,
           testsSeparated: true,
           stack: "fullstack",
+          boilerplate: true,
           differentStaticServer: false,
           options: {feature: 'c'},
           config: {
@@ -442,7 +449,7 @@ describe('aurelia', () => {
           '_karma.conf_aurelia1.js',
           'karma.conf.js'
         ];
-        
+
         let _fifthCall = [
           'tasks/client/aurelia1/watch.js',
           'tasks/client/watch.js', {
@@ -474,6 +481,7 @@ describe('aurelia', () => {
           stack: "fullstack",
           differentStaticServer: false,
           stylePreprocessor: 'less',
+          boilerplate: true,
           options: {feature: 'c'},
           config: {
             get(){return 'aurelia1'}
@@ -505,7 +513,7 @@ describe('aurelia', () => {
           '_karma.conf_aurelia1.js',
           'karma.conf.js'
         ];
-        
+
         let _fifthCall = [
           'tasks/client/aurelia1/watch.js',
           'tasks/client/watch.js', {
@@ -537,6 +545,7 @@ describe('aurelia', () => {
           stack: "fullstack",
           differentStaticServer: false,
           stylePreprocessor: 'sass',
+          boilerplate: true,
           options: {feature: 'c'},
           config: {
             get(){return 'aurelia1'}
@@ -568,7 +577,7 @@ describe('aurelia', () => {
           '_karma.conf_aurelia1.js',
           'karma.conf.js'
         ];
-        
+
         let _fifthCall = [
           'tasks/client/aurelia1/watch.js',
           'tasks/client/watch.js', {
@@ -601,6 +610,7 @@ describe('aurelia', () => {
           name: 'a',
           testsSeparated: false,
           options: {feature: 'c'},
+          boilerplate: true,
           config: {
             get(){return 'aurelia1'}
           },
@@ -632,6 +642,7 @@ describe('aurelia', () => {
         let _gen = {
           name: 'a',
           testsSeparated: true,
+          boilerplate: true,
           options: {feature: 'c'},
           config: {
             get(){return 'aurelia1'}
@@ -666,6 +677,7 @@ describe('aurelia', () => {
         let _gen = {
           name: 'a',
           testsSeparated: false,
+          boilerplate: true,
           options: {feature: 'c'},
           template: sinon.spy()
         };
@@ -696,6 +708,7 @@ describe('aurelia', () => {
         let _gen = {
           name: 'a',
           testsSeparated: true,
+          boilerplate: true,
           options: {feature: 'c'},
           template: sinon.spy()
         };
@@ -728,6 +741,7 @@ describe('aurelia', () => {
         let _gen = {
           name: 'a',
           testsSeparated: false,
+          boilerplate: true,
           options: {feature: 'c'},
           template: sinon.spy()
         };
@@ -758,6 +772,7 @@ describe('aurelia', () => {
         let _gen = {
           name: 'a',
           testsSeparated: true,
+          boilerplate: true,
           options: {feature: 'c'},
           template: sinon.spy()
         };
@@ -791,6 +806,7 @@ describe('aurelia', () => {
           name: 'a',
           testsSeparated: false,
           options: {feature: 'c'},
+          boilerplate: true,
           template: sinon.spy()
         };
 
@@ -820,6 +836,7 @@ describe('aurelia', () => {
         let _gen = {
           name: 'a',
           testsSeparated: true,
+          boilerplate: true,
           options: {feature: 'c'},
           template: sinon.spy()
         };
@@ -851,6 +868,7 @@ describe('aurelia', () => {
       it('should have the initializing called with the right stuff', () => {
         let _gen = {
           name: 'a',
+          boilerplate: true,
           options: {feature: 'c'},
           template: sinon.spy()
         };
@@ -873,6 +891,7 @@ describe('aurelia', () => {
         let _gen = {
           name: 'a',
           testsSeparated: false,
+          boilerplate: true,
           options: {feature: 'c'},
           template: sinon.spy()
         };
@@ -920,6 +939,7 @@ describe('aurelia', () => {
         let _gen = {
           name: 'a',
           testsSeparated: true,
+          boilerplate: true,
           options: {feature: 'c'},
           template: sinon.spy()
         };
@@ -965,5 +985,3 @@ describe('aurelia', () => {
     });
   });
 });
-
-

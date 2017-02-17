@@ -134,18 +134,32 @@ class Aurelia1 {
   }
 
   _copyTodoBoilerplate() {
-    this.generator.directory('client/aurelia1', 'client');
+    if (this.generator.boilerplate) {
+      this.generator.directory('client/aurelia1', 'client');
 
-    if(this.testsSeparated) {
-      this.generator.directory('tests/client_aurelia1', 'tests/client');
+      if(this.testsSeparated) {
+        this.generator.directory('tests/client_aurelia1', 'tests/client');
+      } else {
+        let _pathTest = [
+          ['tests/client_aurelia1/todo/components/todo-cmp_test.js', 'client/dev/todo/components/todo-cmp_test.js'],
+          ['tests/client_aurelia1/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
+          ['tests/client_aurelia1/todo/services/todo-service_test.js', 'client/dev/todo/services/todo-service_test.js']
+        ];
+
+        yoUtils.directory(this.generator, _pathTest, this.generator);
+      }
+
+      copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
     } else {
-      let _pathTest = [
-        ['tests/client_aurelia1/todo/components/todo-cmp_test.js', 'client/dev/todo/components/todo-cmp_test.js'],
-        ['tests/client_aurelia1/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
-        ['tests/client_aurelia1/todo/services/todo-service_test.js', 'client/dev/todo/services/todo-service_test.js']
-      ];
+      let _pathSrc = [];
 
-      yoUtils.directory(this.generator, _pathTest, this.generator);
+      _pathSrc.push(
+        ['client/aurelia1/dev/index.html', 'client/dev/index.html'],
+        ['client/aurelia1/dev/app.html', 'client/dev/app.html'],
+        ['client/aurelia1/dev/app.js', 'client/dev/app.js']
+      );
+
+      yoUtils.directory(this.generator, _pathSrc, this.generator);
     }
 
     if (this.generator.stack === "client") {
@@ -153,8 +167,6 @@ class Aurelia1 {
     } else {
       this.generator.template('_aurelia_jspm_config_serving_from_jspm_packages.js', 'jspm.config.js');
     }
-
-    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
 
   _copyTasks() {

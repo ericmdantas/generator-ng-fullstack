@@ -28,6 +28,7 @@ describe('vue', () => {
           name: 'a',
           secure: false,
           options: {feature: 'c'},
+          boilerplate: true,
           config: {
             get(){return 'vue2'}
           },
@@ -59,6 +60,7 @@ describe('vue', () => {
         let _gen = {
           name: 'a',
           secure: true,
+          boilerplate: true,
           options: {feature: 'c'},
           config: {
             get(){return 'vue2'}
@@ -93,6 +95,7 @@ describe('vue', () => {
           name: 'a',
           secure: true,
           stylePreprocessor: 'less',
+          boilerplate: true,
           options: {feature: 'c'},
           config: {
             get(){return 'vue2'}
@@ -127,6 +130,7 @@ describe('vue', () => {
           name: 'a',
           secure: true,
           stylePreprocessor: 'sass',
+          boilerplate: true,
           options: {feature: 'c'},
           config: {
             get(){return 'vue2'}
@@ -163,6 +167,7 @@ describe('vue', () => {
           name: 'a',
           appName: 'b',
           options: {feature: 'c'},
+          boilerplate: true,
           testsSeparated: false,
           config: {
             get(){return 'vue2'}
@@ -197,6 +202,7 @@ describe('vue', () => {
           appName: 'b',
           options: {feature: 'c'},
           testsSeparated: true,
+          boilerplate: true,
           config: {
             get(){return 'vue2'}
           },
@@ -231,6 +237,7 @@ describe('vue', () => {
           name: 'a',
           appName: 'a',
           testsSeparated: false,
+          boilerplate: true,
           options: {feature: 'c'},
           template: sinon.spy()
         };
@@ -261,6 +268,7 @@ describe('vue', () => {
         let _gen = {
           name: 'a',
           appName: 'a',
+          boilerplate: true,
           testsSeparated: true,
           options: {feature: 'c'},
           template: sinon.spy()
@@ -295,6 +303,7 @@ describe('vue', () => {
           name: 'a',
           appName: 'b',
           testsSeparated: false,
+          boilerplate: true,
           options: {feature: 'c'},
           template: sinon.spy()
         };
@@ -327,6 +336,7 @@ describe('vue', () => {
           appName: 'b',
           testsSeparated: true,
           options: {feature: 'c'},
+          boilerplate: true,
           template: sinon.spy()
         };
 
@@ -359,6 +369,7 @@ describe('vue', () => {
           name: 'a',
           appName: 'b',
           testsSeparated: false,
+          boilerplate: true,
           options: {feature: 'c'},
           template: sinon.spy()
         };
@@ -390,6 +401,7 @@ describe('vue', () => {
           name: 'a',
           appName: 'b',
           testsSeparated: true,
+          boilerplate: true,
           options: {feature: 'c'},
           template: sinon.spy()
         };
@@ -406,7 +418,7 @@ describe('vue', () => {
         let _secondCall = [
           'vue2/model_test.js',
           knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/models/' + _gen.name + '_test.js', {
-            name: _gen.name          
+            name: _gen.name
           }
         ];
 
@@ -422,6 +434,7 @@ describe('vue', () => {
         let _gen = {
           name: 'a',
           options: {feature: 'c'},
+          boilerplate: true,
           template: sinon.spy()
         };
 
@@ -440,4 +453,3 @@ describe('vue', () => {
   });
 
 });
-

@@ -883,7 +883,77 @@ describe('ng-fullstack -> client_only', () => {
           assert.noFile('tasks/server/index.js');
           assert.noFile('tests/server');
           assert.noFile('.bower.json');
+        });
       });
-    });
+
+      describe('testsSeparated is true', () => {
+        let _taskFilesClient = [
+          'tasks/index.js',
+
+          'tasks/client/build_html.js',
+          'tasks/client/build_image.js',
+          'tasks/client/build_js.js',
+          'tasks/client/index.js',
+          'tasks/client/del.js',
+          'tasks/client/test.js',
+          'tasks/client/const.js',
+          'tasks/client/watch.js'
+        ]
+
+        let _clientFilesWithoutTodo = [
+          '.editorconfig',
+          '.jshintrc',
+          '.travis.yml',
+          '.gitignore',
+          '.editorconfig',
+          '.jshintrc',
+          '.alivrc',
+
+          'package.json',
+          'gulpfile.babel.js',
+          'karma.conf.js',
+          'protractor.conf.js',
+          'newrelic.js',
+          'procfile.txt',
+
+          'jspm.config.js',
+
+          // client stuff
+
+          'client/dev/index.html',
+
+          'client/dev/app.js',
+          'client/dev/app.html',
+
+          'tests/e2e/todo.e2e_test.js'];
+
+          before((done) => {
+            helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              githubUsername: "b",
+              server: "go",
+              stack: 'client',
+              client: 'aurelia1',
+              boilerplate: false,
+              testsSeparated: true
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done)
+          });
+
+          it('should only copy client side files', () => {
+            assert.file(_clientFilesWithoutTodo);
+            assert.file(_taskFilesClient);
+            assert.noFile('client/dev/todo/components/todo.js');
+            assert.noFile('client/dev/todo/components/todo.html');
+            assert.noFile('server/server.js');
+            assert.noFile('tasks/server/index.js');
+            assert.noFile('tests/server');
+            assert.noFile('.bower.json');
+        });
+      });
   });
 });
