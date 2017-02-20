@@ -13,7 +13,7 @@
 
 #### Tools
 
-- Created [ngf](https://github.com/ericmdantas/ngf) a simple alias for `ng-fullstack` to make your app development even faster
+- Created [ngf](https://github.com/ericmdantas/ngf), a simple alias for `ng-fullstack` to make your app development even faster
 
 #### Client
 
