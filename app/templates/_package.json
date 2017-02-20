@@ -14,7 +14,7 @@
       "watch": "gulp",
 
       <% if (server === "node") { %>
-        
+
         "start": "node server/index",
 
         <% if (usesTypescript) { %>
@@ -101,7 +101,7 @@
        "newrelic": "^1.18.2"
   },
   "devDependencies": {
-    "aliv": "^1.6.0",
+    "aliv": "^1.7.0",
     "karma-ng-html2js-preprocessor": "^0.1.2",
     "del": "^2.2.1",
   	"gulp": "^3.9.0",
