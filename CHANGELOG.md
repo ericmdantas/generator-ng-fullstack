@@ -1,3 +1,12 @@
+## [1.10](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.10.0)
+
+### New Stuff
+
+#### Fullstack
+
+- Implemented option to generate clean project, no TODO boilerplate
+
+
 ## [1.9](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.9.0)
 
 ### New Stuff
