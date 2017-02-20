@@ -4,7 +4,7 @@ import (
 	_ "encoding/json"
 	_ "<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/<%= feature %>/dao"
 	_ <%= nameLowerCase %> "<%= repoHostUrl %>/<%= userNameSpace %>/<%= appName %>/server/api/<%= feature %>/model"
-	"gopkg.in/labstack/echo.v3"
+	"github.com/labstack/echo"
 	_ "io/ioutil"
 	_ "net/http"
 )
