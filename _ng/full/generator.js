@@ -208,7 +208,7 @@ exports.MainGenerator = class MainGenerator {
   }
 
   promptTests() {
-    const done = this.wrapper.async();
+    const done = this.generator.async();
 
     let prompts = [
       {
@@ -217,19 +217,19 @@ exports.MainGenerator = class MainGenerator {
         message: "Do you want to keep tests in a different folder?",
         default: true,
         when: () => {
-          return !((this.wrapper.server === ServerFactory.tokens().GO) && (this.wrapper.stack === "server"));
+          return !((this.generator.server === ServerFactory.tokens().GO) && (this.generator.stack === "server"));
         }
       }
     ];
 
-    this.wrapper.prompt(prompts, (props) => {
-      this.wrapper.testsSeparated = props.testsSeparated;
-      this.wrapper.config.set('testsSeparated', this.wrapper.testsSeparated);
+    this.generator.prompt(prompts, (props) => {
+      this.generator.testsSeparated = props.testsSeparated;
+      this.generator.config.set('testsSeparated', this.generator.testsSeparated);
 
       done();
     });
 
-    this.wrapper.config.save();
+    this.generator.config.save();
   }
 
   promptServer() {
