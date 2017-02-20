@@ -220,7 +220,7 @@ exports.MainGenerator = class MainGenerator {
         message: "Do you want to keep tests in a different folder?",
         default: true,
         when: () => {
-          return this.wrapper.server !== ServerFactory.tokens().GO;
+          return !((this.wrapper.server === ServerFactory.tokens().GO) && (this.wrapper.stack === "server"));
         }
       }
     ];
