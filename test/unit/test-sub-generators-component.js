@@ -19,7 +19,7 @@ describe('ComponentSubGenerator', () => {
         };
         let _csg = new ComponentSubGenerator(_gen);
 
-        expect(_csg.wrapper).to.equal(_gen);
+        expect(_csg.generator).to.equal(_gen);
       });
     });
 
@@ -40,7 +40,7 @@ describe('ComponentSubGenerator', () => {
 
         _csg.initializing();
 
-        expect(_csg.wrapper.argument).to.have.been.called;
+        expect(_csg.generator.argument).to.have.been.called;
       });
     });
 
@@ -123,12 +123,12 @@ describe('ComponentSubGenerator', () => {
             nameLowerCase: _gen.name.toLowerCase()
           }];
 
-        expect(_csg.wrapper.writing).to.have.been.called;
+        expect(_csg.generator.writing).to.have.been.called;
 
-        expect(_csg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_csg.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
       });
 
       it('should call writing with the right stuff - testsSeparated', () => {
@@ -177,12 +177,12 @@ describe('ComponentSubGenerator', () => {
             nameLowerCase: _gen.name.toLowerCase()
           }];
 
-        expect(_csg.wrapper.writing).to.have.been.called;
+        expect(_csg.generator.writing).to.have.been.called;
 
-        expect(_csg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_csg.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
       });
     });
   })
@@ -200,7 +200,7 @@ describe('ComponentSubGenerator', () => {
         };
         let _csg = new ComponentSubGenerator(_gen);
 
-        expect(_csg.wrapper).to.equal(_gen);
+        expect(_csg.generator).to.equal(_gen);
       });
     });
 
@@ -221,7 +221,7 @@ describe('ComponentSubGenerator', () => {
 
         _csg.initializing();
 
-        expect(_csg.wrapper.argument).to.have.been.called;
+        expect(_csg.generator.argument).to.have.been.called;
       });
     });
 
@@ -300,11 +300,11 @@ describe('ComponentSubGenerator', () => {
             nameLowerCase: _gen.name.toLowerCase()
           }];
 
-        expect(_csg.wrapper.writing).to.have.been.called;
+        expect(_csg.generator.writing).to.have.been.called;
 
-        expect(_csg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_csg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_csg.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
       });
 
       it('should call writing with the right stuff - testsSeparated', () => {
@@ -347,11 +347,11 @@ describe('ComponentSubGenerator', () => {
             nameLowerCase: _gen.name.toLowerCase()
           }];
 
-        expect(_csg.wrapper.writing).to.have.been.called;
+        expect(_csg.generator.writing).to.have.been.called;
 
-        expect(_csg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_csg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_csg.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
       });
     });
   })
@@ -369,7 +369,7 @@ describe('ComponentSubGenerator', () => {
         };
         let _csg = new ComponentSubGenerator(_gen);
 
-        expect(_csg.wrapper).to.equal(_gen);
+        expect(_csg.generator).to.equal(_gen);
       });
     });
 
@@ -390,7 +390,7 @@ describe('ComponentSubGenerator', () => {
 
         _csg.initializing();
 
-        expect(_csg.wrapper.argument).to.have.been.called;
+        expect(_csg.generator.argument).to.have.been.called;
       });
     });
 
@@ -454,12 +454,12 @@ describe('ComponentSubGenerator', () => {
             nameLowerCase: _gen.name.toLowerCase()
           }];
 
-        expect(_csg.wrapper.writing).to.have.been.called;
+        expect(_csg.generator.writing).to.have.been.called;
 
-        expect(_csg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_csg.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
       });
 
       it('should call writing with the right stuff - testsSeparated', () => {
@@ -508,12 +508,12 @@ describe('ComponentSubGenerator', () => {
             nameLowerCase: _gen.name.toLowerCase()
           }];
 
-        expect(_csg.wrapper.writing).to.have.been.called;
+        expect(_csg.generator.writing).to.have.been.called;
 
-        expect(_csg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_csg.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_csg.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_csg.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
       });
     });
   })

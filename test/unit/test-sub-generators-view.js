@@ -18,7 +18,7 @@ describe('ViewSubGenerator', () => {
 
       let _vsg = new ViewSubGenerator(_gen);
 
-      expect(_vsg.wrapper).to.equal(_gen);
+      expect(_vsg.generator).to.equal(_gen);
     });
   });
 
@@ -37,7 +37,7 @@ describe('ViewSubGenerator', () => {
 
       _vsg.initializing();
 
-      expect(_vsg.wrapper.argument).to.have.been.called;
+      expect(_vsg.generator.argument).to.have.been.called;
     });
   });
 
@@ -78,8 +78,8 @@ describe('ViewSubGenerator', () => {
 
         let _firstCall = ['view.html', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {name: _gen.name}];
 
-        expect(_vsg.wrapper.writing).to.have.been.called;
-        expect(_vsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_vsg.generator.writing).to.have.been.called;
+        expect(_vsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       });
     })
 
@@ -119,8 +119,8 @@ describe('ViewSubGenerator', () => {
 
         let _firstCall = ['view.html', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {name: _gen.name}];
 
-        expect(_vsg.wrapper.writing).to.have.been.called;
-        expect(_vsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_vsg.generator.writing).to.have.been.called;
+        expect(_vsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
       });
     })
   });

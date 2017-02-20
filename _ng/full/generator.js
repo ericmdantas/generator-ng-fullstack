@@ -12,41 +12,41 @@ const {ServerFactory} = require('../server/server_factory');
 
 exports.MainGenerator = class MainGenerator {
   constructor(gen) {
-    this.wrapper = gen;
+    this.generator = gen;
   }
 
   sayHello() {
-    this.wrapper.log(yosay('Welcome to the terrific ' + chalk.green('NgFullstack') + ' generator!'));
+    this.generator.log(yosay('Welcome to the terrific ' + chalk.green('NgFullstack') + ' generator!'));
   }
 
   writing() {
-      let _app = {app: this.wrapper.appName};
+      let _app = {app: this.generator.appName};
       let _user = {
-        username: this.wrapper.username,
-        userEmail: this.wrapper.userEmail,
-        userNameSpace: this.wrapper.userNameSpace
+        username: this.generator.username,
+        userEmail: this.generator.userEmail,
+        userNameSpace: this.generator.userNameSpace
       };
-      let _repoHostUrl = {repoHostUrl: this.wrapper.repoHostUrl};
-      let _server = this.wrapper.server;
-      let _testsSeparated = this.wrapper.testsSeparated;
-      let _transpilerServer = this.wrapper.transpilerServer;
-      let _client = this.wrapper.client;
-      let _copiesServer = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "server");
-      let _copiesClient = (this.wrapper.stack === "fullstack") || (this.wrapper.stack === "client");
-      let _clientOnly = this.wrapper.stack === "client";
-      let _serverOnly = this.wrapper.stack === "server";
-      let _secure = this.wrapper.secure;
+      let _repoHostUrl = {repoHostUrl: this.generator.repoHostUrl};
+      let _server = this.generator.server;
+      let _testsSeparated = this.generator.testsSeparated;
+      let _transpilerServer = this.generator.transpilerServer;
+      let _client = this.generator.client;
+      let _copiesServer = (this.generator.stack === "fullstack") || (this.generator.stack === "server");
+      let _copiesClient = (this.generator.stack === "fullstack") || (this.generator.stack === "client");
+      let _clientOnly = this.generator.stack === "client";
+      let _serverOnly = this.generator.stack === "server";
+      let _secure = this.generator.secure;
       let _usesTypescript = (_transpilerServer === "typescript") || (_client === "ng2");
-      let _stylePreprocessor = this.wrapper.stylePreprocessor;
+      let _stylePreprocessor = this.generator.stylePreprocessor;
 
-      this.wrapper.template('_README.md', 'README.md', {
+      this.generator.template('_README.md', 'README.md', {
         app: _app.app,
         userNameSpace: _user.userNameSpace
       });
 
-      this.wrapper.template('_protractor.conf.js', 'protractor.conf.js', this.wrapper.appName);
+      this.generator.template('_protractor.conf.js', 'protractor.conf.js', this.generator.appName);
 
-      this.wrapper.template('_package.json', 'package.json', {
+      this.generator.template('_package.json', 'package.json', {
         app: _app.app,
         username: _user.username,
         repoHostUrl: _repoHostUrl.repoHostUrl,
@@ -55,43 +55,43 @@ exports.MainGenerator = class MainGenerator {
         client: _client,
         secure: _secure,
         clientOnly: _clientOnly,
-        nodeWebFrameworkServer: this.wrapper.nodeWebFrameworkServer,
+        nodeWebFrameworkServer: this.generator.nodeWebFrameworkServer,
         testsSeparated: _testsSeparated,
         stylePreprocessor: _stylePreprocessor,
         server: _server
       });
 
-      this.wrapper.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
-      this.wrapper.template('_newrelic.js', 'newrelic.js', _app);
-      this.wrapper.template('_procfile.txt', 'procfile.txt', _app);
-      this.wrapper.template('_.bowerrc', '.bowerrc');
-      this.wrapper.template('_.travis.yml', '.travis.yml', {
+      this.generator.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
+      this.generator.template('_newrelic.js', 'newrelic.js', _app);
+      this.generator.template('_procfile.txt', 'procfile.txt', _app);
+      this.generator.template('_.bowerrc', '.bowerrc');
+      this.generator.template('_.travis.yml', '.travis.yml', {
         typescript: _usesTypescript
       });
-      this.wrapper.template('_.gitignore', '.gitignore');
-      this.wrapper.template('_.editorconfig', '.editorconfig');
-      this.wrapper.template('_.jshintrc','.jshintrc');
-      this.wrapper.template('_.babelrc', '.babelrc');
-      this.wrapper.template('tasks/index.js', 'tasks/index.js', {
+      this.generator.template('_.gitignore', '.gitignore');
+      this.generator.template('_.editorconfig', '.editorconfig');
+      this.generator.template('_.jshintrc','.jshintrc');
+      this.generator.template('_.babelrc', '.babelrc');
+      this.generator.template('tasks/index.js', 'tasks/index.js', {
         nodeServer: _server === ServerFactory.tokens().NODE && !_clientOnly,
         serverOnly: _serverOnly
       });
 
-      this.wrapper.directory('tests/e2e', 'tests/e2e');
+      this.generator.directory('tests/e2e', 'tests/e2e');
 
       if (!_serverOnly) {
-        this.wrapper.template('_.alivrc', '.alivrc', {
+        this.generator.template('_.alivrc', '.alivrc', {
           secure: _secure
         });
       }
 
       if (_secure && !_clientOnly) {
-        this.wrapper.directory('cert', 'server/cert');
+        this.generator.directory('cert', 'server/cert');
       }
 
       if (_copiesClient) {
         if (_client === AngularFactory.tokens().NG1) {
-          this.wrapper.template('_bower.json', 'bower.json', {
+          this.generator.template('_bower.json', 'bower.json', {
             app: _app.app,
             username: _user.username,
             userEmail: _user.userEmail,
@@ -101,33 +101,33 @@ exports.MainGenerator = class MainGenerator {
         }
 
         if (/^ng/.test(_client)) {
-          ClientFactory.create(ClientFactory.tokens().ANGULAR, _client, this.wrapper).copyClient();
+          ClientFactory.create(ClientFactory.tokens().ANGULAR, _client, this.generator).copyClient();
         }
 
         if (/^vue/.test(_client)) {
-          ClientFactory.create(ClientFactory.tokens().VUE, _client, this.wrapper).copyClient();
+          ClientFactory.create(ClientFactory.tokens().VUE, _client, this.generator).copyClient();
         }
 
         if (/^aurelia/.test(_client)) {
-          ClientFactory.create(ClientFactory.tokens().AURELIA, _client, this.wrapper).copyClient();
+          ClientFactory.create(ClientFactory.tokens().AURELIA, _client, this.generator).copyClient();
         }
       }
 
       if (_copiesServer) {
-        ServerFactory.create(_server, this.wrapper).copyServer();
+        ServerFactory.create(_server, this.generator).copyServer();
       }
   }
 
   install() {
-      this.wrapper.installDependencies({
-        skipInstall: this.wrapper.options['skip-install'],
+      this.generator.installDependencies({
+        skipInstall: this.generator.options['skip-install'],
         npm: true,
-        bower: this.wrapper.client === AngularFactory.tokens().NG1
+        bower: this.generator.client === AngularFactory.tokens().NG1
       });
   }
 
   promptUser() {
-      const done = this.wrapper.async();
+      const done = this.generator.async();
 
       let prompts =[
           {
@@ -177,34 +177,34 @@ exports.MainGenerator = class MainGenerator {
           }
         ];
 
-      this.wrapper.prompt(prompts, (props) => {
-        this.wrapper.appName = props.appName;
-        this.wrapper.username = props.username;
-        this.wrapper.userEmail = props.userEmail;
-        this.wrapper.stack = props.stack;
+      this.generator.prompt(prompts, (props) => {
+        this.generator.appName = props.appName;
+        this.generator.username = props.username;
+        this.generator.userEmail = props.userEmail;
+        this.generator.stack = props.stack;
 
         if (props.repoHost === "github") {
-          this.wrapper.repoHostUrl = "github.com";
-          this.wrapper.userNameSpace = props.username;
+          this.generator.repoHostUrl = "github.com";
+          this.generator.userNameSpace = props.username;
         } else if (props.repoHost === "bitbucket") {
-          this.wrapper.repoHostUrl = "bitbucket.org";
-          this.wrapper.userNameSpace = props.username;
+          this.generator.repoHostUrl = "bitbucket.org";
+          this.generator.userNameSpace = props.username;
         } else {
-          this.wrapper.repoHostUrl = props.repoHostUrl;
-          this.wrapper.userNameSpace = props.userNameSpace;
+          this.generator.repoHostUrl = props.repoHostUrl;
+          this.generator.userNameSpace = props.userNameSpace;
         }
 
-        this.wrapper.config.set('appName', this.wrapper.appName);
-        this.wrapper.config.set('username', this.wrapper.username);
-        this.wrapper.config.set('userEmail', this.wrapper.userEmail);
-        this.wrapper.config.set('stack', this.wrapper.stack);
-        this.wrapper.config.set('repoHostUrl', this.wrapper.repoHostUrl);
-        this.wrapper.config.set('userNameSpace', this.wrapper.userNameSpace);
+        this.generator.config.set('appName', this.generator.appName);
+        this.generator.config.set('username', this.generator.username);
+        this.generator.config.set('userEmail', this.generator.userEmail);
+        this.generator.config.set('stack', this.generator.stack);
+        this.generator.config.set('repoHostUrl', this.generator.repoHostUrl);
+        this.generator.config.set('userNameSpace', this.generator.userNameSpace);
 
         done();
       });
 
-      this.wrapper.config.save();
+      this.generator.config.save();
   }
 
   promptTests() {
@@ -217,7 +217,7 @@ exports.MainGenerator = class MainGenerator {
         message: "Do you want to keep tests in a different folder?",
         default: true,
         when: () => {
-          return this.wrapper.server !== ServerFactory.tokens().GO;
+          return !((this.wrapper.server === ServerFactory.tokens().GO) && (this.wrapper.stack === "server"));
         }
       }
     ];
@@ -233,7 +233,7 @@ exports.MainGenerator = class MainGenerator {
   }
 
   promptServer() {
-    const done = this.wrapper.async();
+    const done = this.generator.async();
 
     let prompts = [
       {
@@ -245,8 +245,8 @@ exports.MainGenerator = class MainGenerator {
           ServerFactory.tokens().GO
         ],
         when: () => {
-          let _isServer = this.wrapper.stack === "server";
-          let _isFullstack = this.wrapper.stack === "fullstack";
+          let _isServer = this.generator.stack === "server";
+          let _isFullstack = this.generator.stack === "fullstack";
 
           return _isServer || _isFullstack;
         },
@@ -254,18 +254,18 @@ exports.MainGenerator = class MainGenerator {
       }
     ];
 
-    this.wrapper.prompt(prompts, (props) => {
-      this.wrapper.server = props.server;
-      this.wrapper.config.set('server', this.wrapper.server ? this.wrapper.server.toLowerCase() : '');
+    this.generator.prompt(prompts, (props) => {
+      this.generator.server = props.server;
+      this.generator.config.set('server', this.generator.server ? this.generator.server.toLowerCase() : '');
 
       done();
     });
 
-    this.wrapper.config.save();
+    this.generator.config.save();
   }
 
   promptClient() {
-    const done = this.wrapper.async();
+    const done = this.generator.async();
 
     let prompts = [
       {
@@ -279,8 +279,8 @@ exports.MainGenerator = class MainGenerator {
           VueFactory.tokens().VUE2
         ],
         when: () => {
-          let _isClient = this.wrapper.stack === "client";
-          let _isFullstack = this.wrapper.stack === "fullstack";
+          let _isClient = this.generator.stack === "client";
+          let _isFullstack = this.generator.stack === "fullstack";
 
           return _isClient || _isFullstack;
         },
@@ -288,18 +288,18 @@ exports.MainGenerator = class MainGenerator {
       }
     ];
 
-    this.wrapper.prompt(prompts, (props) => {
-      this.wrapper.client = props.client;
-      this.wrapper.config.set('client', this.wrapper.client ? this.wrapper.client.toLowerCase() : '');
+    this.generator.prompt(prompts, (props) => {
+      this.generator.client = props.client;
+      this.generator.config.set('client', this.generator.client ? this.generator.client.toLowerCase() : '');
 
       done();
     });
 
-    this.wrapper.config.save();
+    this.generator.config.save();
   }
 
   promptStylePreprocessor() {
-    const done = this.wrapper.async();
+    const done = this.generator.async();
 
     let prompts = [
       {
@@ -312,24 +312,24 @@ exports.MainGenerator = class MainGenerator {
           "sass"
         ],
         when: () => {
-          return this.wrapper.stack !== "server";
+          return this.generator.stack !== "server";
         },
         default: 0
       }
     ];
 
-    this.wrapper.prompt(prompts, (props) => {
-      this.wrapper.stylePreprocessor = props.stylePreprocessor;
-      this.wrapper.config.set('stylePreprocessor', this.wrapper.stylePreprocessor);
+    this.generator.prompt(prompts, (props) => {
+      this.generator.stylePreprocessor = props.stylePreprocessor;
+      this.generator.config.set('stylePreprocessor', this.generator.stylePreprocessor);
 
       done();
     });
 
-    this.wrapper.config.save();
+    this.generator.config.save();
   }
 
   promptNodeWebFrameworkServer() {
-    const done = this.wrapper.async();
+    const done = this.generator.async();
 
     let _prompts = [{
       type: "list",
@@ -341,22 +341,22 @@ exports.MainGenerator = class MainGenerator {
       ],
       default: 0,
       when: () => {
-        return this.wrapper.server === ServerFactory.tokens().NODE;
+        return this.generator.server === ServerFactory.tokens().NODE;
       }
     }];
 
-    this.wrapper.prompt(_prompts, (props) => {
-      this.wrapper.nodeWebFrameworkServer = props.nodeWebFrameworkServer;
-      this.wrapper.config.set('nodeWebFrameworkServer', this.wrapper.nodeWebFrameworkServer);
+    this.generator.prompt(_prompts, (props) => {
+      this.generator.nodeWebFrameworkServer = props.nodeWebFrameworkServer;
+      this.generator.config.set('nodeWebFrameworkServer', this.generator.nodeWebFrameworkServer);
 
       done();
     });
 
-    this.wrapper.config.save();
+    this.generator.config.save();
   }
 
   promptGoWebFrameworkServer() {
-    const done = this.wrapper.async();
+    const done = this.generator.async();
 
     let _prompts = [{
       type: "list",
@@ -368,22 +368,22 @@ exports.MainGenerator = class MainGenerator {
       ],
       default: 0,
       when: () => {
-        return this.wrapper.server === ServerFactory.tokens().GO;
+        return this.generator.server === ServerFactory.tokens().GO;
       }
     }];
 
-    this.wrapper.prompt(_prompts, (props) => {
-      this.wrapper.goWebFrameworkServer = props.goWebFrameworkServer;
-      this.wrapper.config.set('goWebFrameworkServer', this.wrapper.goWebFrameworkServer);
+    this.generator.prompt(_prompts, (props) => {
+      this.generator.goWebFrameworkServer = props.goWebFrameworkServer;
+      this.generator.config.set('goWebFrameworkServer', this.generator.goWebFrameworkServer);
 
       done();
     });
 
-    this.wrapper.config.save();
+    this.generator.config.save();
   }
 
   promptTranspilerServer() {
-    const done = this.wrapper.async();
+    const done = this.generator.async();
 
     let _prompts = [{
       type: "list",
@@ -396,22 +396,22 @@ exports.MainGenerator = class MainGenerator {
       ],
       default: 0,
       when: () => {
-        return this.wrapper.server === ServerFactory.tokens().NODE;
+        return this.generator.server === ServerFactory.tokens().NODE;
       }
     }];
 
-    this.wrapper.prompt(_prompts, (props) => {
-      this.wrapper.transpilerServer = props.transpilerServer;
-      this.wrapper.config.set('transpilerServer', this.wrapper.transpilerServer);
+    this.generator.prompt(_prompts, (props) => {
+      this.generator.transpilerServer = props.transpilerServer;
+      this.generator.config.set('transpilerServer', this.generator.transpilerServer);
 
       done();
     });
 
-    this.wrapper.config.save();
+    this.generator.config.save();
   }
 
   promptSecure() {
-    const done = this.wrapper.async();
+    const done = this.generator.async();
 
     let _prompts = [{
       type: 'confirm',
@@ -420,16 +420,16 @@ exports.MainGenerator = class MainGenerator {
       default: true
     }];
 
-    this.wrapper.prompt(_prompts, (props) => {
-      this.wrapper.secure = props.secure;
-      this.wrapper.config.set('secure', this.wrapper.secure);
+    this.generator.prompt(_prompts, (props) => {
+      this.generator.secure = props.secure;
+      this.generator.config.set('secure', this.generator.secure);
 
       done();
     });
   }
 
   promptDifferentStaticServer() {
-    const done = this.wrapper.async();
+    const done = this.generator.async();
 
     let _prompts = [{
       type: 'confirm',
@@ -437,20 +437,20 @@ exports.MainGenerator = class MainGenerator {
       message: 'Do you want to use a different static server? Such as NGINX, Apache, IIS, etc?',
       default: false,
       when: () => {
-        return this.wrapper.stack === "fullstack";
+        return this.generator.stack === "fullstack";
       }
     }];
 
-    this.wrapper.prompt(_prompts, (props) => {
-      this.wrapper.differentStaticServer = props.differentStaticServer;
-      this.wrapper.config.set('differentStaticServer', this.wrapper.differentStaticServer);
+    this.generator.prompt(_prompts, (props) => {
+      this.generator.differentStaticServer = props.differentStaticServer;
+      this.generator.config.set('differentStaticServer', this.generator.differentStaticServer);
 
       done();
     });
   }
 
   promptCordova() {
-    const done = this.wrapper.async();
+    const done = this.generator.async();
 
     let _prompts = [{
       type: 'confirm',
@@ -458,20 +458,20 @@ exports.MainGenerator = class MainGenerator {
       message: 'Are you using Cordova?',
       default: false,
       when: () => {
-        return (this.wrapper.stack === "client") && (this.wrapper.client === "ng1");
+        return (this.generator.stack === "client") && (this.generator.client === "ng1");
       }
     }];
 
-    this.wrapper.prompt(_prompts, (props) => {
-      this.wrapper.cordova = props.cordova;
-      this.wrapper.config.set('cordova', this.wrapper.cordova);
+    this.generator.prompt(_prompts, (props) => {
+      this.generator.cordova = props.cordova;
+      this.generator.config.set('cordova', this.generator.cordova);
 
       done();
     });
   }
 
   promptBoilerplate() {
-    const done = this.wrapper.async();
+    const done = this.generator.async();
 
     let _prompts = [{
       type: 'confirm',
@@ -480,9 +480,9 @@ exports.MainGenerator = class MainGenerator {
       default: true
     }];
 
-    this.wrapper.prompt(_prompts, (props) => {
-      this.wrapper.boilerplate = props.boilerplate;
-      this.wrapper.config.set('boilerplate', this.wrapper.boilerplate);
+    this.generator.prompt(_prompts, (props) => {
+      this.generator.boilerplate = props.boilerplate;
+      this.generator.config.set('boilerplate', this.generator.boilerplate);
 
       done();
     });

@@ -17,7 +17,7 @@ describe('StyleSubGenerator', () => {
       };
       let _ssg = new StyleSubGenerator(_gen);
 
-      expect(_ssg.wrapper).to.equal(_gen);
+      expect(_ssg.generator).to.equal(_gen);
     });
   });
 
@@ -38,7 +38,7 @@ describe('StyleSubGenerator', () => {
 
       _ssg.initializing();
 
-      expect(_ssg.wrapper.argument).to.have.been.called;
+      expect(_ssg.generator.argument).to.have.been.called;
     });
   });
 
@@ -82,8 +82,8 @@ describe('StyleSubGenerator', () => {
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
         ];
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_ssg.generator.writing).to.have.been.called;
+        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       });
     })
 
@@ -126,8 +126,8 @@ describe('StyleSubGenerator', () => {
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
         ];
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_ssg.generator.writing).to.have.been.called;
+        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       });
     })
 
@@ -170,8 +170,8 @@ describe('StyleSubGenerator', () => {
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
         ];
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_ssg.generator.writing).to.have.been.called;
+        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       });
     })
 
@@ -214,8 +214,8 @@ describe('StyleSubGenerator', () => {
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
         ];
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_ssg.generator.writing).to.have.been.called;
+        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       });
     })
   });

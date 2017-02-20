@@ -17,7 +17,7 @@ describe('ResourceSubGenerator', () => {
       };
       let _rsg = new ResourceSubGenerator(_gen);
 
-      expect(_rsg.wrapper).to.equal(_gen);
+      expect(_rsg.generator).to.equal(_gen);
     });
   });
 
@@ -36,7 +36,7 @@ describe('ResourceSubGenerator', () => {
 
       _rsg.initializing();
 
-      expect(_rsg.wrapper.argument).to.have.been.called;
+      expect(_rsg.generator.argument).to.have.been.called;
     });
   });
 
@@ -98,8 +98,8 @@ describe('ResourceSubGenerator', () => {
 
       let _firstCall = ['ng1/resource.js', knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/resources/' + _gen.name + '.js', {name: _gen.name, appName: _gen.appName}];
 
-      expect(_rsg.wrapper.writing).to.have.been.called;
-      expect(_rsg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_rsg.generator.writing).to.have.been.called;
+      expect(_rsg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
     });
   });
 });

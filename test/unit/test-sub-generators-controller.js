@@ -17,7 +17,7 @@ describe('ControllerSubGenerator', () => {
       };
       let _csg = new ControllerSubGenerator(_gen);
 
-      expect(_csg.wrapper).to.equal(_gen);
+      expect(_csg.generator).to.equal(_gen);
     });
   });
 
@@ -36,7 +36,7 @@ describe('ControllerSubGenerator', () => {
 
       _csg.initializing();
 
-      expect(_csg.wrapper.argument).to.have.been.called;
+      expect(_csg.generator.argument).to.have.been.called;
     });
   });
 
@@ -113,9 +113,9 @@ describe('ControllerSubGenerator', () => {
 
       _csg.writing();
 
-      expect(_csg.wrapper.writing).to.have.been.called;
-      expect(_csg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-      expect(_csg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+      expect(_csg.generator.writing).to.have.been.called;
+      expect(_csg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_csg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
     });
 
     it('should have the writing called with the right stuff - testsSeparated', () => {
@@ -156,9 +156,9 @@ describe('ControllerSubGenerator', () => {
 
       _csg.writing();
 
-      expect(_csg.wrapper.writing).to.have.been.called;
-      expect(_csg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-      expect(_csg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+      expect(_csg.generator.writing).to.have.been.called;
+      expect(_csg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_csg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
     });
   });
 });

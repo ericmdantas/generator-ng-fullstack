@@ -9,7 +9,7 @@ describe('generator', () => {
       let _newGenerator = {"a": true};
       let _g = new MainGenerator(_newGenerator);
 
-      expect(_g.wrapper).to.be.equal(_newGenerator);
+      expect(_g.generator).to.be.equal(_newGenerator);
     });
   })
 
@@ -23,7 +23,7 @@ describe('generator', () => {
 
       _g.sayHello();
 
-      expect(_g.wrapper.log).to.have.been.called;
+      expect(_g.generator.log).to.have.been.called;
     });
   });
 
@@ -48,8 +48,8 @@ describe('generator', () => {
 
       _g.writing();
 
-      expect(_g.wrapper.template).to.have.been.called;
-      expect(_g.wrapper.directory).to.have.been.called;
+      expect(_g.generator.template).to.have.been.called;
+      expect(_g.generator.directory).to.have.been.called;
     })
 
     it('should have the right calls - server node babel', () => {
@@ -72,8 +72,8 @@ describe('generator', () => {
 
       _g.writing();
 
-      expect(_g.wrapper.template).to.have.been.called;
-      expect(_g.wrapper.directory).to.have.been.called;
+      expect(_g.generator.template).to.have.been.called;
+      expect(_g.generator.directory).to.have.been.called;
     })
 
     it('should have the right calls - server node standard', () => {
@@ -96,8 +96,8 @@ describe('generator', () => {
 
       _g.writing();
 
-      expect(_g.wrapper.template).to.have.been.called;
-      expect(_g.wrapper.directory).to.have.been.called;
+      expect(_g.generator.template).to.have.been.called;
+      expect(_g.generator.directory).to.have.been.called;
     })
 
     it('should have the right calls - server go', () => {
@@ -121,8 +121,8 @@ describe('generator', () => {
 
       _g.writing();
 
-      expect(_g.wrapper.template).to.have.been.called;
-      expect(_g.wrapper.directory).to.have.been.called;
+      expect(_g.generator.template).to.have.been.called;
+      expect(_g.generator.directory).to.have.been.called;
     })
 
     it('should have the right calls - stack fullstack', () => {
@@ -148,8 +148,8 @@ describe('generator', () => {
 
       _g.writing();
 
-      expect(_g.wrapper.template).to.have.been.called;
-      expect(_g.wrapper.directory).to.have.been.called;
+      expect(_g.generator.template).to.have.been.called;
+      expect(_g.generator.directory).to.have.been.called;
     })
 
     it('should have the right calls - stack server', () => {
@@ -174,8 +174,8 @@ describe('generator', () => {
 
       _g.writing();
 
-      expect(_g.wrapper.template).to.have.been.called;
-      expect(_g.wrapper.directory).to.have.been.called;
+      expect(_g.generator.template).to.have.been.called;
+      expect(_g.generator.directory).to.have.been.called;
     })
 
     it('should have the right calls - stack client', () => {
@@ -201,8 +201,8 @@ describe('generator', () => {
 
       _g.writing();
 
-      expect(_g.wrapper.template).to.have.been.called;
-      expect(_g.wrapper.directory).to.have.been.called;
+      expect(_g.generator.template).to.have.been.called;
+      expect(_g.generator.directory).to.have.been.called;
     })
   });
 
@@ -228,9 +228,9 @@ describe('generator', () => {
         }
       ]
 
-      expect(_g.wrapper.installDependencies).to.have.been.called;
+      expect(_g.generator.installDependencies).to.have.been.called;
 
-      expect(_g.wrapper.installDependencies.calledWith(_call[0])).to.be.true;
+      expect(_g.generator.installDependencies.calledWith(_call[0])).to.be.true;
     });
 
     it('should call the right stuff - ng2', () => {
@@ -254,9 +254,9 @@ describe('generator', () => {
         }
       ]
 
-      expect(_g.wrapper.installDependencies).to.have.been.called;
+      expect(_g.generator.installDependencies).to.have.been.called;
 
-      expect(_g.wrapper.installDependencies.calledWith(_call[0])).to.be.true;
+      expect(_g.generator.installDependencies.calledWith(_call[0])).to.be.true;
     });
   });
 
@@ -284,8 +284,8 @@ describe('generator', () => {
 
       _g.promptUser();
 
-      expect(_g.wrapper.prompt).to.have.been.called;
-      expect(_g.wrapper.config.save).to.have.been.called;
+      expect(_g.generator.prompt).to.have.been.called;
+      expect(_g.generator.config.save).to.have.been.called;
     })
   });
 
@@ -313,8 +313,8 @@ describe('generator', () => {
 
       _g.promptServer();
 
-      expect(_g.wrapper.prompt).to.have.been.called;
-      expect(_g.wrapper.config.save).to.have.been.called;
+      expect(_g.generator.prompt).to.have.been.called;
+      expect(_g.generator.config.save).to.have.been.called;
     })
   });
 
@@ -341,8 +341,8 @@ describe('generator', () => {
 
       _g.promptTranspilerServer();
 
-      expect(_g.wrapper.prompt).to.have.been.called;
-      expect(_g.wrapper.config.save).to.have.been.called;
+      expect(_g.generator.prompt).to.have.been.called;
+      expect(_g.generator.config.save).to.have.been.called;
     })
   });
 
@@ -369,8 +369,8 @@ describe('generator', () => {
 
       _g.promptClient();
 
-      expect(_g.wrapper.prompt).to.have.been.called;
-      expect(_g.wrapper.config.save).to.have.been.called;
+      expect(_g.generator.prompt).to.have.been.called;
+      expect(_g.generator.config.save).to.have.been.called;
     })
   });
 
@@ -397,8 +397,8 @@ describe('generator', () => {
 
       _g.promptSecure();
 
-      expect(_g.wrapper.prompt).to.have.been.called;
-      expect(_g.wrapper.config.save).to.have.been.called;
+      expect(_g.generator.prompt).to.have.been.called;
+      expect(_g.generator.config.save).to.have.been.called;
     })
   });
 
@@ -425,8 +425,8 @@ describe('generator', () => {
 
       _g.promptDifferentStaticServer();
 
-      expect(_g.wrapper.prompt).to.have.been.called;
-      expect(_g.wrapper.config.save).to.have.been.called;
+      expect(_g.generator.prompt).to.have.been.called;
+      expect(_g.generator.config.save).to.have.been.called;
     })
   });
 
@@ -454,8 +454,8 @@ describe('generator', () => {
 
       _g.promptBoilerplate();
 
-      expect(_g.wrapper.prompt).to.have.been.called;
-      expect(_g.wrapper.config.save).to.have.been.called;
+      expect(_g.generator.prompt).to.have.been.called;
+      expect(_g.generator.config.save).to.have.been.called;
     })
 
     it('should have the right calls - boilerplate is false', () => {
@@ -481,8 +481,8 @@ describe('generator', () => {
 
       _g.promptBoilerplate();
 
-      expect(_g.wrapper.prompt).to.have.been.called;
-      expect(_g.wrapper.config.save).to.have.been.called;
+      expect(_g.generator.prompt).to.have.been.called;
+      expect(_g.generator.config.save).to.have.been.called;
     })
   });
 });
