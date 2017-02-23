@@ -100,12 +100,59 @@ describe('ng-fullstack -> node', () => {
       'tests/e2e/todo.e2e_test.js'
     ];
 
+    let _commonFilesWithoutTestsSeparated = [
+      '.editorconfig',
+      '.jshintrc',
+      '.bowerrc',
+      '.travis.yml',
+      '.gitignore',
+      '.editorconfig',
+      '.jshintrc',
+      '.babelrc',
+
+      'bower.json',
+      'package.json',
+      'gulpfile.babel.js',
+      'karma.conf.js',
+      'protractor.conf.js',
+      'newrelic.js',
+      'procfile.txt',
+
+      // client stuff
+
+      'client/dev/favicon.png',
+      'client/dev/index.html',
+
+      'client/dev/todo/styles/todo.css',
+
+      'client/dev/app.js',
+      'client/dev/app.route.js',
+      'client/dev/app.config.js',
+
+      'client/dev/todo/services/todo-dao.js',
+      'client/dev/todo/resources/todo-resource.js',
+      'client/dev/todo/models/todo-model.js',
+      'client/dev/todo/controllers/todo-controller.js',
+
+      'client/dev/todo/templates/todo.html',
+
+      // tests - client
+
+      'client/dev/todo/controllers/todo-controller_test.js',
+      'client/dev/todo/services/todo-dao_test.js',
+      'client/dev/todo/models/todo-model_test.js',
+
+      // tests - e2e
+
+      'tests/e2e/todo.e2e_test.js'
+    ];
+
     describe('express', () => {
       describe('node - express - standard', () => {
         let _nodeFiles = [
           // server stuff
 
-          'server/index.js', // babel's entry point
+          'server/index.js',
 
           'server/server.js',
 
@@ -166,7 +213,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'server/index.js', // babel's entry point
+          'server/index.js',
 
           'server/server.js',
 
@@ -235,7 +282,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'server/index.js', // babel's entry point
+          'server/index.js',
 
           'server/server.js',
 
@@ -302,11 +349,78 @@ describe('ng-fullstack -> node', () => {
         });
       });
 
+      describe('node - express - standard - secure - testsSeparated is false', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'server/index.js',
+
+          'server/server.js',
+
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/db.conf.test.js',
+          'server/config/db.test.json',
+          'server/config/routes.conf.js',
+
+          'server/commons/static/index.js',
+
+          'server/auth/local/index.js',
+
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/model/todo-model_test.js',
+          'server/api/todo/route/todo-route.js',
+          'server/api/todo/route/todo-route_test.js'
+        ];
+
+        _commonFilesWithoutTestsSeparated.forEach((common) => _nodeFiles.push(common));
+        _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+        before((done) => {
+          helpers
+          .run(path.join(__dirname, '../../app'))
+          .inDir(path.join(os.tmpdir(), './temp-test'))
+          .withPrompts({
+            appName: "a",
+            githubUsername: "b",
+            server: "node",
+            transpilerServer: 'node',
+            boilerplate: true,
+            nodeWebFrameworkServer: 'express',
+            stack: 'fullstack',
+            testsSeparated: false,
+            client: 'ng1',
+            secure: true
+          })
+          .withOptions({ 'skip-install': true })
+          .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+        });
+      });
+
       describe('node - express - standard - boilerplate is false', () => {
         let _nodeFiles = [
           // server stuff
 
-          'server/index.js', // babel's entry point
+          'server/index.js',
 
           'server/server.js',
 
@@ -362,7 +476,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'server/index.js', // babel's entry point
+          'server/index.js',
 
           'server/server.js',
 
@@ -432,7 +546,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'server/index.js', // babel's entry point
+          'server/index.js',
 
           'server/server.js',
 
@@ -501,7 +615,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'server/index.js', // babel's entry point
+          'server/index.js',
 
           'server/server.js',
 
@@ -563,7 +677,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'server/index.js', // babel's entry point
+          'server/index.js',
 
           'server/server.js',
 
@@ -632,7 +746,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'server/index.js', // babel's entry point
+          'server/index.js',
 
           'server/server.js',
 
@@ -698,11 +812,77 @@ describe('ng-fullstack -> node', () => {
         });
       });
 
+      describe('node - express - babel - secure - testsSeparated is false', () => {
+        let _nodeFiles = [
+          // server stuff
+
+          'server/index.js',
+
+          'server/server.js',
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/routes/index.js',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.js',
+          'server/config/db.conf.test.js',
+          'server/config/db.test.json',
+          'server/config/routes.conf.js',
+
+          'server/commons/static/index.js',
+
+          'server/auth/local/index.js',
+
+          'server/api/todo/controller/todo-controller.js',
+          'server/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/dao/todo-dao.js',
+          'server/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/model/todo-model.js',
+          'server/api/todo/model/todo-model_test.js',
+          'server/api/todo/route/todo-route.js',
+          'server/api/todo/route/todo-route_test.js'
+        ];
+
+        _commonFilesWithoutTestsSeparated.forEach((common) => _nodeFiles.push(common));
+        _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+        before((done) => {
+          helpers
+          .run(path.join(__dirname, '../../app'))
+          .inDir(path.join(os.tmpdir(), './temp-test'))
+          .withPrompts({
+            appName: "a",
+            secure: true,
+            githubUsername: "b",
+            server: "node",
+            transpilerServer: 'babel',
+            boilerplate: true,
+            testsSeparated: false,
+            nodeWebFrameworkServer: 'express',
+            stack: 'fullstack',
+            client: 'ng1'
+          })
+          .withOptions({ 'skip-install': true })
+          .on('end', done);
+        });
+
+        it('creates default files - node', () => {
+          assert.file(_nodeFiles);
+        });
+      });
+
       describe('node - express - babel - boilerplate is false', () => {
         let _nodeFiles = [
           // server stuff
 
-          'server/index.js', // babel's entry point
+          'server/index.js',
 
           'server/server.js',
 
@@ -756,7 +936,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'server/index.js', // babel's entry point
+          'server/index.js',
 
           'server/server.js',
 
@@ -826,7 +1006,7 @@ describe('ng-fullstack -> node', () => {
         let _nodeFiles = [
           // server stuff
 
-          'server/index.js', // babel's entry point
+          'server/index.js',
 
           'server/server.js',
 
@@ -1097,6 +1277,74 @@ describe('ng-fullstack -> node', () => {
         });
       });
 
+      describe('node - express - typescript - secure - testsSeparated is false', () => {
+        let _tscFiles = [
+          // server stuff
+
+          'typings.json', // typings
+
+          'server/index.js', // typescript's entry point
+
+          'server/cert/ca.crt',
+          'server/cert/ca.csr',
+          'server/cert/ca.key',
+          'server/cert/server.crt',
+          'server/cert/server.csr',
+          'server/cert/server.key',
+
+          'server/server.ts',
+
+          'server/routes/index.ts',
+
+          'server/constants/db.json',
+
+          'server/config/db.conf.ts',
+          'server/config/db.conf.test.ts',
+          'server/config/db.test.json',
+          'server/config/routes.conf.ts',
+
+          'server/commons/static/index.ts',
+
+          'server/auth/local/index.ts',
+
+          'server/api/todo/controller/todo-controller.ts',
+          'server/api/todo/controller/todo-controller_test.js',
+          'server/api/todo/dao/todo-dao.ts',
+          'server/api/todo/dao/todo-dao_test.js',
+          'server/api/todo/model/todo-model.ts',
+          'server/api/todo/model/todo-model_test.js',
+          'server/api/todo/route/todo-route.ts',
+          'server/api/todo/route/todo-route_test.js'
+        ];
+
+        _commonFilesWithoutTestsSeparated.forEach((common) => _tscFiles.push(common));
+        _taskFiles.forEach((t) => _tscFiles.push(t));
+
+        before((done) => {
+          helpers
+          .run(path.join(__dirname, '../../app'))
+          .inDir(path.join(os.tmpdir(), './temp-test'))
+          .withPrompts({
+            appName: "a",
+            secure: true,
+            githubUsername: "b",
+            server: "node",
+            boilerplate: true,
+            testsSeparated: false,
+            transpilerServer: 'typescript',
+            nodeWebFrameworkServer: 'express',
+            stack: 'fullstack',
+            client: 'ng1'
+          })
+          .withOptions({ 'skip-install': true })
+          .on('end', done);
+        });
+
+        it('creates default files - node', () =>  {
+          assert.file(_tscFiles);
+        });
+      });
+
       describe('node - express - typescript - no boilerplate', () => {
         let _tscFiles = [
           // server stuff
@@ -1301,7 +1549,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'server/index.js', // babel's entry point
+            'server/index.js',
 
             'server/server.js',
 
@@ -1363,7 +1611,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'server/index.js', // babel's entry point
+            'server/index.js',
 
             'server/server.js',
 
@@ -1432,7 +1680,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'server/index.js', // babel's entry point
+            'server/index.js',
 
             'server/server.js',
 
@@ -1503,7 +1751,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'server/index.js', // babel's entry point
+            'server/index.js',
 
             'server/server.js',
 
@@ -1559,7 +1807,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'server/index.js', // babel's entry point
+            'server/index.js',
 
             'server/server.js',
 
@@ -1629,7 +1877,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'server/index.js', // babel's entry point
+            'server/index.js',
 
             'server/server.js',
 
@@ -1698,7 +1946,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'server/index.js', // babel's entry point
+            'server/index.js',
 
             'server/server.js',
 
@@ -1760,7 +2008,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'server/index.js', // babel's entry point
+            'server/index.js',
 
             'server/server.js',
 
@@ -1829,7 +2077,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'server/index.js', // babel's entry point
+            'server/index.js',
 
             'server/server.js',
 
@@ -1899,7 +2147,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'server/index.js', // babel's entry point
+            'server/index.js',
 
             'server/server.js',
 
@@ -1954,7 +2202,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'server/index.js', // babel's entry point
+            'server/index.js',
 
             'server/server.js',
 
@@ -2024,7 +2272,7 @@ describe('ng-fullstack -> node', () => {
           let _nodeFiles = [
             // server stuff
 
-            'server/index.js', // babel's entry point
+            'server/index.js',
 
             'server/server.js',
 
@@ -2507,7 +2755,7 @@ describe('ng-fullstack -> node', () => {
       let _serverFiles = [
         // server stuff
 
-        'server/index.js', // babel's entry point
+        'server/index.js',
 
         'server/server.js',
 

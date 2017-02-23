@@ -279,8 +279,8 @@ class NodeBaseBabel {
 
       if(!this.generator.testsSeparated) {
         _tests.push(
-          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.js', 'server/config/db.conf.test.js'],
-          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/config/db.conf.test.js', 'server/config/db.conf.test.js'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/config/db.test.json', 'server/config/db.test.json'],
           ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
           ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
           ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
@@ -427,8 +427,8 @@ class NodeBaseTypescript {
 
       if(!this.generator.testsSeparated) {
         _tests.push(
-          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.ts', 'server/config/db.conf.test.ts'],
-          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/db.conf.test.ts', 'server/config/db.conf.test.ts'],
+          ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/db.test.json', 'server/config/db.test.json'],
           ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
           ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
           ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
