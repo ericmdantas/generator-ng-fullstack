@@ -130,7 +130,7 @@ class NodeBaseStandard {
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
 
-    if(!this.wrapper.testsSeparated) {
+    if (!this.wrapper.testsSeparated) {
       let _tests = [
         ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.js', 'server/config/db.conf.test.js'],
         ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
@@ -257,10 +257,10 @@ class NodeBaseBabel {
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
 
-    if(!this.wrapper.testsSeparated) {
+    if (!this.wrapper.testsSeparated) {
       let _tests = [
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.js', 'server/config/db.conf.test.js'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/config/db.conf.test.js', 'server/config/db.conf.test.js'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/config/db.test.json', 'server/config/db.test.json'],
         ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
         ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
         ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_babel/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
@@ -348,7 +348,7 @@ class NodeBaseTypescript {
     this.wrapper.template('_typings_ng2_and_tsc_server.json', 'typings.json');
     this.wrapper.directory('tasks/server', 'tasks/server');
 
-    if(this.wrapper.testsSeparated) {
+    if (this.wrapper.testsSeparated) {
       this.wrapper.directory('tests/server', 'tests/server');
     }
 
@@ -385,10 +385,10 @@ class NodeBaseTypescript {
       differentStaticServer: !!this.wrapper.differentStaticServer
     });
 
-    if(!this.wrapper.testsSeparated) {
+    if (!this.wrapper.testsSeparated) {
       let _tests = [
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.conf.test.ts', 'server/config/db.conf.test.ts'],
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '/config/db.test.json', 'server/config/db.test.json'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/db.conf.test.ts', 'server/config/db.conf.test.ts'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/db.test.json', 'server/config/db.test.json'],
         ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
         ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],
         ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/model/todo-model_test.js', 'server/api/todo/model/todo-model_test.js'],
