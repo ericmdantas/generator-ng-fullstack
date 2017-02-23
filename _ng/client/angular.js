@@ -229,7 +229,7 @@ class Angular1 {
   }
 
   _copyConfigTests() {
-    this.generator.template('_karma.conf.js', 'karma.conf.js', {
+    this.generator.template('_karma.conf_ng1.js', 'karma.conf.js', {
       app: this.generator.appName,
       testsSeparated: this.generator.testsSeparated
     });
