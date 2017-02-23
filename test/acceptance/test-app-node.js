@@ -1747,6 +1747,73 @@ describe('ng-fullstack -> node', () => {
           });
         });
 
+        describe('node - koa - standard - secure - testsSeparated is false', () => {
+          let _nodeFiles = [
+            // server stuff
+
+            'server/index.js',
+
+            'server/server.js',
+
+
+            'server/cert/ca.crt',
+            'server/cert/ca.csr',
+            'server/cert/ca.key',
+            'server/cert/server.crt',
+            'server/cert/server.csr',
+            'server/cert/server.key',
+
+            'server/routes/index.js',
+
+            'server/constants/db.json',
+
+            'server/config/db.conf.js',
+            'server/config/db.conf.test.js',
+            'server/config/routes.conf.js',
+            'server/config/db.test.json',
+
+            'server/commons/static/index.js',
+
+            'server/auth/local/index.js',
+
+            'server/api/todo/controller/todo-controller.js',
+            'server/api/todo/controller/todo-controller_test.js',
+            'server/api/todo/dao/todo-dao.js',
+            'server/api/todo/dao/todo-dao_test.js',
+            'server/api/todo/model/todo-model.js',
+            'server/api/todo/model/todo-model_test.js',
+            'server/api/todo/route/todo-route.js',
+            'server/api/todo/route/todo-route_test.js'
+          ];
+
+          _commonFilesWithoutTestsSeparated.forEach((common) => _nodeFiles.push(common));
+          _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+          before((done) => {
+            helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'node',
+              boilerplate: true,
+              nodeWebFrameworkServer: 'koa',
+              testsSeparated: false,
+              stack: 'fullstack',
+              client: 'ng1',
+              secure: true
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+          });
+
+          it('creates default files - node', () => {
+            assert.file(_nodeFiles);
+          });
+        });
+
         describe('node - koa - standard - no boilerplate', () => {
           let _nodeFiles = [
             // server stuff
@@ -2130,6 +2197,72 @@ describe('ng-fullstack -> node', () => {
               server: "node",
               transpilerServer: 'babel',
               boilerplate: true,
+              nodeWebFrameworkServer: 'koa',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+          });
+
+          it('creates default files - node', () => {
+            assert.file(_nodeFiles);
+          });
+        });
+
+        describe('node - koa - babel - secure - testsSeparated is false', () => {
+          let _nodeFiles = [
+            // server stuff
+
+            'server/index.js',
+
+            'server/server.js',
+
+            'server/cert/ca.crt',
+            'server/cert/ca.csr',
+            'server/cert/ca.key',
+            'server/cert/server.crt',
+            'server/cert/server.csr',
+            'server/cert/server.key',
+
+            'server/routes/index.js',
+
+            'server/constants/db.json',
+
+            'server/config/db.conf.js',
+            'server/config/db.conf.test.js',
+            'server/config/db.test.json',
+            'server/config/routes.conf.js',
+
+            'server/commons/static/index.js',
+
+            'server/auth/local/index.js',
+
+            'server/api/todo/controller/todo-controller.js',
+            'server/api/todo/controller/todo-controller_test.js',
+            'server/api/todo/dao/todo-dao.js',
+            'server/api/todo/dao/todo-dao_test.js',
+            'server/api/todo/model/todo-model.js',
+            'server/api/todo/model/todo-model_test.js',
+            'server/api/todo/route/todo-route.js',
+            'server/api/todo/route/todo-route_test.js'
+          ];
+
+          _commonFilesWithoutTestsSeparated.forEach((common) => _nodeFiles.push(common));
+          _taskFiles.forEach((t) => _nodeFiles.push(t));
+
+          before((done) => {
+            helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              secure: true,
+              githubUsername: "b",
+              server: "node",
+              transpilerServer: 'babel',
+              boilerplate: true,
+              testsSeparated: false,
               nodeWebFrameworkServer: 'koa',
               stack: 'fullstack',
               client: 'ng1'
@@ -2529,6 +2662,74 @@ describe('ng-fullstack -> node', () => {
               githubUsername: "b",
               server: "node",
               boilerplate: true,
+              transpilerServer: 'typescript',
+              nodeWebFrameworkServer: 'koa',
+              stack: 'fullstack',
+              client: 'ng1'
+            })
+            .withOptions({ 'skip-install': true })
+            .on('end', done);
+          });
+
+          it('creates default files - node', () =>  {
+            assert.file(_tscFiles);
+          });
+        });
+
+        describe('node - koa - typescript - secure - testsSeparated is false', () => {
+          let _tscFiles = [
+            // server stuff
+
+            'typings.json', // typings
+
+            'server/index.js', // typescript's entry point
+
+            'server/cert/ca.crt',
+            'server/cert/ca.csr',
+            'server/cert/ca.key',
+            'server/cert/server.crt',
+            'server/cert/server.csr',
+            'server/cert/server.key',
+
+            'server/server.ts',
+
+            'server/routes/index.ts',
+
+            'server/constants/db.json',
+
+            'server/config/db.conf.ts',
+            'server/config/db.conf.test.ts',
+            'server/config/db.test.json',
+            'server/config/routes.conf.ts',
+
+            'server/commons/static/index.ts',
+
+            'server/auth/local/index.ts',
+
+            'server/api/todo/controller/todo-controller.ts',
+            'server/api/todo/controller/todo-controller_test.js',
+            'server/api/todo/dao/todo-dao.ts',
+            'server/api/todo/dao/todo-dao_test.js',
+            'server/api/todo/model/todo-model.ts',
+            'server/api/todo/model/todo-model_test.js',
+            'server/api/todo/route/todo-route.ts',
+            'server/api/todo/route/todo-route_test.js'
+          ];
+
+          _commonFilesWithoutTestsSeparated.forEach((common) => _tscFiles.push(common));
+          _taskFiles.forEach((t) => _tscFiles.push(t));
+
+          before((done) => {
+            helpers
+            .run(path.join(__dirname, '../../app'))
+            .inDir(path.join(os.tmpdir(), './temp-test'))
+            .withPrompts({
+              appName: "a",
+              secure: true,
+              githubUsername: "b",
+              server: "node",
+              boilerplate: true,
+              testsSeparated: false,
               transpilerServer: 'typescript',
               nodeWebFrameworkServer: 'koa',
               stack: 'fullstack',
