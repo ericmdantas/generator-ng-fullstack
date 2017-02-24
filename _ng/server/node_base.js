@@ -387,7 +387,7 @@ class NodeBaseTypescript {
 
     if (!this.wrapper.testsSeparated) {
       let _tests = [
-        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/db.conf.test.ts', 'server/config/db.conf.test.ts'],
+        ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/db.conf.test.js', 'server/config/db.conf.test.js'],
         ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/config/db.test.json', 'server/config/db.test.json'],
         ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/controller/todo-controller_test.js', 'server/api/todo/controller/todo-controller_test.js'],
         ['server/node/' + this.webFramework + '/server_node_' + this.webFramework + '_typescript/api/todo/dao/todo-dao_test.js', 'server/api/todo/dao/todo-dao_test.js'],

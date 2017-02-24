@@ -1145,7 +1145,7 @@ describe('ng-fullstack -> node', () => {
           'server/config/db.test.json',
 
           'server/config/db.conf.ts',
-          'server/config/db.conf.test.ts',
+          'server/config/db.conf.test.js',
           'server/config/routes.conf.ts',
 
           'server/commons/static/index.ts',
