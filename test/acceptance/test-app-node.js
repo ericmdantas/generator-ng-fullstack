@@ -1299,7 +1299,7 @@ describe('ng-fullstack -> node', () => {
           'server/constants/db.json',
 
           'server/config/db.conf.ts',
-          'server/config/db.conf.test.ts',
+          'server/config/db.conf.test.js',
           'server/config/db.test.json',
           'server/config/routes.conf.ts',
 
@@ -2698,7 +2698,7 @@ describe('ng-fullstack -> node', () => {
             'server/constants/db.json',
 
             'server/config/db.conf.ts',
-            'server/config/db.conf.test.ts',
+            'server/config/db.conf.test.js',
             'server/config/db.test.json',
             'server/config/routes.conf.ts',
 
