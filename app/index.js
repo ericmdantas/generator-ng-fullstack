@@ -32,6 +32,10 @@ module.exports = class NgFullstack extends Base {
 
     promptClient() {
       this.generator.promptClient();
+    }    
+
+    promptBuilderClient() {
+      this.generator.promptBuilderClient();
     }
 
     promptStylePreprocessor() {
@@ -72,9 +76,5 @@ module.exports = class NgFullstack extends Base {
 
     promptBoilerplate() {
       this.generator.promptBoilerplate();
-    }
-
-    promptBuilderClient() {
-      this.generator.promptBuilderClient();
     }
 };
