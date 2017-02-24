@@ -51,8 +51,10 @@
   <% } %>
   },
   "dependencies": {
-    <% if (!clientOnly) { %>"lodash": "^4.6.1",
+    <% if (!clientOnly) { %>
+      "lodash": "^4.6.1",
       "bluebird": "^3.3.4",
+
       <% if (nodeWebFrameworkServer === "express") { %>
         "body-parser": "^1.5.0",
         "express": "~4.14.0",
@@ -61,71 +63,93 @@
         "compression": "^1.6.2",
         "helmet": "^2.1.1",
       <% } %>
+
       "nodemon": "^1.9.2",
-      "mongoose": "^4.4.7",<% } %>
-      <% if (client === "ng2") { %>
-        "@angular/common": "^2.4.4",
-        "@angular/compiler": "^2.4.4",
-        "@angular/core": "^2.4.4",
-        "@angular/forms": "^2.4.4",
-        "@angular/http": "^2.4.4",
-        "@angular/platform-browser": "^2.4.4",
-        "@angular/platform-browser-dynamic": "^2.4.4",
-        "@angular/router": "^3.4.4",
-  	     "zone.js": "^0.7.6",
-         "reflect-metadata": "^0.1.3",
-         "rxjs": "^5.0.0-beta.12",
-         "systemjs": "^0.19.24",
-         "typescript": "^2.1.5",
-         "zone.js": "^0.6.23",
-       <% } %>
-       <% if (client === "vue2") { %>
-         "vue": "^2.1.10",
-         "vue-resource": "^1.0.3",
-         "vue-router": "^2.1.3",
-       <% } %>
-       <% if (nodeWebFrameworkServer === "koa") { %>
-         "koa": "^1.2.4",
-         "koa-bodyparser": "^2.2.0",
-         "koa-router": "^5.4.0",
-         "koa-static": "^2.0.0",
-       <% } %>
-       <% if (secure) { %>
-         "spdy": "^3.4.4",
-       <% } %>
-  	   "babel-register": "^6.7.2",
-       "babel-regenerator-runtime": "^6.5.0",
-       "babel-preset-es2015": "^6.1.18",
-       "babel-preset-es2016": "^6.0.11",
-       "babel-preset-stage-0": "^6.1.18",
-       "newrelic": "^1.18.2"
+      "mongoose": "^4.4.7",
+    <% } %>
+
+    <% if (client === "ng2") { %>
+      "@angular/common": "^2.4.4",
+      "@angular/compiler": "^2.4.4",
+      "@angular/core": "^2.4.4",
+      "@angular/forms": "^2.4.4",
+      "@angular/http": "^2.4.4",
+      "@angular/platform-browser": "^2.4.4",
+      "@angular/platform-browser-dynamic": "^2.4.4",
+      "@angular/router": "^3.4.4",
+	     "zone.js": "^0.7.6",
+       "reflect-metadata": "^0.1.3",
+       "rxjs": "^5.0.0-beta.12",
+       "systemjs": "^0.19.24",
+       "typescript": "^2.1.5",
+       "zone.js": "^0.6.23",
+     <% } %>
+
+     <% if (client === "vue2") { %>
+       "vue": "^2.1.10",
+       "vue-resource": "^1.0.3",
+       "vue-router": "^2.1.3",
+     <% } %>
+
+     <% if (nodeWebFrameworkServer === "koa") { %>
+       "koa": "^1.2.4",
+       "koa-bodyparser": "^2.2.0",
+       "koa-router": "^5.4.0",
+       "koa-static": "^2.0.0",
+     <% } %>
+
+     <% if (secure) { %>
+       "spdy": "^3.4.4",
+     <% } %>
+
+	   "babel-register": "^6.7.2",
+     "babel-regenerator-runtime": "^6.5.0",
+     "babel-preset-es2015": "^6.1.18",
+     "babel-preset-es2016": "^6.0.11",
+     "babel-preset-stage-0": "^6.1.18",
+     "newrelic": "^1.18.2"
   },
   "devDependencies": {
     "aliv": "^1.7.1",
-    "karma-ng-html2js-preprocessor": "^0.1.2",
     "del": "^2.2.1",
   	"gulp": "^3.9.0",
     "protractor": "^3.1.0",
     "browser-sync": "^2.5.2",
     "require-dir": "^0.3.0",
     "babili": "0.0.6",
-    "gulp-babel": "^6.1.2",
-    "gulp-concat": "^2.4.3",
-    "gulp-coveralls": "^0.1.3",
-    "gulp-typescript": "~3.1.4",
-    "gulp-clean-css": "^2.0.3",
-    "gulp-rename": "^1.2.0",
-    "gulp-rev-append": "^0.1.6",
-    "gulp-uglify": "^1.1.0",
-    "gulp-htmlmin": "^2.0.0",
-    "gulp-imagemin": "^3.0.1",
-    "gulp-util": "^3.0.3",
-    <% if (stylePreprocessor === "less") { %>
-      "gulp-less": "^3.1.0",
+
+    <% if (builderClient === "gulp") { %>
+      "gulp-babel": "^6.1.2",
+      "gulp-concat": "^2.4.3",
+      "gulp-coveralls": "^0.1.3",
+      "gulp-typescript": "~3.1.4",
+      "gulp-clean-css": "^2.0.3",
+      "gulp-rename": "^1.2.0",
+      "gulp-rev-append": "^0.1.6",
+      "gulp-uglify": "^1.1.0",
+      "gulp-htmlmin": "^2.0.0",
+      "gulp-imagemin": "^3.0.1",
+      "gulp-util": "^3.0.3",
+      <% if (stylePreprocessor === "less") { %>
+        "gulp-less": "^3.1.0",
+      <% } %>
+
+      <% if (stylePreprocessor === "sass") { %>
+        "gulp-sass": "^2.3.2",
+      <% } %>
+      
     <% } %>
-    <% if (stylePreprocessor === "sass") { %>
-      "gulp-sass": "^2.3.2",
+
+    <% if (builderClient === "webpack") { %>
+      "babel-loader": "^6.3.2",
+      "css-loader": "^0.26.1",
+      "file-loader": "^0.10.0",
+      "html-loader": "^0.4.4",
+      "style-loader": "^0.13.1",
+      "webpack": "^2.2.1",
+      "webpack-dev-server": "^2.4.1"
     <% } %>
+
     "jasmine-core": "^2.2.0",
     "run-sequence": "^1.1.5",
     "karma": "^1.3.0",
@@ -138,6 +162,7 @@
     "karma-opera-launcher": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-safari-launcher": "^1.0.0",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
     "mocha": "^2.4.5",
     "chai": "^3.5.0",
     "coveralls": "^2.11.2",
