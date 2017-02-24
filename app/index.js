@@ -73,4 +73,8 @@ module.exports = class NgFullstack extends Base {
     promptBoilerplate() {
       this.generator.promptBoilerplate();
     }
+
+    promptBuilderClient() {
+      this.generator.promptBuilderClient();
+    }
 };

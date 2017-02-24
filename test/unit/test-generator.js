@@ -484,5 +484,61 @@ describe('generator', () => {
       expect(_g.generator.prompt).to.have.been.called;
       expect(_g.generator.config.save).to.have.been.called;
     })
+
+    it('should have the right calls - builderClient is gulp', () => {
+      let _gen = {
+        appName: 'a',
+        username: 'b',
+        server: 'node',
+        client: 'ng2',
+        transpilerServer: 'typescript',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
+        builderClient: "gulp",
+        boilerplate: false,
+        async: () => {},
+        prompt: () => {},
+        config: {
+          save: () => {}
+        }
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.promptBuilderClient();
+
+      expect(_g.generator.prompt).to.have.been.called;
+      expect(_g.generator.config.save).to.have.been.called;
+    })
+
+    it('should have the right calls - builderClient is gulp', () => {
+      let _gen = {
+        appName: 'a',
+        username: 'b',
+        server: 'node',
+        client: 'ng2',
+        transpilerServer: 'typescript',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
+        builderClient: "webpack",
+        boilerplate: true,
+        async: () => {},
+        prompt: () => {},
+        config: {
+          save: () => {}
+        }
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.promptBuilderClient();
+
+      expect(_g.generator.prompt).to.have.been.called;
+      expect(_g.generator.config.save).to.have.been.called;
+    })
   });
 });

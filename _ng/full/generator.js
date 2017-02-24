@@ -487,4 +487,26 @@ exports.MainGenerator = class MainGenerator {
       done();
     });
   }
+
+  promptBuilderClient() {
+    const done = this.generator.async();
+
+    let _prompts = [{
+      type: 'list',
+      name: 'builderClient',
+      message: 'Which builder do you want to use?',
+      choices: [
+        "gulp",
+        "webpack"
+      ],
+      default: 0
+    }];
+
+    this.generator.prompt(_prompts, (props) => {
+      this.generator.builderClient = props.builderClient;
+      this.generator.config.set('builderClient', this.generator.builderClient);
+
+      done();
+    });
+  }
 };
