@@ -497,6 +497,9 @@ exports.MainGenerator = class MainGenerator {
       type: 'list',
       name: 'webpack',
       message: 'Do you want to use webpack',
+      when: () => {
+        return this.generator.stack !== "server";
+      },
       default: false
     }];
 
