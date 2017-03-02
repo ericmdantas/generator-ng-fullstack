@@ -118,29 +118,27 @@
     "require-dir": "^0.3.0",
     "babili": "0.0.6",
 
-    <% if (builderClient === "gulp") { %>
-      "gulp-babel": "^6.1.2",
-      "gulp-concat": "^2.4.3",
-      "gulp-coveralls": "^0.1.3",
-      "gulp-typescript": "~3.1.4",
-      "gulp-clean-css": "^2.0.3",
-      "gulp-rename": "^1.2.0",
-      "gulp-rev-append": "^0.1.6",
-      "gulp-uglify": "^1.1.0",
-      "gulp-htmlmin": "^2.0.0",
-      "gulp-imagemin": "^3.0.1",
-      "gulp-util": "^3.0.3",
-      <% if (stylePreprocessor === "less") { %>
-        "gulp-less": "^3.1.0",
-      <% } %>
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.4.3",
+    "gulp-coveralls": "^0.1.3",
+    "gulp-typescript": "~3.1.4",
+    "gulp-clean-css": "^2.0.3",
+    "gulp-rename": "^1.2.0",
+    "gulp-rev-append": "^0.1.6",
+    "gulp-uglify": "^1.1.0",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-util": "^3.0.3",
 
-      <% if (stylePreprocessor === "sass") { %>
-        "gulp-sass": "^2.3.2",
-      <% } %>
-      
+    <% if (stylePreprocessor === "less") { %>
+      "gulp-less": "^3.1.0",
     <% } %>
 
-    <% if (builderClient === "webpack") { %>
+    <% if (stylePreprocessor === "sass") { %>
+      "gulp-sass": "^2.3.2",
+    <% } %>
+
+    <% if (webpack) { %>
       "babel-loader": "^6.3.2",
       "css-loader": "^0.26.1",
       "file-loader": "^0.10.0",

@@ -38,7 +38,7 @@ exports.MainGenerator = class MainGenerator {
       let _secure = this.generator.secure;
       let _usesTypescript = (_transpilerServer === "typescript") || (_client === "ng2");
       let _stylePreprocessor = this.generator.stylePreprocessor;
-      let _builderClient = this.generator.builderClient;
+      let _webpack = this.generator.webpack;
 
       this.generator.template('_README.md', 'README.md', {
         app: _app.app,
@@ -60,7 +60,7 @@ exports.MainGenerator = class MainGenerator {
         testsSeparated: _testsSeparated,
         stylePreprocessor: _stylePreprocessor,
         server: _server,
-        builderClient: _builderClient
+        webpack: _webpack
       });
 
       this.generator.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
@@ -490,23 +490,19 @@ exports.MainGenerator = class MainGenerator {
     });
   }
 
-  promptBuilderClient() {
+  promptWebpack() {
     const done = this.generator.async();
 
     let _prompts = [{
       type: 'list',
-      name: 'builderClient',
-      message: 'Which builder do you want to use?',
-      choices: [
-        "gulp",
-        "webpack"
-      ],
-      default: 0
+      name: 'webpack',
+      message: 'Do you want to use webpack',
+      default: false
     }];
 
     this.generator.prompt(_prompts, (props) => {
-      this.generator.builderClient = props.builderClient;
-      this.generator.config.set('builderClient', this.generator.builderClient);
+      this.generator.webpack = props.webpack;
+      this.generator.config.set('webpack', this.generator.webpack);
 
       done();
     });

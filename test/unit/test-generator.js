@@ -485,7 +485,7 @@ describe('generator', () => {
       expect(_g.generator.config.save).to.have.been.called;
     })
 
-    it('should have the right calls - builderClient is gulp', () => {
+    it('should have the right calls - webpack is gulp', () => {
       let _gen = {
         appName: 'a',
         username: 'b',
@@ -496,7 +496,7 @@ describe('generator', () => {
         repoHost: "github",
         repoHostUrl: "github.com",
         userNameSpace: "d",
-        builderClient: "gulp",
+        webpack: "gulp",
         boilerplate: false,
         async: () => {},
         prompt: () => {},
@@ -507,13 +507,13 @@ describe('generator', () => {
 
       let _g = new MainGenerator(_gen);
 
-      _g.promptBuilderClient();
+      _g.promptWebpack();
 
       expect(_g.generator.prompt).to.have.been.called;
       expect(_g.generator.config.save).to.have.been.called;
     })
 
-    it('should have the right calls - builderClient is gulp', () => {
+    it('should have the right calls - webpack is gulp', () => {
       let _gen = {
         appName: 'a',
         username: 'b',
@@ -524,7 +524,7 @@ describe('generator', () => {
         repoHost: "github",
         repoHostUrl: "github.com",
         userNameSpace: "d",
-        builderClient: "webpack",
+        webpack: "webpack",
         boilerplate: true,
         async: () => {},
         prompt: () => {},
@@ -535,7 +535,7 @@ describe('generator', () => {
 
       let _g = new MainGenerator(_gen);
 
-      _g.promptBuilderClient();
+      _g.promptWebpack();
 
       expect(_g.generator.prompt).to.have.been.called;
       expect(_g.generator.config.save).to.have.been.called;
