@@ -13,8 +13,8 @@ exports.GoFactory = class GoFactory {
 
   static build(generator) {
     switch(generator.goWebFrameworkServer) {
-      case GoFactory.tokensWebFramework().ECHO: return new GoEcho(generator);
       case GoFactory.tokensWebFramework().GIN: return new GoGin(generator);
+      default: return new GoEcho(generator);
     }
   }
 };
