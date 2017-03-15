@@ -16,7 +16,7 @@ gulp.task(tasks.CLIENT_WATCH, [tasks.CLIENT_BUILD_TS, <% if (!!stylePreprocessor
 
   let _watchable = [];
 
-  _watchable.push(base.DEV + "**/.ts");
+  _watchable.push(base.DEV + "**/*.ts");
   _watchable.push(base.DEV + "**/*.css");
   _watchable.push(base.DEV + "**/*.html");
   <% if (stylePreprocessor === "less") { %>
