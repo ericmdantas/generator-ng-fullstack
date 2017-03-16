@@ -16,7 +16,7 @@ gulp.task(tasks.CLIENT_WATCH, [tasks.CLIENT_BUILD_TS, <% if (!!stylePreprocessor
 
   let _watchable = [];
 
-  _watchable.push(base.DEV + "**/.ts");
+  _watchable.push(base.DEV + "**/*.ts");
   _watchable.push(base.DEV + "**/*.css");
   _watchable.push(base.DEV + "**/*.html");
   <% if (stylePreprocessor === "less") { %>
@@ -27,7 +27,7 @@ gulp.task(tasks.CLIENT_WATCH, [tasks.CLIENT_BUILD_TS, <% if (!!stylePreprocessor
   <% } %>
 
   return gulp.watch(_watchable, [
-    tasks.CLIENT_BUILD_TS, 
+    tasks.CLIENT_BUILD_TS,
     <% if (!!stylePreprocessor) { %>
     tasks.CLIENT_COMPILE_TO_CSS,
     <% } %>
