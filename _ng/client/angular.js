@@ -67,6 +67,32 @@ class Angular1 {
     copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
 
+  copyComponent(pathTemplate) {
+    let _pathTemplate = pathTemplate || '';
+
+    this.generator.template(_pathTemplate + 'ng1/component.js',
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.js`, {
+        nameCapitalized: utils.capitalizeFirst(this.generator.name),
+        name: this.generator.name,
+        feature: this.generator.options.feature
+    });
+
+    this.generator.template(_pathTemplate + 'ng1/component.html',
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/templates/${this.generator.name}.html`, {
+        name: this.generator.name
+    });
+
+    this.generator.template(_pathTemplate + 'ng1/component.css',
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
+    );
+
+    this.generator.template(_pathTemplate + 'ng1/component_test.js',
+      `${this.testsPath + this.generator.options.feature}/components/${this.generator.name}_test.js`, {
+        name: utils.capitalizeFirst(this.generator.name),
+        nameLowerCase: this.generator.name.toLowerCase()
+    });
+  }
+
   copyController(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
