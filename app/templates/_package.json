@@ -84,7 +84,6 @@
   },
   "devDependencies": {
     "aliv": "^1.6.0",
-    "karma-ng-html2js-preprocessor": "^0.1.2",
     "del": "^2.2.1",
   	"gulp": "^3.9.0",
     "protractor": "^3.1.0",
