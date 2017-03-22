@@ -74,7 +74,8 @@ class Angular1 {
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.js`, {
         nameCapitalized: utils.capitalizeFirst(this.generator.name),
         name: this.generator.name,
-        feature: this.generator.options.feature
+        feature: this.generator.options.feature,
+        appName: this.generator.options.appName
     });
 
     this.generator.template(_pathTemplate + 'ng1/component.html',

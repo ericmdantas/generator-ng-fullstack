@@ -15,6 +15,7 @@ describe('subgenerator -> component', () => {
             createYoRc({
               'generator-ng-fullstack': {
                 'client': 'ng1',
+                'appName': 'whatever',
                 'testsSeparated': true
               }
             }, this.async());
@@ -42,6 +43,7 @@ describe('subgenerator -> component', () => {
             createYoRc({
               'generator-ng-fullstack': {
                 'client': 'ng1',
+                'appName': 'whatever',
                 'testsSeparated': false
               }
             }, this.async());

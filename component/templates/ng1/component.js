@@ -1,15 +1,9 @@
 ; (function (ng) {
   'use strict';
 
-  const TEMPLATE = `
-     <div>
-       <h1>Hello, {{$ctrl.user.name}}</h1>
-     </div>!</p>
-  `;
-
   ng.module('<%= appName %>', [])
     .component('<%= name %>', {
-      template: TEMPLATE,
+      templateUrl: '<%= feature %>/templates/<%= name %>.html',
       controller: [function () {
         this.user = {
           name: 'world'
