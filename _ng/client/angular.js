@@ -75,7 +75,7 @@ class Angular1 {
         nameCapitalized: utils.capitalizeFirst(this.generator.name),
         name: this.generator.name,
         feature: this.generator.options.feature,
-        appName: this.generator.options.appName
+        appName: this.generator.appName
     });
 
     this.generator.template(_pathTemplate + 'ng1/component.html',
