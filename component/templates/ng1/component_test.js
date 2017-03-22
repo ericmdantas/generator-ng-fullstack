@@ -9,7 +9,7 @@ describe('<%= name %>', () => {
 
   it('should expose a `user` object', function() {
     var bindings = {user: {name: 'Boss'}};
-    var ctrl = $componentController('meuComponent', null, bindings);
+    var ctrl = $componentController('<%= name %>', null, bindings);
 
     expect(ctrl.user).toBeDefined();
     expect(ctrl.user.name).toBe('Boss');
