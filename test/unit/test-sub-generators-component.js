@@ -62,25 +62,6 @@ describe('ComponentSubGenerator', () => {
         expect(() => _csg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
       });
 
-      it('should throw error, module doesnt implement', () => {
-        let _gen = {
-          name: 'a',
-          options: {
-            feature: 'c'
-          },
-          template: sinon.spy(),
-          config: {
-            get(){
-              return 'ng1'
-            }
-          }
-        };
-
-        let _csg = new ComponentSubGenerator(_gen);
-
-        expect(() => _csg.writing()).to.throw(Error, /ng1 doesn't implement component/);
-      });
-
       it('should call writing with the right stuff', () => {
         let _gen = {
           name: 'a',
@@ -241,25 +222,6 @@ describe('ComponentSubGenerator', () => {
         let _csg = new ComponentSubGenerator(_gen);
 
         expect(() => _csg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
-      });
-
-      it('should throw error, module doesnt implement', () => {
-        let _gen = {
-          name: 'a',
-          options: {
-            feature: 'c'
-          },
-          template: sinon.spy(),
-          config: {
-            get(){
-              return 'ng1'
-            }
-          }
-        };
-
-        let _csg = new ComponentSubGenerator(_gen);
-
-        expect(() => _csg.writing()).to.throw(Error, /ng1 doesn't implement component/);
       });
 
       it('should call writing with the right stuff', () => {
