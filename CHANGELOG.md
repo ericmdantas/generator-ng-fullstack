@@ -12,6 +12,7 @@
 - Added Aurelia as a client framework
 - Added Vue as a client framework
 - Added compilation/uglify step with Babili
+- Added possibility to create components for Angular 1.x (@bernardbr)
 
 
 #### Server
