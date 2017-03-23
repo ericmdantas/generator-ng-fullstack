@@ -32,11 +32,12 @@ module.exports = class NgFullstack extends Base {
 
     promptClient() {
       this.generator.promptClient();
-    }    
-
-    promptWebpack() {
-      this.generator.promptWebpack();
     }
+
+    // work in progress
+    // promptWebpack() {
+    //   this.generator.promptWebpack();
+    // }
 
     promptStylePreprocessor() {
       this.generator.promptStylePreprocessor();

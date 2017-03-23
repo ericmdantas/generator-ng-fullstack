@@ -203,7 +203,8 @@ describe('angular', () => {
             'ng1/component_test.js',
             knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '_test.js', {
               name: utils.capitalizeFirst(_gen.name),
-              nameLowerCase: _gen.name.toLowerCase()
+              nameLowerCase: _gen.name.toLowerCase(),
+              appName: _gen.appName
             }
           ];
 
@@ -252,7 +253,8 @@ describe('angular', () => {
             'ng1/component_test.js',
             knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '_test.js', {
               name: utils.capitalizeFirst(_gen.name),
-              nameLowerCase: _gen.name.toLowerCase()
+              nameLowerCase: _gen.name.toLowerCase(),
+              appName: _gen.appName
             }
           ];
 

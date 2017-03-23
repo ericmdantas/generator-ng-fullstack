@@ -485,7 +485,7 @@ describe('generator', () => {
       expect(_g.generator.config.save).to.have.been.called;
     })
 
-    it('should have the right calls - webpack is gulp', () => {
+    it('should have the right calls - webpack is false', () => {
       let _gen = {
         appName: 'a',
         username: 'b',
@@ -496,7 +496,7 @@ describe('generator', () => {
         repoHost: "github",
         repoHostUrl: "github.com",
         userNameSpace: "d",
-        webpack: "gulp",
+        webpack: false,
         boilerplate: false,
         async: () => {},
         prompt: () => {},
@@ -513,7 +513,7 @@ describe('generator', () => {
       expect(_g.generator.config.save).to.have.been.called;
     })
 
-    it('should have the right calls - webpack is gulp', () => {
+    it('should have the right calls - webpack is true', () => {
       let _gen = {
         appName: 'a',
         username: 'b',
@@ -524,7 +524,7 @@ describe('generator', () => {
         repoHost: "github",
         repoHostUrl: "github.com",
         userNameSpace: "d",
-        webpack: "webpack",
+        webpack: true,
         boilerplate: true,
         async: () => {},
         prompt: () => {},
