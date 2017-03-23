@@ -5,7 +5,6 @@ const {AngularFactory} = require('./angular');
 const {VueFactory} = require('./vue');
 const {AureliaFactory} = require('./aurelia');
 const {FeatureMissingError} = require('../utils/errors');
-const {ModuleDoesntImplementError} = require('../utils/errors');
 
 exports.ComponentSubGenerator = class ComponentSubGenerator {
   constructor(generator) {
@@ -31,6 +30,10 @@ exports.ComponentSubGenerator = class ComponentSubGenerator {
       throw new FeatureMissingError();
     }
 
+    if (_client === AngularFactory.tokens().NG1) {
+      return AngularFactory.build(_client, this.generator).copyComponent();
+    }
+
     if (_client === AngularFactory.tokens().NG2) {
       return AngularFactory.build(_client, this.generator).copyComponent();
     }
@@ -42,7 +45,5 @@ exports.ComponentSubGenerator = class ComponentSubGenerator {
     if (_client === AureliaFactory.tokens().AURELIA1) {
       return AureliaFactory.build(_client, this.generator).copyComponent();
     }
-
-    throw new ModuleDoesntImplementError(_client, 'component');
   }
 };

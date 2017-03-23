@@ -165,6 +165,106 @@ describe('angular', () => {
         });
       });
 
+      describe('copyComponent', () => {
+        it('should call the methods with the right params - testsSeparated is false', () => {
+          let _gen = {
+            name: 'a',
+            testsSeparated: false,
+            options: {feature: 'c'},
+            appName: 'www',
+            template: sinon.spy()
+          };
+
+          let _ng1 = new Angular1(_gen);
+
+          let _firstCall = [
+            'ng1/component.js',
+            knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.js', {
+              nameCapitalized: utils.capitalizeFirst(_gen.name),
+              name: _gen.name,
+              feature: _gen.options.feature,
+              appName: _gen.appName
+            }
+          ];
+
+          let _secondCall = [
+            'ng1/component.html',
+            knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {
+              name: _gen.name
+            }
+          ];
+
+          let _thirdCall = [
+            'ng1/component.css',
+            knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
+          ];
+
+          let _fourthCall = [
+            'ng1/component_test.js',
+            knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '_test.js', {
+              name: utils.capitalizeFirst(_gen.name),
+              nameLowerCase: _gen.name.toLowerCase()
+            }
+          ];
+
+          _ng1.copyComponent();
+
+          expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+          expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+          expect(_ng1.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+          expect(_ng1.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+        });
+
+        it('should call the methods with the right params - testsSeparated is true', () => {
+          let _gen = {
+            name: 'a',
+            testsSeparated: true,
+            options: {feature: 'c'},
+            appName: 'www',
+            template: sinon.spy()
+          };
+
+          let _ng1 = new Angular1(_gen);
+
+          let _firstCall = [
+            'ng1/component.js',
+            knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.js', {
+              nameCapitalized: utils.capitalizeFirst(_gen.name),
+              name: _gen.name,
+              feature: _gen.options.feature,
+              appName: _gen.appName
+            }
+          ];
+
+          let _secondCall = [
+            'ng1/component.html',
+            knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/templates/' + _gen.name + '.html', {
+              name: _gen.name
+            }
+          ];
+
+          let _thirdCall = [
+            'ng1/component.css',
+            knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
+          ];
+
+          let _fourthCall = [
+            'ng1/component_test.js',
+            knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '_test.js', {
+              name: utils.capitalizeFirst(_gen.name),
+              nameLowerCase: _gen.name.toLowerCase()
+            }
+          ];
+
+          _ng1.copyComponent();
+
+          expect(_ng1.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+          expect(_ng1.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+          expect(_ng1.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+          expect(_ng1.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+        });
+      });
+
       describe('copyDirective', () => {
         it('should call the methods with the right params - testsSeparated is false', () => {
           let _gen = {

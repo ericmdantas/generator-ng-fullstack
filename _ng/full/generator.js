@@ -38,6 +38,7 @@ exports.MainGenerator = class MainGenerator {
       let _secure = this.generator.secure;
       let _usesTypescript = (_transpilerServer === "typescript") || (_client === "ng2");
       let _stylePreprocessor = this.generator.stylePreprocessor;
+      let _webpack = this.generator.webpack;
 
       this.generator.template('_README.md', 'README.md', {
         app: _app.app,
@@ -58,7 +59,8 @@ exports.MainGenerator = class MainGenerator {
         nodeWebFrameworkServer: this.generator.nodeWebFrameworkServer,
         testsSeparated: _testsSeparated,
         stylePreprocessor: _stylePreprocessor,
-        server: _server
+        server: _server,
+        webpack: _webpack
       });
 
       this.generator.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
@@ -483,6 +485,27 @@ exports.MainGenerator = class MainGenerator {
     this.generator.prompt(_prompts, (props) => {
       this.generator.boilerplate = props.boilerplate;
       this.generator.config.set('boilerplate', this.generator.boilerplate);
+
+      done();
+    });
+  }
+
+  promptWebpack() {
+    const done = this.generator.async();
+
+    let _prompts = [{
+      type: 'list',
+      name: 'webpack',
+      message: 'Do you want to use webpack',
+      when: () => {
+        return this.generator.stack !== "server";
+      },
+      default: false
+    }];
+
+    this.generator.prompt(_prompts, (props) => {
+      this.generator.webpack = props.webpack;
+      this.generator.config.set('webpack', this.generator.webpack);
 
       done();
     });
