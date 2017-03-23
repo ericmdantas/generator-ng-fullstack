@@ -494,7 +494,7 @@ exports.MainGenerator = class MainGenerator {
     const done = this.generator.async();
 
     let _prompts = [{
-      type: 'list',
+      type: 'confirm',
       name: 'webpack',
       message: 'Do you want to use webpack',
       when: () => {
