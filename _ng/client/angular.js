@@ -45,7 +45,8 @@ class Angular1 {
     this.generator.template(_pathTemplate + 'ng1/component_test.js',
       `${this.testsPath + this.generator.options.feature}/components/${this.generator.name}_test.js`, {
         name: utils.capitalizeFirst(this.generator.name),
-        nameLowerCase: this.generator.name.toLowerCase()
+        nameLowerCase: this.generator.name.toLowerCase(),
+        appName: this.generator.appName
     });
   }
 
