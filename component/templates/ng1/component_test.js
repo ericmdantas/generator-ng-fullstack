@@ -1,9 +1,17 @@
 'use strict';
 
 describe('<%= name %>', () => {
-  beforeEach(() => {
-  });
+  let $componentController;
+  beforeEach(module('<%= appName %>'));
+  beforeEach(inject(function(_$componentController_) {
+    $componentController = _$componentController_;
+  }));
 
-  describe('creation', () => {
+  it('should expose a `user` object', function() {
+    var bindings = {user: {name: 'Boss'}};
+    var ctrl = $componentController('<%= name %>', null, bindings);
+
+    expect(ctrl.user).toBeDefined();
+    expect(ctrl.user.name).toBe('Boss');
   });
 });
