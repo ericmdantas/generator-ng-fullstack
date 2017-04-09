@@ -7,7 +7,7 @@ gulp.task("server.compile_tsc", () => {
   let tsconfigSrc = tsc.createProject(TS_CONFIG);
 
   return tsconfigSrc.src()
-                    .pipe(tsc(tsconfigSrc))
+                    .pipe(tsconfigSrc())
                     .js
                     .pipe(gulp.dest("."));
 });
