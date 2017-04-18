@@ -71,7 +71,7 @@ Added http2/https support for server and fixed some bugs.
 - Golang supports Http/2;
 - Node is stuck with Https, because of an incompatibility between express and the Http/2 module.
 
-##[1.6](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.6.0)
+## [1.6](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.6.0)
 
 Huge refactoring making things easier to reuse and maintain. It was also the release responsible for the following improvements:
 
