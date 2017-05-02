@@ -69,20 +69,20 @@
     <% } %>
 
     <% if (client === "ng2") { %>
-      "@angular/common": "^2.4.4",
-      "@angular/compiler": "^2.4.4",
-      "@angular/core": "^2.4.4",
-      "@angular/forms": "^2.4.4",
-      "@angular/http": "^2.4.4",
-      "@angular/platform-browser": "^2.4.4",
-      "@angular/platform-browser-dynamic": "^2.4.4",
-      "@angular/router": "^3.4.4",
+      "@angular/common": "^4.0.1",
+      "@angular/compiler": "^4.0.1",
+      "@angular/core": "^4.0.1",
+      "@angular/forms": "^4.0.1",
+      "@angular/http": "^4.0.1",
+      "@angular/platform-browser": "^4.0.1",
+      "@angular/platform-browser-dynamic": "^4.0.1",
+      "@angular/router": "^4.0.1",
 	     "zone.js": "^0.7.6",
        "reflect-metadata": "^0.1.3",
        "rxjs": "^5.0.0-beta.12",
        "systemjs": "^0.19.24",
        "typescript": "^2.1.5",
-       "zone.js": "^0.6.23",
+       "zone.js": "^0.8.5",
      <% } %>
 
      <% if (client === "vue2") { %>

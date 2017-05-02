@@ -10,8 +10,8 @@ const expect = require('chai').expect;
 
 
 describe('<%= name %>DAO', () => {
-  before(() => {
-    setupMongoose(mongoose);
+  before((done) => {
+    setupMongoose(mongoose, done);
   });
 
   afterEach(() => {

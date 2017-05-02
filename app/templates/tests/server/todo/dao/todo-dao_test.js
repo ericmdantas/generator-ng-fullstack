@@ -4,8 +4,8 @@ import {expect} from "chai";
 import {setupMongoose, createTodos} from "../../_helpers/db";
 
 describe("todo.dao", () => {
-    before(() => {
-        setupMongoose(mongoose);
+    before((done) => {
+        setupMongoose(mongoose, done);
     });
 
     afterEach((done) => {
