@@ -9,8 +9,8 @@ import { setupMongoose, createTodos } from "../../../config/db.conf.test";
 <% } %>
 
 describe("todo.dao", () => {
-  before(() => {
-    setupMongoose(mongoose);
+  before((done) => {
+    setupMongoose(mongoose, done);
   });
 
   afterEach((done) => {
