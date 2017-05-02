@@ -1,10 +1,12 @@
 import Todo from "../api/todo/dao/todo-dao";
 import dbJson from "./db.test.json";
+import Promise from 'bluebird';
 
-exports.setupMongoose = (mongoose) => {
+exports.setupMongoose = (mongoose, done) => {
+  mongoose.Promise = Promise;
   mongoose.models = {};
-  mongoose.connect(dbJson.db.test.url);
   mongoose.connection.on("error", () => {});
+  mongoose.connect(dbJson.db.test.url, done);
 }
 
 exports.createTodos = () => {
