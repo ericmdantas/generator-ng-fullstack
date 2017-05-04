@@ -110,7 +110,7 @@
      "newrelic": "^1.18.2"
   },
   "devDependencies": {
-    "aliv": "^1.7.1",
+    "aliv": "^1.7.2",
     "del": "^2.2.1",
   	"gulp": "^3.9.0",
     "protractor": "^3.1.0",
