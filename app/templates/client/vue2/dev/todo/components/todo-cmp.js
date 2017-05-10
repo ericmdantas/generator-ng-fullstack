@@ -37,7 +37,7 @@
         </div>
       </div>
     `,
-    ready() {
+    mounted() {
       this.getAll();
     },
     methods: {
