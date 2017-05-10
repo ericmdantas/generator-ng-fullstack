@@ -1,0 +1,5 @@
+class <%= name %>Model {
+  constructor() {
+
+  }
+}
