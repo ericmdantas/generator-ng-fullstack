@@ -26,7 +26,7 @@ gulp.task(tasks.CLIENT_WATCH, [<% if (!!stylePreprocessor) { %> tasks.CLIENT_COM
   _watchable.push(base.DEV + "**/*.{sass,scss}");
   <% } %>
 
-  _watchable.push(`!${base.DEV}bower_components/**/*`);
+  _watchable.push("!" + base.DEV + "bower_components/**/*");
 
   return gulp.watch(_watchable, [
     <% if (!!stylePreprocessor) { %>
