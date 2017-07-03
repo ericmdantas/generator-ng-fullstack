@@ -9,7 +9,7 @@
       "watch": "gulp",
       "test": "gulp client.unit_test",
       "build-dist": "gulp client.build:dist"
-      <%} else {%>
+    <%} else {%>
         "start": "node server/index",
         "watch": "gulp",
         <% if (usesTypescript) { %>
@@ -17,9 +17,12 @@
         <% } else { %>
             "dev": "concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
         <% } %>
-
         "build-dev": "gulp client.build:dev",
-        "build-dist": "gulp client.build:dist",
+        <% if (serverOnly && usesTypescript) { %>
+          "build-dist": "gulp server.compile_tsc",
+        <% } else { %>
+          "build-dist": "gulp client.build:dist",
+        <% } %>
         "test-client": "gulp client.unit_test",
         <% if (testsSeparated) { %>
           "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
@@ -33,6 +36,10 @@
     <% } %>
   },
   "dependencies": {
+    <% if (usesTypescript) { %>
+      "typescript": "^2.4.1",
+    <% } %>
+
     <% if (!clientOnly) { %>"lodash": "^4.6.1",
       "bluebird": "^3.3.4",
       <% if (nodeWebFrameworkServer === "express") { %>
@@ -54,12 +61,11 @@
         "@angular/platform-browser": "^4.1.0",
         "@angular/platform-browser-dynamic": "^4.1.0",
         "@angular/router": "^4.1.0",
-  	     "zone.js": "^0.7.6",
-         "reflect-metadata": "^0.1.3",
-         "rxjs": "^5.0.0-beta.12",
-         "systemjs": "^0.19.24",
-         "typescript": "^2.1.5",
-         "zone.js": "^0.6.23",
+  	    "zone.js": "^0.7.6",
+        "reflect-metadata": "^0.1.3",
+        "rxjs": "^5.0.0-beta.12",
+        "systemjs": "^0.19.24",
+        "zone.js": "^0.6.23",
        <% } %>
        <% if (client === "vue2") { %>
          "vue": "^2.1.10",
