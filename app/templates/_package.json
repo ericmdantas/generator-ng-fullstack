@@ -14,7 +14,6 @@
       "watch": "gulp",
 
       <% if (server === "node") { %>
-
         "start": "node server/index",
 
         <% if (usesTypescript) { %>
@@ -35,8 +34,13 @@
       <% } %>
 
       "build-dev": "gulp client.build:dev",
-      "build-dist": "gulp client.build:dist",
       "test-client": "gulp client.unit_test",
+
+      <% if (serverOnly && usesTypescript) { %>
+        "build-dist": "gulp server.compile_tsc",
+      <% } else { %>
+        "build-dist": "gulp client.build:dist",
+      <% } %>
 
       <% if (testsSeparated) { %>
         "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
@@ -51,6 +55,10 @@
   <% } %>
   },
   "dependencies": {
+    <% if (usesTypescript) {%>
+      "typescript": "^2.4.1",
+    <% } %>
+
     <% if (!clientOnly) { %>
       "lodash": "^4.6.1",
       "bluebird": "^3.3.4",
@@ -81,7 +89,6 @@
        "reflect-metadata": "^0.1.3",
        "rxjs": "^5.0.0-beta.12",
        "systemjs": "^0.19.24",
-       "typescript": "^2.1.5",
        "zone.js": "^0.8.5",
      <% } %>
 

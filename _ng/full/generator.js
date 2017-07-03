@@ -56,6 +56,7 @@ exports.MainGenerator = class MainGenerator {
         client: _client,
         secure: _secure,
         clientOnly: _clientOnly,
+        serverOnly: _serverOnly,
         nodeWebFrameworkServer: this.generator.nodeWebFrameworkServer,
         testsSeparated: _testsSeparated,
         stylePreprocessor: _stylePreprocessor,
