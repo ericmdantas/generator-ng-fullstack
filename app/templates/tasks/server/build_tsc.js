@@ -9,5 +9,5 @@ gulp.task("server.compile_tsc", () => {
   return tsconfigSrc.src()
                     .pipe(tsconfigSrc())
                     .js
-                    .pipe(gulp.dest("."));
+                    .pipe(gulp.dest("./server"));
 });
