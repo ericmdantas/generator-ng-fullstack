@@ -39,7 +39,7 @@ class Angular1 {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'ng1/component' + getStyleExtension(this.generator),
+    this.generator.template(_pathTemplate + 'ng1/component.css',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}${getStyleExtension(this.generator)}`
     );
 
@@ -295,7 +295,7 @@ class Angular2 {
         name: this.generator.name
     });
 
-    this.generator.template(_pathTemplate + 'ng2/component' + getStyleExtension(this.generator),
+    this.generator.template(_pathTemplate + 'ng2/component.css',
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}${getStyleExtension(this.generator)}`
     );
 

@@ -11,6 +11,7 @@ exports.ComponentSubGenerator = class ComponentSubGenerator {
     this.generator = generator;
     this.generator.client = this.generator.config.get('client');
     this.generator.appName = this.generator.config.get('appName');
+    this.generator.stylePreprocessor = this.generator.config.get('stylePreprocessor');
     this.generator.testsSeparated = this.generator.config.get('testsSeparated');
   }
 
