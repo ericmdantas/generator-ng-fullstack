@@ -6,6 +6,7 @@ const yoUtils = require('../utils/yeoman-utils');
 const {
   copyStyleForSubGenerator,
   copyStyleForMainGenerator,
+  getStyleExtension,
   normalizeStylePreprocessor
 } = require('./style');
 
@@ -54,7 +55,7 @@ class Aurelia1 {
       secure: !!this.generator.secure,
       stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
     });
-     
+
     copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
 
@@ -75,7 +76,7 @@ class Aurelia1 {
     );
 
     this.generator.template(_pathTemplate + 'aurelia1/component.css',
-      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}${getStyleExtension(this.generator)}`
     );
 
     this.generator.template(_pathTemplate + 'aurelia1/component_test.js',

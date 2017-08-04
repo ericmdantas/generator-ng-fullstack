@@ -2,12 +2,39 @@ import {expect} from 'chai';
 import * as sinon from 'sinon';
 import knownPaths from '../../_ng/utils/known_paths';
 import {
-  copyStyleForSubGenerator, 
+  copyStyleForSubGenerator,
   copyStyleForMainGenerator,
+  getStyleExtension,
   normalizeStylePreprocessor
 } from '../../_ng/client/style';
 
 describe('style', () => {
+  describe('getStyleExtension', () => {
+   it('should return less', () => {
+     var _gen = {
+       stylePreprocessor: "less"
+     };
+
+     expect(getStyleExtension(_gen)).to.equal(".less");
+   })
+
+   it('should return sass', () => {
+     var _gen = {
+       stylePreprocessor: "sass"
+     }
+
+     expect(getStyleExtension(_gen)).to.equal(".scss");
+   })
+
+   it('should return .css - none', () => {
+     var _gen = {
+       stylePreprocessor: "none"
+     }
+
+     expect(getStyleExtension(_gen)).to.equal(".css");
+   })
+ })
+
   describe('normalizeStylePreprocessor', () => {
     it('should return less', () => {
       var _stylePreprocessor = "less";

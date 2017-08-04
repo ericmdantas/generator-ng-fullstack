@@ -11,6 +11,7 @@ exports.ComponentSubGenerator = class ComponentSubGenerator {
     this.wrapper = generator;
     this.wrapper.client = this.wrapper.config.get('client');
     this.wrapper.appName = this.wrapper.config.get('appName');
+    this.wrapper.stylePreprocessor = this.wrapper.config.get('stylePreprocessor');
     this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
   }
 

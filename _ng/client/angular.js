@@ -6,6 +6,7 @@ const yoUtils = require('../utils/yeoman-utils');
 const {
   copyStyleForSubGenerator,
   copyStyleForMainGenerator,
+  getStyleExtension,
   normalizeStylePreprocessor
 } = require('./style');
 
@@ -84,7 +85,7 @@ class Angular1 {
     });
 
     this.generator.template(_pathTemplate + 'ng1/component.css',
-      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}${getStyleExtension(this.generator)}`
     );
 
     this.generator.template(_pathTemplate + 'ng1/component_test.js',
@@ -299,7 +300,7 @@ class Angular2 {
     });
 
     this.generator.template(_pathTemplate + 'ng2/component.css',
-      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}${getStyleExtension(this.generator)}`
     );
 
     this.generator.template(_pathTemplate + 'ng2/component_test.ts',

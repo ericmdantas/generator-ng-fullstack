@@ -6,6 +6,7 @@ const yoUtils = require('../utils/yeoman-utils');
 const {
   copyStyleForSubGenerator,
   copyStyleForMainGenerator,
+  getStyleExtension,
   normalizeStylePreprocessor
 } = require('./style');
 
@@ -47,7 +48,7 @@ class Vue2 {
       secure: !!this.generator.secure,
       stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
     });
-    
+
     copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
   }
 
@@ -62,7 +63,7 @@ class Vue2 {
     });
 
     this.generator.template(_pathTemplate + 'vue2/component.css',
-      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}.css`
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}${getStyleExtension(this.generator)}`
     );
 
     this.generator.template(_pathTemplate + 'vue2/component_test.js',
