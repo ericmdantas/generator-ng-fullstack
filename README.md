@@ -61,7 +61,7 @@ As for tests, run simply run `npm t` - it'll run both unit and acceptance tests.
 
 Here are some links to help you understand some of the parts of the stack:
 
-- [Angular 2](https://angular.io/docs/ts/latest/tutorial/)
+- [Angular 2](https://angular.io/docs/ts/latest/tutorial/) (testing does not work at the moment)
 - [Aurelia](https://github.com/aurelia/framework)
 - [Vue](https://github.com/vuejs/vue)
 - [TypeScript](http://www.typescriptlang.org/Tutorial)
