@@ -19,6 +19,7 @@ function _getExt(gen) {
   return _ext;
 }
 
+
 exports.copyStyleForMainGenerator = function(gen, dest) {
   let _ext = _getExt(gen);
 
@@ -37,3 +38,5 @@ exports.copyStyleForSubGenerator = function(gen, path) {
 exports.normalizeStylePreprocessor = function(stylePreprocessor) {
   return (!!stylePreprocessor && stylePreprocessor !== "none") ? stylePreprocessor : undefined;
 };
+
+exports.getStyleExtension = _getExt;
