@@ -1,4 +1,4 @@
-## [1.10](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.10.0)
+## [v2.0](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v2.0)
 
 ### New Stuff
 
