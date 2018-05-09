@@ -113,8 +113,7 @@
      "babel-regenerator-runtime": "^6.5.0",
      "babel-preset-es2015": "^6.1.18",
      "babel-preset-es2016": "^6.0.11",
-     "babel-preset-stage-0": "^6.1.18",
-     "newrelic": "^1.18.2"
+     "babel-preset-stage-0": "^6.1.18"
   },
   "devDependencies": {
     "aliv": "^1.7.2",

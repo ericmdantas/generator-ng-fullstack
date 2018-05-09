@@ -174,49 +174,5 @@ describe('StyleSubGenerator', () => {
         expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
       });
     })
-
-    describe('aurelia1', () => {
-      it('should throw FeatureMissingError', () => {
-        let _gen = {
-          name: 'a',
-          options: {},
-          config: {
-            get() {
-              return 'aurelia1';
-            }
-          },
-          template: sinon.spy()
-        };
-
-        let _ssg = new StyleSubGenerator(_gen);
-
-        expect(() => _ssg.writing()).to.throw(Error, /Do it like this: --feature something-here/);
-      });
-
-      it('should have the writing called with the right stuff', () => {
-        let _gen = {
-          name: 'a',
-          options: {feature: 'c'},
-          config: {
-            get() {
-              return 'aurelia1';
-            }
-          },
-          template: sinon.spy()
-        };
-
-        let _ssg = new StyleSubGenerator(_gen);
-
-        _ssg.writing();
-
-        let _firstCall = [
-          'style.css',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
-        ];
-
-        expect(_ssg.generator.writing).to.have.been.called;
-        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-      });
-    })
   });
 });

@@ -35,7 +35,7 @@ describe('ng-fullstack -> golang', () => {
       'gulpfile.babel.js',
       'karma.conf.js',
       'protractor.conf.js',
-      'newrelic.js',
+      
       'procfile.txt',
 
       'tsconfig.json',
@@ -80,7 +80,7 @@ describe('ng-fullstack -> golang', () => {
       'gulpfile.babel.js',
       'karma.conf.js',
       'protractor.conf.js',
-      'newrelic.js',
+      
       'procfile.txt',
 
       'tsconfig.json',
@@ -801,7 +801,7 @@ describe('ng-fullstack -> golang', () => {
       'gulpfile.babel.js',
       'karma.conf.js',
       'protractor.conf.js',
-      'newrelic.js',
+      
       'procfile.txt',
 
       'tsconfig.json',
@@ -844,7 +844,7 @@ describe('ng-fullstack -> golang', () => {
       'gulpfile.babel.js',
       'karma.conf.js',
       'protractor.conf.js',
-      'newrelic.js',
+      
       'procfile.txt',
 
       'tsconfig.json',

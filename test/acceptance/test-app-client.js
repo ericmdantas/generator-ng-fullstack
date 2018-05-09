@@ -36,7 +36,7 @@ describe('ng-fullstack -> client_only', () => {
       'gulpfile.babel.js',
       'karma.conf.js',
       'protractor.conf.js',
-      'newrelic.js',
+      
       'procfile.txt',
       '.babelrc',
 
@@ -122,7 +122,7 @@ describe('ng-fullstack -> client_only', () => {
         'gulpfile.babel.js',
         'karma.conf.js',
         'protractor.conf.js',
-        'newrelic.js',
+        
         'procfile.txt',
         '.babelrc',
 
@@ -209,7 +209,7 @@ describe('ng-fullstack -> client_only', () => {
           'gulpfile.babel.js',
           'karma.conf.js',
           'protractor.conf.js',
-          'newrelic.js',
+          
           'procfile.txt',
           '.babelrc',
 
@@ -280,7 +280,7 @@ describe('ng-fullstack -> client_only', () => {
         'gulpfile.babel.js',
         'karma.conf.js',
         'protractor.conf.js',
-        'newrelic.js',
+        
         'procfile.txt',
 
         'tsconfig.json',
@@ -366,7 +366,7 @@ describe('ng-fullstack -> client_only', () => {
         'gulpfile.babel.js',
         'karma.conf.js',
         'protractor.conf.js',
-        'newrelic.js',
+        
         'procfile.txt',
 
         'tsconfig.json',
@@ -452,7 +452,7 @@ describe('ng-fullstack -> client_only', () => {
         'gulpfile.babel.js',
         'karma.conf.js',
         'protractor.conf.js',
-        'newrelic.js',
+        
         'procfile.txt',
 
         'tsconfig.json',
@@ -529,7 +529,7 @@ describe('ng-fullstack -> client_only', () => {
         'gulpfile.babel.js',
         'karma.conf.js',
         'protractor.conf.js',
-        'newrelic.js',
+        
         'procfile.txt',
 
         // client stuff
@@ -606,7 +606,7 @@ describe('ng-fullstack -> client_only', () => {
         'gulpfile.babel.js',
         'karma.conf.js',
         'protractor.conf.js',
-        'newrelic.js',
+        
         'procfile.txt',
 
         // client stuff
@@ -683,7 +683,7 @@ describe('ng-fullstack -> client_only', () => {
         'gulpfile.babel.js',
         'karma.conf.js',
         'protractor.conf.js',
-        'newrelic.js',
+        
         'procfile.txt',
 
         // client stuff

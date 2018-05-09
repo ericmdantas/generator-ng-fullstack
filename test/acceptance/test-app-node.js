@@ -38,7 +38,7 @@ describe('ng-fullstack -> node', () => {
       'gulpfile.babel.js',
       'karma.conf.js',
       'protractor.conf.js',
-      'newrelic.js',
+      
       'procfile.txt',
 
       // client stuff
@@ -85,7 +85,7 @@ describe('ng-fullstack -> node', () => {
       'gulpfile.babel.js',
       'karma.conf.js',
       'protractor.conf.js',
-      'newrelic.js',
+      
       'procfile.txt',
 
       // client stuff
@@ -115,7 +115,7 @@ describe('ng-fullstack -> node', () => {
       'gulpfile.babel.js',
       'karma.conf.js',
       'protractor.conf.js',
-      'newrelic.js',
+      
       'procfile.txt',
 
       // client stuff

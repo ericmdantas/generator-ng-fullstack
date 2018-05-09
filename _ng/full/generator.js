@@ -5,7 +5,6 @@ const yosay = require('yosay');
 const {NodeFactory} = require('../server/node_factory');
 const {GoFactory} = require('../server/go_factory');
 const {AngularFactory} = require('../client/angular');
-const {AureliaFactory} = require('../client/aurelia');
 const {VueFactory} = require('../client/vue');
 const {ClientFactory} = require('../client/client_factory');
 const {ServerFactory} = require('../server/server_factory');
@@ -65,7 +64,6 @@ exports.MainGenerator = class MainGenerator {
       });
 
       this.generator.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
-      this.generator.template('_newrelic.js', 'newrelic.js', _app);
       this.generator.template('_procfile.txt', 'procfile.txt', _app);
       this.generator.template('_.bowerrc', '.bowerrc');
       this.generator.template('_.travis.yml', '.travis.yml', {
@@ -109,10 +107,6 @@ exports.MainGenerator = class MainGenerator {
 
         if (/^vue/.test(_client)) {
           ClientFactory.create(ClientFactory.tokens().VUE, _client, this.generator).copyClient();
-        }
-
-        if (/^aurelia/.test(_client)) {
-          ClientFactory.create(ClientFactory.tokens().AURELIA, _client, this.generator).copyClient();
         }
       }
 
@@ -278,7 +272,6 @@ exports.MainGenerator = class MainGenerator {
         choices: [
           AngularFactory.tokens().NG1,
           AngularFactory.tokens().NG2,
-          AureliaFactory.tokens().AURELIA1,
           VueFactory.tokens().VUE2
         ],
         when: () => {
