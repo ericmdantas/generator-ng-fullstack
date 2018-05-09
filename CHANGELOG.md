@@ -6,6 +6,15 @@
 
 - Implemented option to generate clean project, no TODO boilerplate
 
+#### Client
+
+- Dropped Aurelia support
+- Dropped JSPM support
+
+#### Server
+
+- Dropped GIN support (Go)
+
 
 ## [1.9](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.9.0)
 

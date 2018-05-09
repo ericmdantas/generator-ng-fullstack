@@ -511,7 +511,7 @@ describe('ng-fullstack -> node', () => {
           'server/api/todo/route/todo-route_test.js'
         ];
 
-        _commonFilesTestsSeparated.forEach((common) => _nodeFiles.push(common));
+        _commonFilesWithoutTestsSeparated.forEach((common) => _nodeFiles.push(common));
         _taskFiles.forEach((t) => _nodeFiles.push(t));
 
         before((done) => {

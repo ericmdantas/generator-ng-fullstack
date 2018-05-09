@@ -51,34 +51,6 @@ class Angular1 {
     });
   }
 
-  copyComponent(pathTemplate) {
-    let _pathTemplate = pathTemplate || '';
-
-    this.generator.template(_pathTemplate + 'ng1/component.js',
-      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.js`, {
-        nameCapitalized: utils.capitalizeFirst(this.generator.name),
-        name: this.generator.name,
-        feature: this.generator.options.feature,
-        appName: this.generator.appName
-    });
-
-    this.generator.template(_pathTemplate + 'ng1/component.html',
-      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/templates/${this.generator.name}.html`, {
-        name: this.generator.name
-    });
-
-    this.generator.template(_pathTemplate + 'ng1/component.css',
-      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/styles/${this.generator.name}${getStyleExtension(this.generator)}`
-    );
-
-    this.generator.template(_pathTemplate + 'ng1/component_test.js',
-      `${this.testsPath + this.generator.options.feature}/components/${this.generator.name}_test.js`, {
-        name: this.generator.name,
-        nameLowerCase: this.generator.name.toLowerCase(),
-        appName: this.generator.appName
-    });
-  }
-
   copyController(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
