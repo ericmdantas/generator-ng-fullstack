@@ -26,7 +26,7 @@ describe('EndpointSubGenerator', () => {
       };
       let _esg = new EndpointSubGenerator(_gen);
 
-      expect(_esg.wrapper).to.equal(_gen);
+      expect(_esg.generator).to.equal(_gen);
     });
   });
 
@@ -55,7 +55,7 @@ describe('EndpointSubGenerator', () => {
 
       _esg.initializing();
 
-      expect(_esg.wrapper.argument).to.have.been.called;
+      expect(_esg.generator.argument).to.have.been.called;
     });
   });
 
@@ -109,7 +109,7 @@ describe('EndpointSubGenerator', () => {
 
       _esg.writing();
 
-      expect(_esg.wrapper.writing).to.have.been.called;
+      expect(_esg.generator.writing).to.have.been.called;
     });
 
     it('should have the writing called with the right stuff - testsSeparated', () => {
@@ -136,7 +136,7 @@ describe('EndpointSubGenerator', () => {
 
       _esg.writing();
 
-      expect(_esg.wrapper.writing).to.have.been.called;
+      expect(_esg.generator.writing).to.have.been.called;
     });
   });
 });

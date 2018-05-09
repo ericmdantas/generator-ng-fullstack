@@ -10,11 +10,11 @@ describe('go', () => {
 
       let _n = new GoEcho(_newGenerator);
 
-      expect(_n.wrapper).to.equal(_newGenerator);
+      expect(_n.generator).to.equal(_newGenerator);
     })
   })
 
-  describe('copyFiles', () => {
+  describe('copyEndpoint', () => {
     it('should call the right methods with the right params', () => {
       let _newGenerator = {
         feature: 'a',
@@ -22,13 +22,14 @@ describe('go', () => {
         appName: 'c',
         userNameSpace: 'd',
         repoHostUrl: 'github.com',
+        boilerplate: true,
         goWebFrameworkServer: 'echo',
         template: sinon.spy()
       }
 
       let _n = new GoEcho(_newGenerator);
 
-      _n.copyFiles();
+      _n.copyEndpoint();
 
       let _firstCall = [`go/echo/endpoint.route.go`,
         `${knownPaths.PATH_SERVER_FEATURES + _newGenerator.feature}/route/${_newGenerator.name}route.go`, {
@@ -110,24 +111,25 @@ describe('go', () => {
           feature: _newGenerator.feature.replace('/', '')
         }];
 
-      expect(_n.wrapper.template).to.have.been.called;
-      expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
+      expect(_n.generator.template).to.have.been.called;
+      expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
     });
   });
 
-  describe('copyForMainGenerator', () => {
+  describe('copyServer', () => {
     it('should call the right methods with the right params', () => {
       let _newGenerator = {
         feature: 'a',
         name: 'b',
         appName: 'c',
+        boilerplate: true,
         userNameSpace: 'd',
         goWebFrameworkServer: 'echo',
         repoHostUrl: 'github.com',
@@ -136,7 +138,7 @@ describe('go', () => {
 
       let _n = new GoEcho(_newGenerator);
 
-      _n.copyForMainGenerator();
+      _n.copyServer();
 
       let _firstCall = [`server/go/echo/main.go`,
         `server/main.go`, {
@@ -258,23 +260,23 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      expect(_n.wrapper.template).to.have.been.called;
+      expect(_n.generator.template).to.have.been.called;
 
-      expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_tenthCall[0], _tenthCall[1], _tenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_eleventhCall[0], _eleventhCall[1], _eleventhCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_twelfthCall[0], _twelfthCall[1], _twelfthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_thirteenthCall[0], _thirteenthCall[1], _thirteenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fourteenthCall[0], _fourteenthCall[1], _fourteenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fifteenfhCall[0], _fifteenfhCall[1], _fifteenfhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_tenthCall[0], _tenthCall[1], _tenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_eleventhCall[0], _eleventhCall[1], _eleventhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_twelfthCall[0], _twelfthCall[1], _twelfthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_thirteenthCall[0], _thirteenthCall[1], _thirteenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fourteenthCall[0], _fourteenthCall[1], _fourteenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fifteenfhCall[0], _fifteenfhCall[1], _fifteenfhCall[2])).to.be.true;
     });
 
     it('should call the right methods with the right params - secure', () => {
@@ -283,6 +285,7 @@ describe('go', () => {
         name: 'b',
         appName: 'c',
         userNameSpace: 'd',
+        boilerplate: true,
         repoHostUrl: 'github.com',
         goWebFrameworkServer: 'echo',
         template: sinon.spy(),
@@ -291,7 +294,7 @@ describe('go', () => {
 
       let _n = new GoEcho(_newGenerator);
 
-      _n.copyForMainGenerator();
+      _n.copyServer();
 
       let _firstCall = [`server/go/echo/main_http2.go`,
         `server/main.go`, {
@@ -413,23 +416,23 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      expect(_n.wrapper.template).to.have.been.called;
+      expect(_n.generator.template).to.have.been.called;
 
-      expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_tenthCall[0], _tenthCall[1], _tenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_eleventhCall[0], _eleventhCall[1], _eleventhCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_twelfthCall[0], _twelfthCall[1], _twelfthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_thirteenthCall[0], _thirteenthCall[1], _thirteenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fourteenthCall[0], _fourteenthCall[1], _fourteenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fifteenfhCall[0], _fifteenfhCall[1], _fifteenfhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_tenthCall[0], _tenthCall[1], _tenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_eleventhCall[0], _eleventhCall[1], _eleventhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_twelfthCall[0], _twelfthCall[1], _twelfthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_thirteenthCall[0], _thirteenthCall[1], _thirteenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fourteenthCall[0], _fourteenthCall[1], _fourteenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fifteenfhCall[0], _fifteenfhCall[1], _fifteenfhCall[2])).to.be.true;
     });
 
     it('should call the right methods with the right params - secure', () => {
@@ -438,6 +441,7 @@ describe('go', () => {
         name: 'b',
         appName: 'c',
         userNameSpace: 'd',
+        boilerplate: true,
         repoHostUrl: 'github.com',
         goWebFrameworkServer: 'echo',
         template: sinon.spy(),
@@ -446,7 +450,7 @@ describe('go', () => {
 
       let _n = new GoEcho(_newGenerator);
 
-      _n.copyForMainGenerator();
+      _n.copyServer();
 
       let _firstCall = [`server/go/echo/main_http2.go`,
         `server/main.go`, {
@@ -568,23 +572,23 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      expect(_n.wrapper.template).to.have.been.called;
+      expect(_n.generator.template).to.have.been.called;
 
-      expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_tenthCall[0], _tenthCall[1], _tenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_eleventhCall[0], _eleventhCall[1], _eleventhCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_twelfthCall[0], _twelfthCall[1], _twelfthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_thirteenthCall[0], _thirteenthCall[1], _thirteenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fourteenthCall[0], _fourteenthCall[1], _fourteenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fifteenfhCall[0], _fifteenfhCall[1], _fifteenfhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_tenthCall[0], _tenthCall[1], _tenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_eleventhCall[0], _eleventhCall[1], _eleventhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_twelfthCall[0], _twelfthCall[1], _twelfthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_thirteenthCall[0], _thirteenthCall[1], _thirteenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fourteenthCall[0], _fourteenthCall[1], _fourteenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fifteenfhCall[0], _fifteenfhCall[1], _fifteenfhCall[2])).to.be.true;
     });
 
     it('should call the right methods with the right params - differentStaticServer', () => {
@@ -592,6 +596,7 @@ describe('go', () => {
         feature: 'a',
         name: 'b',
         appName: 'c',
+        boilerplate: true,
         differentStaticServer: true,
         userNameSpace: 'd',
         goWebFrameworkServer: 'echo',
@@ -602,7 +607,7 @@ describe('go', () => {
 
       let _n = new GoEcho(_newGenerator);
 
-      _n.copyForMainGenerator();
+      _n.copyServer();
 
       let _firstCall = [`server/go/echo/main_http2.go`,
         `server/main.go`, {
@@ -708,20 +713,20 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      expect(_n.wrapper.template).to.have.been.called;
+      expect(_n.generator.template).to.have.been.called;
 
-      expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_tenthCall[0], _tenthCall[1], _tenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_eleventhCall[0], _eleventhCall[1], _eleventhCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_twelfthCall[0], _twelfthCall[1], _twelfthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_thirteenthCall[0], _thirteenthCall[1], _thirteenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fourteenthCall[0], _fourteenthCall[1], _fourteenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fifteenfhCall[0], _fifteenfhCall[1], _fifteenfhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_tenthCall[0], _tenthCall[1], _tenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_eleventhCall[0], _eleventhCall[1], _eleventhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_twelfthCall[0], _twelfthCall[1], _twelfthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_thirteenthCall[0], _thirteenthCall[1], _thirteenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fourteenthCall[0], _fourteenthCall[1], _fourteenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fifteenfhCall[0], _fifteenfhCall[1], _fifteenfhCall[2])).to.be.true;
     });
 
     it('should call the right methods with the right params - differentStaticServer is false, but serverOnly is true', () => {
@@ -732,6 +737,7 @@ describe('go', () => {
         stack: "server",
         differentStaticServer: false,
         userNameSpace: 'd',
+        boilerplate: true,
         goWebFrameworkServer: 'echo',
         repoHostUrl: 'github.com',
         template: sinon.spy(),
@@ -740,7 +746,7 @@ describe('go', () => {
 
       let _n = new GoEcho(_newGenerator);
 
-      _n.copyForMainGenerator();
+      _n.copyServer();
 
       let _firstCall = [`server/go/echo/main_http2.go`,
         `server/main.go`, {
@@ -846,20 +852,20 @@ describe('go', () => {
           differentStaticServer: !!_newGenerator.differentStaticServer
         }];
 
-      expect(_n.wrapper.template).to.have.been.called;
+      expect(_n.generator.template).to.have.been.called;
 
-      expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_tenthCall[0], _tenthCall[1], _tenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_eleventhCall[0], _eleventhCall[1], _eleventhCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_twelfthCall[0], _twelfthCall[1], _twelfthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_thirteenthCall[0], _thirteenthCall[1], _thirteenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fourteenthCall[0], _fourteenthCall[1], _fourteenthCall[2])).to.be.true;
-      expect(_n.wrapper.template.calledWith(_fifteenfhCall[0], _fifteenfhCall[1], _fifteenfhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_tenthCall[0], _tenthCall[1], _tenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_eleventhCall[0], _eleventhCall[1], _eleventhCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_twelfthCall[0], _twelfthCall[1], _twelfthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_thirteenthCall[0], _thirteenthCall[1], _thirteenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fourteenthCall[0], _fourteenthCall[1], _fourteenthCall[2])).to.be.true;
+      expect(_n.generator.template.calledWith(_fifteenfhCall[0], _fifteenfhCall[1], _fifteenfhCall[2])).to.be.true;
     });
   });
 })

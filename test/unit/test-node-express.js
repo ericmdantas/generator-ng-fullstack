@@ -32,15 +32,16 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        expect(_n.wrapper).to.equal(_newGenerator);
+        expect(_n.generator).to.equal(_newGenerator);
       })
     });
 
-    describe('copyFiles', () => {
+    describe('copyEndpoint', () => {
       it('should call the right methods with the right params - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           template: sinon.spy(),
           directory: sinon.spy(),
           testsSeparated: true
@@ -48,7 +49,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/express/no_transpiler/endpoint.route.js`,
@@ -126,21 +127,22 @@ describe('node -> express', () => {
           }
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
+        expect(_n.generator.template).to.have.been.called;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
       });
 
       it('should call the right methods with the right params - no testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           template: sinon.spy(),
           directory: sinon.spy(),
           testsSeparated: false
@@ -148,7 +150,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/express/no_transpiler/endpoint.route.js`,
@@ -226,23 +228,24 @@ describe('node -> express', () => {
           }
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
+        expect(_n.generator.template).to.have.been.called;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
       });
     });
 
-    describe('copyForMainGenerator', () => {
+    describe('copyServer', () => {
       it('should call with the right params - not secure - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: true
@@ -250,7 +253,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_node.js`,
@@ -272,18 +275,19 @@ describe('node -> express', () => {
           `tests/server`
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
+        expect(_n.generator.template).to.have.been.called;
 
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
       });
 
       it('should call with the right params - not secure - no testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: false
@@ -291,7 +295,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_node.js`,
@@ -328,15 +332,15 @@ describe('node -> express', () => {
           'server/api/todo/route/todo-route_test.js'
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
+        expect(_n.generator.template).to.have.been.called;
 
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
       });
 
       it('should call with the right params - secure - testsSeparated', () => {
@@ -344,6 +348,7 @@ describe('node -> express', () => {
           feature: 'a',
           name: 'b',
           secure: true,
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: true
@@ -351,7 +356,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_node.js`,
@@ -373,12 +378,12 @@ describe('node -> express', () => {
           `tests/server`
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
+        expect(_n.generator.template).to.have.been.called;
 
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
       });
 
       it('should call with the right params - secure - no testsSeparated', () => {
@@ -386,6 +391,7 @@ describe('node -> express', () => {
           feature: 'a',
           name: 'b',
           secure: true,
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: false
@@ -393,7 +399,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressStandard(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_node.js`,
@@ -430,15 +436,15 @@ describe('node -> express', () => {
           'server/api/todo/route/todo-route_test.js'
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
+        expect(_n.generator.template).to.have.been.called;
 
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
       });
     })
   });
@@ -450,22 +456,23 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        expect(_n.wrapper).to.equal(_newGenerator);
+        expect(_n.generator).to.equal(_newGenerator);
       })
     });
 
-    describe('copyFiles', () => {
+    describe('copyEndpoint', () => {
       it('should call the right methods with the right params - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           template: sinon.spy(),
           testsSeparated: true
         };
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/express/babel/endpoint.route.js`,
@@ -543,28 +550,29 @@ describe('node -> express', () => {
           }
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
+        expect(_n.generator.template).to.have.been.called;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
       });
 
       it('should call the right methods with the right params - no testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           template: sinon.spy(),
           testsSeparated: false
         };
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/express/babel/endpoint.route.js`,
@@ -642,23 +650,24 @@ describe('node -> express', () => {
           }
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
+        expect(_n.generator.template).to.have.been.called;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
       });
     });
 
-    describe('copyForMainGenerator', () => {
+    describe('copyServer', () => {
       it('should call with the right params - not secure - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: true
@@ -666,7 +675,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_babel.js`,
@@ -688,18 +697,19 @@ describe('node -> express', () => {
           `tests/server`
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
+        expect(_n.generator.template).to.have.been.called;
 
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
       });
 
       it('should call with the right params - not secure - no testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: false
@@ -707,7 +717,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_babel.js`,
@@ -744,15 +754,15 @@ describe('node -> express', () => {
           'server/api/todo/route/todo-route_test.js'
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
+        expect(_n.generator.template).to.have.been.called;
 
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
       });
 
       it('should call with the right params - secure - testsSeparated', () => {
@@ -760,6 +770,7 @@ describe('node -> express', () => {
           feature: 'a',
           secure: true,
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: true
@@ -767,7 +778,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_babel.js`,
@@ -789,12 +800,12 @@ describe('node -> express', () => {
           `tests/server`
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
+        expect(_n.generator.template).to.have.been.called;
 
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
       });
 
       it('should call with the right params - secure - no testsSeparated', () => {
@@ -802,6 +813,7 @@ describe('node -> express', () => {
           feature: 'a',
           secure: true,
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: false
@@ -809,7 +821,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressBabel(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _firstCall = [
           `index_babel.js`,
@@ -846,15 +858,15 @@ describe('node -> express', () => {
           'server/api/todo/route/todo-route_test.js'
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
+        expect(_n.generator.template).to.have.been.called;
 
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
       });
     })
   });
@@ -866,22 +878,23 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        expect(_n.wrapper).to.equal(_newGenerator);
+        expect(_n.generator).to.equal(_newGenerator);
       })
     });
 
-    describe('copyFiles', () => {
+    describe('copyEndpoint', () => {
       it('should call the right methods with the right params - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           template: sinon.spy(),
           testsSeparated: true
         };
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/express/typescript/endpoint.route.ts`,
@@ -959,28 +972,29 @@ describe('node -> express', () => {
           }
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
+        expect(_n.generator.template).to.have.been.called;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
       });
 
       it('should call the right methods with the right params - no testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           template: sinon.spy(),
           testsSeparated: false
         };
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        _n.copyFiles();
+        _n.copyEndpoint();
 
         let _firstCall = [
           `node/express/typescript/endpoint.route.ts`,
@@ -1058,23 +1072,24 @@ describe('node -> express', () => {
           }
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
+        expect(_n.generator.template).to.have.been.called;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1], _thirdCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_fourthCall[0], _fourthCall[1], _fourthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1], _fifthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1], _sixthCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1], _seventhCall[2])).to.be.true;
+        expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1], _eighthCall[2])).to.be.true;
       });
     });
 
-    describe('copyForMainGenerator', () => {
+    describe('copyServer', () => {
       it('should call with the right params - not secure - testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: true
@@ -1082,7 +1097,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _templateCall = [
           `server/node/express/server_node_express_typescript/server.ts`,
@@ -1114,21 +1129,22 @@ describe('node -> express', () => {
           `tests/server`
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
+        expect(_n.generator.template).to.have.been.called;
 
-        expect(_n.wrapper.template.calledWith(_templateCall[0], _templateCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_templateCall[0], _templateCall[1])).to.be.true;
 
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
       });
 
       it('should call with the right params - not secure - no testsSeparated', () => {
         let _newGenerator = {
           feature: 'a',
           name: 'b',
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: false
@@ -1136,7 +1152,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _templateCall = [
           `server/node/express/server_node_express_typescript/server.ts`,
@@ -1183,18 +1199,18 @@ describe('node -> express', () => {
           'server/api/todo/route/todo-route_test.js'
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
+        expect(_n.generator.template).to.have.been.called;
 
-        expect(_n.wrapper.template.calledWith(_templateCall[0], _templateCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_templateCall[0], _templateCall[1])).to.be.true;
 
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1])).to.be.true;
       });
 
       it('should call with the right params - secure - testsSeparated', () => {
@@ -1202,6 +1218,7 @@ describe('node -> express', () => {
           feature: 'a',
           name: 'b',
           secure: true,
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: true
@@ -1209,7 +1226,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _templateCall = [
           `server/node/express/server_node_express_typescript/server_http2.ts`,
@@ -1241,15 +1258,15 @@ describe('node -> express', () => {
           `tests/server`
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
+        expect(_n.generator.template).to.have.been.called;
 
-        expect(_n.wrapper.template.calledWith(_templateCall[0], _templateCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_templateCall[0], _templateCall[1])).to.be.true;
 
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
       });
 
       it('should call with the right params - secure - no testsSeparated', () => {
@@ -1257,6 +1274,7 @@ describe('node -> express', () => {
           feature: 'a',
           name: 'b',
           secure: true,
+          boilerplate: true,
           directory: sinon.spy(),
           template: sinon.spy(),
           testsSeparated: false
@@ -1264,7 +1282,7 @@ describe('node -> express', () => {
 
         let _n = new NodeExpressTypescript(_newGenerator);
 
-        _n.copyForMainGenerator();
+        _n.copyServer();
 
         let _templateCall = [
           `server/node/express/server_node_express_typescript/server_http2.ts`,
@@ -1311,18 +1329,18 @@ describe('node -> express', () => {
           'server/api/todo/route/todo-route_test.js'
         ];
 
-        expect(_n.wrapper.template).to.have.been.called;
+        expect(_n.generator.template).to.have.been.called;
 
-        expect(_n.wrapper.template.calledWith(_templateCall[0], _templateCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_templateCall[0], _templateCall[1])).to.be.true;
 
-        expect(_n.wrapper.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
-        expect(_n.wrapper.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
-        expect(_n.wrapper.template.calledWith(_eighthCall[0], _eighthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
+        expect(_n.generator.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_fifthCall[0], _fifthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
+        expect(_n.generator.template.calledWith(_eighthCall[0], _eighthCall[1])).to.be.true;
       });
     })
   });

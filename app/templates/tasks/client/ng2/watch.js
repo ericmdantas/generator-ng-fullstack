@@ -27,7 +27,7 @@ gulp.task(tasks.CLIENT_WATCH, [tasks.CLIENT_BUILD_TS, <% if (!!stylePreprocessor
   <% } %>
 
   return gulp.watch(_watchable, [
-    tasks.CLIENT_BUILD_TS, 
+    tasks.CLIENT_BUILD_TS,
     <% if (!!stylePreprocessor) { %>
     tasks.CLIENT_COMPILE_TO_CSS,
     <% } %>

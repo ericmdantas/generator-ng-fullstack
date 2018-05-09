@@ -18,38 +18,9 @@ class Vue2 {
   }
 
   copyClient() {
-    this.generator.directory('tasks/client/vue2', 'tasks/client');
-    this.generator.directory('client/vue2', 'client');
-    this.generator.template('_karma.conf_vue2.js', 'karma.conf.js', {
-      testsSeparated: this.testsSeparated
-    });
-
-    if(this.testsSeparated) {
-      this.generator.directory('tests/client_vue2', 'tests/client');
-    } else {
-      let _pathTest = [
-        ['tests/client_vue2/todo/components/todo-cmp_test.js', 'client/dev/todo/components/todo-cmp_test.js'],
-        ['tests/client_vue2/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
-        ['tests/client_vue2/todo/services/todo-service_test.js', 'client/dev/todo/services/todo-service_test.js']
-      ];
-
-      yoUtils.directory(this.generator, _pathTest, this.generator);
-    }
-
-    this.generator.template('tasks/client/vue2/const.js', 'tasks/client/const.js', {
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    this.generator.template('tasks/client/vue2/build_css.js', 'tasks/client/build_css.js', {
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    this.generator.template('tasks/client/vue2/watch.js', 'tasks/client/watch.js', {
-      secure: !!this.generator.secure,
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
+    this._copyTodoBoilerplate();
+    this._copyTasks();
+    this._copyConfigTests();
   }
 
   copyComponent(pathTemplate) {
@@ -155,6 +126,59 @@ class Vue2 {
       this.copyService('../../service/templates/');
       this.copyModel('../../model/templates/');
       this.copyStyle('../../style/templates/');
+  }
+
+  _copyTodoBoilerplate() {
+    if (this.generator.boilerplate) {
+      this.generator.directory('client/vue2', 'client');
+
+      if(this.testsSeparated) {
+        this.generator.directory('tests/client_vue2', 'tests/client');
+      } else {
+        let _pathTest = [
+          ['tests/client_vue2/todo/components/todo-cmp_test.js', 'client/dev/todo/components/todo-cmp_test.js'],
+          ['tests/client_vue2/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
+          ['tests/client_vue2/todo/services/todo-service_test.js', 'client/dev/todo/services/todo-service_test.js']
+        ];
+
+        yoUtils.directory(this.generator, _pathTest, this.generator);
+      }
+
+      copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
+    } else {
+      let _pathSrc = [];
+
+      _pathSrc.push(
+        ['client/vue2/dev/index.js', 'client/dev/index.js'],
+        ['client/vue2/dev/index.html', 'client/dev/index.html']
+      );
+
+      yoUtils.directory(this.generator, _pathSrc, this.generator);
+    }
+  }
+
+  _copyTasks() {
+    this.generator.directory('tasks/client/vue2', 'tasks/client');
+
+    this.generator.template('tasks/client/vue2/const.js', 'tasks/client/const.js', {
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
+    });
+
+    this.generator.template('tasks/client/vue2/build_css.js', 'tasks/client/build_css.js', {
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
+    });
+
+    this.generator.template('tasks/client/vue2/watch.js', 'tasks/client/watch.js', {
+      secure: !!this.generator.secure,
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
+    });
+
+  }
+
+  _copyConfigTests() {
+    this.generator.template('_karma.conf_vue2.js', 'karma.conf.js', {
+      testsSeparated: this.testsSeparated
+    });
   }
 }
 

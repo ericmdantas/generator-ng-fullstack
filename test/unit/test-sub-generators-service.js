@@ -16,7 +16,7 @@ describe('ServiceSubGenerator', () => {
 
       let _ssg = new ServiceSubGenerator(_gen);
 
-      expect(_ssg.wrapper).to.equal(_gen);
+      expect(_ssg.generator).to.equal(_gen);
     });
   });
 
@@ -33,7 +33,7 @@ describe('ServiceSubGenerator', () => {
 
       _ssg.initializing();
 
-      expect(_ssg.wrapper.argument).to.have.been.called;
+      expect(_ssg.generator.argument).to.have.been.called;
     });
   });
 
@@ -85,9 +85,9 @@ describe('ServiceSubGenerator', () => {
 
         _ssg.writing();
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_ssg.generator.writing).to.have.been.called;
+        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_ssg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
 
       it('should have the writing called with the right stuff - testsSeparated', () => {
@@ -125,9 +125,9 @@ describe('ServiceSubGenerator', () => {
 
         _ssg.writing();
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_ssg.generator.writing).to.have.been.called;
+        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_ssg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     })
 
@@ -173,9 +173,9 @@ describe('ServiceSubGenerator', () => {
 
         _ssg.writing();
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_ssg.generator.writing).to.have.been.called;
+        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_ssg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
 
       it('should have the writing called with the right stuff - testsSeparated', () => {
@@ -210,9 +210,9 @@ describe('ServiceSubGenerator', () => {
 
         _ssg.writing();
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_ssg.generator.writing).to.have.been.called;
+        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_ssg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     })
 
@@ -258,9 +258,9 @@ describe('ServiceSubGenerator', () => {
 
         _ssg.writing();
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_ssg.generator.writing).to.have.been.called;
+        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_ssg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
 
       it('should have the writing called with the right stuff - testsSeparated', () => {
@@ -295,9 +295,9 @@ describe('ServiceSubGenerator', () => {
 
         _ssg.writing();
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_ssg.generator.writing).to.have.been.called;
+        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_ssg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     })
 
@@ -343,9 +343,9 @@ describe('ServiceSubGenerator', () => {
 
         _ssg.writing();
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_ssg.generator.writing).to.have.been.called;
+        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_ssg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
 
       it('should have the writing called with the right stuff - testsSeparated', () => {
@@ -380,9 +380,9 @@ describe('ServiceSubGenerator', () => {
 
         _ssg.writing();
 
-        expect(_ssg.wrapper.writing).to.have.been.called;
-        expect(_ssg.wrapper.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
-        expect(_ssg.wrapper.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
+        expect(_ssg.generator.writing).to.have.been.called;
+        expect(_ssg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
+        expect(_ssg.generator.template.calledWith(_secondCall[0], _secondCall[1], _secondCall[2])).to.be.true;
       });
     })
 

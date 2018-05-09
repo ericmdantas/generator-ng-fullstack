@@ -8,13 +8,13 @@ const {VueFactory} = require('./vue');
 
 exports.StyleSubGenerator = class StyleSubGenerator {
   constructor(generator) {
-    this.wrapper = generator;
-    this.wrapper.client = this.wrapper.config.get('client');
-    this.wrapper.stylePreprocessor = this.wrapper.config.get('stylePreprocessor');
+    this.generator = generator;
+    this.generator.client = this.generator.config.get('client');
+    this.generator.stylePreprocessor = this.generator.config.get('stylePreprocessor');
   }
 
   initializing() {
-    this.wrapper.argument('name', {
+    this.generator.argument('name', {
       required: true,
       type: String,
       desc: 'style'
@@ -22,23 +22,23 @@ exports.StyleSubGenerator = class StyleSubGenerator {
   }
 
   writing() {
-    let _feature = optionsParser.getFeature(this.wrapper.options);
-    let _client = this.wrapper.client;
+    let _feature = optionsParser.getFeature(this.generator.options);
+    let _client = this.generator.client;
 
     if (!_feature.length) {
       throw new FeatureMissingError();
     }
 
     if ((_client === AngularFactory.tokens().NG1) || (_client === AngularFactory.tokens().NG2)) {
-      return AngularFactory.build(this.wrapper.client, this.wrapper).copyStyle();
+      return AngularFactory.build(this.generator.client, this.generator).copyStyle();
     }
 
     if (_client === VueFactory.tokens().VUE2) {
-      return VueFactory.build(this.wrapper.client, this.wrapper).copyStyle();
+      return VueFactory.build(this.generator.client, this.generator).copyStyle();
     }
 
     if (_client === AureliaFactory.tokens().AURELIA1) {
-      return AureliaFactory.build(this.wrapper.client, this.wrapper).copyStyle();
+      return AureliaFactory.build(this.generator.client, this.generator).copyStyle();
     }
   }
 };

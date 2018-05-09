@@ -8,14 +8,14 @@ const {VueFactory} = require('./vue');
 
 exports.ModelSubGenerator = class ModelSubGenerator {
   constructor(generator) {
-    this.wrapper = generator;
-    this.wrapper.client = this.wrapper.config.get('client');
-    this.wrapper.appName = this.wrapper.config.get('appName');
-    this.wrapper.testsSeparated = this.wrapper.config.get('testsSeparated');
+    this.generator = generator;
+    this.generator.client = this.generator.config.get('client');
+    this.generator.appName = this.generator.config.get('appName');
+    this.generator.testsSeparated = this.generator.config.get('testsSeparated');
   }
 
   initializing() {
-    this.wrapper.argument('name', {
+    this.generator.argument('name', {
       required: true,
       type: String,
       desc: 'model'
@@ -23,23 +23,23 @@ exports.ModelSubGenerator = class ModelSubGenerator {
   }
 
   writing() {
-    let _feature = optionsParser.getFeature(this.wrapper.options);
-    let _client = this.wrapper.client;
+    let _feature = optionsParser.getFeature(this.generator.options);
+    let _client = this.generator.client;
 
     if (!_feature.length) {
       throw new FeatureMissingError();
     }
 
     if ((_client === AngularFactory.tokens().NG1) || (_client === AngularFactory.tokens().NG2)) {
-      return AngularFactory.build(this.wrapper.client, this.wrapper).copyModel();
+      return AngularFactory.build(this.generator.client, this.generator).copyModel();
     }
 
     if (_client === VueFactory.tokens().VUE2) {
-      return VueFactory.build(this.wrapper.client, this.wrapper).copyModel();
+      return VueFactory.build(this.generator.client, this.generator).copyModel();
     }
 
     if (_client === AureliaFactory.tokens().AURELIA1) {
-      return AureliaFactory.build(_client, this.wrapper).copyModel();
+      return AureliaFactory.build(_client, this.generator).copyModel();
     }
   }
 };

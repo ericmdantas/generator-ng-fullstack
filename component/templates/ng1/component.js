@@ -1,4 +1,4 @@
-; (function (ng) {
+;(function(ng) {
   'use strict';
 
   ng.module('<%= appName %>')

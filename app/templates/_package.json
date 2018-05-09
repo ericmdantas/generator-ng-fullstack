@@ -10,38 +10,59 @@
       "test": "gulp client.unit_test",
       "build-dist": "gulp client.build:dist"
     <%} else {%>
+
+      "watch": "gulp",
+
+      <% if (server === "node") { %>
         "start": "node server/index",
-        "watch": "gulp",
+
         <% if (usesTypescript) { %>
           "dev": "tsc && concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
         <% } else { %>
-            "dev": "concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
+          "dev": "concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
         <% } %>
-        "build-dev": "gulp client.build:dev",
-        <% if (serverOnly && usesTypescript) { %>
-          "build-dist": "gulp server.compile_tsc",
+      <% } %>
+
+      <% if (server === "go") { %>
+        "start": "go run server/main.go",
+
+        <% if (usesTypescript) { %>
+          "dev": "tsc && concurrently \" npm start \" \"gulp\"",
         <% } else { %>
-          "build-dist": "gulp client.build:dist",
+          "dev": "concurrently \"npm start\" \"gulp\"",
         <% } %>
-        "test-client": "gulp client.unit_test",
-        <% if (testsSeparated) { %>
-          "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
-          "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register",
-          "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
-        <% } else { %>
-          "test-server": "mocha 'server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
-          "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register",
-          "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
-        <% } %>
-    <% } %>
+      <% } %>
+
+      "build-dev": "gulp client.build:dev",
+      "test-client": "gulp client.unit_test",
+
+      <% if (serverOnly && usesTypescript) { %>
+        "build-dist": "gulp server.compile_tsc",
+      <% } else { %>
+        "build-dist": "gulp client.build:dist",
+      <% } %>
+
+      <% if (testsSeparated) { %>
+        "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
+        "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register",
+        "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+      <% } else { %>
+        "test-server": "mocha 'server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
+        "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register",
+        "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+      <% } %>
+
+  <% } %>
   },
   "dependencies": {
-    <% if (usesTypescript) { %>
+    <% if (usesTypescript) {%>
       "typescript": "^2.4.1",
     <% } %>
 
-    <% if (!clientOnly) { %>"lodash": "^4.6.1",
+    <% if (!clientOnly) { %>
+      "lodash": "^4.6.1",
       "bluebird": "^3.3.4",
+
       <% if (nodeWebFrameworkServer === "express") { %>
         "body-parser": "^1.5.0",
         "express": "~4.14.0",
@@ -50,43 +71,50 @@
         "compression": "^1.6.2",
         "helmet": "^2.1.1",
       <% } %>
+
       "nodemon": "^1.9.2",
-      "mongoose": "^4.4.7",<% } %>
-      <% if (client === "ng2") { %>
-        "@angular/common": "^4.1.0",
-        "@angular/compiler": "^4.1.0",
-        "@angular/core": "^4.1.0",
-        "@angular/forms": "^4.1.0",
-        "@angular/http": "^4.1.0",
-        "@angular/platform-browser": "^4.1.0",
-        "@angular/platform-browser-dynamic": "^4.1.0",
-        "@angular/router": "^4.1.0",
-  	    "zone.js": "^0.7.6",
-        "reflect-metadata": "^0.1.3",
-        "rxjs": "^5.0.0-beta.12",
-        "systemjs": "^0.19.24",
-        "zone.js": "^0.6.23",
-       <% } %>
-       <% if (client === "vue2") { %>
-         "vue": "^2.1.10",
-         "vue-resource": "^1.0.3",
-         "vue-router": "^2.1.3",
-       <% } %>
-       <% if (nodeWebFrameworkServer === "koa") { %>
-         "koa": "^1.2.4",
-         "koa-bodyparser": "^2.2.0",
-         "koa-router": "^5.4.0",
-         "koa-static": "^2.0.0",
-       <% } %>
-       <% if (secure) { %>
-         "spdy": "^3.4.4",
-       <% } %>
-  	   "babel-register": "^6.7.2",
-       "babel-regenerator-runtime": "^6.5.0",
-       "babel-preset-es2015": "^6.1.18",
-       "babel-preset-es2016": "^6.0.11",
-       "babel-preset-stage-0": "^6.1.18",
-       "newrelic": "^1.18.2"
+      "mongoose": "^4.4.7",
+    <% } %>
+
+    <% if (client === "ng2") { %>
+      "@angular/common": "^4.1.0",
+      "@angular/compiler": "^4.1.0",
+      "@angular/core": "^4.1.0",
+      "@angular/forms": "^4.1.0",
+      "@angular/http": "^4.1.0",
+      "@angular/platform-browser": "^4.1.0",
+      "@angular/platform-browser-dynamic": "^4.1.0",
+      "@angular/router": "^4.1.0",
+	     "zone.js": "^0.7.6",
+       "reflect-metadata": "^0.1.3",
+       "rxjs": "^5.0.0-beta.12",
+       "systemjs": "^0.19.24",
+       "zone.js": "^0.8.5",
+     <% } %>
+
+     <% if (client === "vue2") { %>
+       "vue": "^2.1.10",
+       "vue-resource": "^1.0.3",
+       "vue-router": "^2.1.3",
+     <% } %>
+
+     <% if (nodeWebFrameworkServer === "koa") { %>
+       "koa": "^1.2.4",
+       "koa-bodyparser": "^2.2.0",
+       "koa-router": "^5.4.0",
+       "koa-static": "^2.0.0",
+     <% } %>
+
+     <% if (secure) { %>
+       "spdy": "^3.4.4",
+     <% } %>
+
+	   "babel-register": "^6.7.2",
+     "babel-regenerator-runtime": "^6.5.0",
+     "babel-preset-es2015": "^6.1.18",
+     "babel-preset-es2016": "^6.0.11",
+     "babel-preset-stage-0": "^6.1.18",
+     "newrelic": "^1.18.2"
   },
   "devDependencies": {
     "aliv": "^1.7.2",
@@ -96,6 +124,7 @@
     "browser-sync": "^2.5.2",
     "require-dir": "^0.3.0",
     "babili": "0.0.6",
+
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.4.3",
     "gulp-coveralls": "^0.1.3",
@@ -107,12 +136,25 @@
     "gulp-htmlmin": "^2.0.0",
     "gulp-imagemin": "^3.0.1",
     "gulp-util": "^3.0.3",
+
     <% if (stylePreprocessor === "less") { %>
       "gulp-less": "^3.1.0",
     <% } %>
+
     <% if (stylePreprocessor === "sass") { %>
       "gulp-sass": "^2.3.2",
     <% } %>
+
+    <% if (webpack) { %>
+      "babel-loader": "^6.3.2",
+      "css-loader": "^0.26.1",
+      "file-loader": "^0.10.0",
+      "html-loader": "^0.4.4",
+      "style-loader": "^0.13.1",
+      "webpack": "^2.2.1",
+      "webpack-dev-server": "^2.4.1"
+    <% } %>
+
     "jasmine-core": "^2.2.0",
     "run-sequence": "^1.1.5",
     "karma": "^1.3.0",
@@ -125,6 +167,7 @@
     "karma-opera-launcher": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-safari-launcher": "^1.0.0",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
     "mocha": "^2.4.5",
     "chai": "^3.5.0",
     "coveralls": "^2.11.2",

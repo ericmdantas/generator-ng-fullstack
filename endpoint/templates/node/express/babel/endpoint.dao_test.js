@@ -10,8 +10,8 @@ const setupMongoose = require('../../_helpers/db').setupMongoose;
 
 
 describe('<%= name %>DAO', () => {
-  before(() => {
-    setupMongoose(mongoose);
+  before((done) => {
+    setupMongoose(mongoose, done);
   });
 
   afterEach(() => {

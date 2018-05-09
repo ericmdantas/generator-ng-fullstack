@@ -18,45 +18,9 @@ class Aurelia1 {
   }
 
   copyClient() {
-    this.generator.directory('tasks/client/aurelia1', 'tasks/client');
-    this.generator.directory('client/aurelia1', 'client');
-    this.generator.template('_karma.conf_aurelia1.js', 'karma.conf.js', {
-      testsSeparated: this.testsSeparated
-    });
-
-    if(this.testsSeparated) {
-      this.generator.directory('tests/client_aurelia1', 'tests/client');
-    } else {
-      let _pathTest = [
-        ['tests/client_aurelia1/todo/components/todo-cmp_test.js', 'client/dev/todo/components/todo-cmp_test.js'],
-        ['tests/client_aurelia1/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
-        ['tests/client_aurelia1/todo/services/todo-service_test.js', 'client/dev/todo/services/todo-service_test.js']
-      ];
-
-      yoUtils.directory(this.generator, _pathTest, this.generator);
-    }
-
-    if (this.generator.stack === "client")  {
-      this.generator.template('_aurelia_jspm_config_serving_from_root.js', 'jspm.config.js');
-    } else {
-      this.generator.template('_aurelia_jspm_config_serving_from_jspm_packages.js', 'jspm.config.js');
-    }
-
-    this.generator.template('tasks/client/aurelia1/const.js', 'tasks/client/const.js', {
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    this.generator.template('tasks/client/aurelia1/build_css.js', 'tasks/client/build_css.js', {
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-
-    this.generator.template('tasks/client/aurelia1/watch.js', 'tasks/client/watch.js', {
-      secure: !!this.generator.secure,
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
+    this._copyTodoBoilerplate();
+    this._copyTasks();
+    this._copyConfigTests();
   }
 
   copyComponent(pathTemplate) {
@@ -168,6 +132,65 @@ class Aurelia1 {
       this.copyService('../../service/templates/');
       this.copyModel('../../model/templates/');
       this.copyStyle('../../style/templates/');
+  }
+
+  _copyTodoBoilerplate() {
+    if (this.generator.boilerplate) {
+      this.generator.directory('client/aurelia1', 'client');
+
+      if(this.testsSeparated) {
+        this.generator.directory('tests/client_aurelia1', 'tests/client');
+      } else {
+        let _pathTest = [
+          ['tests/client_aurelia1/todo/components/todo-cmp_test.js', 'client/dev/todo/components/todo-cmp_test.js'],
+          ['tests/client_aurelia1/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
+          ['tests/client_aurelia1/todo/services/todo-service_test.js', 'client/dev/todo/services/todo-service_test.js']
+        ];
+
+        yoUtils.directory(this.generator, _pathTest, this.generator);
+      }
+
+      copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
+    } else {
+      let _pathSrc = [];
+
+      _pathSrc.push(
+        ['client/aurelia1/dev/index.html', 'client/dev/index.html'],
+        ['client/aurelia1/dev/app.html', 'client/dev/app.html'],
+        ['client/aurelia1/dev/app.js', 'client/dev/app.js']
+      );
+
+      yoUtils.directory(this.generator, _pathSrc, this.generator);
+    }
+
+    if (this.generator.stack === "client") {
+      this.generator.template('_aurelia_jspm_config_serving_from_root.js', 'jspm.config.js');
+    } else {
+      this.generator.template('_aurelia_jspm_config_serving_from_jspm_packages.js', 'jspm.config.js');
+    }
+  }
+
+  _copyTasks() {
+    this.generator.directory('tasks/client/aurelia1', 'tasks/client');
+
+    this.generator.template('tasks/client/aurelia1/const.js', 'tasks/client/const.js', {
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
+    });
+
+    this.generator.template('tasks/client/aurelia1/build_css.js', 'tasks/client/build_css.js', {
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
+    });
+
+    this.generator.template('tasks/client/aurelia1/watch.js', 'tasks/client/watch.js', {
+      secure: !!this.generator.secure,
+      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
+    });
+  }
+
+  _copyConfigTests() {
+    this.generator.template('_karma.conf_aurelia1.js', 'karma.conf.js', {
+      testsSeparated: this.testsSeparated
+    });
   }
 }
 

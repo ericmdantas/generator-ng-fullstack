@@ -6,12 +6,12 @@ const {FeatureMissingError} = require('../utils/errors');
 
 exports.ViewSubGenerator = class ViewSubGenerator {
   constructor(generator) {
-    this.wrapper = generator;
-    this.wrapper.client = this.wrapper.config.get('client');
+    this.generator = generator;
+    this.generator.client = this.generator.config.get('client');
   }
 
   initializing() {
-    this.wrapper.argument('name', {
+    this.generator.argument('name', {
       required: true,
       type: String,
       desc: 'view'
@@ -19,12 +19,12 @@ exports.ViewSubGenerator = class ViewSubGenerator {
   }
 
   writing() {
-    let feature = optionsParser.getFeature(this.wrapper.options);
+    let feature = optionsParser.getFeature(this.generator.options);
 
     if (!feature.length) {
       throw new FeatureMissingError();
     }
 
-    AngularFactory.build(this.wrapper.client, this.wrapper).copyTemplate();
+    AngularFactory.build(this.generator.client, this.generator).copyTemplate();
   }
 };

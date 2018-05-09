@@ -1,10 +1,19 @@
+## [v2.0](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v2.0)
+
+### New Stuff
+
+#### Fullstack
+
+- Implemented option to generate clean project, no TODO boilerplate
+
+
 ## [1.9](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.9.0)
 
 ### New Stuff
 
 #### Tools
 
-- Created [ngf](https://github.com/ericmdantas/ngf) a simple alias for `ng-fullstack` to make your app development even faster
+- Created [ngf](https://github.com/ericmdantas/ngf), a simple alias for `ng-fullstack` to make your app development even faster
 
 #### Client
 

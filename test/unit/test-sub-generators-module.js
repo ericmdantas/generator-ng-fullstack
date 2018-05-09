@@ -16,7 +16,7 @@ describe('ModuleSubGenerator', () => {
       };
       let _fsg = new ModuleSubGenerator(_gen);
 
-      expect(_fsg.wrapper).to.equal(_gen);
+      expect(_fsg.generator).to.equal(_gen);
     });
   });
 
@@ -33,7 +33,7 @@ describe('ModuleSubGenerator', () => {
 
       _fsg.initializing();
 
-      expect(_fsg.wrapper.argument).to.have.been.called;
+      expect(_fsg.generator.argument).to.have.been.called;
     });
   });
 
