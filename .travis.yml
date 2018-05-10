@@ -2,7 +2,7 @@ language: node_js
 sudo: true
 
 node_js:
-  - "stable"
+  - 9.x
 
 before_install:
   - npm install -g istanbul mocha

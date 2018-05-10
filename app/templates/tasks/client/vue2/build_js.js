@@ -8,7 +8,7 @@ gulp.task(tasks.CLIENT_BUILD_JS_DIST, () => {
   return gulp.src(JS, {base: base.DIST})
              .pipe(babel({
                presets: [
-                 "es2015",
+                 "env",
                  "babili"
                ]
              }))
