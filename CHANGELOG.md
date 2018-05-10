@@ -1,10 +1,10 @@
 ## [v2.0](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v2.0)
 
-### New Stuff
-
 #### Fullstack
 
 - Implemented option to generate clean project, no TODO boilerplate
+- Bumped Gulp to v4
+- 
 
 #### Client
 
@@ -14,6 +14,7 @@
 #### Server
 
 - Dropped GIN support (Go)
+- Bumped Koa to v2
 
 
 ## [1.9](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.9.0)

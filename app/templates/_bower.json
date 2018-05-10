@@ -23,9 +23,7 @@
   "dependencies": {
     "jquery": "~3.1.1",
     "angular": "~1.6.x",
-    "angular-messages": "~1.6.x",
     "angular-route": "~1.6.x",
-    "angular-resource": "~1.6.x",
     "bootstrap": "3.3.7",
     "fontawesome": "~4.7.0"
   },

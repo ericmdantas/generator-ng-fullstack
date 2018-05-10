@@ -50,6 +50,7 @@ describe('ng-fullstack -> client_only', () => {
       'client/dev/app.js',
       'client/dev/app.route.js',
       'client/dev/app.config.js',
+      'client/dev/app.constant.js',
 
       'client/dev/todo/services/todo-dao.js',
       'client/dev/todo/resources/todo-resource.js',
@@ -136,6 +137,7 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/app.js',
         'client/dev/app.route.js',
         'client/dev/app.config.js',
+        'client/dev/app.constant.js',
 
         'client/dev/todo/services/todo-dao.js',
         'client/dev/todo/resources/todo-resource.js',
@@ -219,6 +221,7 @@ describe('ng-fullstack -> client_only', () => {
           'client/dev/app.js',
           'client/dev/app.route.js',
           'client/dev/app.config.js',
+          'client/dev/app.constant.js',
 
           'tests/e2e/todo.e2e_test.js'];
 

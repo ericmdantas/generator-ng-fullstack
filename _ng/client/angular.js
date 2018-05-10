@@ -202,6 +202,7 @@ class Angular1 {
         ['client/ng1/dev/app.js', 'client/dev/app.js'],
         ['client/ng1/dev/app.route.js', 'client/dev/app.route.js'],
         ['client/ng1/dev/app.config.js', 'client/dev/app.config.js'],
+        ['client/ng1/dev/app.constant.js', 'client/dev/app.constant.js'],
         ['client/ng1/dev/todo/controllers/todo-controller.js', 'client/dev/todo/controllers/todo-controller.js'],
         ['client/ng1/dev/todo/models/todo-model.js', 'client/dev/todo/models/todo-model.js'],
         ['client/ng1/dev/todo/services/todo-dao.js', 'client/dev/todo/services/todo-dao.js'],
@@ -233,7 +234,8 @@ class Angular1 {
         ['client/ng1/dev/favicon.png', 'client/dev/favicon.png'],
         ['client/ng1/dev/app.js', 'client/dev/app.js'],
         ['client/ng1/dev/app.route.js', 'client/dev/app.route.js'],
-        ['client/ng1/dev/app.config.js', 'client/dev/app.config.js']
+        ['client/ng1/dev/app.config.js', 'client/dev/app.config.js'],
+        ['client/ng1/dev/app.constant.js', 'client/dev/app.constant.js']
       );
     }
 
