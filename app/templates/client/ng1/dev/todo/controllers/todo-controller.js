@@ -32,12 +32,12 @@
         };
 
         ;(() => {
-			  return TodoDAO.getAll()
-					.then((todos) => {
-					  return this.todos = todos;
-					})
-					.catch($log.error);
-		})();
+          return TodoDAO.getAll()
+            .then((todos) => {
+              return this.todos = todos;
+            })
+            .catch($log.error);
+        })();
       }
     ]);
 }(window.angular));

@@ -4,33 +4,26 @@
   ng.module("<%= appName %>")
     .factory("TodoDAO", [
       "$q",
+      "$http",
       "Todo",
-      "TodoResource",
-      function($q, Todo, TodoResource) {
+      "BASE_API",
+      function($q, $http, Todo, API) {
         class TodoDAO {
-          constructor() {
-
-          }
-
           getById(id) {
             if (ng.isUndefined(id)) {
               return $q.reject(new TypeError("Invalid id for search."));
             }
 
-            return TodoResource.get({id: id})
-              .$promise
-              .then((todo) => {
-                return new Todo(todo);
+            return $http.get(API + "todos/" + id)
+              .then(({data}) => {
+                return new Todo(data);
               });
           }
 
           getAll() {
-            return TodoResource.query()
-              .$promise
-              .then((todos) => {
-                return todos.map((todo) => {
-                  return new Todo(todo);
-                });
+            return $http.get(API + "todos")
+              .then(({data}) => {
+                return data.map((todo) => new Todo(todo));
               });
           }
 
@@ -39,10 +32,9 @@
               return $q.reject(new TypeError("Invalid todo to be created."));
             }
 
-            return TodoResource.save(todo)
-              .$promise
-              .then((t) => {
-                return new Todo(t);
+            return $http.post(API + "todos", todo)
+              .then(({data}) => {
+                return new Todo(data);
               });
           }
 
@@ -51,8 +43,8 @@
               return $q.reject(new TypeError("Invalid id for deletion."));
             }
 
-            return TodoResource.delete({id: id}).$promise;
-          }         
+            return $http.delete(API + "todos/" + id);
+          }
         }
 
         return new TodoDAO();
