@@ -14,17 +14,16 @@ module.exports = (config) => {
 
     // list of files / patterns to load in the browser
     files: [
-        'client/dev/bower_components/jquery/dist/jquery.min.js',
-        'client/dev/bower_components/angular/angular.min.js',
-        'client/dev/bower_components/angular-resource/angular-resource.min.js',
-        'client/dev/bower_components/angular-route/angular-route.min.js',
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/angular/angular.min.js',
+        'node_modules/angular-route/angular-route.min.js',
 
-        'client/dev/bower_components/angular-mocks/angular-mocks.js',
+        'node_modules/angular-mocks/angular-mocks.js',
 
         'client/dev/app.js',
         'client/dev/app.config.js',
+        'client/dev/app.constant.js',
         'client/dev/app.route.js',
-        'client/dev/!(bower_components)/**/*.js',
 
         <% if (testsSeparated) { %>
         'tests/client/**/*_test.js',
@@ -46,7 +45,6 @@ module.exports = (config) => {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'client/dev/!(bower_components)/**/*.js': ['coverage'],
       'client/dev/**/*.html': ['ng-html2js']
     },
 

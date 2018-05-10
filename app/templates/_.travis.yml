@@ -4,9 +4,8 @@ node_js:
   - "5"
 
 before_script:
-  - npm install -g bower gulp-cli mocha
+  - npm install -g gulp-cli mocha
   - npm run-script test-on-travis
-  - bower install
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 

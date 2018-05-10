@@ -3,8 +3,7 @@ import imageMin from "gulp-imagemin";
 import {base, tasks} from "./const";
 
 const IMAGES = [
-	base.DIST + "**/*.{png,jpg,jpeg,gif}",
-	"!" + base.DIST + "bower_components/**/*.{png,jpg,jpeg,gif}",
+	base.DIST + "**/*.{png,jpg,jpeg,gif}"
 ];
 
 gulp.task(tasks.CLIENT_IMAGE_DIST, () => {

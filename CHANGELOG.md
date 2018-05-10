@@ -1,21 +1,25 @@
-## [v2.0](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v2.0)
+## [v2.0](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v2.0.0)
 
 #### Fullstack
 
 - Implemented option to generate clean project, no TODO boilerplate
-- Bumped Gulp to v4
-- 
 
 #### Client
 
+- Added Angular + Webpack
+- Added npm/yarn support for ng1 projects
 - Dropped Aurelia support
 - Dropped JSPM support
+- Dropped Bower support
 
 #### Server
 
+- Bumped Koa to v2 (Node)
 - Dropped GIN support (Go)
-- Bumped Koa to v2
 
+#### Tools
+
+- Bumped Gulp to v4
 
 ## [1.9](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.9.0)
 

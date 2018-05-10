@@ -26,14 +26,12 @@ describe('ng-fullstack -> node', () => {
     let _commonFiles = [
       '.editorconfig',
       '.jshintrc',
-      '.bowerrc',
       '.travis.yml',
       '.gitignore',
       '.editorconfig',
       '.jshintrc',
       '.babelrc',
 
-      'bower.json',
       'package.json',
       'gulpfile.babel.js',
       'karma.conf.js',
@@ -51,9 +49,9 @@ describe('ng-fullstack -> node', () => {
       'client/dev/app.js',
       'client/dev/app.route.js',
       'client/dev/app.config.js',
+      'client/dev/app.constant.js',
 
       'client/dev/todo/services/todo-dao.js',
-      'client/dev/todo/resources/todo-resource.js',
       'client/dev/todo/models/todo-model.js',
       'client/dev/todo/controllers/todo-controller.js',
 
@@ -73,14 +71,12 @@ describe('ng-fullstack -> node', () => {
     let _commonFilesWithoutTodo = [
       '.editorconfig',
       '.jshintrc',
-      '.bowerrc',
       '.travis.yml',
       '.gitignore',
       '.editorconfig',
       '.jshintrc',
       '.babelrc',
 
-      'bower.json',
       'package.json',
       'gulpfile.babel.js',
       'karma.conf.js',
@@ -96,6 +92,7 @@ describe('ng-fullstack -> node', () => {
       'client/dev/app.js',
       'client/dev/app.route.js',
       'client/dev/app.config.js',
+      'client/dev/app.constant.js',
 
       'tests/e2e/todo.e2e_test.js'
     ];
@@ -103,14 +100,12 @@ describe('ng-fullstack -> node', () => {
     let _commonFilesWithoutTestsSeparated = [
       '.editorconfig',
       '.jshintrc',
-      '.bowerrc',
       '.travis.yml',
       '.gitignore',
       '.editorconfig',
       '.jshintrc',
       '.babelrc',
 
-      'bower.json',
       'package.json',
       'gulpfile.babel.js',
       'karma.conf.js',
@@ -128,9 +123,9 @@ describe('ng-fullstack -> node', () => {
       'client/dev/app.js',
       'client/dev/app.route.js',
       'client/dev/app.config.js',
+      'client/dev/app.constant.js',
 
       'client/dev/todo/services/todo-dao.js',
-      'client/dev/todo/resources/todo-resource.js',
       'client/dev/todo/models/todo-model.js',
       'client/dev/todo/controllers/todo-controller.js',
 

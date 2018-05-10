@@ -76,6 +76,13 @@
       "mongoose": "^4.4.7",
     <% } %>
 
+    <% if (client === "ng1") { %>
+      "angular": "^1.6.10",
+      "angular-route": "^1.6.10",
+      "font-awesome": "^4.7.0",
+      "jquery": "^3.3.1",
+    <% } %>      
+
     <% if (client === "ng2") { %>
       "@angular/common": "^6.0.0",
       "@angular/compiler": "^6.0.0",
@@ -122,6 +129,12 @@
     "browser-sync": "^2.5.2",
     "require-dir": "^1.0.0",
     "babili": "0.0.6",
+
+    <% if (client === "ng1") { %>
+      "angular-mocks": "^1.6.10",
+    <% } %>
+      
+
 
     "gulp-babel": "^7.0.1",
     "gulp-concat": "^2.4.3",

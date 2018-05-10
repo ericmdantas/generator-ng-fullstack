@@ -3,8 +3,7 @@ import babel from "gulp-babel";
 import {base, tasks} from "./const";
 
 const JS = [
-  base.DIST + "**/*.js", 
-  "!" + base.DIST + "bower_components/**/*"
+  base.DIST + "**/*.js"
 ];
 
 gulp.task(tasks.CLIENT_BUILD_JS_DIST, () => {

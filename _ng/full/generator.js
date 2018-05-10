@@ -65,7 +65,6 @@ exports.MainGenerator = class MainGenerator {
 
       this.generator.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
       this.generator.template('_procfile.txt', 'procfile.txt', _app);
-      this.generator.template('_.bowerrc', '.bowerrc');
       this.generator.template('_.travis.yml', '.travis.yml', {
         typescript: _usesTypescript
       });
@@ -91,16 +90,6 @@ exports.MainGenerator = class MainGenerator {
       }
 
       if (_copiesClient) {
-        if (_client === AngularFactory.tokens().NG1) {
-          this.generator.template('_bower.json', 'bower.json', {
-            app: _app.app,
-            username: _user.username,
-            userEmail: _user.userEmail,
-            repoHostUrl: _repoHostUrl.repoHostUrl,
-            userNameSpace: _user.userNameSpace
-          });
-        }
-
         if (/^ng/.test(_client)) {
           ClientFactory.create(ClientFactory.tokens().ANGULAR, _client, this.generator).copyClient();
         }
@@ -119,7 +108,7 @@ exports.MainGenerator = class MainGenerator {
       this.generator.installDependencies({
         skipInstall: this.generator.options['skip-install'],
         npm: true,
-        bower: this.generator.client === AngularFactory.tokens().NG1
+        bower: false
       });
   }
 
@@ -359,8 +348,7 @@ exports.MainGenerator = class MainGenerator {
       name: "goWebFrameworkServer",
       message: "Which framework do you want to use in server side?",
       choices: [
-        GoFactory.tokensWebFramework().ECHO,
-        GoFactory.tokensWebFramework().GIN
+        GoFactory.tokensWebFramework().ECHO
       ],
       default: 0,
       when: () => {

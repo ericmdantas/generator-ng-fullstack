@@ -224,7 +224,7 @@ describe('generator', () => {
         {
           skipInstall: false,
           npm: true,
-          bower: true
+          bower: false
         }
       ]
 

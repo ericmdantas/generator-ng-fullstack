@@ -10,21 +10,16 @@ import less from "gulp-less";
 <% } %>
 
 const CSS = [
-  base.DIST + "**/*.css",
-  "!" + base.DIST + "bower_components/**/*.css",
+  base.DIST + "**/*.css"
 ];
 <% if (stylePreprocessor === "less") { %>
 const LESS = [
-  base.DEV + "**/*.less",
-  "!" + base.DEV + "bower_components/**/*.less",
-  "!node_modules/**/*.less",
+  base.DEV + "**/*.less"
 ];
 <% } %>
 <% if (stylePreprocessor === "sass") { %>
 const SASS = [
-  base.DEV + "**/*.{sass,scss}",
-  "!" + base.DEV + "bower_components/**/*.{sass,scss}",
-  "!node_modules/**/*.{sass,scss}",
+  base.DEV + "**/*.{sass,scss}"
 ];
 <% } %>
 

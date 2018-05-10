@@ -24,14 +24,12 @@ describe('ng-fullstack -> client_only', () => {
     let _clientFiles = [
       '.editorconfig',
       '.jshintrc',
-      '.bowerrc',
       '.travis.yml',
       '.gitignore',
       '.editorconfig',
       '.jshintrc',
       '.alivrc',
 
-      'bower.json',
       'package.json',
       'gulpfile.babel.js',
       'karma.conf.js',
@@ -53,7 +51,6 @@ describe('ng-fullstack -> client_only', () => {
       'client/dev/app.constant.js',
 
       'client/dev/todo/services/todo-dao.js',
-      'client/dev/todo/resources/todo-resource.js',
       'client/dev/todo/models/todo-model.js',
       'client/dev/todo/controllers/todo-controller.js',
 
@@ -111,14 +108,12 @@ describe('ng-fullstack -> client_only', () => {
       let _clientFiles = [
         '.editorconfig',
         '.jshintrc',
-        '.bowerrc',
         '.travis.yml',
         '.gitignore',
         '.editorconfig',
         '.jshintrc',
         '.alivrc',
 
-        'bower.json',
         'package.json',
         'gulpfile.babel.js',
         'karma.conf.js',
@@ -140,7 +135,6 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/app.constant.js',
 
         'client/dev/todo/services/todo-dao.js',
-        'client/dev/todo/resources/todo-resource.js',
         'client/dev/todo/models/todo-model.js',
         'client/dev/todo/controllers/todo-controller.js',
 
@@ -199,14 +193,12 @@ describe('ng-fullstack -> client_only', () => {
         let _clientFilesWithoutTodo = [
           '.editorconfig',
           '.jshintrc',
-          '.bowerrc',
           '.travis.yml',
           '.gitignore',
           '.editorconfig',
           '.jshintrc',
           '.alivrc',
 
-          'bower.json',
           'package.json',
           'gulpfile.babel.js',
           'karma.conf.js',
@@ -336,7 +328,6 @@ describe('ng-fullstack -> client_only', () => {
           assert.noFile('server/server.js');
           assert.noFile('tasks/server/index.js');
           assert.noFile('tests/server');
-          assert.noFile('.bower.json');
       });
     })
 
@@ -422,7 +413,6 @@ describe('ng-fullstack -> client_only', () => {
           assert.noFile('server/server.js');
           assert.noFile('tasks/server/index.js');
           assert.noFile('tests/server');
-          assert.noFile('.bower.json');
         });
     });
 
@@ -498,7 +488,6 @@ describe('ng-fullstack -> client_only', () => {
           assert.noFile('server/server.js');
           assert.noFile('tasks/server/index.js');
           assert.noFile('tests/server');
-          assert.noFile('.bower.json');
         });
     });
 
@@ -578,7 +567,6 @@ describe('ng-fullstack -> client_only', () => {
           assert.noFile('server/server.js');
           assert.noFile('tasks/server/index.js');
           assert.noFile('tests/server');
-          assert.noFile('.bower.json');
       });
     })
 
@@ -655,7 +643,6 @@ describe('ng-fullstack -> client_only', () => {
           assert.noFile('server/server.js');
           assert.noFile('tasks/server/index.js');
           assert.noFile('tests/server');
-          assert.noFile('.bower.json');
         });
     });
 
@@ -721,7 +708,6 @@ describe('ng-fullstack -> client_only', () => {
           assert.noFile('server/server.js');
           assert.noFile('tasks/server/index.js');
           assert.noFile('tests/server');
-          assert.noFile('.bower.json');
         });
     });
   });

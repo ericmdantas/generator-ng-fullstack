@@ -117,6 +117,16 @@ class Angular1 {
     });
   }
 
+  copyResource(pathTemplate) {
+    let _pathTemplate = pathTemplate || '';
+
+    this.generator.template(_pathTemplate + 'ng1/resource.js',
+      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/resources/${this.generator.name}.js`, {
+        name: this.generator.name,
+        appName: this.generator.appName
+    });
+  }
+
   copyModel(pathTemplate) {
     let _pathTemplate = pathTemplate || '';
 
@@ -171,20 +181,9 @@ class Angular1 {
     copyStyleForSubGenerator(this.generator, pathTemplate);
   }
 
-  copyResource(pathTemplate) {
-    let _pathTemplate = pathTemplate || '';
-
-    this.generator.template(_pathTemplate + 'ng1/resource.js',
-      `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/resources/${this.generator.name}.js`, {
-        name: this.generator.name,
-        appName: this.generator.appName
-    });
-  }
-
   copyModule() {
       this.copyController('../../controller/templates/');
       this.copyFactory('../../factory/templates/');
-      this.copyResource('../../resource/templates/');
       this.copyService('../../service/templates/');
       this.copyModel('../../model/templates/');
       this.copyStyle('../../style/templates/');
@@ -206,7 +205,6 @@ class Angular1 {
         ['client/ng1/dev/todo/controllers/todo-controller.js', 'client/dev/todo/controllers/todo-controller.js'],
         ['client/ng1/dev/todo/models/todo-model.js', 'client/dev/todo/models/todo-model.js'],
         ['client/ng1/dev/todo/services/todo-dao.js', 'client/dev/todo/services/todo-dao.js'],
-        ['client/ng1/dev/todo/resources/todo-resource.js', 'client/dev/todo/resources/todo-resource.js'],
         ['client/ng1/dev/todo/templates/todo.html', 'client/dev/todo/templates/todo.html']
       );
 

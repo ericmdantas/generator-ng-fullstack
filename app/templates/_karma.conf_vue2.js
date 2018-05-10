@@ -14,10 +14,8 @@ module.exports = (config) => {
 
     // list of files / patterns to load in the browser
     files: [
-        'client/dev/bower_components/jquery/dist/jquery.min.js',
-        'client/dev/bower_components/vue/vue.min.js',
-
-        '!(node_modules)/**/*.js',
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/vue/vue.min.js',
 
         <% if (testsSeparated) { %>
         'tests/client/**/*_test.js',
