@@ -56,25 +56,6 @@ As for tests, run simply run `npm t` - it'll run both unit and acceptance tests.
 | `master` | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master) | [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack) |  
 | `next`    | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=v1.9)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=v1.9) | --- |
 
-
-### Resources
-
-Here are some links to help you understand some of the parts of the stack:
-
-- [Angular 2](https://angular.io/docs/ts/latest/tutorial/)
-- [Aurelia](https://github.com/aurelia/framework)
-- [Vue](https://github.com/vuejs/vue)
-- [TypeScript](http://www.typescriptlang.org/Tutorial)
-- [Babel](https://github.com/babel/babel)
-- [Webpack](https://webpack.github.io/)
-- [Gulp](https://github.com/gulpjs/gulp)
-- [Go](https://tour.golang.org/welcome/1)
-- [Echo](https://github.com/labstack/echo)
-- [Gin](https://github.com/gin-gonic/gin)
-- [MongoDB](https://university.mongodb.com/)
-- [HTTP/2](https://daniel.haxx.se/http2/)
-
-
 ### License
 
 MIT
