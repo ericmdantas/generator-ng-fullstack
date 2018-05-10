@@ -1,8 +1,9 @@
 export const base = {
   ROOT: "./",
+  TEST: "./tests/",
   DEV: "./client/dev/",
   DIST: "./client/dist/",
-  TEST: "./tests/"
+  DIST_CORDOVA: "./client/dist_cordova/www/"
 }
 
 export const tasks = {
