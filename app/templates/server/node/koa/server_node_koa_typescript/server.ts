@@ -2,9 +2,6 @@
 
 "use strict";
 
-if (process.env.NODE_ENV === "production")
-    require("newrelic");
-
 const PORT = process.env.PORT || 3333;
 
 import * as os from "os";
