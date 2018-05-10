@@ -59,8 +59,6 @@
     "chai": "^3.3.0",
     "coveralls": "^2.11.8",
     "eslint": "^3.0.1",
-    "gulp": "^3.9.0",
-    "gulp-rename": "^1.2.2",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "*",
     "mocha-lcov-reporter": "^1.2.0",
