@@ -58,7 +58,7 @@
     "coveralls": "^2.11.8",
     "eslint": "^3.0.1",
     "istanbul": "^1.0.0-alpha.2",
-    "mocha": "*",
+    "mocha": "^5.1.1",
     "mocha-lcov-reporter": "^1.2.0",
     "sinon": "^1.17.1",
     "sinon-chai": "^2.8.0"
