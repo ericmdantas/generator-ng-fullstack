@@ -244,6 +244,7 @@ class Angular1 {
     this.generator.directory('tasks/client/ng1', 'tasks/client');
 
     this.generator.template('tasks/client/ng1/const.js', 'tasks/client/const.js', {
+      cordova: this.generator.cordova,
       stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
     });
 
@@ -263,7 +264,6 @@ class Angular1 {
       testsSeparated: this.generator.testsSeparated
     });
   }
-
 }
 
 class Angular2 {

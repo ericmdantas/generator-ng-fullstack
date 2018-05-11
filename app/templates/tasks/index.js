@@ -1,11 +1,10 @@
+import gulp from "gulp"
+import fwdref from "undertaker-forward-reference"
+
+gulp.registry(fwdref())
 <% if (!serverOnly) {%>
-import gulp from "gulp";
-import {tasks} from "./client/const";
-
-gulp.task("default", [tasks.CLIENT_WATCH]);
-
-require("require-dir")("client");
+require("require-dir")("client")
 <% } %>
 <% if (nodeServer) {%>
-require("require-dir")("server");
+require("require-dir")("server")
 <% } %>

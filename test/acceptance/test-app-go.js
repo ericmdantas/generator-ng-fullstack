@@ -16,7 +16,7 @@ describe('ng-fullstack -> golang', () => {
       'tasks/client/build_js.js',
       'tasks/client/index.js',
       'tasks/client/del.js',
-      'tasks/client/test.js',
+      'tasks/client/unit_test.js',
       'tasks/client/const.js',
       'tasks/client/watch.js'
     ]

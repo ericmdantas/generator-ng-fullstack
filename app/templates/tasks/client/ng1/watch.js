@@ -1,35 +1,14 @@
-import gulp from "gulp";
-import Server from "aliv";
-import {base, tasks} from "./const";
+import gulp from "gulp"
+import {tasks} from "./const"
+import Server from "aliv"
 
-let aliv = new Server({
-  watch: false,
+const aliv = new Server({
   root: process.cwd()
 });
 
-gulp.task(tasks.CLIENT_RELOAD, () => {
-  return aliv.reload();
-});
-
-gulp.task(tasks.CLIENT_WATCH, [<% if (!!stylePreprocessor) { %> tasks.CLIENT_COMPILE_TO_CSS <% }%>], () => {
-  aliv.start();
-
-  let _watchable = [];
-
-  _watchable.push(base.DEV + "**/*.js");
-  _watchable.push(base.DEV + "**/*.css");
-  _watchable.push(base.DEV + "**/*.html");
-  <% if (stylePreprocessor === "less") { %>
-  _watchable.push(base.DEV + "**/*.less");
-  <% } %>
-  <% if (stylePreprocessor === "sass") { %>
-  _watchable.push(base.DEV + "**/*.{sass,scss}");
-  <% } %>
-
-  return gulp.watch(_watchable, [
-    <% if (!!stylePreprocessor) { %>
-    tasks.CLIENT_COMPILE_TO_CSS,
-    <% } %>
-    tasks.CLIENT_RELOAD,
-  ]);
-});
+gulp.task(tasks.CLIENT_WATCH, () => {
+  return new Promise((res, rej) => {
+    aliv.start()
+    return res()
+  })
+})

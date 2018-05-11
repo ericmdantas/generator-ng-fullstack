@@ -4,14 +4,14 @@
   "main": "src/<%= app %>.js",
   "scripts": {
     <% if (clientOnly) { %>
-      "start": "gulp",
-      "dev": "gulp",
-      "watch": "gulp",
+      "start": "gulp client.watch",
+      "dev": "gulp client.watch",
+      "watch": "gulp client.watch",
       "test": "gulp client.unit_test",
       "build-dist": "gulp client.build:dist"
     <%} else {%>
 
-      "watch": "gulp",
+      "watch": "gulp client.watch",
 
       <% if (server === "node") { %>
         "start": "node server/index",
@@ -125,6 +125,7 @@
     "aliv": "^1.10.0",
     "del": "^2.2.1",
   	"gulp": "^4.0.0",
+    "undertaker-forward-reference": "^1.0.2",
     "protractor": "^5.3.1",
     "browser-sync": "^2.5.2",
     "require-dir": "^1.0.0",

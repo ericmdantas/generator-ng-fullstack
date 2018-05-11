@@ -15,7 +15,7 @@ describe('ng-fullstack -> node', () => {
       'tasks/client/build_image.js',
       'tasks/client/index.js',
       'tasks/client/del.js',
-      'tasks/client/test.js',
+      'tasks/client/unit_test.js',
       'tasks/client/watch.js',
       'tasks/client/const.js',
 

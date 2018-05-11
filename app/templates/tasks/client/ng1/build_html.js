@@ -1,18 +1,19 @@
-import gulp from "gulp";
-import htmlmin from "gulp-htmlmin";
-import rev from "gulp-rev-append";
-import {base, tasks} from "./const";
+import gulp from "gulp"
+import htmlmin from "gulp-htmlmin"
+import rev from "gulp-rev-append"
+import {base, tasks} from "./const"
 
 const VIEWS = [
   base.DIST + "**/*.html"
-];
+]
 
-gulp.task(tasks.CLIENT_VIEWS_DIST, () => {
+gulp.task(tasks.CLIENT_VIEWS_DIST, (done) => {
   return gulp.src(VIEWS, {base: base.DIST})
              .pipe(rev())
 			       .pipe(htmlmin({
                collapseWhitespace: true,
                caseSensitive: true
              }))
-             .pipe(gulp.dest(base.DIST));
-});
+             .pipe(gulp.dest(base.DIST))
+             .on('end', () => done());
+})
