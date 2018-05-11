@@ -2,10 +2,10 @@ language: node_js
 sudo: true
 
 node_js:
-  - 9.x
+  - 9
 
 before_install:
-  - npm install -g istanbul mocha
+  - npm install -g istanbul moch"a"
 
 script:
   - npm run test-ci
