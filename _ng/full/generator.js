@@ -203,7 +203,8 @@ exports.MainGenerator = class MainGenerator {
         message: "Do you want to keep tests in a different folder?",
         default: true,
         when: () => {
-          return !((this.generator.server === ServerFactory.tokens().GO) && (this.generator.stack === "server"));
+          return !((this.generator.server === ServerFactory.tokens().GO) && 
+                   (this.generator.stack === "server"));
         }
       }
     ];
@@ -225,7 +226,7 @@ exports.MainGenerator = class MainGenerator {
       {
         type: "list",
         name: "server",
-        message: "What language do you want in the server side?",
+        message: "Which language do you want in the server side?",
         choices: [
           ServerFactory.tokens().NODE,
           ServerFactory.tokens().GO
@@ -442,7 +443,8 @@ exports.MainGenerator = class MainGenerator {
       message: 'Are you using Cordova?',
       default: false,
       when: () => {
-        return (this.generator.stack === "client") && (this.generator.client === "ng1");
+        return (this.generator.stack === "client") && 
+               (this.generator.client === AngularFactory.tokens().NG1);
       }
     }];
 
@@ -480,7 +482,8 @@ exports.MainGenerator = class MainGenerator {
       name: 'webpack',
       message: 'Do you want to use webpack',
       when: () => {
-        return this.generator.stack !== "server";
+        return this.generator.stack !== "server" ||
+               this.generator.client !== AngularFactory.tokens().NG1;
       },
       default: false
     }];
