@@ -1,8 +1,11 @@
 export const base = {
   ROOT: "./",
   DEV: "./client/dev/",
+  <% if (cordova) {%>    
+  DIST: "./client/dist_cordova/www/",
+  <% } else {%>
   DIST: "./client/dist/",
-  DIST_CORDOVA: "./client/dist_cordova/www/"
+  <% } %>
 }
 
 export const tasks = {
