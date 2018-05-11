@@ -119,7 +119,9 @@
 	   "babel-register": "^6.26.0",
      "babel-regenerator-runtime": "^6.5.0",
      "babel-cli": "^6.26.0",
-     "babel-preset-env": "^1.7.0"
+     "babel-minify": "^0.4.1",
+     "babel-preset-env": "^1.7.0",
+     "babel-preset-minify": "^0.4.1"
   },
   "devDependencies": {
     "aliv": "^1.10.0",
@@ -129,7 +131,6 @@
     "protractor": "^5.3.1",
     "browser-sync": "^2.5.2",
     "require-dir": "^1.0.0",
-    "babili": "0.0.6",
 
     <% if (client === "ng1") { %>
       "angular-mocks": "^1.6.10",

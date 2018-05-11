@@ -9,7 +9,7 @@ gulp.task(tasks.CLIENT_BUILD_JS_DIST, () => {
              .pipe(babel({
                presets: [
                  "env",
-                 "babili"
+                 "minify"
                ]
              }))
              .pipe(gulp.dest(base.DIST));

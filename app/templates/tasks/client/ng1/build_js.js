@@ -8,12 +8,7 @@ const JS = [
 
 gulp.task(tasks.CLIENT_BUILD_JS_DIST, (done) => {
   return gulp.src(JS, {base: base.DIST})
-             .pipe(babel({
-               presets: [
-                 "env",
-                 "babili"
-               ]
-             }))
+             .pipe(babel())
              .pipe(gulp.dest(base.DIST))
              .on('end', () => done());
 })
