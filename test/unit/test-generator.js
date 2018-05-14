@@ -485,7 +485,7 @@ describe('generator', () => {
       expect(_g.generator.config.save).to.have.been.called;
     })
 
-    it('should have the right calls - webpack is false', () => {
+    it('should have the right calls - clientBundler is undefined', () => {
       let _gen = {
         appName: 'a',
         username: 'b',
@@ -496,7 +496,6 @@ describe('generator', () => {
         repoHost: "github",
         repoHostUrl: "github.com",
         userNameSpace: "d",
-        webpack: false,
         boilerplate: false,
         async: () => {},
         prompt: () => {},
@@ -507,13 +506,13 @@ describe('generator', () => {
 
       let _g = new MainGenerator(_gen);
 
-      _g.promptWebpack();
+      _g.promptClientBundler();
 
       expect(_g.generator.prompt).to.have.been.called;
       expect(_g.generator.config.save).to.have.been.called;
     })
 
-    it('should have the right calls - webpack is true', () => {
+    it('should have the right calls - clientBundler is webpack', () => {
       let _gen = {
         appName: 'a',
         username: 'b',
@@ -524,7 +523,35 @@ describe('generator', () => {
         repoHost: "github",
         repoHostUrl: "github.com",
         userNameSpace: "d",
-        webpack: true,
+        clientBundler: "webpack",
+        boilerplate: false,
+        async: () => {},
+        prompt: () => {},
+        config: {
+          save: () => {}
+        }
+      }
+
+      let _g = new MainGenerator(_gen);
+
+      _g.promptClientBundler();
+
+      expect(_g.generator.prompt).to.have.been.called;
+      expect(_g.generator.config.save).to.have.been.called;
+    })
+
+    it('should have the right calls - clientBundler is parcel', () => {
+      let _gen = {
+        appName: 'a',
+        username: 'b',
+        server: 'node',
+        client: 'ng2',
+        transpilerServer: 'typescript',
+        userEmail: "c",
+        repoHost: "github",
+        repoHostUrl: "github.com",
+        userNameSpace: "d",
+        clientBundler: "parcel",
         boilerplate: true,
         async: () => {},
         prompt: () => {},
@@ -535,7 +562,7 @@ describe('generator', () => {
 
       let _g = new MainGenerator(_gen);
 
-      _g.promptWebpack();
+      _g.promptClientBundler();
 
       expect(_g.generator.prompt).to.have.been.called;
       expect(_g.generator.config.save).to.have.been.called;

@@ -37,7 +37,7 @@ exports.MainGenerator = class MainGenerator {
       let _secure = this.generator.secure;
       let _usesTypescript = (_transpilerServer === "typescript") || (_client === "ng2");
       let _stylePreprocessor = this.generator.stylePreprocessor;
-      let _webpack = this.generator.webpack;
+      let _clientBundler = this.generator.clientBundler;
 
       this.generator.template('_README.md', 'README.md', {
         app: _app.app,
@@ -60,7 +60,7 @@ exports.MainGenerator = class MainGenerator {
         testsSeparated: _testsSeparated,
         stylePreprocessor: _stylePreprocessor,
         server: _server,
-        webpack: _webpack
+        clientBundler: _clientBundler
       });
 
       this.generator.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
@@ -275,8 +275,8 @@ exports.MainGenerator = class MainGenerator {
     ];
 
     this.generator.prompt(prompts, (props) => {
-      this.generator.client = props.client;
-      this.generator.config.set('client', this.generator.client ? this.generator.client.toLowerCase() : '');
+      this.generator.client = props.client ? props.client.toLowerCase() : '';
+      this.generator.config.set('client', this.generator.client);
 
       done();
     });
@@ -474,23 +474,27 @@ exports.MainGenerator = class MainGenerator {
     });
   }
 
-  promptWebpack() {
+  promptClientBundler() {
     const done = this.generator.async();
 
     let _prompts = [{
-      type: 'confirm',
-      name: 'webpack',
-      message: 'Do you want to use webpack',
+      type: 'list',
+      name: 'clientBundler',
+      message: 'Which client bundler do you want do use?',
+      choices: [
+        "webpack",
+        "parcel"
+      ],
       when: () => {
         return this.generator.stack !== "server" ||
                this.generator.client !== AngularFactory.tokens().NG1;
       },
-      default: false
+      default: 0
     }];
 
     this.generator.prompt(_prompts, (props) => {
-      this.generator.webpack = props.webpack;
-      this.generator.config.set('webpack', this.generator.webpack);
+      this.generator.clientBundler = props.clientBundler;
+      this.generator.config.set('clientBundler', this.generator.clientBundler);
 
       done();
     });

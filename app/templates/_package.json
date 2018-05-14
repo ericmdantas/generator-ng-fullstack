@@ -161,7 +161,7 @@
       "gulp-sass": "^2.3.2",
     <% } %>
 
-    <% if (webpack) { %>
+    <% if (clientBundler === "webpack") { %>
       "babel-loader": "^6.3.2",
       "css-loader": "^0.26.1",
       "file-loader": "^0.10.0",
