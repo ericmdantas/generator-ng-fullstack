@@ -486,7 +486,7 @@ exports.MainGenerator = class MainGenerator {
         "parcel"
       ],
       when: () => {
-        return this.generator.stack !== "server" ||
+        return this.generator.stack !== "server" &&
                this.generator.client !== AngularFactory.tokens().NG1;
       },
       default: 0

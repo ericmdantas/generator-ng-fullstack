@@ -48,11 +48,11 @@
       <% if (testsSeparated) { %>
         "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
         "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register",
-        "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+        "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
       <% } else { %>
         "test-server": "mocha 'server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
         "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register",
-        "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+        "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
       <% } %>
   <% } %>
   "watch": "gulp client.watch"
