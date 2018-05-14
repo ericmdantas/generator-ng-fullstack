@@ -15,9 +15,9 @@
           "test": "gulp client.unit_test",
           "build-dev": "webpack --config webpack.config.dev.js",
           "build-dist": "gulp client.build:dist",
-          "start-client": "webpack-dev-server --content-base client/dev/",
-          "start-client-dist": "webpack-dev-server --content-base client/dist/",
-          "dev": "webpack-dev-server",
+          "start-client": "webpack-dev-server --config webpack.config.dev.js --content-base client/dev/",
+          "start-client-dist": "webpack-dev-server --config webpack.config.dev.js --content-base client/dist/",
+          "dev": "webpack-dev-server --config webpack.config.dev.js --content-base client/dev/",
         <% } else {%>
            "test": "gulp client.unit_test",
            "build-dev": "parcel",
@@ -117,6 +117,7 @@
 	   "babel-register": "^6.26.0",
      "babel-regenerator-runtime": "^6.5.0",
      "babel-cli": "^6.26.0",
+     "babel-core": "^6.26.0",
      "babel-minify": "^0.4.1",
      "babel-preset-env": "^1.7.0",
      "babel-preset-minify": "^0.4.1"

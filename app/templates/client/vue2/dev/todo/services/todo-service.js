@@ -1,17 +1,13 @@
-class TodoService {
-  constructor() {
-    
-  }  
-
-  getAll() {
-    return Promise.resolve([]);
+export default {
+  return {
+    getAll() {
+      return Promise.resolve([]);
+    },
+    add(todo) {
+      return Promise.resolve(todo);
+    },
+    remove(id) {
+      return Promise.resolve(id);
+    } 
   }
-
-  add(todo) {
-    return Promise.resolve(todo);
-  }
-
-  remove(id) {
-    return Promise.resolve(id);
-  } 
 }
