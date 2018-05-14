@@ -26,6 +26,8 @@ export const tasks = {
 
   CLIENT_BUILD_DIST: "client.build:dist",
 
+  CLIENT_REVISION: "client.revision",
+
   <% if (stylePreprocessor === "sass") { %>
   CLIENT_COMPILE_TO_CSS: "client.compile_from_sass_to_css:dev"
   <% } %>

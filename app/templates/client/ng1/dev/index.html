@@ -11,9 +11,13 @@
     <title>ng1 2do</title>
     <link rel="shortcut icon" type="image/ico" href="./favicon.png"/>
 
-    <link type="text/css" rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css?rev=@@hash"/>
+    <!-- build:libCss(./) lib_css_bundle.css -->
+    <link type="text/css" rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css"/>
+    <!-- endbuild -->
 
-    <link type="text/css" rel="stylesheet" href="./todo/styles/todo.css?rev=@@hash"/>
+    <!-- build:appCss app_css_bundle.css -->
+    <link type="text/css" rel="stylesheet" href="./todo/styles/todo.css"/>
+    <!-- endbuild -->
   </head>
 
   <body>
@@ -40,20 +44,24 @@
     </script>
 
     <% if (!!cordova) { %>
-    <script type="text/javascript" src="./cordova.js?rev=@@hash"></script>
+    <script type="text/javascript" src="./cordova.js"></script>
     <% } %>
 
-    <script type="text/javascript" src="./node_modules/jquery/dist/jquery.js?rev=@@hash"></script>
-    <script type="text/javascript" src="./node_modules/angular/angular.js?rev=@@hash"></script>
-    <script type="text/javascript" src="./node_modules/angular-route/angular-route.js?rev=@@hash"></script>
+    <!-- build:libJs(./)  lib_scripts_bundle.js -->
+    <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./node_modules/angular-route/angular-route.min.js"></script>
+    <!-- endbuild -->
 
-    <script type="text/javascript" src="./app.js?rev=@@hash"></script>
-    <script type="text/javascript" src="./app.config.js?rev=@@hash"></script>
-    <script type="text/javascript" src="./app.route.js?rev=@@hash"></script>
-    <script type="text/javascript" src="./app.constant.js?rev=@@hash"></script>
+    <!-- build:appJs app_scripts_bundle.js -->
+    <script type="text/javascript" src="./app.js"></script>
+    <script type="text/javascript" src="./app.config.js"></script>
+    <script type="text/javascript" src="./app.route.js"></script>
+    <script type="text/javascript" src="./app.constant.js"></script>
 
-    <script type="text/javascript" src="./todo/models/todo-model.js?rev=@@hash"></script>
-    <script type="text/javascript" src="./todo/services/todo-dao.js?rev=@@hash"></script>
-    <script type="text/javascript" src="./todo/controllers/todo-controller.js?rev=@@hash"></script>
+    <script type="text/javascript" src="./todo/models/todo-model.js"></script>
+    <script type="text/javascript" src="./todo/services/todo-dao.js"></script>
+    <script type="text/javascript" src="./todo/controllers/todo-controller.js"></script>
+    <!-- endbuild -->
   </body>
 </html>

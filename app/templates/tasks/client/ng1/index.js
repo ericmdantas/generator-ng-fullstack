@@ -10,6 +10,7 @@ gulp.task(tasks.CLIENT_BUILD_DIST, gulp.series(
       tasks.CLIENT_IMAGE_DIST,
       tasks.CLIENT_BUILD_JS_DIST,
       tasks.CLIENT_BUILD_CSS_DIST
-    )
+    ),
+    tasks.CLIENT_REVISION
   )
 )
