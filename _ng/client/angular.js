@@ -446,6 +446,7 @@ class Angular2 {
     this.generator.directory('tasks/client/ng2', 'tasks/client');
 
     this.generator.template('webpack.config.dev_ng2.js', 'webpack.config.dev.js');
+    this.generator.template('webpack.config.prod_ng2.js', 'webpack.config.prod.js');
 
     this.generator.template('tasks/client/ng2/const.js', 'tasks/client/const.js', {
       stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
