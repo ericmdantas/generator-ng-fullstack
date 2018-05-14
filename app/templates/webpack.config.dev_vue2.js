@@ -9,6 +9,12 @@ module.exports = {
     path: __dirname + 'client/dev',
     filename: 'bundle.js'
   },
+  extensions: [
+    ".ts", 
+    ".tsx", 
+    ".js",
+    ".json",
+  ],
   devServer: {
     hot: true
   },
@@ -21,6 +27,10 @@ module.exports = {
       {
         test: /\.js$/,
         use: 'babel-loader'
+      },
+      {
+        test: /\.ts$/,
+        use: 'ts-loader'
       },
       {
         test: /\.css$/,
