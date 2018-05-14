@@ -131,6 +131,8 @@
     "require-dir": "^1.0.0",
     <% if (client === "ng1") { %>
       "angular-mocks": "^1.6.10",
+      "gulp-angular-embed-templates": "^2.3.0",
+      "gulp-nginclude": "^0.4.8",
     <% } %>
     "gulp-babel": "^7.0.1",
     "gulp-concat": "^2.4.3",
@@ -138,8 +140,6 @@
     "gulp-typescript": "~4.0.2",
     "gulp-clean-css": "^2.0.3",
     "gulp-rename": "^1.2.0",
-    "gulp-angular-embed-templates": "^2.3.0",
-    "gulp-nginclude": "^0.4.8",
     "gulp-uglify": "^3.0.0",
     "gulp-rev": "^7.1.2",
     "gulp-usemin": "^0.3.24",
