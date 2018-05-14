@@ -6,31 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <link rel="shortcut icon" type="image/ico" href="favicon.png" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="./todo/styles/todo.css" />
 
     <title>vue2do</title>
   </head>
   <body>
-    <main id="app">
-      <todo-cmp></todo-cmp>
-    </main>
+    <main id="app"></main>
 
-    <% if (stack !== "client") { %>
-    <script src="./vue/dist/vue.js?rev=@@hash"></script>
-    <script src="./vue-router/dist/vue-router.min.js?rev=@@hash"></script>
-    <script src="./vue-resource/dist/vue-resource.min.js?rev=@@hash"></script>
-
-    <script src="./todo/services/todo-service.js?rev=@@hash"></script>
-    <script src="./todo/components/todo-cmp.js?rev=@@hash"></script>
-    <script src="./index.js"></script>
-    <% } else { %>
-    <script src="node_modules/vue/dist/vue.js?rev=@@hash"></script>
-    <script src="node_modules/vue-router/dist/vue-router.min.js?rev=@@hash"></script>
-    <script src="node_modules/vue-resource/dist/vue-resource.min.js?rev=@@hash"></script>
-
-    <script src="client/dev/todo/services/todo-service.js?rev=@@hash"></script>
-    <script src="client/dev/todo/components/todo-cmp.js?rev=@@hash"></script>
-    <script src="client/dev/index.js"></script>
-    <% } %>
+    <script type="text/javascript" src="bundle.js"></script>
   </body>
 </html>
