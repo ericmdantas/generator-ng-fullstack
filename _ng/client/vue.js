@@ -160,7 +160,7 @@ class Vue2 {
   _copyTasks() {
     this.generator.directory('tasks/client/vue2', 'tasks/client');
 
-    this.generator.template('webpack.config_vue2.js', 'webpack.config.js');
+    this.generator.template('webpack.config.dev_vue2.js', 'webpack.config.dev.js');
 
     this.generator.template('tasks/client/vue2/const.js', 'tasks/client/const.js', {
       stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)

@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "main": "src/<%= app %>.js",
   "scripts": {
-    "watch": "gulp client.watch",
     <% if (clientOnly) { %>
       <% if (!clientBundler) { %>      
         "test": "gulp client.unit_test",
@@ -14,7 +13,7 @@
       <% } else {%>
         <% if (clientBundler === "webpack") { %>
           "test": "gulp client.unit_test",
-          "build-dev": "webpack --config webpack.config.js",
+          "build-dev": "webpack --config webpack.config.dev.js",
           "build-dist": "gulp client.build:dist",
           "start-client": "webpack-dev-server --content-base client/dev/",
           "start-client-dist": "webpack-dev-server --content-base client/dist/",
@@ -56,6 +55,7 @@
         "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
       <% } %>
   <% } %>
+  "watch": "gulp client.watch"
   },
   "dependencies": {
     <% if (usesTypescript) {%>

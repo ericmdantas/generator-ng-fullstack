@@ -276,6 +276,7 @@ describe('ng-fullstack -> client_only', () => {
         'package.json',
         'karma-test-shim.js',
         'gulpfile.babel.js',
+        'webpack.config.dev.js',
         'karma.conf.js',
         'protractor.conf.js',
         
@@ -361,6 +362,7 @@ describe('ng-fullstack -> client_only', () => {
         'package.json',
         'karma-test-shim.js',
         'gulpfile.babel.js',
+        'webpack.config.dev.js',
         'karma.conf.js',
         'protractor.conf.js',
         
@@ -446,6 +448,7 @@ describe('ng-fullstack -> client_only', () => {
         'package.json',
         'karma-test-shim.js',
         'gulpfile.babel.js',
+        'webpack.config.dev.js',
         'karma.conf.js',
         'protractor.conf.js',
         
@@ -522,7 +525,7 @@ describe('ng-fullstack -> client_only', () => {
 
         'package.json',
         'gulpfile.babel.js',
-        'webpack.config.js',
+        'webpack.config.dev.js',
         'karma.conf.js',
         'protractor.conf.js',
         
