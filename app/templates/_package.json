@@ -4,18 +4,17 @@
   "main": "src/<%= app %>.js",
   "scripts": {
     "watch": "gulp client.watch",
-
     <% if (clientOnly) { %>
       "start": "gulp client.watch",
       "dev": "gulp client.watch",
       "test": "gulp client.unit_test",
       "build-dist": "gulp client.build:dist"
     <%} else {%>
-
-
+      "build-dev": "gulp client.build:dev",
+      "test-client": "gulp client.unit_test",
       <% if (server === "node") { %>
-        "start": "node server/index",
-
+        "start-client": "gulp client.watch",
+        "start-server": "node server/index",
         <% if (usesTypescript) { %>
           "dev": "tsc && concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
         <% } else { %>
@@ -25,17 +24,12 @@
 
       <% if (server === "go") { %>
         "start": "go run server/main.go",
-
         <% if (usesTypescript) { %>
           "dev": "tsc && concurrently \" npm start \" \"gulp\"",
         <% } else { %>
           "dev": "concurrently \"npm start\" \"gulp\"",
         <% } %>
       <% } %>
-
-      "build-dev": "gulp client.build:dev",
-      "test-client": "gulp client.unit_test",
-
       <% if (testsSeparated) { %>
         "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
         "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register",
@@ -45,7 +39,6 @@
         "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register",
         "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
       <% } %>
-
   <% } %>
   },
   "dependencies": {
@@ -56,11 +49,9 @@
     <% if (!clientOnly) { %>
       "lodash": "^4.6.1",
       "bluebird": "^3.3.4",
-
       <% if (nodeWebFrameworkServer === "express") { %>
         "body-parser": "^1.5.0",
         "express": "~4.14.0",
-        "express-content-length-validator": "1.0.0",
         "morgan": "^1.5.2",
         "compression": "^1.6.2",
         "helmet": "^2.1.1",
@@ -69,14 +60,12 @@
       "nodemon": "^1.9.2",
       "mongoose": "^4.4.7",
     <% } %>
-
     <% if (client === "ng1") { %>
       "angular": "^1.6.10",
       "angular-route": "^1.6.10",
       "font-awesome": "^4.7.0",
       "jquery": "^3.3.1",
     <% } %>      
-
     <% if (client === "ng2") { %>
       "@angular/common": "^6.0.0",
       "@angular/compiler": "^6.0.0",
@@ -92,7 +81,6 @@
        "rxjs": "^6.1.0",
        "systemjs": "^0.19.24"
      <% } %>
-
      <% if (client === "vue2") { %>
        "vue": "^2.5.10",
        "vue-resource": "^1.5.0",
@@ -101,18 +89,15 @@
        "vue-template-compiler": "^2.5.16",
        "vue-style-loader": "^4.1.0",
      <% } %>
-
      <% if (nodeWebFrameworkServer === "koa") { %>
        "koa": "^2.5.1",
        "koa-bodyparser": "^4.2.0",
        "koa-router": "^7.4.0",
        "koa-static": "^4.0.2",
      <% } %>
-
      <% if (secure) { %>
        "spdy": "^3.4.4",
      <% } %>
-
 	   "babel-register": "^6.26.0",
      "babel-regenerator-runtime": "^6.5.0",
      "babel-cli": "^6.26.0",
@@ -126,15 +111,10 @@
   	"gulp": "^4.0.0",
     "undertaker-forward-reference": "^1.0.2",
     "protractor": "^5.3.1",
-    "browser-sync": "^2.5.2",
     "require-dir": "^1.0.0",
-
     <% if (client === "ng1") { %>
       "angular-mocks": "^1.6.10",
     <% } %>
-      
-
-
     "gulp-babel": "^7.0.1",
     "gulp-concat": "^2.4.3",
     "gulp-coveralls": "^0.1.3",
@@ -149,15 +129,12 @@
     "gulp-htmlmin": "^2.0.0",
     "gulp-imagemin": "^3.0.1",
     "gulp-util": "^3.0.3",
-
     <% if (stylePreprocessor === "less") { %>
       "gulp-less": "^3.1.0",
     <% } %>
-
     <% if (stylePreprocessor === "sass") { %>
       "gulp-sass": "^2.3.2",
     <% } %>
-
     <% if (clientBundler === "webpack") { %>
       "babel-loader": "^6.3.2",
       "css-loader": "^0.26.1",
@@ -167,7 +144,6 @@
       "webpack-cli": "^2.1.3",
       "webpack-dev-server": "^3.1.4",
     <% } %>
-
     "jasmine-core": "^2.2.0",
     "karma": "^1.3.0",
     "karma-jasmine": "^1.0.2",
@@ -197,6 +173,6 @@
   },
   "homepage": "https://<%= repoHostUrl %>/<%= userNameSpace %>/<%= app %>",
   "engines": {
-    "node": "stable"
+    "node": ">=9.0.0"
   }
 }
