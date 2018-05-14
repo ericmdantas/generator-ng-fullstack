@@ -1,48 +1,48 @@
 "use strict";
 
-import TodoDAO from "../dao/todo-dao";
+const TodoDAO = require("../dao/todo-dao");
 
 export default class TodoController {
-  async getAll() {
+  async getAll(ctx, next) {
       try {
         let _todos = await TodoDAO.getAll();
-        this.status = 200;
-        this.body = _todos;
+        ctx.status = 200;
+        ctx.body = _todos;
       } catch(e) {
-        this.status = 400;
+        ctx.status = 400;
       }
   }
 
-  async getById() {
+  async getById(ctx, next) {
       try {
-        let _todo = await TodoDAO.getById(this.param.id);
-        this.status = 200;
-        this.body = _todo;
+        let _todo = await TodoDAO.getById(ctx.param.id);
+        ctx.status = 200;
+        ctx.body = _todo;
       } catch(e) {
-        this.status = 400;
+        ctx.status = 400;
       }
   }
 
-  async createTodo() {
-      let _todo = this.request.body;
+  async createTodo(ctx, next) {
+      let _todo = ctx.request.body;
 
       try {
         let _newTodo = await TodoDAO.createTodo(_todo);
-        this.body = _newTodo;
-        this.status = 201;
+        ctx.body = _newTodo;
+        ctx.status = 201;
       } catch(e) {
-        this.status = 400;
+        ctx.status = 400;
       }
   }
 
-  async deleteTodo() {
-    let _id = this.params.id;
+  async deleteTodo(ctx) {
+    let _id = ctx.params.id;
 
     try {
       await TodoDAO.deleteTodo(_id);
-      this.status = 200;
+      ctx.status = 200;
     } catch(e) {
-      this.status = 400;
+      ctx.status = 400;
     }
   }
 }

@@ -110,6 +110,7 @@
        "koa-bodyparser": "^4.2.0",
        "koa-router": "^7.4.0",
        "koa-static": "^4.0.2",
+       "koa-send": "^4.1.3",
      <% } %>
      <% if (secure) { %>
        "spdy": "^3.4.4",
