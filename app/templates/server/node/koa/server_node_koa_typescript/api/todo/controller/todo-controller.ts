@@ -35,7 +35,7 @@ export default class TodoController {
       }
   }
 
-  async deleteTodo(ctx) {
+  async deleteTodo(ctx, next) {
     let _id = ctx.params.id;
 
     try {
