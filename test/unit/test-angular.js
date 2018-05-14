@@ -821,19 +821,6 @@ describe('angular', () => {
           'tsconfig.json'
         ];
 
-        let _eightCall = [
-          'tasks/client/ng2/watch.js',
-          'tasks/client/watch.js', {
-            secure: false,
-            stylePreprocessor: undefined
-          }
-        ];
-
-        let _ninethCall = [
-          '_ng2_systemjs_config_serving_node_modules.js',
-          'client/dev/config.js'
-        ];
-
         expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
@@ -843,8 +830,6 @@ describe('angular', () => {
 
         expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
         expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1], _eightCall[2])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1])).to.be.true;
       });
 
       it('should call the methods with the right params - secure is false - testsSeparated is false', () => {
@@ -905,19 +890,6 @@ describe('angular', () => {
           'tsconfig.json'
         ];
 
-        let _ninethCall = [
-          'tasks/client/ng2/watch.js',
-          'tasks/client/watch.js', {
-            secure: false,
-            stylePreprocessor: undefined
-          }
-        ];
-
-        let _tenthCall = [
-          '_ng2_systemjs_config_serving_node_modules.js',
-          'client/dev/config.js'
-        ];
-
         expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
 
@@ -927,8 +899,6 @@ describe('angular', () => {
         expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
         expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
         expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_tenthCall[0], _tenthCall[1])).to.be.true;
       });
 
       it('should call the methods with the right params - secure is true - testsSeparated is true', () => {
@@ -984,19 +954,6 @@ describe('angular', () => {
           'tsconfig.json'
         ];
 
-        let _eightCall = [
-          'tasks/client/ng2/watch.js',
-          'tasks/client/watch.js', {
-            secure: true,
-            stylePreprocessor: undefined
-          }
-        ];
-
-        let _ninethCall = [
-          '_ng2_systemjs_config_serving_node_modules.js',
-          'client/dev/config.js'
-        ];
-
         expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
@@ -1006,8 +963,6 @@ describe('angular', () => {
 
         expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
         expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1], _eightCall[2])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1])).to.be.true;
       });
 
       it('should call the methods with the right params - secure is true - testsSeparated is false', () => {
@@ -1068,19 +1023,6 @@ describe('angular', () => {
           'tsconfig.json'
         ];
 
-        let _ninethCall = [
-          'tasks/client/ng2/watch.js',
-          'tasks/client/watch.js', {
-            secure: true,
-            stylePreprocessor: undefined
-          }
-        ];
-
-        let _tenthCall = [
-          '_ng2_systemjs_config_serving_node_modules.js',
-          'client/dev/config.js'
-        ];
-
         expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
 
@@ -1090,8 +1032,6 @@ describe('angular', () => {
         expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
         expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
         expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_tenthCall[0], _tenthCall[1])).to.be.true;
       });
 
       it('should call the methods with the right params - secure is true, testsSeparated is true, stack is client only', () => {
@@ -1148,19 +1088,6 @@ describe('angular', () => {
           'tsconfig.json'
         ];
 
-        let _eightCall = [
-          'tasks/client/ng2/watch.js',
-          'tasks/client/watch.js', {
-            secure: true,
-            stylePreprocessor: undefined
-          }
-        ];
-
-        let _ninethCall = [
-          '_ng2_systemjs_config_serving_from_root.js',
-          'client/dev/config.js'
-        ];
-
         expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
@@ -1170,8 +1097,6 @@ describe('angular', () => {
 
         expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
         expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1], _eightCall[2])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1])).to.be.true;
       });
 
       it('should call the methods with the right params - secure is true, testsSeparated is false, stack is client only', () => {
@@ -1233,19 +1158,6 @@ describe('angular', () => {
           'tsconfig.json'
         ];
 
-        let _ninethCall = [
-          'tasks/client/ng2/watch.js',
-          'tasks/client/watch.js', {
-            secure: true,
-            stylePreprocessor: undefined
-          }
-        ];
-
-        let _tenthCall = [
-          '_ng2_systemjs_config_serving_from_root.js',
-          'client/dev/config.js'
-        ];
-
         expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_fourthCall[0], _fourthCall[1])).to.be.true;
 
@@ -1255,8 +1167,6 @@ describe('angular', () => {
         expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
         expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
         expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1], _ninethCall[2])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_tenthCall[0], _tenthCall[1])).to.be.true;
       });
 
       it('should call the methods with the right params - secure is true, stack is fullstack - same server for api and static', () => {
@@ -1314,19 +1224,6 @@ describe('angular', () => {
           'tsconfig.json'
         ];
 
-        let _eightCall = [
-          'tasks/client/ng2/watch.js',
-          'tasks/client/watch.js', {
-            secure: true,
-            stylePreprocessor: undefined
-          }
-        ];
-
-        let _ninethCall = [
-          '_ng2_systemjs_config_serving_node_modules.js',
-          'client/dev/config.js'
-        ];
-
         expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
@@ -1336,8 +1233,6 @@ describe('angular', () => {
 
         expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
         expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1], _eightCall[2])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1])).to.be.true;
       });
 
       it('should call the methods with the right params - secure is true, stack is fullstack - same server for api and static and stylePreprocessor is less', () => {
@@ -1396,19 +1291,6 @@ describe('angular', () => {
           'tsconfig.json'
         ];
 
-        let _eightCall = [
-          'tasks/client/ng2/watch.js',
-          'tasks/client/watch.js', {
-            secure: true,
-            stylePreprocessor: 'less'
-          }
-        ];
-
-        let _ninethCall = [
-          '_ng2_systemjs_config_serving_node_modules.js',
-          'client/dev/config.js'
-        ];
-
         expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
@@ -1418,8 +1300,6 @@ describe('angular', () => {
 
         expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
         expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1], _eightCall[2])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1])).to.be.true;
       });
 
       it('should call the methods with the right params - secure is true, stack is fullstack - same server for api and static and stylePreprocessor is sass', () => {
@@ -1478,19 +1358,6 @@ describe('angular', () => {
           'tsconfig.json'
         ];
 
-        let _eightCall = [
-          'tasks/client/ng2/watch.js',
-          'tasks/client/watch.js', {
-            secure: true,
-            stylePreprocessor: 'sass'
-          }
-        ];
-
-        let _ninethCall = [
-          '_ng2_systemjs_config_serving_node_modules.js',
-          'client/dev/config.js'
-        ];
-
         expect(_ng2.generator.directory.calledWith(_firstCall[0], _firstCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
         expect(_ng2.generator.directory.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
@@ -1500,8 +1367,6 @@ describe('angular', () => {
 
         expect(_ng2.generator.template.calledWith(_sixthCall[0], _sixthCall[1])).to.be.true;
         expect(_ng2.generator.template.calledWith(_seventhCall[0], _seventhCall[1])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_eightCall[0], _eightCall[1], _eightCall[2])).to.be.true;
-        expect(_ng2.generator.template.calledWith(_ninethCall[0], _ninethCall[1])).to.be.true;
       });
     });
 

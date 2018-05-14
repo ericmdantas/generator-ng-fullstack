@@ -522,6 +522,7 @@ describe('ng-fullstack -> client_only', () => {
 
         'package.json',
         'gulpfile.babel.js',
+        'webpack.config.js',
         'karma.conf.js',
         'protractor.conf.js',
         
@@ -534,7 +535,7 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/index.js',
 
         'client/dev/todo/styles/todo.css',
-        'client/dev/todo/components/todo-cmp.js',
+        'client/dev/todo/components/todo-cmp.vue',
         'client/dev/todo/services/todo-service.js',
 
         // tests - client
@@ -610,7 +611,7 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/index.js',
 
         'client/dev/todo/styles/todo.css',
-        'client/dev/todo/components/todo-cmp.js',
+        'client/dev/todo/components/todo-cmp.vue',
         'client/dev/todo/services/todo-service.js',
 
         // tests - client
@@ -707,7 +708,7 @@ describe('ng-fullstack -> client_only', () => {
         it('should only copy client side files', () => {
           assert.file(_clientFilesWithoutTodo);
           assert.file(_taskFilesClient);
-          assert.noFile('client/dev/components/todo-cmp.js');
+          assert.noFile('client/dev/components/todo-cmp.vue');
           assert.noFile('server/server.js');
           assert.noFile('tasks/server/index.js');
           assert.noFile('tests/server');

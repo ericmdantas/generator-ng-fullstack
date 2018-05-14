@@ -445,16 +445,9 @@ class Angular2 {
   _copyTasks() {
     this.generator.directory('tasks/client/ng2', 'tasks/client');
 
+    this.generator.template('webpack.config_ng2.js', 'webpack.config.js');
+
     this.generator.template('tasks/client/ng2/const.js', 'tasks/client/const.js', {
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    this.generator.template('tasks/client/ng2/build_css.js', 'tasks/client/build_css.js', {
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    this.generator.template('tasks/client/ng2/watch.js', 'tasks/client/watch.js', {
-      secure: !!this.generator.secure,
       stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
     });
   }

@@ -160,19 +160,11 @@ class Vue2 {
   _copyTasks() {
     this.generator.directory('tasks/client/vue2', 'tasks/client');
 
+    this.generator.template('webpack.config_vue2.js', 'webpack.config.js');
+
     this.generator.template('tasks/client/vue2/const.js', 'tasks/client/const.js', {
       stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
     });
-
-    this.generator.template('tasks/client/vue2/build_css.js', 'tasks/client/build_css.js', {
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
-    this.generator.template('tasks/client/vue2/watch.js', 'tasks/client/watch.js', {
-      secure: !!this.generator.secure,
-      stylePreprocessor: normalizeStylePreprocessor(this.generator.stylePreprocessor)
-    });
-
   }
 
   _copyConfigTests() {

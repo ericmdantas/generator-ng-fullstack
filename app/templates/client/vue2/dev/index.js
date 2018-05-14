@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import Todo from './todo/components/todo.vue'
+import TodoCmp from './todo/components/todo-cmp.vue'
 
 new Vue({
   el: '#app',
-  render: h => h(Todo)
+  render: h => h(TodoCmp)
 })
