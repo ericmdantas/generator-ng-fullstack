@@ -66,7 +66,7 @@ exports.MainGenerator = class MainGenerator {
       this.generator.template('_gulpfile.babel.js', 'gulpfile.babel.js', _app);
       this.generator.template('_procfile.txt', 'procfile.txt', _app);
       this.generator.template('_.travis.yml', '.travis.yml', {
-        typescript: _usesTypescript
+        usesTypescript: _usesTypescript
       });
       this.generator.template('_.gitignore', '.gitignore');
       this.generator.template('_.editorconfig', '.editorconfig');
