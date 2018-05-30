@@ -27,7 +27,6 @@
 
 <script>
   import "../styles/todo.css"
-  import todoService from "../services/todo-service"
 
   export default {
     data() {
@@ -41,9 +40,6 @@
         }
       }
     },
-    template: `
-      
-    `,
     mounted() {
       this.getAll();
     },
