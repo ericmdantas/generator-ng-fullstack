@@ -13,7 +13,7 @@
       <% } else {%>
         <% if (clientBundler === "webpack") { %>
           "test": "gulp client.unit_test",
-          "build-dev": "webpack --config webpack.config.dev.js",
+          "build-dev": "webpack --config webpack.config.dev.js -p",
           "build-dist": "gulp client.build:dist",
           "start-client": "webpack-dev-server --config webpack.config.dev.js --content-base client/dev/",
           "start-client-dist": "webpack-dev-server --config webpack.config.dev.js --content-base client/dist/",
