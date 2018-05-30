@@ -547,14 +547,11 @@ describe('ng-fullstack -> client_only', () => {
 
         'client/dev/index.js',
 
-        'client/dev/todo/styles/todo.css',
         'client/dev/todo/components/todo-cmp.vue',
-        'client/dev/todo/services/todo-service.js',
 
         // tests - client
 
         'client/dev/todo/models/todo-model_test.js',
-        'client/dev/todo/services/todo-service_test.js',
         'client/dev/todo/components/todo-cmp_test.js',
 
         // tests - e2e
@@ -623,13 +620,10 @@ describe('ng-fullstack -> client_only', () => {
 
         'client/dev/index.js',
 
-        'client/dev/todo/styles/todo.css',
         'client/dev/todo/components/todo-cmp.vue',
-        'client/dev/todo/services/todo-service.js',
 
         // tests - client
 
-        'tests/client/todo/services/todo-service_test.js',
         'tests/client/todo/models/todo-model_test.js',
         'tests/client/todo/components/todo-cmp_test.js',
 

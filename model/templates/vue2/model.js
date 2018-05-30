@@ -1,4 +1,4 @@
-class <%= name %>Model {
+export class <%= name %>Model {
   constructor() {
 
   }

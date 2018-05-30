@@ -169,7 +169,6 @@ describe('subgenerator -> module', () => {
           'client/dev/myModel/models/cars.js',
           'client/dev/myModel/factory/cars.js',
           'client/dev/myModel/services/cars.js',
-          'client/dev/myModel/styles/cars.css',
 
           'tests/client/myModel/components/cars_test.js',
           'tests/client/myModel/models/cars_test.js',
@@ -202,7 +201,6 @@ describe('subgenerator -> module', () => {
           'client/dev/myModel/models/cars.js',
           'client/dev/myModel/factory/cars.js',
           'client/dev/myModel/services/cars.js',
-          'client/dev/myModel/styles/cars.css',
 
           'client/dev/myModel/components/cars_test.js',
           'client/dev/myModel/models/cars_test.js',

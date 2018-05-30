@@ -120,7 +120,6 @@ class Vue2 {
       this.copyFactory('../../factory/templates/');
       this.copyService('../../service/templates/');
       this.copyModel('../../model/templates/');
-      this.copyStyle('../../style/templates/');
   }
 
   _copyTodoBoilerplate() {
@@ -133,13 +132,10 @@ class Vue2 {
         let _pathTest = [
           ['tests/client_vue2/todo/components/todo-cmp_test.js', 'client/dev/todo/components/todo-cmp_test.js'],
           ['tests/client_vue2/todo/models/todo-model_test.js', 'client/dev/todo/models/todo-model_test.js'],
-          ['tests/client_vue2/todo/services/todo-service_test.js', 'client/dev/todo/services/todo-service_test.js']
         ];
 
         yoUtils.directory(this.generator, _pathTest, this.generator);
       }
-
-      copyStyleForMainGenerator(this.generator, 'client/dev/todo/styles/todo');
     } else {
       let _pathSrc = [];
 
