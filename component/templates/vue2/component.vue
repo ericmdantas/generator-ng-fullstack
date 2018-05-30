@@ -11,16 +11,14 @@
                 msg: 'yo!'
             }
         },
-        methods() {
+        methods: {
+            save() {
+
+            },
             update() {
 
             },
-
             remove() {
-
-            },
-
-            save() {
 
             }
         }
