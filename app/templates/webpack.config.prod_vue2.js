@@ -1,37 +1,19 @@
-const { VueLoaderPlugin } = require('vue-loader')
+var webpack = require('webpack');
+var webpackMerge = require('webpack-merge');
+var devConfig = require('./webpack.config.dev.js');
 
-module.exports = {
-  mode: 'production',
-  entry: [
-    './client/dev/index.js'
-  ],
+const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
+
+module.exports = webpackMerge(devConfig, {
+  devtool: 'source-map',
   output: {
-    path: __dirname + 'client/dev',
-    filename: 'bundle.js'
+    path: helpers.root('dist'),
+    publicPath: '/',
+    filename: '[name].[hash].js',
+    chunkFilename: '[id].[hash].chunk.js'
   },
-  devServer: {
-    hot: true
-  },
-  module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        use: 'vue-loader'
-      },
-      {
-        test: /\.js$/,
-        use: 'babel-loader'
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader'
-        ]
-      }
-    ]
-  },
-  plugins: [    
-    new VueLoaderPlugin()
+  plugins: [
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.optimize.UglifyJsPlugin()
   ]
-}
+});
