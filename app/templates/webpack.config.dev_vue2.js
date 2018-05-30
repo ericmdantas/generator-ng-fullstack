@@ -8,7 +8,7 @@ module.exports = {
     './client/dev/index.js'
   ],
   output: {
-    path: __dirname + 'client/dev',
+    path: __dirname + '/client/dev',
     filename: 'bundle.js'
   },
   resolve: {
