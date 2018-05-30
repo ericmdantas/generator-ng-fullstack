@@ -51,7 +51,7 @@ module.exports = {
     new webpack.ContextReplacementPlugin(
       // The (\\|\/) piece accounts for path separators in *nix and Windows
       /angular(\\|\/)core(\\|\/)@angular/,
-      helpers.root('./src'), // location of your src
+      helpers.root('./client/dev'), // location of your src
       {} // a map of your routes
     ),
 
@@ -60,7 +60,7 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'client/dev/index.html'
     })
   ]
 };
