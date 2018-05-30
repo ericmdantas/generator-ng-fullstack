@@ -10,12 +10,14 @@ module.exports = {
     path: __dirname + 'client/dev',
     filename: 'bundle.js'
   },
-  extensions: [
-    ".ts", 
-    ".tsx", 
-    ".js",
-    ".json",
-  ],
+  resolve: {
+    extensions: [
+      ".ts", 
+      ".tsx", 
+      ".js",
+      ".json",
+    ],
+  },
   devServer: {
     hot: true
   },
@@ -44,10 +46,10 @@ module.exports = {
   },
   plugins: [    
     new VueLoaderPlugin(),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
-      inject: true
-    })
+    // new HtmlWebpackPlugin({
+    //   filename: 'index.html',
+    //   template: 'index.html',
+    //   inject: true
+    // })
   ]
 }
