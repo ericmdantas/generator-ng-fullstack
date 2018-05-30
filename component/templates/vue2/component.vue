@@ -1,27 +1,34 @@
-;(function() {
-    "use strict";
+<template>
+    <div>
+        <h1>{{msg}}</h1>
+    </div>
+</template>
 
-    Vue.component('<%= name %>', {
+<script>
+    export default {
         data() {
             return {
                 msg: 'yo!'
             }
         },
-        template: `
-            <div>
-              <h1>{{msg}}</h1>
-            </div>
-        `,
         methods() {
             update() {
 
             },
+
             remove() {
 
             },
+
             save() {
 
             }
         }
-    });
-}());
+    }
+</script>
+
+<style scoped>
+    h1 {
+        color: red;
+    }
+</style>

@@ -414,19 +414,14 @@ describe('ComponentSubGenerator', () => {
         _csg.writing();
 
         let _firstCall = [
-          'vue2/component.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.js', {
+          'vue2/component.vue',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.vue', {
             nameCapitalized: utils.capitalizeFirst(_gen.name),
             name: _gen.name,
             feature: _gen.options.feature
           }];
 
         let _secondCall = [
-          'vue2/component.css',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
-        ];
-
-        let _thirdCall = [
           'vue2/component_test.js',
           knownPaths.PATH_CLIENT_FEATURES_TEST + _gen.options.feature + '/components/' + _gen.name + '_test.js', {
             name: utils.capitalizeFirst(_gen.name),
@@ -437,7 +432,6 @@ describe('ComponentSubGenerator', () => {
 
         expect(_csg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
         expect(_csg.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_csg.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
       });
 
       it('should call writing with the right stuff - testsSeparated', () => {
@@ -461,19 +455,14 @@ describe('ComponentSubGenerator', () => {
         _csg.writing();
 
         let _firstCall = [
-          'vue2/component.js',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.js', {
+          'vue2/component.vue',
+          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.vue', {
             nameCapitalized: utils.capitalizeFirst(_gen.name),
             name: _gen.name,
             feature: _gen.options.feature
           }];
 
         let _secondCall = [
-          'vue2/component.css',
-          knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/styles/' + _gen.name + '.css'
-        ];
-
-        let _thirdCall = [
           'vue2/component_test.js',
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '_test.js', {
             name: utils.capitalizeFirst(_gen.name),
@@ -484,7 +473,6 @@ describe('ComponentSubGenerator', () => {
 
         expect(_csg.generator.template.calledWith(_firstCall[0], _firstCall[1], _firstCall[2])).to.be.true;
         expect(_csg.generator.template.calledWith(_secondCall[0], _secondCall[1])).to.be.true;
-        expect(_csg.generator.template.calledWith(_thirdCall[0], _thirdCall[1])).to.be.true;
       });
     });
   })

@@ -140,8 +140,7 @@ describe('subgenerator -> component', () => {
 
       it('creates files', () => {
         assert.file([
-          'client/dev/yo/components/user.js',
-          'client/dev/yo/styles/user.css',
+          'client/dev/yo/components/user.vue',
           'tests/client/yo/components/user_test.js'
         ]);
       });
@@ -166,8 +165,7 @@ describe('subgenerator -> component', () => {
 
       it('creates files', () => {
         assert.file([
-          'client/dev/yo/components/user.js',
-          'client/dev/yo/styles/user.css',
+          'client/dev/yo/components/user.vue',
           'client/dev/yo/components/user_test.js'
         ]);
       });

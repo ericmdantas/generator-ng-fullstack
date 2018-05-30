@@ -165,7 +165,7 @@ describe('subgenerator -> module', () => {
 
       it('creates files', () => {
         assert.file([
-          'client/dev/myModel/components/cars.js',
+          'client/dev/myModel/components/cars.vue',
           'client/dev/myModel/models/cars.js',
           'client/dev/myModel/factory/cars.js',
           'client/dev/myModel/services/cars.js',
@@ -198,7 +198,7 @@ describe('subgenerator -> module', () => {
 
       it('creates files', () => {
         assert.file([
-          'client/dev/myModel/components/cars.js',
+          'client/dev/myModel/components/cars.vue',
           'client/dev/myModel/models/cars.js',
           'client/dev/myModel/factory/cars.js',
           'client/dev/myModel/services/cars.js',
