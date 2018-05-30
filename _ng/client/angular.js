@@ -422,6 +422,8 @@ class Angular2 {
     } else {
       _pathSrc.push(
         ['client/ng2/dev/index.ts', 'client/dev/index.ts'],
+        ['client/ng2/dev/vendor.ts', 'client/dev/vendor.ts'],
+        ['client/ng2/dev/polyfills.ts', 'client/dev/polyfills.ts'],
         ['client/ng2/dev/app.ts', 'client/dev/app.ts'],
         ['client/ng2/dev/app.module.ts', 'client/dev/app.module.ts'],
         ['client/ng2/dev/index.html', 'client/dev/index.html']

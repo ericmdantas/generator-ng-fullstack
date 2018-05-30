@@ -294,6 +294,8 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/config.js',
 
         'client/dev/index.ts',
+        'client/dev/vendor.ts',
+        'client/dev/polyfills.ts',
 
         'client/dev/todo/styles/todo.css',
         'client/dev/todo/components/todo-cmp.ts',
@@ -381,6 +383,8 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/config.js',
 
         'client/dev/index.ts',
+        'client/dev/vendor.ts',
+        'client/dev/polyfills.ts',
 
         'client/dev/todo/styles/todo.css',
         'client/dev/todo/components/todo-cmp.ts',
@@ -468,6 +472,8 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/config.js',
 
         'client/dev/index.ts',
+        'client/dev/vendor.ts',
+        'client/dev/polyfills.ts',
 
         'tests/e2e/todo.e2e_test.js'];
 
