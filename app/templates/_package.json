@@ -7,15 +7,18 @@
       <% if (!clientBundler) { %>      
         "test": "gulp client.unit_test",
         "build-dist": "gulp client.build:dist",
+        "start": "gulp client.watch",
         "dev": "gulp client.watch",
       <% } else {%>
         <% if (clientBundler === "webpack") { %>
           "test": "gulp client.unit_test",
           "build-dist": "webpack --config webpack.config.prod.js -p",
+          "start": "webpack-dev-server --progress --config webpack.config.dev.js --content-base client/dev/",
           "dev": "webpack-dev-server --progress --config webpack.config.dev.js --content-base client/dev/",
         <% } else if (clientBundler === "parcel") { %>
            "test": "gulp client.unit_test",
            "build-dist": "parcel build client/dev/index.html --out-dir client/dev && gulp client.build:dist",
+           "start": "parcel client/dev/index.html --out-dir client/dev",
            "dev": "parcel client/dev/index.html --out-dir client/dev",
         <% } %>  
       <% } %>
@@ -172,6 +175,7 @@
       "webpack-dev-server": "^3.1.4",
       "url-loader": "^1.0.1",
       "copy-webpack-plugin": "^4.5.1",
+      "clean-webpack-plugin": "0.1.19",
     <% } else if (clientBundler === "parcel") { %>
       "parcel-bundler": "^1.8.1",
     <% } %>
