@@ -11,12 +11,6 @@ If you already have Node/Go setup, all you have to do is run:
 $ npm install -g generator-ng-fullstack
 ```
 
-Or, if you want to run the latest (in development) version:
-
-```shell
-$ npm install -g generator-ng-fullstack@next
-```
-
 Then, to create a new app, simply run:
 
 ```shell
@@ -44,17 +38,9 @@ Do you have a doubt, want to talk about something cool or just want to chat? Joi
 
 Pull requests, helping others solving issues, improving the Wiki, among other tasks, are all valid, and more than welcome, contributions - don't hesitate.
 
-When doing a Pull Request, make sure you target the `dev` branch, `master` is supposed to be an *stable* branch - the changes are merged only at the end of a version.  
-
-As for tests, run simply run `npm t` - it'll run both unit and acceptance tests.
-
-
 ### Development
 
-| Branch | Status | Coverage | Version |
-|:------:|:------:|:--------:|:-------:|
-| `master` | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master) | [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack) |  
-| `next`    | [![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=v1.9)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) | [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=v1.9) | --- |
+[![Build Status](https://secure.travis-ci.org/ericmdantas/generator-ng-fullstack.png?branch=master)](https://travis-ci.org/ericmdantas/generator-ng-fullstack) [![Coverage Status](https://coveralls.io/repos/github/ericmdantas/generator-ng-fullstack/badge.svg?branch=master)](https://coveralls.io/github/ericmdantas/generator-ng-fullstack?branch=master) [![npm version](https://badge.fury.io/js/generator-ng-fullstack.svg)](https://badge.fury.io/js/generator-ng-fullstack)
 
 ### License
 
