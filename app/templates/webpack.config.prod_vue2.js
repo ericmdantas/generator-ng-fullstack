@@ -15,30 +15,25 @@ module.exports = webpackMerge(devConfig, {
     publicPath: '/',
     filename: '[name].[hash].js',
     chunkFilename: '[id].[hash].chunk.js'
-  },
+  },  
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          name: "vendor",
-          chunks: "all",
-        },
-      },
-    },
+          name: 'vendor',
+          chunks: 'all'
+        }
+      }
+    }
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.join('client/dist', 'index.html'),
+      template: path.join('client/dev', 'index.html'),
       inject: true
     }),
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: 'somewhere',
-    //     to: 'somewhere else'
-    //   }
-    // ])
   ]
 });

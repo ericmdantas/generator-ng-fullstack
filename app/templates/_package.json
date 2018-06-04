@@ -6,18 +6,15 @@
     <% if (clientOnly) { %>
       <% if (!clientBundler) { %>      
         "test": "gulp client.unit_test",
-        "build-dev": "gulp client.build:dev",
         "build-dist": "gulp client.build:dist",
         "dev": "gulp client.watch",
       <% } else {%>
         <% if (clientBundler === "webpack") { %>
           "test": "gulp client.unit_test",
-          "build-dev": "webpack --config webpack.config.dev.js -p",
-          "build-dist": "webpack --config webpack.config.prod.js -p && gulp client.build:dist",
+          "build-dist": "webpack --config webpack.config.prod.js -p",
           "dev": "webpack-dev-server --progress --config webpack.config.dev.js --content-base client/dev/",
         <% } else if (clientBundler === "parcel") { %>
            "test": "gulp client.unit_test",
-           "build-dev": "parcel build client/dev/index.html --out-dir client/dev",
            "build-dist": "parcel build client/dev/index.html --out-dir client/dev && gulp client.build:dist",
            "dev": "parcel client/dev/index.html --out-dir client/dev",
         <% } %>  

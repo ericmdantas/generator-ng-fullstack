@@ -8,23 +8,6 @@ module.exports = {
   entry: [    
     './client/dev/index.js'
   ],
-  output: {
-    path: path.resolve(__dirname, 'client/dev'),
-    publicPath: '/',
-    filename: '[name].bundle.js'
-  },
-  optimization: {
-    runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all'
-        }
-      }
-    }
-  },
   resolve: {
     extensions: [
       ".ts", 
