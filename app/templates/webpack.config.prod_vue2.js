@@ -19,7 +19,7 @@ module.exports = webpackMerge(devConfig, {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        commons: {
+        vendors: {
           test: /[\\/]node_modules[\\/]/,
           name: "vendor",
           chunks: "all",

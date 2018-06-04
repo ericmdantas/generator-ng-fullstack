@@ -13,6 +13,18 @@ module.exports = {
     publicPath: '/',
     filename: '[name].bundle.js'
   },
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all'
+        }
+      }
+    }
+  },
   resolve: {
     extensions: [
       ".ts", 
