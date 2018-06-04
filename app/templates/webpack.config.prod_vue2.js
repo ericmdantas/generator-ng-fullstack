@@ -11,7 +11,7 @@ module.exports = webpackMerge(devConfig, {
   mode: 'production',
   devtool: 'source-map',
   output: {
-    path: path.join(__dirname, '/client/dist/'),
+    path: path.resolve(__dirname, '/client/dist/'),
     publicPath: '/',
     filename: '[name].[hash].js',
     chunkFilename: '[id].[hash].chunk.js'
@@ -30,8 +30,8 @@ module.exports = webpackMerge(devConfig, {
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
-      filename: path.join('client/dev', 'index.html'),
-      template: path.join('client/dev', 'index.html'),
+      filename: 'index.html',
+      template: path.join('client/dist', 'index.html'),
       inject: true
     }),
     // new CopyWebpackPlugin([

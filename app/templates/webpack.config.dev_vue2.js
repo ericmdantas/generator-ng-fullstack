@@ -9,9 +9,9 @@ module.exports = {
     './client/dev/index.js'
   ],
   output: {
-    path: path.join(__dirname, '/client/dev'),
+    path: path.resolve(__dirname, '/client/dev'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   resolve: {
     extensions: [
@@ -56,7 +56,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      filename: path.join('client/dev', 'index.html'),
+      filename: 'index.html',
       template: path.join('client/dev', 'index.html'),
       inject: true
     }),
