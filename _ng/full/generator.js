@@ -258,11 +258,11 @@ exports.MainGenerator = class MainGenerator {
       {
         type: "list",
         name: "client",
-        message: "Which framework do you want to use in the client side?",
+        message: "Which framework do you want to use on the client side?",
         choices: [
+          VueFactory.tokens().VUE2,
           AngularFactory.tokens().NG1,
-          AngularFactory.tokens().NG2,
-          VueFactory.tokens().VUE2
+          // AngularFactory.tokens().NG2,
         ],
         when: () => {
           let _isClient = this.generator.stack === "client";
@@ -483,7 +483,7 @@ exports.MainGenerator = class MainGenerator {
       message: 'Which client bundler do you want do use?',
       choices: [
         "webpack",
-        "parcel"
+        // "parcel"
       ],
       when: () => {
         return this.generator.stack !== "server" &&
