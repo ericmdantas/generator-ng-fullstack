@@ -12,6 +12,7 @@
 - Dropped Aurelia support
 - Dropped JSPM support
 - Dropped Bower support
+- Inactives Angular2 for now - if needed in the meantime just use their `ng-cli`
 
 #### Server
 
