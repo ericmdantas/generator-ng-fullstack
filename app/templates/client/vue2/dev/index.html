@@ -10,8 +10,10 @@
     <title>vue2do</title>
   </head>
   <body>
-    <main id="app"></main>
-
-    <script type="text/javascript" src="bundle.js"></script>
+    <main>
+      <div id="app"></div>
+      <!-- todo: remove so it's injected by html-webpack-plugin -->
+      <script src="bundle.js"></script>
+    </main>
   </body>
 </html>

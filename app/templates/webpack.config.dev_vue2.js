@@ -5,11 +5,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
-  entry: [
+  entry: [    
     './client/dev/index.js'
   ],
   output: {
     path: path.join(__dirname, '/client/dev'),
+    publicPath: '/',
     filename: 'bundle.js'
   },
   resolve: {
@@ -50,10 +51,10 @@ module.exports = {
   plugins: [    
     new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    // new HtmlWebpackPlugin({
-    //   filename: 'index.html',
-    //   template: 'index.html',
-    //   inject: true
-    // })
+    new HtmlWebpackPlugin({
+      filename: path.join('client/dev', 'index.html'),
+      template: path.join('client/dev', 'index.html'),
+      inject: true
+    }),
   ]
 }

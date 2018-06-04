@@ -14,7 +14,7 @@
         <% if (clientBundler === "webpack") { %>
           "test": "gulp client.unit_test",
           "build-dev": "webpack --config webpack.config.dev.js -p",
-          "build-dist": "webpack --config webpack.config.dev.js -p && gulp client.build:dist",
+          "build-dist": "webpack --config webpack.config.prod.js -p && gulp client.build:dist",
           "start-client": "webpack-dev-server --config webpack.config.dev.js --content-base client/dev/",
           "start-client-dist": "webpack-dev-server --config webpack.config.dev.js --content-base client/dist/",
           "dev": "webpack-dev-server --config webpack.config.dev.js --content-base client/dev/",
@@ -142,6 +142,7 @@
       "vue-server-renderer": "^2.5.16",
       "vue-style-loader": "^4.1.0",
       "vue-template-compiler": "^2.5.16",
+      "vue-html-loader": "^1.2.4",
     <% } %>  
     "gulp-babel": "^7.0.1",
     "gulp-concat": "^2.4.3",
@@ -171,7 +172,7 @@
       "html-loader": "^0.4.4",
       "null-loader": "^0.1.1",
       "raw-loader": "^0.5.1",
-      "html-webpack-plugin": "^2.16.1",
+      "html-webpack-plugin": "^3.2.0",
       "style-loader": "^0.13.1",
       "webpack": "^4.8.3",
       "webpack-merge": "^3.0.0",
