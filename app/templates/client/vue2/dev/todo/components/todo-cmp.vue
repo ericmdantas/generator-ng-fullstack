@@ -26,6 +26,24 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
+  const todoService = {
+    getAll() {
+      return axios.get('/api/todos').then(({data}) => {
+        return data;
+      });
+    },
+    create(todo) {
+      return axios.post('/api/todos', todo).then(({data}) => {
+        return data;
+      });
+    },
+    remove(id) {
+      return axios.delete('/api/todos/' + id);
+    }
+  }
+
   export default {
     data() {
       return {
@@ -43,33 +61,27 @@
     },
     methods: {
       getAll() {
-        this.$http.get("/api/todos")
-            .then((todos) => {
-               return todos.json();
-            })
+        todoService.getAll()
             .then((todos) => {
               this.todos = todos;
             });
       },
-      add(message) {
-        this.$http.post("/api/todos", message)
-            .then((todo) => {
-              return todo.json();
-            })
-            .then((todo) => {
-              this.todos.push(todo);
+      add(t) {
+        todoService.create(t)
+            .then((newTodo) => {
+              this.todos.push(newTodo);
               this.todoForm.todo.todoMessage = "";
             });
       },
       remove(id) {
-        this.$http.delete("/api/todos/" + id)
-            .then(() => {
-              this.todos.forEach((todo, index) => {
-                if (todo._id === id) {
-                  this.todos.splice(index, 1);
-                }
-              });
+        todoService.remove(id)
+          .then(() => {
+            this.todos.forEach((todo, index) => {
+              if (todo._id === id) {
+                this.todos.splice(index, 1);
+              }
             });
+          });
       }
     } 
   }

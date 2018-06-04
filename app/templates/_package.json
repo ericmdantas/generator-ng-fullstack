@@ -99,11 +99,8 @@
      <% } %>
      <% if (client === "vue2") { %>
        "vue": "^2.5.10",
-       "vue-resource": "^1.5.0",
+       "axios": "^0.18.0",
        "vue-router": "^3.0.1",
-       "vue-loader": "^15.0.10",
-       "vue-template-compiler": "^2.5.16",
-       "vue-style-loader": "^4.1.0",
      <% } %>
      <% if (nodeWebFrameworkServer === "koa") { %>
        "koa": "^2.5.1",
@@ -135,8 +132,16 @@
       "angular-mocks": "^1.6.10",
       "gulp-angular-embed-templates": "^2.3.0",
       "gulp-nginclude": "^0.4.8",
-    <% } else if (client === "ng2") { %>
+    <% } %> 
+    <% if (client === "ng2") { %>
       "angular2-template-loader": "^0.6.0",
+    <% } %>  
+    <% if (client === "vue2") { %>
+      "vue-jest": "^2.6.0",
+      "vue-loader": "^15.2.4",
+      "vue-server-renderer": "^2.5.16",
+      "vue-style-loader": "^4.1.0",
+      "vue-template-compiler": "^2.5.16",
     <% } %>  
     "gulp-babel": "^7.0.1",
     "gulp-concat": "^2.4.3",
@@ -172,7 +177,9 @@
       "webpack-merge": "^3.0.0",
       "webpack-cli": "^2.1.3",
       "webpack-dev-server": "^3.1.4",
-    <% } else if (clientBundler === "webpack") { %>
+      "url-loader": "^1.0.1",
+      "copy-webpack-plugin": "^4.5.1",
+    <% } else if (clientBundler === "parcel") { %>
       "parcel-bundler": "^1.8.1",
     <% } %>
     "jasmine-core": "^2.2.0",

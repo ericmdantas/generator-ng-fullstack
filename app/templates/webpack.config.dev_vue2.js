@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const path = require('path')
 const {VueLoaderPlugin} = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -8,7 +9,7 @@ module.exports = {
     './client/dev/index.js'
   ],
   output: {
-    path: __dirname + '/client/dev',
+    path: path.join(__dirname, '/client/dev'),
     filename: 'bundle.js'
   },
   resolve: {

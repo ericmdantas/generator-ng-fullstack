@@ -1,19 +1,18 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var helpers = require('./helpers');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const helpers = require('./helpers');
 
 module.exports = {
+  mode: 'development',
   entry: {
     'polyfills': './client/dev/polyfills.ts',
     'vendor': './client/dev/vendor.ts',
     'app': './client/dev/index.ts'
   },
-
   resolve: {
     extensions: ['.ts', '.js']
   },
-
   module: {
     rules: [
       {
