@@ -118,7 +118,7 @@ exports.MainGenerator = class MainGenerator {
       let prompts =[
           {
             name: 'appName',
-            message: 'What is the name of your app?',
+            message: 'What is your app name?',
             default: 'ng-fullstack-app'
           },
           {
@@ -155,7 +155,7 @@ exports.MainGenerator = class MainGenerator {
           },
           {
             name: 'userNameSpace',
-            message: 'What is your GitLab NameSpace?',
+            message: 'What is your GitLab namespace?',
             default: "namespace",
             when: (answersHash) => {
               return answersHash.repoHost === "gitlab";
@@ -200,7 +200,7 @@ exports.MainGenerator = class MainGenerator {
       {
         type: "confirm",
         name: "testsSeparated",
-        message: "Do you want to keep tests in a different folder?",
+        message: "Do you want to keep tests in separated folders?",
         default: true,
         when: () => {
           return !((this.generator.server === ServerFactory.tokens().GO) && 
@@ -226,7 +226,7 @@ exports.MainGenerator = class MainGenerator {
       {
         type: "list",
         name: "server",
-        message: "Which language do you want in the server side?",
+        message: "Node or Go on server side?",
         choices: [
           ServerFactory.tokens().NODE,
           ServerFactory.tokens().GO
@@ -258,7 +258,7 @@ exports.MainGenerator = class MainGenerator {
       {
         type: "list",
         name: "client",
-        message: "Which framework do you want to use on the client side?",
+        message: "Vue2 or Angular1 on client side?",
         choices: [
           VueFactory.tokens().VUE2,
           AngularFactory.tokens().NG1,
@@ -320,7 +320,7 @@ exports.MainGenerator = class MainGenerator {
     let _prompts = [{
       type: "list",
       name: "nodeWebFrameworkServer",
-      message: "Which framework do you want to use in server side?",
+      message: "Express or Koa on the server?",
       choices: [
         NodeFactory.tokensWebFramework().EXPRESS,
         NodeFactory.tokensWebFramework().KOA
@@ -373,7 +373,7 @@ exports.MainGenerator = class MainGenerator {
     let _prompts = [{
       type: "list",
       name: "transpilerServer",
-      message: "Which transpiler do you want to use in server side?",
+      message: "Which transpiler do you want to use on the server side?",
       choices: [
         NodeFactory.tokensCompiler().NODE,
         NodeFactory.tokensCompiler().BABEL,
@@ -401,7 +401,7 @@ exports.MainGenerator = class MainGenerator {
     let _prompts = [{
       type: 'confirm',
       name: 'secure',
-      message: 'Is it going to be a secure app (HTTP/2)?',
+      message: 'Is it a secure app (HTTP/2)?',
       default: true
     }];
 
