@@ -7,7 +7,9 @@
 
       <input type="text"
               v-model="todo.todoMessage"
-              v-bind:class="{'todo-error': !todo.isValid()}"
+              v-bind:class="{
+                'todo-error': !todo.isValid()
+              }"
               placeholder="What do you have todo?"
               autofocus />
 
@@ -18,7 +20,7 @@
     <div class="todo-list">
       <div v-for="t in todos"
           class="todo-item"
-          @click="remove(t._id);">
+          @click="remove(t._id)">
         <p>{{t.todoMessage}}</p>
       </div>
     </div>
@@ -31,6 +33,7 @@
 
   class Todo {
     constructor() {
+      this._id = undefined
       this.todoMessage = ""
     }
 
@@ -42,16 +45,18 @@
   const todoService = {
     getAll() {
       return axios.get(BASE_API + 'todos').then(({data}) => {
-        return data;
-      });
+        return data.map((t) => {
+          return new Todo(t)
+        })
+      })
     },
     create(todo) {
       return axios.post(BASE_API + 'todos', todo).then(({data}) => {
-        return data;
-      });
+        return new Todo(data)
+      })
     },
     remove(id) {
-      return axios.delete(BASE_API + 'todos/' + id);
+      return axios.delete(BASE_API + 'todos/' + id)
     }
   }
 
@@ -64,31 +69,31 @@
       }
     },
     mounted() {
-      this.getAll();
+      this.getAll()
     },
     methods: {
       getAll() {
         todoService.getAll()
             .then((todos) => {
-              this.todos = todos;
-            });
+              this.todos = todos
+            })
       },
       add(t) {
         todoService.create(t)
             .then((newTodo) => {
-              this.todos.push(newTodo);
-              this.todoForm.todo.todoMessage = "";
-            });
+              this.todos.push(newTodo)
+              this.todo = new Todo()
+            })
       },
       remove(id) {
         todoService.remove(id)
           .then(() => {
             this.todos.forEach((todo, index) => {
               if (todo._id === id) {
-                this.todos.splice(index, 1);
+                this.todos.splice(index, 1)
               }
-            });
-          });
+            })
+          })
       }
     } 
   }
