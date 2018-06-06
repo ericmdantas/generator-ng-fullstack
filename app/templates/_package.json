@@ -8,16 +8,19 @@
         "test": "gulp client.unit_test",
         "build-dist": "gulp client.build:dist",
         "start": "gulp client.watch",
+        "start-dist": "aliv --root client/dist --port 3001",
         "dev": "gulp client.watch",
       <% } else {%>
         <% if (clientBundler === "webpack") { %>
           "build-dist": "webpack --config webpack.config.prod.js -p",
           "start": "webpack-dev-server --progress --config webpack.config.dev.js --content-base client/dev/",
+          "start-dist": "aliv --root client/dist --port 3001",
           "dev": "webpack-dev-server --progress --config webpack.config.dev.js --content-base client/dev/",
         <% } else if (clientBundler === "parcel") { %>
            "test": "gulp client.unit_test",
            "build-dist": "parcel build client/dev/index.html --out-dir client/dev && gulp client.build:dist",
            "start": "parcel client/dev/index.html --out-dir client/dev",
+           "start-dist": "aliv --root client/dist --port 3001",
            "dev": "parcel client/dev/index.html --out-dir client/dev",
         <% } %>  
       <% } %>
