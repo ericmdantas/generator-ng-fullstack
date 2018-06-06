@@ -1,5 +1,5 @@
 export default {
-    bind() {
+    bind(el, binding, vnode) {
 
     },
     inserted(el) {
