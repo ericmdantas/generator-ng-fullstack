@@ -6,8 +6,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
-
 module.exports = webpackMerge(devConfig, {
   mode: 'production',
   devtool: 'source-map',
