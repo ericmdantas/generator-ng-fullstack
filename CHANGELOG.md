@@ -3,7 +3,7 @@
 #### Fullstack
 
 - Implemented option to generate clean project, no TODO boilerplate
-- Concat dist files in bundle_lib.js and bundle_app.js
+- Bundles files when running `build-dist`
 
 #### Client
 
