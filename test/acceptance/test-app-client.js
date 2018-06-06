@@ -291,7 +291,6 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/index.html',
         'client/dev/app.ts',
         'client/dev/app.module.ts',
-        'client/dev/config.js',
 
         'client/dev/index.ts',
         'client/dev/vendor.ts',
@@ -380,7 +379,6 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/index.html',
         'client/dev/app.ts',
         'client/dev/app.module.ts',
-        'client/dev/config.js',
 
         'client/dev/index.ts',
         'client/dev/vendor.ts',
@@ -456,7 +454,6 @@ describe('ng-fullstack -> client_only', () => {
         'gulpfile.babel.js',
         'webpack.config.dev.js',
         'webpack.config.prod.js',
-        'karma.conf.js',
         'protractor.conf.js',
         
         'procfile.txt',
@@ -469,7 +466,6 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/index.html',
         'client/dev/app.ts',
         'client/dev/app.module.ts',
-        'client/dev/config.js',
 
         'client/dev/index.ts',
         'client/dev/vendor.ts',

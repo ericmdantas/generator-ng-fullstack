@@ -87,10 +87,9 @@
       "@angular/platform-browser-dynamic": "^6.0.0",
       "@angular/router": "^6.0.0",
       "core-js": "^2.4.1",
-	     "zone.js": "^0.8.26",
-       "reflect-metadata": "^0.1.12",
-       "rxjs": "^6.1.0",
-       "systemjs": "^0.19.24"
+      "zone.js": "^0.8.26",
+      "reflect-metadata": "^0.1.12",
+      "rxjs": "^6.1.0",
      <% } %>
      <% if (client === "vue2") { %>
        "vue": "^2.5.10",

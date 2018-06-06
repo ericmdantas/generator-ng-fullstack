@@ -431,12 +431,6 @@ class Angular2 {
 
       yoUtils.directory(this.generator, _pathSrc, this.generator);
     }
-
-    if (this.generator.stack === "client")  {
-      this.generator.template('_ng2_systemjs_config_serving_from_root.js', 'client/dev/config.js');
-    } else {
-      this.generator.template('_ng2_systemjs_config_serving_node_modules.js', 'client/dev/config.js');
-    }
   }
 
   _copyTsc() {
