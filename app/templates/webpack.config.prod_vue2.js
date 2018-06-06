@@ -5,6 +5,7 @@ const devConfig = require('./webpack.config.dev.js')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = webpackMerge(devConfig, {
   mode: 'production',
@@ -30,6 +31,13 @@ module.exports = webpackMerge(devConfig, {
   plugins: [
     new CleanWebpackPlugin(['client/dist']),
     new webpack.NoEmitOnErrorsPlugin(),
+    new UglifyJsWebpackPlugin({
+      uglifyOptions: {
+        output: {
+          comments: false
+        }
+      }
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join('client/dev', 'index.html'),
