@@ -1,7 +1,5 @@
-;(function() {
-    "use strict";
-
-    Vue.filter('<%= name %>', function(value, begin, end) {
-        
-    });
-}());
+export default {
+    <%= name %>(value, arg1, arg2) {
+        return value
+    }
+}

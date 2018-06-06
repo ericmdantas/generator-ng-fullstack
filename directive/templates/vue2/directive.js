@@ -1,15 +1,17 @@
-;(function() {
-    "use strict";
+export default {
+    bind() {
 
-    Vue.directive('<%= name %>', {
-        bind() {
+    },
+    inserted(el) {
 
-        },
-        update(newValue, oldValue) {
+    },
+    update(newValue, oldValue) {
 
-        },
-        unbind() {
+    },
+    componentUpdated() {
 
-        }
-    })
-}());
+    },
+    unbind() {
+
+    }
+}

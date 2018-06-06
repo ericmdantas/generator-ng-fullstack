@@ -1,8 +1,4 @@
-class <%= name %>Service {
-  constructor() {
-
-  }
-
+export class <%= name %>Service {
   getAll() {
     return Promise.resolve([]);
   }
