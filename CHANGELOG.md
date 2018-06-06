@@ -7,7 +7,7 @@
 
 #### Client
 
-- Added Webpack for Angular2 & Vue
+- Added Webpack support for Vue2
 - Added npm/yarn support for ng1 projects
 - Dropped Aurelia support
 - Dropped JSPM support
@@ -23,6 +23,7 @@
 
 - Bumped Gulp to v4
 - Bumbed babili to babel-minify
+- Bumped webpack to v4
 
 ## [1.9](https://github.com/ericmdantas/generator-ng-fullstack/releases/tag/v1.9.0)
 
