@@ -11,6 +11,9 @@
                 msg: 'yo!'
             }
         },
+        mounted() {
+            console.log(':D')
+        },
         methods: {
             save() {
 
