@@ -9,7 +9,7 @@
       function($log, Todo, TodoDAO) {
         this.todo = new Todo();
         this.todos = [];
-        this.title = "ng1 2do";
+        this.title = "Angular1 Todo";
         
         this.createTodo = function(todo) {
           TodoDAO.createTodo(todo)

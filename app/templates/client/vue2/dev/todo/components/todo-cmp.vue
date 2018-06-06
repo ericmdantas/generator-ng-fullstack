@@ -1,25 +1,25 @@
 <template>
   <div class="todo-container">
     <form class="todo-form"
-          @submit.prevent="add(todoForm.todo)">
+          @submit.prevent="add(todo)">
 
       <h1 class="todo-title">{{title}}</h1>
 
       <input type="text"
-              v-model="todoForm.todo.todoMessage"
-              v-bind:class="{'todo-error': !todoForm.todo.todoMessage}"
+              v-model="todo.todoMessage"
+              v-bind:class="{'todo-error': !todo.isValid()}"
               placeholder="What do you have todo?"
               autofocus />
 
       <button type="submit"
-              :disabled="!todoForm.todo.todoMessage.length">+</button>
+              :disabled="!todo.isValid()">+</button>
     </form>
 
     <div class="todo-list">
-      <div v-for="todo in todos"
+      <div v-for="t in todos"
           class="todo-item"
-          @click="remove(todo._id);">
-        <p>{{todo.todoMessage}}</p>
+          @click="remove(t._id);">
+        <p>{{t.todoMessage}}</p>
       </div>
     </div>
   </div>
@@ -27,33 +27,40 @@
 
 <script>
   import axios from 'axios'
+  import {BASE_API} from '../../app.constant'
+
+  class Todo {
+    constructor() {
+      this.todoMessage = ""
+    }
+
+    isValid() {
+      return !!this.todoMessage
+    }
+  }
 
   const todoService = {
     getAll() {
-      return axios.get('/api/todos').then(({data}) => {
+      return axios.get(BASE_API + 'todos').then(({data}) => {
         return data;
       });
     },
     create(todo) {
-      return axios.post('/api/todos', todo).then(({data}) => {
+      return axios.post(BASE_API + 'todos', todo).then(({data}) => {
         return data;
       });
     },
     remove(id) {
-      return axios.delete('/api/todos/' + id);
+      return axios.delete(BASE_API + 'todos/' + id);
     }
   }
 
   export default {
     data() {
       return {
-        title: "vue2do",
+        title: "Vue2 Todo",
+        todo: new Todo(),
         todos: [],
-        todoForm: {
-          todo: {
-            todoMessage: ""
-          }
-        }
       }
     },
     mounted() {

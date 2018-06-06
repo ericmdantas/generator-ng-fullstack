@@ -141,6 +141,10 @@ class Vue2 {
 
       _pathSrc.push(
         ['client/vue2/dev/index.js', 'client/dev/index.js'],
+        ['client/vue2/dev/app.js', 'client/dev/app.js'],
+        ['client/vue2/dev/app.config.js', 'client/dev/app.config.js'],
+        ['client/vue2/dev/app.route.js', 'client/dev/app.route.js'],
+        ['client/vue2/dev/app.constant.js', 'client/dev/app.constant.js'],
         ['client/vue2/dev/index.html', 'client/dev/index.html']
       );
 
