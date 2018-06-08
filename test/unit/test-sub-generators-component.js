@@ -398,6 +398,7 @@ describe('ComponentSubGenerator', () => {
       it('should call writing with the right stuff', () => {
         let _gen = {
           name: 'a',
+          stylePreprocessor: "less",
           options: {feature: 'c'},
           template: sinon.spy(),
           config: {
@@ -418,6 +419,7 @@ describe('ComponentSubGenerator', () => {
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.vue', {
             nameCapitalized: utils.capitalizeFirst(_gen.name),
             name: _gen.name,
+            stylePreprocessor: _gen.stylePreprocessor,
             feature: _gen.options.feature
           }];
 
@@ -437,6 +439,7 @@ describe('ComponentSubGenerator', () => {
       it('should call writing with the right stuff - testsSeparated', () => {
         let _gen = {
           name: 'a',
+          stylePreprocessor: "none",
           options: {feature: 'c'},
           template: sinon.spy(),
           testsSeparated: false,
@@ -459,6 +462,7 @@ describe('ComponentSubGenerator', () => {
           knownPaths.PATH_CLIENT_FEATURES + _gen.options.feature + '/components/' + _gen.name + '.vue', {
             nameCapitalized: utils.capitalizeFirst(_gen.name),
             name: _gen.name,
+            stylePreprocessor: _gen.stylePreprocessor,
             feature: _gen.options.feature
           }];
 

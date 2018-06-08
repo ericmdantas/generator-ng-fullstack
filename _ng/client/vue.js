@@ -29,6 +29,7 @@ class Vue2 {
       `${knownPaths.PATH_CLIENT_FEATURES + this.generator.options.feature}/components/${this.generator.name}.vue`, {
         nameCapitalized: utils.capitalizeFirst(this.generator.name),
         name: this.generator.name,
+        stylePreprocessor: this.generator.stylePreprocessor,
         feature: this.generator.options.feature
     });
 

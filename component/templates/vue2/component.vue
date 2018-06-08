@@ -28,7 +28,15 @@
     }
 </script>
 
+<% if (stylePreprocessor === "none") {%>
 <style scoped>
+<% } %>
+<% if (stylePreprocessor === "less") {%>
+<style lang="less" scoped>
+<% } %>
+<% if (stylePreprocessor === "sass") {%>
+<style lang="scss" scoped>
+<% } %>
     h1 {
         color: red;
     }
