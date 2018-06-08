@@ -7,7 +7,7 @@
         "client/dev/**/*"
     ],
     "static": [
-        "node_modules",
+        "node_modules"
     ],
     "proxy": true,
     "proxyWhen": "/api/*",
