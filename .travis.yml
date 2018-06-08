@@ -5,7 +5,7 @@ node_js:
   - 9
 
 before_install:
-  - npm install -g istanbul moch"a"
+  - npm install -g istanbul mocha
 
 script:
   - npm run test-ci

@@ -16,7 +16,7 @@
   "scripts": {
     "lint": "eslint _ng/**/*",
     "test": "npm run lint && mocha test/ --recursive -R dot --check-leaks",
-    "test-ci": "npm run lint && nyc ./node_modules/.bin/_mocha test/ report --reporter=text-lcov -- --recursive -R min --check-leaks && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "test-ci": "npm run lint && nyc report --reporter=text-lcov ./node_modules/.bin/_mocha test/ | coveralls",
     "preversion": "npm t",
     "prepublish": "npm t"
   },
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "chai": "^3.3.0",
-    "coveralls": "^2.11.8",
+    "coveralls": "^3.0.1",
     "eslint": "^3.0.1",
     "istanbul": "^0.4.5",
     "mocha": "^5.1.1",
