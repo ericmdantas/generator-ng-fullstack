@@ -18,9 +18,10 @@
     </form>
 
     <div class="todo-list">
-      <div v-for="t in todos"
-          class="todo-item"
-          @click="remove(t._id)">
+      <div v-for="(t, index) in todos"
+           :key="t._id"
+           class="todo-item"
+           @click="remove(t._id)">
         <p>{{t.todoMessage}}</p>
       </div>
     </div>
