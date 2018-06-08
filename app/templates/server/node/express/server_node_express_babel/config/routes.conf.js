@@ -9,7 +9,6 @@ export default class RouteConfig {
     static init(application) {
         let _root = process.cwd();
         let _nodeModules = "/node_modules/";
-        let _jspmPackages = "/jspm_packages/";
         let _clientFiles = (process.env.NODE_ENV === "production") ? "/client/dist/" : "/client/dev/";
 
         application.use(compression({
@@ -18,7 +17,6 @@ export default class RouteConfig {
         }));
 
         application.use(express.static(_root + _nodeModules));
-        application.use(express.static(_root + _jspmPackages));
         application.use(express.static(_root + _clientFiles));
         application.use(bodyParser.json());
         application.use(morgan("dev"));

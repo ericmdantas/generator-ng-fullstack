@@ -9,7 +9,6 @@ import (
 
 func Init(e *echo.Echo) {
 	e.Use(middleware.Static("node_modules"))
-	e.Use(middleware.Static("jspm_packages"))
 
 	if env := os.Getenv("GO_ENV"); env == "" {
 		e.Use(middleware.Static("client/dev"))
