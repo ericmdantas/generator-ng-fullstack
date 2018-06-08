@@ -1,8 +1,8 @@
-import {expect} from 'chai';
-import sinon from 'sinon';
-import knownPaths from '../../_ng/utils/known_paths';
-import {NodeKoaStandard, NodeKoaBabel, NodeKoaTypescript} from '../../_ng/server/node_koa';
-import {NodeFactory} from '../../_ng/server/node_factory';
+const {expect} = require('chai');
+const sinon = require('sinon');
+const knownPaths = require('../../_ng/utils/known_paths');
+const {NodeKoaStandard, NodeKoaBabel, NodeKoaTypescript} = require('../../_ng/server/node_koa');
+const {NodeFactory} = require('../../_ng/server/node_factory');
 
 describe('node -> koa', () => {
   describe('factory', () => {

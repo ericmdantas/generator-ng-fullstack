@@ -1,9 +1,9 @@
-import {expect} from 'chai';
-import sinon from 'sinon';
-import knownPaths from '../../_ng/utils/known_paths';
-import utils from '../../_ng/utils/utils';
+const {expect} = require('chai');
+const sinon = require('sinon');
+const knownPaths = require('../../_ng/utils/known_paths');
+const utils = require('../../_ng/utils/utils');
 
-import {ModuleSubGenerator} from '../../_ng/client/sub_generators_module';
+const {ModuleSubGenerator} = require('../../_ng/client/sub_generators_module');
 
 describe('ModuleSubGenerator', () => {
   describe('creation', () => {

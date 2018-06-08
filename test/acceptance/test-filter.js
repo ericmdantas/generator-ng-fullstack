@@ -1,7 +1,7 @@
-import path from 'path';
-import {assert} from 'yeoman-generator';
-import {test as helpers} from 'yeoman-generator';
-import {createYoRc} from '../_helpers/mocks';
+const path = require('path');
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
+const {createYoRc} = require('../_helpers/mocks');
 
 describe('subgenerator -> filter', () => {
   describe('ng1', () => {

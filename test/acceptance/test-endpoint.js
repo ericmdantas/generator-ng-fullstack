@@ -1,8 +1,8 @@
-import path from 'path';
-import os from 'os';
-import {assert} from 'yeoman-generator';
-import {test as helpers} from 'yeoman-generator';
-import {createYoRc} from '../_helpers/mocks';
+const path = require('path');
+const os = require('os');
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
+const {createYoRc} = require('../_helpers/mocks');
 
 describe('subgenerator -> endpoint', () => {
   describe('node', () => {

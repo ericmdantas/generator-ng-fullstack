@@ -1,12 +1,12 @@
-import {expect} from 'chai';
-import * as sinon from 'sinon';
-import knownPaths from '../../_ng/utils/known_paths';
-import {
+const {expect} = require('chai');
+const sinon = require('sinon');
+const knownPaths = require('../../_ng/utils/known_paths');
+const {
   copyStyleForSubGenerator,
   copyStyleForMainGenerator,
   getStyleExtension,
   normalizeStylePreprocessor
-} from '../../_ng/client/style';
+} = require('../../_ng/client/style');
 
 describe('style', () => {
   describe('getStyleExtension', () => {

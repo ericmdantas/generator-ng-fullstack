@@ -1,8 +1,8 @@
-import {expect} from 'chai';
-import knownPaths from '../../_ng/utils/known_paths';
-import utils from '../../_ng/utils/utils';
-import * as sinon from 'sinon';
-import {VueFactory, Vue2} from '../../_ng/client/vue';
+const {expect} = require('chai');
+const knownPaths = require('../../_ng/utils/known_paths');
+const utils = require('../../_ng/utils/utils');
+const sinon = require('sinon');
+const {VueFactory, Vue2} = require('../../_ng/client/vue');
 
 describe('vue', () => {
   describe('factory', () => {

@@ -1,5 +1,5 @@
-import {expect} from 'chai';
-import optionsParser from '../../_ng/utils/options_parser';
+const {expect} = require('chai');
+const optionsParser = require('../../_ng/utils/options_parser');
 
 describe('options-parser', () => {
   describe('getFeature', () => {

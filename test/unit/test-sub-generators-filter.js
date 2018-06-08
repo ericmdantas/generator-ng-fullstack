@@ -1,8 +1,8 @@
-import {expect} from 'chai';
-import sinon from 'sinon';
-import knownPaths from '../../_ng/utils/known_paths';
+const {expect} = require('chai');
+const sinon = require('sinon');
+const knownPaths = require('../../_ng/utils/known_paths');
 
-import {FilterSubGenerator} from '../../_ng/client/sub_generators_filter';
+const {FilterSubGenerator} = require('../../_ng/client/sub_generators_filter');
 
 describe('FilterSubGenerator', () => {
   describe('creation', () => {

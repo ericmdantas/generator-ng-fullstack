@@ -1,8 +1,8 @@
-import {expect} from 'chai';
-import sinon from 'sinon';
-import {ClientFactory} from '../../_ng/client/client_factory';
-import {AngularFactory} from '../../_ng/client/angular';
-import {VueFactory} from '../../_ng/client/vue';
+const {expect} = require('chai');
+const sinon = require('sinon');
+const {ClientFactory} = require('../../_ng/client/client_factory');
+const {AngularFactory} = require('../../_ng/client/angular');
+const {VueFactory} = require('../../_ng/client/vue');
 
 describe('client_factory', () => {
   it('should have the right values for the tokens()', () => {

@@ -1,9 +1,9 @@
 'use strict';
 
-import path from 'path';
-import { assert } from 'yeoman-generator';
-import { test as helpers } from 'yeoman-generator';
-import { createYoRc } from '../_helpers/mocks';
+const path = require('path');
+const { assert } = require('yeoman-generator');
+const helpers = require('yeoman-test');
+const { createYoRc } = require('../_helpers/mocks');
 
 describe('subgenerator -> component', () => {
   describe('ng1', () => {

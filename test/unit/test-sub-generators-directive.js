@@ -1,8 +1,8 @@
-import {expect} from 'chai';
-import sinon from 'sinon';
-import knownPaths from '../../_ng/utils/known_paths';
+const {expect} = require('chai');
+const sinon = require('sinon');
+const knownPaths = require('../../_ng/utils/known_paths');
 
-import {DirectiveSubGenerator} from '../../_ng/client/sub_generators_directive';
+const {DirectiveSubGenerator} = require('../../_ng/client/sub_generators_directive');
 
 describe('DirectiveSubGenerator', () => {
   describe('creation', () => {

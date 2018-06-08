@@ -1,8 +1,8 @@
-import path from 'path';
-import {assert} from 'yeoman-generator';
-import {test as helpers} from 'yeoman-generator';
-import os from 'os';
-import {createYoRc} from '../_helpers/mocks';
+const path = require('path');
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
+const os = require('os');
+const {createYoRc} = require('../_helpers/mocks');
 
 describe('ng-fullstack -> client_only', () => {
   describe('ng1', () => {

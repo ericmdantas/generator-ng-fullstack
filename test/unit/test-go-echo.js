@@ -1,7 +1,7 @@
-import {expect} from 'chai';
-import sinon from 'sinon';
-import knownPaths from '../../_ng/utils/known_paths';
-import {GoEcho} from '../../_ng/server/go_echo';
+const {expect} = require('chai');
+const sinon = require('sinon');
+const knownPaths = require('../../_ng/utils/known_paths');
+const {GoEcho} = require('../../_ng/server/go_echo');
 
 describe('go', () => {
   describe('creation', () => {

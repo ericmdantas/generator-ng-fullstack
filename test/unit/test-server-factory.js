@@ -1,8 +1,8 @@
-import {expect} from 'chai';
-import sinon from 'sinon';
-import {ServerFactory} from '../../_ng/server/server_factory';
-import {NodeFactory} from '../../_ng/server/node_factory';
-import {GoFactory} from '../../_ng/server/go_factory';
+const {expect} = require('chai');
+const sinon = require('sinon');
+const {ServerFactory} = require('../../_ng/server/server_factory');
+const {NodeFactory} = require('../../_ng/server/node_factory');
+const {GoFactory} = require('../../_ng/server/go_factory');
 
 describe('server_factory', () => {
   it('should have the right values for the tokens()', () => {

@@ -1,7 +1,7 @@
-import {expect} from 'chai';
-import sinon from 'sinon';
+const {expect} = require('chai');
+const sinon = require('sinon');
 
-import {MainGenerator} from '../../_ng/full/generator';
+const {MainGenerator} = require('../../_ng/full/generator');
 
 describe('generator', () => {
   describe('creation', () => {

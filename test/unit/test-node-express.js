@@ -1,8 +1,8 @@
-import {expect} from 'chai';
-import sinon from 'sinon';
-import knownPaths from '../../_ng/utils/known_paths';
-import {NodeExpressStandard, NodeExpressBabel, NodeExpressTypescript} from '../../_ng/server/node_express';
-import {NodeFactory} from '../../_ng/server/node_factory';
+const {expect} = require('chai');
+const sinon = require('sinon');
+const knownPaths = require('../../_ng/utils/known_paths');
+const {NodeExpressStandard, NodeExpressBabel, NodeExpressTypescript} = require('../../_ng/server/node_express');
+const {NodeFactory} = require('../../_ng/server/node_factory');
 
 describe('node -> express', () => {
   describe('factory', () => {
