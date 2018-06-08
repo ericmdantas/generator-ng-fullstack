@@ -47,14 +47,18 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: 'less-loader'
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'less-loader',
+        ]
       },
       {
         test: /\.scss$/,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader"
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader',
         ]
       },
       {
