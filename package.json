@@ -39,7 +39,7 @@
     "chalk": "^1.0.0",
     "lodash": "^4.13.1",
     "yeoman-generator": "^0.19.2",
-    "yosay": "^1.2.0"
+    "yosay": "^2.0.2"
   },
   "devDependencies": {
     "chai": "^3.3.0",
