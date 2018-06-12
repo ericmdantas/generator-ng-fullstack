@@ -3,7 +3,7 @@
 #### Fullstack
 
 - Implemented option to generate clean project, no TODO boilerplate
-- Bundles files when running `build-dist`
+- Bundles files when running `npm run build-dist`
 
 #### Client
 
