@@ -20,7 +20,7 @@ A few questions will be shown, make sure you answer them and, there you go! Now 
 
 ### Type less, create more
 
-By installing `ngf` you'll speed up your development by using the official `generator-ng-fullstack` alias.
+By installing [ngf](https://github.com/ericmdantas/ngf) you'll speed up your development by using the official `generator-ng-fullstack` alias. It shortens significantly the amount of stuff you type.
 
 ```shell
 $ npm install -g ngf
