@@ -5,8 +5,6 @@
 
 ### Getting Started
 
-If you already have Node/Go setup, all you have to do is run:
-
 ```shell
 $ npm install -g generator-ng-fullstack
 ```
@@ -19,14 +17,19 @@ $ yo ng-fullstack
 
 A few questions will be shown, make sure you answer them and, there you go! Now you have the [boilerplate app working](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started#result).
 
-Since some parts of the stack might be new to you, the boilerplate app is a simple TodoApp using the best approaches, separations of concerns and responsabilities - so you can see how it all works together as well as study the chosen stack.
-For more info, checkout the [Todo App](https://github.com/ericmdantas/generator-ng-fullstack/wiki/ToDo-Walkthrough) in the wiki.
 
-Check the [getting started](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Getting-Started) session in the wiki for more info.
+### Type less, create more
+
+By installing `ngf` you'll speed up your development by using the official `generator-ng-fullstack` alias.
+
+```shell
+$ npm install -g ngf
+```
+
 
 ### Wiki
 
-In the wiki you'll find: [pro tips](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Pro-tips), [the sub-generators](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Sub-Generators), [FAQ](https://github.com/ericmdantas/generator-ng-fullstack/wiki/FAQ), [Troubleshooting](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Troubleshooting), [walkthroughs](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Todo-Walkthrough), [tips for deployment](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Deploying-to-Heroku) and [much more](https://github.com/ericmdantas/generator-ng-fullstack/wiki).
+In the wiki you'll find: [pro tips](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Pro-tips), [the sub-generators](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Sub-Generators), [FAQ](https://github.com/ericmdantas/generator-ng-fullstack/wiki/FAQ), [Troubleshooting](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Troubleshooting), [walkthroughs](https://github.com/ericmdantas/generator-ng-fullstack/wiki/Deploying-to-Heroku) and [much more](https://github.com/ericmdantas/generator-ng-fullstack/wiki).
 
 
 ### Chat
