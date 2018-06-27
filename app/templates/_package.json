@@ -114,7 +114,7 @@
       "babel-core": "^6.26.0",
       "babel-minify": "^0.4.1",
       "babel-preset-env": "^1.7.0",
-      "babel-preset-minify": "^0.4.1"
+      "babel-preset-minify": "^0.4.1",
     <% } %>
     "lodash": "^4.6.1"
   },
