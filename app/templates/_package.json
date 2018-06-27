@@ -60,7 +60,6 @@
     <% } %>
 
     <% if (!clientOnly && (!serverOnly && server === "go")) { %>
-      "lodash": "^4.6.1",
       "bluebird": "^3.3.4",
       <% if (nodeWebFrameworkServer === "express") { %>
         "body-parser": "^1.5.0",
@@ -117,6 +116,7 @@
       "babel-preset-env": "^1.7.0",
       "babel-preset-minify": "^0.4.1"
     <% } %>
+    "lodash": "^4.6.1"
   },
   "devDependencies": {
     <% if (!serverOnly && server !== "go") { %>
