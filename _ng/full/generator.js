@@ -34,6 +34,7 @@ exports.MainGenerator = class MainGenerator {
       let _copiesClient = (this.generator.stack === "fullstack") || (this.generator.stack === "client");
       let _clientOnly = this.generator.stack === "client";
       let _serverOnly = this.generator.stack === "server";
+      let _stack = this.generator.stack;
       let _secure = this.generator.secure;
       let _usesTypescript = (_transpilerServer === "typescript") || (_client === "ng2");
       let _stylePreprocessor = this.generator.stylePreprocessor;
@@ -53,13 +54,12 @@ exports.MainGenerator = class MainGenerator {
         userNameSpace: _user.userNameSpace,
         usesTypescript: _usesTypescript,
         client: _client,
+        server: _server,
         secure: _secure,
-        clientOnly: _clientOnly,
-        serverOnly: _serverOnly,
+        stack: _stack,
         nodeWebFrameworkServer: this.generator.nodeWebFrameworkServer,
         testsSeparated: _testsSeparated,
         stylePreprocessor: _stylePreprocessor,
-        server: _server,
         clientBundler: _clientBundler
       });
 
