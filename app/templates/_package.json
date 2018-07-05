@@ -3,64 +3,83 @@
   "version": "0.0.1",
   "main": "src/<%= app %>.js",
   "scripts": {
-    <% if (clientOnly) { %>
+    <% if (stack === "client") { %>
       <% if (!clientBundler) { %>      
         "test": "gulp client.unit_test",
         "build-dist": "gulp client.build:dist",
         "start": "gulp client.watch",
+        "start-client": "gulp client.watch",
         "start-dist": "aliv --root client/dist --port 3001",
         "dev": "gulp client.watch",
-      <% } else {%>
-        <% if (clientBundler === "webpack") { %>
-          "build-dist": "webpack --config webpack.config.prod.js -p",
-          "start": "webpack-dev-server --progress --config webpack.config.dev.js --content-base client/dev/",
-          "start-dist": "aliv --root client/dist --port 3001",
-          "dev": "webpack-dev-server --progress --config webpack.config.dev.js --content-base client/dev/",
-        <% } else if (clientBundler === "parcel") { %>
-           "test": "gulp client.unit_test",
-           "build-dist": "parcel build client/dev/index.html --out-dir client/dev && gulp client.build:dist",
-           "start": "parcel client/dev/index.html --out-dir client/dev",
-           "start-dist": "aliv --root client/dist --port 3001",
-           "dev": "parcel client/dev/index.html --out-dir client/dev",
-        <% } %>  
+
+      <% } else if (clientBundler === "webpack") { %>
+        "build-dist": "webpack --config webpack.config.prod.js -p",
+        "start": "webpack-dev-server --progress --config webpack.config.dev.js --content-base client/dev/",
+        "start-client": "webpack-dev-server --progress --config webpack.config.dev.js --content-base client/dev/",
+        "start-dist": "aliv --root client/dist --port 3001",
+        "dev": "webpack-dev-server --progress --config webpack.config.dev.js --content-base client/dev/",
+
+      <% } else if (clientBundler === "parcel") { %>
+        "test": "gulp client.unit_test",
+        "build-dist": "parcel build client/dev/index.html --out-dir client/dev && gulp client.build:dist",
+        "start": "parcel client/dev/index.html --out-dir client/dev",
+        "start-client": "parcel client/dev/index.html --out-dir client/dev",
+        "start-dist": "aliv --root client/dist --port 3001",
+        "dev": "parcel client/dev/index.html --out-dir client/dev",
       <% } %>
-    <%} else {%>
+    <% } else if (stack === "server") { %>
       <% if (server === "node") { %>
-        "start-client": "gulp client.watch",
-        "start-server": "node server/index",
+        "start-server": "nodemon ./server/index --watch server",
         <% if (usesTypescript) { %>
-          "dev": "tsc && concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
+          "dev": "tsc && npm run start-server",
         <% } else { %>
-          "dev": "concurrently \"nodemon ./server/index --watch server\" \"gulp\"",
+          "dev": "npm run start-server",
+        <% } %>
+
+        <% if (testsSeparated) { %>
+          "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
+        <% } else { %>
+          "test-server": "mocha 'server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
         <% } %>
       <% } %>
+
       <% if (server === "go") { %>
         "start-server": "go run server/main.go",
+        "dev": "npm run start-server",
+      <% } %>      
+    <% } else if (stack === "fullstack") { %>
+      <% if (server === "node") { %>
+        "start-server": "node server/index",
+        "start-client": "webpack-dev-server --progress --config webpack.config.dev.js --content-base client/dev/",
+        "build-dist": "webpack --config webpack.config.prod.js -p",
         <% if (usesTypescript) { %>
-          "dev": "tsc && concurrently \" npm run start-server \" \"npm run start-client\"",
+          "dev": "tsc && concurrently \"nodemon ./server/index --watch server\" \"npm run start-client\"",
         <% } else { %>
-          "dev": "concurrently \"npm run start-server\" \" npm run start-client \"",
+          "dev": "concurrently \"nodemon ./server/index --watch server\" \"npm run start-client\"",
+        <% } %>
+
+        <% if (testsSeparated) { %>
+          "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
+        <% } else { %>
+          "test-server": "mocha 'server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
         <% } %>
       <% } %>
-      <% if (testsSeparated && server !== "go") { %>
-        "test-server": "mocha 'tests/server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
-        "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register",
-        "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'tests/server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-      <% } else { %>
-        "test-server": "mocha 'server/**/*_test.js' --recursive --check-leaks --reporter min --compilers js:babel-register",
-        "coverage-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register",
-        "coveralls-server": "istanbul cover ./node_modules/mocha/bin/_mocha -- 'server/**/*_test.js' --compilers js:babel-register --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+
+      <% if (server === "go") { %>
+        "start-server": "go run server/main.go",
+        "start-client": "webpack-dev-server --progress --config webpack.config.dev.js --content-base client/dev/",
+        "build-dist": "webpack --config webpack.config.prod.js -p",
+        "dev": "concurrently \"npm run start-server\" \" npm run start-client \"",
       <% } %>
-  <% } %>
-  "watch": "gulp client.watch"
+    <% } %>
+  "noop": "echo 'noop'"
   },
   "dependencies": {
     <% if (usesTypescript) {%>
       "typescript": "^2.8.3",
     <% } %>
 
-    <% if (!clientOnly && (!serverOnly && server === "go")) { %>
-      "lodash": "^4.6.1",
+    <% if (stack !== "client" && (stack !== "server" && server === "go")) { %>
       "bluebird": "^3.3.4",
       <% if (nodeWebFrameworkServer === "express") { %>
         "body-parser": "^1.5.0",
@@ -73,12 +92,14 @@
       "nodemon": "^1.9.2",
       "mongoose": "^4.4.7",
     <% } %>
+
     <% if (client === "ng1") { %>
       "angular": "^1.6.10",
       "angular-route": "^1.6.10",
       "font-awesome": "^4.7.0",
       "jquery": "^3.3.1",
     <% } %>      
+
     <% if (client === "ng2") { %>
       "@angular/common": "^6.0.0",
       "@angular/compiler": "^6.0.0",
@@ -93,11 +114,13 @@
       "reflect-metadata": "^0.1.12",
       "rxjs": "^6.1.0",
     <% } %>
+
     <% if (client === "vue2") { %>
       "vue": "^2.5.10",
       "axios": "^0.18.0",
       "vue-router": "^3.0.1",
     <% } %>
+
     <% if (nodeWebFrameworkServer === "koa") { %>
       "koa": "^2.5.1",
       "koa-bodyparser": "^4.2.0",
@@ -105,35 +128,40 @@
       "koa-static": "^4.0.2",
       "koa-send": "^4.1.3",
     <% } %>
+
     <% if (secure && server === "node") { %>
       "spdy": "^3.4.4",
     <% } %>
-    <% if (!serverOnly && server !== "go") { %>
-      "babel-register": "^6.26.0",
-      "babel-regenerator-runtime": "^6.5.0",
-      "babel-cli": "^6.26.0",
-      "babel-core": "^6.26.0",
-      "babel-minify": "^0.4.1",
-      "babel-preset-env": "^1.7.0",
-      "babel-preset-minify": "^0.4.1"
-    <% } %>
+
+    "babel-register": "^6.26.0",
+    "babel-regenerator-runtime": "^6.5.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-minify": "^0.4.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-minify": "^0.4.1",
+
+    "lodash": "^4.6.1"
   },
   "devDependencies": {
-    <% if (!serverOnly && server !== "go") { %>
+    <% if (stack === "client" || stack === "fullstack") { %>
       "aliv": "^1.11.0",
       "gulp": "^4.0.0",
       "undertaker-forward-reference": "^1.0.2",
       "protractor": "^5.3.1",   
       "require-dir": "^1.0.0",
       "@types/node": "^6.0.45",
+
       <% if (client === "ng1") { %>
         "angular-mocks": "^1.6.10",
         "gulp-angular-embed-templates": "^2.3.0",
         "gulp-nginclude": "^0.4.8",
       <% } %> 
+
       <% if (client === "ng2") { %>
         "angular2-template-loader": "^0.6.0",
       <% } %>  
+
       <% if (client === "vue2") { %>
         "vue-jest": "^2.6.0",
         "vue-loader": "^15.2.4",
@@ -142,12 +170,15 @@
         "vue-template-compiler": "^2.5.16",
         "vue-html-loader": "^1.2.4",
       <% } %>  
+
       <% if (stylePreprocessor === "less") { %>
         "gulp-less": "^3.1.0",
       <% } %>
+      
       <% if (stylePreprocessor === "sass") { %>
         "gulp-sass": "^2.3.2",
       <% } %>
+
       <% if (clientBundler === "webpack") { %>
         "ts-loader": "^4.3.0",
         "awesome-typescript-loader": "^3.0.4",
@@ -172,7 +203,8 @@
         "clean-webpack-plugin": "0.1.19",
         "uglifyjs-webpack-plugin": "^1.2.5",
       <% } %>
-      <% if (clientBundler !== "webpack" && !serverOnly) { %>
+
+      <% if (clientBundler !== "webpack" && !stack === "server") { %>
         "gulp-babel": "^7.0.1",
         "gulp-concat": "^2.4.3",
         "gulp-coveralls": "^0.1.3",
@@ -186,29 +218,38 @@
         "gulp-imagemin": "^3.0.1",
         "gulp-util": "^3.0.3",
       <% } %>
+
       <% if (clientBundler === "parcel") { %>
         "parcel-bundler": "^1.8.1",
       <% } %>
-      <% if (!serverOnly) { %>
-        "jasmine-core": "^2.2.0",
-        "karma": "^1.3.0",
-        "karma-jasmine": "^1.0.2",
-        "karma-chrome-launcher": "^2.0.0",
-        "karma-coverage": "^1.1.1",
-        "karma-firefox-launcher": "^1.0.0",
-        "karma-ie-launcher": "^1.0.0",
-        "karma-ng-html2js-preprocessor": "^1.0.0",
-        "karma-opera-launcher": "^1.0.0",
-        "karma-safari-launcher": "^1.0.0",
-        "karma-ng-html2js-preprocessor": "^0.1.2",
-      <% } %>  
+    
+      "jasmine-core": "^2.2.0",
+      "karma": "^1.3.0",
+      "karma-jasmine": "^1.0.2",
+      "karma-chrome-launcher": "^2.0.0",
+      "karma-coverage": "^1.1.1",
+      "karma-firefox-launcher": "^1.0.0",
+      "karma-ie-launcher": "^1.0.0",
+      "karma-ng-html2js-preprocessor": "^1.0.0",
+      "karma-opera-launcher": "^1.0.0",
+      "karma-safari-launcher": "^1.0.0",
+      "karma-ng-html2js-preprocessor": "^0.1.2",
+
       "mocha": "^2.4.5",
       "chai": "^3.5.0",
       "coveralls": "^2.11.2",
       "istanbul": "^0.4.4",
       "concurrently": "^2.0.0",
-      "del": "^2.2.1"
+    <% } else if (stack === "server") { %>
+      <% if (server === "node") { %>
+        "mocha": "^2.4.5",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.2",
+        "istanbul": "^0.4.4",
+        "concurrently": "^2.0.0",
+      <% } %>
     <% } %>
+    "del": "^2.2.1"
   },
   "repository": {
     "type": "git",
