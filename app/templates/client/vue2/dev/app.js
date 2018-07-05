@@ -1,8 +1,8 @@
 import TodoCmp from './todo/components/todo-cmp'
-import AppRoutes from './app.route'
+import {router} from './app.route'
 
 export default {
     el: '#app',
-    router: AppRoutes,
+    router: router,
     render: h => h(TodoCmp)
 }
