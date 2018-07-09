@@ -542,7 +542,7 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/index.html',
 
         'client/dev/index.js',
-        'client/dev/app.js',
+        'client/dev/app.vue',
         'client/dev/app.config.js',
         'client/dev/app.route.js',
         'client/dev/app.constant.js',
@@ -619,7 +619,7 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/index.html',
 
         'client/dev/index.js',
-        'client/dev/app.js',
+        'client/dev/app.vue',
         'client/dev/app.config.js',
         'client/dev/app.route.js',
         'client/dev/app.constant.js',
@@ -696,7 +696,7 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/index.html',
 
         'client/dev/index.js',
-        'client/dev/app.js',
+        'client/dev/app.vue',
         'client/dev/app.config.js',
         'client/dev/app.route.js',
         'client/dev/app.constant.js',
