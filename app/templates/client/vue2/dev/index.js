@@ -8,5 +8,5 @@ Vue.use(VueRouter)
 new Vue({
     el: '#app',
     router: router,
-    render: h => h(AppCmp)
+    render: h => h(AppCmp),
 })
