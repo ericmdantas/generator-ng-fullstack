@@ -1,16 +1,12 @@
 <template>
     <div>
-        <TodoCmp />
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
-    import TodoCmp from './todo/components/todo-cmp'
-
     export default {
-        name: 'app',
-        components: {
-            TodoCmp,
-        }
+        name: 'app'
     }
 </script>
+
