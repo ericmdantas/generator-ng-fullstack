@@ -117,8 +117,9 @@
 
     <% if (client === "vue2") { %>
       "vue": "^2.5.10",
-      "axios": "^0.18.0",
+      "vuex": "^3.0.1",
       "vue-router": "^3.0.1",
+      "axios": "^0.18.0",
     <% } %>
 
     <% if (nodeWebFrameworkServer === "koa") { %>
