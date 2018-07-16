@@ -545,6 +545,7 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/app.vue',
         'client/dev/app.config.js',
         'client/dev/app.route.js',
+        'client/dev/app.store.js',
         'client/dev/app.constant.js',
 
         'client/dev/todo/components/todo-cmp.vue',
@@ -622,6 +623,7 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/app.vue',
         'client/dev/app.config.js',
         'client/dev/app.route.js',
+        'client/dev/app.store.js',
         'client/dev/app.constant.js',
 
         'client/dev/todo/components/todo-cmp.vue',
@@ -699,6 +701,7 @@ describe('ng-fullstack -> client_only', () => {
         'client/dev/app.vue',
         'client/dev/app.config.js',
         'client/dev/app.route.js',
+        'client/dev/app.store.js',
         'client/dev/app.constant.js',
 
         'tests/e2e/todo.e2e_test.js'];

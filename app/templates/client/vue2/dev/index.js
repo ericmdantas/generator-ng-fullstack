@@ -1,14 +1,10 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
-import VueRouter from 'vue-router'
-import {router} from './app.route'
+import router from './app.route'
+import store from './app.store'
 import AppCmp from './app'
 
-Vue.use(Vuex)
-Vue.use(VueRouter)
-
 new Vue({
-    el: '#app',
-    router: router,
+    store,
+    router,
     render: h => h(AppCmp),
-})
+}).$mount('#app')

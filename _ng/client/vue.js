@@ -145,6 +145,7 @@ class Vue2 {
         ['client/vue2/dev/app.vue', 'client/dev/app.vue'],
         ['client/vue2/dev/app.config.js', 'client/dev/app.config.js'],
         ['client/vue2/dev/app.route.js', 'client/dev/app.route.js'],
+        ['client/vue2/dev/app.store.js', 'client/dev/app.store.js'],
         ['client/vue2/dev/app.constant.js', 'client/dev/app.constant.js'],
         ['client/vue2/dev/index.html', 'client/dev/index.html']
       );
