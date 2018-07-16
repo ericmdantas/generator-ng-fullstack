@@ -141,6 +141,7 @@
     "babel-minify": "^0.4.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-minify": "^0.4.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
 
     "lodash": "^4.6.1"
   },
