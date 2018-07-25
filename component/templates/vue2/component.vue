@@ -5,27 +5,27 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                msg: 'yo!'
-            }
-        },
-        mounted() {
-            console.log(':D')
-        },
-        methods: {
-            save() {
-
-            },
-            update() {
-
-            },
-            remove() {
-
-            }
+export default {
+    data() {
+        return {
+            msg: 'yo!'
         }
-    }
+    },
+    mounted() {
+        console.log(':D')
+    },
+    methods: {
+        save() {
+
+        },
+        update() {
+
+        },
+        remove() {
+
+        }
+    },
+}
 </script>
 
 <% if (stylePreprocessor === "none") {%>

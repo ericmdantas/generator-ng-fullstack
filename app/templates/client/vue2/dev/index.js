@@ -4,7 +4,7 @@ import store from './app.store'
 import AppCmp from './app'
 
 new Vue({
-    store,
     router,
+    store,
     render: h => h(AppCmp),
 }).$mount('#app')
