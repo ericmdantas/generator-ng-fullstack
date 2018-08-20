@@ -31,21 +31,19 @@ module.exports = {
     rules: [	  
       {
         test: /\.html$/,
-        use: 'vue-html-loader'
+        use: 'vue-html-loader',
       },
       {
         test: /\.vue$/,
-        use: 'vue-loader'
+        use: 'vue-loader',
       },
       {
         test: /\.js$/,
         use: 'babel-loader',
-        exclude: /node_modules/
       },
       {
         test: /\.ts$/,
         use: 'ts-loader',
-        exclude: /node_modules/
       },
       {
         test: /\.css$/,
@@ -53,7 +51,6 @@ module.exports = {
           'vue-style-loader',
           'css-loader',
         ],
-        exclude: /node_modules/
       },
       {
         test: /\.less$/,
@@ -62,7 +59,6 @@ module.exports = {
           'css-loader',
           'less-loader',
         ],
-        exclude: /node_modules/
       },
       {
         test: /\.scss$/,
@@ -71,14 +67,12 @@ module.exports = {
           'css-loader',
           'sass-loader',
         ],
-        exclude: /node_modules/
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/,
         use: [
           'file-loader',
         ],
-        exclude: /node_modules/
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -89,7 +83,6 @@ module.exports = {
                 outputPath: 'fonts/'
             }
         }],
-        exclude: /node_modules/
       },
     ]
   },
