@@ -11,7 +11,7 @@
     "url": "https://github.com/ericmdantas"
   },
   "engines": {
-    "node": "9.x"
+    "node": ">=9.x"
   },
   "scripts": {
     "lint": "eslint _ng/**/*",
