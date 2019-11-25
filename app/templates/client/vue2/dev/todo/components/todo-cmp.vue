@@ -33,9 +33,11 @@ import axios from 'axios'
 import {BASE_API} from '../../app.constant'
 
 class Todo {
-  constructor() {
+  constructor(t) {
     this._id = undefined
     this.todoMessage = ""
+
+    Object.assign(this, t)
   }
 
   isValid() {
